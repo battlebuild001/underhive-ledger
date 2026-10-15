@@ -32,6 +32,9 @@ html.uk-ui .content{max-width:1320px;min-height:calc(100dvh - 168px);padding:12p
 html.uk-ui .home-tabs{display:none}
 html.uk-ui .home-welcome,html.uk-ui .card,html.uk-ui .stat,html.uk-ui .table-wrap,html.uk-ui .empty,html.uk-ui .notice{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--uk-shadow)}
 html.uk-ui .card:hover{border-color:var(--line)}
+/* Keep wide tables inside their scroll region instead of growing a grid card. */
+html.uk-ui .stack{min-width:0;grid-template-columns:minmax(0,1fr)}
+html.uk-ui .stack>*{min-width:0;max-width:100%}
 html.uk-ui .home-welcome{margin-bottom:18px;padding:28px 30px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:28px;align-items:center;background:linear-gradient(105deg,#242a34,var(--panel));overflow:hidden}
 html.uk-ui .uk-hero-eyebrow{font-size:11px;font-weight:750;color:var(--accent);letter-spacing:1.6px;margin-bottom:8px;grid-column:1}
 html.uk-ui .home-welcome h1{font-size:var(--uk-title);line-height:1.3;letter-spacing:-.65px;margin:0 0 8px;grid-column:1}
@@ -118,7 +121,7 @@ html.uk-ui table{font-size:var(--uk-small);border-collapse:collapse}
 html.uk-ui th,html.uk-ui .fighter-page th,html.uk-ui .stash-page th{font-size:12px;line-height:1.5;letter-spacing:.15px;text-transform:none;background:#232c39;color:var(--muted);font-weight:650;padding:13px 16px;border-color:var(--line)}
 html.uk-ui td,html.uk-ui .fighter-page td{font-size:var(--uk-small);line-height:1.6;padding:13px 16px;color:var(--text);border-color:var(--line)}
 html.uk-ui tr:hover td{background:#e3ad8305}
-html.uk-ui .table-wrap{border-radius:10px;border:1px solid var(--line);box-shadow:none;overscroll-behavior-x:contain}
+html.uk-ui .table-wrap{min-width:0;max-width:100%;overflow-x:auto;border-radius:10px;border:1px solid var(--line);box-shadow:none;overscroll-behavior-x:contain}
 html.uk-ui .form input,html.uk-ui .form select,html.uk-ui .form textarea,html.uk-ui .field,html.uk-ui .fighter-picker select,html.uk-ui .trade-controls input,html.uk-ui .trade-controls select,html.uk-ui .mm-combo-input.mm-combo-trigger{background:#121923;border:1px solid #3a4759;border-radius:8px;color:var(--text);font-size:var(--uk-body);min-height:44px;line-height:1.5;padding:10px 12px;box-shadow:inset 0 1px 3px #0002}
 html.uk-ui .form input[type=checkbox],html.uk-ui .form input[type=radio]{min-height:0}
 html.uk-ui .form input:focus,html.uk-ui .form select:focus,html.uk-ui .form textarea:focus,html.uk-ui .field:focus{border-color:var(--accent);box-shadow:0 0 0 3px #d9a87d13}
