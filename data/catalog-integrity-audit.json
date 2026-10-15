@@ -1,0 +1,1266 @@
+{
+  "checked_date": "2026-10-15",
+  "baseline_commit": "217687b",
+  "baseline_sha256": "171995c74205dbbe3358e617a0ddfb0877a420241cd19b9da8b967866cc55a13",
+  "current_sha256": "6b79f58f4c04cd244062e62effe8793be4f7288cdb6bc70a6f6046b463e1b9cd",
+  "scope": "All exported collections and recognized ID relationships, including embedded catalog mirrors and fighter equipment choices; no account records.",
+  "method": {
+    "row_edition": "Matches scripts/enrich-rules-data.mjs rowEdition precedence; neutral or unresolved target editions are reported without assuming a mismatch.",
+    "missing_target_policy": "No data deleted. Missing IDs are separated from hidden/nested type definitions and legitimate alternative-collection aliases.",
+    "nested_checks": [
+      "equipment.weapon_profiles",
+      "scenarioTables.entries",
+      "tacticsPacks.cards",
+      "effects.modifiers",
+      "injuries.modifiers",
+      "fighterTypes.default_equipment",
+      "fighterTypes.equipment_selection",
+      "archetypes.skill_access",
+      "gangLegacies/gangLineages.associated_fighter_type and fighter_type_access",
+      "grants_equipment.options"
+    ],
+    "exclusions": [
+      "Text-only names are not treated as foreign keys.",
+      "Structured rule_data/provenance refer to reference facts and sources, not catalog foreign keys.",
+      "Canonical row identity fields are checked for duplicate IDs, not treated as a relationship to themselves."
+    ]
+  },
+  "current_counts": {
+    "top_level_rows_scanned": 36287,
+    "relationship_references_scanned": 78746,
+    "references_with_existing_targets": 78717,
+    "edition_comparisons": 76353,
+    "edition_matches": 76353,
+    "relationship_rows_scanned": 35947,
+    "edition_neutral_or_unresolved": 2364,
+    "missing_canonical_targets": 29,
+    "mirror_rows_scanned": 1877,
+    "mirror_rows_matching": 1877
+  },
+  "baseline_counts": {
+    "top_level_rows_scanned": 36133,
+    "relationship_references_scanned": 78762,
+    "references_with_existing_targets": 78717,
+    "edition_comparisons": 76353,
+    "edition_matches": 76353,
+    "relationship_rows_scanned": 35947,
+    "edition_neutral_or_unresolved": 2364,
+    "missing_canonical_targets": 45,
+    "mirror_rows_scanned": 1877,
+    "mirror_rows_matching": 1877
+  },
+  "collection_row_counts": {
+    "editions": 2,
+    "gangTypes": 59,
+    "affiliations": 38,
+    "gangOrigins": 27,
+    "gangOriginCategories": 5,
+    "fighterTypes": 1103,
+    "fighterSubtypes": 45,
+    "fighterSpecialisations": 86,
+    "equipment": 1535,
+    "weaponProfiles": 1271,
+    "equipmentCategories": 106,
+    "skills": 385,
+    "skillTypes": 68,
+    "effects": 637,
+    "effectCategories": 15,
+    "effectModifiers": 509,
+    "scenarios": 175,
+    "scenarioTables": 4,
+    "scenarioEntries": 24,
+    "territories": 292,
+    "tacticsPacks": 3,
+    "tactics": 30,
+    "campaignTypes": 13,
+    "tradingPosts": 7,
+    "alliances": 30,
+    "vehicleTypes": 18,
+    "fighterDefaults": 2273,
+    "fighterEquipment": 21613,
+    "fighterSkillAccess": 3424,
+    "equipmentDiscounts": 640,
+    "equipmentAvailability": 147,
+    "injuries": 84,
+    "manifest": 42,
+    "tradingPostEquipment": 624,
+    "gangSubtypeTypes": 12,
+    "allegiances": 14,
+    "gangSubtypes": 12,
+    "archetypes": 27,
+    "gangLegacies": 27,
+    "fighterGangLegacies": 536,
+    "campaignTriumphs": 62,
+    "gangLineages": 65,
+    "sideJobs": 6,
+    "chemRecipes": 33,
+    "chemTypes": 3,
+    "archetypeEligibility": 2,
+    "weaponTraits": 46,
+    "coreRules": 105,
+    "ruleSources": 3
+  },
+  "per_collection_relationship_counts": {
+    "affiliations": {
+      "references_scanned": 38,
+      "references_with_existing_targets": 38,
+      "edition_comparisons": 38,
+      "edition_matches": 38,
+      "relationship_rows_scanned": 38
+    },
+    "allegiances": {
+      "references_scanned": 14,
+      "references_with_existing_targets": 14,
+      "edition_comparisons": 14,
+      "edition_matches": 14,
+      "relationship_rows_scanned": 14
+    },
+    "alliances": {
+      "references_scanned": 59,
+      "references_with_existing_targets": 59,
+      "edition_comparisons": 59,
+      "edition_matches": 59,
+      "relationship_rows_scanned": 30
+    },
+    "archetypeEligibility": {
+      "references_scanned": 2,
+      "references_with_existing_targets": 2,
+      "edition_comparisons": 2,
+      "edition_matches": 2,
+      "relationship_rows_scanned": 2
+    },
+    "archetypes": {
+      "references_scanned": 120,
+      "references_with_existing_targets": 120,
+      "edition_comparisons": 120,
+      "edition_matches": 120,
+      "relationship_rows_scanned": 27
+    },
+    "campaignTriumphs": {
+      "references_scanned": 62,
+      "references_with_existing_targets": 62,
+      "edition_comparisons": 62,
+      "edition_matches": 62,
+      "relationship_rows_scanned": 62
+    },
+    "campaignTypes": {
+      "references_scanned": 37,
+      "references_with_existing_targets": 37,
+      "edition_comparisons": 37,
+      "edition_matches": 37,
+      "relationship_rows_scanned": 13
+    },
+    "effectModifiers": {
+      "references_scanned": 509,
+      "references_with_existing_targets": 509,
+      "edition_neutral_or_unresolved": 509,
+      "relationship_rows_scanned": 509
+    },
+    "effects": {
+      "references_scanned": 2677,
+      "references_with_existing_targets": 2648,
+      "edition_neutral_or_unresolved": 1350,
+      "edition_comparisons": 1298,
+      "edition_matches": 1298,
+      "relationship_rows_scanned": 637,
+      "missing_canonical_targets": 29
+    },
+    "equipment": {
+      "references_scanned": 6000,
+      "references_with_existing_targets": 6000,
+      "edition_comparisons": 6000,
+      "edition_matches": 6000,
+      "relationship_rows_scanned": 1535
+    },
+    "equipmentAvailability": {
+      "references_scanned": 267,
+      "references_with_existing_targets": 267,
+      "edition_comparisons": 267,
+      "edition_matches": 267,
+      "relationship_rows_scanned": 147
+    },
+    "equipmentCategories": {
+      "references_scanned": 106,
+      "references_with_existing_targets": 106,
+      "edition_comparisons": 106,
+      "edition_matches": 106,
+      "relationship_rows_scanned": 106
+    },
+    "equipmentDiscounts": {
+      "references_scanned": 1280,
+      "references_with_existing_targets": 1280,
+      "edition_comparisons": 1263,
+      "edition_matches": 1263,
+      "relationship_rows_scanned": 640,
+      "edition_neutral_or_unresolved": 17
+    },
+    "fighterDefaults": {
+      "references_scanned": 4546,
+      "references_with_existing_targets": 4546,
+      "edition_comparisons": 4546,
+      "edition_matches": 4546,
+      "relationship_rows_scanned": 2273
+    },
+    "fighterEquipment": {
+      "references_scanned": 43920,
+      "references_with_existing_targets": 43920,
+      "edition_comparisons": 43884,
+      "edition_matches": 43884,
+      "relationship_rows_scanned": 21613,
+      "edition_neutral_or_unresolved": 36
+    },
+    "fighterGangLegacies": {
+      "references_scanned": 952,
+      "references_with_existing_targets": 952,
+      "edition_comparisons": 952,
+      "edition_matches": 952,
+      "relationship_rows_scanned": 536
+    },
+    "fighterSkillAccess": {
+      "references_scanned": 6848,
+      "references_with_existing_targets": 6848,
+      "edition_comparisons": 6848,
+      "edition_matches": 6848,
+      "relationship_rows_scanned": 3424
+    },
+    "fighterSubtypes": {
+      "references_scanned": 45,
+      "references_with_existing_targets": 45,
+      "edition_comparisons": 45,
+      "edition_matches": 45,
+      "relationship_rows_scanned": 45
+    },
+    "fighterTypes": {
+      "references_scanned": 4356,
+      "references_with_existing_targets": 4356,
+      "edition_comparisons": 4129,
+      "edition_matches": 4129,
+      "relationship_rows_scanned": 1103,
+      "edition_neutral_or_unresolved": 227
+    },
+    "gangLegacies": {
+      "references_scanned": 524,
+      "references_with_existing_targets": 524,
+      "edition_comparisons": 524,
+      "edition_matches": 524,
+      "relationship_rows_scanned": 27
+    },
+    "gangLineages": {
+      "references_scanned": 600,
+      "references_with_existing_targets": 600,
+      "edition_comparisons": 600,
+      "edition_matches": 600,
+      "relationship_rows_scanned": 65
+    },
+    "gangOrigins": {
+      "references_scanned": 27,
+      "references_with_existing_targets": 27,
+      "edition_neutral_or_unresolved": 27,
+      "relationship_rows_scanned": 27
+    },
+    "gangSubtypeTypes": {
+      "references_scanned": 12,
+      "references_with_existing_targets": 12,
+      "edition_comparisons": 12,
+      "edition_matches": 12,
+      "relationship_rows_scanned": 12
+    },
+    "gangSubtypes": {
+      "references_scanned": 12,
+      "references_with_existing_targets": 12,
+      "edition_comparisons": 12,
+      "edition_matches": 12,
+      "relationship_rows_scanned": 12
+    },
+    "gangTypes": {
+      "references_scanned": 200,
+      "references_with_existing_targets": 200,
+      "edition_comparisons": 141,
+      "edition_matches": 141,
+      "relationship_rows_scanned": 59,
+      "edition_neutral_or_unresolved": 59
+    },
+    "injuries": {
+      "references_scanned": 256,
+      "references_with_existing_targets": 256,
+      "edition_neutral_or_unresolved": 127,
+      "edition_comparisons": 129,
+      "edition_matches": 129,
+      "relationship_rows_scanned": 84
+    },
+    "scenarioEntries": {
+      "references_scanned": 48,
+      "references_with_existing_targets": 48,
+      "edition_comparisons": 48,
+      "edition_matches": 48,
+      "relationship_rows_scanned": 24
+    },
+    "scenarioTables": {
+      "references_scanned": 76,
+      "references_with_existing_targets": 76,
+      "edition_comparisons": 76,
+      "edition_matches": 76,
+      "relationship_rows_scanned": 4
+    },
+    "scenarios": {
+      "references_scanned": 175,
+      "references_with_existing_targets": 175,
+      "edition_comparisons": 175,
+      "edition_matches": 175,
+      "relationship_rows_scanned": 175
+    },
+    "sideJobs": {
+      "references_scanned": 12,
+      "references_with_existing_targets": 12,
+      "edition_comparisons": 12,
+      "edition_matches": 12,
+      "relationship_rows_scanned": 6
+    },
+    "skillTypes": {
+      "references_scanned": 68,
+      "references_with_existing_targets": 68,
+      "edition_comparisons": 68,
+      "edition_matches": 68,
+      "relationship_rows_scanned": 68
+    },
+    "skills": {
+      "references_scanned": 400,
+      "references_with_existing_targets": 400,
+      "edition_comparisons": 388,
+      "edition_matches": 388,
+      "relationship_rows_scanned": 385,
+      "edition_neutral_or_unresolved": 12
+    },
+    "tactics": {
+      "references_scanned": 30,
+      "references_with_existing_targets": 30,
+      "edition_comparisons": 30,
+      "edition_matches": 30,
+      "relationship_rows_scanned": 30
+    },
+    "tacticsPacks": {
+      "references_scanned": 65,
+      "references_with_existing_targets": 65,
+      "edition_comparisons": 65,
+      "edition_matches": 65,
+      "relationship_rows_scanned": 3
+    },
+    "territories": {
+      "references_scanned": 583,
+      "references_with_existing_targets": 583,
+      "edition_comparisons": 583,
+      "edition_matches": 583,
+      "relationship_rows_scanned": 292
+    },
+    "tradingPostEquipment": {
+      "references_scanned": 1248,
+      "references_with_existing_targets": 1248,
+      "edition_comparisons": 1248,
+      "edition_matches": 1248,
+      "relationship_rows_scanned": 624
+    },
+    "tradingPosts": {
+      "references_scanned": 7,
+      "references_with_existing_targets": 7,
+      "edition_comparisons": 7,
+      "edition_matches": 7,
+      "relationship_rows_scanned": 7
+    },
+    "vehicleTypes": {
+      "references_scanned": 23,
+      "references_with_existing_targets": 23,
+      "edition_comparisons": 23,
+      "edition_matches": 23,
+      "relationship_rows_scanned": 18
+    },
+    "weaponProfiles": {
+      "references_scanned": 2542,
+      "references_with_existing_targets": 2542,
+      "edition_comparisons": 2542,
+      "edition_matches": 2542,
+      "relationship_rows_scanned": 1271
+    }
+  },
+  "requested_relationship_collections": {
+    "weaponProfiles": {
+      "rows": 1271,
+      "references_scanned": 2542,
+      "references_with_existing_targets": 2542,
+      "edition_comparisons": 2542,
+      "edition_matches": 2542,
+      "relationship_rows_scanned": 1271
+    },
+    "fighterDefaults": {
+      "rows": 2273,
+      "references_scanned": 4546,
+      "references_with_existing_targets": 4546,
+      "edition_comparisons": 4546,
+      "edition_matches": 4546,
+      "relationship_rows_scanned": 2273
+    },
+    "fighterEquipment": {
+      "rows": 21613,
+      "references_scanned": 43920,
+      "references_with_existing_targets": 43920,
+      "edition_comparisons": 43884,
+      "edition_matches": 43884,
+      "relationship_rows_scanned": 21613,
+      "edition_neutral_or_unresolved": 36
+    },
+    "fighterSkillAccess": {
+      "rows": 3424,
+      "references_scanned": 6848,
+      "references_with_existing_targets": 6848,
+      "edition_comparisons": 6848,
+      "edition_matches": 6848,
+      "relationship_rows_scanned": 3424
+    },
+    "equipmentDiscounts": {
+      "rows": 640,
+      "references_scanned": 1280,
+      "references_with_existing_targets": 1280,
+      "edition_comparisons": 1263,
+      "edition_matches": 1263,
+      "relationship_rows_scanned": 640,
+      "edition_neutral_or_unresolved": 17
+    },
+    "equipmentAvailability": {
+      "rows": 147,
+      "references_scanned": 267,
+      "references_with_existing_targets": 267,
+      "edition_comparisons": 267,
+      "edition_matches": 267,
+      "relationship_rows_scanned": 147
+    },
+    "effectModifiers": {
+      "rows": 509,
+      "references_scanned": 509,
+      "references_with_existing_targets": 509,
+      "edition_neutral_or_unresolved": 509,
+      "relationship_rows_scanned": 509
+    },
+    "tradingPostEquipment": {
+      "rows": 624,
+      "references_scanned": 1248,
+      "references_with_existing_targets": 1248,
+      "edition_comparisons": 1248,
+      "edition_matches": 1248,
+      "relationship_rows_scanned": 624
+    },
+    "territories": {
+      "rows": 292,
+      "references_scanned": 583,
+      "references_with_existing_targets": 583,
+      "edition_comparisons": 583,
+      "edition_matches": 583,
+      "relationship_rows_scanned": 292
+    },
+    "campaignTriumphs": {
+      "rows": 62,
+      "references_scanned": 62,
+      "references_with_existing_targets": 62,
+      "edition_comparisons": 62,
+      "edition_matches": 62,
+      "relationship_rows_scanned": 62
+    },
+    "fighterGangLegacies": {
+      "rows": 536,
+      "references_scanned": 952,
+      "references_with_existing_targets": 952,
+      "edition_comparisons": 952,
+      "edition_matches": 952,
+      "relationship_rows_scanned": 536
+    }
+  },
+  "problems_by_kind": {
+    "missing_canonical_target": 29
+  },
+  "classifications": {
+    "unresolved_missing_export_target": 13,
+    "unresolved_possible_filtered_gene_smithing_equipment": 14,
+    "unresolved_possible_test_or_nonpublic_equipment": 2
+  },
+  "preexisting_missing_summary": {
+    "reference_locations": 29,
+    "distinct_effect_ids_excluding_mirror_duplicates": 29,
+    "distinct_missing_equipment_values_including_sentinel": 20,
+    "distinct_missing_equipment_uuid_ids": 20,
+    "sentinel_reference_locations": 0,
+    "distinct_sentinel_effect_ids_excluding_mirror_duplicates": 0,
+    "missing_effect_ids": [
+      "0b40a25f-3c13-47ba-9fd9-6675da7b5f28",
+      "15e5972c-8788-45f2-9235-a23da5ad45d0",
+      "1819f05a-dc29-4a79-a0ee-eef32e4ab68c",
+      "19778ac3-1b3f-47c3-8942-a62187a9fa2a",
+      "2a34dd80-d31e-4b77-a263-083818b3c001",
+      "40fdaf07-38dd-41bd-b6ea-d6753b223583",
+      "449a86f5-8afc-49ff-924d-f28862f75577",
+      "603df283-ff11-4025-b029-3689f1d4b517",
+      "685598f4-52dd-47b9-abe3-6e604a8793dd",
+      "7294a3b2-cbfa-473e-ad56-7cba46ff67c3",
+      "73b84ddc-4a96-4319-86c3-a5e484a58615",
+      "85436e87-614e-4041-8f33-53ac89e11a9e",
+      "89d4136b-e09e-4c58-bf49-c5d3f369235f",
+      "9361bfa8-1727-49c8-b8af-43f17b3a1563",
+      "9654b16f-09f9-4d0e-ad38-b597a5a7d5ce",
+      "9a8d5a0a-3c23-43fe-ab43-07579a9cf187",
+      "b30b6ece-713d-435b-939b-8a3954eb4a43",
+      "b7d79c5f-bcb5-426b-98f4-df7e4ea86841",
+      "b8962feb-5b4a-4507-adc2-b5817d952e03",
+      "c7416571-3156-4136-978f-6dbe78eef9ee",
+      "ca8676fe-c867-4878-8d9c-970a662c6235",
+      "cd32d00a-93d7-489a-b9dd-d65cdda613e6",
+      "cd8eb694-4ce6-40af-8117-4f49b9f21e7a",
+      "df88fe01-b088-4eea-a8ec-67ef93d27db2",
+      "e11d53f9-14b2-4843-8fcb-99dffd8a3b9f",
+      "e2bca1da-e4d1-40d8-b98f-0149bd956aef",
+      "f56d3090-0449-484d-b21c-442e304ad2b4",
+      "f8fd3813-92d2-44fa-8afb-26fbf62b5c8b",
+      "ffcc9b0b-f344-491a-830c-ac10e4307c3f"
+    ],
+    "missing_equipment_values": [
+      "1af49925-4d77-47e7-bc88-f199fef47561",
+      "1faa5082-0007-4817-afce-f4b66bca8891",
+      "2667cda7-3c9c-4be3-adcc-6e90dd04459c",
+      "3f8403de-20e8-4be3-9d1f-f86abd04b086",
+      "413312d6-d0d8-4aaf-b365-4791f4211d0f",
+      "48cdbcd5-b271-4f31-9fb8-cce53d214525",
+      "4aab6660-e91b-4f06-a89d-58bec4ceb91d",
+      "684b9b4a-5f46-4cfb-b2c0-d198980b4ef9",
+      "6a3eed5c-bd35-41fc-8281-75df231fe410",
+      "71ab43c9-23f3-4a79-baf7-356bd80f6426",
+      "778ea66e-5f18-4b35-8929-412af75cebac",
+      "789666f7-42b7-4cc1-8f12-d233da4e3d54",
+      "9491bd7e-6c05-4259-a4bf-95bf49c6c926",
+      "9a44fc45-ce49-4ff6-ba00-4a7ae1e2488a",
+      "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "ab07ac1b-df27-49ea-8f44-4cf77db4f5ed",
+      "c948db60-92df-4fab-8796-17be3b572fc5",
+      "d60964e7-500a-4af7-8e60-06dc9cc931fe",
+      "e131310a-e3b5-495f-8c40-befa77189065",
+      "e4a479f1-fef2-45b5-8c06-ea9a26f0eefa"
+    ],
+    "sentinel_groups": []
+  },
+  "regression_summary": {
+    "new_problem_references": 0,
+    "preexisting_problem_references": 29,
+    "new_mirror_inconsistencies": 0,
+    "preexisting_mirror_inconsistencies": 0,
+    "new_duplicate_ids": 0,
+    "preexisting_duplicate_ids": 0,
+    "resolved_problem_references": 16
+  },
+  "new_problems": [],
+  "new_mirror_inconsistencies": [],
+  "new_duplicate_ids": [],
+  "preexisting_problem_samples": [
+    {
+      "collection": "effects",
+      "row_id": "e11d53f9-14b2-4843-8fcb-99dffd8a3b9f",
+      "row_label": "Tier 1 ",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "6a3eed5c-bd35-41fc-8281-75df231fe410",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "f8fd3813-92d2-44fa-8afb-26fbf62b5c8b",
+      "row_label": "Tier 1",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "e2bca1da-e4d1-40d8-b98f-0149bd956aef",
+      "row_label": "Prime Specimen (WS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "4aab6660-e91b-4f06-a89d-58bec4ceb91d",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "2a34dd80-d31e-4b77-a263-083818b3c001",
+      "row_label": "Prime Specimen (A)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "9491bd7e-6c05-4259-a4bf-95bf49c6c926",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "19778ac3-1b3f-47c3-8942-a62187a9fa2a",
+      "row_label": "Prime Specimen (BS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "1faa5082-0007-4817-afce-f4b66bca8891",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b8962feb-5b4a-4507-adc2-b5817d952e03",
+      "row_label": "Prime Specimen (Cl)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "e4a479f1-fef2-45b5-8c06-ea9a26f0eefa",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "449a86f5-8afc-49ff-924d-f28862f75577",
+      "row_label": "Prime Specimen (I)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "789666f7-42b7-4cc1-8f12-d233da4e3d54",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "ffcc9b0b-f344-491a-830c-ac10e4307c3f",
+      "row_label": "Prime Specimen (Int)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "ab07ac1b-df27-49ea-8f44-4cf77db4f5ed",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "89d4136b-e09e-4c58-bf49-c5d3f369235f",
+      "row_label": "Prime Specimen (Ld)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "71ab43c9-23f3-4a79-baf7-356bd80f6426",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "f56d3090-0449-484d-b21c-442e304ad2b4",
+      "row_label": "Prime Specimen (S)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "9a44fc45-ce49-4ff6-ba00-4a7ae1e2488a",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "15e5972c-8788-45f2-9235-a23da5ad45d0",
+      "row_label": "Prime Specimen (T)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "d60964e7-500a-4af7-8e60-06dc9cc931fe",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "cd8eb694-4ce6-40af-8117-4f49b9f21e7a",
+      "row_label": "Prime Specimen (W)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "3f8403de-20e8-4be3-9d1f-f86abd04b086",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "40fdaf07-38dd-41bd-b6ea-d6753b223583",
+      "row_label": "Prime Specimen (Wil)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "413312d6-d0d8-4aaf-b365-4791f4211d0f",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "cd32d00a-93d7-489a-b9dd-d65cdda613e6",
+      "row_label": "TEST",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "48cdbcd5-b271-4f31-9fb8-cce53d214525",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_test_or_nonpublic_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "73b84ddc-4a96-4319-86c3-a5e484a58615",
+      "row_label": "Reduced Bone Density (S)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "1af49925-4d77-47e7-bc88-f199fef47561",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "685598f4-52dd-47b9-abe3-6e604a8793dd",
+      "row_label": "Reduced Bone Density (T)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "2667cda7-3c9c-4be3-adcc-6e90dd04459c",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "603df283-ff11-4025-b029-3689f1d4b517",
+      "row_label": "Prime Specimen (M)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "c948db60-92df-4fab-8796-17be3b572fc5",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "85436e87-614e-4041-8f33-53ac89e11a9e",
+      "row_label": "Extra Armour TEST",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "e131310a-e3b5-495f-8c40-befa77189065",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_test_or_nonpublic_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b30b6ece-713d-435b-939b-8a3954eb4a43",
+      "row_label": "Tier 1 (BS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "684b9b4a-5f46-4cfb-b2c0-d198980b4ef9",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b7d79c5f-bcb5-426b-98f4-df7e4ea86841",
+      "row_label": "Tier 2",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9654b16f-09f9-4d0e-ad38-b597a5a7d5ce",
+      "row_label": "Tier 3",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "7294a3b2-cbfa-473e-ad56-7cba46ff67c3",
+      "row_label": "Movement",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "0b40a25f-3c13-47ba-9fd9-6675da7b5f28",
+      "row_label": "Strength",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "ca8676fe-c867-4878-8d9c-970a662c6235",
+      "row_label": "Toughness",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "c7416571-3156-4136-978f-6dbe78eef9ee",
+      "row_label": "Wounds",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "1819f05a-dc29-4a79-a0ee-eef32e4ab68c",
+      "row_label": "Movement",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9361bfa8-1727-49c8-b8af-43f17b3a1563",
+      "row_label": "Strength",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9a8d5a0a-3c23-43fe-ab43-07579a9cf187",
+      "row_label": "Toughness",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "df88fe01-b088-4eea-a8ec-67ef93d27db2",
+      "row_label": "Wounds",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    }
+  ],
+  "preexisting_problem_references": [
+    {
+      "collection": "effects",
+      "row_id": "e11d53f9-14b2-4843-8fcb-99dffd8a3b9f",
+      "row_label": "Tier 1 ",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "6a3eed5c-bd35-41fc-8281-75df231fe410",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "f8fd3813-92d2-44fa-8afb-26fbf62b5c8b",
+      "row_label": "Tier 1",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "e2bca1da-e4d1-40d8-b98f-0149bd956aef",
+      "row_label": "Prime Specimen (WS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "4aab6660-e91b-4f06-a89d-58bec4ceb91d",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "2a34dd80-d31e-4b77-a263-083818b3c001",
+      "row_label": "Prime Specimen (A)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "9491bd7e-6c05-4259-a4bf-95bf49c6c926",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "19778ac3-1b3f-47c3-8942-a62187a9fa2a",
+      "row_label": "Prime Specimen (BS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "1faa5082-0007-4817-afce-f4b66bca8891",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b8962feb-5b4a-4507-adc2-b5817d952e03",
+      "row_label": "Prime Specimen (Cl)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "e4a479f1-fef2-45b5-8c06-ea9a26f0eefa",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "449a86f5-8afc-49ff-924d-f28862f75577",
+      "row_label": "Prime Specimen (I)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "789666f7-42b7-4cc1-8f12-d233da4e3d54",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "ffcc9b0b-f344-491a-830c-ac10e4307c3f",
+      "row_label": "Prime Specimen (Int)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "ab07ac1b-df27-49ea-8f44-4cf77db4f5ed",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "89d4136b-e09e-4c58-bf49-c5d3f369235f",
+      "row_label": "Prime Specimen (Ld)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "71ab43c9-23f3-4a79-baf7-356bd80f6426",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "f56d3090-0449-484d-b21c-442e304ad2b4",
+      "row_label": "Prime Specimen (S)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "9a44fc45-ce49-4ff6-ba00-4a7ae1e2488a",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "15e5972c-8788-45f2-9235-a23da5ad45d0",
+      "row_label": "Prime Specimen (T)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "d60964e7-500a-4af7-8e60-06dc9cc931fe",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "cd8eb694-4ce6-40af-8117-4f49b9f21e7a",
+      "row_label": "Prime Specimen (W)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "3f8403de-20e8-4be3-9d1f-f86abd04b086",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "40fdaf07-38dd-41bd-b6ea-d6753b223583",
+      "row_label": "Prime Specimen (Wil)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "413312d6-d0d8-4aaf-b365-4791f4211d0f",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "cd32d00a-93d7-489a-b9dd-d65cdda613e6",
+      "row_label": "TEST",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "48cdbcd5-b271-4f31-9fb8-cce53d214525",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_test_or_nonpublic_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "73b84ddc-4a96-4319-86c3-a5e484a58615",
+      "row_label": "Reduced Bone Density (S)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "1af49925-4d77-47e7-bc88-f199fef47561",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "685598f4-52dd-47b9-abe3-6e604a8793dd",
+      "row_label": "Reduced Bone Density (T)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "2667cda7-3c9c-4be3-adcc-6e90dd04459c",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "603df283-ff11-4025-b029-3689f1d4b517",
+      "row_label": "Prime Specimen (M)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "c948db60-92df-4fab-8796-17be3b572fc5",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_filtered_gene_smithing_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "85436e87-614e-4041-8f33-53ac89e11a9e",
+      "row_label": "Extra Armour TEST",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "e131310a-e3b5-495f-8c40-befa77189065",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_possible_test_or_nonpublic_equipment"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b30b6ece-713d-435b-939b-8a3954eb4a43",
+      "row_label": "Tier 1 (BS)",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "684b9b4a-5f46-4cfb-b2c0-d198980b4ef9",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "b7d79c5f-bcb5-426b-98f4-df7e4ea86841",
+      "row_label": "Tier 2",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9654b16f-09f9-4d0e-ad38-b597a5a7d5ce",
+      "row_label": "Tier 3",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "778ea66e-5f18-4b35-8929-412af75cebac",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "7294a3b2-cbfa-473e-ad56-7cba46ff67c3",
+      "row_label": "Movement",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "0b40a25f-3c13-47ba-9fd9-6675da7b5f28",
+      "row_label": "Strength",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "ca8676fe-c867-4878-8d9c-970a662c6235",
+      "row_label": "Toughness",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "c7416571-3156-4136-978f-6dbe78eef9ee",
+      "row_label": "Wounds",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "1819f05a-dc29-4a79-a0ee-eef32e4ab68c",
+      "row_label": "Movement",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9361bfa8-1727-49c8-b8af-43f17b3a1563",
+      "row_label": "Strength",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "9a8d5a0a-3c23-43fe-ab43-07579a9cf187",
+      "row_label": "Toughness",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    },
+    {
+      "collection": "effects",
+      "row_id": "df88fe01-b088-4eea-a8ec-67ef93d27db2",
+      "row_label": "Wounds",
+      "path": "type_specific_data.equipment_id",
+      "target_collection": "equipment",
+      "target_id": "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+      "source_edition": "n23",
+      "kind": "field",
+      "problem": "missing_canonical_target",
+      "classification": "unresolved_missing_export_target"
+    }
+  ],
+  "mirror_inconsistencies": [],
+  "duplicate_ids": [],
+  "unknown_relationship_fields": [],
+  "notes": [
+    "An edition mismatch in an existing export is a review finding, not evidence that the new rulebook value is wrong.",
+    "Hidden/filtered catalog parent definitions may legitimately be absent from a public export. Unresolved parent IDs remain flagged instead of being deleted.",
+    "All count totals include duplicate appearances in canonical and nested catalog mirrors; unique entity counts remain separate."
+  ],
+  "app_source_modified": false
+}

@@ -1,0 +1,927 @@
+{
+  "verified_at": "2026-10-15",
+  "base_commit": "217687b7cac657838fc2e2ba2b813f1f0e8386d9",
+  "base_catalog_sha256": "171995c74205dbbe3358e617a0ddfb0877a420241cd19b9da8b967866cc55a13",
+  "n23_sha256": "de2ae7c1de789cbf210d4a64aee3af013cf3d2442367b51ae0074f0ec3cfea09",
+  "n23_rows": 17430,
+  "patch_records": 557,
+  "collections": {
+    "campaignTriumphs": 5,
+    "campaignTypes": 1,
+    "coreRules": 105,
+    "effects": 44,
+    "equipment": 105,
+    "fighterSubtypes": 22,
+    "fighterTypes": 2,
+    "injuries": 17,
+    "scenarioEntries": 24,
+    "scenarioTables": 4,
+    "sideJobs": 6,
+    "skillTypes": 8,
+    "skills": 45,
+    "tactics": 18,
+    "tacticsPacks": 1,
+    "territories": 19,
+    "weaponProfiles": 85,
+    "weaponTraits": 46
+  },
+  "fields_added": 2435,
+  "fields_changed": 1,
+  "numerical_corrections": [
+    {
+      "collection": "weaponProfiles",
+      "id": "e9254cce-4bfb-4e0d-bac0-89ca1ade5b7b",
+      "field": "range_short",
+      "before": "6\"",
+      "after": "4\""
+    }
+  ],
+  "policy": "같은 판본의 공식 정오표를 우선하고, 원서 표와 번역·카탈로그의 충돌을 구분한다. N23 기록은 유지한다.",
+  "source_priority": [
+    "동일 판본·대상·범위 확인",
+    "날짜가 확인된 공식 정오표",
+    "제공 번역본의 판독 가능한 원서 표",
+    "번역 본문",
+    "게시 시점이 확인되지 않은 카탈로그"
+  ],
+  "source_coverage": {
+    "weapon_profiles": 85,
+    "skills": 45,
+    "territories": 19,
+    "scenario_entries": 24,
+    "core_tactics": 18,
+    "core_rules": 105,
+    "weapon_traits": 46
+  },
+  "equivalent_blank_or_inch_representation_changes": "kept unchanged",
+  "full_source_pdfs": "생략(사용자 요청)",
+  "sources": [
+    {
+      "id": "provided-skirmish-translation",
+      "title": "Necromunda: Skirmish — 제공 번역본",
+      "kind": "user-provided",
+      "edition": "n26",
+      "date": null,
+      "fingerprint": "bf10d4eb19d66cf4f727146bbb7ff0a22028ca04a16a2d3aabf6ec8b9e1fae52"
+    },
+    {
+      "id": "official-faq-2026-09",
+      "title": "Necromunda: Skirmish FAQ & Errata",
+      "kind": "official",
+      "edition": "n26",
+      "date": "2026-09-04",
+      "url": "https://assets.warhammer-community.com/eng_04-09_necromunda_faq_and_errata_september2026-7mwqyegiwp-zrjnipir6m.pdf"
+    },
+    {
+      "id": "official-n26-intro",
+      "title": "Necromunda — Rules changes in the new edition",
+      "kind": "official",
+      "edition": "n26",
+      "date": "2026-07-27",
+      "url": "https://www.warhammer-community.com/en-gb/articles/uv8w6shq/necromunda-rules-changes-in-the-new-edition/"
+    }
+  ],
+  "verified_existing": [
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 11,
+      "table": "fighterTypes",
+      "id": "a494abda-5df6-4891-a55c-a8824aad3589",
+      "fields": {
+        "cost": 100,
+        "total_cost": 100
+      },
+      "result": "already matches"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 13,
+      "table": "equipment",
+      "id": "5904dd45-81cb-4cd6-91de-02fb78c9855f",
+      "fields": {
+        "name": "Shock lance*"
+      },
+      "result": "already matches"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": [
+        42,
+        54,
+        65
+      ],
+      "table": "equipment",
+      "ids": [
+        "ae628b71-476f-407c-8173-ed637cbbed46",
+        "8c6a500d-62d4-45cc-8ac3-9754ce15d1cc",
+        "088914bc-6f9f-4b98-8568-f63b9c045c57"
+      ],
+      "fields": {
+        "trade_points": "E"
+      },
+      "result": "already exclusive in catalog"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 64,
+      "table": "equipment",
+      "id": "14cbf615-b35c-4a6c-8945-1df5d3214948",
+      "fields": {
+        "cost": 70
+      },
+      "result": "item price already matches; verify gang list relation separately"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 75,
+      "table": "fighterTypes",
+      "id": "81ae639a-fcd0-4102-8eeb-0d51e2436645",
+      "fields": {
+        "fighter_subtypes": [
+          "Hybrid",
+          "Loner",
+          "Skimmer",
+          "Walker"
+        ]
+      },
+      "result": "Skimmer/Hybrid/Loner already present; Flying absent; retain other printed subtypes"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 75,
+      "table": "fighterTypes.equipment_selection",
+      "id": "81ae639a-fcd0-4102-8eeb-0d51e2436645",
+      "fields": {
+        "Flamer (Arachni-Rig)": 70,
+        "Harpoon launcher* (Arachni-Rig)": 80
+      },
+      "result": "both choices already present in selection and fighterEquipment relations"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Underhive",
+      "book_page": 89,
+      "table": "equipment",
+      "id": "dc1ee9f6-f8af-4e21-aad8-5fbad74e3430",
+      "fields": {
+        "cost": 20
+      },
+      "result": "item price already matches; verify gang list relation separately"
+    },
+    {
+      "source": "official-n26-errata",
+      "book": "Gangs of the Outlands",
+      "book_page": 92,
+      "table": "weaponProfiles",
+      "id": "b75e6f12-ae03-4661-afa1-b3398ee2fccd",
+      "fields": {
+        "range_long": "24\""
+      },
+      "result": "already matches"
+    },
+    {
+      "source": "official-n26-intro",
+      "table": "fighterTypes",
+      "ids": [
+        "adf0cfff-9870-4bbc-9f1d-5f33605b2e98",
+        "4582f169-2071-4fa3-85ce-770a143455dc",
+        "9a816611-a7b1-4b65-8f19-d2103496e03a",
+        "76303947-a2fb-4079-93cf-b24fa4c826d2",
+        "30318835-3594-489d-84e6-ad002e6efb0d",
+        "c78478f0-14a8-44ba-8740-235c31212416",
+        "efc8bad7-6f94-417a-a4d0-77da9e732f3f",
+        "eca45dd5-f0cc-47f6-828c-3ade22ea51a9"
+      ],
+      "fields": {
+        "cost": 40,
+        "initiative": 4,
+        "save": 6,
+        "starting_xp": 13
+      },
+      "result": "all eight specialisation variants match"
+    },
+    {
+      "source": "official-escher-journal",
+      "table": "fighterTypes",
+      "id": "ef40203f-233d-496f-a0ff-cd2365e69505",
+      "fields": {
+        "cost": 145,
+        "starting_xp": 73
+      },
+      "result": "profile and Inspiring/Catfall/Infiltrate defaults match"
+    },
+    {
+      "source": "official-goliath-journal",
+      "table": "fighterTypes",
+      "id": "51e352b2-e039-4528-b8d1-36c46c414cc3",
+      "fields": {
+        "cost": 145,
+        "starting_xp": 73
+      },
+      "result": "shown profile matches"
+    }
+  ],
+  "unresolved": [
+    {
+      "area": "core-rule",
+      "id": "n26-core-door-basics",
+      "source_refs": [
+        "P0151-P0155",
+        "P0920-P0927"
+      ],
+      "issues": [
+        "문 열기/닫기의 거리·비용 문구가 P0154와 P0921-P0923에서 일치하지 않는다.",
+        "4회 명중이 실제 hit 수인지 wound 수인지 번역 원전 대조 전 자동화하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-dice-types",
+      "source_refs": [
+        "P0163-P0180"
+      ],
+      "issues": [
+        "P0171은 D3을 D6/2 내림으로 적어 1에서 0이 생긴다. 일반 나눗셈 올림 원칙(P0200)과 충돌하므로 이 문장만으로 D3 구현을 바꾸지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-serious-suppression-markers",
+      "source_refs": [
+        "P0227-P0235",
+        "P0244-P0264"
+      ],
+      "issues": [
+        "제압 마커 제거 시점 P0235 끝 vs P0750 시작의 표현 차이를 기록한다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-mounted",
+      "source_refs": [
+        "P0311-P0330"
+      ],
+      "issues": [
+        "P0318 스킬명이 강철 신경(Steel & Hit) 및 질주(Run)로 적혀 영문/한글 모두 원전 확인 필요."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-specialist",
+      "source_refs": [
+        "P0364-P0382"
+      ],
+      "issues": [
+        "번역 표는 7개 행이고 공식 소개는 8개 전문분야를 언급한다. 행/스킬 대응 및 누락 전문분야를 자동 복원하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-actions-engaged-serious",
+      "source_refs": [
+        "P0807-P0844"
+      ],
+      "issues": [
+        "차량Escape의3-6 결과 번역은 치명적인손상으로 되어 있어 후속 손상표와 용어대조 필요."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-blast-template-optional-shooting",
+      "source_refs": [
+        "P1045-P1063"
+      ],
+      "issues": [
+        "P1055는 경로와의거리1인치 설명 대신 공격자1인치 표현으로 번역되어 적용대상범위를원전확인해야함."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-melee-hit-tests",
+      "source_refs": [
+        "P1119-P1131"
+      ],
+      "issues": [
+        "번역은 경량 원거리 무기 예외를 소개하면서도 WS를 적는다. BS로 임의 수정하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-dead-equipment",
+      "source_refs": [
+        "P1482-P1488"
+      ],
+      "issues": [
+        "사망 장비 회수와 은퇴 장비 회수는 별도다. 유형별 소지품 소멸 규칙도 함께 확인한다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-visit-trading-post",
+      "source_refs": [
+        "P1560-P1563",
+        "P1719-P1723"
+      ],
+      "issues": [
+        "P1721의 각 모델 TP2와 Leader2/Champion1이 기본+추가인지 대체인지 확인되지 않았다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-advancement-timing",
+      "source_refs": [
+        "P1578-P1581",
+        "P1630-P1635",
+        "official-n26-errata:2026-09-04:p3"
+      ],
+      "issues": [
+        "굴림보다 높은/낮은 결과 중 무엇을 고를 수 있는지 P1631 문장과 예시가 충돌한다. 선택 방향은 확정하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-xp-bands",
+      "source_refs": [
+        "P1582-P1626"
+      ],
+      "issues": [
+        "XP 0 행은 원문 표에 없다. XP 0→1을 자동 성장으로 추가하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-advancement-table",
+      "source_refs": [
+        "P1637-P1667"
+      ],
+      "issues": [
+        "P1631은 높은 숫자라고 하지만 5 예시는 표의 2–5를 가리킨다.",
+        "WS/BS/Sv 향상은 저장 숫자를 +1 하는 것으로 해석하지 않는다."
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-buy-equipment",
+      "source_refs": [
+        "P1713-P1723"
+      ],
+      "issues": [
+        "TP기본/추가산출은P1721번역모호점참조"
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-sell-equipment",
+      "source_refs": [
+        "P1724-P1727"
+      ],
+      "issues": [
+        "홀수비용의반올림방향은이범위에명시되지않음"
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-loadouts",
+      "source_refs": [
+        "P1831-P1847"
+      ],
+      "issues": [
+        "무작위선정문장의정확한카드풀구성/가중알고리즘은P1844-P1846만으로명확하지않음"
+      ]
+    },
+    {
+      "area": "core-rule",
+      "id": "n26-core-gang-finances",
+      "source_refs": [
+        "P1914-P1925"
+      ],
+      "issues": [
+        "이 본문만으로 inactive/captured 모델의 레이팅 예외 정책을 확정하지 않는다."
+      ]
+    },
+    {
+      "area": "campaign",
+      "topic": "territory_generation_2D6_sentence",
+      "source_refs": [
+        "P2030-P2045"
+      ],
+      "decision": "do_not_infer_random_player_or_pool_count_from_2D6_sentence"
+    },
+    {
+      "area": "campaign",
+      "topic": "three_deployment_zone_geometries",
+      "source_refs": [
+        "P2514",
+        "P2518",
+        "P2522"
+      ],
+      "decision": "keep_verified_distances_12_9_6_but_do_not_construct_polygons"
+    },
+    {
+      "area": "campaign",
+      "topic": "Object_Lesson_draw_termination",
+      "source_refs": [
+        "P2554"
+      ],
+      "decision": "store_clear_vp_rules_but_do_not_auto_end_for_neither_reaching_10"
+    },
+    {
+      "area": "campaign",
+      "topic": "Rogue_Doc_Shop_support_scope",
+      "source_refs": [
+        "P2239"
+      ],
+      "decision": "record_support_wording_and_two_injury_dice_without_generalizing_all_assists"
+    },
+    {
+      "area": "campaign",
+      "topic": "Synth_Still_AP_direction",
+      "source_refs": [
+        "P2373"
+      ],
+      "decision": "automatic_ap_modifier_null_pending_english_reference"
+    },
+    {
+      "area": "campaign",
+      "topic": "Old_Ruins_long_range_scope",
+      "source_refs": [
+        "P2382"
+      ],
+      "decision": "record_condition_as_translated_without_including_short_range_by_assumption"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "translation-specialisation-pairs",
+      "severity": "high",
+      "kind": "source_conflict",
+      "source_refs": [
+        "P0369-P0382"
+      ],
+      "finding": "무료 스킬 7쌍 중 다수가 전문분야 의미와 어긋난다. DOCX 실제 표 셀에서도 같은 대응이므로 텍스트 추출 행 밀림으로 설명되지 않는다.",
+      "action": "전문화 지급 스킬은 원문/공식 정오표가 확인되기 전 기존 값을 덮어쓰지 않는다.",
+      "application_status": "withheld"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "sprint-formula",
+      "severity": "medium",
+      "kind": "translation_ambiguity",
+      "source_refs": [
+        "P2821-P2822"
+      ],
+      "finding": "이동 특성 + 주도권 특성의 2배 문구는 괄호 위치가 불명확하다.",
+      "action": "이동 수식 자동 교정 보류. 기본 행동 이중/모델 자격/Dash 대체 규칙은 채운다.",
+      "application_status": "partial_safe_fields_only"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "mounted-granted-skills",
+      "severity": "high",
+      "kind": "translation_corruption",
+      "source_refs": [
+        "P0317-P0318"
+      ],
+      "finding": "지급 스킬이 강철 신경(Steel & Hit), 질주(Run)로 표기되어 영문/한글 정합성 부족.",
+      "action": "Mounted 설명에 명백한 이동·장비 제한만 채우고 지급스킬 새 매핑 보류.",
+      "application_status": "withheld_skill_mapping"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "two-weapon-scope",
+      "severity": "medium",
+      "kind": "translation_ambiguity",
+      "source_refs": [
+        "P2879-P2881"
+      ],
+      "finding": "일반 공격 대신 Secondary Weapon 두 번 공격 문구가 전체 Primary 공격까지 대체하는지 불확실.",
+      "action": "보조 무기 공격 두 번이라는 확인 가능한 내용만 기술. 공격 자동해결 로직 작성 금지.",
+      "application_status": "partial_safe_fields_only"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "precision-shot-defence",
+      "severity": "medium",
+      "kind": "translation_ambiguity",
+      "source_refs": [
+        "P2953-P2956"
+      ],
+      "finding": "방어 굴림 불허라는 번역에 일반 Save와 Invulnerable 범위 구분이 없다.",
+      "action": "자연6·Blast/Rapid Fire 예외만 확정하고 무적세이브까지 차단하는 로직 보류.",
+      "application_status": "partial_safe_fields_only"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "shared-specialisations-no-edition",
+      "severity": "medium",
+      "kind": "catalogue_scope_limitation",
+      "source_refs": [
+        "P0364-P0382"
+      ],
+      "finding": "fighterSpecialisations 86행은 edition 필드가 없어 N26용 전문분야 설명을 전역으로 넣으면 N23에도 섞일 수 있다.",
+      "action": "공통행 직접 변경 대신 판별된 N26 승급 UI에만 버전별 참고 데이터 사용.",
+      "application_status": "no_global_patch"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "placeholder-specialisation",
+      "severity": "medium",
+      "kind": "catalogue_placeholder",
+      "catalogue_id": "141630e1-9291-4e83-a0d9-f854f56d3ff0",
+      "finding": "전문화 이름 Loading...은 실제 규칙명으로 볼 수 없는 수집 흔적이다.",
+      "action": "사용자 데이터 의존성을 확인한 뒤 선택 목록에서 제외 권고. 이 작업에서는 자동삭제하지 않음.",
+      "application_status": "reported"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "critical-injury-flag-semantics",
+      "severity": "medium",
+      "kind": "implementation_review",
+      "source_refs": [
+        "P1247-P1248",
+        "P1284-P1288"
+      ],
+      "finding": "Critical Injury의 기존 recovery=true 플래그만으로 자동 회복시키면 치료실패 사망 조건을 잃을 수 있다.",
+      "action": "Critical 상태/치료 결과를 별도 저장하는지 루트가 로직 점검. 단순 flag 수치 교정은 하지 않음.",
+      "application_status": "reported"
+    },
+    {
+      "area": "weapon-equipment",
+      "collection": "equipment",
+      "id": "7009e41c-d13d-4889-a555-d3897c8fc141",
+      "name": "Trazior heavy stubber",
+      "field": "cost",
+      "current": 85,
+      "source_value": 80,
+      "source_refs": [
+        "P3126",
+        "P3127",
+        "image26.png"
+      ],
+      "confidence": "medium",
+      "decision": "hold",
+      "reason": "DOCX prose gives +80, source image gives no price; current public catalogue is 85. Latest FAQ does not settle the difference; no confirmed original price page is available."
+    }
+  ],
+  "latestness_assessment": {
+    "translation_edition": "n26",
+    "status": "high-confidence match from independent official 2026 examples; not an ISBN/title-page certification",
+    "latest_verified_errata": "2026-09-04",
+    "latestness_limit": "No later Necromunda errata was found in official-domain searches through 2026-10-15. The dynamic downloads page did not expose its file list to the text browser, so this is the latest verified issue, not a guarantee against an unindexed update."
+  },
+  "source_priority_decisions": [
+    {
+      "key": "Warp round (Autopistol).range_short",
+      "app": "6\"",
+      "embedded_original_table": "4\"",
+      "document": [
+        "image22.png"
+      ],
+      "decision": "Use the legible original-language table (4 inches) for this N26 item; this is source precedence, not an invented publication date.",
+      "status": "Root visually verified image; targeted correction proposed."
+    },
+    {
+      "key": "Trazior heavy stubber.cost",
+      "app": 85,
+      "translation": 80,
+      "document": [
+        "P3126"
+      ],
+      "decision": "Keep 85 pending original Core book verification; no relevant cost erratum found.",
+      "status": "unresolved"
+    },
+    {
+      "key": "Trazior heavy stubber.RapidFire",
+      "app": 3,
+      "embedded_original_table": 3,
+      "document": [
+        "image26.png"
+      ],
+      "decision": "Keep 3. Prior note transcribing 1 was incorrect.",
+      "status": "verified by root visual inspection"
+    },
+    {
+      "key": "Sprint.distance",
+      "document": [
+        "P2821-P2822"
+      ],
+      "candidates": [
+        "M + 2*I",
+        "2*(M + I)"
+      ],
+      "decision": "Do not turn ambiguous translation into automatic arithmetic; no resolving official erratum or accessible publisher example found.",
+      "status": "unresolved"
+    },
+    {
+      "key": "Specialist.starting_skill_table",
+      "document": [
+        "P0367-P0382"
+      ],
+      "translation_pairs": 7,
+      "publisher_intro_count": 8,
+      "decision": "Do not reconstruct missing rows by intuition; official preview confirms eight but does not expose the full table.",
+      "status": "unresolved table omission/alignment"
+    },
+    {
+      "key": "Ammo.no_reload_prose",
+      "document": [
+        "P3171-P3172"
+      ],
+      "decision": "The September FAQ corrects Rapid Fire interaction but does not replace the Ammo trait definition; the standalone unconditional no-reload translation needs original-page verification.",
+      "status": "unresolved"
+    }
+  ],
+  "summary": {
+    "record_updates": 557,
+    "new_reference_records": 151,
+    "pre_existing_records_enriched": 406,
+    "source_weapon_rows": 85,
+    "numeric_catalog_corrections": 1,
+    "n23_records_unchanged": 17430,
+    "official_existing_checks": 11,
+    "source_issues_recorded": 36,
+    "unresolved_or_partial_source_issues": 32,
+    "resolved_source_issues": 4,
+    "invalid_sentinel_references_cleared": 16
+  },
+  "resolved_source_issues": [
+    {
+      "area": "skill-fighter",
+      "id": "quickening-action-cost",
+      "severity": "high",
+      "kind": "official_erratum",
+      "source_refs": [
+        "P1421-P1424",
+        "official-faq-2026-09:CoreRulebook:p85:Quickening"
+      ],
+      "finding": "번역의 Quickening 기본(Basic)은 공식 2026-09 FAQ에서 Single로 정정된 비용이다.",
+      "action": "단일 행동을 확정 반영하고 지속·이동+3·주도권+2·상한초과를 유지.",
+      "application_status": "corrected_to_latest_official"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "any-skill-model-restriction",
+      "severity": "high",
+      "kind": "official_faq_over_translation",
+      "source_refs": [
+        "P1701-P1711",
+        "official-faq-2026-09:Advancements:Skills"
+      ],
+      "finding": "번역의 아무 스킬 선택 시 모델유형 제한을 넘을 수 있다는 설명은 공식 FAQ와 충돌한다.",
+      "action": "파이터/차량 스킬 자격을 유지한다. 워드 파워도 별도 접근 규칙이 허용한 소유자만 가능.",
+      "application_status": "corrected_reference_rule"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "fighter-injury-bs-ws-direction",
+      "severity": "info",
+      "kind": "verified_existing_values",
+      "source_refs": [
+        "P1233-P1236",
+        "P0557-P0561"
+      ],
+      "finding": "눈/손 부상의 기존 raw BS/WS modifier +1은 목표치가 나빠지는 효과로 정확하다. 번역 감소를 raw -1로 직역하면 향상이 되어 잘못된다.",
+      "action": "기존 수치 유지. 한국어 설명은 한 단계 악화로 정리.",
+      "application_status": "verified"
+    },
+    {
+      "area": "skill-fighter",
+      "id": "force-blast-image",
+      "severity": "info",
+      "kind": "verified_existing_values",
+      "source_refs": [
+        "P1396-P1400",
+        "P1399:image15.png"
+      ],
+      "finding": "본문에 빈 문단으로 보이는 무기 프로파일은 삽입 image15에 존재한다. 8/12인치 S2 AP-1 L1 Knockback(3+)이며 현재 N26와 일치.",
+      "action": "누락으로 표시한 이전 notes-part-2 문구보다 이미지 전사·직접 판독을 우선.",
+      "application_status": "verified"
+    }
+  ],
+  "application_fixes": [
+    {
+      "area": "N26 advancement",
+      "decision": "WS/BS/Sv stored target -1; all other characteristic improvements +1. N23 retains previous directions."
+    },
+    {
+      "area": "Any skill (12)",
+      "decision": "Wyrd/Psychoteric eligibility enforced in picker and on submit; explicit Fighter-only metadata respected for vehicles."
+    },
+    {
+      "area": "Territory descriptions",
+      "decision": "Same-edition exact-ID fallback; user overrides and intentional blanks stay intact."
+    },
+    {
+      "area": "Reference UI",
+      "decision": "Read-only rule details preserve editing drafts and avoid automatic text focus."
+    },
+    {
+      "area": "Invalid catalog references",
+      "decision": "16 N26 rig-glitch equipment_id sentinels normalized from the literal string undefined to null. No equipment target invented."
+    }
+  ],
+  "catalog_sanitizations": [
+    {
+      "collection": "effects",
+      "id": "c1d6d6bd-a487-4723-af2b-93a3dd3c29eb",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "8c068ffa-7ad8-41eb-9d46-b59d3b903bc3",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "28b6b6c8-8d65-4e91-993a-e9aa502b090f",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "d5fd236a-c838-4be3-9a91-834303798e3f",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "258ced36-56b5-48d5-9857-45c98199dfe7",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "94d58596-f5a9-44b2-9b7b-6a14eee5ea48",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "cc024402-a48b-4686-b662-0c6d7d0883db",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "effects",
+      "id": "3be0de22-8fa4-497a-96a0-a6754c82afb5",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "c1d6d6bd-a487-4723-af2b-93a3dd3c29eb",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "8c068ffa-7ad8-41eb-9d46-b59d3b903bc3",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "28b6b6c8-8d65-4e91-993a-e9aa502b090f",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "d5fd236a-c838-4be3-9a91-834303798e3f",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "258ced36-56b5-48d5-9857-45c98199dfe7",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "94d58596-f5a9-44b2-9b7b-6a14eee5ea48",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "cc024402-a48b-4686-b662-0c6d7d0883db",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    },
+    {
+      "collection": "injuries",
+      "id": "3be0de22-8fa4-497a-96a0-a6754c82afb5",
+      "before": "undefined",
+      "after": null,
+      "reason": "문자열 JavaScript sentinel은 장비 ID가 아니므로, 바인딩이 없는 상태를 null로 명시한다."
+    }
+  ],
+  "catalog_integrity": {
+    "current_counts": {
+      "top_level_rows_scanned": 36287,
+      "relationship_references_scanned": 78746,
+      "references_with_existing_targets": 78717,
+      "edition_comparisons": 76353,
+      "edition_matches": 76353,
+      "relationship_rows_scanned": 35947,
+      "edition_neutral_or_unresolved": 2364,
+      "missing_canonical_targets": 29,
+      "mirror_rows_scanned": 1877,
+      "mirror_rows_matching": 1877
+    },
+    "regression_summary": {
+      "new_problem_references": 0,
+      "preexisting_problem_references": 29,
+      "new_mirror_inconsistencies": 0,
+      "preexisting_mirror_inconsistencies": 0,
+      "new_duplicate_ids": 0,
+      "preexisting_duplicate_ids": 0,
+      "resolved_problem_references": 16
+    },
+    "preexisting_missing_summary": {
+      "reference_locations": 29,
+      "distinct_effect_ids_excluding_mirror_duplicates": 29,
+      "distinct_missing_equipment_values_including_sentinel": 20,
+      "distinct_missing_equipment_uuid_ids": 20,
+      "sentinel_reference_locations": 0,
+      "distinct_sentinel_effect_ids_excluding_mirror_duplicates": 0,
+      "missing_effect_ids": [
+        "0b40a25f-3c13-47ba-9fd9-6675da7b5f28",
+        "15e5972c-8788-45f2-9235-a23da5ad45d0",
+        "1819f05a-dc29-4a79-a0ee-eef32e4ab68c",
+        "19778ac3-1b3f-47c3-8942-a62187a9fa2a",
+        "2a34dd80-d31e-4b77-a263-083818b3c001",
+        "40fdaf07-38dd-41bd-b6ea-d6753b223583",
+        "449a86f5-8afc-49ff-924d-f28862f75577",
+        "603df283-ff11-4025-b029-3689f1d4b517",
+        "685598f4-52dd-47b9-abe3-6e604a8793dd",
+        "7294a3b2-cbfa-473e-ad56-7cba46ff67c3",
+        "73b84ddc-4a96-4319-86c3-a5e484a58615",
+        "85436e87-614e-4041-8f33-53ac89e11a9e",
+        "89d4136b-e09e-4c58-bf49-c5d3f369235f",
+        "9361bfa8-1727-49c8-b8af-43f17b3a1563",
+        "9654b16f-09f9-4d0e-ad38-b597a5a7d5ce",
+        "9a8d5a0a-3c23-43fe-ab43-07579a9cf187",
+        "b30b6ece-713d-435b-939b-8a3954eb4a43",
+        "b7d79c5f-bcb5-426b-98f4-df7e4ea86841",
+        "b8962feb-5b4a-4507-adc2-b5817d952e03",
+        "c7416571-3156-4136-978f-6dbe78eef9ee",
+        "ca8676fe-c867-4878-8d9c-970a662c6235",
+        "cd32d00a-93d7-489a-b9dd-d65cdda613e6",
+        "cd8eb694-4ce6-40af-8117-4f49b9f21e7a",
+        "df88fe01-b088-4eea-a8ec-67ef93d27db2",
+        "e11d53f9-14b2-4843-8fcb-99dffd8a3b9f",
+        "e2bca1da-e4d1-40d8-b98f-0149bd956aef",
+        "f56d3090-0449-484d-b21c-442e304ad2b4",
+        "f8fd3813-92d2-44fa-8afb-26fbf62b5c8b",
+        "ffcc9b0b-f344-491a-830c-ac10e4307c3f"
+      ],
+      "missing_equipment_values": [
+        "1af49925-4d77-47e7-bc88-f199fef47561",
+        "1faa5082-0007-4817-afce-f4b66bca8891",
+        "2667cda7-3c9c-4be3-adcc-6e90dd04459c",
+        "3f8403de-20e8-4be3-9d1f-f86abd04b086",
+        "413312d6-d0d8-4aaf-b365-4791f4211d0f",
+        "48cdbcd5-b271-4f31-9fb8-cce53d214525",
+        "4aab6660-e91b-4f06-a89d-58bec4ceb91d",
+        "684b9b4a-5f46-4cfb-b2c0-d198980b4ef9",
+        "6a3eed5c-bd35-41fc-8281-75df231fe410",
+        "71ab43c9-23f3-4a79-baf7-356bd80f6426",
+        "778ea66e-5f18-4b35-8929-412af75cebac",
+        "789666f7-42b7-4cc1-8f12-d233da4e3d54",
+        "9491bd7e-6c05-4259-a4bf-95bf49c6c926",
+        "9a44fc45-ce49-4ff6-ba00-4a7ae1e2488a",
+        "a1a40ba2-3c2c-4717-8ec0-119b55d40c0e",
+        "ab07ac1b-df27-49ea-8f44-4cf77db4f5ed",
+        "c948db60-92df-4fab-8796-17be3b572fc5",
+        "d60964e7-500a-4af7-8e60-06dc9cc931fe",
+        "e131310a-e3b5-495f-8c40-befa77189065",
+        "e4a479f1-fef2-45b5-8c06-ea9a26f0eefa"
+      ],
+      "sentinel_groups": []
+    }
+  }
+}
