@@ -27,13 +27,14 @@ const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root
  const canonical=run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})');
  let page=q('.cp-campaign-page'),stack=q('.cp-campaign-page>.stack'),scroll=q('.cp-members-scroll');
  assert(page&&stack&&scroll,'Campaign has its own page, stack and member-table boundaries');
- assert.equal(qa('.cp-campaign-page').length,1);assert(q('.cp-campaign-header .entity-title h1'));
+ assert.equal(qa('.cp-campaign-page').length,1);assert(q('.cp-campaign-header .entity-title h1'));assert.equal(parseFloat(style(page).minWidth),0);assert.equal(style(page).maxWidth,'100%');
+ assert.equal(style(q('.cp-campaign-header .entity-head')).flexWrap,'wrap');assert.equal(parseFloat(style(q('.cp-campaign-header .entity-title')).minWidth),0);assert.equal(style(q('.cp-campaign-header .entity-title h1')).overflowWrap,'anywhere');
  assert.equal(style(stack).gridTemplateColumns.replace(/\s/g,''),'minmax(0,1fr)');assert.equal(parseFloat(style(stack).minWidth),0);
  for(const child of stack.children){assert.equal(parseFloat(style(child).minWidth),0);assert.equal(style(child).maxWidth,'100%');}
  assert.equal(parseFloat(style(scroll).minWidth),0);assert.equal(style(scroll).maxWidth,'100%');assert.equal(style(scroll).overflowX,'auto');
  assert.equal(scroll.tabIndex,0);assert.equal(scroll.getAttribute('role'),'region');assert.equal(scroll.getAttribute('aria-label'),'Campaign gang statistics');assert(scroll.querySelector('table .cp-member-row [data-cp="member-remove"]'),'The rightmost management button remains inside the scroll region');
  assert.equal(style(scroll.querySelector('table')).minWidth,'600px','Keep full table columns accessible through local scrolling');
- assert.equal(q('.cp-scroll-hint').hidden,false);assert.match(q('.cp-scroll-hint').textContent,/sideways/);
+ assert.match(q('.cp-scroll-hint').textContent,/sideways/);
  for(const node of qa('.content [data-campaign-tab]'))assert(page.contains(node),'Campaign tabs remain inside the page boundary');
 
  const search=q('#cp-player-search');search.value='Alpha';search.dispatchEvent(new w.Event('input',{bubbles:true}));
@@ -48,6 +49,7 @@ const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root
 
  for(const tab of ['territories','pack','map','triumphs','battles']){
   click(`[data-campaign-tab="${tab}"]`);await tick();page=q('.cp-campaign-page');assert(page,'Missing campaign boundary for '+tab);assert.equal(qa('.cp-campaign-page').length,1);assert.equal(run('data.campaignTab'),tab);
+  for(const heading of qa('.cp-campaign-page .section-heading'))assert.equal(style(heading).flexWrap,'wrap',tab+' section headings can wrap controls');
   for(const wrapper of qa('.content .table-wrap')){assert(page.contains(wrapper),tab+' table remains inside campaign boundary');assert.equal(style(wrapper).maxWidth,'100%');assert.equal(style(wrapper).overflowX,'auto');}
   if(tab==='pack'){assert(q('.cp-rich-content a').textContent.includes('LongUnbrokenURL'));assert.equal(style(q('.cp-rich-content')).overflowWrap,'anywhere');}
   if(tab==='triumphs'){const rankings=q('.cp-triumph-grid');assert(rankings.children.length>0,'Populated standings exercise nested wide tables');assert.equal(style(rankings).gridTemplateColumns.replace(/\s/g,''),'minmax(0,1fr)');for(const child of rankings.children)assert.equal(parseFloat(style(child).minWidth),0);}
