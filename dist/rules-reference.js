@@ -123,8 +123,6 @@
   }
   function decorate(){
     const ed=currentEdition(),s=state(),g=(s.gangs||[]).find(row=>row.id===s.selectedGang),c=(s.campaigns||[]).find(row=>row.id===s.selectedCampaign),f=g?.fighters?.find(row=>row.id===s.selectedFighter);
-    const crumb=document.querySelector('.crumb');if(crumb&&!crumb.querySelector('[data-mmrr-library]')){const button=document.createElement('button');button.type='button';button.dataset.mmrrLibrary='';button.className='mmrr-library-button';button.textContent='규칙';button.setAttribute('aria-label','규칙 참고 열기');crumb.append(button);}
-    const menu=document.querySelector('.mm-settings-menu');if(menu&&!menu.querySelector('[data-mmrr-library]')){const button=document.createElement('button');button.type='button';button.dataset.mmrrLibrary='';button.textContent='▤ 규칙 참고';menu.querySelector('.mm-menu-social')?.before(button);}
     decorateCombos(ed);
     document.querySelectorAll('[data-fp="equipment-buy"]').forEach(button=>addInfo(button.closest('.fp-buy-row')?.querySelector('span'),lookup('equipment',button.dataset.sub,{edition:ed}),'equipment',ed));
     document.querySelectorAll('[data-cp="territory-preset-add"]').forEach(button=>addInfo(button.closest('tr')?.querySelector('td'),lookup('territories',button.dataset.id,{edition:ed}),'territories',ed));
