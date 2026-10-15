@@ -26,11 +26,12 @@ for(const file of portraitFiles){
 }
 console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
+assert.equal((await worker.fetch(new Request('https://manager.test/join/example-invite'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/api/account'),{},{})).status,401);
 console.log('Worker ESM, static routes, deep links and anonymous API authorization passed.');
 
 const sqlite=new DatabaseSync(':memory:');
-for(const file of ['0000_thick_firelord.sql','0001_absurd_echo.sql'])sqlite.exec(await readFile(resolve(root,'drizzle',file),'utf8'));
+for(const file of (await readdir(resolve(root,'drizzle'))).filter(name=>name.endsWith('.sql')).sort())sqlite.exec(await readFile(resolve(root,'drizzle',file),'utf8'));
 class Statement{constructor(q,args=[]){this.q=q;this.args=args}bind(...args){return new Statement(this.q,args)}async first(){return sqlite.prepare(this.q).get(...this.args)||null}async all(){return{results:sqlite.prepare(this.q).all(...this.args)}}async run(){return{meta:{changes:sqlite.prepare(this.q).run(...this.args).changes}}}}
 const DB={prepare:q=>new Statement(q),async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const item of items)results.push(await item.run());sqlite.exec('COMMIT');return results}catch(e){sqlite.exec('ROLLBACK');throw e}}};
 const headers={'oai-authenticated-user-id':'compiled-worker-test','oai-authenticated-user-email':'compiled@example.test'};

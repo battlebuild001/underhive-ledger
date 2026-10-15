@@ -27,6 +27,7 @@
    else if(target==='ko'&&enToKo[body])result=enToKo[body];
    else if(target==='en'&&koToEn[body])result=koToEn[body];
    else if(target==='ko'&&names[body])result=names[body];
+   else if(body.includes('\n'))result=body.split('\n').map(line=>translate(line,target)).join('\n');
    else {
     let found=false;for(const pattern of patterns){const side=target==='ko'?pattern.enPattern:pattern.koPattern,hit=body.match(side.regex);if(!hit)continue;const substitutions={};side.ids.forEach((id,i)=>substitutions[id]=hit[i+1]);result=(target==='ko'?pattern.ko:pattern.en).replace(/\{\d+\}/g,id=>{const value=substitutions[id]??id;return target==='ko'&&!protectedText.has(value)?phonetic(value):value;});found=true;break;}
     if(!found&&target==='ko')result=inlineKorean(body);

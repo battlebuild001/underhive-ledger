@@ -1423,6 +1423,162 @@ Most battles fought.	가장 많은 전투 참가.
 3rd	3위
 rank	순위
 each	각
+Sign in to manage online recruitment.	온라인 모집을 관리하려면 로그인하세요.
+Link copied.	링크를 복사했습니다.
+Copy the recruitment link shown above.	위 모집 링크를 길게 눌러 복사하세요.
+Settings saved.	설정을 저장했습니다.
+Request approved.	참가 신청을 승인했습니다.
+Request rejected.	참가 신청을 거절했습니다.
+Please try again.	다시 시도하세요.
+Pending approval	승인 대기
+Approved	승인됨
+Rejected	거절됨
+Withdrawn	취소됨
+Removed	참가 해제됨
+Not submitted	미신청
+Online Participation	온라인 참가
+Recruitment link	모집 링크
+Recruiting	모집 중
+Paused	모집 중지
+Copy link	링크 복사
+Approve	승인
+Reject	거절
+Retry	다시 시도
+Refresh	새로고침
+Open campaign	캠페인 열기
+Open account	계정 열기
+Request to join	참가 신청
+Send join request	참가 신청 보내기
+Withdraw request	신청 취소
+Apply again	다시 신청
+Refresh status	상태 새로고침
+Registered gangs	등록된 갱
+Player limit	최대 참가 인원
+Public recruitment description	공개 모집 안내
+Accept online join requests	온라인 참가 신청 받기
+Save recruitment settings	모집 설정 저장
+Link options	링크 관리
+Replace recruitment link	모집 링크 교체
+Confirm: replace link	확인: 링크 교체
+Loading recruitment settings…	모집 설정을 불러오는 중…
+Loading campaign…	캠페인을 불러오는 중…
+Campaign link unavailable	캠페인 링크를 열 수 없습니다
+Campaign is full	참가 인원이 마감되었습니다
+Recruitment is paused	현재 모집이 중지되었습니다
+Check your campaign access	캠페인 참여 상태를 확인하세요
+Bring your gang to the campaign	내 갱으로 캠페인에 참가하기
+Your account records are connecting.	계정 기록에 연결하고 있습니다.
+Create a compatible gang first	같은 에디션의 갱이 필요합니다
+Go to my gangs	내 갱으로 이동
+Refresh gangs	갱 목록 새로고침
+Your gang	참가할 내 갱
+Message to the host (optional)	주최자에게 남길 말 (선택)
+CAMPAIGN RECRUITMENT	캠페인 모집
+Back to my workspace	내 작업 공간으로 돌아가기
+Join requests	참가 신청
+No join requests yet. Share the link to recruit players.	아직 참가 신청이 없습니다. 링크를 공유해 참가자를 모집하세요.
+Share a recruitment link, review each request, and admit the gangs you approve.	모집 링크를 공유하고 참가 신청을 확인한 뒤 갱을 승인하세요.
+Only the campaign name, edition, host, recruitment description and player count are public. Gang details are shown after approval.	캠페인 이름·에디션·주최자·모집 안내·참가 인원만 공개됩니다. 갱 상세 정보는 승인 후 표시됩니다.
+Recruitment is paused. Enable it above before sharing the link.	현재 모집이 중지되어 있습니다. 위에서 참가 신청을 활성화하세요.
+Replacing the link invalidates the old address. Existing requests remain.	링크를 교체하면 기존 주소는 사용할 수 없습니다. 접수된 신청은 유지됩니다.
+The host will review your application. Refresh this page to check its status.	주최자가 신청을 확인합니다. 새로고침하여 승인 상태를 확인하세요.
+Your gang has joined the campaign. You can now view the shared campaign.	갱이 캠페인에 등록되었습니다. 공유 캠페인을 열어볼 수 있습니다.
+You withdrew this request. You may apply again while recruitment is open.	취소한 신청입니다. 모집 중이라면 다시 신청할 수 있습니다.
+Your participation has ended. You may apply again while recruitment is open.	캠페인 참가가 해제되었습니다. 모집 중이라면 다시 신청할 수 있습니다.
+This application was not accepted. Contact the host if you need more information.	이번 신청은 승인되지 않았습니다. 자세한 내용은 주최자에게 확인하세요.
+Contact the host or check back later.	주최자에게 문의하거나 나중에 다시 확인하세요.
+You already own this campaign or have an invitation. Check your account for access.	이미 소유한 캠페인이거나 초대가 있습니다. 계정에서 참여 상태를 확인하세요.
+Sign in to choose a gang and send a join request to the host.	로그인한 뒤 내 갱을 선택하고 주최자에게 참가 신청을 보내세요.
+You need your own synced gang in this campaign’s edition to apply.	이 캠페인과 같은 에디션으로 만든 본인 갱을 계정에 저장한 뒤 신청하세요.
+Your gang name, roster and this message are shared with the host. Approval gives you access to view the campaign. If you change your gang while waiting, withdraw and apply again.	갱 이름·명단·메시지가 주최자에게 공유됩니다. 승인되면 캠페인을 열람할 수 있습니다. 대기 중 갱을 변경했다면 신청을 취소하고 다시 신청하세요.
+Underhive Korea	언더하이브 코리아
+ChatGPT sign-in is required.	ChatGPT 로그인이 필요합니다.
+A JSON request is required.	JSON 요청이 필요합니다.
+Invalid JSON format.	JSON 형식이 올바르지 않습니다.
+Only PNG, JPEG or WebP images can be uploaded.	PNG, JPEG 또는 WebP 이미지만 업로드할 수 있습니다.
+Personal records saved · Retry campaign update	개인 기록 저장됨 · 캠페인 갱신 재시도 필요
+Connecting to your account.	계정에 연결하는 중입니다.
+Finish syncing your records first.	기록 동기화를 먼저 완료하세요.
+The gang and campaign use different editions.	갱과 캠페인의 판본이 다릅니다.
+The online roster could not be updated because the gang and campaign use different editions.	갱과 캠페인의 판본이 달라 온라인 명단을 갱신하지 못했습니다.
+A backup containing gangs and campaigns is required.	갱과 캠페인이 포함된 백업이 필요합니다.
+The shared campaign is too large. Upload images as files.	공유 캠페인 기록이 너무 큽니다. 이미지를 파일로 업로드하세요.
+Invalid shared campaign format.	공유 캠페인 형식이 올바르지 않습니다.
+Invalid record format.	기록 형식이 올바르지 않습니다.
+The records were changed on another device.	다른 기기에서 기록을 수정했습니다.
+Resolve the record conflict with the other device first.	다른 기기의 기록 충돌을 먼저 해결하세요.
+Another participant changed the campaign.	다른 참가자가 캠페인을 수정했습니다.
+The data is too large.	데이터가 너무 큽니다.
+You can only share your own synced campaigns.	동기화된 내 캠페인만 공유할 수 있습니다.
+You can only recruit for your own synced campaigns.	동기화된 내 캠페인만 모집할 수 있습니다.
+The maximum number of records has been exceeded.	등록 가능한 기록 수를 초과했습니다.
+Invalid link replacement setting.	링크 재발급 설정이 올바르지 않습니다.
+The recruitment settings or gang records changed. Refresh and apply again.	모집 또는 갱 기록이 변경되었습니다. 새로고침 후 다시 신청하세요.
+The recruitment settings or campaign records changed. Refresh and try again.	모집 또는 캠페인 기록이 변경되었습니다. 새로고침 후 다시 처리하세요.
+Recruitment link not found. Ask for a new link.	모집 링크를 찾을 수 없습니다. 새 링크를 요청하세요.
+Choose a recruitment status.	모집 상태를 선택하세요.
+The recruitment description must be 2000 characters or fewer.	모집 안내는 2000자 이하로 입력하세요.
+Use 2–40 letters, numbers, spaces, underscores, periods or hyphens for your username.	사용자 이름은 2~40자의 문자, 숫자, 공백, _, . 또는 -를 사용하세요.
+User not found.	사용자를 찾을 수 없습니다.
+The server could not complete your request. Please try again shortly.	서버 요청을 처리하지 못했습니다. 잠시 후 다시 시도하세요.
+Connecting to server storage.	서버 저장소를 연결하는 중입니다.
+Choose one of your gangs that has been synced to the server.	서버에 동기화된 내 갱을 선택하세요.
+Invalid settings format.	설정 형식이 올바르지 않습니다.
+The gang changed after applying. The player must withdraw and apply again.	신청 후 갱 기록이 변경되었습니다. 참가자가 신청을 철회하고 다시 신청해야 합니다.
+The submitted gang records could not be found.	신청한 갱 기록을 찾을 수 없습니다.
+The submitted gang is missing or its edition has changed.	신청한 갱이 없거나 판본이 변경되었습니다.
+Invalid notification list.	알림 목록이 올바르지 않습니다.
+Invalid role.	역할이 올바르지 않습니다.
+Sign in and connect your account before joining online.	온라인 참가를 위해 먼저 로그인하고 계정 연결을 확인하세요.
+The online campaign roster could not be updated. Save again.	온라인 캠페인 명단을 갱신하지 못했습니다. 다시 저장하세요.
+A valid save revision is required.	올바른 저장 버전이 필요합니다.
+Invalid request format.	요청 형식이 올바르지 않습니다.
+The requested feature could not be found.	요청한 기능을 찾을 수 없습니다.
+No invitation is available to respond to.	응답 가능한 초대를 찾을 수 없습니다.
+Invalid response value.	응답 값이 올바르지 않습니다.
+You cannot respond to this request.	이 요청에 응답할 수 없습니다.
+You cannot access this campaign.	이 캠페인에 접근할 수 없습니다.
+You cannot edit this campaign.	이 캠페인을 수정할 수 없습니다.
+Invalid email address.	이메일 주소가 올바르지 않습니다.
+This gang is already registered.	이미 등록된 갱입니다.
+This username is already in use.	이미 사용 중인 사용자 이름입니다.
+You already have a join request being processed.	이미 처리 중인 참가 신청이 있습니다.
+This join request has already been processed.	이미 처리된 참가 신청입니다.
+This user has already been invited or joined.	이미 초대되었거나 참가한 사용자입니다.
+This user is already invited or participating.	이미 초대했거나 참가한 사용자입니다.
+You are already friends or a request already exists.	이미 친구이거나 요청이 있습니다.
+Connecting to image storage.	이미지 저장소를 연결하는 중입니다.
+The image file does not match its format.	이미지 파일 형식이 일치하지 않습니다.
+An image file is required.	이미지 파일이 필요합니다.
+Image not found.	이미지를 찾을 수 없습니다.
+Invalid input value.	입력 값이 올바르지 않습니다.
+You cannot send a friend request to yourself.	자신에게 친구 요청을 보낼 수 없습니다.
+You cannot invite yourself.	자신을 초대할 수 없습니다.
+You cannot apply to your own campaign.	자신의 캠페인에는 참가 신청할 수 없습니다.
+This setting is not supported.	지원하지 않는 설정입니다.
+The join message must be 1000 characters or fewer.	참가 메시지는 1000자 이하로 입력하세요.
+Enter a player limit from 1 to 100.	참가 정원은 1~100명으로 입력하세요.
+The campaign has reached its player limit.	참가 정원이 가득 찼습니다.
+You do not have permission to manage participants.	참가자 관리 권한이 없습니다.
+You do not have permission to remove participants.	참가자를 제거할 권한이 없습니다.
+No pending join request is available to process.	처리 가능한 참가 신청이 없습니다.
+There is no join request to withdraw.	철회할 참가 신청이 없습니다.
+Friend request not found.	친구 요청을 찾을 수 없습니다.
+The campaign records changed. Please try again.	캠페인 기록이 변경되었습니다. 다시 시도하세요.
+The campaign records changed. Refresh and save again.	캠페인 기록이 변경되었습니다. 새로고침 후 다시 저장하세요.
+The campaign records changed. Refresh and try again.	캠페인 기록이 변경되었습니다. 새로고침 후 다시 처리하세요.
+Only the campaign owner can manage recruitment.	캠페인 소유자만 모집을 관리할 수 있습니다.
+Only the campaign owner can invite participants.	캠페인 소유자만 초대할 수 있습니다.
+Your campaign join request was rejected.	캠페인 참가 신청이 거절되었습니다.
+Your campaign participation was approved.	캠페인 참가가 승인되었습니다.
+Requested to join the campaign.	캠페인 참가를 신청했습니다.
+Invalid campaign edition.	캠페인 판본이 올바르지 않습니다.
+Invited to the campaign.	캠페인에 초대했습니다.
+Campaign not found.	캠페인을 찾을 수 없습니다.
+The online roster could not be updated because the campaign changed on another device. Save again.	캠페인이 다른 기기에서 변경되어 온라인 명단을 갱신하지 못했습니다. 다시 저장하세요.
+This request is not allowed.	허용되지 않은 요청입니다.
+Campaign recruitment is currently paused.	현재 참가 모집이 중지되어 있습니다.
+The player limit cannot be lower than the current number of participants.	현재 참가자 수보다 정원을 줄일 수 없습니다.
 `.trim().split('\n').map(line => line.split('\t'));
   const enToKo = Object.create(null);
   const koToEn = Object.create(null);
@@ -2057,7 +2213,13 @@ D66 최솟값	D66 Minimum
     { en: 'Are you sure you want to capture "{0}"?', ko: '"{0}"을 포획할까요?' },
     { en: 'Are you sure you want to starve "{0}"?', ko: '"{0}"을 굶주림 상태로 만들까요?' },
     { en: 'Are you sure you want to feed "{0}"?', ko: '"{0}"을 먹일까요?' },
-    { en: 'Are you sure you want to send into Recovery "{0}"?', ko: '"{0}"을 회복 상태로 보낼까요?' }
+    { en: 'Are you sure you want to send into Recovery "{0}"?', ko: '"{0}"을 회복 상태로 보낼까요?' },
+    { en: '{0} requested to join the {1} campaign.', ko: '{0}님이 {1} 캠페인 참가를 신청했습니다.' },
+    { en: 'Your request to join the {0} campaign was rejected.', ko: '{0} 캠페인 참가 신청이 거절되었습니다.' },
+    { en: 'Your participation in the {0} campaign was approved.', ko: '{0} 캠페인 참가가 승인되었습니다.' },
+    { en: '{0} sent you a friend request.', ko: '{0}님이 친구 요청을 보냈습니다.' },
+    { en: '{0} accepted your friend request.', ko: '{0}님이 친구 요청을 수락했습니다.' },
+    { en: '{0} invited you to the {1} campaign.', ko: '{0}님이 {1} 캠페인에 초대했습니다.' }
   ];
   window.UK_UI_STRINGS = Object.freeze({ enToKo: Object.freeze(enToKo), koToEn: Object.freeze(koToEn), patterns: Object.freeze(patterns) });
 })();
