@@ -1,1 +1,32 @@
-{"name": "Munda Manager", "short_name": "Munda Manager", "start_url": "/", "display": "standalone", "background_color": "#151b19", "theme_color": "#151b19", "icons": [{"src": "https://www.mundamanager.com/images/favicon-192x192.png", "sizes": "192x192", "type": "image/png"}]}
+{
+  "name": "언더하이브 코리아",
+  "short_name": "언더하이브 코리아",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151b19",
+  "theme_color": "#151b19",
+  "icons": [
+    {
+      "src": "/brand/underhive-korea-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/underhive-korea-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/underhive-korea-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "description": "네크로문다 갱, 파이터, 캠페인 관리",
+  "lang": "ko",
+  "scope": "/"
+}
