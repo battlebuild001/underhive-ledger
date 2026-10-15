@@ -156,6 +156,7 @@ html.uk-ui .mm-settings-menu{background:#202a38;border-color:#465368;border-radi
 html.uk-ui .mm-settings-menu>button,html.uk-ui .mm-settings-menu>a{font-size:var(--uk-button);min-height:44px;border-radius:7px;color:var(--text)}
 html.uk-ui .mm-settings-menu>button:hover,html.uk-ui .mm-settings-menu>a:hover{background:#354253}
 html.uk-ui .mm-settings-menu hr{border-color:var(--line)}
+html.uk-ui .mm-settings-menu .mm-menu-label>small{font-size:calc(var(--uk-small) - 1px)}
 html.uk-ui .empty-line{font-size:var(--uk-body);padding:48px 20px;border:1px dashed var(--line);border-radius:13px;background:var(--panel);line-height:var(--uk-leading)}
 html.uk-ui .notice{padding:15px 18px;font-size:var(--uk-small);line-height:var(--uk-leading)}
 html.uk-ui .notice strong{color:var(--accent)}

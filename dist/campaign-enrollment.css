@@ -66,3 +66,5 @@
 @media(prefers-reduced-motion:reduce){.enroll-public-shell *{scroll-behavior:auto!important}}
 .enroll-campaign-actions{margin:14px 0;gap:10px;flex-wrap:wrap}
 .enroll-status-removed{color:#dca5a5;border-color:rgba(220,165,165,.28)}
+
+@media(max-width:700px){.cp-campaign-header .enroll-campaign-actions{display:grid;grid-template-columns:minmax(0,1fr);margin-top:10px}.cp-campaign-header .enroll-campaign-actions>.btn{width:100%;white-space:normal}}
