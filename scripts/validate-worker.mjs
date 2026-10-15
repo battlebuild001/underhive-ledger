@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
@@ -9,6 +9,22 @@ let worker;try{({default:worker}=await import('data:text/javascript;base64,'+Buf
 const res=await worker.fetch(new Request('https://manager.test/'),{},{});
 assert.equal(res.status,200);assert.match(await res.text(),/rules-data.js/);
 for(const path of ['/interaction-core.js','/gang-parity.js','/fighter-parity.js','/campaign-parity.js','/assets-parity.js','/account-parity.js','/rules-data.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path)}
+const portraitFiles=(await readdir(resolve(root,'dist/portraits/generated'))).filter(file=>file.endsWith('.webp'));
+assert.equal(portraitFiles.length,18,'All 18 generated faction portraits must be packaged.');
+for(const file of portraitFiles){
+ const path='/portraits/generated/'+file;
+ const r=await worker.fetch(new Request('https://manager.test'+path),{},{});
+ assert.equal(r.status,200,path);
+ assert.equal(r.headers.get('Content-Type'),'image/webp',path);
+ const bytes=Buffer.from(await r.arrayBuffer());
+ assert.equal(bytes.subarray(0,4).toString(),'RIFF',path);
+ assert.equal(bytes.subarray(8,12).toString(),'WEBP',path);
+ assert.deepEqual(bytes,await readFile(resolve(root,'dist'+path)),path+' must preserve the binary asset.');
+ const head=await worker.fetch(new Request('https://manager.test'+path,{method:'HEAD'}),{},{});
+ assert.equal(head.status,200,path+' HEAD');
+ assert.equal((await head.arrayBuffer()).byteLength,0,path+' HEAD body');
+}
+console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/api/account'),{},{})).status,401);
 console.log('Worker ESM, static routes, deep links and anonymous API authorization passed.');

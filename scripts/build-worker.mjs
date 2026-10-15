@@ -1,13 +1,15 @@
 import {readFile,writeFile,mkdir,readdir,rm,cp} from 'node:fs/promises';
-import {resolve,dirname} from 'node:path';
+import {resolve,dirname,relative,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const output=resolve(root,'.sites-build');
 await rm(output,{recursive:true,force:true});
 await mkdir(resolve(output,'dist/server'),{recursive:true});
 await mkdir(resolve(output,'.openai'),{recursive:true});
-const files=(await readdir(resolve(root,'dist'))).filter(x=>/\.(js|css|html|webmanifest|svg)$/.test(x));
-const assets=Object.fromEntries(await Promise.all(files.map(async name=>['/'+name,await readFile(resolve(root,'dist',name),'utf8')])));
+const directory=resolve(root,'dist'),textTypes=new Set(['.js','.css','.html','.webmanifest','.svg']),binaryTypes=new Set(['.webp','.png','.jpg','.jpeg']);
+async function walk(path){const entries=await readdir(path,{withFileTypes:true});let paths=[];for(const entry of entries.sort((a,b)=>a.name.localeCompare(b.name))){const full=resolve(path,entry.name);if(entry.isDirectory())paths.push(...await walk(full));else if(textTypes.has(extname(entry.name))||binaryTypes.has(extname(entry.name)))paths.push(full)}return paths}
+const files=await walk(directory);
+const assets=Object.fromEntries(await Promise.all(files.map(async file=>{const bytes=await readFile(file),url='/'+relative(directory,file).split('\\').join('/');return[url,textTypes.has(extname(file))?bytes.toString('utf8'):{base64:bytes.toString('base64')}]})));
 let api=await readFile(resolve(root,'worker/account-api.js'),'utf8');
 api=api.replace('export async function handleApi','async function handleApi');
 let worker=await readFile(resolve(root,'worker/index.js'),'utf8');
