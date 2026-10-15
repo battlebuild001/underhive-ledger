@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const source=await readFile(resolve(root,'.sites-build/server/index.js'),'utf8');
+const source=await readFile(resolve(root,'.sites-build/dist/server/index.js'),'utf8');
 let worker;try{({default:worker}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64')))}catch(e){console.error('Worker parse failed:',e.message);process.exit(1)}
 const res=await worker.fetch(new Request('https://manager.test/'),{},{});
 assert.equal(res.status,200);assert.match(await res.text(),/rules-data.js/);

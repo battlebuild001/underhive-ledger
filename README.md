@@ -25,7 +25,7 @@ npm run build
 npm run validate
 ```
 
-`dist/`는 편집하는 클라이언트 소스입니다. 빌드는 클라이언트와 `worker/account-api.js`를 `.sites-build/server/index.js`에 포함하고 Sites manifest 및 생성된 Drizzle 마이그레이션을 복사합니다. 배포 산출물은 `.sites-build/`입니다. 계정 API와 데이터 모델은 [ACCOUNT_BACKEND.md](ACCOUNT_BACKEND.md)를 참고하세요.
+`dist/`는 편집하는 클라이언트 소스입니다. 빌드는 클라이언트와 `worker/account-api.js`를 `.sites-build/dist/server/index.js`에 포함하고 Sites manifest 및 생성된 Drizzle 마이그레이션을 복사합니다. 배포 산출물은 `.sites-build/`입니다. 계정 API와 데이터 모델은 [ACCOUNT_BACKEND.md](ACCOUNT_BACKEND.md)를 참고하세요.
 
 스키마를 바꾸면 `db/schema.ts` 수정 후 `npm run db:generate`를 실행하고 새 SQL·snapshot·journal을 함께 커밋합니다. 이미 적용한 마이그레이션은 바꾸지 않습니다. `.openai/hosting.json`의 프로젝트와 공개 범위는 기존 사이트를 유지합니다.
 
