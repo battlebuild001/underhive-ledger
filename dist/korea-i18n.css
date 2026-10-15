@@ -1,0 +1,8 @@
+.uk-language-switch{display:inline-flex;align-items:center;gap:2px;margin-left:auto;flex:none;padding:2px 4px;border:1px solid var(--uk-line,#35414a);background:var(--uk-surface,#182027);border-radius:10px;color:var(--uk-muted,#aab5bd)}
+.uk-language-switch button{min-width:32px;min-height:36px;padding:4px 6px;border:0;border-radius:7px;background:transparent;color:inherit;font-size:13px;font-weight:750;line-height:1;cursor:pointer}
+.uk-language-switch button[aria-pressed=true]{background:var(--uk-accent,#d59b6b);color:#171b20}.uk-language-switch span{font-size:11px;opacity:.45}
+.uk-ui .crumb .mmrr-library-button{margin-left:0}.uk-ui .crumb{height:auto;min-height:56px;flex-wrap:wrap;row-gap:8px}.uk-ui .crumb>strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:min(46vw,600px)}
+html[data-ui-language=ko] .mmrr-description{font-size:16px;line-height:1.8;word-break:keep-all;overflow-wrap:anywhere}html[data-ui-language=en] .mmrr-description{font-size:14.5px;line-height:1.65}
+.uk-ui .mmrr-korean-name,.uk-ui .mmrr-results h3 small{display:none}
+@media(max-width:480px){.uk-ui .crumb{padding-top:12px;padding-bottom:12px}.uk-language-switch button{min-height:40px}.uk-ui .crumb>strong{max-width:34vw}}
+@media print{.uk-language-switch{display:none!important}}

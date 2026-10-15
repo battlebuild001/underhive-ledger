@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm'),{JSDOM}=require('jsdom');
 const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(root+'/index.html','utf8'),dom=new JSDOM('<div id="app"></div><input id="import-file" type="file">',{url:'https://manager.test/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,context=dom.getInternalVMContext(),errors=[];
-w.structuredClone=structuredClone;w.alert=msg=>{throw Error(msg)};w.HTMLElement.prototype.scrollIntoView=function(){};w.addEventListener('error',e=>errors.push(e.message));
+w.structuredClone=structuredClone;w.localStorage.setItem('underhive-korea-language','en');w.alert=msg=>{throw Error(msg)};w.HTMLElement.prototype.scrollIntoView=function(){};w.addEventListener('error',e=>errors.push(e.message));
 for(const match of html.matchAll(/<script src="\/([^"?]+)[^"]*"/g))if(match[1]!=='account-parity.js')vm.runInContext(fs.readFileSync(root+'/'+match[1],'utf8'),context,{filename:match[1]});
 const style=w.document.createElement('style');style.textContent=fs.readFileSync(root+'/fighter-parity.css','utf8');w.document.head.append(style);
 const run=code=>vm.runInContext(code,context),q=selector=>{const el=w.document.querySelector(selector);assert(el,'Missing '+selector);return el},all=selector=>[...w.document.querySelectorAll(selector)],click=selector=>q(selector).click(),title=()=>q('.modal-head h2').textContent;

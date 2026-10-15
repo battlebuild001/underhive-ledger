@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{JSDOM}=require('jsdom');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(root+'/dist/index.html','utf8'),dom=new JSDOM('<div id="app"></div><input id="import-file" type="file">',{url:'https://manager.test/',runScripts:'dangerously',pretendToBeVisual:true}),w=dom.window;
-w.alert=m=>{throw Error(m)};w.structuredClone=structuredClone;w.HTMLElement.prototype.scrollIntoView=function(){};
+w.localStorage.setItem('underhive-korea-language','en');w.alert=m=>{throw Error(m)};w.structuredClone=structuredClone;w.HTMLElement.prototype.scrollIntoView=function(){};
 for(const x of html.matchAll(/<script src="\/([^"?]+)[^"]*"/g)){if(['account-parity.js','bootstrap.js'].includes(x[1]))continue;const script=w.document.createElement('script');script.textContent=fs.readFileSync(root+'/dist/'+x[1],'utf8');w.document.body.append(script)}
 const run=s=>w.eval(s),q=s=>{const x=w.document.querySelector(s);assert(x,s);return x},set=(key,value)=>{const x=q(`[name="${key}"]`);x.value=value;x.dispatchEvent(new w.Event('input',{bubbles:true}));x.dispatchEvent(new w.Event('change',{bubbles:true}))};
 run("data.view='gang';gang().edition='N26';gang().credits=100;gang().tradePoints=5;campaign().resources=[{id:'test-resource',name:'Supply'}];campaign().members[0].resources={'test-resource':2};render();resourceDeltaForm(gang())");

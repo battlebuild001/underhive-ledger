@@ -1,0 +1,32 @@
+{
+  "name": "Underhive Korea",
+  "short_name": "Underhive Korea",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#11151d",
+  "theme_color": "#11151d",
+  "icons": [
+    {
+      "src": "/brand/underhive-korea-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/underhive-korea-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/underhive-korea-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "description": "Manage Necromunda gangs, fighters and campaigns.",
+  "lang": "en",
+  "scope": "/"
+}

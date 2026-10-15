@@ -5,8 +5,8 @@ for(const file of ['rules-data.js','app.js','extensions.js','catalog.js','gamepl
 const run=source=>vm.runInContext(source,context),q=selector=>w.document.querySelector(selector),click=selector=>{const el=q(selector);assert(el,'Missing '+selector);el.click();},field=name=>q('#modal-form [name="'+name+'"]');
 function submit(){click('#modal-submit');assert(!q('.cp-error'),q('.cp-error')?.textContent);assert(!q('.modal-bg'),'Successful save closes the modal');}
 const reference='수입 15크레딧. 정착지 규칙 <검증용>.';
-run(`const rulebookSettlement=RULES_DATA.territories.find(x=>x.edition==='n26'&&x.name==='Settlement');if(!rulebookSettlement)throw Error('Actual N26 Settlement missing');rulebookSettlement.description=${JSON.stringify(reference)};const rulebookCore=RULES_DATA.campaignTypes.find(x=>x.edition==='n26'&&x.name==='Core Campaign');data.edition='N26';data.campaigns=[{id:'rulebook-campaign',name:'Rulebook campaign',edition:'N26',campaignTypeId:rulebookCore.id,campaignType:rulebookCore.name,members:[],territories:[],battles:[],sessions:[],resources:[],triumphs:[],allegiances:[],activity:[],notes:'',description:'',phase:'Active',parityDefaultsApplied:true}];data.selectedCampaign='rulebook-campaign';data.view='campaign';data.campaignTab='members';save();editTerritory();`);
-const settlementId=run('rulebookSettlement.id');
+run(`const catalogSettlement=RULES_DATA.territories.find(x=>x.edition==='n26'&&x.name==='Settlement');if(!catalogSettlement)throw Error('Actual N26 Settlement missing');catalogSettlement.description=${JSON.stringify(reference)};const catalogCore=RULES_DATA.campaignTypes.find(x=>x.edition==='n26'&&x.name==='Core Campaign');data.edition='N26';data.campaigns=[{id:'catalog-campaign',name:'Catalog campaign',edition:'N26',campaignTypeId:catalogCore.id,campaignType:catalogCore.name,members:[],territories:[],battles:[],sessions:[],resources:[],triumphs:[],allegiances:[],activity:[],notes:'',description:'',phase:'Active',parityDefaultsApplied:true}];data.selectedCampaign='catalog-campaign';data.view='campaign';data.campaignTab='members';save();editTerritory();`);
+const settlementId=run('catalogSettlement.id');
 click('[data-cp="territory-preset-add"][data-id="'+settlementId+'"]');
 assert.equal(run('campaign().territories.length'),1,'Catalog Add creates the actual N26 Settlement');
 assert.equal(run('campaign().territories[0].description'),'','Adding a preset keeps its description in the catalog');
@@ -30,13 +30,13 @@ assert.equal(field('description').value,reference,'Edit starts with the effectiv
 field('name').value='Renamed Settlement';submit();
 assert.equal(run('campaign().territories[0].description'),'','Saving another field does not copy catalog text into user data');
 assert.equal(run('campaign().territories[0].descriptionOverride'),undefined);
-run("rulebookSettlement.description='Updated catalog rule'");
+run("catalogSettlement.description='Updated catalog rule'");
 assert.equal(run('cpTerritoryDescription(campaign().territories[0])'),'Updated catalog rule','Existing untouched presets read future catalog corrections');
 
 run('editTerritory(campaign().territories[0])');
 field('description').value='My campaign uses a custom income rule.';submit();
 assert.equal(run('cpTerritoryDescription(campaign().territories[0])'),'My campaign uses a custom income rule.','User description has priority');
-run("rulebookSettlement.description='Another catalog update'");
+run("catalogSettlement.description='Another catalog update'");
 assert.equal(run('cpTerritoryDescription(campaign().territories[0])'),'My campaign uses a custom income rule.');
 run('editTerritory(campaign().territories[0])');field('description').value='';submit();
 assert.equal(run('campaign().territories[0].descriptionOverride'),true,'Explicit clear is recorded');
@@ -46,15 +46,15 @@ run("document.querySelector('#app').innerHTML=cpTerritorySummary(campaign())");
 assert(!q('[data-cp="territory-description"]'),'A deliberately empty description has no info button');
 run('editTerritory(campaign().territories[0])');assert.equal(field('description').value,'');click('#modal-cancel');
 
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookSettlement.id,description:'',notes:'Legacy user notes'},campaign())"),'Legacy user notes','Legacy notes remain user text');
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookSettlement.id,description:'User description',notes:'Legacy notes'},campaign())"),'User description');
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookSettlement.id,description:'',notes:'stale',descriptionOverride:true},campaign())"),'','Explicit clear also wins over stale legacy notes');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogSettlement.id,description:'',notes:'Legacy user notes'},campaign())"),'Legacy user notes','Legacy notes remain user text');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogSettlement.id,description:'User description',notes:'Legacy notes'},campaign())"),'User description');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogSettlement.id,description:'',notes:'stale',descriptionOverride:true},campaign())"),'','Explicit clear also wins over stale legacy notes');
 assert.equal(run("cpTerritoryDescription({name:'Settlement',description:'',notes:''},campaign())"),'','Names alone never match catalog rules');
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookSettlement.id},{edition:'N23'})"),'','N23 campaigns cannot read an N26 rule by ID');
-run("const rulebookOldSettlement=RULES_DATA.territories.find(x=>x.edition==='n23'&&x.name==='Settlement');if(!rulebookOldSettlement)throw Error('Actual N23 Settlement missing');rulebookOldSettlement.description='Older edition settlement rule'");
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookOldSettlement.id},{edition:'N23'})"),'Older edition settlement rule');
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookOldSettlement.id},{edition:'N26'})"),'','N26 campaigns cannot read an N23 rule by ID');
-assert.equal(run("cpTerritoryDescription({territoryId:rulebookSettlement.id},null)"),'','An unknown campaign edition has no inferred rule');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogSettlement.id},{edition:'N23'})"),'','N23 campaigns cannot read an N26 rule by ID');
+run("const catalogOldSettlement=RULES_DATA.territories.find(x=>x.edition==='n23'&&x.name==='Settlement');if(!catalogOldSettlement)throw Error('Actual N23 Settlement missing');catalogOldSettlement.description='Older edition settlement rule'");
+assert.equal(run("cpTerritoryDescription({territoryId:catalogOldSettlement.id},{edition:'N23'})"),'Older edition settlement rule');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogOldSettlement.id},{edition:'N26'})"),'','N26 campaigns cannot read an N23 rule by ID');
+assert.equal(run("cpTerritoryDescription({territoryId:catalogSettlement.id},null)"),'','An unknown campaign edition has no inferred rule');
 const frozenBefore=run("JSON.stringify(campaign().territories[0])");
 run('Object.freeze(campaign().territories[0]);cpTerritoryDescription(campaign().territories[0]);cpTerritorySummary(campaign())');
 assert.equal(run('JSON.stringify(campaign().territories[0])'),frozenBefore);
