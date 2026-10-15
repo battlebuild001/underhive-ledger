@@ -13,7 +13,7 @@ export default {
     try{path=decodeURIComponent(url.pathname)}catch{return new Response('Bad request',{status:400})}
     if(path==='/')path='/index.html';
     let source=ASSETS[path];
-    if(source===undefined&&/^\/(gang|fighter|campaigns|account|join)(\/|$)/.test(path)){path='/index.html';source=ASSETS[path]}
+    if(source===undefined&&/^\/(gang|fighter|campaigns|account|join|learn)(\/|$)/.test(path)){path='/index.html';source=ASSETS[path]}
     if(source===undefined)return new Response('Not found',{status:404});
     const extension=path.split('.').pop();
     const body=typeof source==='string'?source:Uint8Array.from(atob(source.base64),c=>c.charCodeAt(0));

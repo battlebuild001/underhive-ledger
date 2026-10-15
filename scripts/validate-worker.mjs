@@ -27,6 +27,11 @@ for(const file of portraitFiles){
 console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/join/example-invite'),{},{})).status,200);
+for(const path of ['/learn','/learn/rules','/learn/quick','/learn/tutorials'])assert.equal((await worker.fetch(new Request('https://manager.test'+path),{},{})).status,200,path);
+for(const edition of ['n26','n23'])for(const language of ['ko','en']){
+ const path='/guides/underhive-'+edition+'-'+language+'.html',guide=await worker.fetch(new Request('https://manager.test'+path),{},{});
+ assert.equal(guide.status,200,path);assert.match(guide.headers.get('Content-Type'),/text\/html/);assert.match(await guide.text(),new RegExp('<html lang="'+language+'"'));
+}
 assert.equal((await worker.fetch(new Request('https://manager.test/api/account'),{},{})).status,401);
 console.log('Worker ESM, static routes, deep links and anonymous API authorization passed.');
 
