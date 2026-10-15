@@ -2783,5 +2783,1555 @@
     "collection": "weaponTraits",
     "id": "n26-trait-web",
     "description_en": "No Armour Save is allowed, but an Invulnerable save can be made. Fighters become Webbed instead of losing Wounds."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-round-sequence",
+    "description_en": "A round proceeds through Priority, Action and End. Roll off for Priority; reroll a first-round tie and give later ties to the player without Priority in the previous round. Ready eligible models, then alternate individual activations starting with the player who has Priority. After activations, resolve the End phase, including fleeing, recovery and rallying."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-action-economy",
+    "description_en": "A normal activation allows two actions. Simple actions can repeat; a Basic action cannot repeat its own name in that activation. Double actions use both actions. Move is Simple; Shoot, Aim, Stand Up and Fight are Basic; Charge is Double. Two Moves are legal, while two ordinary Shoots require a specific exception. Check state, weapon traits and skills before choosing actions."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-fighter-states",
+    "description_en": "Active and Engaged Fighters are Standing; Pinned and Seriously Injured Fighters are Prone. A Pinned Fighter can use Stand Up (Basic), then spend the remaining action. Crawl (Double) moves up to half M. Blind Fire (Double) shoots at -2 to hit. A Seriously Injured Fighter normally has Crawl available and attempts recovery in the End phase. Conditions such as Broken apply in addition to these states."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-movement-terrain",
+    "description_en": "Move (Simple) allows movement up to M and normally cannot enter within 1 inch of an enemy. Difficult terrain and ordinary climbing cost twice the distance; ladders and stairs use normal distance. Charge (Double) moves M+D3 inches and a successful charge requires an attack. Gaps, jumping down and dangerous terrain have additional tests. Check the route and terrain cost before relocating the model."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-shooting-sequence",
+    "description_en": "Choose the weapon, profile and legal target, check range, then roll to hit using BS. Target Priority can require a Cool test to choose a more distant target unless an exception applies. An Ammo symbol on the Firepower die triggers an Ammo test; resolve the current attack before applying Out of Ammo after a failure. A Standing Active Fighter hit by a ranged attack normally becomes Pinned even if the attack causes no wound."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-ranged-modifiers",
+    "description_en": "Apply the profile’s range-band accuracy and cover to the hit roll. Partial cover is -1 and full cover is -2; Aim (Basic) gives +1 to a subsequent shooting action in the same activation. A natural 1 normally fails. An improbable shot needing 7+ requires a 6 followed by an unmodified BS roll. These N23 cover penalties are not the N26 cover save bonus."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-wounds-and-saves",
+    "description_en": "Resolve each hit by comparing S with T: 2+ at least double T, 3+ above T, 4+ equal, 5+ below T and 6+ at half T or less. After a successful wound roll, apply armour and AP to the save. An unsaved attack removes W equal to D. Traits can replace rolls or prohibit saves. For example, S4 against T3 wounds on 3+, and AP -1 worsens a 5+ armour save to 6+."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-melee-sequence",
+    "description_en": "Choose facing, weapons, attack dice and targets, then attack using WS. Normally choose up to two Melee or Sidearm weapons, or one Unwieldy weapon. Add +1 die for charging and +1 for a legal pair, splitting dice as evenly as possible between two weapons. A Sidearm receives at most one attack die. Resolve hits, wounds, saves and damage before surviving engaged enemies make Reaction attacks. If no longer Engaged, check consolidation or Coup de Grâce eligibility."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-damage-and-injury",
+    "description_en": "Reduce W by D. Reaching W0 generates one Injury die, plus one die for each remaining point of that attack’s Damage. A single unsaved D3 hit against W2 therefore generates two Injury dice. Flesh Wounds reduce T by 1, with T0 causing Out of Action. A Serious Injury makes the Fighter Prone and Seriously Injured; additional Serious Injury results cause Flesh Wounds. Out of Action removes the Fighter and requires the appropriate Lasting Injury record."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-end-phase",
+    "description_en": "Resolve Bottle tests, fleeing, recovery/restart and rallying in that order. A standard Bottle test fails when D6 plus Seriously Injured and Out of Action models exceeds the starting crew size; scenario exceptions can change the count. A Seriously Injured Fighter rolls an Injury die for recovery: Flesh Wound applies its effect and leaves them Pinned; Serious Injury leaves them injured and causes a Flesh Wound without assistance; Out of Action removes them."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-postbattle",
+    "description_en": "Resolve end-of-battle effects, surviving Serious Injuries, captures and recovery, followed by the campaign’s resource transfers, rewards, income and post-battle actions. A standard surviving Seriously Injured Fighter avoids a Lasting Injury on 3+; a 1–2 counts as Out of Action and requires a Lasting Injury roll. Distinguish Fighters who missed this battle while in Recovery from those newly placed in Recovery. Reconcile credits, XP, equipment and the roster together."
+  },
+  {
+    "collection": "coreRules",
+    "id": "n23-core-advancement",
+    "description_en": "N23 spends XP on Advancements. Distinguish Fighters who choose advancements from Gangers using random advancement. Check the applicable table, prior-advancement surcharges, characteristic caps and skill access before deducting XP and recording the rating increase. Selecting a Secondary skill has a base cost of 12 XP in N23. Do not apply N26 cumulative XP bands or automatic advancement timing."
+  },
+  {
+    "collection": "skills",
+    "id": "694bfa2c-3fa8-4d3e-bbd5-782818c7142b",
+    "description_en": "When modified Initiative is higher than the enemies in the combat, reroll one Injury die while attacking."
+  },
+  {
+    "collection": "skills",
+    "id": "b29a8471-9d2d-4354-ae4d-1ad552eca16f",
+    "description_en": "Gain a 5+ Invulnerable save against melee hits and perform Retreat as a Free action."
+  },
+  {
+    "collection": "skills",
+    "id": "dff6117f-46de-4265-8fad-0d7505eb9a21",
+    "description_en": "Stand Firm (Double) grants +2 to saves and prevents forced movement and Suppression until the next activation."
+  },
+  {
+    "collection": "skills",
+    "id": "ae14f60c-c47a-4a90-9d6a-618fa037b261",
+    "description_en": "On a Charge, melee weapons gain Knockback (4+) and Consolidation gains 2 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "986339e3-66ff-4399-8648-d272da9a385c",
+    "description_en": "Move through other Fighters and across small obstacles or barricades without their movement penalty. Finish in a legal position."
+  },
+  {
+    "collection": "skills",
+    "id": "e16c2d08-4f96-481d-8490-34e05c14129f",
+    "description_en": "After Fight, replace Consolidation with a Free Shoot using a Light weapon. Normal shooting eligibility still applies."
+  },
+  {
+    "collection": "skills",
+    "id": "0e6e1da3-a67e-4f56-9b14-cf712b192b99",
+    "description_en": "Choose a single attack in Fight instead of the normal attacks, resolving it at WS 2+."
+  },
+  {
+    "collection": "skills",
+    "id": "ecd07342-d48d-4ab5-9d55-eb6aa6563982",
+    "description_en": "Use a Double action to place the Fighter at a visible point within 6 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "66a012fd-f861-453e-9f19-0df959ba134d",
+    "description_en": "Shockwave (Double): pass a Strength-based check to Suppress all Active Fighters within 6 inches, friend or foe."
+  },
+  {
+    "collection": "skills",
+    "id": "affc11d0-9a36-404f-93da-0efaa979f7ec",
+    "description_en": "Work Territory earns 10 additional credits."
+  },
+  {
+    "collection": "skills",
+    "id": "0fd52047-fb9f-42e2-a6c9-f7bdb76b5844",
+    "description_en": "While Engaged, Flex (Double) makes all other Fighters within 1 inch test Strength; failures are pushed D3 inches away. Stop at a Fighter or impassable terrain, test for falls at ledges, and choose the movement order."
+  },
+  {
+    "collection": "skills",
+    "id": "b398358a-f669-4661-ba71-13c6d45d1eb1",
+    "description_en": "Grants the Fists of Steel weapon: engagement range, S+2, AP -, L2, Melee."
+  },
+  {
+    "collection": "skills",
+    "id": "570c8da7-c09e-45dc-945e-f7ab48646b82",
+    "description_en": "Grants a Force Blast weapon: range 8/12 inches, S2, AP -1, L1, Knockback (3+). Its manifestation action still needs verification."
+  },
+  {
+    "collection": "skills",
+    "id": "d3ccb55b-108c-472a-8e78-656379a04c2a",
+    "description_en": "Double, sustained: grant Overwatch to a visible friendly fighter within 12 inches, including yourself."
+  },
+  {
+    "collection": "skills",
+    "id": "07d952db-0f86-4a10-a8b9-921df55c12e2",
+    "description_en": "A Pyromancy-only Psyker is immune to Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "9361d5cb-ce2c-4756-abe2-f109d301c1fc",
+    "description_en": "Simple: open or close an unlocked door on the battlefield."
+  },
+  {
+    "collection": "skills",
+    "id": "ff6968fa-3418-4ee1-8dbc-5b0957defc03",
+    "description_en": "A Telekinesis-only Psyker gains +1 Strength and Damage for unarmed attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "2cf81147-767e-4b30-b83b-7dc530ce4bf9",
+    "description_en": "Basic: hit a visible target within 12 inches; destroy an obstacle, or make a fighter suffer an Injury roll if they pass their save."
+  },
+  {
+    "collection": "skills",
+    "id": "aab81d3a-0f5a-4a55-beea-56f90db824d7",
+    "description_en": "Basic, sustained: allies within 3 inches, including yourself, gain +1 save."
+  },
+  {
+    "collection": "skills",
+    "id": "741f7389-886b-4cdd-9d81-e00e2b6e9f24",
+    "description_en": "Basic: make S1 ranged attacks against every fighter within 12 inches, including allies."
+  },
+  {
+    "collection": "skills",
+    "id": "e0573877-5d96-4087-8a14-182265bea139",
+    "description_en": "Basic: enemies within 3 inches are pushed D3+1 inches directly away; collision Pins and causes a hit based on push distance."
+  },
+  {
+    "collection": "skills",
+    "id": "7ab017b2-b708-44d6-bd99-29badba1a1d6",
+    "description_en": "Basic, sustained: gain +3 inches Movement, ignore normal terrain and levels, and avoid Pinning and falling; impassable terrain and legal end positions still apply."
+  },
+  {
+    "collection": "skills",
+    "id": "1c997a9b-8073-4e61-a964-ae7d40685b4f",
+    "description_en": "A Telepathy-only Psyker forces charging enemies to pass Willpower before moving or lose the charge."
+  },
+  {
+    "collection": "skills",
+    "id": "b4cc4cb5-3d2b-42c1-b767-bbe8772faf7e",
+    "description_en": "Basic, sustained: make a visible enemy within 9 inches immediately Shoot another eligible fighter from its own gang."
+  },
+  {
+    "collection": "skills",
+    "id": "dd894fb2-559e-4da4-acbd-15c83ebe675c",
+    "description_en": "Basic, sustained: allies within 9 inches may use your characteristics for Nerve and Willpower tests."
+  },
+  {
+    "collection": "skills",
+    "id": "082edca1-82c0-4d0d-b452-3c7c3edf23b4",
+    "description_en": "Basic: improve one Melee weapon's AP by one for an ally within 6 inches this round."
+  },
+  {
+    "collection": "skills",
+    "id": "b4b51367-42c7-4198-9a85-ceffd29fd274",
+    "description_en": "Basic, sustained: rally Broken allies within 12 inches and automatically pass your own Cool tests until next activation."
+  },
+  {
+    "collection": "skills",
+    "id": "a9559fcd-6991-4f29-a422-b562d0eb814e",
+    "description_en": "Basic: an ally within 3 inches either makes an assisted Recovery roll if Seriously Injured, or heals one Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "03c0b09c-f528-4471-a7cd-d42bb5b04df0",
+    "description_en": "Double: enemies within 3 inches suffer Flash without becoming Pinned."
+  },
+  {
+    "collection": "skills",
+    "id": "8c872f4c-4607-437f-aa00-4923e4316a0c",
+    "description_en": "Double: visible enemies within 18 inches need Cool to shoot or charge anyone else this round; you lose cover until next activation."
+  },
+  {
+    "collection": "skills",
+    "id": "a755e553-7626-424b-a1d6-89d228d35924",
+    "description_en": "Basic, sustained: gain a S+2/AP-1/D2 melee attack with Pulverise."
+  },
+  {
+    "collection": "skills",
+    "id": "f881fa6d-6f40-44a7-97c0-809272ee179a",
+    "description_en": "Basic: an unactivated enemy within 18 inches cannot activate or join Group Activations this round."
+  },
+  {
+    "collection": "skills",
+    "id": "7b3504ea-b465-4c42-a708-9e2fe5b0edaf",
+    "description_en": "Basic: enemies within 3 inches take a Nerve test at -1 or become Broken."
+  },
+  {
+    "collection": "skills",
+    "id": "dbbdb552-4cc0-4c79-ae57-801616be518a",
+    "description_en": "Double: enemies within 3 inches suffer a S5/AP-1/D2 Blaze hit."
+  },
+  {
+    "collection": "skills",
+    "id": "a284d1b0-eb1c-4743-b0e9-466d1755fddf",
+    "description_en": "After two actions, pass Toughness for a third action; attempting it always leaves you Pinned at activation end."
+  },
+  {
+    "collection": "skills",
+    "id": "ab90b8c7-638a-4f6f-ba45-8418a88eb853",
+    "description_en": "A Biomancy-only Psyker rolls an extra Recovery die and discards one."
+  },
+  {
+    "collection": "skills",
+    "id": "de603d4f-37ff-4418-8491-60b7cf4f745e",
+    "description_en": "Basic, sustained: gain Clamber, Catfall and Mighty Leap."
+  },
+  {
+    "collection": "skills",
+    "id": "57f257b5-0e6b-4783-aa4c-25610f455b20",
+    "description_en": "Basic, sustained: if you did not move during activation, shots targeting you suffer -2 to hit."
+  },
+  {
+    "collection": "skills",
+    "id": "ed48505b-11d4-4a0b-8823-8353f98c51ad",
+    "description_en": "Basic: an injured enemy within 18 inches and sight immediately rolls an Injury die."
+  },
+  {
+    "collection": "skills",
+    "id": "8b927688-99ec-4b6c-be17-9a310b075c9f",
+    "description_en": "Basic: remove all Flesh Wounds from a visible ally within 18 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "d6d48a2a-481f-4875-98b9-59683ae313c6",
+    "description_en": "Basic, sustained: gain +3 inches Movement and improve WS, BS and Initiative by one, to a maximum of 2+."
+  },
+  {
+    "collection": "skills",
+    "id": "cffdeade-dcf3-4117-96c4-f850b4e1f22a",
+    "description_en": "Basic, sustained: gain an additional unmodifiable 5+ save against melee attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "994c8800-2db6-4080-a500-3139abb4225d",
+    "description_en": "Basic: once before the End phase, force a visible enemy within 12 inches to reroll one dice roll."
+  },
+  {
+    "collection": "skills",
+    "id": "f61ae2de-c0f7-4849-9ac0-2c6f409218e5",
+    "description_en": "Basic: until the End phase, ignore the first attack hit on a 2+."
+  },
+  {
+    "collection": "skills",
+    "id": "07a88f29-c242-4184-a5d8-6be6f2000681",
+    "description_en": "Gain +1 starting crew, reroll reinforcement rolls, and automatically sound the sentry alarm when ending a move within 6 inches of an enemy."
+  },
+  {
+    "collection": "skills",
+    "id": "1023cbc8-09c3-4857-8a0d-677f38052e9c",
+    "description_en": "Double, sustained: enemies within 18 inches receive one level less protection from cover."
+  },
+  {
+    "collection": "skills",
+    "id": "3f7d5253-0dea-4a93-ba5f-759ed41f0388",
+    "description_en": "Basic, sustained: ignore hits from Blaze/Melta weapons; enemies ending activation within 1 inch must test for Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "529f4bf5-eb2c-4f60-acab-13ba179f960d",
+    "description_en": "Basic: centre a 5-inch Blaze blast on a visible burning enemy within 18 inches; this does not Pin."
+  },
+  {
+    "collection": "skills",
+    "id": "b8c37225-98dd-4e61-a31d-483d9a0e29c2",
+    "description_en": "Basic, sustained: place a 5-inch area within 12 inches and sight; starting or ending activation there causes a S3/AP-1 Blaze hit."
+  },
+  {
+    "collection": "skills",
+    "id": "d634b758-af5e-4329-90c7-be8c5ddb358c",
+    "description_en": "Basic, sustained: one equipped weapon gains Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "57994fa0-70cd-4558-a234-d141809c1721",
+    "description_en": "Basic: attack a visible enemy within 6 inches at S8/AP-3/D3 with Melta."
+  },
+  {
+    "collection": "skills",
+    "id": "64d168b8-e221-4a7f-a095-f63747d06945",
+    "description_en": "Basic, sustained: gain a S2/AP-2/D1 Template attack with Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "c867d5d2-7a66-4dd9-a978-684d6dce3311",
+    "description_en": "A Technomancy-only Psyker can reroll Ammo tests."
+  },
+  {
+    "collection": "skills",
+    "id": "d22e93ac-94ca-463c-9727-7d7bd18f3a18",
+    "description_en": "Simple: force an Ammo test for an enemy weapon within 18 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "ca720181-def6-4dd4-b0a3-b1b277c3e58c",
+    "description_en": "Basic, sustained: one ranged weapon gains +2 Strength, +1 Damage and Unstable."
+  },
+  {
+    "collection": "skills",
+    "id": "fb54e789-4958-404b-8e8c-1684cb65157e",
+    "description_en": "Basic, sustained: gain +2 armour save but reduce Movement by 1 inch."
+  },
+  {
+    "collection": "skills",
+    "id": "000885a2-b9ca-4ccd-ad96-d23b7df244e2",
+    "description_en": "Double: switch the Pitch Black condition on or off."
+  },
+  {
+    "collection": "skills",
+    "id": "ef965744-2830-41ed-b006-d294fc2e9695",
+    "description_en": "Basic: open a locked door within 18 inches, or open any loot casket and choose its contents."
+  },
+  {
+    "collection": "skills",
+    "id": "c3cb50d7-c261-46f4-877c-74e7b62937b6",
+    "description_en": "Basic: hit a visible target within 12 inches to move it D3 inches and Pin it; collisions cause S3 hits to affected fighters."
+  },
+  {
+    "collection": "skills",
+    "id": "961048e5-60e3-4e72-b419-ede69c90cb4a",
+    "description_en": "Double: a visible enemy within 18 inches takes a Nerve test at -3 and becomes Broken if it fails."
+  },
+  {
+    "collection": "skills",
+    "id": "309005ed-1687-49cc-9117-0a31ec4a3727",
+    "description_en": "Double, sustained: you cannot be shot; taking an action other than Move or Maintain Control ends the power."
+  },
+  {
+    "collection": "skills",
+    "id": "a01108fe-5350-4608-85c1-f3878ef65c54",
+    "description_en": "Basic: oppose Willpower with an enemy within 12 inches and sight; winning Pins the target and removes Ready."
+  },
+  {
+    "collection": "skills",
+    "id": "0afc4f83-3727-4cdd-92db-ddd07cc912d2",
+    "description_en": "Basic: give an enemy within 12 inches the Insanity condition."
+  },
+  {
+    "collection": "skills",
+    "id": "fb3fce8f-d349-430b-9ede-34bcff7e8809",
+    "description_en": "Basic: mark an enemy within 12 inches so allies reroll wound rolls against it this round."
+  },
+  {
+    "collection": "skills",
+    "id": "3605ed72-a5a9-4d66-a016-d351a5ad3524",
+    "description_en": "When activated while Pinned, pass Initiative to stand up without spending an action."
+  },
+  {
+    "collection": "skills",
+    "id": "d79228a7-d40a-4fdd-9d95-c68235717216",
+    "description_en": "Simple, sustained: gain an unmodifiable 4+ save."
+  },
+  {
+    "collection": "skills",
+    "id": "64c08d83-b6fe-4dc9-b418-61e3291ff7e4",
+    "description_en": "Basic: fire at 12/24-inch range, +1 short accuracy, S4/AP-1/D2 with Concussion, Pulverise and Reckless."
+  },
+  {
+    "collection": "skills",
+    "id": "06331339-ffe8-409b-b58c-88114fc3d355",
+    "description_en": "Basic: an enemy within 18 inches is Pinned and must pass Willpower or lose one Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "a8db76da-10d7-49fc-86c4-c13c3e595be5",
+    "description_en": "Basic, sustained: a visible Active enemy within 6 inches risks Pinning on failed Initiative and later takes -1 to hit after failed Intelligence."
+  },
+  {
+    "collection": "skills",
+    "id": "c1a9ec0c-6259-4449-8b03-6c28b281072a",
+    "description_en": "Climbing does not halve movement distance."
+  },
+  {
+    "collection": "skills",
+    "id": "04dc0eab-0c59-41fa-8db2-ad387ed7ef7f",
+    "description_en": "If taking at least two Move actions in an activation, double Movement for the final Move."
+  },
+  {
+    "collection": "skills",
+    "id": "c8a7ca81-5cd3-4b34-a65a-fb548a6ac84c",
+    "description_en": "A 6+ additional save can evade an attack; against a blast or template, success instead allows a 2-inch move to escape its area."
+  },
+  {
+    "collection": "skills",
+    "id": "ad65e6b0-e62d-447c-90e4-d267e62d8817",
+    "description_en": "Count falls and jumps as half their height, rounding up; after surviving a fall, pass Initiative to stay standing."
+  },
+  {
+    "collection": "skills",
+    "id": "6617b7e0-adbe-46d5-896d-17641ebbdd63",
+    "description_en": "Ignore the first 2 inches of a leap; no Initiative test is needed for gaps up to 2 inches plus the base size."
+  },
+  {
+    "collection": "skills",
+    "id": "4296baeb-3725-4096-8556-4cc4ee4b5a2a",
+    "description_en": "While Active, visible Juves and Gangers within 9 inches may use your Cool for Nerve tests."
+  },
+  {
+    "collection": "skills",
+    "id": "542e9d54-40ea-4f8a-b546-0a103fd8a640",
+    "description_en": "A Basic challenge marks an enemy within 12 inches; they need Willpower to attack anyone else until round end or another ally attacks them."
+  },
+  {
+    "collection": "skills",
+    "id": "e9942110-e4a6-4906-8adc-c832331154dd",
+    "description_en": "Reduce each Hired Gun fee by D6×10 credits, to a minimum of 20."
+  },
+  {
+    "collection": "skills",
+    "id": "a7234211-dc55-45c6-9e02-4a17dbe0eaaa",
+    "description_en": "Replace all melee attacks with one unarmed S/D1 attack with Knockback, Shock, Pulverise and Concussion."
+  },
+  {
+    "collection": "skills",
+    "id": "ec40e651-582c-418d-b614-40e39d7faf54",
+    "description_en": "Shotguns use short-range accuracy at long range and roll two Scattershot dice, keeping the higher."
+  },
+  {
+    "collection": "skills",
+    "id": "9dea0fad-cc4b-478e-bec1-ed0be8a0b963",
+    "description_en": "At activation start, make a free Reload before other actions."
+  },
+  {
+    "collection": "skills",
+    "id": "d302be75-b0a3-4f45-abb6-b867abfc5407",
+    "description_en": "Replace a charge's Fight, or spend a Basic action, to throw a touching engaged or nearby Seriously Injured enemy D3 inches if they fail Initiative; collision causes S3 hits and Pinning."
+  },
+  {
+    "collection": "skills",
+    "id": "12d3ab97-b9d0-4c8d-9a33-bfa0256f4160",
+    "description_en": "A melee Unwieldy weapon can be used one-handed; determine weapon slots from its asterisk rather than the Unwieldy trait alone."
+  },
+  {
+    "collection": "skills",
+    "id": "99311bfe-b71e-4745-bcb5-8b703f5e62ae",
+    "description_en": "Before rolling, nominate one non-Sidearm melee attack to gain +1 Strength and +1 Damage if it hits."
+  },
+  {
+    "collection": "skills",
+    "id": "7cf44ce4-bb29-437c-8a27-e7161f683b76",
+    "description_en": "A free headbutt against a touching engaged enemy hits at S+2/D2 if either of 2D6 reaches their Toughness; otherwise suffer S/D1 yourself."
+  },
+  {
+    "collection": "skills",
+    "id": "8f29cc41-7e4b-4f0b-ae1e-62894f607c2a",
+    "description_en": "Gain +2 Toughness against melee attacks whose AP is unmodified."
+  },
+  {
+    "collection": "skills",
+    "id": "c52e8ffd-5a01-4afe-b47c-d2214ff5a631",
+    "description_en": "Melee attacks made on a charge gain +1 Strength and Knockback."
+  },
+  {
+    "collection": "skills",
+    "id": "6a088c61-90cf-4b57-b3d8-8ac7acd508c2",
+    "description_en": "Basic: hit a visible target within 12 inches to move it D3 inches and Pin it; collisions cause S3 hits to affected fighters."
+  },
+  {
+    "collection": "skills",
+    "id": "dd1ce570-e4e9-4020-960a-3fd26442f3d1",
+    "description_en": "Simple: allies within 3 inches, including yourself, gain +1 save until the End phase."
+  },
+  {
+    "collection": "skills",
+    "id": "fd0c8573-dec3-4185-8dde-4e47c779aa27",
+    "description_en": "Basic, sustained: gain +3 inches Movement, ignore normal terrain and levels, and avoid Pinning and falling; impassable terrain and legal end positions still apply."
+  },
+  {
+    "collection": "skills",
+    "id": "242fb1db-5d33-42f2-a445-5053a712b1a8",
+    "description_en": "Basic: until the End phase, enemies ending activation within 3 inches must pass Willpower or gain Insanity."
+  },
+  {
+    "collection": "skills",
+    "id": "afbd2e13-8f60-45d3-b9eb-69d70a42d108",
+    "description_en": "An unsanctioned Psyker taken Out of Action awards the enemy D3×10 credits and may be sold for full value."
+  },
+  {
+    "collection": "skills",
+    "id": "66259bee-689a-421f-a5b5-4b859241ce5a",
+    "description_en": "Basic, sustained: gain a S2/AP-2/D1 Template attack with Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "e8726666-68de-4150-845d-13348f7a9187",
+    "description_en": "Simple, sustained: gain +2 Strength and +1 Damage in melee."
+  },
+  {
+    "collection": "skills",
+    "id": "8abf711d-fd01-4f7f-bf2a-1e6574320143",
+    "description_en": "Melee weapons gain Disarm; a weapon already possessing it disarms on an unmodified 5+ instead of 6."
+  },
+  {
+    "collection": "skills",
+    "id": "5cd1e362-7526-4ea5-adfb-cdcd6ab6fb7c",
+    "description_en": "Once per opposing fighter's melee attack sequence, pass Initiative to cancel one hit."
+  },
+  {
+    "collection": "skills",
+    "id": "b42781f8-c504-401a-b5f4-04bd30d18146",
+    "description_en": "Fight becomes a Simple action, allowing repeated Fight actions in one activation."
+  },
+  {
+    "collection": "skills",
+    "id": "dcd787cd-d445-4f2d-8397-26923d9b6697",
+    "description_en": "Each attack that misses you grants one extra attack in your ensuing Reaction attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "ff93a3f7-b10c-462e-9bf7-c201842d4ae6",
+    "description_en": "Ignore enemy interference and always provide assistance in melee."
+  },
+  {
+    "collection": "skills",
+    "id": "9c5e222f-c9dd-400e-b8b2-8aed4a60c51e",
+    "description_en": "Gain one additional Parry as if carrying a weapon with that trait."
+  },
+  {
+    "collection": "skills",
+    "id": "7eff414f-38fb-403b-b712-7793338026f5",
+    "description_en": "Basic: a visible, unactivated enemy within 9 inches may only take one Move action when activated this round."
+  },
+  {
+    "collection": "skills",
+    "id": "7ba04545-7f06-47fd-8e6d-c21ec020bf2d",
+    "description_en": "Basic: hit a visible target within 12 inches to move it D3 inches and Pin it; collisions cause S3 hits to affected fighters."
+  },
+  {
+    "collection": "skills",
+    "id": "37ad68ba-4307-459c-b661-3646cd426cd6",
+    "description_en": "Basic, sustained: allies within 9 inches may use your characteristics for Nerve and Willpower tests."
+  },
+  {
+    "collection": "skills",
+    "id": "25fd365c-3049-4a8d-b3fc-088b5aef1f85",
+    "description_en": "Double, sustained: once per turn, an ally within 9 inches may reroll hit rolls of 1 during Fight or Charge."
+  },
+  {
+    "collection": "skills",
+    "id": "6ce17eb9-ea0a-4ac8-9f33-6eb4f35ab5a3",
+    "description_en": "Basic: enemies within 3 inches are pushed D3+1 inches directly away; collision Pins and causes a hit based on push distance."
+  },
+  {
+    "collection": "skills",
+    "id": "60223a35-995c-4816-be71-51a684f00faa",
+    "description_en": "Basic: make a visible enemy within9inches immediately Shoot another eligible fighter from its own gang; this version is not a Continuous Effect."
+  },
+  {
+    "collection": "skills",
+    "id": "807953b7-0b77-4884-876f-7a7f81eddd93",
+    "description_en": "Melee weapons gain Backstab; weapons already having it receive +2 Strength rather than +1 when it applies."
+  },
+  {
+    "collection": "skills",
+    "id": "9430f900-2bda-41f7-bb50-e6915348c3c9",
+    "description_en": "While Active and without cover, incoming shots suffer -1 to hit at short range or -2 at long range."
+  },
+  {
+    "collection": "skills",
+    "id": "13ea021c-a5b0-4cd9-bc19-206cbd16857b",
+    "description_en": "A Ready, Active fighter may spend readiness to interrupt a visible enemy's declared action with a Basic shot; Pinning or Serious Injury ends that activation."
+  },
+  {
+    "collection": "skills",
+    "id": "36e47766-e7c1-4ce0-932e-7f03a18e5b2d",
+    "description_en": "Improve Retreat Initiative tests by +2; a captured fighter with a skin blade also gains +1 on rescue escape rolls."
+  },
+  {
+    "collection": "skills",
+    "id": "9a7d31f4-00a5-444d-ae04-0a060ee1359b",
+    "description_en": "Deploy after normal setup, before round one, outside enemy sight and more than 6 inches from enemies."
+  },
+  {
+    "collection": "skills",
+    "id": "f272e638-9bd2-4532-8a59-1e4217f3cc76",
+    "description_en": "While Prone, you cannot be targeted beyond the attacker's weapon short range; weapons without a short range ignore this protection."
+  },
+  {
+    "collection": "skills",
+    "id": "4b078afb-1b55-4ec7-bce6-2eb9fe6b191b",
+    "description_en": "Basic, sustained: count as fully covered against enemies within 10 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "964cf897-8758-4289-a028-c9c5572b2e51",
+    "description_en": "Double, sustained: enemies within 5 inches reroll successful ranged hit rolls."
+  },
+  {
+    "collection": "skills",
+    "id": "454c3dda-b371-46be-a9bc-7a1b96a08c16",
+    "description_en": "Basic, sustained: enemies within 5 inches suffer Pitch Black effects."
+  },
+  {
+    "collection": "skills",
+    "id": "966703a0-36d1-4a43-8b6e-f14750427f1f",
+    "description_en": "Basic: choose an ally and enemy within 5 inches, then place the ally anywhere within 5 inches of that enemy, including base contact."
+  },
+  {
+    "collection": "skills",
+    "id": "6489e2a3-e0b6-412a-966a-58656bafb7bd",
+    "description_en": "Double: all Seriously Injured enemies within 3 inches go Out of Action."
+  },
+  {
+    "collection": "skills",
+    "id": "57e94d03-2c3e-45e3-b85c-94d36d6e77be",
+    "description_en": "Basic, sustained: allies within 3 inches cannot be targeted or affected by opposing gang tactics."
+  },
+  {
+    "collection": "skills",
+    "id": "d5dadeec-0fc9-48bb-9eab-f46c70c937c0",
+    "description_en": "Simple: an enemy within 3 inches suffers a Flesh Wound if it fails Toughness."
+  },
+  {
+    "collection": "skills",
+    "id": "6977c998-672a-410c-b5b6-7b9e32535c2c",
+    "description_en": "Basic, sustained: an enemy within 3 inches treats every other fighter as hostile, and is treated as hostile in return."
+  },
+  {
+    "collection": "skills",
+    "id": "ddfd9ed6-9477-4e79-a5a1-08c7acc83c2d",
+    "description_en": "Simple: Pin an Active enemy within 12 inches, potentially triggering an edge-fall test."
+  },
+  {
+    "collection": "skills",
+    "id": "6390148b-2b83-47c0-aea7-5b6dccbd7476",
+    "description_en": "Basic: an enemy within 3 inches who fails Intelligence hits itself with a random equipped Melee weapon, or unarmed."
+  },
+  {
+    "collection": "skills",
+    "id": "731d76a2-1fca-4885-9a33-27584a7a8135",
+    "description_en": "Basic: turn an enemy within 10 inches to face any direction."
+  },
+  {
+    "collection": "skills",
+    "id": "227be86b-27f1-4445-9032-cf356090b355",
+    "description_en": "Double: an enemy within 5 inches who fails Intelligence must make a Move chosen by the Psyker, avoiding ledges and dangerous terrain."
+  },
+  {
+    "collection": "skills",
+    "id": "10586317-926f-4d05-be12-ae77dc4379ee",
+    "description_en": "Add +1 to Handling tests made to avoid losing control."
+  },
+  {
+    "collection": "skills",
+    "id": "103d8b3a-6395-45c1-9bea-c4c8f37465cb",
+    "description_en": "Once per round, roll before a Move or Ram: 1 stops movement, 2 grants +1 inch, 3–4 +2, and 5–6 +3."
+  },
+  {
+    "collection": "skills",
+    "id": "8c53a947-bf1d-42a4-9708-3f0c208de774",
+    "description_en": "Once per round, attempt an unmodifiable 6+ save against a hit on the vehicle."
+  },
+  {
+    "collection": "skills",
+    "id": "bd160fac-8535-4992-b8bc-e20565c2b935",
+    "description_en": "When a successful End-phase restart Handling test contains an unmodified 6, repair one Hull Point."
+  },
+  {
+    "collection": "skills",
+    "id": "64fcb73f-6d93-494f-9912-5a615f166ac9",
+    "description_en": "Once per round during a Move, make an additional pivot of up to 45 degrees."
+  },
+  {
+    "collection": "skills",
+    "id": "6d37cce3-8811-4fe0-97ad-a7f5cb9ec98b",
+    "description_en": "Once per round during a head-on collision, add D3 to front Toughness."
+  },
+  {
+    "collection": "skills",
+    "id": "ecedce57-5cfb-4f49-ad45-a11af7087153",
+    "description_en": "Roll one fewer Injury die; for Damage 1, roll two Injury dice and choose which one applies."
+  },
+  {
+    "collection": "skills",
+    "id": "780b3a6d-efb4-48f8-8a0d-6ac5fb050b0b",
+    "description_en": "Gain +1 Attack when charging."
+  },
+  {
+    "collection": "skills",
+    "id": "c7062bdc-13ce-4da4-8ebe-89fd67f63693",
+    "description_en": "Before Recovery, a 4+ lets you remove a Flesh Wound, or roll an extra Recovery die and discard one if you have no Flesh Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "8c847010-828e-4bbc-8ce0-37a1973c50e5",
+    "description_en": "Consolidation movement increases from 2 to 4 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "a44ae943-0310-4069-b59a-960e30669c6d",
+    "description_en": "An enemy charging you must first pass Willpower; failure ends their action before movement."
+  },
+  {
+    "collection": "skills",
+    "id": "e25750f1-07db-4466-982f-e9e3e4730379",
+    "description_en": "Pass Cool when hit by a ranged attack to avoid becoming Pinned."
+  },
+  {
+    "collection": "skills",
+    "id": "b153fd90-7d1e-4915-bf6a-d738e08b83fa",
+    "description_en": "Specified knives and swords gain Versatile range equal to your Strength."
+  },
+  {
+    "collection": "skills",
+    "id": "f8db5b3e-bb7b-43b9-914d-0a37b5e35579",
+    "description_en": "Improve Cool and Willpower by one for each enemy Seriously Injured or Out of Action; an unmodified 2 still fails."
+  },
+  {
+    "collection": "skills",
+    "id": "eb99ab80-b458-4f6e-a02d-c7e988668b0a",
+    "description_en": "Once per round, attempt a free Retreat before an engaged enemy makes an attack; your normal activation is unaffected."
+  },
+  {
+    "collection": "skills",
+    "id": "8ae6c77a-bd33-4f0d-ad29-5b7d54e4c421",
+    "description_en": "Active Move and Charge actions can pass over fighters and cross obstacles up to 2 inches high without slowing; finish in a legal position."
+  },
+  {
+    "collection": "skills",
+    "id": "53f31143-f44f-42ea-a15f-c8e8d0262786",
+    "description_en": "A Basic action places you within 6 inches and sight, more than 1 inch from enemies; this is not movement."
+  },
+  {
+    "collection": "skills",
+    "id": "52bd6f30-57e4-4b55-8a23-e74dec882f48",
+    "description_en": "After charging, take a free Retreat before enemy Reaction attacks; a failed retreat does not grant duplicate Reaction attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "28d94ed3-6e7a-4f67-ae0b-bd4725d1f99b",
+    "description_en": "Visible enemies must pass Cool to shoot you; you do not count as the nearest target for Target Priority."
+  },
+  {
+    "collection": "skills",
+    "id": "5d7f9c76-19ac-4287-86a6-d0d08969c7d7",
+    "description_en": "While standing, use the lower of 2D6 for Bottle; after a failed Bottle test, allies must reroll successful checks to stay."
+  },
+  {
+    "collection": "skills",
+    "id": "77b581b8-b166-435f-b3a2-07e0dcc16bc2",
+    "description_en": "Your Group Activation range becomes 6 inches, but cover protecting you is reduced by one level."
+  },
+  {
+    "collection": "skills",
+    "id": "fbd22998-98b1-4a34-825c-79b299e83010",
+    "description_en": "Once per battle, change one die you rolled to a 6; in reinforcement scenarios you must arrive as a reinforcement."
+  },
+  {
+    "collection": "skills",
+    "id": "f1c7dc86-3d50-4746-95c8-7972af892e06",
+    "description_en": "If still on the table at battle end, roll 2D6×5 credits; doubles award the money to the enemy instead."
+  },
+  {
+    "collection": "skills",
+    "id": "b203782e-248f-470e-b49f-557dadd9da19",
+    "description_en": "Leading by Example reaches every ally who can see you, but Group Activation capacity is reduced by one."
+  },
+  {
+    "collection": "skills",
+    "id": "716aaa8e-b34e-4259-b5e7-166c3947f9fc",
+    "description_en": "Gain D3 XP if your first Shoot action of the battle takes an enemy Out of Action."
+  },
+  {
+    "collection": "skills",
+    "id": "f2a1095c-0ed9-4cf8-a781-d25a0f3dc297",
+    "description_en": "Replace melee attacks with a single S8/D2 unarmed attack that ignores saves other than field armour."
+  },
+  {
+    "collection": "skills",
+    "id": "051d6651-6c7d-4738-b562-fc13ee23298a",
+    "description_en": "Twin Guns Blazing forces enemies within 6 inches to test Nerve; you cannot combine it with Group Activation that round."
+  },
+  {
+    "collection": "skills",
+    "id": "403fd681-78a7-4aff-a546-fa0cbd0548b7",
+    "description_en": "Once per battle, automatically hit with a non-Blast, non-Rapid-Fire shot; Firepower still rolls, and you must Shoot whenever able."
+  },
+  {
+    "collection": "skills",
+    "id": "58e01884-195c-470b-b8ef-5e0e43e2e9d8",
+    "description_en": "Once per battle, set one Firepower die to three hits; the weapon then runs out of ammo."
+  },
+  {
+    "collection": "skills",
+    "id": "cc0368c6-fbb3-4b9e-b499-a7beef223a4a",
+    "description_en": "Gain D3 XP for hitting with an Improbable Shot, but future skill advancements must be random."
+  },
+  {
+    "collection": "skills",
+    "id": "4bfc2a99-86bf-492f-a9ce-5984d16ec7ee",
+    "description_en": "An Active fighter spends a Double action and passes Leadership to let an ally within 6 inches immediately take two actions without changing their Ready state."
+  },
+  {
+    "collection": "skills",
+    "id": "38158867-db6e-41c8-b640-ef05c12a150d",
+    "description_en": "Subtract 1 from Bottle rolls while this fighter is on the battlefield and not Seriously Injured."
+  },
+  {
+    "collection": "skills",
+    "id": "e1fe0666-a465-4981-a733-d334661008c0",
+    "description_en": "Increase Group Activation capacity by one fighter."
+  },
+  {
+    "collection": "skills",
+    "id": "420540f2-421e-4c43-8cb5-8ff6e4fa7d0f",
+    "description_en": "When another ally within 6 inches earns XP, pass Leadership to grant them one additional XP."
+  },
+  {
+    "collection": "skills",
+    "id": "094e9546-fa26-4b88-9999-dfb611c270df",
+    "description_en": "When an ally within 6 inches fails Cool, pass your Leadership to turn their failure into success."
+  },
+  {
+    "collection": "skills",
+    "id": "8b398845-e88c-4490-a389-abd85e200787",
+    "description_en": "At the end of an Active fighter's activation, pass Leadership to rally all Broken allies within 6 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "baf48587-03c2-4ef8-a221-f02e615356c7",
+    "description_en": "Basic, sustained: Broken enemies within 5 inches cannot Rally."
+  },
+  {
+    "collection": "skills",
+    "id": "69aee5ab-4d9c-4490-881a-78116a20d027",
+    "description_en": "Basic: a Ready enemy within 3 inches must activate next and cannot make a Group Activation."
+  },
+  {
+    "collection": "skills",
+    "id": "ae44e025-7218-4abf-ad6a-8080a0a3a442",
+    "description_en": "Simple: an enemy within 1 inch who fails Intelligence breaks and immediately flees, potentially breaking nearby allies."
+  },
+  {
+    "collection": "skills",
+    "id": "fead8e4f-96fb-4a36-9015-75f6678cdc03",
+    "description_en": "Simple, sustained: enemies activating within 3 inches lose one action and cannot take Double actions when reduced to one."
+  },
+  {
+    "collection": "skills",
+    "id": "f4964358-95c7-481c-bed7-85d554490cf8",
+    "description_en": "Double: remove Ready from an enemy within 1 inch."
+  },
+  {
+    "collection": "skills",
+    "id": "926b2c88-773b-4df3-89f0-8941b13599b9",
+    "description_en": "Basic: an enemy within 3 inches who fails Intelligence gains Insanity."
+  },
+  {
+    "collection": "skills",
+    "id": "37aea8e1-aba3-4d2c-886c-0698ffa5bdf8",
+    "description_en": "A Double Tank action grants +2 saves, immunity to Pinning and forced movement until your next activation."
+  },
+  {
+    "collection": "skills",
+    "id": "c1aa0717-935a-4e46-b341-cc32df99ab9a",
+    "description_en": "While engaged, a Simple Flex action pushes touching fighters D3 inches away if they fail Strength."
+  },
+  {
+    "collection": "skills",
+    "id": "1873d25c-4ed0-4476-b598-540906aaf883",
+    "description_en": "Unarmed attacks gain +2 Strength and Damage 2."
+  },
+  {
+    "collection": "skills",
+    "id": "f71dc50a-2021-4a7d-b1d8-90ff51e522f2",
+    "description_en": "After taking at least two Move actions, pass Toughness at activation end to heal one Wound or Flesh Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "be595687-846b-43e3-8937-a6e411cadf98",
+    "description_en": "Flesh Wounds do not lower Toughness, but reaching your Toughness in Flesh Wounds still takes you Out of Action."
+  },
+  {
+    "collection": "skills",
+    "id": "5eb40218-521b-45d8-8d67-e6b8c8d9666e",
+    "description_en": "Until your activation each round, enemies must pass Willpower to shoot you or place a blast over you; failure allows another target."
+  },
+  {
+    "collection": "skills",
+    "id": "83331bde-6dbe-4616-b180-e47ee0513e57",
+    "description_en": "A successful post-battle Intelligence test transfers D3 Reputation from an opposing gang to yours."
+  },
+  {
+    "collection": "skills",
+    "id": "330e1595-c862-4185-b898-c0f0c0f9f3ff",
+    "description_en": "Before crew selection, an opposing Intelligence failure grants one extra fighter in your starting crew."
+  },
+  {
+    "collection": "skills",
+    "id": "826e3913-19f4-4ef3-b3fc-4df73df6e16d",
+    "description_en": "When randomising a scenario, roll 3D6 and discard one die."
+  },
+  {
+    "collection": "skills",
+    "id": "ca4badcd-6b12-400b-9225-b5df8e0c9f3f",
+    "description_en": "Reroll Willpower tests to use or resist Wyrd Powers; Ghast is Common for your purchases."
+  },
+  {
+    "collection": "skills",
+    "id": "2843ce4c-2a03-4979-8916-4d5c5f68ccd9",
+    "description_en": "After winning, a 4+ lets you choose one eligible enemy you personally took Out of Action as the gang's captured fighter."
+  },
+  {
+    "collection": "skills",
+    "id": "48fba6f1-fd80-418b-bfd2-fc15c794e920",
+    "description_en": "Basic, sustained: ignore hits from Blaze/Melta weapons; enemies ending activation within 1 inch must test for Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "11397edb-714a-4d40-b083-058b43f56f37",
+    "description_en": "Basic: hit a visible target within 12 inches; destroy an obstacle, or make a fighter suffer an Injury roll if they pass their save."
+  },
+  {
+    "collection": "skills",
+    "id": "7786311b-7f81-4bd1-bb78-6d0d178ffb7e",
+    "description_en": "Basic, sustained: gain an additional unmodifiable 5+ save against melee attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "09f8b0e6-8f74-41ce-9b1f-7e1ac099c1c3",
+    "description_en": "Basic, sustained: one ranged weapon gains +2 Strength, +1 Damage and Unstable."
+  },
+  {
+    "collection": "skills",
+    "id": "bb0d7b2b-4c83-42dd-81e3-86854363f1af",
+    "description_en": "Double: a visible enemy within 18 inches takes a Nerve test at -3 and becomes Broken if it fails."
+  },
+  {
+    "collection": "skills",
+    "id": "d2b60933-aa3f-465b-a22b-5e9d1954708f",
+    "description_en": "Simple: force an Ammo test for an enemy weapon within 18 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "c4037a05-3661-4405-a4b9-b4e42017544b",
+    "description_en": "Once per round while Active, interrupt a visible enemy charge with a Basic shot; if it Pins or Seriously Injures them, their activation ends."
+  },
+  {
+    "collection": "skills",
+    "id": "89bb2837-ee20-4d5c-bcfd-4b8f33c2070a",
+    "description_en": "Restrain instead of Coup de Grace, assigning Captured; normal escape checks remain."
+  },
+  {
+    "collection": "skills",
+    "id": "d4cdc1b2-ce15-45cc-9b30-c5bb5ebddbda",
+    "description_en": "Gain Group Activation, or increase its capacity by one."
+  },
+  {
+    "collection": "skills",
+    "id": "ea5677cf-3e5d-4b47-8289-6a429aef737c",
+    "description_en": "A Ready, Active fighter may spend readiness to charge an enemy ending a charge within 6 inches, resolving their attacks before the enemy continues."
+  },
+  {
+    "collection": "skills",
+    "id": "d32226dc-3e27-4e53-b55e-609abca5e0c2",
+    "description_en": "Visible allies may use your Cool for Nerve."
+  },
+  {
+    "collection": "skills",
+    "id": "20d46fbb-cd2f-4b17-9019-7b7bcd7afb38",
+    "description_en": "Coup de Grace grants +1 XP."
+  },
+  {
+    "collection": "skills",
+    "id": "b7ff3386-2bb8-4c22-87f8-7e6ac96677d9",
+    "description_en": "At activation start, boost WS, Cool, Leadership and Willpower by separate D3 rolls; suffer an unsaveable Damage 1 hit at its end."
+  },
+  {
+    "collection": "skills",
+    "id": "2b15b438-87d8-44ab-adbf-2a0143802151",
+    "description_en": "Act normally while ablaze, though damage still applies, and ignore Insanity."
+  },
+  {
+    "collection": "skills",
+    "id": "26d06912-6fdc-4b54-8721-39f20ee6067e",
+    "description_en": "You may fight while in Recovery but begin the battle with a Flesh Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "2cc73c4f-7021-4721-925f-230b8fef9cc4",
+    "description_en": "Visible friendly Juves within 12 inches gain +2 Cool/Willpower; bomb rats ending within 3 inches must move away."
+  },
+  {
+    "collection": "skills",
+    "id": "6b60811c-cc8f-4806-86e7-90cdf896cd77",
+    "description_en": "Add +1 to scenario reward rolls for loot, scrap and harvested goods."
+  },
+  {
+    "collection": "skills",
+    "id": "ba0bdfd4-585e-4705-aba7-d1ee00f739f6",
+    "description_en": "While Seriously Injured, make Reaction attacks, resist Coup de Grace, and use a Double action to crawl M+D3 toward a friendly faction fighter."
+  },
+  {
+    "collection": "skills",
+    "id": "8828f70f-639b-41ca-bbc3-0eab092a2283",
+    "description_en": "After a Coup de Grace, make a 2-inch consolidation."
+  },
+  {
+    "collection": "skills",
+    "id": "1cfa9435-d1b0-463f-8c74-26b77614b427",
+    "description_en": "Each unsaved wound dealt with a Melee weapon adds 1 inch to Movement for the rest of the battle."
+  },
+  {
+    "collection": "skills",
+    "id": "f69a303d-9c30-4275-bea6-887cd4f3f262",
+    "description_en": "Replace melee attacks with one non-Sidearm attack that doubles Strength and Damage and ignores armour saves if it hits."
+  },
+  {
+    "collection": "skills",
+    "id": "40702842-2993-41ac-9747-159b4cc630e8",
+    "description_en": "On the charge, gain D3 Attacks but suffer -1 to hit."
+  },
+  {
+    "collection": "skills",
+    "id": "feb50fba-8937-4120-8401-c815f22717a9",
+    "description_en": "Automatically pass Nerve tests while Engaged."
+  },
+  {
+    "collection": "skills",
+    "id": "7399c4fc-f578-473d-a203-ee2dd13a1a3a",
+    "description_en": "Remove one Flesh Wound for each unsaved wound dealt to an enemy with a Melee weapon."
+  },
+  {
+    "collection": "skills",
+    "id": "c6f9a321-62c8-4340-b9e0-101de29644c2",
+    "description_en": "A Basic Treat Wounds action heals one Wound or Flesh Wound on a friendly fighter within 1 inch on 3+."
+  },
+  {
+    "collection": "skills",
+    "id": "72c993c2-fd09-4b60-8775-8df245481e92",
+    "description_en": "Friendly fighters within 6 inches, including yourself, may reroll failed Ammo tests."
+  },
+  {
+    "collection": "skills",
+    "id": "3b38f199-22b5-4524-a81c-105c2e6ab61b",
+    "description_en": "After aiming, pass Intelligence for a further +1 to the shot's hit roll."
+  },
+  {
+    "collection": "skills",
+    "id": "77dfb048-3690-4779-ac74-a0fbedb52eba",
+    "description_en": "An eligible fighter may take an extra Trade post-battle action, including trading twice."
+  },
+  {
+    "collection": "skills",
+    "id": "8760a2ae-edf7-455d-9f6e-cf2652b19fe3",
+    "description_en": "Trading gains +1 Availability and a 20-credit reduction on one purchased item."
+  },
+  {
+    "collection": "skills",
+    "id": "e2c7995c-7209-492c-94f0-50b9fabda931",
+    "description_en": "Earn D3×10 credits after battle while neither captured nor in Recovery, even if you did not participate."
+  },
+  {
+    "collection": "skills",
+    "id": "6441d622-b3ea-4217-bdd0-1fec00519d94",
+    "description_en": "Shoot is Simple rather than Basic; this does not work with Unwieldy weapons."
+  },
+  {
+    "collection": "skills",
+    "id": "6dcedafb-03b4-4504-a942-56cbd0c4277b",
+    "description_en": "Ignore the two-Sidearm shooting penalty and allow each pistol to target a different enemy."
+  },
+  {
+    "collection": "skills",
+    "id": "e12c07f3-4fe5-4f8c-a5c5-ee8729925081",
+    "description_en": "A Double Run & Gun action moves up to twice Movement, then fires with -1 to hit; Unwieldy weapons cannot use it."
+  },
+  {
+    "collection": "skills",
+    "id": "ad14ad45-2986-4b00-b757-082f5eb7fc60",
+    "description_en": "Ignore Target Priority; an unmodified hit of 6 doubles Damage, excluding Blast and applying only to the first Rapid Fire hit."
+  },
+  {
+    "collection": "skills",
+    "id": "9518eb83-c10c-4f1b-a7dc-3f0351209ae3",
+    "description_en": "An unmodified hit of 6 bypasses armour saves, except for Blast attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "43095380-4e72-4fea-8741-16ab4b21a69b",
+    "description_en": "Ignore partial-cover and engaged-target shooting penalties; full cover applies only -1."
+  },
+  {
+    "collection": "skills",
+    "id": "d1ca5950-3d77-4a6b-bafb-3a1bb45a8108",
+    "description_en": "Gas/Toxin uses the lower of 2D6; Rad-phage can heal a Flesh Wound on 4+ instead of adding one; you are always Revealed in darkness."
+  },
+  {
+    "collection": "skills",
+    "id": "41ebf358-a2fd-430d-9512-6acdff9b5409",
+    "description_en": "Once per round, use Intelligence instead of Cool or Willpower for one test."
+  },
+  {
+    "collection": "skills",
+    "id": "3253a7bc-07db-41c8-b71d-37b8ff64f371",
+    "description_en": "Before round one, replace a weapon's Plentiful with Knockback, Pulverise, Rending, Shock or an extra Rapid Fire die if already Rapid Fire."
+  },
+  {
+    "collection": "skills",
+    "id": "b0f96854-9708-419c-b994-aaf0d59cb7e6",
+    "description_en": "Your Scarce weapons lose Scarce; other weapons gain Plentiful."
+  },
+  {
+    "collection": "skills",
+    "id": "06ee62d6-19c2-4451-9af5-53d7595d9777",
+    "description_en": "Ignore Insanity and attempt to disrupt a Wyrd Power targeting you as though you were a Psyker."
+  },
+  {
+    "collection": "skills",
+    "id": "25c8d331-d8c7-4118-9f94-66f8128360c1",
+    "description_en": "Your las weapons may gain +1 Strength with Unstable, or reroll Ammo tests."
+  },
+  {
+    "collection": "skills",
+    "id": "8ec86fc8-eeac-47c3-949b-5f7d50057418",
+    "description_en": "Once per battle, force rerolls of all successful hits from one ranged attack; your next activation is limited to Move actions."
+  },
+  {
+    "collection": "skills",
+    "id": "54265bff-bfb0-4514-9806-7df7993f3450",
+    "description_en": "If captured, choose another gang fighter to replace you; that replacement cannot be rescued."
+  },
+  {
+    "collection": "skills",
+    "id": "d99028f0-6078-4805-9da4-d1063d0431df",
+    "description_en": "The first Serious Injury or Out of Action result becomes a Flesh Wound; if later taken out, your gang fails its next required Bottle test."
+  },
+  {
+    "collection": "skills",
+    "id": "7b62cbb5-a9e2-47bd-8621-177c0479427f",
+    "description_en": "Ignore all Blaze effects but cannot use or benefit from Leading by Example."
+  },
+  {
+    "collection": "skills",
+    "id": "58c4933c-3896-4fac-b24d-392e31ebd584",
+    "description_en": "Gain a 3+ save against environmental damage; after using it, you cannot join or initiate your next Group Activation."
+  },
+  {
+    "collection": "skills",
+    "id": "017e911a-5222-44f3-964b-5d882b034cae",
+    "description_en": "A 6+ turns one incoming Melee hit into a miss and disarms the attacker for Reaction attacks that round."
+  },
+  {
+    "collection": "skills",
+    "id": "3b2c3a50-ad5a-4e75-b743-13ec689ef33a",
+    "description_en": "While mounted, add one S3/AP-1 attack to Fight and Reaction attacks."
+  },
+  {
+    "collection": "skills",
+    "id": "f90a7fa0-a0da-4e62-bdb0-536b4632d691",
+    "description_en": "A Basic action marks a visible enemy for the round: allies ignore Target Priority and reroll hit rolls when shooting that enemy."
+  },
+  {
+    "collection": "skills",
+    "id": "f713f7d5-96b5-4616-aa43-1acedd8b81f9",
+    "description_en": "Gain +2 inches Movement when starting the activation on the battlefield surface."
+  },
+  {
+    "collection": "skills",
+    "id": "846489da-d13c-4dcd-9d2c-44b217a59148",
+    "description_en": "Reaction attacks gain +1 Attack and ignore the penalty for turning to face the attacker."
+  },
+  {
+    "collection": "skills",
+    "id": "93a31b89-1dd4-4915-a2d3-89c1c3c44ba8",
+    "description_en": "Extend Visibility by 6 inches and see up to 9 inches in Pitch Black."
+  },
+  {
+    "collection": "skills",
+    "id": "e7d228a1-8075-4705-bbec-8cba1b4a195a",
+    "description_en": "Immediately before going Out of Action, make a Basic Shoot or Fight action even if not Ready."
+  },
+  {
+    "collection": "skills",
+    "id": "fb6fda80-326e-4e36-96f4-5f11ca332864",
+    "description_en": "Your weapons ignore Unstable and may reroll Ammo tests."
+  },
+  {
+    "collection": "skills",
+    "id": "2ce15e06-c587-4d7a-ba76-ec9159411255",
+    "description_en": "If available after battle, gain D6×10 credits for each enemy vehicle wrecked."
+  },
+  {
+    "collection": "skills",
+    "id": "7c7a96df-9596-45da-b018-a8755b91b880",
+    "description_en": "Enemy weapons and skills cannot move you; automatically pass edge-fall tests caused by becoming Pinned."
+  },
+  {
+    "collection": "skills",
+    "id": "19a738cc-a3f5-4c7b-b925-a902aa730dba",
+    "description_en": "Each chem dose can be used twice before being consumed."
+  },
+  {
+    "collection": "skills",
+    "id": "9f878391-1c6f-4474-8ac1-c5279e90b6ec",
+    "description_en": "Opening a loot casket grants D6×10 credits."
+  },
+  {
+    "collection": "skills",
+    "id": "182f0f1e-8127-46c2-8dc6-5b87f764d549",
+    "description_en": "Basic: hit a visible target within 12 inches to move it D3 inches and Pin it; collisions cause S3 hits to affected fighters."
+  },
+  {
+    "collection": "skills",
+    "id": "fd7ef346-4092-42eb-b508-3f0ad512d0e8",
+    "description_en": "A Chronomancy-only Psyker can take one extra action once per battle."
+  },
+  {
+    "collection": "skills",
+    "id": "66a52e1d-3f80-49f0-a53f-c8ba57d86a1b",
+    "description_en": "Double: fighters within 12 inches, including allies, are limited to one action on activation this round."
+  },
+  {
+    "collection": "skills",
+    "id": "f26bdd6f-0ead-4e5d-bfb4-277559357ea5",
+    "description_en": "Basic: disable one known Wyrd Power of an enemy Psyker within 18 inches and sight for the round."
+  },
+  {
+    "collection": "skills",
+    "id": "378ec513-2ffd-4cad-b966-3e6030fa76c3",
+    "description_en": "Basic, sustained: gain BS2+ and ignore cover hit penalties, except with Blast or Rapid Fire weapons."
+  },
+  {
+    "collection": "skills",
+    "id": "d5edfabb-7527-42db-a003-1958b4d1adc9",
+    "description_en": "Double: relocate within 8 inches, staying more than 1 inch from enemies."
+  },
+  {
+    "collection": "skills",
+    "id": "37505eba-6115-4425-adf4-fea99b50a6bc",
+    "description_en": "Basic: attacks against you suffer -1 to hit and Retreat triggers no Reaction attacks until the End phase."
+  },
+  {
+    "collection": "skills",
+    "id": "005c85c4-f306-45ba-923f-0dd48aa04b8d",
+    "description_en": "Basic, sustained: once per round an attacker must reroll a successful hit against you."
+  },
+  {
+    "collection": "skills",
+    "id": "8c6bbdb0-4f3b-42ca-8496-d02c27341a79",
+    "description_en": "A Divination-only Psyker can reroll one dice roll during their activation once per battle."
+  },
+  {
+    "collection": "skills",
+    "id": "eff52413-e582-48c9-aa6f-845df9c840e7",
+    "description_en": "Before battle, choose the scenario and take the attacker role; an opposing Psyker with the same power cancels this advantage."
+  },
+  {
+    "collection": "skills",
+    "id": "fe6b9f2f-ced0-4517-9ca1-ae05c8fa70aa",
+    "description_en": "Basic, sustained: one equipped weapon gains Blaze."
+  },
+  {
+    "collection": "skills",
+    "id": "4351d26e-ff39-4a1b-9c2d-b92e1e92662e",
+    "description_en": "Double: fighters within 12 inches, including allies, are limited to one action on activation this round."
+  },
+  {
+    "collection": "skills",
+    "id": "42d5cbdb-02ad-460a-9c03-9349d610c34d",
+    "description_en": "Simple: force an Ammo test for an enemy weapon within 18 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "824b30c3-4d5f-45eb-9599-08ae0dadbfbe",
+    "description_en": "Double: a visible enemy within 18 inches takes a Nerve test at -3 and becomes Broken if it fails."
+  },
+  {
+    "collection": "skills",
+    "id": "42f29133-d053-4a79-80e0-04568dc0bf18",
+    "description_en": "Basic, sustained: gain +3 inches Movement and improve WS, BS and Initiative by one, to a maximum of 2+."
+  },
+  {
+    "collection": "skills",
+    "id": "f249def6-f237-468f-a8d5-7db68c4f996e",
+    "description_en": "Once per battle, declare at activation start: run-over avoidance succeeds only on natural 6 this activation."
+  },
+  {
+    "collection": "skills",
+    "id": "376e5003-8b83-4834-9104-d2d8773a02fb",
+    "description_en": "With a vehicle of Toughness 6 or higher, automatically pass one Loss of Control test per battle."
+  },
+  {
+    "collection": "skills",
+    "id": "6fbc1458-31f3-408b-9319-5a322ba43788",
+    "description_en": "Once per battle, perform a free Basic Drift during activation."
+  },
+  {
+    "collection": "skills",
+    "id": "6b4214d3-a1d9-4498-a28f-22a5b70d6834",
+    "description_en": "The first Rolls result each battle loses one Hull Point instead of automatically wrecking; random movement still applies."
+  },
+  {
+    "collection": "skills",
+    "id": "1adb1127-5fc8-42cf-9e48-e1abeb80ee45",
+    "description_en": "Fighters ending activation on this vehicle outside its transport area suffer an S3/AP-/D1 hit without Pinning."
+  },
+  {
+    "collection": "skills",
+    "id": "0b3bcb2a-a5fb-4272-825c-883482a4ab38",
+    "description_en": "Once per battle after ramming, freely Fire All at a vehicle hit by that ram."
+  },
+  {
+    "collection": "skills",
+    "id": "fc2b5703-00c2-4175-86c0-8274697e2723",
+    "description_en": "Once per battle after an ally falls, Double Officer Down brings an available reserve at End phase."
+  },
+  {
+    "collection": "skills",
+    "id": "0a9b8875-9e78-487c-b6eb-0493f3b6efc0",
+    "description_en": "Randomly mark an enemy; its removal earns D6×10 credits."
+  },
+  {
+    "collection": "skills",
+    "id": "38e9d64b-c1e9-4d37-a600-bce7434a981f",
+    "description_en": "Share your shield protection with touching allies; shield benefits never stack."
+  },
+  {
+    "collection": "skills",
+    "id": "cfb09700-a664-4a2f-9aba-560f4e5c4427",
+    "description_en": "Your beasts' permitted separation increases 6 inches."
+  },
+  {
+    "collection": "skills",
+    "id": "3f60cac9-b914-4f60-9ead-767afc360cde",
+    "description_en": "Basic Command plus Leadership success grants one beast two actions without spending Ready."
+  },
+  {
+    "collection": "skills",
+    "id": "c8cf0e8d-ba49-49ee-b9ea-d9a5ede0f480",
+    "description_en": "Your beast gains +1 Attack against your shared engaged enemy."
+  },
+  {
+    "collection": "skills",
+    "id": "2e02d533-0685-4eed-a7d8-08bf944083b1",
+    "description_en": "Your first Charge adds D6 instead of D3."
+  },
+  {
+    "collection": "skills",
+    "id": "cc32e4d4-e62d-46c8-bce5-a3c96e55d17e",
+    "description_en": "Sell Common gear at full price; discount the first Common purchase D3×10, minimum5."
+  },
+  {
+    "collection": "skills",
+    "id": "c76e4438-aac5-4fc3-9a86-1d19e59c46d7",
+    "description_en": "Replace one Injury die from a Poison/Gas wound with Flesh Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "205aa4cb-1e6d-4ffd-82ce-205fde4b97d5",
+    "description_en": "Ignore psychic powers; indirect physical damage remains subject to Arbitrator ruling."
+  },
+  {
+    "collection": "skills",
+    "id": "5daba8a1-e6dd-4583-97c8-ec673d723712",
+    "description_en": "While covered, incoming shots suffer an additional -1; vision becomes180 degrees."
+  },
+  {
+    "collection": "skills",
+    "id": "5ed11002-be22-454f-9f89-5db38f4d46fd",
+    "description_en": "Gain +1 Attack and use up to three Melee/Sidearm weapons simultaneously."
+  },
+  {
+    "collection": "skills",
+    "id": "8cac0255-46c6-43db-8c2c-bbb2fcdc3c3e",
+    "description_en": "Gain Fearsome; enemies activating within3inches test Nerve."
+  },
+  {
+    "collection": "skills",
+    "id": "7407d046-844b-4679-9330-e3ce55655808",
+    "description_en": "Unarmed attacks gain S+1/AP-1 and Rending."
+  },
+  {
+    "collection": "skills",
+    "id": "d95ad1fe-4a4f-4301-8249-569aa8d6d558",
+    "description_en": "Incoming melee hits suffer-1; once per battle a Basic action hits everyone else within3inches with D1/Toxin."
+  },
+  {
+    "collection": "skills",
+    "id": "e6fed2e0-ead3-4c21-b926-1219c42f5910",
+    "description_en": "Natural4+ armour cannot be improved by armour."
+  },
+  {
+    "collection": "skills",
+    "id": "156f9071-ea9f-4b8b-a6b9-bfc36ef50984",
+    "description_en": "Unarmed attacks gain Parry; reroll failed tests to avoid falling."
+  },
+  {
+    "collection": "skills",
+    "id": "3acf8849-ae26-45ac-9141-fbaaaea0296c",
+    "description_en": "When wounded, other fighters within1inch fail Initiative to suffer D1/Toxin."
+  },
+  {
+    "collection": "skills",
+    "id": "26b115a7-96d9-495a-9d02-c0096dc045c7",
+    "description_en": "Ignore Twin Guns Blazing penalty; vision becomes180degrees."
+  },
+  {
+    "collection": "skills",
+    "id": "4a54311b-b070-4b19-b15f-0e610965ad64",
+    "description_en": "Gain+1Wound."
+  },
+  {
+    "collection": "skills",
+    "id": "b9066e23-573e-4a4c-8374-51c90031e79b",
+    "description_en": "Leap up to Movement without Initiative; falls cause neither damage nor Prone."
+  },
+  {
+    "collection": "skills",
+    "id": "364586fe-380b-4587-bef8-79d6c39d1cc9",
+    "description_en": "Basic, sustained: allies within12inches may Shoot or Fight just before going Out of Action."
+  },
+  {
+    "collection": "skills",
+    "id": "625e4955-48d1-4ab3-9210-3a892ac49188",
+    "description_en": "Double: remove Ready from a standing Active enemy within9inches."
+  },
+  {
+    "collection": "skills",
+    "id": "a17b30b4-1ae3-4433-ab21-ffae1f29bbf9",
+    "description_en": "Basic: an enemy within12inches takes a Nerve test."
+  },
+  {
+    "collection": "skills",
+    "id": "87ed08b9-d909-4fcd-9fe9-803216f50ebc",
+    "description_en": "Basic: an enemy within12inches suffers S3/AP-1/D1; causing a wound heals one of your Wounds or Flesh Wounds."
+  },
+  {
+    "collection": "skills",
+    "id": "6af19ee9-1bc5-4ee6-8015-fa22a605d6a0",
+    "description_en": "Basic, sustained: set a target within9inches to WS6+/BS6+."
+  },
+  {
+    "collection": "skills",
+    "id": "4d810f6d-1acf-4337-bfe4-ea672199f313",
+    "description_en": "Basic, sustained: enemies within12inches worsen Cool by1."
+  },
+  {
+    "collection": "skills",
+    "id": "19a71e75-f69d-4c3c-b64c-92b380c0d14f",
+    "description_en": "With a sky mantle, Hide in the Wastes becomes Basic and can also be used in Underhive battles."
+  },
+  {
+    "collection": "skills",
+    "id": "52e3230c-9048-4eed-8fc0-745477d12e00",
+    "description_en": "Post-battle: choose a territory, keep Income but forgo other Boons and gain D6×10 extra credits; repeated uses need different territories."
+  },
+  {
+    "collection": "skills",
+    "id": "f0a7ec73-0de6-4aca-83ba-e4fb32e5b9a7",
+    "description_en": "Post-battle: gain2D3×10 credits for vehicle Wargear/Upgrades only; unspent credits expire."
+  },
+  {
+    "collection": "skills",
+    "id": "6faa073d-7ec6-4ea8-97fd-5a94dee28a39",
+    "description_en": "Post-battle: add3 to Availability for Rare/Illegal equipment."
+  },
+  {
+    "collection": "skills",
+    "id": "b49379f2-ea46-4269-99ce-6f2a248b6889",
+    "description_en": "Post-battle: gain Berserker for the next battle."
+  },
+  {
+    "collection": "skills",
+    "id": "700e15f1-389a-41f7-a018-126b7f398e98",
+    "description_en": "Post-battle: purchase bionics as Common equipment."
+  },
+  {
+    "collection": "skills",
+    "id": "e69898ea-d0ad-4cae-9073-d1ea362cfcbd",
+    "description_en": "Post-battle: newly hired fighters receive D3XP."
+  },
+  {
+    "collection": "skills",
+    "id": "824d7247-d6b1-4005-ab97-5ba5c5437529",
+    "description_en": "Post-battle: one of your weapons permanently gains Master-crafted."
+  },
+  {
+    "collection": "skills",
+    "id": "58942f4c-c40b-4681-8463-af0598d6d288",
+    "description_en": "Post-battle: D3 friendly fighters gain Infiltrate for the next battle."
+  },
+  {
+    "collection": "skills",
+    "id": "e2c63333-3385-4578-b518-d8a3db827604",
+    "description_en": "Post-battle: reduce Negotiate Repairs cost by2D6×10 credits."
+  },
+  {
+    "collection": "skills",
+    "id": "375b08e9-93aa-474e-b650-03728dbfc4a4",
+    "description_en": "Post-battle: select an ally; a Leadership test grants D3XP on success or Recovery on failure."
+  },
+  {
+    "collection": "skills",
+    "id": "bc6728f7-24c5-4342-8582-6de90dc8fa65",
+    "description_en": "Post-battle Leadership success grants D3 free Hive Scum for the next battle."
+  },
+  {
+    "collection": "skills",
+    "id": "41e8fe3c-c51e-465f-aea0-95c2836f8c3e",
+    "description_en": "Post-battle: every participating gang independently earns D6×10 credits."
+  },
+  {
+    "collection": "skills",
+    "id": "1a85c4cd-ccf4-4e2c-ab74-98e43d7a8b22",
+    "description_en": "Post-battle: reroll one ally's Lasting Injury from this battle; keep the new result."
+  },
+  {
+    "collection": "skills",
+    "id": "f6a32d9b-7cea-4f66-8363-ec9ccfa139b0",
+    "description_en": "Post-battle: replace one of your skills with another from the same set or one of your Primary sets."
   }
 ]

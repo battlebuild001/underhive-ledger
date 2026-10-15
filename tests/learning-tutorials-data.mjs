@@ -10,10 +10,10 @@ vm.runInNewContext(source,context);
 const lessons=JSON.parse(JSON.stringify(context.UK_TUTORIALS));
 const byId=new Map(lessons.map(lesson=>[lesson.id,lesson]));
 const rules=new Map(catalog.coreRules.map(rule=>[rule.id,rule]));
-assert.equal(lessons.length,12);
+assert.equal(lessons.length,18);
 assert.equal(byId.size,lessons.length,'Lesson IDs are unique.');
-assert.equal(lessons.flatMap(lesson=>lesson.steps).length,72);
-assert.equal(lessons.flatMap(lesson=>lesson.steps).filter(step=>step.exercise).length,24);
+assert.equal(lessons.flatMap(lesson=>lesson.steps).length,108);
+assert.equal(lessons.flatMap(lesson=>lesson.steps).filter(step=>step.exercise).length,36);
 
 function bilingual(value,path){
  assert(value&&typeof value==='object',path+' is bilingual.');
@@ -59,8 +59,10 @@ for(const lesson of lessons){
  assert(choices>=2,lesson.id+' includes at least two verifiable exercises.');
 }
 const shared=lessons.filter(lesson=>lesson.editions.includes('n23'));
-assert.equal(shared.length,2);assert(shared.every(lesson=>lesson.category==='app'&&lesson.references.length===0));
-assert(lessons.filter(lesson=>lesson.category!=='app').every(lesson=>lesson.editions.join()==='n26'));
+assert.equal(shared.length,8);
+assert.equal(shared.filter(lesson=>lesson.category==='app'&&lesson.references.length===0).length,2);
+assert.equal(shared.filter(lesson=>lesson.category!=='app'&&lesson.editions.join()==='n23').length,6);
+assert(lessons.filter(lesson=>lesson.category!=='app').every(lesson=>lesson.editions.length===1),'Game lessons must select exactly one edition.');
 
 const rule=id=>rules.get('n26-core-'+id).rule_data;
 const findStep=(lesson,step)=>byId.get(lesson).steps.find(value=>value.id===step);
@@ -99,4 +101,15 @@ assert.equal(rule('visit-trading-post').tp_formula_status,'unresolved_translatio
 const appSource=(await Promise.all(['app.js','campaign-enrollment.js','account-parity.js'].map(file=>readFile(new URL('../dist/'+file,import.meta.url),'utf8')))).join('\n');
 for(const token of ['new-gang','new-campaign','new-fighter','enrollment-open','owner-save','join-submit','join-retry','approve','withdraw','export','import'])assert(appSource.includes(token),'Documented workflow exists: '+token);
 assert.doesNotMatch(source,/battletablehobby|번역 합본|rulebook-enrichment|P\d{4}|sediment:\/\//i,'Tutorials contain no private upload provenance.');
-console.log(`Tutorial data: ${lessons.length} bilingual lessons, 72 steps, 24 sandbox exercises, ${references} valid edition-bound references, workflow checks, and worked examples passed.`);
+// Independent N23 examples catch edition leakage and arithmetic mistakes.
+const n23=id=>rules.get('n23-core-'+id).rule_data;
+assert.equal(n23('action-economy').actions.Move,'Simple');
+assert.equal(n23('action-economy').actions.Shoot,'Basic');
+assert.equal(n23('ranged-modifiers').partial_cover_hit_modifier,-1);
+assert.equal(n23('advancement').spend_xp,true);
+assert.equal(n23('advancement').chosen_secondary_skill_base_xp,12);
+assert.equal(answer('n23-movement','movement-practice'),(1+2*n23('movement-terrain').difficult_terrain_distance_cost)+' inches');
+assert.equal(answer('n23-close-combat','dice-practice'),'Four: two for each weapon');
+assert.equal(n23('damage-and-injury').example.injury_dice,2);
+assert.equal(answer('n23-injury-recovery','damage-practice'),'Two');
+console.log(`Tutorial data: ${lessons.length} bilingual lessons, 108 steps, 36 sandbox exercises, ${references} valid edition-bound references, workflow checks, and worked examples passed.`);

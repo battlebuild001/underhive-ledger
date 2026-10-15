@@ -7,6 +7,10 @@ const root=path.resolve(__dirname,'..');
 const pause=()=>new Promise(resolve=>setTimeout(resolve,15));
 async function ready(test,label){for(let attempt=0;attempt<120;attempt++){if(test())return;await pause()}throw Error('Timed out: '+label)}
 
+async function acknowledgeRoster(w,gangId){
+ const expression='data.gangs.find(g=>g.id==='+JSON.stringify(gangId)+')';if(!w.eval('window.MMRosterValidation?.requiresReview('+expression+')'))return;
+ const reviewed=w.eval('window.MMRosterValidation.ensureReviewed('+expression+',"test-house-rule")');const form=w.document.querySelector('#modal-form');assert(form?.elements.rosterException,'Roster review must be explicit');form.elements.rosterException.checked=true;form.elements.rosterReason.value='Test campaign uses an explicitly agreed existing roster.';w.document.querySelector('#modal-submit').click();assert.equal(await reviewed,true);
+}
 (async()=>{
  const {handleApi}=await import(path.join(root,'worker/account-api.js'));
  const sql=new DatabaseSync(':memory:');sql.exec('PRAGMA foreign_keys=ON');
@@ -48,7 +52,7 @@ async function ready(test,label){for(let attempt=0;attempt<120;attempt++){if(tes
   await ready(()=>owner.state().campaigns.length===1,'campaign created through UI');
   const campaignId=owner.state().campaigns[0].id;
   owner.w.eval("campaign().privateNotes='host campaign secret';campaign().members=[{id:'organizer-member',gangId:'same-source-id',player:'Host',role:'Arbitrator'}];save();");
-  await owner.w.AccountParity.ensureSynced();
+  await acknowledgeRoster(owner.w,'same-source-id');await owner.w.AccountParity.ensureSynced();
   owner.click('[data-enrollment-open]');
   await ready(()=>owner.q('#enrollment-settings')&&!owner.q('[data-enrollment-action="owner-save"]').disabled,'recruitment controls loaded');
   owner.q('#enrollment-settings [name="enabled"]').checked=true;
@@ -67,12 +71,13 @@ async function ready(test,label){for(let attempt=0;attempt<120;attempt++){if(tes
 
   const applicant=await page('applicant');
   applicant.w.eval("data.gangs=[{...data.gangs[0],id:'same-source-id',name:'Applicant gang',credits:123,privateNotes:'applicant gang secret',private_notes:'applicant legacy secret',fighters:data.gangs[0].fighters.map(f=>({...f,privateNotes:'applicant fighter secret'}))},{...data.gangs[0],id:'different-edition',name:'Wrong edition',edition:'N26'},{...data.gangs[0],id:'borrowed',name:'Borrowed roster',remoteOwnerId:'other',remoteReadOnly:true}];data.campaigns=[];data.view='dashboard';save();");
-  await applicant.w.AccountParity.ensureSynced();
+  await acknowledgeRoster(applicant.w,'same-source-id');await applicant.w.AccountParity.ensureSynced();
   applicant.w.history.pushState({},'',joinURL.pathname);applicant.w.render();
   await ready(()=>applicant.q('#enrollment-join-form'),'authenticated join form');
   const choices=[...applicant.q('[name="gangId"]').options];assert.deepEqual(choices.map(option=>option.value),['same-source-id'],'Only the applicant’s compatible owned gang is selectable');
   applicant.q('[name="gangId"]').value='same-source-id';
   applicant.q('[name="message"]').value='Ready for the campaign.';
+  const actualReview=applicant.w.MMRosterValidation.ensureReviewed;let reviewCalls=0;applicant.w.MMRosterValidation.ensureReviewed=async()=>{reviewCalls++;return false};applicant.click('[data-enrollment-action="join-submit"]');await pause();assert.equal(reviewCalls,1);assert.equal((await applicant.w.AccountParity.api('/campaign-invites/'+code)).request,null,'Canceled roster review sends no online join request');applicant.w.MMRosterValidation.ensureReviewed=actualReview;
   applicant.click('[data-enrollment-action="join-submit"]');
   await ready(()=>applicant.q('[data-enrollment-action="withdraw"]'),'application submitted');
   assert.equal(applicant.w.location.pathname,joinURL.pathname);

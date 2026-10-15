@@ -14,10 +14,87 @@
  const active=()=>typeof data!=='undefined'&&(data.view==='learning'||/^\/learn(?:\/|$)/.test(location.pathname));
  const owner=()=>String(window.AccountParity?.account?.id||'guest');
  const storageKey=()=> 'underhive-korea-learning:'+owner();
- let user='',progress=null,rendering=false,query='',category='all',onlyBookmarks=false,notice='',restartId='',downloadURL=null;
+ let user='',progress=null,progressDocument=null,progressSource=null,progressReady=false,clock=0,saveTimer=null,rendering=false,query='',category='all',onlyBookmarks=false,notice='',restartId='',downloadURL=null;
  let routeSignature='',current={tab:'home',edition:'n26',chapter:'',rule:'',sheet:'all',lesson:'',step:0};
- function loadProgress(){if(user===owner()&&progress)return;user=owner();const saved=safeJSON(storageKey(),{});progress={bookmarks:Array.isArray(saved.bookmarks)?saved.bookmarks:[],lessons:saved.lessons&&typeof saved.lessons==='object'?saved.lessons:{}};}
- function saveProgress(){if(!persist(storageKey(),progress))notice=tr('기기 저장 공간을 사용할 수 없어 이번 방문에만 기록됩니다.','Device storage is unavailable. Progress is kept for this visit.');}
+ const object=value=>value&&typeof value==='object'&&!Array.isArray(value);
+ const validId=value=>typeof value==='string'&&value.length>0&&value.length<=240&&!['__proto__','prototype','constructor'].includes(value);
+ const entries=value=>object(value)?Object.entries(value).filter(([key])=>validId(key)).sort(([a],[b])=>a<b?-1:a>b?1:0).slice(0,2000):[];
+ const time=value=>Number.isFinite(Number(value))&&Number(value)>=0&&Number(value)<=8640000000000000?Math.floor(Number(value)):0;
+ const latest=(a,b)=>Math.max(time(a),time(b));
+ const iso=value=>value>0?new Date(value).toISOString():null;
+ const readyForProgress=()=>owner()!=='guest'&&window.AccountParity?.ready!==false;
+ function tick(){clock=Math.max(Date.now(),clock+1);return clock;}
+ function knownLesson(key){const split=key.indexOf(':'),edition=key.slice(0,split),id=key.slice(split+1);return allLessons().find(lesson=>lesson.id===id&&(!lesson.edition||lesson.edition===edition)&&(!lesson.editions||lesson.editions.includes(edition)));}
+ function normalizeLesson(raw,reset=-1,key=''){
+  if(!object(raw))return null;
+  const answers={},answerTimes={},stepTimes={},done=[],fallback=time(raw.updatedAt),lesson=knownLesson(key);
+  for(const [id,value] of entries(raw.answers)){const at=object(raw.answerTimes)?time(raw.answerTimes[id]):fallback,step=lesson?.steps.find(step=>step.id===id);if(at>reset&&typeof value==='string'&&value.length<=240&&(!lesson||step?.exercise?.options?.some(option=>option.id===value))){answers[id]=value;answerTimes[id]=at;}}
+  for(const id of Array.isArray(raw.done)?raw.done.filter(validId).sort().slice(0,500):[]){const at=object(raw.stepTimes)?time(raw.stepTimes[id]):fallback,step=lesson?.steps.find(step=>step.id===id);if(at>reset&&(!lesson||step&&(!step.exercise||answers[id]===step.exercise.correctOption))){done.push(id);stepTimes[id]=at;}}
+  const checkpointAt=time(raw.checkpointAt??raw.updatedAt),checkpoint=checkpointAt>reset&&Number.isFinite(Number(raw.checkpoint))?Math.max(0,Math.floor(Number(raw.checkpoint))):0;
+  if(!done.length&&!Object.keys(answers).length&&checkpointAt<=reset)return null;
+  const completed=!!lesson&&done.length===lesson.steps.length,updatedAt=Math.max(...Object.values(answerTimes),...Object.values(stepTimes),checkpointAt>reset?checkpointAt:0),dates=[...Object.values(answerTimes),...Object.values(stepTimes),checkpointAt].filter(value=>value>Math.max(reset,0));
+  return {done:[...new Set(done)].sort(),answers,stepTimes,answerTimes,checkpoint:lesson?Math.min(checkpoint,lesson.steps.length-1):checkpoint,checkpointAt:checkpointAt>reset?checkpointAt:0,completed,updatedAt,startedAt:dates.length?iso(Math.min(...dates)):null,completedAt:completed?iso(Math.max(...Object.values(stepTimes))):null};
+ }
+ function normalizeProgress(raw,accountId=owner()){
+  raw=object(raw)?raw:{};if(raw.ownerId&&raw.ownerId!==accountId)raw={};
+  const bookmarkEvents={},lessonResets={},lessons={};
+  for(const [id,event] of entries(raw.bookmarkEvents))if(object(event)&&typeof event.saved==='boolean')bookmarkEvents[id]={saved:event.saved,at:time(event.at)};
+  for(const id of Array.isArray(raw.bookmarks)?raw.bookmarks.filter(validId).slice(0,2000):[])if(!bookmarkEvents[id])bookmarkEvents[id]={saved:true,at:0};
+  for(const [key,value] of entries(raw.lessonResets))lessonResets[key]=time(value);
+  for(const [key,value] of entries(raw.lessons)){const entry=normalizeLesson(value,lessonResets[key]??-1,key);if(entry)lessons[key]=entry;}
+  const updatedAt=Math.max(0,...Object.values(bookmarkEvents).map(event=>event.at),...Object.values(lessonResets),...Object.values(lessons).map(lesson=>lesson.updatedAt));clock=Math.max(clock,updatedAt);
+  return {version:2,ownerId:accountId,bookmarks:Object.keys(bookmarkEvents).filter(id=>bookmarkEvents[id].saved).sort(),bookmarkEvents,lessons,lessonResets,updatedAt};
+ }
+ function mergeProgress(a,b,accountId=owner()){
+  a=normalizeProgress(a,accountId);b=normalizeProgress(b,accountId);const out={ownerId:accountId,bookmarkEvents:{...a.bookmarkEvents},lessonResets:{...a.lessonResets},lessons:{...a.lessons}};
+  for(const [id,event] of Object.entries(b.bookmarkEvents)){const prior=out.bookmarkEvents[id];if(!prior||event.at>prior.at||event.at===prior.at&&!event.saved)out.bookmarkEvents[id]=event;}
+  for(const [key,at] of Object.entries(b.lessonResets))out.lessonResets[key]=latest(at,out.lessonResets[key]);
+  for(const key of new Set([...Object.keys(a.lessons),...Object.keys(b.lessons)])){
+   const left=a.lessons[key]||{},right=b.lessons[key]||{},answers={...(left.answers||{})},answerTimes={...(left.answerTimes||{})},stepTimes={...(left.stepTimes||{})};
+   for(const [id,value] of Object.entries(right.answers||{})){const at=time(right.answerTimes?.[id]),prior=time(answerTimes[id]);if(!(id in answers)||at>prior||at===prior&&value>answers[id]){answers[id]=value;answerTimes[id]=at;}}
+   for(const [id,at] of Object.entries(right.stepTimes||{}))stepTimes[id]=latest(at,stepTimes[id]);
+   const checkpointSide=time(right.checkpointAt)>time(left.checkpointAt)||time(right.checkpointAt)===time(left.checkpointAt)&&Number(right.checkpoint)>Number(left.checkpoint)?right:left;
+   const entry=normalizeLesson({done:Object.keys(stepTimes),answers,answerTimes,stepTimes,checkpoint:checkpointSide.checkpoint,checkpointAt:checkpointSide.checkpointAt},out.lessonResets[key]??-1,key);
+   if(entry)out.lessons[key]=entry;else delete out.lessons[key];
+  }
+  return normalizeProgress(out,accountId);
+ }
+ function cacheProgress(pending=false){return persist(storageKey(),{...progress,...(pending?{pending:true}:{})});}
+ function queueProgressSave(){clearTimeout(saveTimer);const expectedUser=user,expectedDocument=progressDocument;saveTimer=setTimeout(()=>{if(owner()===expectedUser&&data===expectedDocument&&readyForProgress()&&typeof save==='function')save();},0);}
+ function loadProgress(){
+  const accountId=owner(),ready=readyForProgress(),documentState=typeof data==='undefined'?null:data,raw=ready?documentState?.learningProgress:null;
+  if(user===accountId&&progress&&progressReady===ready&&(!ready||progressDocument===documentState&&progressSource===raw))return;
+  user=accountId;progressReady=ready;progressDocument=documentState;progressSource=raw;
+  const cached=safeJSON(storageKey(),{});
+  if(!ready){progress=normalizeProgress(cached,accountId);return;}
+  progress=normalizeProgress(raw,accountId);
+  // Only the old account-specific format or unsent edits are migrated. A normal
+  // device cache must never resurrect entries removed by a newer cloud document.
+  if(cached.version!==2||cached.pending===true){const migrated=mergeProgress(progress,cached,accountId);if(JSON.stringify(migrated)!==JSON.stringify(progress)){progress=migrated;documentState.learningProgress=progress;progressSource=progress;queueProgressSave();}}
+  cacheProgress();
+ }
+ function saveProgress(){
+  progress=normalizeProgress(progress,user);
+  if(!cacheProgress(user!=='guest'&&!readyForProgress()))notice=tr('기기 저장 공간을 사용할 수 없어 이번 방문에만 기록됩니다.','Device storage is unavailable. Progress is kept for this visit.');
+  if(user!=='guest'&&readyForProgress()&&owner()===user){data.learningProgress=progress;progressDocument=data;progressSource=progress;if(rendering)queueProgressSave();else if(typeof save==='function')save();}
+ }
+ function mergeConflict(localState,remoteState,baseState){
+  const accountId=owner();if(accountId==='guest'||!object(localState)||!object(remoteState)||!object(baseState))return null;
+  const uiKeys=['view','tab','selectedGang','selectedCampaign','selectedFighter'],records=state=>JSON.stringify(Object.fromEntries(Object.entries(state).filter(([key])=>key!=='learningProgress'&&!uiKeys.includes(key)).sort(([a],[b])=>a.localeCompare(b))));
+  const local=records(localState),remote=records(remoteState),base=records(baseState);let selected;
+  if(local===base||local===remote)selected=remoteState;else if(remote===base)selected=localState;else return null;
+  const merged={...selected,learningProgress:mergeProgress(localState.learningProgress,remoteState.learningProgress,accountId)};for(const key of uiKeys)if(key in localState)merged[key]=localState[key];return merged;
+ }
+ function backupState(state){loadProgress();return {...state,learningProgress:JSON.parse(JSON.stringify(progress))};}
+ function restoreProgressSnapshot(state){
+  const imported=state?.learningProgress;if(!object(imported)||imported.ownerId!==owner())return false;
+  const restored=normalizeProgress(imported,owner()),ready=readyForProgress();
+  if(!persist(storageKey(),{...restored,...(owner()!=='guest'&&!ready?{pending:true}:{})}))throw Error(tr('학습 기록을 저장할 공간이 없습니다. 저장 공간을 확보한 뒤 다시 시도하세요.','There is no space to restore learning progress. Free device storage and try again.'));
+  clearTimeout(saveTimer);progress=restored;user=owner();progressReady=ready;progressDocument=typeof data==='undefined'?null:data;progressSource=progressDocument?.learningProgress;
+  if(user==='guest'){delete state.learningProgress;progressSource=null;}
+  else if(progressReady&&progressDocument){progressDocument.learningProgress=progress;progressSource=progress;}
+  return true;
+ }
  function readRoute(){
   const signature=location.pathname+location.search;if(signature===routeSignature)return;routeSignature=signature;
   const path=location.pathname.split('/').filter(Boolean),params=new URLSearchParams(location.search),tab=['rules','quick','tutorials'].includes(path[1])?path[1]:'home';
@@ -42,7 +119,12 @@
  function matchRule(row){return match(row.name)||match(row.name_ko)||match(ruleDescription(row));}
  function count(){return allLessons().filter(eligible).reduce((n,l)=>n+Number(lessonProgress(l).completed),0);}
  function lessonProgress(lesson){const raw=progress.lessons[current.edition+':'+lesson.id]||{},answers={};for(const step of lesson.steps){const value=raw.answers?.[step.id];if(step.exercise?.options?.some(o=>o.id===value))answers[step.id]=value;}const done=lesson.steps.filter(step=>Array.isArray(raw.done)&&raw.done.includes(step.id)&&(!step.exercise||answers[step.id]===step.exercise.correctOption)).map(step=>step.id),checkpoint=Number(raw.checkpoint);return {done,answers,completed:done.length===lesson.steps.length,checkpoint:Number.isFinite(checkpoint)?Math.min(Math.max(0,Math.floor(checkpoint)),lesson.steps.length-1):0};}
- function putLesson(lesson,entry){progress.lessons[current.edition+':'+lesson.id]=entry;saveProgress();}
+ function putLesson(lesson,entry){
+  const key=current.edition+':'+lesson.id,prior=progress.lessons[key]||{},at=tick(),stepTimes={...(prior.stepTimes||{})},answerTimes={...(prior.answerTimes||{})};
+  for(const id of entry.done||[])if(!(prior.done||[]).includes(id))stepTimes[id]=at;
+  for(const [id,value] of Object.entries(entry.answers||{}))if(prior.answers?.[id]!==value)answerTimes[id]=at;
+  progress.lessons[key]=normalizeLesson({...entry,stepTimes,answerTimes,checkpointAt:prior.checkpoint===entry.checkpoint?prior.checkpointAt??at:at,updatedAt:at},progress.lessonResets[key]??-1,key);saveProgress();
+ }
  const icons={book:'▤',quick:'⚡',tutorials:'◇',bookmark:'★'};
  function button(label,attrs='',cls=''){return '<button type="button" class="ukl-button '+cls+'" '+attrs+'>'+label+'</button>';}
  function refButton(ref,label){const id=typeof ref==='string'?ref:ref.id,kind=typeof ref==='string'?'coreRules':ref.kind||'coreRules',ed=typeof ref==='string'?current.edition:ref.edition||current.edition;return button(esc(label||tr('규칙 보기','Read rule')),'data-learn-ref="'+esc(id)+'" data-ref-kind="'+esc(kind)+'" data-ref-edition="'+esc(ed)+'"','ukl-subtle');}
@@ -52,7 +134,7 @@
   const tabs=[['home',tr('학습 홈','Overview')],['rules',tr('규칙 가이드','Rule guide')],['quick',tr('퀵시트','Quick sheets')],['tutorials',tr('튜토리얼','Tutorials')]];
   return '<header class="ukl-hero"><div><span class="ukl-eyebrow">'+tr('언더하이브 필드 매뉴얼','UNDERHIVE FIELD MANUAL')+'</span><h1>'+tr('언더하이브 학습실','Underhive learning center')+'</h1><p>'+tr('규칙을 읽고, 전투 중 빠르게 찾고, 단계별 연습으로 익히세요.','Read the rules, find answers during battle, and learn through guided practice.')+'</p></div><label class="ukl-edition">'+tr('규칙 판본','Rules edition')+'<select data-learn-edition aria-label="'+tr('학습 규칙 판본','Learning rules edition')+'"><option value="n26" '+(current.edition==='n26'?'selected':'')+'>N26</option><option value="n23" '+(current.edition==='n23'?'selected':'')+'>N23</option></select></label></header><nav class="ukl-tabs" aria-label="'+tr('학습 메뉴','Learning navigation')+'">'+tabs.map(([id,label])=>'<a href="'+esc(url({tab:id,rule:'',chapter:'',lesson:'',step:0}))+'" data-learn-tab="'+id+'" '+(id===current.tab?'aria-current="page"':'')+'>'+label+'</a>').join('')+'</nav>'+coverage();
  }
- function home(){const cs=chapters().filter(eligible),qs=sheets().filter(eligible),ls=allLessons().filter(eligible),done=count();return '<section class="ukl-dashboard"><div class="ukl-intro"><div><span class="ukl-eyebrow">'+tr('첫 전투부터 캠페인까지','FROM FIRST BATTLE TO CAMPAIGN')+'</span><h2>'+tr('어디서 시작할까요?','Choose your next step')+'</h2><p>'+tr('처음이라면 튜토리얼부터 시작하세요. 규칙 가이드는 읽는 순서대로, 퀵시트는 필요한 순간에 찾기 쉽게 구성했습니다.','Start with the tutorials if you are new. Read the guide in order, or keep quick sheets nearby during play.')+'</p></div><div class="ukl-progress-ring"><strong>'+done+'<small> / '+ls.length+'</small></strong><span>'+tr('과정 완료','lessons completed')+'</span></div></div><div class="ukl-entry-grid">'+[['rules',icons.book,tr('체계적인 규칙 가이드','Organized rule guide'),tr('기본 원칙부터 캠페인 절차까지, 주제별 목차로 탐색하세요.','Browse a structured table of contents, from core principles to campaign procedures.'),rules().length+' '+tr('규칙 항목','rule entries')],['quick',icons.quick,tr('테이블 옆 퀵시트','Tabletop quick sheets'),tr('전투 순서, 판정, 상태, 전투 후 절차를 빠르게 확인하고 인쇄하세요.','Look up battle flow, tests, states and post-battle procedures. Print a copy for your table.'),qs.length+' '+tr('퀵시트','quick sheets')],['tutorials',icons.tutorials,tr('단계별 튜토리얼','Guided tutorials'),tr('예시와 문제를 풀며 배웁니다. 연습은 내 갱과 캠페인을 변경하지 않습니다.','Learn with worked examples and questions. Practice never changes your gangs or campaigns.'),ls.length+' '+tr('학습 과정','lessons')]].map(([tab,icon,title,body,badge])=>'<a class="ukl-entry" href="'+esc(url({tab}))+'" data-learn-tab="'+tab+'"><span class="ukl-entry-icon" aria-hidden="true">'+icon+'</span><span class="ukl-tag">'+badge+'</span><h3>'+title+'</h3><p>'+body+'</p><strong>'+tr('열기 →','Explore →')+'</strong></a>').join('')+'</div><section class="ukl-start"><h2>'+tr('추천 학습 순서','Suggested learning path')+'</h2><ol>'+ls.slice(0,4).map(l=>'<li><a href="'+esc(url({tab:'tutorials',lesson:l.id,step:0}))+'" data-learn-lesson="'+esc(l.id)+'"><strong>'+esc(text(l.title))+'</strong><span>'+esc(text(l.summary))+'</span></a></li>').join('')+'</ol></section><p class="ukl-storage-note">'+(owner()==='guest'?tr('게스트 학습 기록은 이 기기에 따로 저장됩니다. 로그인한 계정의 학습 기록과 합쳐지지 않습니다.','Guest learning progress is saved separately on this device. It is not merged with a signed-in account.'):tr('학습 진도와 북마크는 이 기기의 현재 계정별로 저장됩니다.','Learning progress and bookmarks are saved for the current account on this device.'))+'</p></section>';}
+ function home(){const cs=chapters().filter(eligible),qs=sheets().filter(eligible),ls=allLessons().filter(eligible),done=count();return '<section class="ukl-dashboard"><div class="ukl-intro"><div><span class="ukl-eyebrow">'+tr('첫 전투부터 캠페인까지','FROM FIRST BATTLE TO CAMPAIGN')+'</span><h2>'+tr('어디서 시작할까요?','Choose your next step')+'</h2><p>'+tr('처음이라면 튜토리얼부터 시작하세요. 규칙 가이드는 읽는 순서대로, 퀵시트는 필요한 순간에 찾기 쉽게 구성했습니다.','Start with the tutorials if you are new. Read the guide in order, or keep quick sheets nearby during play.')+'</p></div><div class="ukl-progress-ring"><strong>'+done+'<small> / '+ls.length+'</small></strong><span>'+tr('과정 완료','lessons completed')+'</span></div></div><div class="ukl-entry-grid">'+[['rules',icons.book,tr('체계적인 규칙 가이드','Organized rule guide'),tr('기본 원칙부터 캠페인 절차까지, 주제별 목차로 탐색하세요.','Browse a structured table of contents, from core principles to campaign procedures.'),rules().length+' '+tr('규칙 항목','rule entries')],['quick',icons.quick,tr('테이블 옆 퀵시트','Tabletop quick sheets'),tr('전투 순서, 판정, 상태, 전투 후 절차를 빠르게 확인하고 인쇄하세요.','Look up battle flow, tests, states and post-battle procedures. Print a copy for your table.'),qs.length+' '+tr('퀵시트','quick sheets')],['tutorials',icons.tutorials,tr('단계별 튜토리얼','Guided tutorials'),tr('예시와 문제를 풀며 배웁니다. 연습은 내 갱과 캠페인을 변경하지 않습니다.','Learn with worked examples and questions. Practice never changes your gangs or campaigns.'),ls.length+' '+tr('학습 과정','lessons')]].map(([tab,icon,title,body,badge])=>'<a class="ukl-entry" href="'+esc(url({tab}))+'" data-learn-tab="'+tab+'"><span class="ukl-entry-icon" aria-hidden="true">'+icon+'</span><span class="ukl-tag">'+badge+'</span><h3>'+title+'</h3><p>'+body+'</p><strong>'+tr('열기 →','Explore →')+'</strong></a>').join('')+'</div><section class="ukl-start"><h2>'+tr('추천 학습 순서','Suggested learning path')+'</h2><ol>'+ls.slice(0,4).map(l=>'<li><a href="'+esc(url({tab:'tutorials',lesson:l.id,step:0}))+'" data-learn-lesson="'+esc(l.id)+'"><strong>'+esc(text(l.title))+'</strong><span>'+esc(text(l.summary))+'</span></a></li>').join('')+'</ol></section><p class="ukl-storage-note">'+(owner()==='guest'?tr('게스트 학습 기록은 이 기기에 따로 저장됩니다. 로그인한 계정의 학습 기록과 합쳐지지 않습니다.','Guest learning progress is saved separately on this device. It is not merged with a signed-in account.'):tr('학습 진도와 북마크는 계정에 동기화되어 다른 기기에서도 이어서 사용할 수 있습니다.','Learning progress and bookmarks sync to your account so you can continue on another device.'))+'</p></section>';}
  function searchBar(){return '<div class="ukl-filterbar"><label class="ukl-search"><span>'+tr('검색','Search')+'</span><input type="search" data-learn-search value="'+esc(query)+'" placeholder="'+tr('주제, 규칙, 키워드 검색','Search topics, rules or keywords')+'" autocomplete="off"></label>'+(current.tab==='rules'?'<label class="ukl-bookmark-filter"><input type="checkbox" data-learn-saved '+(onlyBookmarks?'checked':'')+'>'+tr('북마크만','Bookmarks only')+'</label>':'')+'</div>';}
  function ruleCard(row){const saved=progress.bookmarks.includes(row.id);return '<article class="ukl-rule" id="learn-rule-'+esc(row.id)+'"><header><div><span class="ukl-tag">'+current.edition.toUpperCase()+'</span><h3>'+esc(ruleTitle(row))+'</h3></div>'+button(saved?'★':'☆','data-learn-bookmark="'+esc(row.id)+'" aria-pressed="'+saved+'" aria-label="'+tr('규칙 북마크','Bookmark rule')+'"','ukl-icon-button')+'</header><p>'+esc(ruleDescription(row)).replace(/\n/g,'<br>')+'</p>'+ruleTables(row)+'<div class="ukl-rule-actions">'+refButton(row.id)+button(tr('링크 복사','Copy link'),'data-learn-copy="'+esc(url({tab:'rules',rule:row.id,chapter:''}))+'"','ukl-subtle')+'<a class="ukl-text-link" href="'+esc(url({tab:'rules',rule:row.id,chapter:''}))+'" data-learn-rule="'+esc(row.id)+'">'+tr('이 항목만 보기 →','Open entry →')+'</a></div></article>';}
  function ruleTables(row,kind='coreRules'){
@@ -119,7 +201,7 @@
   else if(el.hasAttribute('data-learn-chapter'))navigate({chapter:el.dataset.learnChapter,rule:''});
   else if(el.hasAttribute('data-learn-rule'))navigate({rule:el.dataset.learnRule,chapter:''});
   else if(el.hasAttribute('data-learn-clear-rule'))navigate({rule:'',chapter:''});
-  else if(el.hasAttribute('data-learn-bookmark')){const id=el.dataset.learnBookmark;progress.bookmarks=progress.bookmarks.includes(id)?progress.bookmarks.filter(x=>x!==id):[...progress.bookmarks,id];saveProgress();draw();}
+  else if(el.hasAttribute('data-learn-bookmark')){const id=el.dataset.learnBookmark;progress.bookmarkEvents[id]={saved:!progress.bookmarks.includes(id),at:tick()};saveProgress();draw();}
   else if(el.hasAttribute('data-learn-ref'))window.MMRuleReference?.open(el.dataset.refKind,el.dataset.learnRef,{edition:el.dataset.refEdition,activator:el});
   else if(el.hasAttribute('data-learn-copy'))copyLink(el.dataset.learnCopy);
   else if(el.hasAttribute('data-learn-category')){category=el.dataset.learnCategory;current.sheet='all';updateResults();}
@@ -131,7 +213,7 @@
   else if(el.hasAttribute('data-learn-next')){const lesson=currentLesson();if(markStep())navigate(current.step===lesson.steps.length-1?{lesson:'',step:0}:{step:current.step+1});}
   else if(el.hasAttribute('data-learn-restart')){restartId=el.dataset.learnRestart;draw();}
   else if(el.hasAttribute('data-learn-cancel-restart')){restartId='';draw();}
-  else if(el.hasAttribute('data-learn-confirm-restart')){delete progress.lessons[current.edition+':'+el.dataset.learnConfirmRestart];saveProgress();navigate({step:0});}
+  else if(el.hasAttribute('data-learn-confirm-restart')){const key=current.edition+':'+el.dataset.learnConfirmRestart;progress.lessonResets[key]=tick();delete progress.lessons[key];saveProgress();navigate({step:0});}
   else if(el.hasAttribute('data-learn-download'))downloadGuide();
   else if(el.hasAttribute('data-learn-print')){document.body.classList.add('ukl-printing');try{window.print();}catch{document.body.classList.remove('ukl-printing');notice=tr('인쇄 창을 열지 못했습니다. 브라우저 인쇄 메뉴를 사용해 주세요.','The print dialog could not open. Use your browser print menu.');draw();}}
  },true);
@@ -140,7 +222,10 @@
  window.addEventListener('popstate',()=>{routeSignature='';if(!/^\/learn(?:\/|$)/.test(location.pathname))document.body.classList.remove('ukl-printing');if(/^\/learn(?:\/|$)/.test(location.pathname)){if(typeof data!=='undefined')data.view='learning';draw();}});
  window.addEventListener('uk:languagechange',()=>{if(active())draw();});
  window.addEventListener('afterprint',()=>document.body.classList.remove('ukl-printing'));
+ const refreshCloudProgress=()=>{if(active()&&readyForProgress())window.AccountParity?.refreshDocument?.().then(()=>draw()).catch(()=>{});};
+ document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refreshCloudProgress();});
+ window.addEventListener('online',refreshCloudProgress);
  if(typeof render==='function'){const previous=render;render=function(...args){const result=previous.apply(this,args);if(active())draw();else document.body.classList.remove('ukl-printing');return result;};}
- window.UKLearning={render:draw,refresh:draw,buildGuideHTML,exportGuide:downloadGuide,handlesRoute:path=>/^\/learn(?:\/|$)/.test(path),route(path){history.pushState({},'',path);routeSignature='';if(typeof data!=='undefined')data.view='learning';draw();},get state(){return {...current};},get progress(){loadProgress();return JSON.parse(JSON.stringify(progress));}};
+ window.UKLearning={render:draw,refresh:draw,mergeProgress,mergeConflict,backupState,restoreProgressSnapshot,buildGuideHTML,exportGuide:downloadGuide,handlesRoute:path=>/^\/learn(?:\/|$)/.test(path),route(path){history.pushState({},'',path);routeSignature='';if(typeof data!=='undefined')data.view='learning';draw();},get state(){return {...current};},get progress(){loadProgress();return JSON.parse(JSON.stringify(progress));}};
  if(active())draw();
 })();

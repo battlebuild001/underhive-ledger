@@ -26,7 +26,7 @@ for(const[parentCollection,field,childCollection]of [['equipment','weapon_profil
  }
 }
 assert(mirroredFields>=296,'Descriptions and structured conditions must remain synchronized in nested catalog choices.');
-assert.equal(data.coreRules.length,105);assert.equal(data.weaponTraits.length,46);
+assert.equal(data.coreRules.filter(r=>edition(r)==='n26').length,105);assert.equal(data.coreRules.filter(r=>edition(r)==='n23').length,12);assert.equal(data.weaponTraits.length,46);
 assert.equal(row('skills','Quickening').rule_data.action,'single');
 assert.equal(row('fighterSubtypes','Mounted').rule_data.gun_it_forward_only,true);
 assert.equal(row('equipment','Drop rig').rule_data.descend_mounted_allowed,false);

@@ -86,8 +86,8 @@ for (const chapter of content.chapters) {
 for (const key of unresolvedReferences) {
   assert(reviewedReferences.has(key), key + ' needs an unresolved-detail notice in its handbook coverage.');
 }
-assert.equal(catalog.coreRules.filter(row => edition(row) === 'n23').length, 0,
-  'N23 core coverage must not be inferred from the N26 handbook.');
+assert.equal(catalog.coreRules.filter(row => edition(row) === 'n23').length, 12,
+  'N23 needs its own verified core summaries.');
 assert.deepEqual([...coveredCore].sort(), catalog.coreRules.map(row => row.id).sort(),
   'Every available core rule must be reachable from the handbook.');
 for (const version of ['n23', 'n26']) {

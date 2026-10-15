@@ -16,7 +16,7 @@ async function setup(url='/'){
   if(p==='/campaign-invites/invite-code/requests'){if(method==='DELETE'){service.request=null;return {ok:true}}service.request={id:'mine',status:'pending',gangId:value.gangId,gangName:'My <script>gang</script>',message:value.message};return {request:structuredClone(service.request)}}
   throw Error('Unexpected API '+method+' '+p)
  };
- service.ensureSynced=async()=>{service.synced++;if(!service.ready)throw Error('Records are not synced.')};service.refreshShared=async(id,opts)=>{assert.equal(id,'camp');assert.equal(opts.navigate,false);service.shared++};service.openShared=async id=>{assert.equal(id,'camp');service.open++;run("data.selectedCampaign='camp';data.view='campaign';save()")};
+ service.publishCampaign=async(id,opts)=>{assert.equal(id,'camp');assert.equal(opts.refresh,false);assert.equal(opts.expectedRevision,service.config.revision);service.config.revision++;return {revision:service.config.revision}};service.ensureSynced=async()=>{service.synced++;if(!service.ready)throw Error('Records are not synced.')};service.refreshShared=async(id,opts)=>{assert.equal(id,'camp');assert.equal(opts.navigate,false);service.shared++};service.openShared=async id=>{assert.equal(id,'camp');service.open++;run("data.selectedCampaign='camp';data.view='campaign';save()")};
  w.AccountParity=service;Object.defineProperty(w.navigator,'clipboard',{value:{writeText:async value=>{service.copied=value}}});
  vm.runInContext(fs.readFileSync(path.join(root,'campaign-enrollment.js'),'utf8'),context,{filename:'campaign-enrollment.js'});run('render()');await tick();
  const q=s=>w.document.querySelector(s),qa=s=>[...w.document.querySelectorAll(s)],click=s=>{const el=q(s);assert(el,'Missing '+s);el.click()};
