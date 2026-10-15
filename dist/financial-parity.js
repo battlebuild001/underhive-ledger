@@ -6,7 +6,7 @@ const flag=value=>value===true||value==='true';
 const editionOf=g=>String(g?.edition||g?.edition_slug||'N23').toUpperCase();
 const active=f=>!!f&&!['Dead','Retired','Enslaved','Captured','Destroyed'].includes(f.status)&&!flag(f.killed)&&!flag(f.retired)&&!flag(f.enslaved)&&!flag(f.captured)&&!flag(f.destroyed);
 const qty=x=>Math.max(1,num(x.quantity)||1);
-const itemValue=x=>Math.max(0,num(x.ratingCost??x.purchaseCost??x.purchase_cost??x.cost))*qty(x);
+const itemValue=x=>Math.max(0,num(x.ratingCost??x.cost??x.purchaseCost??x.purchase_cost))*qty(x);
 const itemsValue=items=>(items||[]).reduce((sum,x)=>sum+itemValue(x),0);
 function allVehicles(g){const rows=[...(g?.vehicles||[]),...(g?.fighters||[]).flatMap(f=>f.vehicles||[])];return rows.filter((v,i,a)=>v.id?a.findIndex(x=>x.id===v.id)===i:a.indexOf(v)===i);}
 function crewId(v,g){if('fighter_id'in v)return v.fighter_id||'';if(typeof v.crew==='string')return v.crew;const assigned=v.crewId||v.fighterId||v.assignedTo||v.assigned_to||v.crew?.id;if(assigned)return assigned;return (g?.fighters||[]).find(f=>(f.vehicles||[]).some(x=>x===v||x.id&&x.id===v.id))?.id||'';}
