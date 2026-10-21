@@ -8,7 +8,7 @@ const dom=new JSDOM('<!doctype html><html><head><title>Guide export</title></hea
 const w=dom.window;
 w.eval('var data={gangs:[],campaigns:[],view:"dashboard"}; var render=function(){};');
 try{
- for(const file of ['rules-data.js','i18n-ui-data.js','i18n-catalog-data.js','korea-i18n.js','learning-content.js','learning-tutorials.js','learning-center.js'])w.eval(await readFile(new URL(file,dist),'utf8'));
+ for(const file of ['rules-data.js','i18n-ui-data.js','i18n-catalog-data.js','korea-i18n.js','learning-content.js','learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js','learning-center.js'])w.eval(await readFile(new URL(file,dist),'utf8'));
  if(typeof w.UKLearning?.buildGuideHTML!=='function')throw Error('Learning guide export is unavailable.');
  await mkdir(new URL('guides/',dist),{recursive:true});
  for(const edition of ['n26','n23'])for(const language of ['ko','en']){

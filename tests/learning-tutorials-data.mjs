@@ -2,18 +2,20 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
 
-const source=await readFile(new URL('../dist/learning-tutorials.js',import.meta.url),'utf8');
+const files=['learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js'];
+const sources=await Promise.all(files.map(file=>readFile(new URL('../dist/'+file,import.meta.url),'utf8')));
+const source=sources.join('\n');
 const catalog=JSON.parse(await readFile(new URL('../dist/rules-data.json',import.meta.url),'utf8'));
 const context={};
 for(const key of ['document','localStorage','sessionStorage','navigator','fetch','AccountParity','data'])Object.defineProperty(context,key,{get(){throw Error('Tutorial content accessed live application state: '+key)}});
-vm.runInNewContext(source,context);
+for(const content of sources)vm.runInNewContext(content,context);
 const lessons=JSON.parse(JSON.stringify(context.UK_TUTORIALS));
 const byId=new Map(lessons.map(lesson=>[lesson.id,lesson]));
 const rules=new Map(catalog.coreRules.map(rule=>[rule.id,rule]));
-assert.equal(lessons.length,18);
+assert.equal(lessons.length,21);
 assert.equal(byId.size,lessons.length,'Lesson IDs are unique.');
-assert.equal(lessons.flatMap(lesson=>lesson.steps).length,108);
-assert.equal(lessons.flatMap(lesson=>lesson.steps).filter(step=>step.exercise).length,36);
+assert.equal(lessons.flatMap(lesson=>lesson.steps).length,126);
+assert.equal(lessons.flatMap(lesson=>lesson.steps).filter(step=>step.exercise).length,42);
 
 function bilingual(value,path){
  assert(value&&typeof value==='object',path+' is bilingual.');
@@ -59,8 +61,8 @@ for(const lesson of lessons){
  assert(choices>=2,lesson.id+' includes at least two verifiable exercises.');
 }
 const shared=lessons.filter(lesson=>lesson.editions.includes('n23'));
-assert.equal(shared.length,8);
-assert.equal(shared.filter(lesson=>lesson.category==='app'&&lesson.references.length===0).length,2);
+assert.equal(shared.length,11);
+assert.equal(shared.filter(lesson=>lesson.category==='app'&&lesson.references.length===0).length,5);
 assert.equal(shared.filter(lesson=>lesson.category!=='app'&&lesson.editions.join()==='n23').length,6);
 assert(lessons.filter(lesson=>lesson.category!=='app').every(lesson=>lesson.editions.length===1),'Game lessons must select exactly one edition.');
 
@@ -112,4 +114,4 @@ assert.equal(answer('n23-movement','movement-practice'),(1+2*n23('movement-terra
 assert.equal(answer('n23-close-combat','dice-practice'),'Four: two for each weapon');
 assert.equal(n23('damage-and-injury').example.injury_dice,2);
 assert.equal(answer('n23-injury-recovery','damage-practice'),'Two');
-console.log(`Tutorial data: ${lessons.length} bilingual lessons, 108 steps, 36 sandbox exercises, ${references} valid edition-bound references, workflow checks, and worked examples passed.`);
+console.log(`Tutorial data: ${lessons.length} bilingual lessons, 126 steps, 42 sandbox exercises, ${references} valid edition-bound references, workflow checks, and worked examples passed.`);

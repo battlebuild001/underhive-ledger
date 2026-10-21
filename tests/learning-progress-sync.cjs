@@ -20,7 +20,7 @@ async function page(user,{storage={},holdDocument}={}){
   }
   return response({friends:[],notifications:[],campaigns:[]});
  };
- for(const file of ['rules-data.js','app.js','account-parity.js','learning-content.js','learning-tutorials.js','learning-center.js','backup-safety.js']){const script=w.document.createElement('script');script.textContent=fs.readFileSync(path.join(dist,file),'utf8');w.document.body.append(script);}
+ for(const file of ['rules-data.js','app.js','account-parity.js','learning-content.js','learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js','learning-center.js','backup-safety.js']){const script=w.document.createElement('script');script.textContent=fs.readFileSync(path.join(dist,file),'utf8');w.document.body.append(script);}
  dom.errors=errors;if(!holdDocument&&user)await until(()=>w.AccountParity.ready);return dom;
 }
 function bookmark(w,id){w.UKLearning.route('/learn/rules?edition=n26&rule='+id);const button=w.document.querySelector('[data-learn-bookmark="'+id+'"]');assert(button);button.click();}

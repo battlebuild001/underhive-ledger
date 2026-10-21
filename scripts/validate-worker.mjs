@@ -9,6 +9,7 @@ let worker;try{({default:worker}=await import('data:text/javascript;base64,'+Buf
 const res=await worker.fetch(new Request('https://manager.test/'),{},{});
 assert.equal(res.status,200);assert.match(await res.text(),/rules-data.js/);
 for(const path of ['/interaction-core.js','/gang-parity.js','/fighter-parity.js','/campaign-parity.js','/assets-parity.js','/account-parity.js','/rules-data.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path)}
+for(const file of ['tutorial-detail-foundations.js','tutorial-detail-n26.js']){const response=await worker.fetch(new Request('https://manager.test/'+file),{},{});assert.equal(response.status,200,file);assert.match(response.headers.get('Content-Type'),/javascript/);assert.equal(await response.text(),await readFile(resolve(root,'dist',file),'utf8'),file+' must be included in the compiled deployment');}
 const portraitFiles=(await readdir(resolve(root,'dist/portraits/generated'))).filter(file=>file.endsWith('.webp'));
 assert.equal(portraitFiles.length,18,'All 18 generated faction portraits must be packaged.');
 for(const file of portraitFiles){

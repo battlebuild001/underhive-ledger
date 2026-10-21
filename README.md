@@ -13,6 +13,7 @@
 - 캠페인 참가·역할·자원·영토 소유·전투 보고·단계별 전투 세션·지도·팩·성과.
 - 사용자 자산 6종의 생성·편집·공유·복제·삭제와 중첩된 장비 프로파일·거래소 규칙·컬렉션.
 - 아이디·비밀번호만으로 가입·로그인, 기존 ChatGPT 계정의 아이디 로그인 설정, 계정별 D1 저장, 친구 요청·알림, 캠페인 초대·편집 권한, R2 이미지 업로드.
+- 한·영 튜토리얼 21개·126단계: 단계별 목표, 준비, 수행 순서와 예상 결과, 상황·계산 예제, 실수 해결, 힌트와 선택지별 해설. N23/N26 규칙 과정을 분리하고 계정·장비·전투 기록 사용법을 함께 제공합니다.
 
 ## 실행과 검증
 
@@ -28,6 +29,8 @@ npm run validate
 `dist/`는 편집하는 클라이언트 소스입니다. 빌드는 클라이언트와 `worker/account-api.js`, `worker/local-auth.js`를 `.sites-build/dist/server/index.js`에 포함하고 Sites manifest 및 생성된 Drizzle 마이그레이션을 복사합니다. 배포 산출물은 `.sites-build/`입니다. 계정 API와 데이터 모델은 [ACCOUNT_BACKEND.md](ACCOUNT_BACKEND.md)를 참고하세요.
 
 스키마를 바꾸면 `db/schema.ts` 수정 후 `npm run db:generate`를 실행하고 새 SQL·snapshot·journal을 함께 커밋합니다. 이미 적용한 마이그레이션은 바꾸지 않습니다. `.openai/hosting.json`의 프로젝트와 공개 범위는 기존 사이트를 유지합니다.
+
+튜토리얼의 기본 과정과 진도 ID는 `dist/learning-tutorials.js`에 있습니다. `tutorial-detail-foundations.js`, `tutorial-detail-n26.js`는 기존 ID와 정답을 유지하면서 설명을 확장합니다. 새 내용은 공개 학습 데이터만 다루며 실제 갱·파이터·캠페인을 수정하지 않습니다. 상세 내용·판본별 예제·진도 호환성과 읽기 화면은 `tests/tutorial-detail-*`에서 검증합니다.
 
 ## 자료와 남은 외부 연동
 

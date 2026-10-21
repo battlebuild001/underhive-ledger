@@ -6,7 +6,7 @@ const root = new URL('../', import.meta.url);
 const catalog = JSON.parse(await readFile(new URL('dist/rules-data.json', root), 'utf8'));
 const context = vm.createContext({});
 context.window = context;
-for (const file of ['learning-content.js', 'learning-tutorials.js']) {
+for (const file of ['learning-content.js', 'learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js']) {
   vm.runInContext(await readFile(new URL('dist/' + file, root), 'utf8'), context, {filename: file});
 }
 const content = context.UK_LEARNING_CONTENT;
