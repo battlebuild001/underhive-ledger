@@ -12,7 +12,7 @@
 - 실제 Print Options와 Cards/Roster, Eco/Fancy, 로드아웃·상태·추적 칸 필터, 인쇄 미리보기.
 - 캠페인 참가·역할·자원·영토 소유·전투 보고·단계별 전투 세션·지도·팩·성과.
 - 사용자 자산 6종의 생성·편집·공유·복제·삭제와 중첩된 장비 프로파일·거래소 규칙·컬렉션.
-- Sites 로그인, 계정별 D1 저장, 친구 요청·알림, 캠페인 초대·편집 권한, R2 이미지 업로드.
+- 아이디·비밀번호만으로 가입·로그인, 기존 ChatGPT 계정의 아이디 로그인 설정, 계정별 D1 저장, 친구 요청·알림, 캠페인 초대·편집 권한, R2 이미지 업로드.
 
 ## 실행과 검증
 
@@ -25,7 +25,7 @@ npm run build
 npm run validate
 ```
 
-`dist/`는 편집하는 클라이언트 소스입니다. 빌드는 클라이언트와 `worker/account-api.js`를 `.sites-build/dist/server/index.js`에 포함하고 Sites manifest 및 생성된 Drizzle 마이그레이션을 복사합니다. 배포 산출물은 `.sites-build/`입니다. 계정 API와 데이터 모델은 [ACCOUNT_BACKEND.md](ACCOUNT_BACKEND.md)를 참고하세요.
+`dist/`는 편집하는 클라이언트 소스입니다. 빌드는 클라이언트와 `worker/account-api.js`, `worker/local-auth.js`를 `.sites-build/dist/server/index.js`에 포함하고 Sites manifest 및 생성된 Drizzle 마이그레이션을 복사합니다. 배포 산출물은 `.sites-build/`입니다. 계정 API와 데이터 모델은 [ACCOUNT_BACKEND.md](ACCOUNT_BACKEND.md)를 참고하세요.
 
 스키마를 바꾸면 `db/schema.ts` 수정 후 `npm run db:generate`를 실행하고 새 SQL·snapshot·journal을 함께 커밋합니다. 이미 적용한 마이그레이션은 바꾸지 않습니다. `.openai/hosting.json`의 프로젝트와 공개 범위는 기존 사이트를 유지합니다.
 
@@ -33,4 +33,4 @@ npm run validate
 
 공개 소스와 허가된 계정의 화면, 정상 읽기 API를 참고했습니다. 규칙 카탈로그에는 시스템 항목만 있고 개인 갱·캠페인·이메일·로그인 세션은 포함하지 않습니다. 공개 배경·기본 초상화는 원본의 공개 이미지 주소를 참조하며 초상화 작가 표기를 유지합니다.
 
-Discord Bot OAuth, Patreon 후원 상태, 이메일 알림 발송에는 별도 서비스 설정이 필요하며 연결된 것으로 표시하지 않습니다. 로그인 이메일과 비밀번호는 Sites의 ChatGPT 로그인 제공자가 관리합니다. 공유 캠페인은 권한과 버전 충돌을 검사하여 저장하며 원본의 실시간 구독 서버와는 연결되지 않습니다.
+Discord Bot OAuth, Patreon 후원 상태, 이메일 알림 발송에는 별도 서비스 설정이 필요하며 연결된 것으로 표시하지 않습니다. 아이디 로그인은 이메일을 요구하지 않으며 비밀번호 해시와 서버 세션으로 인증합니다. ChatGPT 로그인은 선택 사항입니다. 공유 캠페인은 권한과 버전 충돌을 검사하여 저장하며 원본의 실시간 구독 서버와는 연결되지 않습니다.

@@ -63,9 +63,9 @@ async function acknowledgeRoster(w,gangId){
   const joinURL=new URL(owner.q('.enroll-share-link').href),code=joinURL.pathname.split('/').pop();
   assert.match(code,/^[a-f0-9]{32}$/);
   const anonymous=await page(null,joinURL.pathname);
-  await ready(()=>anonymous.q('a[href^="/signin-with-chatgpt"]'),'anonymous sign-in link');
+  await ready(()=>anonymous.q('a[href^="/account?return_to="]'),'anonymous sign-in link');
   assert.equal(anonymous.w.location.pathname,joinURL.pathname,'Account boot must not overwrite the invite route');
-  assert.equal(new URL(anonymous.q('a[href^="/signin-with-chatgpt"]').href).searchParams.get('return_to'),joinURL.pathname);
+  assert.equal(new URL(anonymous.q('a[href^="/account?return_to="]').href).searchParams.get('return_to'),joinURL.pathname);
   assert(!anonymous.q('#app').textContent.includes('secret'),'Public preview excludes private campaign and roster notes');
   assert(!anonymous.q('.sidebar'),'Join page is independent of personal workspace');
 
@@ -136,7 +136,7 @@ async function acknowledgeRoster(w,gangId){
   assert(!shared.snapshot.gangs.some(gang=>gang.id===enrolledId),'Further source saves cannot restore revoked campaign access');
   const signedOut=await page(null,joinURL.pathname,storageOf(applicant));
   await ready(()=>signedOut.w.localStorage.getItem('underhive-ledger-v1-cloud')===null&&signedOut.state().gangs.length===0,'expired identity clears active account cache');
-  await ready(()=>signedOut.q('a[href^="/signin-with-chatgpt"]'),'signed-out invite keeps its public sign-in entry');
+  await ready(()=>signedOut.q('a[href^="/account?return_to="]'),'signed-out invite keeps its public sign-in entry');
   assert.equal(signedOut.w.location.pathname,joinURL.pathname);
   assert.equal(signedOut.w.AccountParity.account,null);assert.equal(signedOut.w.AccountParity.ready,false);
   assert(!signedOut.q('#app').textContent.includes('Applicant gang'),'Public view does not expose the previous account roster');

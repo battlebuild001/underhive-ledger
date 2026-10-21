@@ -29,6 +29,13 @@
       "when": 1792051200000,
       "tag": "0003_campaign_deletions",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1792572464585,
+      "tag": "0004_white_mattie_franklin",
+      "breakpoints": true
     }
   ]
 }

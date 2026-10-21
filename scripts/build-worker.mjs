@@ -11,6 +11,11 @@ async function walk(path){const entries=await readdir(path,{withFileTypes:true})
 const files=await walk(directory);
 const assets=Object.fromEntries(await Promise.all(files.map(async file=>{const bytes=await readFile(file),url='/'+relative(directory,file).split('\\').join('/');return[url,textTypes.has(extname(file))?bytes.toString('utf8'):{base64:bytes.toString('base64')}]})));
 let api=await readFile(resolve(root,'worker/account-api.js'),'utf8');
+const auth=await readFile(resolve(root,'worker/local-auth.js'),'utf8');
+// Keep module-private helpers isolated when embedding the modules in one Worker.
+const authImport="import {handleLocalAuth,resolveRequestIdentity,shouldUseSitesIdentity} from './local-auth.js';";
+if(!api.includes(authImport))throw new Error('Account API must import the password identity module.');
+api=api.replace(authImport,()=>`const {handleLocalAuth,resolveRequestIdentity,shouldUseSitesIdentity}=(()=>{\n${auth.replace(/^export\s+/gm,'')}\nreturn {handleLocalAuth,resolveRequestIdentity,shouldUseSitesIdentity};\n})();`);
 api=api.replace('export async function handleApi','async function handleApi');
 let worker=await readFile(resolve(root,'worker/index.js'),'utf8');
 worker=worker.replace("import {handleApi} from './account-api.js';",()=>api).replace('__MUNDA_ASSETS__',()=>JSON.stringify(assets));

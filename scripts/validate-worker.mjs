@@ -43,3 +43,13 @@ const headers={'oai-authenticated-user-id':'compiled-worker-test','oai-authentic
 const account=await worker.fetch(new Request('https://manager.test/api/account',{headers}),{DB},{});assert.equal(account.status,200);assert((await account.json()).profile.username);
 const saved=await worker.fetch(new Request('https://manager.test/api/document',{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({revision:0,state:{gangs:[],campaigns:[]}})}),{DB},{});assert.equal(saved.status,200);assert.equal((await saved.json()).revision,1);
 console.log('Compiled Worker and generated D1 migrations: identity, account and saved document passed.');
+
+const passwordSignup=await worker.fetch(new Request('https://manager.test/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({loginId:'compiled-local-user',password:'Worker-test-password-839!'})}),{DB},{});
+assert.equal(passwordSignup.status,201);const passwordAccount=await passwordSignup.json();
+assert.equal(passwordAccount.auth.method,'password');assert.equal(passwordAccount.profile.identityEmail,'');
+const passwordCookie=passwordSignup.headers.getSetCookie().map(value=>value.split(';')[0]).join('; ');
+const localAccount=await worker.fetch(new Request('https://manager.test/api/account',{headers:{Cookie:passwordCookie,...headers}}),{DB},{});
+assert.equal(localAccount.status,200);assert.equal((await localAccount.json()).profile.id,passwordAccount.profile.id);
+const localSave=await worker.fetch(new Request('https://manager.test/api/document',{method:'PUT',headers:{Cookie:passwordCookie,'X-UK-Account-ID':passwordAccount.profile.id,'Content-Type':'application/json'},body:JSON.stringify({revision:0,state:{gangs:[],campaigns:[]}})}),{DB},{});
+assert.equal(localSave.status,200);
+console.log('Compiled Worker: ID/password signup with no email, HttpOnly session and isolated document API passed.');

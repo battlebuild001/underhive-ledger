@@ -1,6 +1,6 @@
 # Account and persistent storage integration
 
-`worker/account-api.js` exports `handleApi(request, env, ctx)`. It returns a `Response` for `/api/*` and `null` for other routes so the Worker can serve embedded static assets. The runtime requires a Sites-managed D1 binding named `DB`. Sites dispatch supplies `oai-authenticated-user-id` and `oai-authenticated-user-email`; callers with no user identity get 401. A service access token alone deliberately has no user record access.
+`worker/account-api.js` exports `handleApi(request, env, ctx)`. It returns a `Response` for `/api/*` and `null` for other routes so the Worker can serve embedded static assets. The runtime requires a Sites-managed D1 binding named `DB`. `worker/local-auth.js` handles ID/password authentication; trusted Sites dispatch identities remain an optional sign-in method. Callers with no valid user identity get 401. A service access token alone deliberately has no user record access.
 
 The schema is declared in `db/schema.ts`. `drizzle/0000_thick_firelord.sql` and `drizzle/meta/` were generated with Drizzle Kit 0.31.11. Include those source migrations in deployment metadata using the hosting platform's supported D1 workflow; request handlers never create schema. No runtime npm dependencies are required by the account API.
 
@@ -14,6 +14,11 @@ User search returns only user ID and username. Friend and notification endpoints
 
 ## Available routes
 
+- `POST /api/auth/register`: create an account using only `loginId` and `password`.
+- `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/session`: establish, revoke and inspect the server session.
+- `POST /api/auth/change-password`: verify `currentPassword`, set `newPassword` and revoke previous sessions.
+- `POST /api/auth/credentials`: an authenticated ChatGPT user explicitly adds ID/password login to the same existing profile, preserving ownership and records.
+- `POST /api/auth/use-chatgpt`: clear local sign-in preference before explicitly choosing the optional ChatGPT provider.
 - `GET/PATCH /api/account`: own username, contact email, notification preferences and identity display.
 - `GET/PUT /api/document`: own manager state and optimistic revision.
 - `GET /api/users?q=...`: username search, at most 12 public name results.
@@ -25,11 +30,19 @@ User search returns only user ID and username. Friend and notification endpoints
 - `GET /api/campaign-shares/:id/members`: owner-only membership management.
 - `DELETE /api/campaign-shares/:id/members/:userId`: owner removes recipient or recipient leaves.
 
-The identity provider owns the sign-in email and password. Contact email changes apply to this app's profile only. The password button explains this and opens ChatGPT account security settings. Email notification preferences are persisted, but no email transport is configured; the UI states that email delivery is not connected. Patreon status has no integration. Sites access policy remains owner private, so other users can use invitations only after the Site owner grants them Site access through the platform.
+Registration requires a unique 3–32 character login ID and an 8–128 character password, without email or external identity. Login IDs are normalized with NFKC and case-insensitive matching; changing the profile display name does not change the login ID. Passwords are salted PBKDF2-HMAC-SHA256 hashes with 100,000 iterations, the Cloudflare WebCrypto supported limit. Session tokens are random, stored only as SHA-256 hashes in D1, and sent in Secure, HttpOnly, SameSite=Lax host cookies. Sessions expire after 30 days. No passwords or bearer tokens are saved in browser storage. Authentication mutations require same-origin JSON requests; persistent atomic rate counters constrain IP and account attempts.
+
+Local identity takes precedence over an optional dispatched ChatGPT identity for all private APIs, uploaded image reads and the caller's public invite application state. An invalid/expired local session or an explicit local-mode preference prevents automatic fallback into another provider's account. Logout revokes the session and keeps that preference. Explicit provider selection clears it. Credentials are never automatically linked through a matching display name or email. Existing ChatGPT users may add a unique login ID from their authenticated account screen; their profile ID, original identity metadata, gangs and campaigns stay intact.
+
+Private client calls capture the expected profile ID in `X-UK-Account-ID`. A mismatch with the current cookie identity returns 409 with `accountChanged: true`; password-authenticated mutations require this header. This prevents an old tab from writing its previous account's document or profile into a newly signed-in account. The client reconnects without migrating the previous account's cache, and late responses are guarded by session generation and profile ID.
+
+Contact email is optional and independent of sign-in. Email notification preferences are persisted, but no email transport or email-based password recovery is configured. The site remains public, allowing external visitors to sign up and apply through a recruitment link. Campaign access still requires the organizer's approval.
 
 ## Verification
 
 `node tests/account-api.mjs` uses a real SQLite schema and exercises authentication, per-user state isolation, revision conflicts, input rejection, friend requests, read/delete authorization, invitation acceptance, and owner/editor/viewer permissions.
+
+`node tests/local-auth.mjs` covers password authentication and session security. `node tests/local-auth-flow.mjs` exercises real cookie identities through document storage, legacy account linking, public recruitment, approval and private images. `node tests/local-auth-ui.cjs` verifies the ID/password forms and account switching. `npm run validate` also executes ID/password registration against the compiled deployment Worker and all generated migrations.
 
 `NODE_PATH=<jsdom-node-modules> node tests/account-ui.cjs` joins the browser scripts to the same API in jsdom and verifies existing record migration, username form saving, account-switch isolation and backup, user search, and friend requests.
 
