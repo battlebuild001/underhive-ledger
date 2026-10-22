@@ -5,7 +5,7 @@ const run=s=>vm.runInContext(s,context);run("data.view='gang';save()");assert.eq
 const records=run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})');
 w.document.querySelector('[data-uk-nav="learn"]').click();assert.equal(w.location.pathname,'/learn');assert.equal(run('data.view'),'learning');assert(w.document.querySelector('.ukl-center'));assert.equal(w.document.querySelector('[data-uk-section="learn"]').getAttribute('aria-current'),'page');
 w.document.querySelector('[data-uk-nav="gangs"]').click();assert.equal(w.location.pathname,'/');assert.equal(run('data.view'),'dashboard');assert(!w.document.querySelector('.ukl-center'));
-w.history.replaceState({},'','/learn/quick?edition=n26');w.dispatchEvent(new w.PopStateEvent('popstate'));assert.equal(run('data.view'),'learning');assert(w.document.querySelector('.ukl-center[data-tab="quick"]'));
+w.history.replaceState({},'','/learn/quick?edition=n26');w.dispatchEvent(new w.PopStateEvent('popstate'));assert.equal(run('data.view'),'learning');assert(w.document.querySelector('.ukl-center[data-learn-view="quick"]'));
 w.document.querySelector('[data-uk-nav="assets"]').click();assert.equal(w.location.pathname,'/');assert.equal(run('data.view'),'catalog');assert(!w.document.querySelector('.ukl-center'));
 assert.equal(run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})'),records,'Learning navigation leaves all gang and campaign records intact');
 console.log('Navigation: gang/fighter/print, home back, campaign deep links, learning entry/exit and quick sheet routes passed.');dom.window.close();
