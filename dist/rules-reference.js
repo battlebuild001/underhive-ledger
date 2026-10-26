@@ -69,6 +69,27 @@
     if(!tokens.length)return '—';
     return '<span class="mmrr-traits">'+tokens.map(token=>emptyTrait(token)?esc(token):`<button type="button" class="mmrr-trait" data-mmrr-trait="${esc(token)}" data-mmrr-edition="${esc(ed)}" aria-haspopup="dialog" aria-label="${esc(token)} — View trait" data-i18n-ko-aria-label="${esc(token)} 특성 설명 보기">${traitLabel(token)}</button>`).join(', ')+'</span>';
   }
+  const vehicleRuleHelp=[
+    {name:'Fire Points',aliases:['Fire Point','파이어 포인트'],en:'An opening that lets an embarked fighter shoot their own weapon from a transport cage. It is separate from a mounted hardpoint weapon. Check line of sight and vision arc from the opening; each opening can be used by one fighter per round. Aiming and firing Unwieldy weapons are not allowed from the cage.',ko:'트랜스포트 케이지 안의 탑승자가 자신의 무기로 밖을 향해 사격할 수 있게 하는 사격 지점입니다. 하드포인트에 장착한 차량 무기와는 별개입니다. 해당 지점을 기준으로 시야와 사격 아크를 확인하며, 지점 하나는 라운드마다 전투원 한 명만 사용합니다. 케이지 안에서는 조준과 언윌디 무기 사격이 제한됩니다.'},
+    {name:'Weapon Hardpoints',aliases:['Weapon Hardpoint','Hardpoints','Hardpoint','무기 하드포인트','하드포인트'],en:'A fixed mount for a vehicle weapon. Each mount has an operator (crew or passenger), a position and permitted firing arcs. It is separate from a Fire Point used for a passenger’s own weapon. Use the Hardpoints window to configure the fitted weapon and arcs.',ko:'차량에 무기를 장착하는 고정 지점입니다. 각 지점에는 조작자(크루 또는 승객), 장착 위치, 사격 가능한 아크를 정합니다. 파이어 포인트처럼 탑승자의 개인 무기를 쏘는 구멍을 뜻하지 않습니다. 앱의 하드포인트 창에서 무기와 아크를 설정할 수 있습니다.'},
+    {name:'Transport Vehicle',aliases:['Transport','트랜스포트 차량','수송 차량'],en:'Dedicated passenger spaces such as a transport cage or transport bed. Placement and embarking depend on the kind of space. Fire Points allow fighters in a cage to fire their own weapons through those openings.',ko:'차량의 트랜스포트 케이지와 트랜스포트 베드 같은 전용 탑승 공간을 뜻합니다. 탑승자의 배치와 승하차는 공간 유형에 따라 처리합니다. 파이어 포인트가 있으면 케이지 안에서도 해당 지점으로 개인 무기를 사격할 수 있습니다.'},
+    {name:'Upgrade Slots',aliases:['Upgrade Slot','업그레이드 슬롯'],en:'Capacity for vehicle upgrades, tracked separately as Body, Drive and Engine slots. An upgrade uses the slot type specified for it; capacities depend on the vehicle.',ko:'차량 업그레이드를 설치할 수 있는 용량입니다. 보디·드라이브·엔진 슬롯을 따로 계산하며, 업그레이드가 요구하는 종류의 슬롯에 장착합니다. 슬롯 수는 차량 유형마다 다릅니다.'},
+    {name:'Locomotion',aliases:['구동 방식'],en:'The vehicle’s means of movement. Wheeled, Tracked, Walker and Skimmer types interact differently with turning and terrain.',ko:'차량이 움직이는 방식을 고르는 분류입니다. 휠드·트랙드·워커·스키머에 따라 회전과 지형 이동 처리가 달라집니다.'},
+    {name:'Wheeled',aliases:['휠드'],en:'Moves on wheels. Travel through difficult terrain costs twice the distance moved.',ko:'바퀴로 이동하는 차량입니다. 어려운 지형을 통과할 때 실제 이동 거리의 두 배를 이동력에서 사용합니다.'},
+    {name:'Tracked',aliases:['트랙드','궤도식'],en:'Moves on tracks and takes no movement penalty from difficult terrain.',ko:'무한궤도로 이동하는 차량입니다. 어려운 지형을 통과할 때 이동력 불이익을 받지 않습니다.'},
+    {name:'Walker',aliases:['워커'],en:'A legged vehicle may turn any number of times during its activation; difficult terrain costs twice the distance moved.',ko:'다리로 걷는 차량입니다. 활성화 중 회전 횟수 제한 없이 방향을 바꿀 수 있지만, 어려운 지형 이동에는 두 배의 이동력이 듭니다.'},
+    {name:'Skimmer',aliases:['스키머'],en:'Hovers over difficult and dangerous terrain while moving. Ending an activation there requires a Handling check; failure causes a Catastrophic Hit to the Drive.',ko:'지면 위에 떠서 이동합니다. 이동 중 어려운·위험 지형의 영향을 무시하지만, 그 위에서 활성화를 끝내면 핸들링 판정을 해야 하며 실패하면 드라이브에 카타스트로픽 히트를 입습니다.'}
+  ];
+  function vehicleRuleLookup(token,options={}){
+    const ed=edition(options.edition||currentEdition());if(ed!=='n23')return null;
+    const wanted=traitName(token),row=vehicleRuleHelp.find(row=>[row.name,...row.aliases].some(name=>traitName(name)===wanted));
+    return row?copy({...row,edition:ed}):null;
+  }
+  function vehicleRuleMarkup(token,options={}){
+    token=String(token??'').trim();if(!token)return '';
+    const ed=edition(options.edition||currentEdition());
+    return `<button type="button" class="mmrr-vehicle-rule${options.iconOnly?' mmrr-vehicle-rule-icon':''}" data-mmrr-vehicle-rule="${esc(token)}" data-mmrr-edition="${esc(ed)}" aria-haspopup="dialog" aria-label="${esc(token)} — View explanation" data-i18n-ko-aria-label="${esc(token)} 설명 보기">${options.iconOnly?'<span aria-hidden="true" data-i18n-ignore>ⓘ</span>':esc(token)}</button>`;
+  }
   const hasDefinition=row=>!!row&&!row.reference_description_cleared&&(!!String(row.description||row.effect||'').trim()||!!row.rule_data&&Object.keys(row.rule_data).length>0||!!(row.weapon_profiles||row.weaponProfiles||row.profiles||[]).length);
   const hasReference=row=>!!row&&!row.reference_description_cleared&&(hasDefinition(row)||!!title(row)&&!row.is_custom&&!row.reference_custom_description);
   function sourceLabel(row){
@@ -139,6 +160,14 @@
     const body=overlay?.querySelector('.mmrr-body');if(body)body.scrollTop=parent.scrollTop;
     const activator=[...overlay.querySelectorAll('[data-mmrr-trait]')].find(button=>button.dataset.mmrrTrait===parent.token);safeFocus(activator||overlay.querySelector('[data-mmrr-close]'));
   }
+  function openVehicleRule(token,options={}){
+    token=String(token??'').trim();if(!token)return false;
+    const ed=edition(options.edition||currentEdition()),row=vehicleRuleLookup(token,{edition:ed});
+    libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
+    const heading=`<div class="mmrr-heading"><span class="mmrr-badge">${esc(ed.toUpperCase())}</span><span data-i18n-ko="차량 특수 규칙">Vehicle special rule</span></div>`;
+    const body=row?`<p class="mmrr-description mmrr-vehicle-description" data-i18n-ko="${esc(row.ko)}">${esc(row.en)}</p>`:'<div class="mmrr-definition-status" data-mmrr-definition-status="missing" role="status"><strong data-i18n-ko="설명 미등록">Description unavailable</strong><p data-i18n-ko="이 판본에 등록된 차량 규칙 설명이 없습니다. 사용자 정의 규칙은 작성한 내용을 확인하세요.">No vehicle rule explanation is registered for this edition. For a custom rule, check the description supplied by its author.</p></div>';
+    shell(token,heading+body,options.activator);window.UKI18n?.refresh(overlay);return true;
+  }
   function availableKinds(){return Object.keys(kinds).filter(kind=>rows(kind).some(hasReference));}
   function library(options={}){
     const categories=availableKinds();detailContext=null;traitReturn=null;libraryState={edition:edition(options.edition||currentEdition()),kind:categories.includes(options.kind)?options.kind:categories[0]||'skills',query:String(options.query||'')};
@@ -178,6 +207,7 @@
   }
   function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate();});}
   window.addEventListener('click',event=>{
+    const vehicleRule=event.target.closest?.('[data-mmrr-vehicle-rule]');if(vehicleRule){event.preventDefault();event.stopImmediatePropagation();return openVehicleRule(vehicleRule.dataset.mmrrVehicleRule,{edition:vehicleRule.dataset.mmrrEdition,activator:vehicleRule});}
     const traitButton=event.target.closest?.('[data-mmrr-trait]');if(traitButton){event.preventDefault();event.stopImmediatePropagation();return openTrait(traitButton.dataset.mmrrTrait,{edition:traitButton.dataset.mmrrEdition,activator:traitButton});}
     const traitBack=event.target.closest?.('[data-mmrr-trait-back]');if(traitBack){event.preventDefault();event.stopImmediatePropagation();return backFromTrait();}
     const equipmentButton=event.target.closest?.('[data-rp="equipment"],[data-fp="equipment-detail"]');if(equipmentButton){const s=state(),g=(s.gangs||[]).find(row=>row.id===s.selectedGang),f=g?.fighters?.find(row=>row.id===equipmentButton.dataset.id),item=f?.equipment?.find(row=>row.id===(equipmentButton.dataset.equipment||equipmentButton.dataset.sub));if(item)equipmentContext={row:lookup('equipment',item),edition:currentEdition()};schedule();}
@@ -192,6 +222,6 @@
   document.addEventListener('change',event=>{if(libraryState&&event.target.matches('[data-mmrr-edition],[data-mmrr-kind]')){libraryState[event.target.matches('[data-mmrr-edition]')?'edition':'kind']=event.target.value;drawLibrary();}else schedule();});
   document.addEventListener('input',event=>{if(libraryState&&event.target.matches('[data-mmrr-search]')){libraryState.query=event.target.value;drawLibrary();}});
   new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
-  window.MMRuleReference={lookup,open,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait};
+  window.MMRuleReference={lookup,open,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait,vehicleRuleMarkup,vehicleRuleLookup,openVehicleRule};
   decorate();
 })();
