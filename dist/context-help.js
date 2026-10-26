@@ -26,6 +26,7 @@
     return JSON.parse(JSON.stringify({...row,...variant,title:variant.title||row.title}));
   }
   function open(key,options={}){
+    if(window.MMOfficialSource?.pending)return window.MMOfficialSource.showPending({activator:options.activator});
     if(key.startsWith('rule.'))return window.MMRuleReference?.open('coreRules',key.slice(5),options)||false;
     if(key.startsWith('trait.'))return window.MMRuleReference?.openTrait(key.slice(6),options)||false;
     const ed=edition(options.edition),row=lookup(key,{edition:ed});if(!row||!window.MMRuleReference?.openContext)return false;

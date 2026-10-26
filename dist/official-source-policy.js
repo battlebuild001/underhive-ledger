@@ -1,0 +1,160 @@
+/* Rules are unavailable until the supplied official originals have been verified.
+   Manual records and account data remain separate from rule recommendations. */
+(function(){
+  'use strict';
+  const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const pending=()=>!(Number(window.RULES_DATA?.verified_source_count)>0&&window.RULES_DATA?.official_source_status==='verified');
+  const lang=()=>window.UKI18n?.language==='en'?'en':'ko';
+  const label=(en,ko,tag='span')=>`<${tag} data-i18n-ko="${escape(ko)}">${escape(en)}</${tag}>`;
+  const pendingBody=()=>`<div data-official-source-pending>${label('Verified official rules are not available yet. Automatic awards, rule tables and preset recommendations are unavailable until the supplied original material is verified.','공식 원본에서 확인된 규칙 데이터가 아직 등록되지 않았습니다. 원본을 확인할 때까지 자동 보상·판정표·추천 목록은 제공하지 않습니다.','p')}${label('You can still enter your own records. Enter values agreed for your game; this app does not validate those values as official rules.','직접 기록은 계속 사용할 수 있습니다. 플레이에 사용할 값을 직접 입력하세요. 앱은 직접 입력한 값을 공식 규칙으로 판정하지 않습니다.','p')}</div>`;
+  function showPending(options={}){
+    if(!pending())return false;
+    if(window.MMRuleReference?.openContext)return window.MMRuleReference.openContext('Official source pending',pendingBody(),{nameKo:'공식 원본 확인 대기',activator:options.activator});
+    if(typeof showModal==='function'){showModal(lang()==='ko'?'공식 원본 확인 대기':'Official source pending',pendingBody(),lang()==='ko'?'닫기':'Close',()=>true);return true;}
+    return false;
+  }
+  function input(name,en,ko,value='',type='text',attributes=''){
+    return `<label>${label(en,ko)}<input name="${escape(name)}" type="${escape(type)}" value="${escape(value)}" ${attributes}></label>`;
+  }
+  function notes(name,en,ko,value=''){return `<label class="wide">${label(en,ko)}<textarea name="${escape(name)}">${escape(value)}</textarea></label>`;}
+  function choose(name,en,ko,options,value=''){
+    return `<label>${label(en,ko)}<select name="${escape(name)}">${options.map(option=>{const [val,english,korean]=Array.isArray(option)?option:[option,option,option];return `<option value="${escape(val)}" ${String(val)===String(value)?'selected':''} data-i18n-ko="${escape(korean||english)}">${escape(english)}</option>`;}).join('')}</select></label>`;
+  }
+  function manualForm(kind,en,ko,body,callback){
+    if(typeof formModal!=='function')return false;
+    formModal(en,`<p class="wide muted" data-official-manual-note>${label('Manual record only. No rule table, automatic award or eligibility check is applied.','직접 기록입니다. 판정표·자동 보상·자격 조건을 적용하지 않습니다.')}</p>`+body,callback,'Save record');
+    const form=document.querySelector('#modal-form');if(!form)return false;
+    form.dataset.officialManual=kind;form.closest('.modal')?.classList.add('official-manual-modal');
+    const heading=form.closest('.modal')?.querySelector('.modal-head h2');if(heading)heading.dataset.i18nKo=ko;
+    const submit=form.closest('.modal')?.querySelector('#modal-submit');if(submit)submit.dataset.i18nKo='기록 저장';
+    window.UKI18n?.refresh(form.closest('.modal'));
+    return form;
+  }
+  const integer=value=>value!==''&&String(value).trim()!==''&&Number.isSafeInteger(Number(value));
+  const validTotal=(value,change)=>Number.isSafeInteger((Number(value)||0)+change)&&(Number(value)||0)+change>=0;
+  function reject(en,ko){window.alert(lang()==='ko'?ko:en);return false;}
+  function persist(g,message){if(g&&typeof log==='function')log(g,message);if(typeof save==='function')save();return true;}
+  function manualXp(f,context={}){
+    if(!f)return false;const current=Number(f.xp)||0;
+    return manualForm('xp','Record XP manually','XP 직접 기록',`<p class="wide">${label('Current XP','현재 XP')}: <strong data-official-current-xp>${escape(current)}</strong></p>`+input('amount','XP change','XP 변화량','','number','step="1" required')+input('reason','Reason','사유'),values=>{
+      if(!integer(values.amount))return reject('Enter a whole XP change.','XP 변화량을 정수로 입력하세요.');
+      const amount=Number(values.amount),before=Number(f.xp)||0;
+      if(!validTotal(before,amount))return reject('XP must remain a non-negative safe whole number.','XP 합계는 0 이상의 안전한 정수여야 합니다.');
+      f.xp=before+amount;f.xpHistory??=[];f.xpHistory.unshift({id:id(),at:now(),amount,reason:values.reason||'Manual XP record',manual:true,...(context.sessionId?{sessionId:context.sessionId}:{})});
+      if(context.row)context.row.xpEarned=(Number(context.row.xpEarned)||0)+amount;
+      return persist(context.gang||(typeof gang==='function'?gang():null),`${f.name}: ${amount>=0?'+':''}${amount} XP (manual)`);
+    });
+  }
+  function manualAdvancement(f){
+    if(!f)return false;
+    const stats=Object.keys(f.stats||{}).map(key=>[key,key,key]);
+    return manualForm('advancement','Record advancement manually','성장 직접 기록',input('name','Record name','기록 이름','','text','required')+choose('kind','Record type','기록 유형',[['Other','Other','기타'],['Characteristic','Characteristic','능력치'],['Skill','Skill','스킬']],'Other')+choose('stat','Characteristic to change','변경할 능력치',[['','None','없음'],...stats],'')+input('amount','Characteristic change','능력치 변화량',0,'number','step="1"')+input('xpChange','XP change','XP 변화량',0,'number','step="1"')+input('ratingChange','Recorded value change','기록 가치 변화량',0,'number','step="1"')+notes('notes','Notes','메모'),values=>{
+      if(!String(values.name||'').trim())return reject('Enter a record name.','기록 이름을 입력하세요.');
+      if(!['amount','xpChange','ratingChange'].every(key=>integer(values[key])))return reject('Enter whole-number changes.','변화량은 정수로 입력하세요.');
+      const xpChange=Number(values.xpChange),ratingChange=Number(values.ratingChange),amount=Number(values.amount);
+      if(!validTotal(f.xp,xpChange)||!validTotal(f.cost,ratingChange)||f.ratingCost!=null&&!validTotal(f.ratingCost,ratingChange))return reject('XP and recorded totals must remain non-negative safe whole numbers.','XP와 기록 합계는 0 이상의 안전한 정수여야 합니다.');
+      const record={id:id(),name:String(values.name).trim(),kind:values.kind,stat:values.stat,amount,xpCost:-xpChange,cost:ratingChange,notes:values.notes,manual:true,acquiredAt:now()};
+      f.xp=(Number(f.xp)||0)+xpChange;f.cost=(Number(f.cost)||0)+ratingChange;if(f.ratingCost!=null)f.ratingCost=(Number(f.ratingCost)||0)+ratingChange;
+      f.advancements??=[];f.advancements.push(record);
+      if(values.kind==='Skill'){f.skills??=[];if(!f.skills.includes(record.name))f.skills.push(record.name);}
+      if(values.stat&&amount){f.effects??=[];f.effects.push({id:id(),name:record.name,category:'Advancement',stat:values.stat,amount,advancementId:record.id,manual:true});}
+      return persist(typeof gang==='function'?gang():null,`${f.name}: ${record.name} (manual)`);
+    });
+  }
+  function manualInjury(f,context={}){
+    if(!f)return false;const stats=Object.keys(f.stats||{}).map(key=>[key,key,key]);
+    return manualForm('injury','Record injury manually','부상 직접 기록',input('name','Record name','기록 이름','','text','required')+choose('stat','Characteristic to change','변경할 능력치',[['','None','없음'],...stats],'')+input('amount','Characteristic change','능력치 변화량',0,'number','step="1"')+notes('notes','Notes','메모'),values=>{
+      if(!String(values.name||'').trim())return reject('Enter a record name.','기록 이름을 입력하세요.');
+      if(!integer(values.amount))return reject('Enter a whole-number change.','변화량을 정수로 입력하세요.');
+      const record={id:id(),name:String(values.name).trim(),stat:values.stat,amount:Number(values.amount),notes:values.notes,manual:true,...(context.sessionId?{sessionId:context.sessionId}:{})};
+      f.injuries??=[];f.injuries.push(record);if(context.row){context.row.injuries??=[];context.row.injuries.push({...record});}
+      if(record.stat&&record.amount){f.effects??=[];f.effects.push({id:id(),name:record.name,category:'Injury',stat:record.stat,amount:record.amount,injuryId:record.id,manual:true});}
+      return persist(context.gang||(typeof gang==='function'?gang():null),`${f.name}: ${record.name} (manual)`);
+    });
+  }
+  function manualCycle(){
+    const g=typeof gang==='function'?gang():null;if(!g)return false;
+    return manualForm('cycle','Record cycle changes manually','사이클 변화 직접 기록',input('creditsChange','Credits change','크레딧 변화량',0,'number','step="1"')+input('reputationChange','Reputation change','명성 변화량',0,'number','step="1"')+notes('notes','Notes','메모'),values=>{
+      if(!['creditsChange','reputationChange'].every(key=>integer(values[key])))return reject('Enter whole-number changes.','변화량은 정수로 입력하세요.');
+      const creditsChange=Number(values.creditsChange),reputationChange=Number(values.reputationChange);
+      if(!validTotal(g.credits,creditsChange)||!validTotal(g.reputation,reputationChange))return reject('Recorded totals must remain non-negative safe whole numbers.','기록 합계는 0 이상의 안전한 정수여야 합니다.');
+      g.credits=(Number(g.credits)||0)+creditsChange;g.reputation=(Number(g.reputation)||0)+reputationChange;
+      return persist(g,`Cycle record: ${creditsChange>=0?'+':''}${creditsChange} credits; ${reputationChange>=0?'+':''}${reputationChange} reputation${values.notes?' · '+values.notes:''} (manual)`);
+    });
+  }
+  function manualSell(g,item,remove){
+    if(!g||!item||typeof remove!=='function')return false;
+    return manualForm('sale','Record sale manually','판매 직접 기록',`<p class="wide" data-user-text>${escape(item.name)}</p>`+input('value','Agreed sale amount','합의한 판매 금액','','number','min="0" step="1" required'),values=>{
+      if(!integer(values.value)||Number(values.value)<0)return reject('Enter a non-negative whole sale amount.','판매 금액을 0 이상의 정수로 입력하세요.');
+      const amount=Number(values.value);if(!validTotal(g.credits,amount))return reject('The credit total must remain a non-negative safe whole number.','크레딧 합계는 0 이상의 안전한 정수여야 합니다.');remove();g.credits=(Number(g.credits)||0)+amount;
+      return persist(g,`${item.name}: ${amount} credits (manual sale)`);
+    });
+  }
+  function manualGang(g){
+    return manualForm('gang',g?'Edit manual gang record':'Create manual gang record',g?'갱 직접 기록 수정':'갱 직접 기록 생성',input('name','Gang name','갱 이름',g?.name||'','text','required')+input('faction','Recorded gang type','기록할 갱 유형',g?.faction||'')+choose('edition','Edition label','판본 표시',['N23','N26','Custom'],g?.edition||data.edition||'N26')+input('alignment','Recorded alignment','기록할 성향',g?.alignment||'')+input('credits','Credits','크레딧',g?.credits??0,'number','min="0" step="1" required')+input('reputation','Reputation','명성',g?.reputation??0,'number','min="0" step="1" required')+notes('notes','Notes','메모',g?.notes||''),values=>{
+      if(!String(values.name||'').trim())return reject('Enter a gang name.','갱 이름을 입력하세요.');
+      if(!integer(values.credits)||!integer(values.reputation)||Number(values.credits)<0||Number(values.reputation)<0)return reject('Enter non-negative whole totals.','합계는 0 이상의 정수로 입력하세요.');
+      const changed={name:String(values.name).trim(),faction:values.faction||'Custom',edition:values.edition,alignment:values.alignment,credits:Number(values.credits),reputation:Number(values.reputation),notes:values.notes};
+      if(g)Object.assign(g,changed);else{g={id:id(),...changed,meat:0,exploration:0,stash:[],fighters:[],vehicles:[],logs:[],manual:true};data.gangs.push(g);data.selectedGang=g.id;data.view='gang';data.tab='fighters';}
+      return persist(g,lang()==='ko'?'갱 직접 기록 저장':'Manual gang record saved');
+    });
+  }
+  function manualCampaign(c){
+    return manualForm('campaign',c?'Edit manual campaign record':'Create manual campaign record',c?'캠페인 직접 기록 수정':'캠페인 직접 기록 생성',input('name','Campaign name','캠페인 이름',c?.name||'','text','required')+choose('edition','Edition label','판본 표시',['N23','N26','Custom'],c?.edition||data.edition||'N26')+input('campaignType','Recorded campaign type','기록할 캠페인 유형',c?.campaignType||'')+input('phase','Recorded phase','기록할 단계',c?.phase||'')+notes('description','Description','설명',c?.description||'')+notes('notes','Notes','메모',c?.notes||''),values=>{
+      if(!String(values.name||'').trim())return reject('Enter a campaign name.','캠페인 이름을 입력하세요.');
+      const changed={name:String(values.name).trim(),edition:values.edition,campaignType:values.campaignType||'Custom',phase:values.phase,description:values.description,notes:values.notes};
+      if(c)Object.assign(c,changed);else{c={id:id(),...changed,campaignTypeId:'',ownerName:typeof cpPlayerName==='function'?cpPlayerName():'',createdAt:now(),tradingPosts:[],members:[],territories:[],battles:[],sessions:[],resources:[],allegiances:[],triumphs:[],logs:[],manual:true};data.campaigns.push(c);data.selectedCampaign=c.id;data.view='campaign';data.campaignTab='members';}
+      if(typeof save==='function')save();return true;
+    });
+  }
+  function manualFighter(){
+    const g=typeof gang==='function'?gang():null;if(!g)return false;
+    const stats=typeof baseStats!=='undefined'?Object.keys(baseStats):[];
+    return manualForm('fighter','Create manual fighter record','파이터 직접 기록 생성',input('name','Name','이름','','text','required')+input('type','Recorded type','기록할 유형','')+input('cost','Recorded value','기록 가치',0,'number','min="0" step="1" required')+stats.map(key=>input('stat_'+key,key,key,'','number','step="1"')).join('')+notes('notes','Notes','메모'),values=>{
+      if(!String(values.name||'').trim())return reject('Enter a name.','이름을 입력하세요.');
+      if(!integer(values.cost)||Number(values.cost)<0)return reject('Enter a non-negative whole value.','기록 가치를 0 이상의 정수로 입력하세요.');
+      const entered={};for(const key of stats){const value=values['stat_'+key];if(value==='')continue;if(!integer(value))return reject('Enter whole characteristic values or leave them blank.','능력치는 정수로 입력하거나 비워 두세요.');entered[key]=Number(value);}
+      const f={id:id(),name:String(values.name).trim(),type:values.type||'Custom',cost:Number(values.cost),status:'Active',xp:0,kills:0,stats:entered,equipment:[],skills:[],effects:[],injuries:[],advancements:[],loadouts:[],xpHistory:[],notes:values.notes,manual:true};
+      g.fighters??=[];g.fighters.push(f);data.selectedFighter=f.id;data.view='fighter';return persist(g,`${f.name}: manual record created`);
+    });
+  }
+  const blocked={
+    'data-fp':new Set(['advance-roll','skill-roll','injury-roll','power-boost-roll','add-power-boost','promote-fighter','clear-glitches','clear-glitches-kills','clear-glitches-downtime']),
+    'data-vp':new Set(['damage-add','damage-roll','damage-repair','damage-repair-roll']),
+    'data-cp':new Set(['participation-xp','scenario-roll']),
+    'data-gt':new Set(['tactics-roll','chem-discount','pc-apply','pc-choose-damage','pc-choose-tactic']),
+    'data-deep':new Set(['sale-half','sale-roll']),
+    'data-ext':new Set(['repair-vehicle','add-vehicle-damage'])
+  };
+  function blockButtons(){
+    for(const [attribute,values]of Object.entries(blocked))document.querySelectorAll('['+attribute+']').forEach(button=>{const action=button.getAttribute(attribute);if(!values.has(action)&&!(attribute==='data-gt'&&action?.startsWith('pc-')))return;button.dataset.officialBlocked=attribute+':'+action;button.removeAttribute(attribute);button.setAttribute('aria-disabled','true');button.removeAttribute('disabled');});
+    document.querySelectorAll('[data-play="post-cycle"],[data-parity="post-cycle"]').forEach(button=>{button.removeAttribute('data-play');button.removeAttribute('data-parity');button.dataset.officialManual='cycle';});
+    document.querySelectorAll('[data-gt-pc-action]').forEach(field=>{field.removeAttribute('data-gt-pc-action');field.disabled=true;});
+    document.querySelectorAll('.gt-pc-panel:not([data-official-source-replaced])').forEach(panel=>{panel.dataset.officialSourceReplaced='yes';panel.replaceChildren();const note=document.createElement('div');note.className='notice';note.innerHTML=pendingBody()+`<button type="button" class="btn small" data-official-manual="cycle">${label('Record changes manually','변화 직접 기록')}</button>`;panel.append(note);});
+  }
+  let refreshing=false,queued=false,initialized=false;
+  function refresh(){
+    if(!pending()||refreshing)return;refreshing=true;
+    try{
+      const content=document.querySelector('.content');
+      if(content&&!content.querySelector(':scope > [data-official-source-notice]')){const banner=document.createElement('aside');banner.className='notice official-source-notice';banner.dataset.officialSourceNotice='';banner.setAttribute('role','status');banner.innerHTML=label('Official source pending','공식 원본 확인 대기','strong')+label('Automatic rules and preset data are unavailable. You can continue entering manual records.','자동 규칙과 기본 데이터는 원본 확인 전까지 제공하지 않습니다. 직접 기록은 계속 사용할 수 있습니다.','p')+`<button type="button" class="btn small" data-official-source-info>${label('Details','자세히')}</button>`;content.prepend(banner);}
+      blockButtons();window.UKI18n?.refresh(document.querySelector('[data-official-source-notice]')||document.body);
+    }finally{refreshing=false;}
+  }
+  function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
+  function init(){
+    if(initialized||!pending())return;initialized=true;
+    addXp=manualXp;addAdvancement=manualAdvancement;addInjury=manualInjury;postCycle=manualCycle;editGang=manualGang;editCampaign=manualCampaign;if(typeof sellItem==='function')sellItem=manualSell;
+    const previousFighter=editFighter;editFighter=function(f,...args){if(!f)return manualFighter();return previousFighter.call(this,f,...args);};
+    if(typeof cpSessionXp==='function')cpSessionXp=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return manualXp(f,{gang:g,row,sessionId:s.id});};
+    if(typeof cpSessionInjury==='function')cpSessionInjury=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return manualInjury(f,{gang:g,row,sessionId:s.id});};
+    const previousRender=render;render=function(...args){const result=previousRender.apply(this,args);refresh();return result;};
+    new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});window.addEventListener('uk:languagechange',schedule);refresh();
+  }
+  window.addEventListener('click',event=>{
+    if(!pending())return;const target=event.target.closest?.('[data-official-blocked],[data-official-source-info],button[data-official-manual="cycle"]');if(!target)return;
+    event.preventDefault();event.stopImmediatePropagation();if(target.dataset.officialManual==='cycle')manualCycle();else showPending({activator:target});
+  },true);
+  window.MMOfficialSource={get pending(){return pending();},showPending,manualXp,manualAdvancement,manualInjury,manualCycle,manualSell,refresh,init};
+  init();
+})();

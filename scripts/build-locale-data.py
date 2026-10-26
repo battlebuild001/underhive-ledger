@@ -3,6 +3,13 @@ import json,re
 
 root=Path(__file__).resolve().parents[1]
 data=json.loads((root/'dist/rules-data.json').read_text())
+if data.get('official_source_policy')!='provided_official_originals_only' or data.get('official_source_status')!='awaiting_original' or data.get('verified_source_count')!=0 or any(isinstance(value,list) and value for value in data.values()):
+    raise SystemExit('Rule translation imports are disabled until a verified parser for the supplied official originals is available.')
+if data.get('official_source_status')=='awaiting_original':
+    payload={'names':{},'words':{},'phrases':{},'koAliases':{},'descriptionsEn':{},'descriptionsKo':{},'rulesEn':{},'coverage':{'catalogNames':0,'englishRuleDescriptions':0,'englishConditions':0},'official_source_status':'awaiting_original'}
+    (root/'dist/i18n-catalog-data.js').write_text('/* Rule and catalog translations await verified official originals. */\nglobalThis.UK_CATALOG_LOCALE = '+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n')
+    print('Catalog translations remain empty while official originals await verification.')
+    raise SystemExit(0)
 directory=root/'data/localization'
 glossary=json.loads((directory/'proper-name-glossary.json').read_text())
 pronunciations=json.loads((directory/'phonemes.json').read_text())

@@ -293,7 +293,6 @@ Select capturing gang...	포획한 갱 선택...
 No fighters are currently held captive by gangs in this campaign.	현재 이 캠페인의 갱이 잡고 있는 포로 파이터가 없습니다.
 This fighter already has the Captured lasting injury	이 파이터는 이미 포로 지속 부상을 가지고 있습니다
 You will need to manually remove the Recovery flag the next time you update the gang.	다음 갱 업데이트 시 회복 상태를 직접 해제해야 합니다.
-The refund only includes the fighter’s base cost and equipment.	환급에는 파이터의 기본 비용과 장비만 포함됩니다.
 Leader	리더
 Champion	챔피언
 Ganger	갱어
@@ -354,7 +353,6 @@ XP changed	XP를 변경했습니다
 XP cannot be reduced below zero.	XP는 0 미만으로 줄일 수 없습니다.
 Enter a whole XP amount.	XP를 정수로 입력하세요.
 Changing starting XP adjusts total XP by the difference.	시작 XP를 바꾸면 차이만큼 총 XP가 조정됩니다.
-XP cost and rating increase are automatically calculated based on the type and number of advancements.	성장 유형과 횟수에 따라 XP 비용과 레이팅 증가량을 자동으로 계산합니다.
 Below value can be overridden (use a negative value to subtract)	아래 값을 직접 바꿀 수 있습니다 (음수로 입력하면 차감)
 Promotion	승급
 Promote	승급
@@ -364,8 +362,6 @@ Promotion to Champion	챔피언으로 승급
 Confirm Promotion	승급 확정
 Select a Leader fighter type.	리더 파이터 유형을 선택하세요.
 To promote a fighter using XP, use the Add Advancement button on the Fighter page.	XP로 승급하려면 파이터 페이지의 성장 추가 버튼을 사용하세요.
-Undo the higher promotion before undoing the Prospect promotion.	프로스펙트 승급을 취소하기 전에 이후 승급을 먼저 취소하세요.
-Undo the Champion promotion (Inspiring) or Leader promotion before undoing the Prospect promotion.	프로스펙트 승급을 취소하기 전에 챔피언 승급 (인스파이어링) 또는 리더 승급을 먼저 취소하세요.
 Skill	스킬
 Skills	스킬
 Skill Name	스킬 이름
@@ -399,8 +395,6 @@ Choose Primary Skill	프라이머리 스킬 선택
 Choose Secondary Skill	세컨더리 스킬 선택
 Random Primary Skill	무작위 프라이머리 스킬
 Random Secondary Skill	무작위 세컨더리 스킬
-A new Primary skill or a random Secondary skill	새 프라이머리 스킬 또는 무작위 세컨더리 스킬
-A new Secondary skill	새 세컨더리 스킬
 Primary	프라이머리
 Secondary	세컨더리
 Random	무작위
@@ -416,9 +410,6 @@ Remove the granting injury or equipment to remove this skill.	이 스킬을 제�
 Remove this skill in Advancements.	성장 목록에서 이 스킬을 제거하세요.
 Add a skill to your fighter that is not part of a Promotion or an Advancement.	승급이나 성장에 포함되지 않는 스킬을 파이터에게 추가합니다.
 No skills.	스킬이 없습니다.
-This skill is restricted to fighters and cannot be selected for a vehicle.	이 스킬은 파이터 전용이므로 차량에 선택할 수 없습니다.
-Wyrd Powers are not ordinary skills. This fighter needs the Wyrd subtype, Wyrd archetype, or existing access to this Skill Set.	위어드 파워는 일반 스킬이 아닙니다. 위어드 하위 유형, 위어드 아키타입 또는 해당 스킬 세트의 접근 권한이 필요합니다.
-Selecting an archetype will set the fighter's skill access.	아키타입을 선택하면 파이터의 스킬 접근이 설정됩니다.
 Special Rules	특수 규칙
 Special Rules to be Added	추가할 특수 규칙
 Special Rules to be Removed	제거할 특수 규칙
@@ -485,7 +476,6 @@ Current Kills	현재 처치 수
 Kill Cost	처치 비용
 Kill cost	처치 비용
 Spend kills	처치 수 사용
-Needs 4 kills	처치 4회 필요
 Not enough kills.	처치 수가 부족합니다.
 Not enough kills available.	사용 가능한 처치 수가 부족합니다.
 Kills spent will be refunded.	사용한 처치 수가 환급됩니다.
@@ -530,7 +520,6 @@ Choose one equipment option.	장비 옵션 하나를 선택하세요.
 Choose one equipment option to receive with your purchase:	구매 시 받을 장비 옵션 하나를 선택하세요:
 Select the required starting equipment.	필수 시작 장비를 선택하세요.
 Can be consumed by the fighter	파이터가 소비 가능
-Can be consumed by the fighter (e.g. chem-alchemy, Limited ammo).	파이터가 소비할 수 있습니다 (예: 켐 알케미, 한정 탄약).
 Consumable	소모품
 This equipment will be removed from all fighters that currently have it equipped.	현재 장착한 모든 파이터에게서 이 장비가 제거됩니다.
 Stash	보관고
@@ -553,7 +542,6 @@ Trade Points	거래 포인트
 Not enough Trade Points.	거래 포인트가 부족합니다.
 Trade Points must be a number or E.	거래 포인트는 숫자 또는 E여야 합니다.
 e.g. 2 or E	예: 2 또는 E
-Minimum 5 credits	최소 5 크레딧
 Include this cost in gang rating	이 비용을 갱 레이팅에 포함
 Use Listed Cost for Rating	목록 가격을 레이팅에 사용
 Use Delegation Cost	파견 비용 사용
@@ -753,8 +741,6 @@ Played	플레이 완료
 Not played	플레이 전
 Winners must take part in the battle.	승리 갱은 해당 전투에 참가해야 합니다.
 Participation XP	참가 XP
-Add 1 participation XP to every fighter in the selected crew?	선택한 크루의 모든 파이터에게 참가 XP 1을 추가할까요?
-Only fighters who were not taken Out of Action	전투 불능이 되지 않은 파이터만
 Remove from Battle	전투에서 제외
 Activate	활성화
 Successful Rally	재집결 성공
@@ -924,14 +910,9 @@ Choose one replacement	교체할 항목 하나 선택
 No Lasting Damage to repair.	수리할 지속 손상이 없습니다.
 No valid damages to repair.	수리 가능한 손상이 없습니다.
 Select at least one Lasting Damage to repair.	수리할 지속 손상을 하나 이상 선택하세요.
-Select the Lasting Damage to repair (50 credits each):	수리할 지속 손상을 선택하세요 (각 50 크레딧):
 The following damages will be repaired:	다음 손상을 수리합니다:
 All Lasting Damage will be repaired.	모든 지속 손상을 수리합니다.
 All Lasting Damage will be replaced with a Persistent Rattle.	모든 지속 손상을 퍼시스턴트 래틀로 교체합니다.
-0 selected at 50 credits each. Repeated Lasting Damage must be selected — and paid for — separately.	0개 선택, 각 50 크레딧. 중복된 지속 손상은 각각 선택하고 비용을 내야 합니다.
-1–3 Almost like new	1–3 올모스트 라이크 뉴
-4–5 Quality repairs	4–5 퀄리티 리페어
-6 Superficial Damage	6 슈퍼피셜 대미지
 Almost like new	올모스트 라이크 뉴
 Quality repairs	퀄리티 리페어
 Percussive Repair	퍼커시브 리페어
@@ -1173,8 +1154,6 @@ Roll D6	D6 굴리기
 Roll D66	D66 굴리기
 Roll 2D6	2D6 굴리기
 Roll for Skill	스킬 굴리기
-Rating increase is automatic. Roll 2D6 to log it, or skip if you already rolled — you may take any result you rolled high enough for.	레이팅 증가는 자동으로 반영됩니다. 2D6을 굴려 기록하거나 이미 굴렸다면 건너뛰세요. 굴림값 이하의 결과 중에서 선택할 수 있습니다.
-Become Specialist and gain a random Primary skill	스페셜리스트가 되고 무작위 프라이머리 스킬 획득
 1. List	1. 목록
 2. Cards	2. 카드
 3. Settings	3. 설정
@@ -1224,7 +1203,6 @@ Repair	수리
 Repair Damage	손상 수리
 Repair cost must be a non-negative whole number.	수리 비용을 0 이상의 정수로 입력하세요.
 Fit Bionics	바이오닉스 장착
-Choose another living fighter to take to the Doc.	닥에게 동행할 다른 생존 파이터를 선택하세요.
 Critically Injured fighter	치명적 부상을 입은 파이터
 Heal	치료
 Enhance Weapon	인핸스 웨폰
@@ -1247,8 +1225,6 @@ Custom playing card	사용자 정의 플레잉 카드
 Playing card (Ref.)	플레잉 카드 (참고)
 Black Joker	블랙 조커
 Red Joker	레드 조커
-30 credits + D6	30 크레딧 + D6
-50 credits	50 크레딧
 Total :	합계:
 Winner:	승리 갱:
 Pack	팩
@@ -1265,7 +1241,6 @@ Transport (X)	트랜스포트 (X)
 Unreliable	언릴라이어블
 Agile	애자일
 Master-crafted	마스터 크래프티드
-Master-crafted · 25% · R10	마스터 크래프티드 · 25% · R10
 Fearsome	피어섬
 Terrifying	테러파잉
 Inspiring	인스파이어링
@@ -2188,7 +2163,6 @@ D66 최솟값	D66 Minimum
     { en: '{0} items', ko: '{0}개' },
     { en: 'View rules for {0}', ko: '{0} 규칙 보기' },
     { en: '(+{0} XP each)', ko: '(각 +{0} XP)' },
-    { en: '{0} selected at 50 credits each. Repeated Lasting Damage must be selected — and paid for — separately.', ko: '{0}개 선택, 각 50 크레딧. 중복된 지속 손상은 각각 선택하고 비용을 내야 합니다.' },
     { en: 'Grants skill: {0}', ko: '부여 스킬: {0}' },
     { en: 'This fighter will be promoted to {0}', ko: '이 파이터는 {0}로 승급합니다' },
     { en: 'This fighter will remain a {0}', ko: '이 파이터는 {0}로 유지됩니다' },

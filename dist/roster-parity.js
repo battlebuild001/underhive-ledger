@@ -1,7 +1,7 @@
 /* Full roster cards and their own controls, independently rebuilt from the reference UI. */
 (function(){
 'use strict';
-const number=v=>Number(v)||0,R=()=>globalThis.RULES_DATA||{},rounds=[4,7,10,13,19,25,31,37,49,61,73,85,97,109,121,133,157,181,205,229];
+const number=v=>Number(v)||0,R=()=>globalThis.RULES_DATA||{},rounds=[];
 let menu=null,menuAnchor=null,dragged='',suppressCardClickUntil=0,resizeObserver=null,longPress=null,pointerDrag=null;
 const names=value=>Array.isArray(value)?value.map(x=>typeof x==='string'?x:x.name||x.skill_name||x.effect_name||'').filter(Boolean):typeof value==='string'?value.split(',').map(x=>x.trim()).filter(Boolean):value&&typeof value==='object'?Object.keys(value):[];
 const safeNote=value=>window.GangTools?.sanitize?GangTools.sanitize(value):esc(value||'').replace(/\n/g,'<br>');
@@ -14,7 +14,7 @@ function profiles(item){let actual=item.profiles||item.weaponProfiles||item.weap
 function totalCost(f,items){return number(f.ratingCost??f.cost)+items.reduce((sum,e)=>sum+number(e.cost)*Math.max(1,number(e.quantity)||1),0)}
 function adjustedStats(f,items){let ids=new Set(items.map(x=>x.id)),effects=(f.effects||[]).filter(e=>!e.sourceEquipmentId||ids.has(e.sourceEquipmentId));return window.FighterParity?.stats?FighterParity.stats({...f,effects}):{...f.stats}}
 function formatStat(k,value,edition){if(value==null||value==='')return '—';let v=String(value);if(k==='M')return /["″]$/.test(v)?v:v+'"';if(['WS','BS','Sv'].includes(k)){if((k==='BS'||k==='Sv')&&number(value)===0)return '—';return /\+$/.test(v)||v==='-'?v:v+'+'}if(['I','Ld','Cl','Wil','Int'].includes(k))return edition==='N26'?v.replace(/\+$/,''):/\+$/.test(v)?v:v+'+';return v}
-function advanceCount(f){return Math.max(0,rounds.filter(x=>x<=number(f.xp)).length-rounds.filter(x=>x<=number(f.startingXp)).length-(f.advancements||[]).length-(f.promotedFromProspect?1:0))}
+function advanceCount(){return 0;}
 function statTable(g,f,items){let stats=adjustedStats(f,items),keys=['M','WS','BS','S','T','W','I','A',...(g.edition==='N26'?['Sv']:[]),'Ld','Cl','Wil','Int','XP'];return `<table class="rp-stats"><thead><tr>${keys.map(k=>`<th class="${['Ld','Cl','Wil','Int'].includes(k)?'mental':k==='XP'?'experience':''}">${k}</th>`).join('')}</tr></thead><tbody><tr>${keys.map(k=>`<td class="${['Ld','Cl','Wil','Int'].includes(k)?'mental':k==='XP'?'experience':''}">${k==='XP'?`${f.startingXp==null&&!number(f.xp)?'N/A':fmt(f.xp)}${g.edition==='N26'&&advanceCount(f)>0?'<span class="rp-advancement" title="Advancement available" aria-label="Advancement available">⬆</span>':''}`:esc(formatStat(k,stats[k],g.edition))}</td>`).join('')}</tr></tbody></table>`}
 function range(value){let text=String(value??'—');return /\d$/.test(text)&&!/^Sx/i.test(text)?text+'"':text}
 function accuracy(value){if(value==null||value===''||value===0||value==='0')return '—';let text=String(value);return /^[+-]/.test(text)?text:'+'+text}
