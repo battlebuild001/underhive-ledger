@@ -7,7 +7,7 @@ for(const match of html.matchAll(/<script src="\/([^"?]+)[^"]*"/g)){
   vm.runInContext(fs.readFileSync(root+'/'+match[1],'utf8'),context,{filename:match[1]});
 }
 const catalogBefore=JSON.stringify(w.RULES_DATA),saved=()=>run('JSON.stringify(data)'),item=(name,edition)=>w.RULES_DATA.equipment.find(row=>row.name===name&&row.edition_slug===edition),rowFor=item=>q('[data-fp="equipment-buy"][data-sub="'+item.id+'"]').closest('.fp-buy-row'),stats=profile=>Object.fromEntries([...profile.querySelectorAll('[data-profile-stat]')].map(node=>[node.dataset.profileStat,node.querySelector('dd').textContent]));
-async function open(edition){run(`closeModal();gang().edition=${JSON.stringify(edition)};data.selectedFighter=gang().fighters[0].id;data.view='fighter';render();addEquipment(currentFighter())`);w.MMWidgets.setValue(q('#modal-form').elements.list,'all',{emit:true});await tick();w.MMRuleReference.refresh();}
+async function open(edition){run(`closeModal();gang().edition=${JSON.stringify(edition)};data.selectedFighter=gang().fighters[0].id;data.view='fighter';render();addEquipment(currentFighter())`);q('#modal-form [name="listMode"][value="all"]').click();await tick();w.MMRuleReference.refresh();}
 async function search(value){const field=q('#modal-form').elements.search;field.value=value;field.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(resolve=>setTimeout(resolve,180));w.MMRuleReference.refresh();}
 (async()=>{
   await tick();await open('N23');
