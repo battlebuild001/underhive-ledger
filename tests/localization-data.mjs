@@ -7,7 +7,9 @@ const rules=await json('dist/rules-data.json'),english=await json('data/localiza
 const context=vm.createContext({});
 vm.runInContext(await readFile(new URL('dist/i18n-catalog-data.js',root),'utf8'),context);
 const locale=context.UK_CATALOG_LOCALE,seen=new Set();
-assert.equal(english.length,867);
+assert.equal(english.filter(entry=>!entry.id.startsWith('n23-trait-')).length,867,'Existing reviewed translations stay intact.');
+assert.equal(english.filter(entry=>entry.collection==='weaponTraits'&&entry.id.startsWith('n23-trait-')).length,43,'Each added N23 trait has its own English summary.');
+assert.equal(english.length,910);
 for(const entry of english){
  const key=entry.collection+':'+entry.id,row=rules[entry.collection]?.find(row=>row.id===entry.id);
  assert(row?.description,'English descriptions must resolve to an existing catalog ID: '+key);
@@ -22,5 +24,5 @@ for(const rows of Object.values(rules))if(Array.isArray(rows))for(const row of r
 assert.equal(koreanConditions.size,221);
 for(const condition of koreanConditions){assert(conditions[condition],'Every Korean structured condition needs English text');assert(!/[가-힣]/.test(conditions[condition]));assert.equal(locale.descriptionsEn[condition],conditions[condition]);}
 for(const [name,expected] of Object.entries({'House Escher':'하우스 에셔','House Goliath':'하우스 골리앗','House Orlock':'하우스 오를록','Dodge':'닷지','Disarm':'디스암','Lasgun':'라스건','Boltgun':'볼트건','Autogun':'오토건'}))assert.equal(locale.names[name],expected,'Proper names use phonetic Korean: '+name);
-assert.equal(locale.coverage.catalogNames,3618);assert.equal(Object.keys(locale.names).length,3618);
-console.log('Localization data: 867 ID-bound English descriptions, 221 translated conditions, current bundle parity, phonetic names and edition-specific mappings passed.');
+assert.equal(locale.coverage.catalogNames,3642);assert.equal(Object.keys(locale.names).length,3642);
+console.log('Localization data: 910 ID-bound English descriptions, 43 N23 trait summaries, 221 translated conditions, current bundle parity, phonetic names and edition-specific mappings passed.');

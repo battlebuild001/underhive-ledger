@@ -4333,5 +4333,220 @@
     "collection": "skills",
     "id": "f6a32d9b-7cea-4f66-8363-ec9ccfa139b0",
     "description_en": "Post-battle: replace one of your skills with another from the same set or one of your Primary sets."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-backstab",
+    "description_en": "Attacking from outside the target’s vision arc gives this attack +1 Strength."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-blast-x",
+    "description_en": "Use the indicated blast-marker size and the normal blast targeting, hit and scatter procedure."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-blaze",
+    "description_en": "After resolving a hit, a surviving target catches fire on 4+. A burning fighter takes an S3, AP -1, D1 hit when activated, follows the Blaze movement restrictions and attempts to extinguish the flames. A vehicle takes the hit against its rear and makes a Cool check."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-combi",
+    "description_en": "Choose one profile for the attack. Track ammunition separately for each profile; roll each Ammo check twice and use the worse result."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-concussion",
+    "description_en": "A hit worsens a fighter’s Initiative by 2, to a maximum of 6+, until the round ends. Vehicles suffer -2 to Handling checks."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-demolitions",
+    "description_en": "This grenade can attack scenery in close combat, inflicting one automatic hit regardless of the fighter’s Attack dice."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-digi",
+    "description_en": "Grants an additional close-combat attack alongside other melee weapons. It uses no normal weapon slot; a fighter may carry up to ten Digi weapons."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-disarm",
+    "description_en": "A natural hit roll of 6 forces the target to make any remaining Reaction attacks that round unarmed."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-drag",
+    "description_en": "After a hit leaves a fighter in play, roll D6 against their Strength. On an equal or higher result, pull them D3 inches toward the attacker, stopping at terrain. With Impale, only the final fighter hit can be dragged."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-entangle",
+    "description_en": "Parry cannot negate these hits. A natural hit roll of 6 also imposes an extra -2 to hit on the target’s Reaction attacks."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-fear",
+    "description_en": "Replace an Injury roll with a Nerve test at -2. Failure makes the target Broken and they run for cover."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-flash",
+    "description_en": "Replace the wound roll with an Initiative check for a fighter or a Handling check for a vehicle. Failure causes Blind: lose Ready and make no attacks except Reaction attacks until the next activation; those hit only on a natural 6."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-gas",
+    "description_en": "A fighter is not Pinned by this hit. Instead of wounding, D6 equal to or above Toughness, or a natural 6, causes an Injury roll regardless of Wounds, with no save. Against a vehicle, test rear Toughness for a Driver Wounded result."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-graviton-pulse",
+    "description_en": "Instead of a wound roll, fighters under the blast roll D6: a result at or below Strength avoids damage, but a natural 6 always fails. Failure inflicts damage without an armour save. Vehicles avoid a Body hit on a roll at least equal to the facing’s Toughness or a natural 6; armour saves are allowed if they fail. The marker doubles movement costs through its area until the End phase."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-grenade",
+    "description_en": "Throw with a Shoot action, using Strength times the listed multiplier as Long range and no Short range. Make an Ammo check after each attack instead of rolling Firepower; a failed check exhausts that grenade type for the battle."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-impale",
+    "description_en": "After an unsaved wound, the projectile may hit the next model within 1 inch of the line extending away from the attacker and within Long range. Each continuation hits on 3+ and loses 1 Strength, stopping at Strength 0."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-knockback",
+    "description_en": "A hit result at least equal to the target fighter’s Strength pushes them 1 inch away. If terrain or models prevent the full move, move as far as possible and add 1 Damage. Blast attacks make a separate D6 check for each fighter hit."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-limited",
+    "description_en": "A failed Ammo check permanently expends this special ammunition type until it is purchased again. Other remaining weapon profiles may still be reloaded."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-master-crafted",
+    "description_en": "Once per battle, re-roll one failed hit roll made with this weapon."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-melee",
+    "description_en": "This weapon can make close-combat attacks."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-melta",
+    "description_en": "At Short range, reducing a fighter to 0 Wounds makes all Injury dice automatic Out of Action results. Roll an extra Damage die against vehicles. If the weapon has no Short range, this applies at any range."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-parry",
+    "description_en": "After an enemy attacks this fighter in close combat, force a re-roll of one successful hit. Carrying two Parry weapons allows two successful hits to be re-rolled."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-plentiful",
+    "description_en": "A Reload action succeeds automatically without an Ammo check."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-power",
+    "description_en": "Only another Power weapon can Parry these attacks. A natural hit roll of 6 bypasses saves other than Field armour and adds 1 Damage."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-pulverise",
+    "description_en": "After an Injury roll, D6 equal to or above target Toughness, or a natural 6, can change one Flesh Wound to Seriously Injured. Against vehicles, roll an extra Damage die."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-rapid-fire-x",
+    "description_en": "Roll up to X Firepower dice; a successful hit produces their total bullet-hole hits. Test Ammo for each Ammo symbol: any failure runs Out of Ammo, while two failed tests jam the weapon for the battle. Extra hits may be allocated within 3 inches of the first target, in range and line of sight, to targets no harder to hit."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-reckless",
+    "description_en": "Randomly select ranged targets from all eligible models, including friends. Randomly distribute melee attacks among models in reach, extending to Long range for Versatile weapons."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-rending",
+    "description_en": "A wound roll of 6 adds 1 Damage against a fighter or an extra Damage die against a vehicle."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-scarce",
+    "description_en": "Once Out of Ammo, this weapon cannot be reloaded or used again that battle."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-scattershot",
+    "description_en": "A hit causes D6 wound rolls instead of one."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-seismic",
+    "description_en": "A hit Pins a Standing and Active fighter even if an ability would normally prevent it. Vehicles test for Loss of Control after resolution. A natural wound roll of 6 allows no save."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-sever",
+    "description_en": "When this attack reduces a fighter to 0 Wounds, replace all Injury dice with automatic Out of Action results."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-shock",
+    "description_en": "A natural hit roll of 6 wounds automatically without a wound roll."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-sidearm",
+    "description_en": "Usable for shooting and close combat. Each Sidearm can receive only one close-combat attack, without its ranged Accuracy modifiers."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-silent",
+    "description_en": "Firing does not trigger an alarm test under Sneak Attack rules. Under Pitch Black, using it does not Reveal a Hidden model."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-single-shot",
+    "description_en": "Use once per battle, then treat it as a failed Ammo check. Do not roll Firepower unless it also has Rapid Fire."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-smoke",
+    "description_en": "Creates smoke extending 2.5 inches horizontally and vertically from its centre, rather than hits, Pinning or Wounds. Movement is allowed but line of sight is blocked. Remove it on an End-phase D6 result of 4 or less."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-template",
+    "description_en": "Use the Flame template to determine which targets are hit."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-toxin",
+    "description_en": "Instead of a wound roll, D6 equal to or above Toughness, or a natural 6, causes an Injury roll regardless of remaining Wounds. Normal saves apply; vehicles are unaffected."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-unstable",
+    "description_en": "An Ammo symbol on the attack’s Firepower dice triggers an extra D6. On 1–3, a fighter is taken Out of Action; a vehicle takes a Catastrophic Body hit and loses use of that weapon for the battle. Still resolve the original attack."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-unwieldy",
+    "description_en": "Shooting this weapon is a Double action rather than Basic. If it also has Melee, it requires both hands and cannot be used alongside a second weapon in close combat."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-versatile",
+    "description_en": "During its activation, the wielder can engage and attack enemies within the weapon’s Long range without base contact. The target may be unable to make Reaction attacks unless it can reach the wielder. This does not extend engagement range at other times."
+  },
+  {
+    "collection": "weaponTraits",
+    "id": "n23-trait-web",
+    "description_en": "A successful wound roll against a fighter causes Webbed instead of Wounds, saves or an Injury roll. Resolve recovery in the End phase as Seriously Injured, using the Web exceptions. Vehicles are unaffected."
   }
 ]

@@ -26,7 +26,10 @@ for(const[parentCollection,field,childCollection]of [['equipment','weapon_profil
  }
 }
 assert(mirroredFields>=296,'Descriptions and structured conditions must remain synchronized in nested catalog choices.');
-assert.equal(data.coreRules.filter(r=>edition(r)==='n26').length,105);assert.equal(data.coreRules.filter(r=>edition(r)==='n23').length,12);assert.equal(data.weaponTraits.length,46);
+assert.equal(data.coreRules.filter(r=>edition(r)==='n26').length,105);assert.equal(data.coreRules.filter(r=>edition(r)==='n23').length,12);assert.equal(data.weaponTraits.filter(r=>edition(r)==='n26').length,46);assert.equal(data.weaponTraits.filter(r=>edition(r)==='n23').length,43);
+assert.match(row('weaponTraits','Parry','n23').description,/다시 굴리/,'N23 Parry re-rolls hits instead of borrowing the N26 save rule.');
+assert.match(row('weaponTraits','Unwieldy','n23').description,/더블 액션/,'N23 Unwieldy retains its Double-action rule.');
+assert.match(row('weaponTraits','Rapid Fire (X)','n23').description,/두 번 이상 실패/,'N23 Rapid Fire jams on multiple failed Ammo checks, not merely rolled symbols.');
 assert.equal(row('skills','Quickening').rule_data.action,'single');
 assert.equal(row('fighterSubtypes','Mounted').rule_data.gun_it_forward_only,true);
 assert.equal(row('equipment','Drop rig').rule_data.descend_mounted_allowed,false);

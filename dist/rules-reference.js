@@ -4,7 +4,7 @@
   const kinds={skills:'스킬',equipment:'장비',territories:'영토',tactics:'갱 택틱',fighterTypes:'파이터 유형',gangTypes:'갱 유형',effects:'효과·부상',scenarios:'시나리오',campaignTypes:'캠페인',sideJobs:'사이드 잡',weaponTraits:'무기 특성',specialRules:'특수 규칙',coreRules:'기본 규칙',fighterSubtypes:'파이터 분류',scenarioEntries:'배치·목표·크루',campaignTriumphs:'캠페인 성과'};
   const aliases={skill:'skills',weapon:'equipment',territory:'territories',tactic:'tactics',fighters:'fighterTypes',fighter:'fighterTypes',gang:'gangTypes',injuries:'effects',trait:'weaponTraits'};
   const bindings=new WeakMap();
-  let overlay=null,restoreFocus=null,inertStates=[],previousOverflow='',scheduled=false,libraryState=null,libraryReturn=null,equipmentContext=null;
+  let overlay=null,restoreFocus=null,inertStates=[],previousOverflow='',scheduled=false,libraryState=null,libraryReturn=null,equipmentContext=null,detailContext=null,traitReturn=null;
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const copy=value=>value==null?value:JSON.parse(JSON.stringify(value));
   const rules=()=>globalThis.RULES_DATA||{};
@@ -47,6 +47,28 @@
     }
     return found?copy(found):null;
   }
+  function traitTokens(value){
+    if(Array.isArray(value))return value.flatMap(traitTokens);
+    const text=String(value??''),tokens=[];let depth=0,start=0;
+    for(let index=0;index<text.length;index++){const char=text[index];if(char==='(')depth++;else if(char===')')depth=Math.max(0,depth-1);else if(char===','&&!depth){tokens.push(text.slice(start,index).trim());start=index+1;}}
+    tokens.push(text.slice(start).trim());return tokens.filter(Boolean);
+  }
+  const emptyTrait=value=>/^(?:[-—–]|none|n\/a)$/i.test(String(value).trim());
+  const traitName=value=>String(value??'').trim().replace(/[’‘]/g,"'").replace(/[‐‑–]/g,'-').replace(/\s+/g,' ').toLocaleLowerCase();
+  const traitBase=value=>traitName(value).replace(/\s*\([^()]*\)\s*$/,'').trim();
+  function traitLookup(token,options={}){
+    const ed=edition(options.edition||currentEdition()),available=rows('weaponTraits').filter(row=>matchesEdition(row,'weaponTraits',ed)),name=traitName(token);
+    const exact=available.filter(row=>traitName(title(row))===name||traitName(row.name_ko)===name);if(exact.length===1)return copy(exact[0]);
+    // Parameter values belong to the weapon profile, while this entry defines the family.
+    const base=traitBase(token),family=available.filter(row=>traitBase(title(row))===base||row.name_ko&&traitBase(row.name_ko)===base);
+    return family.length===1?copy(family[0]):null;
+  }
+  function traitLabel(token){const match=String(token).match(/^(.*?)(\s*\([^()]*\))$/);return match?`<span>${esc(match[1])}</span><span>${esc(match[2])}</span>`:esc(token);}
+  function traitMarkup(value,options={}){
+    const ed=edition(options.edition||currentEdition()),tokens=traitTokens(value);
+    if(!tokens.length)return '—';
+    return '<span class="mmrr-traits">'+tokens.map(token=>emptyTrait(token)?esc(token):`<button type="button" class="mmrr-trait" data-mmrr-trait="${esc(token)}" data-mmrr-edition="${esc(ed)}" aria-haspopup="dialog" aria-label="${esc(token)} — View trait" data-i18n-ko-aria-label="${esc(token)} 특성 설명 보기">${traitLabel(token)}</button>`).join(', ')+'</span>';
+  }
   const hasDefinition=row=>!!row&&!row.reference_description_cleared&&(!!String(row.description||row.effect||'').trim()||!!row.rule_data&&Object.keys(row.rule_data).length>0||!!(row.weapon_profiles||row.weaponProfiles||row.profiles||[]).length);
   const hasReference=row=>!!row&&!row.reference_description_cleared&&(hasDefinition(row)||!!title(row)&&!row.is_custom&&!row.reference_custom_description);
   function sourceLabel(row){
@@ -73,7 +95,7 @@
   }
   function profileMarkup(profiles,ed){
     if(!profiles.length)return '';const n26=ed==='n26',columns=[['profile_name','프로필'],['range_short','단거리'],['range_long','장거리'],...(!n26?[['acc_short','단거리 명중'],['acc_long','장거리 명중']]:[]),['strength','S'],['ap','AP'],...(n26?[['lethality','L']]:[['damage','D'],['ammo','탄약']]),['traits','특성']];
-    return `<div class="mmrr-table-wrap"><table><thead><tr>${columns.map(([,label])=>`<th>${label}</th>`).join('')}</tr></thead><tbody>${profiles.map(p=>'<tr>'+columns.map(([key])=>`<td>${esc(Array.isArray(p[key])?p[key].join(', '):p[key]??(key==='profile_name'?p.name:null)??'—')}</td>`).join('')+'</tr>').join('')}</tbody></table></div>`;
+    return `<div class="mmrr-table-wrap"><table><thead><tr>${columns.map(([,label])=>`<th>${label}</th>`).join('')}</tr></thead><tbody>${profiles.map(p=>'<tr>'+columns.map(([key])=>`<td>${key==='traits'?traitMarkup(p[key],{edition:ed}):esc(Array.isArray(p[key])?p[key].join(', '):p[key]??(key==='profile_name'?p.name:null)??'—')}</td>`).join('')+'</tr>').join('')}</tbody></table></div>`;
   }
   function detailMarkup(row,kind,ed){
     const d=details(row,{kind,edition:ed});if(!d)return '<p class="mmrr-empty">이 판본의 규칙을 찾을 수 없습니다.</p>';
@@ -84,7 +106,7 @@
   function editable(node){return node?.matches?.('input:not([type=hidden]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable=true]');}
   function safeFocus(node){if(node?.isConnected&&!editable(node)&&!node.closest('[inert],[hidden]'))node.focus({preventScroll:true});}
   function close(){
-    if(!overlay)return;overlay.remove();overlay=null;libraryState=null;libraryReturn=null;
+    if(!overlay)return;overlay.remove();overlay=null;libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
     for(const item of inertStates){if(!item.node.isConnected)continue;if(!item.inert)item.node.removeAttribute('inert');if(item.aria==null)item.node.removeAttribute('aria-hidden');else item.node.setAttribute('aria-hidden',item.aria);}inertStates=[];
     document.body.style.overflow=previousOverflow;safeFocus(restoreFocus);restoreFocus=null;
   }
@@ -100,11 +122,26 @@
   function open(kind,query,options={}){
     if(typeof kind==='object'){options=query||{};query=kind;kind=options.kind||'skills';}
     kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return false;
-    libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);return true;
+    libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);return true;
+  }
+  function openTrait(token,options={}){
+    token=String(token??'').trim();if(!token||emptyTrait(token))return false;
+    const ed=edition(options.edition||currentEdition()),row=traitLookup(token,{edition:ed}),parent=overlay?.contains(options.activator)&&detailContext?{...detailContext,scrollTop:overlay.querySelector('.mmrr-body')?.scrollTop||0,token}:null;
+    traitReturn=parent;detailContext=null;libraryState=null;libraryReturn=null;
+    const display=row?{...row,name:token,name_ko:''}:{name:token,edition:ed};
+    const parameter=token.match(/\(([^()]*)\)\s*$/)?.[1],value=parameter?`<p class="mmrr-trait-value"><span data-i18n-ko="이 무장의 특성 값">Value on this weapon</span>: <strong data-i18n-ignore>${esc(parameter)}</strong>${row&&/\bX\b/.test(title(row))?' <span data-i18n-ko="설명의 X는 위 표기의 수치를 뜻합니다.">X in the description refers to the value shown on this weapon.</span>':''}</p>`:'';
+    const back=parent?'<button type="button" class="btn small mmrr-back" data-mmrr-trait-back data-i18n-ko="← 장비 설명으로">← Back to equipment</button>':'';
+    shell(token,back+detailMarkup(display,'weaponTraits',ed)+value,options.activator);
+    overlay.querySelector('#mmrr-title').innerHTML=traitLabel(token);window.UKI18n?.refresh(overlay);return true;
+  }
+  function backFromTrait(){
+    const parent=traitReturn;if(!parent)return;open(parent.kind,parent.row,{edition:parent.edition,libraryReturn:parent.libraryReturn});window.UKI18n?.refresh(overlay);
+    const body=overlay?.querySelector('.mmrr-body');if(body)body.scrollTop=parent.scrollTop;
+    const activator=[...overlay.querySelectorAll('[data-mmrr-trait]')].find(button=>button.dataset.mmrrTrait===parent.token);safeFocus(activator||overlay.querySelector('[data-mmrr-close]'));
   }
   function availableKinds(){return Object.keys(kinds).filter(kind=>rows(kind).some(hasReference));}
   function library(options={}){
-    const categories=availableKinds();libraryState={edition:edition(options.edition||currentEdition()),kind:categories.includes(options.kind)?options.kind:categories[0]||'skills',query:String(options.query||'')};
+    const categories=availableKinds();detailContext=null;traitReturn=null;libraryState={edition:edition(options.edition||currentEdition()),kind:categories.includes(options.kind)?options.kind:categories[0]||'skills',query:String(options.query||'')};
     shell('규칙 참고',`<div class="mmrr-filters"><label>판본<select data-mmrr-edition>${['n26','n23'].map(ed=>`<option value="${ed}" ${libraryState.edition===ed?'selected':''}>${ed.toUpperCase()}</option>`).join('')}</select></label><label>분류<select data-mmrr-kind>${categories.map(kind=>`<option value="${kind}" ${libraryState.kind===kind?'selected':''}>${esc(kinds[kind])}</option>`).join('')}</select></label><label class="mmrr-search">이름 검색<input type="search" data-mmrr-search placeholder="이름 또는 한국어 이름" autocomplete="off" value="${esc(libraryState.query)}"></label></div><div class="mmrr-results" aria-live="polite"></div>`,options.activator);drawLibrary();return true;
   }
   function drawLibrary(){
@@ -141,6 +178,8 @@
   }
   function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate();});}
   window.addEventListener('click',event=>{
+    const traitButton=event.target.closest?.('[data-mmrr-trait]');if(traitButton){event.preventDefault();event.stopImmediatePropagation();return openTrait(traitButton.dataset.mmrrTrait,{edition:traitButton.dataset.mmrrEdition,activator:traitButton});}
+    const traitBack=event.target.closest?.('[data-mmrr-trait-back]');if(traitBack){event.preventDefault();event.stopImmediatePropagation();return backFromTrait();}
     const equipmentButton=event.target.closest?.('[data-rp="equipment"],[data-fp="equipment-detail"]');if(equipmentButton){const s=state(),g=(s.gangs||[]).find(row=>row.id===s.selectedGang),f=g?.fighters?.find(row=>row.id===equipmentButton.dataset.id),item=f?.equipment?.find(row=>row.id===(equipmentButton.dataset.equipment||equipmentButton.dataset.sub));if(item)equipmentContext={row:lookup('equipment',item),edition:currentEdition()};schedule();}
     const button=event.target.closest?.('[data-mmrr-open],[data-mmrr-library],[data-mmrr-close],[data-mmrr-result],[data-mmrr-back]');
     if(button){event.preventDefault();event.stopImmediatePropagation();if(button.hasAttribute('data-mmrr-close'))return close();if(button.hasAttribute('data-mmrr-back'))return library(libraryReturn||{});if(button.hasAttribute('data-mmrr-library'))return library({activator:button});if(button.hasAttribute('data-mmrr-result')){const s=libraryState;if(s)return open(s.kind,button.dataset.mmrrResult,{edition:s.edition,libraryReturn:{...s}});return;}const bound=bindings.get(button);if(bound)return open(bound.kind,bound.row,{edition:bound.edition,activator:button});}
@@ -153,6 +192,6 @@
   document.addEventListener('change',event=>{if(libraryState&&event.target.matches('[data-mmrr-edition],[data-mmrr-kind]')){libraryState[event.target.matches('[data-mmrr-edition]')?'edition':'kind']=event.target.value;drawLibrary();}else schedule();});
   document.addEventListener('input',event=>{if(libraryState&&event.target.matches('[data-mmrr-search]')){libraryState.query=event.target.value;drawLibrary();}});
   new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
-  window.MMRuleReference={lookup,open,details,library,close,currentEdition,refresh:decorate};
+  window.MMRuleReference={lookup,open,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait};
   decorate();
 })();
