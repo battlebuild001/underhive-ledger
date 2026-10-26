@@ -4548,5 +4548,65 @@
     "collection": "weaponTraits",
     "id": "n23-trait-web",
     "description_en": "A successful wound roll against a fighter causes Webbed instead of Wounds, saves or an Injury roll. Resolve recovery in the End phase as Seriously Injured, using the Web exceptions. Vehicles are unaffected."
+  },
+  {
+    "collection": "territories",
+    "id": "81976d57-a441-481b-b85b-c494d7b80908",
+    "description_en": "Base income: 20 credits. In a battle for this territory, a model activating more than 9 inches from every other model must pass a Cool check or suffer one Toxin (3+) hit."
+  },
+  {
+    "collection": "territories",
+    "id": "0caddf96-53eb-443e-a1de-e68429deeeec",
+    "description_en": "Base income: 15 credits."
+  },
+  {
+    "collection": "territories",
+    "id": "7fdb9c32-cc32-4b96-8e13-627ee7c3a7a9",
+    "description_en": "Base income: 15 credits. At cycle end, an Escher gang may replace this income with a 20-credit discount when recruiting a Wyld Runner."
+  },
+  {
+    "collection": "territories",
+    "id": "e90243bc-e6ba-4473-b649-08b5b07c3336",
+    "description_en": "Base income: 20 credits. At cycle end, an Escher gang may replace this income with two lasguns."
+  },
+  {
+    "collection": "territories",
+    "id": "ad7bf37d-056c-4d09-9953-281ae9212c08",
+    "description_en": "Base income: 15 credits. At cycle end, an Escher gang may replace this income with one Chem-alchemy Elixir added to its stash."
+  },
+  {
+    "collection": "territories",
+    "id": "9629c1bd-b77e-43b3-8956-e05269372076",
+    "description_en": "Base income: 15 credits. While held by an Escher gang, it contributes +1 Reputation."
+  },
+  {
+    "collection": "territories",
+    "id": "bc11cd7b-49d7-432b-aceb-95563edd794d",
+    "description_en": "Base income: 20 credits. This territory appears on the Goliath Territories table."
+  },
+  {
+    "collection": "territories",
+    "id": "c9bc7b34-78fe-4ce3-94e5-2f61abe950f0",
+    "description_en": "Base income: 15 credits. A Goliath gang may choose a 25-credit Forge Patcher recruitment discount at cycle end instead of this income, provided it has fewer than three Forge Patchers."
+  },
+  {
+    "collection": "territories",
+    "id": "d5061a7f-09b7-4117-9104-5ec0b29bb860",
+    "description_en": "Base income: 15 credits. This territory appears on the Goliath Territories table."
+  },
+  {
+    "collection": "territories",
+    "id": "ac4b5569-80a3-479a-8587-39fb38562af8",
+    "description_en": "Base income: 15 credits. While held by a Goliath gang, this territory adds 10 more income, for 25 credits in total. Other gangs receive the base 15 credits."
+  },
+  {
+    "collection": "territories",
+    "id": "44f08d46-e6e2-4bd3-9827-9e3bffad3070",
+    "description_en": "Base income: 20 credits. This territory appears on the Goliath Territories table."
+  },
+  {
+    "collection": "territories",
+    "id": "986ff8f6-239e-435d-8c54-0106f144fcf1",
+    "description_en": "Base income: 20 credits. This territory appears on the Goliath Territories table."
   }
 ]

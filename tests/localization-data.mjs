@@ -7,9 +7,15 @@ const rules=await json('dist/rules-data.json'),english=await json('data/localiza
 const context=vm.createContext({});
 vm.runInContext(await readFile(new URL('dist/i18n-catalog-data.js',root),'utf8'),context);
 const locale=context.UK_CATALOG_LOCALE,seen=new Set();
-assert.equal(english.filter(entry=>!entry.id.startsWith('n23-trait-')).length,867,'Existing reviewed translations stay intact.');
+const addedTerritoryNames=new Set(['Slug House','Flesh-makers Theatre','Fight Arena','Amneo-vats','Feasting Hall','Badzone Smelter','Phelynx Pen','Bio-lab','Wyld Den','Rogue Las Factoria','Chem Arena','Shivver Den']);
+const addedTerritoryIds=new Set(rules.territories.filter(row=>row.edition_slug==='n26'&&addedTerritoryNames.has(row.name)).map(row=>row.id));
+assert.equal(addedTerritoryIds.size,12,'All researched N26 territory identities remain present.');
+const addedTerritory=entry=>entry.collection==='territories'&&addedTerritoryIds.has(entry.id);
+assert.equal(english.filter(entry=>!entry.id.startsWith('n23-trait-')&&!addedTerritory(entry)).length,867,'Existing reviewed translations stay intact.');
 assert.equal(english.filter(entry=>entry.collection==='weaponTraits'&&entry.id.startsWith('n23-trait-')).length,43,'Each added N23 trait has its own English summary.');
-assert.equal(english.length,910);
+assert.equal(english.filter(addedTerritory).length,12,'Every researched territory has an English summary.');
+assert.equal(english.filter(entry=>entry.collection==='territories').length,31,'Territory summaries include the 19 existing definitions and 12 additions.');
+assert.equal(english.length,922);
 for(const entry of english){
  const key=entry.collection+':'+entry.id,row=rules[entry.collection]?.find(row=>row.id===entry.id);
  assert(row?.description,'English descriptions must resolve to an existing catalog ID: '+key);
@@ -25,4 +31,4 @@ assert.equal(koreanConditions.size,221);
 for(const condition of koreanConditions){assert(conditions[condition],'Every Korean structured condition needs English text');assert(!/[가-힣]/.test(conditions[condition]));assert.equal(locale.descriptionsEn[condition],conditions[condition]);}
 for(const [name,expected] of Object.entries({'House Escher':'하우스 에셔','House Goliath':'하우스 골리앗','House Orlock':'하우스 오를록','Dodge':'닷지','Disarm':'디스암','Lasgun':'라스건','Boltgun':'볼트건','Autogun':'오토건'}))assert.equal(locale.names[name],expected,'Proper names use phonetic Korean: '+name);
 assert.equal(locale.coverage.catalogNames,3642);assert.equal(Object.keys(locale.names).length,3642);
-console.log('Localization data: 910 ID-bound English descriptions, 43 N23 trait summaries, 221 translated conditions, current bundle parity, phonetic names and edition-specific mappings passed.');
+console.log('Localization data: 922 ID-bound English descriptions, 31 territory summaries, 43 N23 trait summaries, 221 translated conditions, current bundle parity, phonetic names and edition-specific mappings passed.');
