@@ -9,7 +9,7 @@ let worker;try{({default:worker}=await import('data:text/javascript;base64,'+Buf
 const res=await worker.fetch(new Request('https://manager.test/'),{},{});
 assert.equal(res.status,200);assert.match(await res.text(),/rules-data.js/);
 for(const path of ['/interaction-core.js','/gang-parity.js','/fighter-parity.js','/campaign-parity.js','/assets-parity.js','/account-parity.js','/rules-data.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path)}
-for(const file of ['tutorial-detail-foundations.js','tutorial-detail-n26.js']){const response=await worker.fetch(new Request('https://manager.test/'+file),{},{});assert.equal(response.status,200,file);assert.match(response.headers.get('Content-Type'),/javascript/);assert.equal(await response.text(),await readFile(resolve(root,'dist',file),'utf8'),file+' must be included in the compiled deployment');}
+for(const file of ['learning-center.js','learning-center.css','learning-content.js','learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js']){const response=await worker.fetch(new Request('https://manager.test/'+file),{},{});assert.equal(response.status,404,file+' must no longer be published');}
 const portraitFiles=(await readdir(resolve(root,'dist/portraits/generated'))).filter(file=>file.endsWith('.webp'));
 assert.equal(portraitFiles.length,18,'All 18 generated faction portraits must be packaged.');
 for(const file of portraitFiles){
@@ -28,10 +28,10 @@ for(const file of portraitFiles){
 console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/join/example-invite'),{},{})).status,200);
-for(const path of ['/learn','/learn/rules','/learn/quick','/learn/tutorials'])assert.equal((await worker.fetch(new Request('https://manager.test'+path),{},{})).status,200,path);
+for(const path of ['/learn','/learn/rules','/learn/quick','/learn/tutorials']){const response=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(response.status,302,path);assert.equal(response.headers.get('Location'),'/');}
 for(const edition of ['n26','n23'])for(const language of ['ko','en']){
  const path='/guides/underhive-'+edition+'-'+language+'.html',guide=await worker.fetch(new Request('https://manager.test'+path),{},{});
- assert.equal(guide.status,200,path);assert.match(guide.headers.get('Content-Type'),/text\/html/);assert.match(await guide.text(),new RegExp('<html lang="'+language+'"'));
+ assert.equal(guide.status,404,path+' must no longer be published');
 }
 assert.equal((await worker.fetch(new Request('https://manager.test/api/account'),{},{})).status,401);
 console.log('Worker ESM, static routes, deep links and anonymous API authorization passed.');

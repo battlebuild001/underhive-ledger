@@ -20,7 +20,7 @@ const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root
     assert.equal(menu.getAttribute('role'),'menu');assert.equal(menu.querySelector('.mm-menu-social'),null,'The complete social row is removed');
     assert(!/discord|patreon|github|mundamanager/i.test(menu.outerHTML),'No removed external social link survives in either language');
     const rows=[...menu.children].filter(node=>node.matches('button,a'));
-    assert(rows.length>=7,'Profile, account, gangs, campaigns, assets, learning and logout remain available');
+    assert.equal(rows.length,6,'Profile, account, gangs, campaigns, assets and logout remain available');
     for(const row of rows){
       assert.equal(row.getAttribute('role'),'menuitem');
       if(row.classList.contains('mm-menu-user'))continue;
@@ -30,10 +30,8 @@ const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root
       const icon=row.querySelector('.mm-menu-icon');assert.equal(style(icon).width,'20px');assert.equal(style(icon).height,'20px');
       assert.equal(parseFloat(style(row.querySelector('.mm-menu-label')).minWidth),0,'Labels can shrink inside the grid');
     }
-    const learning=menu.querySelector('.mm-menu-learning');assert.equal(learning.getAttribute('href'),'/learn');
-    assert.match(learning.querySelector('.mm-menu-label').textContent,language==='ko'?/룰 가이드/:/Rules Guide/);
-    assert.equal(learning.querySelector('small').textContent.trim(),language==='ko'?'퀵시트 · 튜토리얼':'Quick Sheet · Tutorials');
-    assert.equal(learning.querySelector('br'),null,'Learning labels use normal line flow');
+    assert.equal(menu.querySelector('.mm-menu-learning,a[href^="/learn"]'),null,'Rulebook/tutorial menu entry is removed');
+    assert(!/Rules Guide|Quick Sheet|Tutorial|룰 가이드|튜토리얼|학습/.test(menu.textContent),'Removed learning labels do not appear in either language');
     const menuRules=[...w.document.styleSheets].flatMap(sheet=>[...sheet.cssRules]).filter(rule=>rule.selectorText==='.mm-settings-menu');
     assert(menuRules.some(rule=>/^min\(300px,/.test(rule.style.width)&&rule.style.width.includes('100vw')&&rule.style.width.includes('-24px')),'Menu has a fluid viewport-bounded width');
     assert(menuRules.some(rule=>/calc\(100vw\s*-\s*24px\)/.test(rule.style.maxWidth)),'Menu retains its maximum viewport width');
@@ -54,10 +52,8 @@ const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root
   }
   await open();click('.mm-settings-menu [data-shell="profile"]');await tick();assert.equal(run('data.view'),'profile');assert(q('.mm-profile'));assert.equal(q('.mm-settings-menu'),null);
   await open();click('.mm-settings-menu [data-account-action="open"]');await tick();assert.equal(run('data.view'),'account');assert(q('.account-card'));assert.equal(q('.mm-settings-menu'),null);
-  await open();const learningLink=q('.mm-menu-learning');assert.equal(new URL(learningLink.href).pathname,'/learn');
-  // The learning entry is a native link. jsdom does not navigate to documents;
-  // exercise the real arrival route without pretending it can render pixels.
-  w.history.replaceState({},'',learningLink.href);w.dispatchEvent(new w.PopStateEvent('popstate'));await tick();assert.equal(w.location.pathname,'/learn');assert.equal(run('data.view'),'learning');assert(q('.ukl-center'));assert.equal(q('.mm-settings-menu'),null);
+  await open();assert.equal(q('.mm-menu-learning'),null);w.document.body.click();
+  w.history.replaceState({},'','/learn/tutorials?edition=n26');w.dispatchEvent(new w.PopStateEvent('popstate'));await tick();assert.equal(w.location.pathname,'/');assert.equal(run('data.view'),'dashboard');assert.equal(q('.ukl-center'),null);assert.equal(q('.mm-settings-menu'),null);
   assert.equal(run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})'),records,'Menu actions and localization preserve all gang and campaign records');
   assert.deepEqual(errors,[]);dom.window.close();
   console.log('PASS: settings menu social-row removal, bilingual aligned labels and SVG icons, responsive containment, dismissal/focus, original navigation and unchanged records.');

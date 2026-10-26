@@ -34,10 +34,10 @@
  function notifyError(error){showModal(tr('백업을 적용하지 못했습니다','Backup was not applied'),`<p role="alert">${esc(error.message)}</p><p>${tr('기존 기록은 유지됩니다. 파일을 확인하고 다시 시도하세요.','Your existing records are retained. Check the file and try again.')}</p>`,'OK',()=>true);}
  function apply(candidate){
   if(window.AccountParity?.connecting||(window.AccountParity?.account&&window.AccountParity?.ready===false))fail(tr('계정 연결과 기록 불러오기가 끝난 뒤 다시 적용하세요.','Wait for your account records to finish loading, then apply the backup again.'));
-  const previous=data,previousSnapshot=window.UKLearning?.backupState(previous)||previous,previousText=JSON.stringify(previous),serialized=JSON.stringify(candidate);
-  try{localStorage.setItem(recoveryKey(),JSON.stringify({version:1,savedAt:new Date().toISOString(),data:previousSnapshot}));}catch{fail(tr('복구용 사본을 저장할 공간이 없습니다. 기존 기록을 내보내고 저장 공간을 확보한 뒤 다시 시도하세요.','There is no space for a recovery copy. Export your existing records and free storage before importing.'));}
-  try{localStorage.setItem(KEY,serialized);data=candidate;window.UKLearning?.restoreProgressSnapshot(data);render();save();}
-  catch(error){data=previous;try{window.UKLearning?.restoreProgressSnapshot(previousSnapshot);}catch{}try{localStorage.setItem(KEY,previousText);}catch{}try{render();}catch{}throw error;}
+  const previous=data,previousText=JSON.stringify(previous),serialized=JSON.stringify(candidate);
+  try{localStorage.setItem(recoveryKey(),JSON.stringify({version:1,savedAt:new Date().toISOString(),data:previous}));}catch{fail(tr('복구용 사본을 저장할 공간이 없습니다. 기존 기록을 내보내고 저장 공간을 확보한 뒤 다시 시도하세요.','There is no space for a recovery copy. Export your existing records and free storage before importing.'));}
+  try{localStorage.setItem(KEY,serialized);data=candidate;render();save();}
+  catch(error){data=previous;try{localStorage.setItem(KEY,previousText);}catch{}try{render();}catch{}throw error;}
   window.dispatchEvent(new CustomEvent('uk:backup-imported'));
  }
  function preview(candidate,restoring=false){

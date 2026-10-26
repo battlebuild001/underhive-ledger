@@ -3,7 +3,6 @@
   'use strict';
   const icons={
     roster:'<path d="M4 5h16v14H4zM8 5v14M12 9h5M12 13h5M12 16h3"/>',
-    learn:'<path d="M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1zm-6 3h3m6 0h3M6 12h3m6 0h3"/>',
     campaign:'<path d="M5 21V4m0 0c5-5 9 5 15 0v11c-6 5-10-5-15 0"/>',
     assets:'<path d="m12 3 8 5v9l-8 5-8-5V8zm-8 5 8 5 8-5m-8 5v9"/>',
     account:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',
@@ -12,12 +11,12 @@
   };
   const svg=key=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[key]||icons.roster}</svg>`;
   function text(en,ko,cls=''){const node=document.createElement('span');if(cls)node.className=cls;node.textContent=en;node.dataset.i18nKo=ko;return node;}
-  function workspaceSection(){if(data.view==='learning')return 'learn';if(data.view==='account'||data.view==='profile')return 'account';if(data.view==='catalog')return 'assets';if(data.view==='campaign'||data.view==='campaigns'||data.view==='dashboard'&&data.homeTab==='campaigns')return 'campaigns';return 'gangs';}
+  function workspaceSection(){if(data.view==='account'||data.view==='profile')return 'account';if(data.view==='catalog')return 'assets';if(data.view==='campaign'||data.view==='campaigns'||data.view==='dashboard'&&data.homeTab==='campaigns')return 'campaigns';return 'gangs';}
   function mountNavigation(main){
     const selected=workspaceSection();
     const nav=document.createElement('nav');nav.className='uk-workspace-nav';nav.setAttribute('aria-label','Workspace navigation');nav.dataset.i18nKoAriaLabel='작업 공간 메뉴';
     const inside=document.createElement('div');inside.className='uk-nav-inner';
-    for(const [key,label,ko,icon] of [['gangs','Roster','갱 명단','roster'],['campaigns','Campaigns','캠페인','campaign'],['learn','Learn','학습','learn'],['assets','Assets','에셋','assets'],['account','Account','계정','account']]){
+    for(const [key,label,ko,icon] of [['gangs','Roster','갱 명단','roster'],['campaigns','Campaigns','캠페인','campaign'],['assets','Assets','에셋','assets'],['account','Account','계정','account']]){
       const button=document.createElement('button');button.type='button';button.className='uk-nav-item';button.dataset.ukSection=key;
       if(key==='account')button.dataset.accountAction='open';else button.dataset.ukNav=key;
       if(selected===key)button.setAttribute('aria-current','page');
@@ -63,7 +62,6 @@
     const button=event.target.closest('[data-uk-nav]');if(!button)return;
     event.preventDefault();event.stopImmediatePropagation();
     const section=button.dataset.ukNav;
-    if(section==='learn'){data.view='learning';menuOpen=false;if(!/^\/learn(?:\/|$)/.test(location.pathname))history.pushState({},'','/learn');render();return;}
     if(section==='assets')data.view='catalog';else{data.view='dashboard';data.homeTab=section==='campaigns'?'campaigns':'gangs';}
     menuOpen=false;save();
   },true);
