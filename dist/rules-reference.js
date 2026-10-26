@@ -1,10 +1,10 @@
 /* Read-only rule references. Catalog IDs and editions stay distinct from saved records. */
 (function(){
   'use strict';
-  const kinds={skills:'스킬',equipment:'장비',territories:'영토',tactics:'갱 택틱',fighterTypes:'파이터 유형',gangTypes:'갱 유형',effects:'효과·부상',scenarios:'시나리오',campaignTypes:'캠페인',sideJobs:'사이드 잡',weaponTraits:'무기 특성',specialRules:'특수 규칙',coreRules:'기본 규칙',fighterSubtypes:'파이터 분류',scenarioEntries:'배치·목표·크루',campaignTriumphs:'캠페인 성과'};
-  const aliases={skill:'skills',weapon:'equipment',territory:'territories',tactic:'tactics',fighters:'fighterTypes',fighter:'fighterTypes',gang:'gangTypes',injuries:'effects',trait:'weaponTraits'};
+  const kinds={injuries:'지속 부상',skills:'스킬',equipment:'장비',territories:'영토',tactics:'갱 택틱',fighterTypes:'파이터 유형',gangTypes:'갱 유형',effects:'효과·부상',scenarios:'시나리오',campaignTypes:'캠페인',sideJobs:'사이드 잡',weaponTraits:'무기 특성',specialRules:'특수 규칙',coreRules:'기본 규칙',fighterSubtypes:'파이터 분류',scenarioEntries:'배치·목표·크루',campaignTriumphs:'캠페인 성과'};
+  const aliases={skill:'skills',weapon:'equipment',territory:'territories',tactic:'tactics',fighters:'fighterTypes',fighter:'fighterTypes',gang:'gangTypes',injury:'injuries',trait:'weaponTraits'};
   const bindings=new WeakMap();
-  let overlay=null,restoreFocus=null,inertStates=[],previousOverflow='',scheduled=false,libraryState=null,libraryReturn=null,equipmentContext=null,detailContext=null,traitReturn=null;
+  let overlay=null,restoreNavigation=null,restoreFocus=null,inertStates=[],previousOverflow='',scheduled=false,libraryState=null,libraryReturn=null,equipmentContext=null,detailContext=null,traitReturn=null;
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const copy=value=>value==null?value:JSON.parse(JSON.stringify(value));
   const rules=()=>globalThis.RULES_DATA||{};
@@ -123,7 +123,7 @@
     document.body.style.overflow=previousOverflow;safeFocus(restoreFocus);restoreFocus=null;
   }
   function shell(name,body,activator){
-    if(!overlay){restoreFocus=activator||document.activeElement;window.MMWidgets?.closeAll();if(editable(document.activeElement))document.activeElement.blur();previousOverflow=document.body.style.overflow;
+    if(!overlay){restoreNavigation={url:location.href,state:history.state};restoreFocus=activator||document.activeElement;window.MMWidgets?.closeAll();if(editable(document.activeElement))document.activeElement.blur();previousOverflow=document.body.style.overflow;
       inertStates=[...document.body.children].filter(node=>node.tagName!=='SCRIPT').map(node=>({node,inert:node.hasAttribute('inert'),aria:node.getAttribute('aria-hidden')}));
       inertStates.forEach(({node})=>{node.setAttribute('inert','');node.setAttribute('aria-hidden','true');});
       overlay=document.createElement('div');overlay.className='mmrr-overlay';document.body.append(overlay);document.body.style.overflow='hidden';
@@ -141,15 +141,14 @@
     return true;
   }
   function open(kind,query,options={}){
-    if(window.MMOfficialSource?.pending)return window.MMOfficialSource.showPending({activator:options.activator});
     if(typeof kind==='object'){options=query||{};query=kind;kind=options.kind||'skills';}
-    kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return false;
+    kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return window.MMOfficialSource?.showPending({activator:options.activator})||false;if(!row.source_verified&&!row.is_custom)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);return true;
   }
   function openTrait(token,options={}){
-    if(window.MMOfficialSource?.pending)return window.MMOfficialSource.showPending({activator:options.activator});
     token=String(token??'').trim();if(!token||emptyTrait(token))return false;
     const ed=edition(options.edition||currentEdition()),row=traitLookup(token,{edition:ed}),parent=overlay?.contains(options.activator)&&detailContext?{...detailContext,scrollTop:overlay.querySelector('.mmrr-body')?.scrollTop||0,token}:null;
+    if(!row?.source_verified)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     traitReturn=parent;detailContext=null;libraryState=null;libraryReturn=null;
     const display=row?{...row,name:token,name_ko:''}:{name:token,edition:ed};
     const parameter=token.match(/\(([^()]*)\)\s*$/)?.[1],value=parameter?`<p class="mmrr-trait-value"><span data-i18n-ko="이 무장의 특성 값">Value on this weapon</span>: <strong data-i18n-ignore>${esc(parameter)}</strong>${row&&/\bX\b/.test(title(row))?' <span data-i18n-ko="설명의 X는 위 표기의 수치를 뜻합니다.">X in the description refers to the value shown on this weapon.</span>':''}</p>`:'';
@@ -163,9 +162,9 @@
     const activator=[...overlay.querySelectorAll('[data-mmrr-trait]')].find(button=>button.dataset.mmrrTrait===parent.token);safeFocus(activator||overlay.querySelector('[data-mmrr-close]'));
   }
   function openVehicleRule(token,options={}){
-    if(window.MMOfficialSource?.pending)return window.MMOfficialSource.showPending({activator:options.activator});
     token=String(token??'').trim();if(!token)return false;
     const ed=edition(options.edition||currentEdition()),row=vehicleRuleLookup(token,{edition:ed});
+    const verified=lookup('coreRules',token,{edition:ed})||lookup('specialRules',token,{edition:ed});if(verified?.source_verified)return open('coreRules',verified,{...options,edition:ed});if(!row)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
     const heading=`<div class="mmrr-heading"><span class="mmrr-badge">${esc(ed.toUpperCase())}</span><span data-i18n-ko="차량 특수 규칙">Vehicle special rule</span></div>`;
     const body=row?`<p class="mmrr-description mmrr-vehicle-description" data-i18n-ko="${esc(row.ko)}">${esc(row.en)}</p>`:'<div class="mmrr-definition-status" data-mmrr-definition-status="missing" role="status"><strong data-i18n-ko="설명 미등록">Description unavailable</strong><p data-i18n-ko="이 판본에 등록된 차량 규칙 설명이 없습니다. 사용자 정의 규칙은 작성한 내용을 확인하세요.">No vehicle rule explanation is registered for this edition. For a custom rule, check the description supplied by its author.</p></div>';
@@ -218,6 +217,7 @@
     if(button){event.preventDefault();event.stopImmediatePropagation();if(button.hasAttribute('data-mmrr-close'))return close();if(button.hasAttribute('data-mmrr-back'))return library(libraryReturn||{});if(button.hasAttribute('data-mmrr-library'))return library({activator:button});if(button.hasAttribute('data-mmrr-result')){const s=libraryState;if(s)return open(s.kind,button.dataset.mmrrResult,{edition:s.edition,libraryReturn:{...s}});return;}const bound=bindings.get(button);if(bound)return open(bound.kind,bound.row,{edition:bound.edition,activator:button});}
     if(overlay&&event.target===overlay){event.preventDefault();event.stopImmediatePropagation();close();}
   },true);
+  window.addEventListener('popstate',event=>{if(!overlay)return;event.stopImmediatePropagation();const navigation=restoreNavigation;close();restoreNavigation=null;if(navigation&&location.href!==navigation.url)history.pushState(navigation.state,'',navigation.url);},true);
   window.addEventListener('keydown',event=>{
     if(!overlay)return;if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();close();return;}
     if(event.key==='Tab'){const nodes=[...overlay.querySelectorAll('button,input,select,a[href]')].filter(node=>!node.disabled&&!node.hidden),first=nodes[0],last=nodes.at(-1);if(!overlay.contains(document.activeElement)||event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}}

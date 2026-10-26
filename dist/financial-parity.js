@@ -17,7 +17,7 @@ function allianceTithe(g){const key=g?.allianceId||g?.alliance_id;if(!key)return
 function stashValue(g){return itemsValue(g?.stash);}
 function unassignedVehiclesValue(g){if(editionOf(g)!=='N23')return 0;return allVehicles(g).filter(v=>active(v)&&!(g?.fighters||[]).some(f=>f.id===crewId(v,g))).reduce((sum,v)=>sum+vehicleValue(v),0);}
 function gangSize(g){return (g?.fighters||[]).filter(active).length;}
-function ratingFor(g){return (g?.fighters||[]).filter(active).reduce((sum,f)=>sum+fighterValue(g,f),0)+allianceTithe(g);}
+function ratingFor(g){return (g?.fighters||[]).filter(f=>editionOf(g)==='N26'&&(globalThis.RULES_DATA?.coreRules||[]).some(row=>row.source_verified&&row.id==='n26-core-gang-finances'&&row.rule_data?.gang_rating_all_roster_models)?true:active(f)).reduce((sum,f)=>sum+fighterValue(g,f),0)+allianceTithe(g);}
 function wealthFor(g){return ratingFor(g)+Math.max(0,num(g?.credits))+stashValue(g)+unassignedVehiclesValue(g);}
 function wealthRows(g){return [{label:'Gang Rating',value:ratingFor(g)},{label:'Credits',value:Math.max(0,num(g?.credits))},{label:'Stash',value:stashValue(g)},...(editionOf(g)==='N23'?[{label:'Vehicles (without crew)',value:unassignedVehiclesValue(g)}]:[])];}
 function subtypeLabels(f){const labels=f.subtypes||f.fighter_subtypes||(f.subtype?[f.subtype]:f.type?[f.type]:[]);return Array.isArray(labels)?labels.map(String):[];}

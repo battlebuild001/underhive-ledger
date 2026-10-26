@@ -122,7 +122,7 @@ document.addEventListener('click',e=>{let target=e.target.closest('[data-cp]');i
  case 'session-fighter-xp':cpSessionXp(s,p,row);break;
  case 'session-fighter-injury':cpSessionInjury(s,p,row);break;
  case 'session-fighter-remove':p.crew=p.crew.filter(x=>x!==row);closeModal();save();break;
- case 'participation-xp':window.MMOfficialSource?.showPending({activator:target});break;
+ case 'participation-xp':window.MMVerifiedRules?.participation(s,p);break;
  case 'pack-edit':data.cpPackEditing=true;save();break;case 'pack-cancel':data.cpPackEditing=false;save();break;
  case 'pack-save':{let editor=$('#cp-pack-editor');if(editor.textContent.length>3500){alert('Campaign notes cannot exceed 3500 characters');return}c.packHtml=cpSafeRich(editor.innerHTML);c.notes=editor.textContent;data.cpPackEditing=false;cpActivity(c,'Campaign Pack updated');save();break}
  case 'rich-command':{let value=d.command==='formatBlock'?'h2':d.command==='createLink'?prompt('Link URL (https://)'):null;if(d.command==='createLink'&&(!value||!/^https?:\/\//.test(value)))break;document.execCommand(d.command,false,value);$('#cp-pack-editor')?.focus();break}

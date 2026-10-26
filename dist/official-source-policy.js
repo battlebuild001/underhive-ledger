@@ -3,13 +3,14 @@
 (function(){
   'use strict';
   const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  const pending=()=>!(Number(window.RULES_DATA?.verified_source_count)>0&&window.RULES_DATA?.official_source_status==='verified');
+  const currentEdition=()=>String((typeof data!=='undefined'&&['gang','fighter'].includes(data.view)&&typeof gang==='function'?gang()?.edition:typeof data!=='undefined'&&data.view==='campaign'&&typeof campaign==='function'?campaign()?.edition:typeof data!=='undefined'?data.edition:'n26')||'n26').toLowerCase();
+  const can=(feature,ed=currentEdition())=>window.RULES_DATA?.edition_coverage?.[String(ed).toLowerCase()]?.[feature]===true;
+  const pending=()=>!can('references');
   const lang=()=>window.UKI18n?.language==='en'?'en':'ko';
   const label=(en,ko,tag='span')=>`<${tag} data-i18n-ko="${escape(ko)}">${escape(en)}</${tag}>`;
-  const pendingBody=()=>`<div data-official-source-pending>${label('Verified official rules are not available yet. Automatic awards, rule tables and preset recommendations are unavailable until the supplied original material is verified.','공식 원본에서 확인된 규칙 데이터가 아직 등록되지 않았습니다. 원본을 확인할 때까지 자동 보상·판정표·추천 목록은 제공하지 않습니다.','p')}${label('You can still enter your own records. Enter values agreed for your game; this app does not validate those values as official rules.','직접 기록은 계속 사용할 수 있습니다. 플레이에 사용할 값을 직접 입력하세요. 앱은 직접 입력한 값을 공식 규칙으로 판정하지 않습니다.','p')}</div>`;
+  const pendingBody=()=>can('references')?`<div data-official-source-pending>${label('Source-verified data is available for this edition. Features without complete verified inputs remain manual.','이 판본에서 원본을 확인한 데이터를 제공합니다. 필요한 입력이 모두 확인되지 않은 기능은 직접 기록으로 유지합니다.','p')}${label('Recorded custom values and manual rulings are not automatically certified by the app.','사용자 정의 값과 직접 기록한 재정은 앱이 자동으로 공식 규칙에 맞다고 판정하지 않습니다.','p')}</div>`:`<div data-official-source-pending>${label('Verified original data for this edition is not available. Use manual records for this edition.','이 판본의 원본 확인 데이터가 제공되지 않았습니다. 해당 판본은 직접 기록을 사용하세요.','p')}</div>`;
   function showPending(options={}){
-    if(!pending())return false;
-    if(window.MMRuleReference?.openContext)return window.MMRuleReference.openContext('Official source pending',pendingBody(),{nameKo:'공식 원본 확인 대기',activator:options.activator});
+    if(window.MMRuleReference?.openContext)return window.MMRuleReference.openContext(can('references')?'Verified data coverage':'Official source pending',pendingBody(),{nameKo:can('references')?'원본 확인 범위':'공식 원본 확인 대기',activator:options.activator});
     if(typeof showModal==='function'){showModal(lang()==='ko'?'공식 원본 확인 대기':'Official source pending',pendingBody(),lang()==='ko'?'닫기':'Close',()=>true);return true;}
     return false;
   }
@@ -127,34 +128,40 @@
     'data-ext':new Set(['repair-vehicle','add-vehicle-damage'])
   };
   function blockButtons(){
-    for(const [attribute,values]of Object.entries(blocked))document.querySelectorAll('['+attribute+']').forEach(button=>{const action=button.getAttribute(attribute);if(!values.has(action)&&!(attribute==='data-gt'&&action?.startsWith('pc-')))return;button.dataset.officialBlocked=attribute+':'+action;button.removeAttribute(attribute);button.setAttribute('aria-disabled','true');button.removeAttribute('disabled');});
+    for(const [attribute,values]of Object.entries(blocked))document.querySelectorAll('['+attribute+']').forEach(button=>{const action=button.getAttribute(attribute);const feature=attribute==='data-fp'&&/advance/.test(action)?'advancements':attribute==='data-fp'&&/injury/.test(action)?'injuries':attribute==='data-vp'?'vehicle_rules':attribute==='data-cp'&&action==='participation-xp'?'xp':attribute==='data-gt'&&action?.startsWith('pc-')?'post_cycle':null;if(feature&&can(feature))return;if(!values.has(action)&&!(attribute==='data-gt'&&action?.startsWith('pc-')))return;button.dataset.officialBlocked=attribute+':'+action;button.removeAttribute(attribute);button.setAttribute('aria-disabled','true');button.removeAttribute('disabled');});
     document.querySelectorAll('[data-play="post-cycle"],[data-parity="post-cycle"]').forEach(button=>{button.removeAttribute('data-play');button.removeAttribute('data-parity');button.dataset.officialManual='cycle';});
     document.querySelectorAll('[data-gt-pc-action]').forEach(field=>{field.removeAttribute('data-gt-pc-action');field.disabled=true;});
     document.querySelectorAll('.gt-pc-panel:not([data-official-source-replaced])').forEach(panel=>{panel.dataset.officialSourceReplaced='yes';panel.replaceChildren();const note=document.createElement('div');note.className='notice';note.innerHTML=pendingBody()+`<button type="button" class="btn small" data-official-manual="cycle">${label('Record changes manually','변화 직접 기록')}</button>`;panel.append(note);});
   }
   let refreshing=false,queued=false,initialized=false;
   function refresh(){
-    if(!pending()||refreshing)return;refreshing=true;
+    if(refreshing)return;refreshing=true;
     try{
       const content=document.querySelector('.content');
-      if(content&&!content.querySelector(':scope > [data-official-source-notice]')){const banner=document.createElement('aside');banner.className='notice official-source-notice';banner.dataset.officialSourceNotice='';banner.setAttribute('role','status');banner.innerHTML=label('Official source pending','공식 원본 확인 대기','strong')+label('Automatic rules and preset data are unavailable. You can continue entering manual records.','자동 규칙과 기본 데이터는 원본 확인 전까지 제공하지 않습니다. 직접 기록은 계속 사용할 수 있습니다.','p')+`<button type="button" class="btn small" data-official-source-info>${label('Details','자세히')}</button>`;content.prepend(banner);}
+      if(content&&!content.querySelector(':scope > [data-official-source-notice]')){const banner=document.createElement('aside');banner.className='notice official-source-notice';banner.dataset.officialSourceNotice='';banner.setAttribute('role','status');banner.innerHTML=(can('references')?label('Verified original data','원본 확인 데이터','strong')+label('Verified data is available for this edition. Unverified categories stay manual.','이 판본에서 원본을 확인한 항목을 제공합니다. 확인되지 않은 분야는 직접 기록으로 유지됩니다.','p'):label('Official source pending','공식 원본 확인 대기','strong')+label('Automatic rules and preset data are unavailable. You can continue entering manual records.','자동 규칙과 기본 데이터는 원본 확인 전까지 제공하지 않습니다. 직접 기록은 계속 사용할 수 있습니다.','p'))+`<button type="button" class="btn small" data-official-source-info>${label('Details','자세히')}</button>`+(data.view==='gang'?`<button type="button" class="btn small" data-official-manual="fighter">${label('Manual fighter','파이터 직접 기록')}</button>`:'');content.prepend(banner);}
       blockButtons();window.UKI18n?.refresh(document.querySelector('[data-official-source-notice]')||document.body);
     }finally{refreshing=false;}
   }
   function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
   function init(){
-    if(initialized||!pending())return;initialized=true;
-    addXp=manualXp;addAdvancement=manualAdvancement;addInjury=manualInjury;postCycle=manualCycle;editGang=manualGang;editCampaign=manualCampaign;if(typeof sellItem==='function')sellItem=manualSell;
-    const previousFighter=editFighter;editFighter=function(f,...args){if(!f)return manualFighter();return previousFighter.call(this,f,...args);};
-    if(typeof cpSessionXp==='function')cpSessionXp=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return manualXp(f,{gang:g,row,sessionId:s.id});};
-    if(typeof cpSessionInjury==='function')cpSessionInjury=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return manualInjury(f,{gang:g,row,sessionId:s.id});};
+    if(initialized)return;initialized=true;
+    const originalXp=addXp,originalAdvance=addAdvancement,originalInjury=addInjury,originalCycle=postCycle,originalGang=editGang,originalCampaign=editCampaign;
+    addXp=function(f,...args){return can('xp',gang()?.edition)?originalXp(f,...args):manualXp(f,...args);};
+    addAdvancement=function(f,...args){return can('advancements',gang()?.edition)?originalAdvance(f,...args):manualAdvancement(f);};
+    addInjury=function(f,...args){return can('injuries',gang()?.edition)?originalInjury(f,...args):manualInjury(f,...args);};
+    postCycle=function(...args){return can('post_cycle')?originalCycle(...args):manualCycle();};
+    editGang=function(g,...args){return can('gang_catalog',g?.edition||data.edition)?originalGang(g,...args):manualGang(g);};
+    editCampaign=function(c,...args){return can('campaign_catalog',c?.edition||data.edition)?originalCampaign(c,...args):manualCampaign(c);};if(typeof sellItem==='function')sellItem=manualSell;
+    const previousFighter=editFighter;editFighter=function(f,...args){if(!f&&!can('recruitment'))return manualFighter();return previousFighter.call(this,f,...args);};
+    if(typeof cpSessionXp==='function')cpSessionXp=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return can('xp',g?.edition)?originalXp(f,{gang:g,row,sessionId:s.id}):manualXp(f,{gang:g,row,sessionId:s.id});};
+    if(typeof cpSessionInjury==='function')cpSessionInjury=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return can('injuries',g?.edition)?originalInjury(f,{gang:g,row,sessionId:s.id}):manualInjury(f,{gang:g,row,sessionId:s.id});};
     const previousRender=render;render=function(...args){const result=previousRender.apply(this,args);refresh();return result;};
     new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});window.addEventListener('uk:languagechange',schedule);refresh();
   }
   window.addEventListener('click',event=>{
-    if(!pending())return;const target=event.target.closest?.('[data-official-blocked],[data-official-source-info],button[data-official-manual="cycle"]');if(!target)return;
-    event.preventDefault();event.stopImmediatePropagation();if(target.dataset.officialManual==='cycle')manualCycle();else showPending({activator:target});
+    const target=event.target.closest?.('[data-official-blocked],[data-official-source-info],button[data-official-manual]');if(!target)return;
+    event.preventDefault();event.stopImmediatePropagation();if(target.dataset.officialManual==='cycle')manualCycle();else if(target.dataset.officialManual==='fighter')manualFighter();else showPending({activator:target});
   },true);
-  window.MMOfficialSource={get pending(){return pending();},showPending,manualXp,manualAdvancement,manualInjury,manualCycle,manualSell,refresh,init};
+  window.MMOfficialSource={get pending(){return pending();},can,currentEdition,showPending,manualXp,manualAdvancement,manualInjury,manualCycle,manualSell,refresh,init};
   init();
 })();

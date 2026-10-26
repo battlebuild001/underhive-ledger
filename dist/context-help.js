@@ -14,22 +14,22 @@
     if(key.startsWith('xp.'))ids=ed==='n26'?['n26-core-xp-events',...(/assistance/.test(key)?['n26-core-recovery']:/objective/.test(key)?['n26-core-objectives']:/serious|out-of-action|wreck/.test(key)?['n26-core-wounds-and-lethality','n26-core-injury-dice-results']:[])]:['n23-core-postbattle',...(/assistance|rally/.test(key)?['n23-core-end-phase']:/serious|out-of-action/.test(key)?['n23-core-damage-and-injury']:[])];
     else if(key.startsWith('characteristic.'))ids=ed==='n26'?['n26-core-stats']:[];
     else if(key.startsWith('advancement.'))ids=ed==='n26'?['n26-core-advancement-timing','n26-core-advancement-table']:['n23-core-advancement'];
-    else if(key.startsWith('equipment.')&&/range|accuracy|strength|damage|lethality|ammo|ap/.test(key))ids=ed==='n26'?['n26-core-weapon-profile-card','n26-core-wounds-and-lethality']:['n23-core-shooting-sequence','n23-core-damage-and-injury'];
+    else if(key.startsWith('equipment.')&&/range|accuracy|strength|damage|lethality|ammo|ap/.test(key))ids=ed==='n26'?['n26-core-weapon-profile-fields','n26-core-wounds-and-lethality']:['n23-core-shooting-sequence','n23-core-damage-and-injury'];
     const rows=ids.map(id=>window.MMRuleReference?.lookup('coreRules',id,{edition:ed})).filter(Boolean);
     return rows.length?'<section class="uk-help-related">'+text({ko:'관련 판정 자세히 보기',en:'Related resolution'},'h3')+rows.map(row=>`<button type="button" class="btn small" data-context-rule="${esc(row.id)}" data-context-parent="${esc(key)}" data-context-edition="${esc(ed)}" data-i18n-ko="${esc(row.name_ko||row.name)}">${esc(row.name)}</button>`).join('')+'</section>':'';
   }
   function lookup(key,options={}){
     if(key.startsWith('rule.')){const row=window.MMRuleReference?.lookup('coreRules',key.slice(5),{edition:edition(options.edition)});return row?{title:{ko:row.name_ko||row.name,en:row.name},summary:{ko:row.description,en:window.UK_CATALOG_LOCALE?.rulesEn?.['coreRules:'+row.id]||row.description},sections:[]}:null;}
     if(key.startsWith('trait.')){const row=window.MMRuleReference?.traitLookup(key.slice(6),{edition:edition(options.edition)});return row?{title:{ko:row.name_ko||row.name,en:row.name},summary:{ko:row.description,en:window.UK_CATALOG_LOCALE?.rulesEn?.['weaponTraits:'+row.id]||row.description},sections:[]}:null;}
-    const row=entries()[key];if(!row)return null;
+    const row=entries()[key];if(!row||row.edition&&row.edition!==edition(options.edition))return null;
     const variant=row.variants?.[edition(options.edition)]||{};
     return JSON.parse(JSON.stringify({...row,...variant,title:variant.title||row.title}));
   }
   function open(key,options={}){
-    if(window.MMOfficialSource?.pending)return window.MMOfficialSource.showPending({activator:options.activator});
+    if(window.MMOfficialSource?.pending&&!lookup(key,options)?.source_verified)return window.MMOfficialSource.showPending({activator:options.activator});
     if(key.startsWith('rule.'))return window.MMRuleReference?.open('coreRules',key.slice(5),options)||false;
     if(key.startsWith('trait.'))return window.MMRuleReference?.openTrait(key.slice(6),options)||false;
-    const ed=edition(options.edition),row=lookup(key,{edition:ed});if(!row||!window.MMRuleReference?.openContext)return false;
+    const ed=edition(options.edition),row=lookup(key,{edition:ed});if(!row||!window.MMRuleReference?.openContext)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     contextReturn=null;
     const body=`<div class="mmrr-heading"><span class="mmrr-badge" data-i18n-ignore>${esc(ed.toUpperCase())}</span><span data-i18n-ko="항목 설명">How this works</span></div><div class="uk-help-content" data-context-help-key="${esc(key)}">${text(row.summary,'p','uk-help-summary')}${(row.sections||[]).map(section=>'<section>'+text(section.heading,'h3')+text(section.text)+'</section>').join('')}${related(key,ed)}</div>`;
     return window.MMRuleReference.openContext(row.title.en||row.title.ko,body,{nameKo:row.title.ko,activator:options.activator});
@@ -61,14 +61,14 @@
   function actionHelp(button,key,ed){if(!lookup(key,{edition:ed})||button.closest('.mmrr-overlay,.rp-view-2-card,.rp-view-3-card,.rp-view-4-card')||button.closest('.uk-help-action-pair')||button.nextElementSibling?.matches('[data-mm-help]'))return;const help=makeButton(key,ed);help.dataset.ukHelpOwner=key;help.classList.add('uk-help-action');const wrapper=document.createElement('span');wrapper.className='uk-help-action-pair'+(button.classList.contains('danger')?' danger':'');button.before(wrapper);wrapper.append(button,help);}
   function recordHelp(host,row,kind,ed,fallback){
     if(skip(host)||!row)return;
-    const button=makeButton(fallback,ed);if(!button)return;
+    let button=makeButton(fallback,ed);if(!button){button=document.createElement('button');button.type='button';button.className='uk-help-trigger';button.dataset.mmHelp=fallback;button.dataset.mmHelpEdition=ed;button.dataset.mmHelpAuto='yes';button.innerHTML=icon;labelButton(button,{title:{en:row.name||'Record',ko:row.name_ko||row.name||'기록'}});}
     const query={...row,catalogId:row.catalogId||row.effectId||row.injuryId||row.skillId};
     recordBindings.set(button,{row:query,kind,fallback});host.append(button);
   }
   function openRecord(record,options){
     const api=window.MMRuleReference,found=api?.lookup(record.kind,record.row,{edition:options.edition});
     if(found&&(String(found.description||found.effect||'').trim()||Object.keys(found.rule_data||{}).length))return api.open(record.kind,record.row,options);
-    const row=lookup(record.fallback,options);if(!row)return false;
+    const row=lookup(record.fallback,options);if(!row){if(record.row.description)return api.openContext(record.row.name||'User record','<p>'+esc(record.row.description)+'</p>',{activator:options.activator});return window.MMOfficialSource?.showPending({activator:options.activator})||false;}
     const r={...found,...record.row},values=[['Characteristic / 능력치',r.stat],['Change / 변화',r.amount],['XP cost / XP 비용',r.xpCost],['Rating increase / 레이팅 증가',r.cost]].filter(([,value])=>value!==undefined&&value!==null&&value!=='');
     const modifiers=(found?.modifiers||r.modifiers||[]).filter(item=>item.stat_name&&Number.isFinite(Number(item.numeric_value??item.default_numeric_value))).map(item=>{let amount=Number(item.numeric_value??item.default_numeric_value),prefix='';if(item.operation==='subtract')amount=-Math.abs(amount);if(item.operation==='set')prefix='= ';else if(item.operation==='multiply')prefix='× ';else if(item.operation==='divide')prefix='÷ ';else if(amount>=0)prefix='+';return '<li>'+esc(item.stat_name)+': '+esc(prefix)+esc(amount)+'</li>';}).join('');const flags=['recovery','convalescence','killed','captured'].filter(key=>[true,'true'].includes(r.type_specific_data?.[key])).map(key=>'<li>'+esc(({recovery:'Recovery / 회복 상태',convalescence:'Convalescence / 요양',killed:'Killed / 사망',captured:'Captured / 생포'})[key])+'</li>').join('');
     const body='<div class="uk-help-content">'+text(row.summary,'p','uk-help-summary')+(r.description?'<p>'+esc(r.description)+'</p>':'')+(values.length?'<dl class="uk-help-record">'+values.map(([label,value])=>'<div><dt>'+esc(label)+'</dt><dd>'+esc(value)+'</dd></div>').join('')+'</dl>':'')+(modifiers||flags?'<ul>'+modifiers+flags+'</ul>':'')+text({en:'These are the values saved on this record. Custom entries and campaign rulings may differ from a catalog result. Reading this explanation applies no changes.',ko:'이 기록에 저장된 값을 표시합니다. 사용자 항목이나 캠페인 재정은 카탈로그 결과와 다를 수 있습니다. 설명을 읽어도 변경 사항은 적용되지 않습니다.'})+'</div>';

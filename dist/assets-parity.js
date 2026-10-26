@@ -6,7 +6,7 @@ const singular = {equipment:'Equipment',fighters:'Fighter',skills:'Skill',gangTy
 const plural = {equipment:'Equipment',fighters:'Fighters',skills:'Skills & Skill Sets',gangTypes:'Gang Types',tradingPosts:'Trading Posts',collections:'Asset Collections'};
 const statKeys=['M','WS','BS','S','T','W','I','A','Sv','Ld','Cl','Wil','Int'];
 const subtypeNames=['Agile','Beast','Beastman','Brute','Champion','Crew','Fanatic','Flying','Ganger','Hanger-on','Hybrid','Leader','Loner','Manoeuvrable','Mounted','Ogryn','Pet','Pious','Prospect','Ratling','Skimmer','Specialist','Spyrer','Support','Tracked','Transport (X)','Walker','Wheeled','Wyrd'];
-const fallbackSkillSets=['Agility','Brawn','Combat','Cunning','Ferocity','Leadership','Savant','Shooting','Tech'];
+const fallbackSkillSets=[];
 const dialogConfigs=new WeakMap();
 const copy=v=>JSON.parse(JSON.stringify(v));
 const nameOf=r=>String(r?.name??r?.equipment_name??r?.fighter_type??r?.gang_type??r?.skill_name??r?.skill_type??r?.custom_trading_post_name??'');
