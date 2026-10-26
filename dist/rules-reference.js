@@ -141,6 +141,15 @@
     overlay.innerHTML=`<section class="mmrr-dialog" role="dialog" aria-modal="true" aria-labelledby="mmrr-title"><header><h2 id="mmrr-title">${esc(name)}</h2><button type="button" data-mmrr-close aria-label="규칙 닫기">×</button></header><div class="mmrr-body">${body}</div><footer><button class="btn" type="button" data-mmrr-close>닫기</button></footer></section>`;
     safeFocus(overlay.querySelector('[data-mmrr-close]'));
   }
+  function openContext(name,body,options={}){
+    libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
+    shell(name,body,options.activator);
+    overlay.querySelector('.mmrr-dialog').classList.add('uk-context-help');
+    const heading=overlay.querySelector('#mmrr-title');
+    if(options.nameKo)heading.dataset.i18nKo=options.nameKo;
+    window.UKI18n?.refresh(overlay);
+    return true;
+  }
   function open(kind,query,options={}){
     if(typeof kind==='object'){options=query||{};query=kind;kind=options.kind||'skills';}
     kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return false;
@@ -223,6 +232,6 @@
   document.addEventListener('change',event=>{if(libraryState&&event.target.matches('[data-mmrr-edition],[data-mmrr-kind]')){libraryState[event.target.matches('[data-mmrr-edition]')?'edition':'kind']=event.target.value;drawLibrary();}else schedule();});
   document.addEventListener('input',event=>{if(libraryState&&event.target.matches('[data-mmrr-search]')){libraryState.query=event.target.value;drawLibrary();}});
   new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
-  window.MMRuleReference={lookup,open,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait,vehicleRuleMarkup,vehicleRuleLookup,openVehicleRule};
+  window.MMRuleReference={lookup,open,openContext,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait,vehicleRuleMarkup,vehicleRuleLookup,openVehicleRule};
   decorate();
 })();

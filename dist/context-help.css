@@ -1,0 +1,430 @@
+/* Contextual gameplay help. Existing forms and rule dialogs stay canonical. */
+@media screen {
+  html.uk-ui .uk-help-trigger {
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    margin: 0 0 0 4px;
+    padding: 6px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--accent, #edb68f);
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: help;
+    touch-action: manipulation;
+    box-shadow: none;
+  }
+
+  html.uk-ui .uk-help-trigger svg {
+    display: block;
+    flex: none;
+    width: 17px;
+    height: 17px;
+    pointer-events: none;
+  }
+
+  html.uk-ui .uk-help-trigger:hover {
+    border-color: var(--line, #3c4858);
+    background: var(--panel2, #25303d);
+    color: var(--accent, #edb68f);
+  }
+
+  html.uk-ui .uk-help-trigger:focus-visible {
+    outline: 2px solid var(--accent, #edb68f);
+    outline-offset: 2px;
+    border-color: var(--accent, #edb68f);
+    background: var(--panel2, #25303d);
+  }
+
+  html.uk-ui .uk-help-trigger:disabled {
+    opacity: .5;
+    cursor: default;
+  }
+
+  /* Stat terms keep the exact dimensions of the text they replace. */
+  html.uk-ui .uk-help-term {
+    display: inline;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+    vertical-align: baseline;
+    white-space: inherit;
+    overflow-wrap: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    box-shadow: none;
+    cursor: help;
+    touch-action: manipulation;
+  }
+
+  html.uk-ui .uk-help-term:hover {
+    text-decoration-style: solid;
+    background: transparent;
+  }
+
+  html.uk-ui .uk-help-term:focus-visible {
+    outline: 2px solid var(--accent, #edb68f);
+    outline-offset: 2px;
+  }
+
+  html.uk-ui .uk-help-label {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+    max-width: 100%;
+    gap: 6px;
+    line-height: inherit;
+  }
+
+  html.uk-ui .form label > .uk-help-label {
+    width: 100%;
+  }
+
+  html.uk-ui .uk-help-label > .uk-help-trigger {
+    margin-inline-start: 0;
+  }
+
+  html.uk-ui .uk-help-checkline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  html.uk-ui .uk-help-checkline > label {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+  }
+
+  html.uk-ui .uk-help-checkline > .uk-help-trigger {
+    flex: 0 0 32px;
+    margin-inline-start: 0;
+  }
+
+  html.uk-ui .uk-help-action-pair {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  html.uk-ui .uk-help-action-pair > .btn {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  html.uk-ui .uk-help-action-pair > .uk-help-action {
+    flex: 0 0 32px;
+    margin-inline-start: 0;
+  }
+
+  html.uk-ui .fighter-status-actions > .uk-help-action-pair {
+    width: 100%;
+  }
+
+  html.uk-ui .fighter-status-actions > .uk-help-action-pair.danger:last-child {
+    grid-column: 1 / -1;
+  }
+
+  html.uk-ui :is(.modal-head, .section-heading, .uk-help-head) .uk-help-trigger {
+    flex-basis: 36px;
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    min-height: 36px;
+  }
+
+  html.uk-ui :is(.fp-xp-label, .fp-xp-option) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  html.uk-ui .fp-xp-label > label {
+    min-width: 0;
+  }
+
+  html.uk-ui .fp-xp-option > .checkline {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  html.uk-ui :is(.fp-xp-label, .fp-xp-option) > .uk-help-trigger {
+    margin-inline-start: 0;
+  }
+
+  html.uk-ui .uk-help-overlay {
+    position: fixed;
+    inset: 0;
+    top: var(--mm-viewport-top, 0px);
+    bottom: auto;
+    z-index: 1400;
+    display: grid;
+    place-items: center;
+    height: var(--mm-viewport-height, 100dvh);
+    padding: 16px;
+    background: #05080dc2;
+    overscroll-behavior: contain;
+  }
+
+  html.uk-ui .uk-help-dialog,
+  html.uk-ui .mmrr-dialog.uk-context-help,
+  html.uk-ui .mmrr-dialog:has(.uk-context-help) {
+    width: min(600px, 100%);
+    min-width: 0;
+    max-height: calc(var(--mm-viewport-height, 100dvh) - 32px);
+    border: 1px solid var(--uk-input-line, var(--line, #3c4858));
+    border-radius: 14px;
+    background: var(--panel, #1b232e);
+    color: var(--text, #f1f4f8);
+    box-shadow: 0 24px 72px #0006;
+  }
+
+  html.uk-ui .uk-help-dialog {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  html.uk-ui .uk-help-head {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 76px;
+    gap: 12px;
+    padding: 17px 22px;
+    border-bottom: 1px solid var(--line, #3c4858);
+  }
+
+  html.uk-ui .uk-help-head h2 {
+    min-width: 0;
+    margin: 0;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -.03em;
+    overflow-wrap: anywhere;
+  }
+
+  html.uk-ui .uk-help-head :is(.icon-btn, [data-uk-help-close]) {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted, #b5c0ce);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  html.uk-ui .uk-help-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 22px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--uk-input-line, #607084) transparent;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) {
+    --uk-help-text-size: 17px;
+    font-size: var(--uk-help-text-size);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  html.uk-ui:lang(en) :is(.uk-help-body, .uk-context-help),
+  html.uk-ui[data-ui-language="en"] :is(.uk-help-body, .uk-context-help) {
+    --uk-help-text-size: 15.5px;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) :is(p, ul, ol, dl, blockquote) {
+    max-width: 66ch;
+    margin: 0 0 1.1em;
+    color: var(--text, #f1f4f8);
+    font-size: var(--uk-help-text-size);
+    line-height: 1.8;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) :is(ul, ol) {
+    padding-inline-start: 1.4em;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) li {
+    padding-inline-start: .15em;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) li + li {
+    margin-top: .45em;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) :is(h3, h4) {
+    max-width: 66ch;
+    margin: 1.5em 0 .5em;
+    color: var(--text, #f1f4f8);
+    font-size: var(--uk-help-text-size);
+    font-weight: 750;
+    line-height: 1.6;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) :is(h3, h4):first-child {
+    margin-top: 0;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) strong {
+    color: var(--text, #f1f4f8);
+    font-weight: 750;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) a {
+    color: var(--accent, #edb68f);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) blockquote {
+    padding: 14px 16px;
+    border-left: 3px solid var(--accent, #edb68f);
+    border-radius: 0 8px 8px 0;
+    background: var(--panel2, #25303d);
+  }
+
+  html.uk-ui :is(.uk-help-body, .uk-context-help) blockquote > :last-child,
+  html.uk-ui .uk-help-body > :last-child,
+  html.uk-ui .uk-context-help > :last-child {
+    margin-bottom: 0;
+  }
+
+  html.uk-ui .uk-context-help .mmrr-description {
+    max-width: 66ch;
+    font-size: var(--uk-help-text-size);
+    line-height: 1.8;
+  }
+
+  html.uk-ui .uk-help-foot {
+    display: flex;
+    flex: none;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 22px;
+    border-top: 1px solid var(--line, #3c4858);
+    background: var(--panel, #1b232e);
+  }
+
+  html.uk-ui .uk-help-foot .btn {
+    min-height: 44px;
+  }
+
+  @media (max-width: 600px) {
+    html.uk-ui .uk-help-overlay {
+      padding: 8px;
+    }
+
+    html.uk-ui .uk-help-dialog,
+    html.uk-ui .mmrr-dialog.uk-context-help,
+    html.uk-ui .mmrr-dialog:has(.uk-context-help) {
+      max-height: calc(var(--mm-viewport-height, 100dvh) - 16px);
+      border-radius: 12px;
+    }
+
+    html.uk-ui .uk-help-head {
+      min-height: 72px;
+      padding: 14px 18px;
+    }
+
+    html.uk-ui .uk-help-head h2 {
+      font-size: 22px;
+    }
+
+    html.uk-ui .uk-help-body {
+      padding: 20px 18px;
+    }
+
+    html.uk-ui .uk-help-foot {
+      padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+    }
+
+    html.uk-ui:has(.uk-help-overlay) .uk-workspace-nav {
+      visibility: hidden;
+    }
+  }
+}
+
+/* Generated help controls never add icons or native button chrome to a sheet. */
+@media print {
+  html.uk-ui :is(.uk-help-trigger, .uk-help-action) {
+    display: none !important;
+  }
+
+  html.uk-ui .uk-help-term {
+    display: inline !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    appearance: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: inherit !important;
+    font: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    text-align: inherit !important;
+    vertical-align: baseline !important;
+    white-space: inherit !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+@media screen {
+  html.uk-ui .rp-card .uk-help-term:hover { background: transparent; }
+  html.uk-ui .uk-help-related .btn { margin: 0 6px 8px 0; white-space: normal; text-align: start; }
+  html.uk-ui .uk-help-record > div { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  html.uk-ui .uk-help-record dt { color: var(--muted); }
+  html.uk-ui .uk-help-record dd { margin: 0; font-variant-numeric: tabular-nums; }
+}
