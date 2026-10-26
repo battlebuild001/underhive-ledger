@@ -20,7 +20,7 @@
   const titleOf = x => x?.name||x?.skill_name||x?.effect_name||x?.fighter_type||x?.equipment_name||'';
   const uidOf = x => String(x.id||x.skill_id||titleOf(x));
   const escName = x => esc(titleOf(x));
-  const traitMarkup = value => window.MMRuleReference?.traitMarkup ? MMRuleReference.traitMarkup(value,{edition:gang()?.edition||data.edition}) : esc(Array.isArray(value)?value.join(', '):value||'—');
+  const traitMarkup = (value,ed=gang()?.edition||data.edition) => window.MMRuleReference?.traitMarkup ? MMRuleReference.traitMarkup(value,{edition:ed}) : esc(Array.isArray(value)?value.join(', '):value||'—');
   function normalizeSpecialRules(value){let rules=Array.isArray(value)?value:value==null?[]:[value];return rules.map(rule=>(typeof rule==='string'?rule:String(rule)).replace(/^"|"$/g,'')).filter(Boolean);}
   function init(f){fighterExtra(f);f.effects??=[];f.equipment??=[];f.skills??=[];if(f.specialRules==null){let type=fighterTypeRow(f);f.specialRules=normalizeSpecialRules(f.special_rules??type?.specialRules??type?.special_rules??[]);}f.skillDetails??=[];return f;}
   function stats(f){const s={...f.stats};for(const e of f.effects||[])if(e.stat&&s[e.stat]!=null&&Number.isFinite(Number(e.amount)))s[e.stat]=e.operation==='set'?num(e.amount):num(s[e.stat])+num(e.amount);return s;}
@@ -250,13 +250,34 @@
     if(!type&&!custom&&!access.length)return list;
     return list.filter(x=>allowed.has(x.id)).map(x=>{const d=ruleList('equipmentDiscounts').find(d=>d.equipment_id===x.id&&applicable(d));return d?{...x,cost:num(d.adjusted_cost)}:x;});
   }
-  function purchaseProfiles(item){
-    const n26=String(gang()?.edition).toUpperCase()==='N26',missing=value=>value==null||String(value).trim()===''||String(value).trim()==='""';
+  function purchaseProfiles(item,ed=gang()?.edition){
+    const n26=String(ed).toUpperCase()==='N26',missing=value=>value==null||String(value).trim()===''||String(value).trim()==='""';
     const fields=[['range_short','Short','단거리',['range_short','short_range','rangeShort']],['range_long','Long','장거리',['range_long','long_range','rangeLong']],...(!n26?[['acc_short','Hit S','명중 단',['acc_short','accuracy_short']],['acc_long','Hit L','명중 장',['acc_long','accuracy_long']]]:[]),['strength','S','S',['strength','S']],['ap','AP','AP',['ap','armour_piercing','AP']],...(n26?[['lethality','L','L',['lethality','L']]]:[['damage','D','D',['damage','D']],['ammo','Ammo','탄약',['ammo']]])];
     const value=(profile,keys)=>{for(const key of keys)if(!missing(profile[key]))return profile[key];return '—';};
     const profiles=equipmentProfiles(item).filter(profile=>fields.some(([, , ,keys])=>keys.some(key=>!missing(profile[key])))||!missing(Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits));
     if(!profiles.length)return item.description?`<p class="fp-buy-description">${esc(item.description)}</p>`:'';
-    return `<div class="fp-buy-profiles">${profiles.map(profile=>{const name=profile.profile_name||profile.name||'',traits=Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits;return `<section class="fp-buy-profile">${name&&(profiles.length>1||name!==titleOf(item))?`<div class="fp-buy-profile-name">${esc(name)}</div>`:''}<dl class="fp-buy-stats ${n26?'is-n26':'is-n23'}">${fields.map(([key,en,ko,keys])=>`<div data-profile-stat="${key}"><dt data-i18n-ko="${ko}">${en}</dt><dd>${esc(value(profile,keys))}</dd></div>`).join('')}</dl>${!missing(traits)?`<div class="fp-buy-traits"><span data-i18n-ko="특성">Traits</span><span>${traitMarkup(profile.traits)}</span></div>`:''}</section>`;}).join('')}</div>`;
+    return `<div class="fp-buy-profiles">${profiles.map(profile=>{const name=profile.profile_name||profile.name||'',traits=Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits;return `<section class="fp-buy-profile">${name&&(profiles.length>1||name!==titleOf(item))?`<div class="fp-buy-profile-name">${esc(name)}</div>`:''}<dl class="fp-buy-stats ${n26?'is-n26':'is-n23'}">${fields.map(([key,en,ko,keys])=>`<div data-profile-stat="${key}"><dt data-i18n-ko="${ko}">${en}</dt><dd>${esc(value(profile,keys))}</dd></div>`).join('')}</dl>${!missing(traits)?`<div class="fp-buy-traits"><span data-i18n-ko="특성">Traits</span><span>${traitMarkup(profile.traits,ed)}</span></div>`:''}</section>`;}).join('')}</div>`;
+  }
+  function stashProfiles(item,ed){
+    const expected=String(ed||gang()?.edition||data.edition).toLowerCase(),inEdition=row=>!row?.edition_slug&&!row?.edition||String(row.edition_slug||row.edition).toLowerCase()===expected;
+    if(!item||!inEdition(item))return '';
+    const available=[...(rules().equipment||[]),...(data.customAssets?.equipment||[])],keys=['profiles','weaponProfiles','weapon_profiles'];
+    const profilesOf=row=>keys.map(key=>row?.[key]).find(value=>Array.isArray(value)&&value.length);
+    const identities=[item.customAssetId,item.catalogId,item.presetId].filter(Boolean);
+    if(!identities.length&&available.some(row=>String(row.id)===String(item.id)))identities.push(item.id);
+    let base=null;
+    for(const identity of identities){
+      const exact=available.filter(row=>String(row.id)===String(identity));if(!exact.length)continue;
+      const matches=exact.filter(inEdition);if(matches.length!==1)return '';base=matches[0];break;
+    }
+    const ownProfiles=profilesOf(item);
+    if(!base&&!identities.length&&!ownProfiles){
+      const normalize=value=>String(value||'').trim().toLocaleLowerCase(),wanted=normalize(titleOf(item));
+      const matches=available.filter(inEdition).filter(row=>[titleOf(row),row.name_ko,window.UKI18n?.name(titleOf(row))].some(value=>value&&normalize(value)===wanted));
+      if(matches.length===1)base=matches[0];
+    }
+    const profiles=ownProfiles||profilesOf(base);if(!profiles)return '';
+    return purchaseProfiles({...base,...item,profiles,description:''},expected);
   }
   function equipmentCategory(item){
     const raw=String(item.category||item.equipment_category||item.equipmentType||'Other'),label=raw.replace(/\s*\((?:Close Combat Weapons|Ranged Weapons)\)\s*$/i,'');
@@ -353,6 +374,6 @@
   },true);
   // Links on equipment names expose the purchased profile and editable item cost.
   const oldRender=render;render=function(){oldRender();if(data.view!=='fighter')return;let f=currentFighter();if(!f)return;document.querySelectorAll('.fighter-page table tbody tr').forEach(row=>{let cell=row.querySelector('td');if(!cell)return;let item=f.equipment.find(x=>x.name===cell.textContent.trim());if(item){cell.innerHTML=`<button class="fp-text-link" data-fp="equipment-detail" data-id="${f.id}" data-sub="${item.id}">${esc(item.name)}</button>`;let active=f.loadouts.find(l=>l.active);if(active&&!active.equipmentIds.includes(item.id))row.hidden=true;}});};
-  window.FighterParity={init,stats,openEdit,addSkill,copyFighter,sellFighter,changeStatus,deleteFighter,purchaseEquipment,injuryList,clearRigGlitches,removeInjury,equipmentProfiles,promoteFighter,deleteSkill,addPowerBoost,undoPowerBoost,portraitEditor,portraitSource};
+  window.FighterParity={init,stats,openEdit,addSkill,copyFighter,sellFighter,changeStatus,deleteFighter,purchaseEquipment,injuryList,clearRigGlitches,removeInjury,equipmentProfiles,stashProfiles,promoteFighter,deleteSkill,addPowerBoost,undoPowerBoost,portraitEditor,portraitSource};
   render();
 })();

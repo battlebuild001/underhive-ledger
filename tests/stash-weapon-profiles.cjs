@@ -1,0 +1,44 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(root+'/index.html','utf8');
+const dom=new JSDOM('<div id="app"></div><input id="import-file" type="file">',{url:'https://manager.test/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,context=dom.getInternalVMContext(),errors=[];
+w.structuredClone=structuredClone;w.alert=message=>{throw Error(message)};w.matchMedia=()=>({matches:false,addListener(){},removeListener(){}});w.HTMLElement.prototype.scrollIntoView=function(){};w.localStorage.setItem('underhive-korea-language','en');w.addEventListener('error',event=>errors.push(event.message));
+const run=source=>vm.runInContext(source,context),tick=()=>new Promise(resolve=>setTimeout(resolve,0)),snapshot=()=>run('JSON.stringify(data)');
+const q=(selector,parent=w.document)=>{const node=parent.querySelector(selector);assert(node,'Missing '+selector);return node},all=(selector,parent=w.document)=>[...parent.querySelectorAll(selector)];
+const profile=id=>q('[data-stash-profile-id="'+id+'"]'),header=id=>q('[data-stash-item-id="'+id+'"]');
+const stats=profile=>Object.fromEntries(all('[data-profile-stat]',profile).map(node=>[node.dataset.profileStat,q('dd',node).textContent]));
+for(const match of html.matchAll(/<script src="\/([^"?]+)[^"]*"/g)){if(match[1]==='account-parity.js')continue;vm.runInContext(fs.readFileSync(root+'/'+match[1],'utf8'),context,{filename:match[1]});}
+(async()=>{
+  await tick();run(`ensureAssets();gang().edition='N23';gang().faction='House Escher';data.edition='N26';gang().stash=[
+    {id:'legacy-lasgun',name:'라스건',cost:15},
+    {id:'linked-lasgun',name:'Discounted spare laser',catalogId:'8d123545-85ce-4c9b-87b4-7dc7bf605c91',cost:77,quantity:2,effects:[{modifiers:[{stat_name:'strength',numeric_value:1}]}]},
+    {id:'plasma',name:'Stored plasma',presetId:'a50991b9-5416-4008-8377-fedb98d21969',cost:99},
+    {id:'armour',name:'Mesh armour',catalogId:'49ba2507-a60f-40e9-8125-8dde2373400f',cost:10},
+    {id:'foreign',name:'Lasgun',catalogId:'8493a109-f5f9-460f-99ff-f2299e368790',cost:20},
+    {id:'unregistered',name:'Unregistered item',cost:1},
+    {id:'custom',name:'Custom gun',catalogId:'8d123545-85ce-4c9b-87b4-7dc7bf605c91',cost:5,weaponProfiles:[{profile_name:'<img src=x>',range_short:'E',range_long:'12"',acc_short:0,acc_long:'*',strength:8,ap:0,damage:0,ammo:'-',traits:['Arc (Front, Right)','Rapid Fire (2)','<script>test()</script>']}],effects:[{modifiers:[{stat_name:'strength',numeric_value:1}]}]},
+    {id:'sale',name:'Sale fixture',cost:11}
+  ];data.view='gang';data.tab='stash';render()`);await tick();
+  const catalogueBefore=JSON.stringify(w.RULES_DATA),before=snapshot();
+  assert.deepEqual(stats(profile('legacy-lasgun')),{range_short:'18"',range_long:'24"',acc_short:'+1',acc_long:'-',strength:'3',ap:'-',damage:'1',ammo:'2+'},'Legacy Korean Lasgun resolves to its unique N23 profile');
+  assert.equal(stats(profile('linked-lasgun')).strength,'4','Saved effects are applied once');assert.equal(header('linked-lasgun').children[0].textContent,'Discounted spare laser');assert.equal(header('linked-lasgun').children[1].textContent,'77','The displayed saved cost is not replaced by catalogue cost 15');assert.equal(run('gang().stash.find(row=>row.id==="linked-lasgun").quantity'),2);
+  assert.deepEqual(all('[data-profile-stat="strength"] dd',profile('plasma')).map(node=>node.textContent),['5','7']);assert.equal(all('.fp-buy-profile',profile('plasma')).length,2,'Multi-mode headers do not create a blank stats row');assert(all('.fp-buy-profile-name',profile('plasma')).every(node=>node.textContent));
+  for(const id of ['armour','foreign','unregistered','sale'])assert.equal(w.document.querySelector('[data-stash-profile-id="'+id+'"]'),null,'No fabricated profile for '+id);
+  const custom=profile('custom');assert.deepEqual(stats(custom),{range_short:'E',range_long:'12"',acc_short:'0',acc_long:'*',strength:'9',ap:'0',damage:'0',ammo:'-'});assert.equal(q('.fp-buy-profile-name',custom).textContent,'<img src=x>');assert.equal(custom.querySelector('img,script'),null);assert.equal(all('[data-mmrr-trait]',custom).filter(node=>node.dataset.mmrrTrait==='Arc (Front, Right)').length,1,'Arc commas stay within one clickable trait');
+  assert(q('.stash-page [data-gt="chem-open"]'),'Chem-alchemy action survives the existing stash wrapper');assert(q('.stash-page [data-action="new-stash"]'));assert(q('.stash-page [data-play="trade"]'));assert.equal(q('td',profile('legacy-lasgun')).colSpan,3,'Profiles use the full existing table width');
+  const plentiful=q('[data-mmrr-trait="Plentiful"]',profile('legacy-lasgun'));plentiful.click();await tick();assert.equal(q('.mmrr-badge').textContent,'N23');assert(q('.mmrr-description'));assert.equal(w.document.querySelector('[data-mmrr-definition-status="missing"]'),null);assert(!w.document.activeElement.matches('input,textarea,select'));q('[data-mmrr-close]').click();assert.equal(w.document.activeElement,plentiful);assert.equal(run('data.tab'),'stash');
+  w.UKI18n.setLanguage('ko');await tick();assert.equal(q('[data-profile-stat="range_short"] dt',profile('legacy-lasgun')).textContent,'단거리');assert.equal(stats(profile('legacy-lasgun')).ammo,'2+');w.UKI18n.setLanguage('en');await tick();assert.equal(snapshot(),before,'Viewing, trait clicks and localization never alter the stash or funds');
+
+  // Ambiguous display names and foreign IDs cannot silently pick a different weapon.
+  run(`data.customAssets.equipment.push({id:'ambiguous-lasgun',name:'Lasgun',edition:'N23',weaponProfiles:[{range_short:'1"',strength:99}]})`);
+  assert.equal(run(`FighterParity.stashProfiles(gang().stash[0],'N23')`),'');run('data.customAssets.equipment.pop()');assert.equal(snapshot(),before);
+  const detached=w.document.createElement('div');detached.innerHTML=w.FighterParity.stashProfiles({name:'Lasgun',catalogId:'8493a109-f5f9-460f-99ff-f2299e368790',cost:55},'N26');assert(q('.fp-buy-stats.is-n26',detached));assert.equal(stats(detached).range_short,'16"','An explicit supplied edition is independent of the selected gang');assert.equal(all('[data-profile-stat="ammo"],[data-profile-stat="damage"],[data-profile-stat="acc_short"]',detached).length,0);assert.equal(stats(detached).lethality,'1');
+
+  // Assigning a real stored item retains its metadata and financial value.
+  const wealth=run('MMFinancials.wealth(gang())'),linked=run('JSON.stringify(gang().stash.find(row=>row.id==="linked-lasgun"))'),fighterId=run('gang().fighters[0].id');q('[data-stash-assign="linked-lasgun"]').click();q('#modal-cancel').click();assert.equal(snapshot(),before,'Cancelled assignment changes nothing');
+  q('[data-stash-assign="linked-lasgun"]').click();q('#modal-form').elements.fighter.value=fighterId;q('#modal-submit').click();await tick();assert.equal(run('gang().stash.some(row=>row.id==="linked-lasgun")'),false);assert.equal(run('JSON.stringify(gang().fighters[0].equipment.find(row=>row.id==="linked-lasgun"))'),linked);assert.equal(run('MMFinancials.wealth(gang())'),wealth);assert.equal(w.document.querySelector('[data-stash-profile-id="linked-lasgun"]'),null);
+  const beforeSale=snapshot(),credits=run('gang().credits');q('[data-deep="sell-stash"][data-id="sale"]').click();assert.equal(q('#modal-form').elements.value.value,'11');q('#modal-cancel').click();assert.equal(snapshot(),beforeSale);
+  q('[data-deep="sell-stash"][data-id="sale"]').click();q('[data-deep="sale-half"]').click();assert.equal(q('#modal-form').elements.value.value,'6');q('#modal-submit').click();await tick();assert.equal(run('gang().credits'),credits+6);assert.equal(run('gang().stash.some(row=>row.id==="sale")'),false);assert(profile('legacy-lasgun'));
+
+  run(`gang().edition='N26';gang().stash=[{id:'n26-laser',name:'라스건',cost:15},{id:'n26-plasma',name:'Plasma gun',catalogId:'d030469b-3c0b-4565-aa58-35b36ec53bf6',cost:70}];render()`);await tick();const before26=snapshot();assert.equal(stats(profile('n26-laser')).range_short,'16"');assert.equal(stats(profile('n26-laser')).lethality,'1');assert.equal(all('[data-profile-stat="ammo"],[data-profile-stat="damage"],[data-profile-stat="acc_short"]',profile('n26-laser')).length,0);q('[data-mmrr-trait="Ammo (6+)"]',profile('n26-plasma')).click();await tick();assert.equal(q('.mmrr-badge').textContent,'N26');q('[data-mmrr-close]').click();assert.equal(snapshot(),before26);
+  assert.equal(JSON.stringify(w.RULES_DATA),catalogueBefore);assert.deepEqual(errors,[]);dom.window.close();console.log('Stash weapon profiles PASS: legacy Korean names, IDs/editions, saved profiles/effects/zeros, firing modes, clickable traits, read-only metadata, wrappers, assignment and sale');
+})().catch(error=>{console.error(error);dom.window.close();process.exit(1)});
