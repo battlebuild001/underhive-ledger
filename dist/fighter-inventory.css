@@ -1,0 +1,187 @@
+/* Fighter inventory only. Roster and print geometry use their existing styles. */
+@media screen {
+  html.uk-ui .fighter-page .fp-equipment-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  html.uk-ui .fighter-page .fp-equipment-cost-column { width: 120px; }
+  html.uk-ui .fighter-page .fp-equipment-actions-column { width: 236px; }
+  html.uk-ui .fighter-page .fp-equipment-table th {
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table th:nth-child(2),
+  html.uk-ui .fighter-page .fp-equipment-cost { text-align: right; }
+  html.uk-ui .fighter-page .fp-equipment-table th:last-child { text-align: right; }
+
+  html.uk-ui .fighter-page .fp-equipment-name-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 8px;
+    min-width: 0;
+  }
+  html.uk-ui .fighter-page .fp-equipment-name-content > .fp-text-link {
+    min-width: 0;
+    padding: 2px 0;
+    color: var(--text);
+    font-size: var(--uk-body, 16px);
+    font-weight: 600;
+    line-height: 1.65;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+  html.uk-ui .fighter-page .fp-equipment-name-content > .mmrr-info {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    margin: 0;
+    border-radius: 8px;
+  }
+  html.uk-ui .fighter-page .fp-equipment-price {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel2);
+    color: var(--text);
+    font-size: var(--uk-body, 16px);
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  html.uk-ui .fighter-page .fp-equipment-price small {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  html.uk-ui .fighter-page .fp-equipment-row-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-width: 0;
+  }
+  html.uk-ui .fighter-page .fp-equipment-row-actions > *,
+  html.uk-ui .fighter-page .fp-equipment-row-actions .uk-help-action-pair > * {
+    flex: none;
+  }
+  html.uk-ui .fighter-page .fp-equipment-row-actions .uk-help-action-pair {
+    flex-wrap: nowrap;
+    gap: 2px;
+    max-width: none;
+  }
+  html.uk-ui .fighter-page .fp-equipment-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 9px;
+    font-size: var(--uk-small, 14px);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  html.uk-ui .fighter-page .fp-equipment-action svg {
+    display: block;
+    flex: none;
+    width: 17px;
+    height: 17px;
+  }
+  html.uk-ui .fighter-page .fp-equipment-row-actions .uk-help-action {
+    width: 32px;
+    height: 44px;
+    min-height: 44px;
+    margin: 0;
+  }
+  html.uk-ui .fighter-page .fp-skills-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+  html.uk-ui .fighter-page .fp-skills-table th { white-space: nowrap; }
+  html.uk-ui .fighter-page .fp-skills-table th:last-child { width: 82px; }
+  html.uk-ui .fighter-page .fp-skills-table :is(th, td):last-child { text-align: right; }
+  html.uk-ui .fighter-page .fp-skills-table td {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html.uk-ui .fighter-page .fp-equipment-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table {
+    display: block;
+    border: 0;
+    background: transparent;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table colgroup { display: none; }
+  /* Keep column labels for assistive technology without using mobile space. */
+  html.uk-ui .fighter-page .fp-equipment-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table tbody {
+    display: grid;
+    gap: 10px;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table tbody > tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'name name' 'cost actions';
+    align-items: center;
+    gap: 12px 10px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--panel);
+  }
+  html.uk-ui .fighter-page .fp-equipment-table tbody > tr[hidden] { display: none; }
+  html.uk-ui .fighter-page .fp-equipment-table tbody > tr > td {
+    display: block;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  html.uk-ui .fighter-page .fp-equipment-table tbody > tr:hover > td { background: transparent; }
+  html.uk-ui .fighter-page .fp-equipment-name { grid-area: name; }
+  html.uk-ui .fighter-page .fp-equipment-cost { grid-area: cost; text-align: left; }
+  html.uk-ui .fighter-page .fp-equipment-operations { grid-area: actions; }
+  html.uk-ui .fighter-page .fp-equipment-empty-row > td { grid-column: 1 / -1; }
+  html.uk-ui .fighter-page .fp-skills-table :is(th, td) { padding: 12px; }
+  html.uk-ui .fighter-page .fp-skills-table th:last-child { width: 74px; }
+  html.uk-ui .fighter-page .fp-skills-table td[colspan] { text-align: left; }
+}
+
+@media screen and (max-width: 380px) {
+  html.uk-ui .fighter-page .fp-equipment-action-label { display: none; }
+  html.uk-ui .fighter-page .fp-equipment-action { width: 44px; padding: 10px; }
+  html.uk-ui .fighter-page .fp-equipment-table tbody > tr { padding: 12px; }
+}
