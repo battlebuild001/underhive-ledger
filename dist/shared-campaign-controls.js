@@ -16,7 +16,7 @@
   play:new Set(['dice','open-catalog']),
   parity:new Set(['open-fighter','back-gang','select-fighter','home','edition','favorite-gang','favorite-campaign','dice','goto-gang','battle-filter','session-filter','open-gang-battle','view-mode','view-list','view-page','campaign-summary','campaign-json','capture','share']),
   ext:new Set(['vehicle-detail','print-gang']),
-  cp:new Set(['campaign-logs','campaign-data','campaign-download','territory-description','session-filter','session-back','fighter-actions','pack-cancel'])
+  cp:new Set(['campaign-type-info','campaign-logs','campaign-data','campaign-download','territory-description','session-filter','session-back','fighter-actions','pack-cancel'])
  };
  const texts={
   ko:{gang:'공유 갱 · 읽기 전용',campaign:'참여 캠페인 · 읽기 전용',gangBody:'공유된 최신 명단을 확인하는 화면입니다. 갱의 변경은 소유자의 원본 갱에서 진행합니다.',campaignBody:'캠페인 설정과 전투 기록은 운영자가 관리합니다. 내 갱은 원본 갱 화면에서 수정할 수 있습니다.',edit:'내 갱 수정',disabled:'공유 기록은 이 화면에서 수정할 수 없습니다.'},
