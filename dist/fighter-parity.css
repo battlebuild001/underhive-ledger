@@ -12,3 +12,16 @@
 
 /* Stash metadata stays compact; each weapon profile scrolls within its own row. */
 .stash-page>.table-wrap{min-width:0;max-width:100%}.stash-page>.table-wrap>table{width:100%;table-layout:fixed}.stash-page>.table-wrap>table>thead th:first-child{width:40%}.stash-page>.table-wrap>table>thead th:nth-child(2){width:20%}.stash-page>.table-wrap>table>thead th:last-child{width:40%}.stash-page .fp-stash-item>td:first-child{white-space:normal;overflow-wrap:anywhere}.stash-page .fp-stash-item>td:nth-child(2){padding-left:4px;padding-right:4px;white-space:normal;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.fp-stash-actions{display:flex;flex-wrap:wrap;gap:6px}.fp-stash-actions>.btn{flex:none}.stash-page .fp-stash-profiles>td{white-space:normal;min-width:0;padding-top:0}.stash-page .fp-stash-profiles .fp-buy-profiles{margin-top:0}.stash-page .fp-stash-profiles .fp-buy-profile{background:transparent}.stash-page .fp-stash-profiles .fp-buy-traits>span:last-child{min-width:0}.stash-page .fp-stash-profiles .fp-buy-profile-name{white-space:normal}
+
+/* Keep each stat readable and let the containing strip scroll on narrow screens. */
+.fp-stat-scroll{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;border-radius:4px;margin-bottom:24px}
+html.uk-ui:is(.light,:not(.light)) .fp-stat-scroll>.fp-stat-table{width:100%;overflow:visible;margin-bottom:0;box-sizing:border-box}
+html.uk-ui:is(.light,:not(.light)) .fp-stat-scroll .fp-stat-table>span{min-width:42px;padding:7px 5px;box-sizing:border-box;font-variant-numeric:tabular-nums}
+.fp-stat-scroll:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.fp-selected-skill-preview{padding:15px;border:1px solid var(--line,#444);border-radius:6px;background:var(--panel2,#242424)}
+.fp-selected-skill-preview[hidden]{display:none!important}.fp-selected-skill-preview h3{font-size:16px;margin:0 0 10px}
+html.uk-ui .fp-selected-skill-preview .mmrr-description{font-size:15px;font-weight:400;line-height:1.85;margin:0 0 14px}
+html.uk-ui[data-ui-language=en] .fp-selected-skill-preview .mmrr-description{font-size:14px}
+@media print{.fp-stat-scroll{overflow:visible}.fp-stat-scroll>.fp-stat-table{min-width:0!important}}
+
+.fp-stat-hint{display:none}@media(max-width:600px){html.uk-ui .fp-stat-hint{display:block;font-size:11px;font-weight:400;color:var(--muted,#aaa);margin:-16px 0 20px;line-height:1.5;text-align:right}}

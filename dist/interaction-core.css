@@ -34,3 +34,7 @@ html.light [data-mm-explain-options=true] .mm-combo-explain-button{background:#e
 html.light [data-mm-explain-options=true] .mm-combo-explain-button:hover,
 html.light [data-mm-explain-options=true] .mm-combo-explain-button[aria-expanded=true]{background:#ddd;border-color:#777;color:#111}
 html.light [data-mm-explain-options=true] .mm-combo-option-reason{background:#fafafa;border-color:#bbb;color:#333}
+
+[data-mm-explain-options=true] .mm-combo-option-preview{display:block;margin:8px 0;color:var(--text,#eee);font-size:14px;font-weight:400;font-style:normal;line-height:1.75;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere}
+html.uk-ui[data-ui-language=en] [data-mm-explain-options=true] .mm-combo-option-preview{font-size:13px}
+[data-mm-explain-options=true] .mm-combo-option:disabled .mm-combo-option-preview{color:var(--muted,#aaa)}
