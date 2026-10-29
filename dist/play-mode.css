@@ -40,3 +40,21 @@ html.uk-ui .pm-page .pm-profile-table.is-n23{min-width:520px}
 @media print{.pm-profile-scroll{overflow:visible}html.uk-ui .pm-page .pm-profile-table.is-n23{min-width:0}}
 html.uk-ui .pm-page table.pm-profile-table.is-n26{min-width:0;max-width:100%}
 html.uk-ui .pm-page .pm-profile-table tbody th{background:transparent;color:var(--text,#eee)}
+
+/* Mobile keeps one full unit card beneath a sticky, horizontally scrollable tab strip. */
+.pm-unit-nav[hidden]{display:none!important}.pm-unit-nav{display:none}
+@media screen and (max-width:700px){
+ .pm-page .pm-unit-nav{display:block;position:sticky;top:97px;z-index:25;background:var(--pm-background);border:1px solid var(--pm-border);border-radius:6px;padding:6px;margin:0 0 10px;box-shadow:0 4px 10px #0004}
+ .pm-unit-nav-row{display:flex;align-items:stretch;gap:5px;min-width:0}
+ .pm-unit-tabs{display:flex;align-items:stretch;gap:5px;overflow-x:auto;min-width:0;flex:1;scrollbar-width:thin;overscroll-behavior-x:contain}
+ .pm-unit-tabs>[role=tab]{flex:none;min-width:60px;max-width:180px;min-height:44px;padding:9px 12px;border:1px solid transparent;border-radius:4px;background:transparent;color:var(--pm-muted);font:inherit;font-size:13px;font-weight:600;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere}
+ .pm-unit-tabs>[role=tab][aria-selected=true]{border-color:var(--pm-border);background:var(--panel2,#303030);color:var(--text,#eee);box-shadow:inset 0 -2px 0 currentColor}
+ .pm-unit-tabs>[role=tab][hidden]{display:none!important}
+ .pm-unit-arrow{flex:none;align-self:center;display:grid;place-items:center;width:36px;min-height:44px;border:0;border-radius:4px;background:transparent;color:var(--text,#eee);font-size:28px;line-height:1}
+ .pm-unit-arrow:disabled{opacity:.25;cursor:default}
+ .pm-unit-position{display:flex;justify-content:space-between;gap:10px;padding:3px 6px 0;color:var(--pm-muted);font-size:10px;line-height:1.5}
+ .pm-unit-position output{font-variant-numeric:tabular-nums;white-space:nowrap}
+ .pm-page .pm-unit[data-play-mobile-active=false]{display:none!important}
+ .pm-page .pm-units{display:block}
+}
+@media print{.pm-unit-nav{display:none!important}}
