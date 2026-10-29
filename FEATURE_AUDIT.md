@@ -98,3 +98,11 @@ Added Roster Text buttons to gang management and play mode. The preview offers i
 Copy is explicitly user-triggered with success feedback only after clipboard or legacy copy succeeds; blocked copy selects the readonly preview and gives a manual fallback. Download produces a UTF-8 BOM plain-text .txt file with a bounded safe filename and revokes its object URL. No external messaging or sharing-permission change occurs. Export uses a whitelist, excluding gang/fighter notes, backstories, private notes, account/owner details, IDs and log records. Rule descriptions are opt-in and retain authored overrides/blank definitions.
 
 Verification: 25 selected suites passed; 58 retained legacy fixtures deferred. The final additional-grant/subtype-description refinement passed the focused suite again. New tests cover KO/EN, exact zeros/unknown prices, chosen equipment scope, private-field exclusion, source/data immutability, readonly preview, clipboard success/failure and download type/filename. Chromium at 375px/1280px verified both entry points, options, clipboard payload, actual downloaded UTF-8 text matching the preview, bounds and unchanged data. Build/Worker validation passed. Tests used isolated mocked accounts; physical mobile OS clipboard restrictions were not exercised, and the UI exposes a manual selection fallback.
+
+## 2026-10-29 Remove unconditional footer notice
+
+The gang-page wrapper appended `MMRosterValidation.summary()` on every render. For verified N26 data that function returned the generic “Check roster conditions” notice regardless of the roster; its `inspect` implementation currently reports no evaluated warnings. The footer therefore was an informational reminder, not a detected roster error.
+
+Removed that unconditional append. Composition references remain accessible from Faction Rules and the beginner guide; no successful-validation badge or new automatic legality claim was added. Data, validation APIs, recruitment guards and unverified-source policy remain unchanged.
+
+Verification: the existing six gang-guide checks passed. A runtime DOM read confirmed zero footer notices, both rule/guide buttons present, the composition reference link available, unchanged saved data and no runtime errors. Build/Worker validation passed. No full-suite rerun or physical device test was needed for this single rendering removal.
