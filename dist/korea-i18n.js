@@ -8,12 +8,15 @@
  const enToKo={...ui.enToKo,...terms.enToKo},koToEn={...ui.koToEn},names={...catalog.names},descriptionsEn={...catalog.descriptionsEn},descriptionsKo={...catalog.descriptionsKo};
  for(const rows of Object.values(rules()))if(Array.isArray(rows))for(const row of rows){
   if(!row||typeof row!=='object')continue;
-  if(/[가-힣]/.test(row.name_ko||''))for(const name of [row.name,row.equipment_name,row.fighter_type,row.profile_name])if(name&&!names[name])names[name]=row.name_ko;
+  const sameName=(a,b)=>a&&b&&String(a).trim().toLocaleLowerCase()===String(b).trim().toLocaleLowerCase();
+  const aliases=[[row.name,row.name_ko],[row.equipment_name,row.equipment_name_ko||(sameName(row.equipment_name,row.name)?row.name_ko:null)],[row.fighter_type,row.fighter_type_ko||(sameName(row.fighter_type,row.name)?row.name_ko:null)],[row.profile_name,row.profile_name_ko||(sameName(row.profile_name,row.name)?row.name_ko:null)]];
+  for(const [name,label] of aliases)if(name&&/[가-힣]/.test(label||'')&&!names[name])names[name]=label;
   if(row.description_en&&/[가-힣]/.test(row.description||'')){descriptionsEn[row.description]=row.description_en;descriptionsKo[row.description_en]=row.description;}
  }
  Object.assign(names,terms.names);for(const [en,ko] of Object.entries(terms.enToKo||{}))if(!koToEn[ko])koToEn[ko]=en;
  const normalize=value=>value.replace(/\s+/g,' ').trim().toLocaleLowerCase();
- const normalized=new Map(Object.entries(names).map(([key,value])=>[normalize(key),value]));
+ // Catalogue names take precedence over later aliases differing only in case.
+ const normalized=new Map();for(const [key,value] of Object.entries(names)){const token=normalize(key),previous=normalized.get(token);if(!previous||!/[가-힣]/.test(previous)&&/[가-힣]/.test(value))normalized.set(token,value);}
  const technical=/^(?:N23|N26|D3|D6|D66|2D6|WS|BS|AP|XP|TP|HP|Hnd|Sv|SR|LR|VP|Ld|Cl|Wil|Int|N\/A|ID|JSON|XML|URL|PNG|JPEG|JPG|WEBP|AVIF|SVG|HEIC|ChatGPT|[A-Z])(?:[+−-]?\d*)?$/i;
  const reverseNames=new Map();for(const [key,value] of Object.entries(names)){if(!reverseNames.has(value))reverseNames.set(value,key);else if(reverseNames.get(value)!==key)reverseNames.set(value,null);}
  const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
@@ -34,6 +37,7 @@
    else if(target==='en'&&descriptionsEn[body])result=descriptionsEn[body];
    else if(target==='ko'&&enToKo[body])result=enToKo[body];
    else if(target==='en'&&koToEn[body])result=koToEn[body];
+   else if(target==='ko'&&names[body])result=inlineKorean(names[body]);
    else if(target==='ko'&&normalized.has(normalize(body)))result=inlineKorean(normalized.get(normalize(body)));
    else if(body.includes('\n'))result=body.split('\n').map(line=>translate(line,target)).join('\n');
    else {
