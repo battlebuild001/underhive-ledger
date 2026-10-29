@@ -67,6 +67,18 @@ if(catalog.official_source_status==='awaiting_original'){
   if(coverage.advancements){assert(core('xp-bands')?.rule_data?.thresholds?.length);assert(core('advancement-table')?.rule_data?.rows?.length);assert(core('advancement-caps'));}
   if(coverage.injuries)assert(catalog.injuries?.length,'Injury automation needs reviewed injury rows');
   if(coverage.recruitment)assert(catalog.fighterTypes.some(row=>row.recruitment_ready),'Recruitment needs a complete reviewed model');
+  // Independent printed oracles: Core p43 Vehicles, p44 Leaders/Champions/Brutes.
+  // These grants belong to every applicable model, including a manual-only profile.
+  for(const fighter of catalog.fighterTypes){
+    const roles=fighter.fighter_subtypes||[],required=new Set();
+    if(roles.includes('Leader')||roles.includes('Champion'))required.add('Inspiring');
+    if(roles.includes('Brute')||fighter.is_vehicle===true)required.add('Juggernaut');
+    for(const name of required){
+      const skill=catalog.skills.find(row=>row.name===name&&row.edition_slug==='n26');
+      assert(skill,`Reviewed starting skill exists: ${name}`);
+      assert(catalog.fighterDefaults.some(row=>row.fighter_type_id===fighter.id&&row.skill_id===skill.id),`Missing fixed starting ${name}: ${fighter.name}`);
+    }
+  }
 }
 
 async function walk(directory){

@@ -3,6 +3,7 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
+import {deriveStartingSkillData} from './starting-skills-data.mjs';
 
 const [manifestPath, ...shardPaths] = process.argv.slice(2);
 if (!manifestPath || !shardPaths.length) throw Error('Usage: import-official-catalog.mjs PRIVATE_MANIFEST REVIEWED_SHARD...');
@@ -364,7 +365,9 @@ const output = {
   official_source_policy:'provided_official_originals_only',official_source_status:'verified_partial',verified_source_count:sources.size,
   edition_coverage:{n26:coverage,n23:{}},coverage_counts:Object.fromEntries(keys.map(key => [key,catalog[key].length])),...catalog
 };
-await writeFile(new URL('dist/rules-data.json',root),JSON.stringify(output)+'\n');
-await writeFile(new URL('dist/rules-data.js',root),'/* Facts reviewed against supplied originals; unsupported features remain manual. */\nglobalThis.RULES_DATA = '+JSON.stringify(output)+';\n');
-await writeFile(path.join(path.dirname(path.resolve(manifestPath)),'public-row-evidence.json'),JSON.stringify({sources:[...sources.values()],rows:[...audit.values()],rejected,unresolved,identity_remap:Object.fromEntries(remap)},null,2));
-console.log(JSON.stringify({rows:audit.size,rejected:rejected.length,unresolved:unresolved.length,counts:output.coverage_counts,coverage}));
+const starterResult=deriveStartingSkillData(output,{sources:[...sources.values()],rows:[...audit.values()],rejected,unresolved,identity_remap:Object.fromEntries(remap)},manifest);
+if(starterResult.summary.unresolved.length)throw Error('Starting grant identities require manual review: '+JSON.stringify(starterResult.summary.unresolved));
+await writeFile(new URL('dist/rules-data.json',root),JSON.stringify(starterResult.catalog)+'\n');
+await writeFile(new URL('dist/rules-data.js',root),'/* Facts reviewed against supplied originals; unsupported features remain manual. */\nglobalThis.RULES_DATA = '+JSON.stringify(starterResult.catalog)+';\n');
+await writeFile(path.join(path.dirname(path.resolve(manifestPath)),'public-row-evidence.json'),JSON.stringify(starterResult.audit,null,2));
+console.log(JSON.stringify({rows:starterResult.audit.rows.length,rejected:rejected.length,unresolved:unresolved.length,counts:starterResult.catalog.coverage_counts,coverage,startingSkills:starterResult.summary}));
