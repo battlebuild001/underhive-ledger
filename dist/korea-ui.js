@@ -35,7 +35,7 @@
   function enhanceWelcome(){
     const welcome=document.querySelector('.home-welcome');if(!welcome)return;
     welcome.classList.add('uk-command-hero');
-    const title=welcome.querySelector('h1');if(title){title.textContent='Ready for the next battle.';title.dataset.i18nKo='다음 전투를 준비하세요';}
+    const title=welcome.querySelector('h1');if(title){title.textContent='Underhive Korea';title.dataset.i18nKo='언더하이브 코리아';}
     let intro=welcome.querySelector('p');if(!intro){intro=document.createElement('p');title?.insertAdjacentElement('afterend',intro);}
     intro.textContent='Your gangs, fighters and campaigns. All in one workspace.';intro.dataset.i18nKo='갱 명단부터 캠페인 기록까지, 한곳에서 관리하세요.';
     const eyebrow=document.createElement('div');eyebrow.className='uk-hero-eyebrow';eyebrow.append(text('COMMAND DECK','작전 현황'));welcome.prepend(eyebrow);

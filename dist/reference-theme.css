@@ -1,0 +1,435 @@
+/* Screen styling measured from the original public UI and supplied screenshots. */
+@font-face {
+  font-family: 'Reference Inter';
+  src: url('/reference-ui/inter-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reference Inter Fallback';
+  src: local('Arial');
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+
+@media screen {
+  html.uk-ui,
+  html.uk-ui[data-ui-language],
+  html.uk-ui:lang(en),
+  html.uk-ui:lang(ko) {
+    --bg: #0a0a0a;
+    --panel: #0a0a0a;
+    --panel2: #262626;
+    --line: #1e1e1e;
+    --text: #fafafa;
+    --muted: #a3a3a3;
+    --accent: #fafafa;
+    --red: #ef4444;
+    --green: #00c95a;
+    --uk-body: 16px;
+    --uk-small: 14px;
+    --uk-button: 14px;
+    --uk-title: 24px;
+    --uk-leading: 1.5;
+    --uk-shadow: none;
+    --uk-accent: #fafafa;
+    --uk-accent-soft: #262626;
+    --uk-input: #262626;
+    --uk-input-line: #1e1e1e;
+    --uk-control-bg: #262626;
+    --uk-control-hover: #303030;
+    --uk-accent-ink: #fafafa;
+    --input: #262626;
+    --ring: #d4d4d4;
+    color-scheme: dark;
+    scroll-padding-top: 97px;
+    scrollbar-color: #525252 var(--bg);
+  }
+  html.uk-ui.light,
+  html.uk-ui.light[data-ui-language] {
+    --bg: #fff;
+    --panel: #fff;
+    --panel2: #f5f5f5;
+    --line: #e5e5e5;
+    --text: #0a0a0a;
+    --muted: #4b5363;
+    --accent: #171717;
+    --uk-accent: #171717;
+    --uk-accent-soft: #f5f5f5;
+    --uk-input: #f5f5f5;
+    --uk-input-line: #e5e5e5;
+    --uk-control-bg: #f5f5f5;
+    --uk-control-hover: #ededed;
+    --uk-accent-ink: #fafafa;
+    --input: #f5f5f5;
+    --ring: #a3a3a3;
+    color-scheme: light;
+  }
+  html.uk-ui:is(.light,:not(.light)) body {
+    margin: 0;
+    background: #111827;
+    color: var(--text);
+    font-family: 'Reference Inter', 'Reference Inter Fallback', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    isolation: isolate;
+  }
+  html.uk-ui:is(.light,:not(.light)) ::selection { background: #3297fd; color: #fff; }
+  html.uk-ui:is(.light,:not(.light)) body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: #111827 url('/reference-ui/body-background.avif') center / cover no-repeat;
+    pointer-events: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) .main,
+  html.uk-ui.light .main { background: transparent; padding-bottom: 0; }
+  html.uk-ui:is(.light,:not(.light)) .sidebar:not(.open) { box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) :is(h1,h2,h3,h4,button,input,select,textarea,.brand,.stat .value) {
+    font-family: inherit;
+    letter-spacing: normal;
+  }
+  html.uk-ui:is(.light,:not(.light)) :is(button,input,select,textarea) { font-size: 14px; line-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) :is(.uk-workspace-nav,.uk-overview,.uk-hero-eyebrow) { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .home-tabs { display: flex; }
+  html.uk-ui:is(.light,:not(.light)) .uk-command-hero::before { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .uk-command-hero p { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .uk-command-hero { padding: 16px; margin-bottom: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .uk-command-hero h1 { font-size: 24px; line-height: 32px; margin: 0 0 12px; }
+
+  html.uk-ui:is(.light,:not(.light)) .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    height: 57px;
+    min-height: 57px;
+    padding: 0 8px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
+  }
+  html.uk-ui:is(.light,:not(.light)) .top-wordmark {
+    gap: 8px;
+    margin-left: 4px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+  html.uk-ui:is(.light,:not(.light)) .top-emblem,
+  html.uk-ui:is(.light,:not(.light)) .top-emblem img { width: 36px; height: 36px; flex: 0 0 36px; padding: 0; border: 0; border-radius: 0; background: none; }
+  html.uk-ui:is(.light,:not(.light)) .top-actions { gap: 8px; }
+  html.uk-ui:is(.light,:not(.light)) .topbar :is(.icon-btn,.btn.ghost) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 10px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    box-shadow: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) .topbar svg { width: 20px; height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .crumb {
+    position: sticky;
+    top: 57px;
+    z-index: 30;
+    width: 100%;
+    max-width: none;
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    gap: 8px;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 20px;
+  }
+  html.uk-ui:is(.light,:not(.light)) .crumb strong { font-weight: 400; color: var(--text); }
+  html.uk-ui:is(.light,:not(.light)) .uk-language-switch { height: 30px; padding: 2px; border-color: var(--line); border-radius: 6px; background: var(--panel2); }
+  html.uk-ui:is(.light,:not(.light)) .uk-language-switch button { min-height: 24px; min-width: 28px; padding: 2px 6px; font-size: 12px; background: transparent; color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .uk-language-switch button[aria-pressed=true] { background: var(--panel); color: var(--text); box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) .content { width: 100%; max-width: 1024px; min-width: 0; padding: 16px 10px; margin: auto; }
+  html.uk-ui:is(.light,:not(.light)) :is(.card,.heading,.home-list-card,.stat,.notice,.empty,.entity-card,.asset-section,.home-section,.fighter-page,.stash-page),
+  html.uk-ui.light :is(.card,.heading,.home-list-card,.stat,.notice,.empty,.entity-card,.asset-section,.home-section,.fighter-page,.stash-page) {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--text);
+    box-shadow: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) :is(.fighter-page,.stash-page,.entity-card,.asset-section,.home-section,.mm-profile) { padding: 16px; }
+  html.uk-ui:is(.light,:not(.light)) #app :is(.card,.heading,.entity-card,.asset-section,.fighter-page,.stash-page) { border-radius: 8px; background: var(--panel); box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) #app :is(.fighter-page,.stash-page,.entity-card,.asset-section,.home-section,.mm-profile) { padding: 16px; }
+  html.uk-ui:is(.light,:not(.light)) :is(.home-list,.stack,.grid) { gap: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .home-list-card { min-height: 96px; }
+  html.uk-ui:is(.light,:not(.light)) .home-card-main { padding: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .home-card-main h3 { font-size: 18px; line-height: 28px; margin-bottom: 4px; }
+  html.uk-ui:is(.light,:not(.light)) :is(.section-heading h2,.fighter-page h2,.stash-page h2,.section-title) { font-size: 20px; font-weight: 700; line-height: 28px; margin: 0; }
+  html.uk-ui:is(.light,:not(.light)) :is(.entity-title h1,.heading h1,.mm-profile h1) { font-size: 24px; font-weight: 700; line-height: 32px; }
+  html.uk-ui:is(.light,:not(.light)) .section-heading { gap: 8px; margin-bottom: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page > section { margin: 24px 0; padding-top: 0; border-top: 0; }
+  html.uk-ui:is(.light,:not(.light)) :is(.entity-meta,.entity-facts,.match-stats,.entity-tools,.meta,.card p) { font-size: 14px; line-height: 20px; color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .entity-card .entity-meta strong { padding: 0; background: transparent; color: var(--text); font-weight: 600; }
+  html.uk-ui:is(.light,:not(.light)) :is(.chip,.fp-tag,.mini-row,.match-stats,.edition-switch,.segment,.tabs,.uk-campaign-mark) { background: var(--panel2); border-color: var(--line); color: var(--text); border-radius: 6px; }
+  html.uk-ui:is(.light,:not(.light)) .chip { padding: 2px 8px; font-size: 12px; line-height: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .tabs { gap: 0; padding: 4px; min-height: 40px; }
+  html.uk-ui:is(.light,:not(.light)) .tabs button { min-height: 36px; min-width: 0; padding: 8px 12px; font-size: 14px; line-height: 20px; border-radius: 4px; color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .tabs button.active { background: var(--panel); color: var(--text); border: 0; box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) .tabs.icon-tabs,
+  html.uk-ui.light .tabs.icon-tabs { min-height: 48px; padding: 4px; gap: 4px; border-color: var(--line); border-radius: 8px; background: var(--panel); }
+  html.uk-ui:is(.light,:not(.light)) .tabs.icon-tabs button,
+  html.uk-ui.light .tabs.icon-tabs button { min-height: 36px; border-radius: 4px; font-size: 14px; padding: 8px 12px; }
+  html.uk-ui:is(.light,:not(.light)) .tabs.icon-tabs button.active,
+  html.uk-ui.light .tabs.icon-tabs button.active { background: var(--panel2); color: var(--text); box-shadow: none; border: 0; }
+  html.uk-ui:is(.light,:not(.light)) .edition-switch button.selected,
+  html.uk-ui:is(.light,:not(.light)) .segment button.selected { background: var(--panel); color: var(--text); box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) .uk-home-portrait,
+  html.uk-ui:is(.light,:not(.light)) .cp-campaign-image { background: var(--panel2); border-color: var(--line); color: var(--text); }
+  html.uk-ui:is(.light,:not(.light)) .tab-icon svg { width: 20px; height: 20px; }
+
+  html.uk-ui:is(.light,:not(.light)) .btn,
+  html.uk-ui:is(.light,:not(.light)) .btn.small,
+  html.uk-ui.light .btn {
+    min-height: 40px;
+    height: auto;
+    width: auto;
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--panel2);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: normal;
+    box-shadow: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) .btn.small { min-height: 36px; padding: 7px 12px; }
+  html.uk-ui:is(.light,:not(.light)) .btn.primary { border-color: var(--line); background: #171717; color: #fafafa; }
+  html.uk-ui:is(.light,:not(.light)) .btn.ghost { background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .btn:hover { background: var(--panel2); border-color: #404040; color: var(--text); box-shadow: none; }
+  html.uk-ui:is(.light,:not(.light)) .btn:disabled { opacity: .5; cursor: default; }
+  html.uk-ui:is(.light,:not(.light)) .btn.danger { background: #7f1d1d; border-color: #7f1d1d; color: #fafafa; }
+  html.uk-ui:is(.light,:not(.light)) .mm-reference-icon-button {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    width: 32px;
+    min-height: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1;
+  }
+  html.uk-ui:is(.light,:not(.light)) .mm-reference-icon-button svg { width: 18px; height: 18px; flex: none; }
+  html.uk-ui:is(.light,:not(.light)) .btn.mm-reference-skill-delete { width: 24px; min-width: 24px; height: 24px; min-height: 24px; padding: 3px; border: 1px solid #ef4444; background: transparent; color: #ef4444; }
+  html.uk-ui:is(.light,:not(.light)) .btn.mm-reference-skill-delete svg { width: 16px; height: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .btn.mm-reference-skill-delete:disabled { opacity: .35; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fp-counter .btn,.fp-counter input) { min-height: 28px; height: 28px; }
+  html.uk-ui:is(.light,:not(.light)) .fp-counter .btn { width: 28px; min-width: 28px; padding: 0; }
+  html.uk-ui:is(.light,:not(.light)) .uk-help-trigger { color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) :is(.mmrr-info,.uk-help-trigger):hover { color: var(--text); background: var(--panel2); }
+
+  html.uk-ui:is(.light,:not(.light)) :is(.form input,.form select,.form textarea,.field,.fighter-picker select,.trade-controls input,.trade-controls select,.mm-combo-input.mm-combo-trigger):not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]) {
+    min-height: 40px;
+    height: auto;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--input);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    box-shadow: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) :is(input,textarea)::placeholder { color: var(--muted); opacity: 1; }
+  html.uk-ui:is(.light,:not(.light)) :is(.form label,.modal-body .form label) { color: var(--text); font-size: 14px; font-weight: 500; line-height: 20px; gap: 4px; }
+  html.uk-ui:is(.light,:not(.light)) :is(input[type=checkbox],input[type=radio]) { accent-color: var(--text); width: 16px; height: 16px; }
+  html.uk-ui:is(.light,:not(.light)) :is(button,input,select,textarea):focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+  html.uk-ui:is(.light,:not(.light)) .modal-bg { z-index: 100; padding: 10px; background: #0009; backdrop-filter: none; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal):not(.rp-equipment-dialog),
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-skills-modal {
+    width: min(560px, calc(100vw - 20px));
+    max-width: calc(100vw - 20px);
+    max-height: calc(var(--mm-viewport-height, 100dvh) - 20px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--text);
+    box-shadow: 0 20px 75px #0006;
+  }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-skills-modal { width: min(560px, calc(100vw - 20px)) !important; }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-skills-modal > .modal-head { align-items: center; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-head {
+    min-height: 0;
+    padding: 8px 10px !important;
+    gap: 10px;
+    background: var(--panel);
+    border-color: var(--line);
+  }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-head h2 { font-size: 20px !important; font-weight: 700; line-height: 24px; letter-spacing: normal; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-head > .icon-btn { width: 24px; height: 24px; min-height: 24px; padding: 2px; color: var(--muted); border: 0; background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal):not(.rp-equipment-dialog) > .modal-body { padding: 16px 10px !important; background: var(--panel); }
+  html.uk-ui:is(.light,:not(.light)) .modal .form { gap: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) .modal-body .form :is(input:not([type]),input[type=text],input[type=email],input[type=password],input[type=search],input[type=number],select,textarea):not(.fp-counter input) {
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-color: var(--line);
+    background: var(--input);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    box-shadow: none;
+  }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form { gap: 20px !important; }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skills-subtitle { margin: 0; font-size: 14px; font-weight: 400; line-height: 20px; color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form .mm-combo-trigger { min-height: 40px; font-size: 14px; }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form > .mm-combo-label { position: relative; gap: 0; }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form .uk-help-label { min-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form .uk-help-label > .uk-help-trigger { flex-basis: 16px; min-width: 16px; width: 16px; min-height: 16px; height: 16px; padding: 0; }
+  html.uk-ui:is(.light,:not(.light)) .modal .fp-skill-form .mmrr-selected-info { position: absolute; top: 0; right: 0; margin: 0; min-height: 20px; height: 20px; padding: 0 3px; font-size: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .modal .modal-foot { padding: 8px 10px !important; gap: 8px; background: var(--panel); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .modal .modal-foot .btn { flex: none; min-width: 0; min-height: 40px; padding: 8px 16px; }
+  html.uk-ui:is(.light,:not(.light)) .modal .modal-foot .btn:not(.primary) { background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-foot .btn {
+    min-width: 0;
+    min-height: 40px;
+    height: 40px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-foot .btn:not(.primary):not(.danger),
+  html.uk-ui.light .modal:not(.fp-equipment-modal) > .modal-foot .btn:not(.primary):not(.danger) { background: transparent; border-color: var(--line); color: var(--text); }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) > .modal-foot .btn.primary,
+  html.uk-ui.light .modal:not(.fp-equipment-modal) > .modal-foot .btn.primary { background: #171717; border-color: #1e1e1e; color: #fafafa; }
+  html.uk-ui:is(.light,:not(.light)) :is(.mm-combo-list,.mm-settings-menu,.fin-popover,.mmrr-dialog),
+  html.uk-ui.light :is(.mm-combo-list,.mm-settings-menu,.fin-popover,.mmrr-dialog) { background: var(--panel); border-color: var(--line); border-radius: 6px; color: var(--text); box-shadow: 0 8px 28px #0006; }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-list { max-height: 340px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-search { padding: 4px; background: var(--panel); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-search input { min-height: 32px; padding: 6px 8px; background: var(--panel2); border: 0; font-size: 14px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-options { padding: 4px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-option,
+  html.uk-ui.light .mm-combo-option { min-height: 36px; padding: 8px; border-radius: 4px; background: transparent; color: var(--text); font-family: inherit; font-size: 14px; font-weight: 400; line-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-option:hover,
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-option:focus-visible,
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-option[aria-selected=true] { background: var(--panel2); }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-group { padding: 8px; margin: 0; color: var(--text); font-size: 12px; font-weight: 700; line-height: 16px; border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-placeholder,
+  html.uk-ui:is(.light,:not(.light)) .mm-combo-chevron { color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .mm-settings-menu { width: 224px; max-width: calc(100vw - 20px); padding: 4px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-settings-menu > :is(button,a) { min-height: 36px; padding: 8px; gap: 8px; border-radius: 4px; font-size: 14px; line-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-settings-menu .mm-menu-user { padding: 8px; font-size: 18px; line-height: 28px; }
+  html.uk-ui:is(.light,:not(.light)) .mm-settings-menu hr { border-color: var(--line); margin: 4px 0; }
+
+  html.uk-ui:is(.light,:not(.light)) .table-wrap { border: 0; border-radius: 0; background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fighter-page,.stash-page,.table-wrap) table:where(:not(.rp-stats):not(.rp-weapons)) { font-size: 14px; line-height: 20px; border-collapse: collapse; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fighter-page,.stash-page,.table-wrap) table:where(:not(.rp-stats):not(.rp-weapons)) :is(th,td) { padding: 8px; font-size: 14px; line-height: 20px; border-color: var(--line); vertical-align: middle; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fighter-page,.stash-page,.table-wrap) table:where(:not(.rp-stats):not(.rp-weapons)) th { background: var(--panel2); color: var(--text); font-weight: 600; white-space: nowrap; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table { display: table; width: 100%; min-width: 0; table-layout: fixed; border: 0; background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table colgroup { display: table-column-group; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-cost-column { width: 44px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-actions-column { width: 96px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table thead { display: table-header-group; position: static; width: auto; height: auto; padding: 0; overflow: visible; clip: auto; clip-path: none; white-space: normal; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table tbody { display: table-row-group; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table tbody > tr { display: table-row; padding: 0; border: 0; border-radius: 0; background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table tbody > tr[hidden] { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-table tbody > tr > td { display: table-cell; padding: 8px; border: 0; background: transparent; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-name-content { gap: 2px; align-items: center; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-name-content > .fp-text-link { padding: 0; font-size: 14px; font-weight: 400; line-height: 20px; word-break: normal; overflow-wrap: break-word; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-price { display: inline; padding: 0; border: 0; border-radius: 0; background: transparent; font-size: 14px; font-weight: 400; line-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-price small { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-row-actions { flex-wrap: nowrap; justify-content: flex-end; gap: 4px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-row-actions .uk-help-action-pair { gap: 0; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-row-actions .uk-help-action { width: 20px; min-width: 20px; height: 24px; min-height: 24px; padding: 2px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-row-actions .fp-equipment-action-label { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-row-actions .mm-reference-icon-button { width: 24px; min-width: 24px; height: 24px; min-height: 24px; padding: 3px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-equipment-name-content > .mmrr-info { width: 24px; min-width: 24px; height: 24px; min-height: 24px; padding: 3px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-skills-table :is(th,td):last-child { width: 54px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-picker { margin-bottom: 24px; gap: 8px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-picker > [data-mm-reference-back-moved] { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-back] { border: 0; border-radius: 0; padding: 0; min-height: 0; background: transparent; color: inherit; font: inherit; }
+  html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-back]:hover { color: var(--text); text-decoration: underline; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner { min-height: 58px; margin-bottom: 24px; padding: 4px 10px; border: 0; border-radius: 0; background: transparent url('/reference-ui/fighter-banner-dark.webp') center / 100% 100% no-repeat; }
+  html.uk-ui.light .fighter-banner { background-image: url('/reference-ui/fighter-banner-light.webp'); }
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner h1 { font-size: 24px; line-height: 32px; font-weight: 700; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner p { font-size: 14px; line-height: 20px; color: var(--muted); }
+  html.uk-ui:is(.light,:not(.light)) .fp-portrait-button,
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner .fp-portrait-wrap > strong { width: 85px; height: 85px; border: 3px solid #050505; border-radius: 50%; background: var(--panel2); font-size: 30px; line-height: 36px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner .fp-portrait-wrap > strong small { font-size: 10px; line-height: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .fp-stat-table { margin-bottom: 24px; border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .fp-stat-table > span { font-size: 14px; line-height: 20px; padding: 4px 2px; }
+  html.uk-ui:is(.light,:not(.light)) .fp-stat-table b { font-size: 12px; font-weight: 600; line-height: 16px; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fp-stat-table,.rp-stats,.rp-weapons) .uk-help-term { font: inherit; line-height: inherit; letter-spacing: inherit; }
+  html.uk-ui:is(.light,:not(.light)) .fp-stat-table .fp-stat-xp { background: #65453c; color: #fafafa; }
+  html.uk-ui.light .fp-stat-table .fp-stat-xp { background: #cfbcb0; color: #0a0a0a; }
+  html.uk-ui:is(.light,:not(.light)) .fp-ooa { display: inline-flex; align-items: center; gap: 4px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page-actions > .uk-help-action-pair > .uk-help-trigger { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-status-actions { gap: 4px; margin-top: 24px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-status-actions .btn { min-height: 36px; padding: 8px; font-size: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-status-actions > .uk-help-action-pair { min-width: 0; }
+  html.uk-ui:is(.light,:not(.light)) [data-official-source-notice][data-reference-verified=true] { padding: 0; margin: 0 0 8px; min-height: 0; border: 0; background: transparent; box-shadow: none; display: flex; justify-content: flex-end; }
+  html.uk-ui:is(.light,:not(.light)) [data-official-source-notice][data-reference-verified=true] > :not([data-official-manual=fighter]) { display: none; }
+  html.uk-ui:is(.light,:not(.light)) [data-official-source-notice][data-reference-verified=true]:not(:has([data-official-manual=fighter])) { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal { --fp-picker-bg: var(--panel); --fp-picker-muted: var(--muted); --fp-picker-border: var(--line); --fp-picker-item: var(--panel2); background: var(--panel); color: var(--text); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal :is(.modal-head,.modal-foot) { background: var(--panel); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal .fp-equipment-category-toggle { background: var(--panel2); color: var(--text); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal .fp-buy-row { border-color: var(--line); background: var(--panel); }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal .fp-buy-header strong { font-size: 14px; font-weight: 400; }
+  html.uk-ui:is(.light,:not(.light)) .modal.fp-equipment-modal .fp-buy-profiles { color: var(--text); }
+  html.uk-ui:is(.light,:not(.light)) :is(.mmrr-body,.mmrr-description,.mmrr-fields,.uk-help-content) { font-size: 14px; line-height: 20px; }
+  html.uk-ui:is(.light,:not(.light)) .mmrr-dialog > header { padding: 12px; background: var(--panel); border-color: var(--line); }
+  html.uk-ui:is(.light,:not(.light)) .mmrr-dialog h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
+  html.uk-ui:is(.light,:not(.light)) .mmrr-body { padding: 12px; }
+}
+
+@media screen and (max-width: 767px) {
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) .modal-body .form :is(input:not([type]),input[type=text],input[type=email],input[type=password],input[type=search],input[type=number],select,textarea):not(.fp-counter input) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal) .modal-body .form :is(input:not([type]),input[type=text],input[type=email],input[type=password],input[type=search],input[type=number],select):not(.fp-counter input) { height: 40px; }
+}
+
+@media screen and (max-width: 650px) {
+  html.uk-ui:is(.light,:not(.light)) .top-wordmark { font-size: 18px; }
+  html.uk-ui:is(.light,:not(.light)) :is(.fighter-page,.stash-page,.entity-card,.asset-section,.home-section,.mm-profile) { padding: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .icon-tabs { overflow-x: auto; justify-content: flex-start; }
+  html.uk-ui:is(.light,:not(.light)) .icon-tabs button { flex: 1 0 auto; min-width: 56px; padding: 8px; font-size: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .home-tabs { justify-content: stretch; min-height: 48px; }
+  html.uk-ui:is(.light,:not(.light)) .home-tabs button { flex: 1; font-size: 16px; padding: 12px; }
+  html.uk-ui:is(.light,:not(.light)) .heading h1 { font-size: 24px; }
+  html.uk-ui:is(.light,:not(.light)) .content { padding-bottom: 16px; }
+  html.uk-ui:is(.light,:not(.light)) .uk-language-switch { margin-left: auto; }
+  html.uk-ui:is(.light,:not(.light)) .fighter-page-actions { gap: 8px; }
+  html.uk-ui:is(.light,:not(.light)) .fp-portrait-button,
+  html.uk-ui:is(.light,:not(.light)) .fighter-banner .fp-portrait-wrap > strong { width: 58px; height: 58px; font-size: 24px; line-height: 28px; }
+  html.uk-ui:is(.light,:not(.light)) .entity-card .entity-facts { gap: 12px; margin: 16px 0; padding: 12px 0; }
+  html.uk-ui:is(.light,:not(.light)) .entity-card .entity-tools { margin: 12px 0; gap: 4px; }
+  html.uk-ui:is(.light,:not(.light)) .entity-card .entity-title h1 { font-size: 24px; }
+}

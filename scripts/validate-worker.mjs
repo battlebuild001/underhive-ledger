@@ -26,6 +26,15 @@ for(const file of portraitFiles){
  assert.equal((await head.arrayBuffer()).byteLength,0,path+' HEAD body');
 }
 console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
+const referenceTypes={'.avif':'image/avif','.woff2':'font/woff2','.png':'image/png','.webp':'image/webp'};
+for(const file of await readdir(resolve(root,'dist/reference-ui'))){
+ const extension=file.slice(file.lastIndexOf('.')),mime=referenceTypes[extension];assert(mime,'Unexpected reference UI asset type: '+file);
+ const path='/reference-ui/'+file,response=await worker.fetch(new Request('https://manager.test'+path),{},{});
+ assert.equal(response.status,200,path);assert.equal(response.headers.get('Content-Type'),mime,path);
+ assert.deepEqual(Buffer.from(await response.arrayBuffer()),await readFile(resolve(root,'dist'+path)),path+' must preserve the source asset bytes.');
+ const head=await worker.fetch(new Request('https://manager.test'+path,{method:'HEAD'}),{},{});assert.equal(head.status,200,path);assert.equal((await head.arrayBuffer()).byteLength,0,path+' HEAD body');
+}
+console.log('Original UI font, background and icons: binary integrity, MIME types and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/join/example-invite'),{},{})).status,200);
 for(const path of ['/learn','/learn/rules','/learn/quick','/learn/tutorials']){const response=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(response.status,302,path);assert.equal(response.headers.get('Location'),'/');}

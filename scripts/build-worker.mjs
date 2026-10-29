@@ -6,7 +6,7 @@ const output=resolve(root,'.sites-build');
 await rm(output,{recursive:true,force:true});
 await mkdir(resolve(output,'dist/server'),{recursive:true});
 await mkdir(resolve(output,'.openai'),{recursive:true});
-const directory=resolve(root,'dist'),textTypes=new Set(['.js','.css','.html','.webmanifest','.svg']),binaryTypes=new Set(['.webp','.png','.jpg','.jpeg']);
+const directory=resolve(root,'dist'),textTypes=new Set(['.js','.css','.html','.webmanifest','.svg']),binaryTypes=new Set(['.webp','.png','.jpg','.jpeg','.avif','.woff2']);
 async function walk(path){const entries=await readdir(path,{withFileTypes:true});let paths=[];for(const entry of entries.sort((a,b)=>a.name.localeCompare(b.name))){const full=resolve(path,entry.name);if(entry.isDirectory())paths.push(...await walk(full));else if(textTypes.has(extname(entry.name))||binaryTypes.has(extname(entry.name)))paths.push(full)}return paths}
 const files=await walk(directory);
 const assets=Object.fromEntries(await Promise.all(files.map(async file=>{const bytes=await readFile(file),url='/'+relative(directory,file).split('\\').join('/');return[url,textTypes.has(extname(file))?bytes.toString('utf8'):{base64:bytes.toString('base64')}]})));
