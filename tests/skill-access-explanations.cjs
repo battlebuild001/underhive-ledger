@@ -1,0 +1,96 @@
+/* Source-based eligibility explanations. Runs the exact production script chain
+   in an isolated account. Oracles: supplied source001 p8 Word-Keeper access table,
+   p9 subtype; source003 p44 Leader grant and p150 six universal skill tables.
+   Exercises readable reasons and interaction/state guarantees, not implementation formulas. */
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(root+'/index.html','utf8'),catalog=JSON.parse(fs.readFileSync(root+'/rules-data.json','utf8'));
+const tick=()=>new Promise(resolve=>setTimeout(resolve,0)),failures=[],passes=[];
+async function test(name,fn){try{await fn();passes.push(name);console.log('PASS '+name)}catch(error){failures.push({name,message:error.stack});console.error('FAIL '+name+'\n'+error.stack)}}
+const copy=x=>JSON.parse(JSON.stringify(x));
+const empty=()=>({gangs:[],campaigns:[],customAssets:{},view:'dashboard',homeTab:'gangs',tab:'fighters',edition:'N26'});
+async function page(width=375){
+ const dom=new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g,''),{url:'https://verified.test/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,ctx=dom.getInternalVMContext(),errors=[],alerts=[],calls=[];
+ Object.defineProperty(w,'innerWidth',{value:width,writable:true});w.structuredClone=structuredClone;w.matchMedia=query=>({matches:/max-width/.test(query)&&w.innerWidth<760,addListener(){},removeListener(){},addEventListener(){},removeEventListener(){}});w.HTMLElement.prototype.scrollIntoView=function(){};w.alert=message=>alerts.push(String(message));w.confirm=()=>false;w.localStorage.setItem('underhive-korea-language','en');w.localStorage.setItem('underhive-ledger-v1',JSON.stringify(empty()));w.addEventListener('error',event=>errors.push(event.message));
+ let cloud=empty(),revision=0;const profile={id:'verified-test-account',username:'Verified Test',email:null,preferences:{},createdAt:'2026-10-01',lastSignIn:'2026-10-26'};
+ w.fetch=async(url,options={})=>{const p=new URL(url,w.location.href).pathname,method=options.method||'GET';calls.push({p,method});let value;
+  if(p==='/api/account')value={profile};else if(p==='/api/auth/session')value={auth:{method:'password',loginId:'verified-test'}};else if(p==='/api/document'&&method==='PUT'){cloud=JSON.parse(options.body).state;revision++;value={revision};}else if(p==='/api/document')value={state:copy(cloud),revision};else if(p==='/api/friends')value={friends:[]};else if(p==='/api/notifications')value={notifications:[]};else if(p==='/api/campaign-shares')value={campaigns:[]};else return {ok:false,status:404,json:async()=>({error:'Unstubbed test endpoint '+p})};return {ok:true,status:200,json:async()=>copy(value)};};
+ for(const [,file]of html.matchAll(/<script src="\/([^"?]+)[^"]*"/g))vm.runInContext(fs.readFileSync(root+'/'+file,'utf8'),ctx,{filename:file});
+ const run=source=>vm.runInContext(source,ctx),q=selector=>{const node=w.document.querySelector(selector);assert(node,'Missing '+selector);return node},all=selector=>[...w.document.querySelectorAll(selector)],set=(name,value)=>{const node=q('#modal-form').elements[name];assert(node,'Missing field '+name);if(node.type==='checkbox')node.checked=!!value;else node.value=String(value);node.dispatchEvent(new w.Event('input',{bubbles:true}));node.dispatchEvent(new w.Event('change',{bubbles:true}));return node;},tap=selector=>{const node=q(selector);node.click();return node;};
+ for(let i=0;i<30&&(!w.AccountParity||w.AccountParity.connecting);i++)await tick();await tick();await tick();
+ return {dom,w,run,q,all,set,tap,errors,alerts,calls,snapshot:()=>run('JSON.stringify(data)'),close:()=>dom.window.close()};
+}
+function seed(p,extra={}){
+ const template=catalog.fighterTypes.find(x=>x.name==='Cawdor Word-Keeper'&&x.source_verified);assert(template,'Fresh supplied-source Cawdor template exists');
+ const f={id:'verified-fighter',name:'Explicit test fighter',type:template.name,fighterTypeId:template.id,cost:template.cost,ratingCost:template.cost,status:'Active',xp:61,startingXp:61,kills:0,stats:copy(template.stats),subtypes:copy(template.fighter_subtypes),equipment:[],skills:[],skillDetails:[],effects:[],injuries:[],advancements:[],loadouts:[],xpHistory:[],ooaRecords:[],specialRules:[],notes:'Keep authored fighter note',backstory:'Keep authored history',...copy(extra)};
+ const g={id:'verified-gang',name:'Explicit sourced test roster',faction:'House Cawdor',gangTypeId:template.gang_type_id,edition:'N26',credits:1000,reputation:1,stash:[],vehicles:[],fighters:[f],logs:[],notes:'Keep authored gang note'};
+ p.w.__verifiedFixture={...empty(),gangs:[g],selectedGang:g.id,selectedFighter:f.id,view:'fighter'};p.run('closeModal();data=structuredClone(window.__verifiedFixture);render()');return f;
+}
+function seedCawdor(p,type,legacy='fresh'){
+ seed(p);p.w.__cawdorType=type;p.w.__legacyMode=legacy;p.run('var t=window.__cawdorType,m=window.__legacyMode,f=currentFighter(),g=gang();Object.assign(f,{id:"76d2384c-a626-4db6-9e94-217cc028147e",type:t.name,fighterTypeId:m==="both"?"ea645952-649c-44ed-b5ed-a0b176ccf382":t.id,catalogTypeId:m==="both"?"ea645952-649c-44ed-b5ed-a0b176ccf382":t.id,subtypes:structuredClone(t.fighter_subtypes),stats:structuredClone(t.stats),xp:t.starting_xp,startingXp:t.starting_xp,notes:"Keep original user fighter description",backstory:"Keep original user backstory"});Object.assign(g,{id:"2d7f16bc-47fd-43db-af14-07fe077e8c19",gangTypeId:m==="fresh"?t.gang_type_id:"928bc0c0-9323-43c6-b588-7f306e9b4cb0",faction:"House Cawdor",tradePoints:0,notes:"Keep original user gang description"});data.selectedGang=g.id;data.selectedFighter=f.id;ensureAssets();render()');
+}
+const field=(p,name)=>p.q('#modal-form').elements[name];
+const picker=(p,name)=>{const control=field(p,name);assert(control,'Picker value '+name);const node=control.closest('[data-mm-combo]');assert(node,'Button-based picker '+name);return node;};
+const pickerOptions=(p,name)=>[...picker(p,name).querySelectorAll('[data-mm-pick]')];
+function pick(p,name,value){const host=picker(p,name),trigger=host.querySelector('[data-mm-trigger]');assert(trigger&&!trigger.disabled,'Enabled picker '+name);if(host.querySelector('.mm-combo-list').hidden)trigger.click();const option=[...host.querySelectorAll('[data-mm-pick]')].find(node=>node.dataset.mmPick===value);assert(option&&!option.disabled&&!option.hidden,'Selectable '+name+' option '+value);option.click();assert.equal(field(p,name).value,value);return option;}
+
+const formDraft=form=>JSON.stringify([...form.elements].filter(x=>x.name).map(x=>[x.name,x.value,x.checked]));
+function chooseBand(p,index,choice){p.tap('[data-source-band="'+index+'"]');const node=[...p.q('[data-source-choice]').children].find(x=>x.tagName==='BUTTON'&&x.textContent===choice);assert(node,'Choice '+choice);node.click();}
+function advance(p,roll,index,choice){p.run('addAdvancement(currentFighter())');p.set('roll',roll);chooseBand(p,index,choice);}
+function submit(p){p.tap('#modal-submit');}
+
+const text=node=>node.textContent.trim();
+const sourceType=catalog.fighterTypes.find(row=>row.name==='Cawdor Word-Keeper'&&row.source_verified);
+const sourceSets=Object.fromEntries(catalog.skillTypes.map(row=>[row.name,row]));
+const sourcedMembers=name=>catalog.skills.filter(row=>row.source_verified&&row.skill_type_id===sourceSets[name].id);
+async function language(p,lang){p.w.UKI18n.setLanguage(lang);await tick();}
+const rulesSnapshot=p=>JSON.stringify(p.w.RULES_DATA);
+function starting(p,extra={}){seed(p,extra);p.run('MMStartingSkills.apply(currentFighter(),gang());FighterParity.addSkill(currentFighter())');return p.q('#modal-form');}
+const setOption=(p,name)=>pickerOptions(p,'skillSet').find(node=>node.dataset.mmPick===sourceSets[name].id);
+const summary=(p,name,value)=>{const node=picker(p,name).querySelector('[data-mm-option-summary="'+value+'"]');assert(node,'Visible short reason for '+name+'/'+value);assert(text(node),'Nonempty short reason for '+value);return node;};
+async function explanation(p,name,value){
+ const host=picker(p,name),trigger=host.querySelector('[data-mm-trigger]');if(host.querySelector('.mm-combo-list').hidden)trigger.click();
+ const help=host.querySelector('[data-mm-option-explain="'+value+'"]'),panel=host.querySelector('[data-mm-option-reason="'+value+'"]');assert(help&&!help.disabled,'Disabled selections retain an enabled explanation button for '+value);assert(panel,'Inline explanation panel for '+value);assert.equal(panel.getAttribute('role'),'region');assert.equal(panel.getAttribute('tabindex'),'0');assert.equal(help.getAttribute('aria-controls'),panel.id);const before=field(p,name).value;
+ help.focus();help.click();await tick();assert.equal(panel.hidden,false);assert.equal(help.getAttribute('aria-expanded'),'true');assert(text(panel),'Nonempty explanation for '+value);assert.equal(field(p,name).value,before,'Explaining never selects '+value);assert.equal(p.w.document.activeElement,help);assert(!p.w.document.activeElement.matches('input,textarea,select'),'Explanation does not focus a text field');return {host,help,panel,close:async()=>{help.click();await tick();assert.equal(panel.hidden,true);assert.equal(help.getAttribute('aria-expanded'),'false');assert.equal(field(p,name).value,before);}};
+}
+const primaryReason=/primary/i,startingReason=/start(?:ing)?/i;
+(async()=>{
+ await test('Every sourced Word-Keeper set explains its actual starting eligibility, including disabled Secondary, unlisted, fixed and Wyrd sets',async()=>{
+  const access=catalog.fighterSkillAccess.filter(row=>row.fighter_type_id===sourceType.id);assert.equal(sourceType.free_skill,true);assert.deepEqual(access.filter(row=>row.access_level==='primary').map(row=>row.skill_type_id).sort(),[sourceSets.Brawn.id,sourceSets.Savant.id].sort());assert(!sourceSets.Leadership,'The supplied N26 catalog does not invent a Leadership set');
+  const p=await page();try{
+   const form=starting(p),saved=p.snapshot(),rules=rulesSnapshot(p),draft=formDraft(form),options=pickerOptions(p,'skillSet'),reasonByName={};assert.equal(form.dataset.skillPicker,'starting');assert.equal(picker(p,'skillSet').dataset.mmExplainOptions,'true');assert.deepEqual(options.filter(node=>!node.disabled).map(node=>node.dataset.mmPick).sort(),[sourceSets.Brawn.id,sourceSets.Savant.id].sort());
+   for(const option of options){const id=option.dataset.mmPick,set=catalog.skillTypes.find(row=>row.id===id);assert(set);const short=summary(p,'skillSet',id);assert(!short.hidden,'Short reasons are shown before help is opened');const opened=await explanation(p,'skillSet',id);reasonByName[set.name]=text(opened.panel);await opened.close();assert.equal(formDraft(form),draft);assert.equal(field(p,'skillSet').value,'');assert.equal(field(p,'skill').value,'');}
+   for(const name of ['Brawn','Savant']){assert.match(reasonByName[name],primaryReason);assert.match(reasonByName[name],startingReason);}
+   for(const name of ['Combat','Shooting']){assert.match(reasonByName[name],/secondary/i,'The actual source rank is explained');assert.match(reasonByName[name],primaryReason,'The starting selection requires Primary');assert.match(reasonByName[name],startingReason);}
+   for(const name of ['Agility','Cunning']){assert.match(reasonByName[name],/(?:no|not|does not|isn.t|without)[\s\S]*(?:primary|access)|(?:primary|access)[\s\S]*(?:not|missing)/i,'Unlisted source access gets a concrete missing-Primary explanation');assert.match(reasonByName[name],startingReason);assert(!/^record only\.?$/i.test(reasonByName[name]),'Record only alone is not a starting eligibility explanation');}
+   assert.match(reasonByName.Inherent,/inherent|automatic|fixed|granted/i);assert.match(reasonByName.Inherent,primaryReason);for(const name of ['Wyrd Powers','Genestealer Cult Wyrd Powers','Chaos Helot Wyrd Powers','Malstrain Wyrd Powers','Psychoteric Whispers','Psyrender','Bonecrusher'])assert.match(reasonByName[name],/wyrd/i,'A non-Wyrd model gets its actual subtype requirement for '+name);
+   assert.equal(p.snapshot(),saved);assert.equal(rulesSnapshot(p),rules);assert.deepEqual(p.errors,[]);
+  }finally{p.close();}
+ });
+ await test('All listed Primary skills have readable reasons and KO/EN explanation toggles preserve selection, focus and canonical IDs',async()=>{
+  const p=await page(375);try{
+   const form=starting(p),saved=p.snapshot(),rules=rulesSnapshot(p);pick(p,'skillSet',sourceSets.Savant.id);const options=pickerOptions(p,'skill'),expected=sourcedMembers('Savant');assert.deepEqual(options.map(node=>node.dataset.mmPick),expected.map(row=>row.id));
+   for(const option of options){assert(!option.disabled);summary(p,'skill',option.dataset.mmPick);const opened=await explanation(p,'skill',option.dataset.mmPick);assert.match(text(opened.panel),primaryReason);assert.match(text(opened.panel),startingReason);await opened.close();}
+   const skill=expected.find(row=>row.name==='Fast Reload');pick(p,'skill',skill.id);const draft=formDraft(form),ids=JSON.stringify(options.map(node=>[node.dataset.mmPick,node.dataset.mmLabel,node.disabled])),opened=await explanation(p,'skill',skill.id),en=text(opened.panel),shortEn=text(summary(p,'skill',skill.id)),name=picker(p,'skill').querySelector('[data-mm-value-label]');assert.equal(p.q('#modal-submit').disabled,false);assert.equal(text(name),skill.name);
+   await language(p,'ko');assert.equal(text(name),p.w.UK_I18N_TERMS?.names?.[skill.name]||skill.name_ko);assert(/[가-힣]/.test(text(opened.panel)),'Korean explanation is readable Korean');assert.notEqual(text(opened.panel),en);assert.notEqual(text(summary(p,'skill',skill.id)),shortEn);assert.equal(formDraft(form),draft);assert.equal(p.w.document.activeElement,opened.help);assert.equal(opened.panel.hidden,false);await language(p,'en');assert.equal(text(opened.panel),en);assert.equal(text(summary(p,'skill',skill.id)),shortEn);assert.equal(text(name),skill.name);await language(p,'ko');await language(p,'en');assert.equal(text(opened.panel),en);assert.equal(JSON.stringify(options.map(node=>[node.dataset.mmPick,node.dataset.mmLabel,node.disabled])),ids);assert.equal(p.q('#modal-form'),form);assert.equal(formDraft(form),draft);assert.equal(p.snapshot(),saved);assert.equal(rulesSnapshot(p),rules);await opened.close();p.tap('#modal-cancel');assert.equal(p.snapshot(),saved);assert.deepEqual(p.errors,[]);
+  }finally{p.close();}
+ });
+ await test('All-owned Primary sets and duplicate skills explain ownership while disabled help remains usable',async()=>{
+  const p=await page();try{
+   const brawn=sourcedMembers('Brawn'),reload=sourcedMembers('Savant').find(row=>row.name==='Fast Reload'),skills=[...brawn.map(row=>row.name),reload.name],form=starting(p,{skills,skillDetails:skills.map(name=>({name,source:'User record'})),freeSkill:true}),saved=p.snapshot(),rules=rulesSnapshot(p);assert.equal(form.dataset.skillPicker,'starting');assert.equal(setOption(p,'Brawn').disabled,true);assert.equal(setOption(p,'Savant').disabled,false);let opened=await explanation(p,'skillSet',sourceSets.Brawn.id);assert.match(text(opened.panel),/(?:all|every)[\s\S]*(?:own|record|known)|(?:own|record|known)[\s\S]*(?:all|every)/i,'The whole set is disabled because all six actual source skills are already recorded');await opened.close();pick(p,'skillSet',sourceSets.Savant.id);const owned=pickerOptions(p,'skill').find(node=>node.dataset.mmPick===reload.id);assert(owned&&owned.disabled,'Owned skills remain listed with a reason');summary(p,'skill',reload.id);const draft=formDraft(form);opened=await explanation(p,'skill',reload.id);assert.match(text(opened.panel),/already[\s\S]*(?:owned|recorded|known|has)|duplicate/i);assert.equal(field(p,'skill').value,'');await language(p,'ko');assert(/[가-힣]/.test(text(opened.panel)));await language(p,'en');assert.match(text(opened.panel),/already[\s\S]*(?:owned|recorded|known|has)|duplicate/i);assert.equal(formDraft(form),draft);await opened.close();assert.equal(p.snapshot(),saved);assert.equal(rulesSnapshot(p),rules);p.tap('#modal-cancel');assert.equal(p.snapshot(),saved);assert.deepEqual(p.errors,[]);
+  }finally{p.close();}
+ });
+ await test('After the starting choice, manual selection explains that it is a record and does not claim an automatic starting grant',async()=>{
+  const p=await page();try{
+   const form=starting(p,{skills:['Bull Charge'],skillDetails:[{name:'Bull Charge',source:'Starting Primary',isStarting:true}],freeSkill:false}),saved=p.snapshot(),rules=rulesSnapshot(p);assert.equal(form.dataset.skillPicker,'record');assert.equal(setOption(p,'Combat').disabled,false);assert.equal(setOption(p,'Cunning').disabled,false);for(const set of ['Combat','Cunning','Inherent']){const opened=await explanation(p,'skillSet',sourceSets[set].id);assert.match(text(opened.panel),/manual|user record|direct record|records? [\s\S]*(?:already gained|already acquired|separate ruling|reward)/i);assert.match(text(opened.panel),/(?:not|does not|without)[\s\S]*(?:start|grant|eligib|legal|reward|permit)|(?:start|grant|eligib|legal|reward|permit)[\s\S]*(?:not|does not)/i,'Manual access is not described as a free or rules-approved grant');await opened.close();}
+   pick(p,'skillSet',sourceSets.Combat.id);const skill=sourcedMembers('Combat').find(row=>row.name==='Combat Master');pick(p,'skill',skill.id);const draft=formDraft(form),opened=await explanation(p,'skill',skill.id),en=text(opened.panel);assert.match(en,/manual|user record|direct record|records? [\s\S]*(?:already gained|already acquired|separate ruling|reward)/i);await language(p,'ko');assert(/[가-힣]/.test(text(opened.panel)));await language(p,'en');assert.equal(text(opened.panel),en);assert.equal(formDraft(form),draft);assert.equal(p.q('#modal-submit').disabled,false);await opened.close();p.tap('#modal-cancel');assert.equal(p.snapshot(),saved);assert.equal(rulesSnapshot(p),rules);assert.deepEqual(p.errors,[]);
+  }finally{p.close();}
+ });
+ await test('Explanations never bypass starting rank or duplicate save guards, even with forged hidden values',async()=>{
+  const p=await page();try{
+   const scenarios=[{set:'Combat',skill:'Combat Master',extra:{}},{set:'Savant',skill:'Fast Reload',extra:{skills:['Fast Reload'],skillDetails:[{name:'Fast Reload',source:'User record'}],freeSkill:true}}];
+   for(const scenario of scenarios){const form=starting(p,scenario.extra),set=sourceSets[scenario.set],skill=sourcedMembers(scenario.set).find(row=>row.name===scenario.skill),saved=p.snapshot(),rules=rulesSnapshot(p);const opened=await explanation(p,'skillSet',set.id);await opened.close();p.set('skillSet',set.id);p.set('skill',skill.id);assert.equal(p.q('#modal-submit').disabled,true);p.q('#modal-submit').disabled=false;submit(p);await tick();assert.equal(p.q('#modal-form'),form);assert(p.q('[data-verified-error]'));assert.equal(p.snapshot(),saved,'A disabled choice cannot be granted by forging the form');assert.equal(rulesSnapshot(p),rules);p.run('closeModal()');}
+   assert.deepEqual(p.errors,[]);
+  }finally{p.close();}
+ });
+ console.log('\nSkill access explanations: '+passes.length+' passed, '+failures.length+' failed.');if(failures.length)process.exitCode=1;
+})().catch(error=>{console.error(error.stack);process.exitCode=1});

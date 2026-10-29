@@ -243,3 +243,9 @@
     min-width: 108px;
   }
 }
+
+/* The skill access note explains the current acquisition mode above both fields. */
+.fp-skill-access-guide{grid-column:1/-1;display:block;box-sizing:border-box;width:100%;max-width:100%;min-width:0;margin:0;padding:12px 14px;border:1px solid var(--line,#383838);border-radius:6px;background:var(--panel2,#202020);color:var(--muted,#b7b7b7);font-size:var(--uk-small,14px);font-weight:400;line-height:1.65;white-space:normal;overflow-wrap:anywhere}
+.fp-skill-access-guide>span{display:block}
+.fp-skill-access-guide>small{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line,#383838);color:inherit;font-size:.94em;font-weight:400;line-height:1.6}
+@media screen and (max-width:600px){.fp-skill-access-guide{padding:11px 12px}}
