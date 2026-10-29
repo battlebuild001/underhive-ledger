@@ -20,11 +20,11 @@ function entry(kind,query,g,category){
  return `<article class="pm-rule-entry"><button type="button" class="pm-rule-title" data-play-ref="${key}" aria-haspopup="dialog">${title(row)}</button>${category?`<small>${L(...category)}</small>`:''}${prose(row,kind,g)}</article>`;
 }
 function skillQueries(f){
- const details=f.skillDetails||[],seen=new Set();return values(f.skills).flatMap(item=>{const detail=details.find(d=>[d.name,d.name_ko].includes(item.name)),query={...detail,...item,skillId:item.skillId||detail?.skillId};const key=query.skillId||query.name;if(seen.has(key))return[];seen.add(key);return[query];});
+ const details=f.skillDetails||[],seen=new Set(),ids=new Set(equipment(f).items.map(e=>e.id));return values(f.skills).flatMap(item=>{const matches=details.filter(d=>[d.name,d.name_ko].includes(item.name)),eligible=matches.filter(d=>!d.sourceEquipmentId||ids.has(d.sourceEquipmentId));if(matches.length&&!eligible.length||item.sourceEquipmentId&&!ids.has(item.sourceEquipmentId))return [];const detail=eligible.find(d=>!d.sourceEquipmentId)||eligible[0],query={...detail,...item,skillId:item.skillId||detail?.skillId};const key=query.skillId||query.name;if(seen.has(key))return[];seen.add(key);return[query];});
 }
 function specialQueries(f,g){
  const type=model(f,g),details=f.specialRulesDetails??f.special_rules_details??[],own=f.specialRules??f.special_rules,names=own!=null?values(own).map(x=>x.name):window.FighterParity?.specialRulesFor(f)||[];
- return [...new Set(names)].map(name=>{const record=Array.isArray(details)?details.find(d=>d.name===name||d.name_ko===name):null;const authored=values(own).find(r=>r.name===name)||{};return {...record,...authored,name:authored.name||record?.name||name,fighterTypeId:type?.id||f.fighterTypeId||f.catalogTypeId||f.presetId,edition:ed(g)};});
+ const ids=new Set(equipment(f).items.map(e=>e.id));return [...new Set(names)].flatMap(name=>{const record=Array.isArray(details)?details.find(d=>d.name===name||d.name_ko===name):null;const authored=values(own).find(r=>r.name===name)||{};const query={...record,...authored,name:authored.name||record?.name||name,fighterTypeId:type?.id||f.fighterTypeId||f.catalogTypeId||f.presetId,edition:ed(g)};return query.sourceEquipmentId&&!ids.has(query.sourceEquipmentId)?[]:[query];});
 }
 function equipment(f){return window.RosterParity?.activeEquipment(f)||{items:f.equipment||[],loadout:null};}
 function statValue(key,value,g){
