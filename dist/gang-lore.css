@@ -7,3 +7,11 @@
 @media print{.gl-page-top,.gl-contents,.gl-reading-links,.gl-expand,.gl-reading-footer{display:none}.gl-layout{display:block}.gl-chapter{break-inside:avoid}.gl-chapter::details-content{display:block}.gl-page{max-width:none}}
 
 html.uk-ui .content:has(.gl-page)>[data-official-source-notice][data-reference-verified=true]{display:none!important}
+
+/* Longer archives retain compact navigation and topic-level provenance. */
+.gl-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;color:var(--gl-muted);font-size:11px;line-height:1.7}
+.gl-contents ol{max-height:calc(100dvh - 250px);overflow-y:auto;overscroll-behavior:contain;padding-right:8px;scrollbar-width:thin}
+.gl-chapter-title{flex:1;min-width:0}.gl-chapter-title>small{display:block;color:var(--gl-muted);font-size:10px;font-weight:400;line-height:1.6;margin-bottom:3px}
+.gl-page .gl-chapter-body>p+p{margin-top:16px!important}
+.gl-chapter-sources{display:grid;gap:8px;border-top:1px solid var(--gl-line);margin-top:20px;padding-top:13px;min-width:0}.gl-chapter-sources strong{font-size:10px;font-weight:400;color:var(--gl-muted)}.gl-chapter-sources a{font-size:11px;line-height:1.8;color:var(--gl-muted);overflow-wrap:anywhere;text-underline-offset:3px}.gl-chapter-sources a:hover{color:inherit}
+@media(max-width:700px){.gl-meta{grid-column:1/-1;margin-top:0}.gl-contents ol{max-height:230px}.gl-chapter-title>small{font-size:9px}.gl-chapter>summary{min-height:66px}.gl-chapter-sources a{font-size:11px}}
