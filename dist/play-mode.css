@@ -20,3 +20,23 @@ html.uk-ui .pm-page .pm-equipment{padding:10px 0}
 html.uk-ui .pm-page .pm-equipment .fp-buy-profiles{margin-top:7px}
 html.uk-ui .pm-page .pm-unit-head{margin-bottom:12px}
 html.uk-ui .pm-page .pm-loadout{margin:7px 0 10px}
+
+/* One shared header per weapon; dense profile rows retain all values and trait links. */
+html.uk-ui .pm-page .pm-compact-profiles{display:block;margin-top:6px}
+.pm-profile-scroll{max-width:100%;min-width:0;overflow-x:auto;border:1px solid var(--pm-border);border-radius:4px;overscroll-behavior-x:contain}
+html.uk-ui .pm-page table.pm-profile-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:0;background:transparent;font-size:13px;line-height:1.45}
+html.uk-ui .pm-page .pm-profile-table :is(th,td){padding:5px 3px;text-align:center;border:0;font-size:13px;line-height:1.45;white-space:normal;overflow-wrap:anywhere}
+html.uk-ui .pm-page .pm-profile-table thead th{background:var(--panel2,#242424);color:var(--pm-muted);font-size:11px;font-weight:500;padding-block:5px}
+html.uk-ui .pm-page .pm-profile-table .pm-profile-label{width:39%;text-align:left;padding-left:8px}
+html.uk-ui .pm-page .pm-profile-table tbody .pm-profile-label{font-size:12px;font-weight:600;word-break:keep-all}
+html.uk-ui .pm-page .pm-profile-table .pm-profile-values td{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;overflow-wrap:normal}
+html.uk-ui .pm-page .pm-profile-table .pm-profile-traits td{text-align:left;padding:0 7px 5px;font-size:12px}
+html.uk-ui .pm-page .pm-profile-table .pm-traits-label{color:var(--pm-muted);font-size:10px;margin-right:4px}
+html.uk-ui .pm-page .pm-profile-table tbody+tbody{border-top:1px solid var(--pm-border)}
+html.uk-ui .pm-page .pm-profile-table .equipment-profile-scope{font-size:9px;margin:2px 0 0 4px;padding:0 3px;white-space:nowrap;line-height:1.5;vertical-align:middle}
+html.uk-ui .pm-page .pm-profile-table .mmrr-trait{font-size:12px;font-weight:400;min-height:24px;padding:2px 1px;line-height:1.6}
+html.uk-ui .pm-page .pm-profile-table.is-n23{min-width:520px}
+.pm-profile-scroll:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media print{.pm-profile-scroll{overflow:visible}html.uk-ui .pm-page .pm-profile-table.is-n23{min-width:0}}
+html.uk-ui .pm-page table.pm-profile-table.is-n26{min-width:0;max-width:100%}
+html.uk-ui .pm-page .pm-profile-table tbody th{background:transparent;color:var(--text,#eee)}

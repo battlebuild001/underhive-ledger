@@ -38,7 +38,7 @@ function stats(f,g,items){
  return `<div class="pm-stats"><dl class="pm-physical">${physical.map(cell).join('')}</dl><dl class="pm-mental">${mental.map(cell).join('')}<div class="pm-stat pm-xp"><dt>XP</dt><dd>${E(window.MMVerifiedRules?.xpDisplay?.(f,g)||(f.xp??'—'))}</dd></div></dl></div>`;
 }
 function equipmentBlock(item,g){
- const row=window.MMRuleReference?.lookup('equipment',item,{edition:ed(g)}),query=row?item:{...item,is_custom:true},key=register('equipment',query,g),body=window.FighterParity?.stashProfiles(item,g.edition)||'';
+ const row=window.MMRuleReference?.lookup('equipment',item,{edition:ed(g)}),query=row?item:{...item,is_custom:true},key=register('equipment',query,g),body=window.FighterParity?.stashProfiles(item,g.edition,{compact:true})||'';
  return `<section class="pm-equipment"><button type="button" class="pm-rule-title" data-play-ref="${key}" aria-haspopup="dialog">${title(row||{...item,is_custom:true})}</button>${body||prose(row||{...item,is_custom:true},'equipment',g)}</section>`;
 }
 function fold(f,key,en,ko,count,body){

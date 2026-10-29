@@ -279,15 +279,20 @@
       return entry;
     }).filter(item=>{const required=item.requires_weapon_names||(item.target_weapon_name?[item.target_weapon_name]:[]);const bearers=item.rule_data?.bearer_subtypes||item.rule_data?.carriers||[];return (!bearers.length||bearers.some(role=>roles.includes(role)))&&(!required.length||weaponChoices(f).some(weapon=>equipmentWeaponMatches(weapon,required)));});
   }
-  function purchaseProfiles(item,ed=gang()?.edition){
+  function purchaseProfiles(item,ed=gang()?.edition,options={}){
     const n26=String(ed).toUpperCase()==='N26',missing=value=>value==null||String(value).trim()===''||String(value).trim()==='""';
     const fields=[['range_short','Short','단거리',['range_short','short_range','rangeShort']],['range_long','Long','장거리',['range_long','long_range','rangeLong']],...(!n26?[['acc_short','Hit S','명중 단',['acc_short','accuracy_short']],['acc_long','Hit L','명중 장',['acc_long','accuracy_long']]]:[]),['strength','S','S',['strength','S']],['ap','AP','AP',['ap','armour_piercing','AP']],...(n26?[['lethality','L','L',['lethality','L']]]:[['damage','D','D',['damage','D']],['ammo','Ammo','탄약',['ammo']]])];
     const value=(profile,keys)=>{for(const key of keys)if(!missing(profile[key]))return profile[key];return '—';};
     const profiles=equipmentProfiles(item).filter(profile=>fields.some(([, , ,keys])=>keys.some(key=>!missing(profile[key])))||!missing(Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits));
     if(!profiles.length)return item.description?`<p class="fp-buy-description">${esc(item.description)}</p>`:'';
+    if(options.compact){
+      const named=profiles.length>1||profiles.some(p=>(p.profile_name||p.name)&&((p.profile_name||p.name)!==titleOf(item)));
+      const columns=fields.length+(named?1:0),profileName=p=>window.MMEquipmentUsage?.profileTitle(p,item,ed)||`<span${nameAttributes(p.source_verified?p:item,p.profile_name||p.name||'')}>${esc(p.profile_name||p.name||'—')}</span>`;
+      return `<div class="fp-buy-profiles pm-compact-profiles"><div class="pm-profile-scroll" tabindex="0" role="region" aria-label="Weapon profiles" data-i18n-en-aria-label="Weapon profiles" data-i18n-ko-aria-label="무기 프로필"><table class="pm-profile-table ${n26?'is-n26':'is-n23'}${named?' has-names':''}"><thead><tr>${named?'<th scope="col" class="pm-profile-label" data-i18n-en="Profile" data-i18n-ko="프로필">Profile</th>':''}${fields.map(([key,en,ko])=>{const short=key==='range_short'?['SR','단']:key==='range_long'?['LR','장']:[en,ko];return `<th scope="col" title="${en}" data-i18n-en-title="${en}" data-i18n-ko-title="${ko}" data-i18n-en="${short[0]}" data-i18n-ko="${short[1]}">${short[0]}</th>`;}).join('')}</tr></thead>${profiles.map(profile=>`<tbody class="pm-profile"><tr class="pm-profile-values">${named?`<th scope="row" class="pm-profile-label">${profileName(profile)}</th>`:''}${fields.map(([key,,,keys])=>`<td data-profile-stat="${key}">${esc(value(profile,keys))}</td>`).join('')}</tr>${!missing(Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits)?`<tr class="pm-profile-traits"><td colspan="${columns}"><span class="pm-traits-label" data-i18n-en="Traits" data-i18n-ko="특성">Traits</span> ${traitMarkup(profile.traits,ed)}</td></tr>`:''}</tbody>`).join('')}</table></div></div>${window.MMEquipmentUsage?.markup(item,{edition:ed,profiles})||''}`;
+    }
     return `<div class="fp-buy-profiles">${profiles.map(profile=>{const name=profile.profile_name||profile.name||'',traits=Array.isArray(profile.traits)?profile.traits.join(', '):profile.traits;return `<section class="fp-buy-profile">${name&&(profiles.length>1||name!==titleOf(item))?`<div class="fp-buy-profile-name">${window.MMEquipmentUsage?.profileTitle(profile,item,ed)||`<span${nameAttributes(profile.source_verified?profile:item,name)}>${esc(name)}</span>`}</div>`:''}<dl class="fp-buy-stats ${n26?'is-n26':'is-n23'}">${fields.map(([key,en,ko,keys])=>`<div data-profile-stat="${key}"><dt data-i18n-ko="${ko}">${en}</dt><dd>${esc(value(profile,keys))}</dd></div>`).join('')}</dl>${!missing(traits)?`<div class="fp-buy-traits"><span data-i18n-ko="특성">Traits</span><span>${traitMarkup(profile.traits,ed)}</span></div>`:''}</section>`;}).join('')}</div>${window.MMEquipmentUsage?.markup(item,{edition:ed,profiles})||''}`;
   }
-  function stashProfiles(item,ed){
+  function stashProfiles(item,ed,options={}){
     const expected=String(ed||gang()?.edition||data.edition).toLowerCase(),inEdition=row=>!row?.edition_slug&&!row?.edition||String(row.edition_slug||row.edition).toLowerCase()===expected;
     if(!item||!inEdition(item))return '';
     const available=[...(rules().equipment||[]),...(data.customAssets?.equipment||[])],keys=['profiles','weaponProfiles','weapon_profiles'];
@@ -306,7 +311,7 @@
       if(matches.length===1)base=matches[0];
     }
     const profiles=ownProfiles||profilesOf(base);if(!profiles)return '';
-    return purchaseProfiles({...base,...item,profiles,description:''},expected);
+    return purchaseProfiles({...base,...item,profiles,description:''},expected,options);
   }
   function equipmentCategory(item){
     const raw=String(item.category||item.equipment_category||item.equipmentType||'Other'),label=raw.replace(/\s*\((?:Close Combat Weapons|Ranged Weapons)\)\s*$/i,'');
