@@ -4,7 +4,7 @@ const allTests=(await readdir(new URL('../tests/',import.meta.url))).filter(x=>/
 const catalog=JSON.parse(await readFile(new URL('../dist/rules-data.json',import.meta.url),'utf8'));
 const awaitingOriginals=catalog.official_source_policy==='provided_official_originals_only'&&catalog.official_source_status==='awaiting_original'&&catalog.verified_source_count===0;
 const suppliedOriginals=catalog.official_source_policy==='provided_official_originals_only'&&['verified','verified_partial'].includes(catalog.official_source_status)&&catalog.verified_source_count===3;
-const sourceIndependent=new Set(['account-api.mjs','account-uploads.mjs','campaign-enrollment-api.mjs','local-auth-flow.mjs','local-auth.mjs','account-localization.cjs']);
+const sourceIndependent=new Set(['account-api.mjs','account-uploads.mjs','campaign-enrollment-api.mjs','local-auth-flow.mjs','local-auth.mjs','account-localization.cjs','account-reset.cjs']);
 const required=new Set([...sourceIndependent,...(awaitingOriginals?['official-source-policy.cjs']:suppliedOriginals?['verified-originals.cjs','official-catalog-integrity.mjs','new-gang-defaults.cjs','campaign-defaults.cjs','special-rules-defaults.cjs','campaign-data.cjs','campaign-session-data.cjs','starting-skills.cjs','recruitment-starting-choices.cjs','localization-completeness.cjs','skill-access-explanations.cjs','rule-terms.cjs','fighter-story.cjs','loadout-input.cjs']:[])]);
 const tests=awaitingOriginals||suppliedOriginals?allTests.filter(file=>required.has(file)):allTests;
 for(const file of required)if(!allTests.includes(file))throw Error('Missing required test suite: '+file);
