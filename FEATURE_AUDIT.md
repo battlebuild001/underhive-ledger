@@ -48,3 +48,11 @@
 사용자 스크린샷의 하단 7개 버튼을 전체 클라이언트 스크립트의 실제 DOM 클릭으로 검사했습니다. 은퇴 상태에서는 Unretire/Copy/Delete만 허용되며 잠긴 버튼을 명확히 표시합니다. Recovery→Kill 허용, 상태 복귀 시 기존 boolean 상태값 해제, Capture/Rescue의 Captured 부상·대상 연결, 현재 가치의 판매, 새 인원/경험 유지 복제, 현재 장비를 포함한 삭제 환급, Crew 삭제 시 차량 배정 해제를 수정했습니다. 장비의 평점은 지불액과 분리해서 계산합니다.
 
 `tests/fighter-bottom-actions.cjs`는 취소 시 불변, 확인 후 상태·크레딧·평점·부상·명단·브라우저 저장 반영, 비용 부족, 환급 미선택, 완료된 확인의 중복 실행 차단, N23/N26 버튼 차이를 검사합니다. 실제 사용자 기록은 시험에서 변경하지 않았습니다. 이는 DOM/저장 자동 시험이며 실제 휴대폰 조작 시험은 아닙니다.
+
+## 2026-10-29 Beginner gang guide
+
+Gang headers now expose a read-only guide with five sections: roster, weapons/roles, starting skills and advancement, play sequence, and current roster checks. It uses verified N26 catalogue IDs and recruitment prices. Cawdor has separate Pious (10 models, 870cr) and Fanatic (9 models, 830cr) examples; five other Houses have budgeted starting examples. Eleven special gangs receive faction-specific advice and catalogue role cards without substituting a standard House roster. Missing access/prices suppress the confirmed shopping list. Strategy suggestions are labelled separately from rules.
+
+Starting Primary choices, fixed grants and Specialist specialisations remain distinct. Clickable units, equipment, skills and advancement conditions use nested reference navigation. No recruitment, credit, XP, account or document write occurs from using the guide.
+
+Verification: 22 selected suites passed; 58 retained legacy fixture suites deferred. New guide cases cover source-priced budgets, Primary restrictions, edition/custom separation, unknown prices, language switching, nested return and unchanged data. Real Chromium at 375px and 1280px passed header access, modal bounds, tabs, nested back, Escape, language switching and read-only state. Build/Worker validation passed. Tests used isolated mocked accounts, not production records. Actual mobile OS and a complete special-gang roster legality audit were not performed; the guide explicitly directs special gangs to their own rules.
