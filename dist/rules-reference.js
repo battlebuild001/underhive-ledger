@@ -4,6 +4,9 @@
   const kinds={injuries:'지속 부상',skills:'스킬',equipment:'장비',territories:'영토',tactics:'갱 택틱',fighterTypes:'파이터 유형',gangTypes:'갱 유형',effects:'효과·부상',scenarios:'시나리오',campaignTypes:'캠페인',sideJobs:'사이드 잡',weaponTraits:'무기 특성',specialRules:'특수 규칙',coreRules:'기본 규칙',fighterSubtypes:'파이터 분류',scenarioEntries:'배치·목표·크루',campaignTriumphs:'캠페인 성과'};
   const aliases={skill:'skills',weapon:'equipment',territory:'territories',tactic:'tactics',fighters:'fighterTypes',fighter:'fighterTypes',gang:'gangTypes',injury:'injuries',trait:'weaponTraits'};
   const bindings=new WeakMap();
+  const nestedStack=[];
+  function pushNested(options){if(options.nested&&overlay)nestedStack.push({dialog:overlay.firstElementChild,libraryState,libraryReturn,detailContext,traitReturn,scroll:overlay.querySelector(".mmrr-body")?.scrollTop||0,activator:options.activator||document.activeElement});}
+  function back(){const item=nestedStack.pop();if(!item||!overlay)return false;overlay.replaceChildren(item.dialog);({libraryState,libraryReturn,detailContext,traitReturn}=item);const body=overlay.querySelector(".mmrr-body");if(body)body.scrollTop=item.scroll;window.UKI18n?.refresh(overlay);window.MMRuleTerms?.refresh();safeFocus(item.activator?.isConnected?item.activator:[...overlay.querySelectorAll('[data-rule-term]')].find(node=>node.dataset.ruleTerm===item.activator?.dataset.ruleTerm));return true;}
   let overlay=null,restoreNavigation=null,restoreFocus=null,inertStates=[],previousOverflow='',scheduled=false,libraryState=null,libraryReturn=null,equipmentContext=null,detailContext=null,traitReturn=null;
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const copy=value=>value==null?value:JSON.parse(JSON.stringify(value));
@@ -136,12 +139,12 @@
     const extra=d.ruleData?structured(d.ruleData):'';
     const partial=kind==='territories'&&!d.custom&&d.definitionStatus==='available'&&row.reference_coverage?.status==='partial'?'<div class="mmrr-definition-status mmrr-partial-status" data-mmrr-coverage="partial" role="note"><strong data-i18n-ko="일부 규칙만 확인됨">Partially verified rules</strong><p data-i18n-ko="확인된 내용만 표시합니다. 이 영토의 추가 혜택과 전투 효과가 모두 확인된 것은 아닙니다.">Only verified details are shown. Not all additional benefits and battlefield effects of this territory have been verified.</p></div>':'';
     const status=d.definitionStatus==='missing'?'<div class="mmrr-definition-status" data-mmrr-definition-status="missing" role="status"><strong data-i18n-ko="설명 미등록">Description unavailable</strong><p data-i18n-ko="이 판본에 확인된 규칙 설명이 아직 등록되어 있지 않습니다.">A verified rule description has not been added for this edition.</p></div>':d.definitionStatus==='cleared'?'<p class="mmrr-empty" data-mmrr-definition-status="cleared" data-i18n-ko="이 항목의 사용자 설명을 비웠습니다.">The custom description for this item was cleared.</p>':'';
-    return `<div class="mmrr-heading"><span class="mmrr-badge">${esc((d.edition||ed).toUpperCase())}</span>${kinds[kind]?`<span>${esc(kinds[kind])}</span>`:''}</div>${d.nameKo?`<h3 class="mmrr-korean-name"${nameAttributes(row)}>${esc(d.nameKo)}</h3>`:''}${d.description?`<p class="mmrr-description"${descriptionAttributes(row,kind,d.description)}>${esc(d.description)}</p>`:''}${profileMarkup(d.profiles,d.edition||ed,!!row.is_custom)}${extra?`<details class="mmrr-more" ${d.description?'':'open'}><summary>추가 수치·조건</summary>${extra}</details>`:''}${partial}${status}${d.sourceLabel?`<p class="mmrr-source">${esc(d.sourceLabel)}</p>`:''}`;
+    return `<div class="mmrr-heading"><span class="mmrr-badge">${esc((d.edition||ed).toUpperCase())}</span>${kinds[kind]?`<span>${esc(kinds[kind])}</span>`:''}</div>${d.nameKo?`<h3 class="mmrr-korean-name"${nameAttributes(row)}>${esc(d.nameKo)}</h3>`:''}${d.description?(row.source_verified&&!d.custom&&window.MMRuleTerms?MMRuleTerms.prose(descriptionEnglish(row,kind,d.description),d.description,{kind,row,edition:ed}):`<p class="mmrr-description"${descriptionAttributes(row,kind,d.description)}>${esc(d.description)}</p>`):''}${profileMarkup(d.profiles,d.edition||ed,!!row.is_custom)}${extra?`<details class="mmrr-more" ${d.description?'':'open'}><summary>추가 수치·조건</summary>${extra}</details>`:''}${partial}${status}${d.sourceLabel?`<p class="mmrr-source">${esc(d.sourceLabel)}</p>`:''}`;
   }
   function editable(node){return node?.matches?.('input:not([type=hidden]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable=true]');}
   function safeFocus(node){if(node?.isConnected&&!editable(node)&&!node.closest('[inert],[hidden]'))node.focus({preventScroll:true});}
   function close(){
-    if(!overlay)return;overlay.remove();overlay=null;libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
+    if(!overlay)return;nestedStack.length=0;overlay.remove();overlay=null;libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
     for(const item of inertStates){if(!item.node.isConnected)continue;if(!item.inert)item.node.removeAttribute('inert');if(item.aria==null)item.node.removeAttribute('aria-hidden');else item.node.setAttribute('aria-hidden',item.aria);}inertStates=[];
     document.body.style.overflow=previousOverflow;safeFocus(restoreFocus);restoreFocus=null;
   }
@@ -152,10 +155,11 @@
       overlay=document.createElement('div');overlay.className='mmrr-overlay';document.body.append(overlay);document.body.style.overflow='hidden';
     }
     overlay.innerHTML=`<section class="mmrr-dialog" role="dialog" aria-modal="true" aria-labelledby="mmrr-title"><header><h2 id="mmrr-title">${esc(name)}</h2><button type="button" data-mmrr-close aria-label="규칙 닫기">×</button></header><div class="mmrr-body">${body}</div><footer><button class="btn" type="button" data-mmrr-close>닫기</button></footer></section>`;
+    if(nestedStack.length)overlay.querySelector('.mmrr-body').insertAdjacentHTML('afterbegin','<button type="button" class="btn small mmrr-nested-back" data-mmrr-nested-back data-i18n-en="← Previous explanation" data-i18n-ko="← 이전 설명">← Previous explanation</button>');
     safeFocus(overlay.querySelector('[data-mmrr-close]'));
   }
   function openContext(name,body,options={}){
-    libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
+    pushNested(options);libraryState=null;libraryReturn=null;detailContext=null;traitReturn=null;
     shell(name,body,options.activator);
     overlay.querySelector('.mmrr-dialog').classList.add('uk-context-help');
     const heading=overlay.querySelector('#mmrr-title');
@@ -166,7 +170,7 @@
   function open(kind,query,options={}){
     if(typeof kind==='object'){options=query||{};query=kind;kind=options.kind||'skills';}
     kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return window.MMOfficialSource?.showPending({activator:options.activator})||false;if(!row.source_verified&&!row.is_custom)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
-    libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);localizeTitle(overlay.querySelector('#mmrr-title'),row);window.UKI18n?.refresh(overlay);return true;
+    pushNested(options);libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);localizeTitle(overlay.querySelector('#mmrr-title'),row);window.UKI18n?.refresh(overlay);return true;
   }
   function openTrait(token,options={}){
     token=String(token??'').trim();if(!token||emptyTrait(token))return false;
@@ -232,6 +236,7 @@
   }
   function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;decorate();});}
   window.addEventListener('click',event=>{
+    if(event.target.closest?.('[data-mmrr-nested-back]')){event.preventDefault();event.stopImmediatePropagation();return back();}
     const vehicleRule=event.target.closest?.('[data-mmrr-vehicle-rule]');if(vehicleRule){event.preventDefault();event.stopImmediatePropagation();return openVehicleRule(vehicleRule.dataset.mmrrVehicleRule,{edition:vehicleRule.dataset.mmrrEdition,activator:vehicleRule});}
     const traitButton=event.target.closest?.('[data-mmrr-trait]');if(traitButton){event.preventDefault();event.stopImmediatePropagation();return openTrait(traitButton.dataset.mmrrTrait,{edition:traitButton.dataset.mmrrEdition,activator:traitButton});}
     const traitBack=event.target.closest?.('[data-mmrr-trait-back]');if(traitBack){event.preventDefault();event.stopImmediatePropagation();return backFromTrait();}
@@ -240,14 +245,14 @@
     if(button){event.preventDefault();event.stopImmediatePropagation();if(button.hasAttribute('data-mmrr-close'))return close();if(button.hasAttribute('data-mmrr-back'))return library(libraryReturn||{});if(button.hasAttribute('data-mmrr-library'))return library({activator:button});if(button.hasAttribute('data-mmrr-result')){const s=libraryState;if(s)return open(s.kind,button.dataset.mmrrResult,{edition:s.edition,libraryReturn:{...s}});return;}const bound=bindings.get(button);if(bound)return open(bound.kind,bound.row,{edition:bound.edition,activator:button});}
     if(overlay&&event.target===overlay){event.preventDefault();event.stopImmediatePropagation();close();}
   },true);
-  window.addEventListener('popstate',event=>{if(!overlay)return;event.stopImmediatePropagation();const navigation=restoreNavigation;close();restoreNavigation=null;if(navigation&&location.href!==navigation.url)history.pushState(navigation.state,'',navigation.url);},true);
+  window.addEventListener('popstate',event=>{if(!overlay)return;event.stopImmediatePropagation();const navigation=restoreNavigation;if(nestedStack.length){back();if(navigation&&location.href!==navigation.url)history.pushState(navigation.state,'',navigation.url);return;}close();restoreNavigation=null;if(navigation&&location.href!==navigation.url)history.pushState(navigation.state,'',navigation.url);},true);
   window.addEventListener('keydown',event=>{
-    if(!overlay)return;if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();close();return;}
+    if(!overlay)return;if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();if(nestedStack.length)back();else close();return;}
     if(event.key==='Tab'){const nodes=[...overlay.querySelectorAll('button,input,select,a[href]')].filter(node=>!node.disabled&&!node.hidden),first=nodes[0],last=nodes.at(-1);if(!overlay.contains(document.activeElement)||event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}}
   },true);
   document.addEventListener('change',event=>{if(libraryState&&event.target.matches('[data-mmrr-edition],[data-mmrr-kind]')){libraryState[event.target.matches('[data-mmrr-edition]')?'edition':'kind']=event.target.value;drawLibrary();}else schedule();});
   document.addEventListener('input',event=>{if(libraryState&&event.target.matches('[data-mmrr-search]')){libraryState.query=event.target.value;drawLibrary();}});
   new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
-  window.MMRuleReference={lookup,open,openContext,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait,vehicleRuleMarkup,vehicleRuleLookup,openVehicleRule};
+  window.MMRuleReference={back,lookup,open,openContext,details,library,close,currentEdition,refresh:decorate,traitMarkup,traitTokens,traitLookup,openTrait,vehicleRuleMarkup,vehicleRuleLookup,openVehicleRule};
   decorate();
 })();
