@@ -1,2 +1,15 @@
 .equipment-usage{margin:12px 0;padding:12px 14px;border:1px solid var(--line,#444);border-left:3px solid #999;border-radius:5px;background:var(--panel2,#222);font-size:13px;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}.equipment-usage strong{display:block;font-size:14px}.equipment-usage p{margin:7px 0;font-size:13px;font-weight:400;color:var(--text,#eee)}.equipment-usage-more{display:block;min-height:40px;padding:5px 0;border:0;background:transparent;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer;text-align:left}.equipment-profile-scope{display:inline-block;font-size:11px;font-weight:400;border:1px solid var(--line,#555);border-radius:3px;padding:2px 5px;margin-left:5px;color:var(--muted,#bbb)}.equipment-usage-detail{word-break:keep-all;overflow-wrap:anywhere}.equipment-usage-detail>dl{margin:0}.equipment-usage-detail>dl>div{padding:14px 0;border-top:1px solid var(--line,#444)}.equipment-usage-detail dt{font-weight:700;margin-bottom:7px}.equipment-usage-detail dd{margin:0}.equipment-usage-rules{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.equipment-usage-rules button{min-height:40px;white-space:normal}.equipment-set-timing{padding:12px;border:1px solid var(--line,#444);border-radius:5px;font-size:13px;line-height:1.75}html.uk-ui .equipment-usage-detail .mmrr-description{font-size:15px;line-height:1.85}html.uk-ui[data-ui-language=en] .equipment-usage-detail .mmrr-description{font-size:14px;line-height:1.8}
 html.uk-ui .fp-buy-profile-name .equipment-profile-scope{width:max-content;max-width:100%;margin-left:0;margin-top:5px}
+
+/* In play, show weapon values first and keep teaching copy behind one concise row. */
+html.uk-ui details.equipment-usage{margin:8px 0 12px;padding:0;border:1px solid var(--line,#444);border-left-width:1px;background:transparent;font-size:13px;line-height:1.6}
+.equipment-usage>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:10px 12px;box-sizing:border-box;list-style:none;cursor:pointer;touch-action:manipulation}
+.equipment-usage>summary::-webkit-details-marker{display:none}.equipment-usage-quick{min-width:0;font-size:12px;line-height:1.6;font-weight:500;color:var(--text,#eee)}
+.equipment-usage-toggle{display:inline-flex;align-items:center;gap:8px;flex:none;font-size:11px;color:var(--muted,#aaa);white-space:nowrap}
+.equipment-usage-chevron{width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-3px}
+.equipment-usage[open] .equipment-usage-chevron{transform:rotate(225deg);margin-top:3px}
+.equipment-usage[open]>summary{border-bottom:1px solid var(--line,#444);background:var(--panel2,#222)}
+.equipment-usage-body{padding:12px 14px;background:var(--panel2,#222)}
+.equipment-usage>summary:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
+html.uk-ui .pm-page .equipment-usage{margin-top:10px;margin-bottom:0}
+@media(max-width:600px){.equipment-usage>summary{gap:8px;padding:9px 10px}.equipment-usage-body{padding:12px}.equipment-usage-quick{font-size:12px}}
