@@ -85,14 +85,15 @@
   }
   function manualSell(g,item,remove){
     if(!g||!item||typeof remove!=='function')return false;
-    return manualForm('sale','Record sale manually','판매 직접 기록',`<p class="wide" data-user-text>${escape(item.name)}</p>`+input('value','Agreed sale amount','합의한 판매 금액','','number','min="0" step="1" required'),values=>{
+    return manualForm('sale','Record sale manually','판매 직접 기록',`<p class="wide" data-user-text>${escape(item.name)}</p>`+input('value','Agreed sale amount','합의한 판매 금액',item.cost!=null&&Number.isSafeInteger(Number(item.cost))&&Number(item.cost)>=0?Number(item.cost):'','number','min="0" step="1" required'),values=>{
       if(!integer(values.value)||Number(values.value)<0)return reject('Enter a non-negative whole sale amount.','판매 금액을 0 이상의 정수로 입력하세요.');
       const amount=Number(values.value);if(!validTotal(g.credits,amount))return reject('The credit total must remain a non-negative safe whole number.','크레딧 합계는 0 이상의 안전한 정수여야 합니다.');remove();g.credits=(Number(g.credits)||0)+amount;
       return persist(g,`${item.name}: ${amount} credits (manual sale)`);
     });
   }
-  function manualGang(g){
-    return manualForm('gang',g?'Edit manual gang record':'Create manual gang record',g?'갱 직접 기록 수정':'갱 직접 기록 생성',input('name','Gang name','갱 이름',g?.name||'','text','required')+input('faction','Recorded gang type','기록할 갱 유형',g?.faction||'')+choose('edition','Edition label','판본 표시',['N23','N26','Custom'],g?.edition||data.edition||'N26')+input('alignment','Recorded alignment','기록할 성향',g?.alignment||'')+input('credits','Credits','크레딧',g?.credits??0,'number','min="0" step="1" required')+input('reputation','Reputation','명성',g?.reputation??0,'number','min="0" step="1" required')+notes('notes','Notes','메모',g?.notes||''),values=>{
+  function manualGang(g,draft={}){
+    const initial=g||draft,setup=window.MMFinancials?.creationDefaults(initial.edition||data.edition)||{startingCredits:1000,startingReputation:1};
+    return manualForm('gang',g?'Edit manual gang record':'Create manual gang record',g?'갱 직접 기록 수정':'갱 직접 기록 생성',input('name','Gang name','갱 이름',initial.name||'','text','required')+input('faction','Recorded gang type','기록할 갱 유형',initial.faction||'')+choose('edition','Edition label','판본 표시',['N23','N26','Custom'],initial.edition||data.edition||'N26')+input('alignment','Recorded alignment','기록할 성향',initial.alignment||'')+input('credits','Credits','크레딧',initial.credits??setup.startingCredits,'number','min="0" step="1" required')+input('reputation','Reputation','명성',initial.reputation??setup.startingReputation,'number','min="0" step="1" required')+notes('notes','Notes','메모',initial.notes||''),values=>{
       if(!String(values.name||'').trim())return reject('Enter a gang name.','갱 이름을 입력하세요.');
       if(!integer(values.credits)||!integer(values.reputation)||Number(values.credits)<0||Number(values.reputation)<0)return reject('Enter non-negative whole totals.','합계는 0 이상의 정수로 입력하세요.');
       const changed={name:String(values.name).trim(),faction:values.faction||'Custom',edition:values.edition,alignment:values.alignment,credits:Number(values.credits),reputation:Number(values.reputation),notes:values.notes};
@@ -151,7 +152,7 @@
     addInjury=function(f,...args){return can('injuries',gang()?.edition)?originalInjury(f,...args):manualInjury(f,...args);};
     postCycle=function(...args){return can('post_cycle')?originalCycle(...args):manualCycle();};
     editGang=function(g,...args){return can('gang_catalog',g?.edition||data.edition)?originalGang(g,...args):manualGang(g);};
-    editCampaign=function(c,...args){return can('campaign_catalog',c?.edition||data.edition)?originalCampaign(c,...args):manualCampaign(c);};if(typeof sellItem==='function')sellItem=manualSell;
+    editCampaign=function(c,...args){const edition=c?.edition||data.edition,hasVerifiedCatalog=(window.RULES_DATA?.campaignTypes||[]).some(row=>row.source_verified===true&&String(row.edition_slug||row.edition||'').toLowerCase()===String(edition||'').toLowerCase());return can('campaign_catalog',edition)||hasVerifiedCatalog?originalCampaign(c,...args):manualCampaign(c);};if(typeof sellItem==='function')sellItem=manualSell;
     const previousFighter=editFighter;editFighter=function(f,...args){if(!f&&!can('recruitment'))return manualFighter();return previousFighter.call(this,f,...args);};
     if(typeof cpSessionXp==='function')cpSessionXp=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return can('xp',g?.edition)?originalXp(f,{gang:g,row,sessionId:s.id}):manualXp(f,{gang:g,row,sessionId:s.id});};
     if(typeof cpSessionInjury==='function')cpSessionInjury=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return can('injuries',g?.edition)?originalInjury(f,{gang:g,row,sessionId:s.id}):manualInjury(f,{gang:g,row,sessionId:s.id});};
@@ -162,6 +163,6 @@
     const target=event.target.closest?.('[data-official-blocked],[data-official-source-info],button[data-official-manual]');if(!target)return;
     event.preventDefault();event.stopImmediatePropagation();if(target.dataset.officialManual==='cycle')manualCycle();else if(target.dataset.officialManual==='fighter')manualFighter();else showPending({activator:target});
   },true);
-  window.MMOfficialSource={get pending(){return pending();},can,currentEdition,showPending,manualXp,manualAdvancement,manualInjury,manualCycle,manualSell,refresh,init};
+  window.MMOfficialSource={get pending(){return pending();},can,currentEdition,showPending,manualXp,manualAdvancement,manualInjury,manualCycle,manualSell,manualGang,refresh,init};
   init();
 })();

@@ -26,7 +26,7 @@
     return Math.max(0,bands.filter(n=>n<=Number(f.xp||0)).length-bands.filter(n=>n<=Number(f.startingXp||0)).length-(f.advancements||[]).filter(row=>!row.source_exempt).length);
   }
   function xpDisplay(f,g=gang()){
-    if(noXp(f,g))return 'N/A';const current=Number(f?.xp)||0,next=rule('xp-bands',ed(g))?.thresholds?.find(value=>value>current);return String(current)+(next?'/'+next:'');
+    const current=Number(f?.xp)||0;if(noXp(f,g)&&current===0)return 'N/A';const bands=rule('xp-bands',ed(g))?.thresholds,next=bands?.find(value=>value>current);return String(current)+(Array.isArray(bands)?'/'+(next??'–'):'');
   }
   function xp(f,context={}){
     if(!f)return window.MMOfficialSource?.showPending();

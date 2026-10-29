@@ -32,10 +32,17 @@
   }
   function matchesEdition(row,kind,expected){const actual=rowEdition(row,kind);return !expected||!actual||actual===expected;}
   function lookup(kind,query,options={}){
-    kind=kindOf(kind);const expected=edition(options.edition||currentEdition()),all=rows(kind),list=all.filter(row=>matchesEdition(row,kind,expected));
+    kind=kindOf(kind);const expected=edition(options.edition||currentEdition());
     if(query==null)return null;
     const supplied=typeof query==='object'?query:null;
     if(supplied&&!matchesEdition(supplied,kind,expected))return null;
+    const all=rows(kind);
+    // Named fighter rules belong to an exact model type, never a same-name rule from another type/edition.
+    if(kind==='specialRules'&&supplied?.fighterTypeId){
+      const owner=rows('fighterTypes').find(row=>row.id===supplied.fighterTypeId&&row.source_verified&&!row.is_custom&&matchesEdition(row,'fighterTypes',expected));
+      if(owner)for(const [index,row]of (owner.special_rules_details||[]).entries())all.push({...copy(row),id:row.id||owner.id+':special-rule:'+index,fighterTypeId:owner.id,edition_slug:rowEdition(owner,'fighterTypes'),source_verified:true});
+    }
+    const list=all.filter(row=>matchesEdition(row,kind,expected));
     const ids=supplied?[supplied.customAssetId,supplied.catalogId,supplied.cardId,supplied.skillId,supplied.territoryId,supplied.fighterTypeId,supplied.catalogTypeId,supplied.presetId,supplied.tactics_cards_id,supplied.id].filter(Boolean):[String(query)];
     let found=null;for(const id of ids){const exact=all.find(row=>String(row.id)===String(id));if(exact&&!matchesEdition(exact,kind,expected))return null;found=list.find(row=>String(row.id)===String(id));if(found)break;}
     // A name is a fallback only when it identifies a single rule in this edition.
@@ -43,7 +50,7 @@
     if(supplied){
       const hasOwn=String(supplied.description||supplied.effect||'').trim();
       if(found){const merged={...found};if(supplied.descriptionOverride===true||supplied.reference_description_cleared===true){merged.description=supplied.description??supplied.notes??'';merged.effect='';merged.rule_data=supplied.rule_data??{};merged.reference_custom_description=true;merged.reference_description_cleared=!String(merged.description).trim()&&!Object.keys(merged.rule_data||{}).length;}else if(hasOwn){merged.description=supplied.description||supplied.effect;if(supplied.reference_custom_description||supplied.is_custom||merged.description!==found.description)merged.reference_custom_description=true;}if(supplied.name)merged.name=supplied.name;return copy(merged);}
-      if(hasOwn&&title(supplied))return copy({...supplied,is_custom:true});
+      if((hasOwn||kind==='specialRules'&&(Object.keys(supplied.rule_data||{}).length||supplied.descriptionOverride||supplied.reference_description_cleared))&&title(supplied))return copy({...supplied,is_custom:true,reference_description_cleared:!!supplied.reference_description_cleared||supplied.descriptionOverride===true&&!hasOwn&&!Object.keys(supplied.rule_data||{}).length});
     }
     return found?copy(found):null;
   }
@@ -113,7 +120,7 @@
     const extra=d.ruleData?structured(d.ruleData):'';
     const partial=kind==='territories'&&!d.custom&&d.definitionStatus==='available'&&row.reference_coverage?.status==='partial'?'<div class="mmrr-definition-status mmrr-partial-status" data-mmrr-coverage="partial" role="note"><strong data-i18n-ko="일부 규칙만 확인됨">Partially verified rules</strong><p data-i18n-ko="확인된 내용만 표시합니다. 이 영토의 추가 혜택과 전투 효과가 모두 확인된 것은 아닙니다.">Only verified details are shown. Not all additional benefits and battlefield effects of this territory have been verified.</p></div>':'';
     const status=d.definitionStatus==='missing'?'<div class="mmrr-definition-status" data-mmrr-definition-status="missing" role="status"><strong data-i18n-ko="설명 미등록">Description unavailable</strong><p data-i18n-ko="이 판본에 확인된 규칙 설명이 아직 등록되어 있지 않습니다.">A verified rule description has not been added for this edition.</p></div>':d.definitionStatus==='cleared'?'<p class="mmrr-empty" data-mmrr-definition-status="cleared" data-i18n-ko="이 항목의 사용자 설명을 비웠습니다.">The custom description for this item was cleared.</p>':'';
-    return `<div class="mmrr-heading"><span class="mmrr-badge">${esc((d.edition||ed).toUpperCase())}</span>${kinds[kind]?`<span>${esc(kinds[kind])}</span>`:''}</div>${d.nameKo?`<h3 class="mmrr-korean-name">${esc(d.nameKo)}</h3>`:''}${d.description?`<p class="mmrr-description">${esc(d.description)}</p>`:''}${profileMarkup(d.profiles,d.edition||ed)}${extra?`<details class="mmrr-more" ${d.description?'':'open'}><summary>추가 수치·조건</summary>${extra}</details>`:''}${partial}${status}${d.sourceLabel?`<p class="mmrr-source">${esc(d.sourceLabel)}</p>`:''}`;
+    return `<div class="mmrr-heading"><span class="mmrr-badge">${esc((d.edition||ed).toUpperCase())}</span>${kinds[kind]?`<span>${esc(kinds[kind])}</span>`:''}</div>${d.nameKo?`<h3 class="mmrr-korean-name">${esc(d.nameKo)}</h3>`:''}${d.description?kind==='specialRules'?(!d.custom?`<p class="mmrr-description" data-i18n-ko="${esc(d.description)}">${esc(row.description_en||d.description)}</p>`:`<p class="mmrr-description" data-user-text>${esc(d.description)}</p>`):`<p class="mmrr-description">${esc(d.description)}</p>`:''}${profileMarkup(d.profiles,d.edition||ed)}${extra?`<details class="mmrr-more" ${d.description?'':'open'}><summary>추가 수치·조건</summary>${extra}</details>`:''}${partial}${status}${d.sourceLabel?`<p class="mmrr-source">${esc(d.sourceLabel)}</p>`:''}`;
   }
   function editable(node){return node?.matches?.('input:not([type=hidden]):not([type=checkbox]):not([type=radio]),textarea,select,[contenteditable=true]');}
   function safeFocus(node){if(node?.isConnected&&!editable(node)&&!node.closest('[inert],[hidden]'))node.focus({preventScroll:true});}
@@ -143,7 +150,7 @@
   function open(kind,query,options={}){
     if(typeof kind==='object'){options=query||{};query=kind;kind=options.kind||'skills';}
     kind=kindOf(kind);const ed=edition(options.edition||currentEdition()),row=lookup(kind,query,{edition:ed});if(!row)return window.MMOfficialSource?.showPending({activator:options.activator})||false;if(!row.source_verified&&!row.is_custom)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
-    libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);return true;
+    libraryReturn=options.libraryReturn?{...options.libraryReturn}:null;libraryState=null;traitReturn=null;detailContext={kind,row:copy(row),edition:ed,libraryReturn:libraryReturn?{...libraryReturn}:null};shell(title(row),(libraryReturn?'<button type="button" class="btn small mmrr-back" data-mmrr-back>← 규칙 목록</button>':'')+detailMarkup(row,kind,ed),options.activator);if(kind==='specialRules'){if(row.name_ko&&!row.reference_custom_description&&!row.is_custom)overlay.querySelector('#mmrr-title').dataset.i18nKo=row.name_ko;window.UKI18n?.refresh(overlay);}return true;
   }
   function openTrait(token,options={}){
     token=String(token??'').trim();if(!token||emptyTrait(token))return false;

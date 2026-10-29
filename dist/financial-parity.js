@@ -4,6 +4,16 @@
 const num=value=>{const n=Number(value);return Number.isFinite(n)?n:0};
 const flag=value=>value===true||value==='true';
 const editionOf=g=>String(g?.edition||g?.edition_slug||'N23').toUpperCase();
+// Defaults come from the verified record for the selected edition, never another edition.
+function defaults(gOrEdition){
+ const ed=String(typeof gOrEdition==='string'?gOrEdition:gOrEdition?.edition||gOrEdition?.edition_slug||'').toLowerCase();
+ const rule=key=>(globalThis.RULES_DATA?.coreRules||[]).find(row=>row.source_verified&&String(row.edition_slug||row.edition).toLowerCase()===ed&&row.id===ed+'-core-'+key)?.rule_data;
+ const budget=rule('gang-budget'),finances=rule('gang-finances'),whole=value=>Number.isSafeInteger(value)&&value>=0;
+ return {startingCredits:whole(budget?.default_starting_credits)?budget.default_starting_credits:null,startingReputation:whole(finances?.starting_reputation)?finances.starting_reputation:null,minimumReputation:whole(finances?.minimum_reputation)?finances.minimum_reputation:0};
+}
+// The original application's generic create form uses 1000 credits and reputation 1.
+// These editable UI defaults do not enable an unverified edition's rule tables.
+function creationDefaults(gOrEdition){const verified=defaults(gOrEdition);return {startingCredits:verified.startingCredits??1000,startingReputation:verified.startingReputation??1};}
 const active=f=>!!f&&!['Dead','Retired','Enslaved','Captured','Destroyed'].includes(f.status)&&!flag(f.killed)&&!flag(f.retired)&&!flag(f.enslaved)&&!flag(f.captured)&&!flag(f.destroyed);
 const qty=x=>Math.max(1,num(x.quantity)||1);
 const itemValue=x=>Math.max(0,num(x.ratingCost??x.cost??x.purchaseCost??x.purchase_cost))*qty(x);
@@ -17,7 +27,7 @@ function allianceTithe(g){const key=g?.allianceId||g?.alliance_id;if(!key)return
 function stashValue(g){return itemsValue(g?.stash);}
 function unassignedVehiclesValue(g){if(editionOf(g)!=='N23')return 0;return allVehicles(g).filter(v=>active(v)&&!(g?.fighters||[]).some(f=>f.id===crewId(v,g))).reduce((sum,v)=>sum+vehicleValue(v),0);}
 function gangSize(g){return (g?.fighters||[]).filter(active).length;}
-function ratingFor(g){return (g?.fighters||[]).filter(f=>editionOf(g)==='N26'&&(globalThis.RULES_DATA?.coreRules||[]).some(row=>row.source_verified&&row.id==='n26-core-gang-finances'&&row.rule_data?.gang_rating_all_roster_models)?true:active(f)).reduce((sum,f)=>sum+fighterValue(g,f),0)+allianceTithe(g);}
+function ratingFor(g){return (g?.fighters||[]).filter(active).reduce((sum,f)=>sum+fighterValue(g,f),0)+allianceTithe(g);}
 function wealthFor(g){return ratingFor(g)+Math.max(0,num(g?.credits))+stashValue(g)+unassignedVehiclesValue(g);}
 function wealthRows(g){return [{label:'Gang Rating',value:ratingFor(g)},{label:'Credits',value:Math.max(0,num(g?.credits))},{label:'Stash',value:stashValue(g)},...(editionOf(g)==='N23'?[{label:'Vehicles (without crew)',value:unassignedVehiclesValue(g)}]:[])];}
 function subtypeLabels(f){const labels=f.subtypes||f.fighter_subtypes||(f.subtype?[f.subtype]:f.type?[f.type]:[]);return Array.isArray(labels)?labels.map(String):[];}
@@ -44,6 +54,6 @@ document.addEventListener('focusout',event=>{if(event.target.matches('[data-fina
 window.addEventListener('keydown',event=>{if(event.key==='Escape'&&anchor){event.preventDefault();event.stopImmediatePropagation();closeBreakdown();}},true);
 window.addEventListener('resize',closeBreakdown);window.addEventListener('scroll',event=>{if(!event.target?.closest?.('.fin-popover'))closeBreakdown();},true);
 const previousRenderFinance=render;render=function(){closeBreakdown();previousRenderFinance();};
-window.MMFinancials={rating:ratingFor,wealth:wealthFor,fighterValue,vehicleValue,stashValue,unassignedVehiclesValue,allianceTithe,gangSize,compositionRows,wealthRows,active,crewId};
+window.MMFinancials={defaults,creationDefaults,rating:ratingFor,wealth:wealthFor,fighterValue,vehicleValue,stashValue,unassignedVehiclesValue,allianceTithe,gangSize,compositionRows,wealthRows,active,crewId};
 render();
 })();
