@@ -8,3 +8,15 @@
 .pm-collapsible[open]>summary::after{transform:rotate(225deg)}.pm-collapsible>summary small{font-size:12px;font-weight:400;color:var(--pm-muted)}
 .pm-section-body{padding-bottom:3px}.pm-section-body>.pm-rule-entry:first-child{padding-top:0}.pm-weapons>h3{margin-bottom:0}
 @media(prefers-reduced-motion:reduce){.pm-collapsible>summary::after{transition:none}}
+
+/* Battle view starts expanded: compact spacing keeps the visible reference scannable. */
+html.uk-ui .pm-page .pm-section{margin-top:12px;padding-top:12px}
+html.uk-ui .pm-page .pm-collapsible{padding-top:0}
+html.uk-ui .pm-page .pm-collapsible>summary{min-height:44px;padding:10px 0}
+html.uk-ui .pm-page .pm-rule-entry{padding:8px 0}
+html.uk-ui .pm-page .pm-rule-entry .mmrr-description{margin-top:3px;line-height:1.75}
+html.uk-ui .pm-page .pm-empty{margin:3px 0 6px}
+html.uk-ui .pm-page .pm-equipment{padding:10px 0}
+html.uk-ui .pm-page .pm-equipment .fp-buy-profiles{margin-top:7px}
+html.uk-ui .pm-page .pm-unit-head{margin-bottom:12px}
+html.uk-ui .pm-page .pm-loadout{margin:7px 0 10px}

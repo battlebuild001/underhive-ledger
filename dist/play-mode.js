@@ -42,7 +42,7 @@ function equipmentBlock(item,g){
  return `<section class="pm-equipment"><button type="button" class="pm-rule-title" data-play-ref="${key}" aria-haspopup="dialog">${title(row||{...item,is_custom:true})}</button>${body||prose(row||{...item,is_custom:true},'equipment',g)}</section>`;
 }
 function fold(f,key,en,ko,count,body){
- const opened=active?.sections?.get(JSON.stringify([f.id,key]))===true;
+ const opened=active?.sections?.get(JSON.stringify([f.id,key]))!==false;
  return `<details class="pm-section pm-collapsible" data-play-section="${E(key)}"${opened?' open':''}><summary>${L(en,ko)} <small>${count}</small></summary><div class="pm-section-body">${body}</div></details>`;
 }
 function card(f,g){
@@ -58,8 +58,8 @@ function card(f,g){
 }
 function page(g){
  bindings=new Map();const faction=window.MMVerifiedRules?.gangType(g),fighters=(g.fighters||[]).filter(f=>!f.beastEquipmentStashed&&!f.beast_equipment_stashed),order=g.fighterOrder||[];fighters.sort((a,b)=>{const ai=order.indexOf(a.id),bi=order.indexOf(b.id);return (ai<0?order.length:ai)-(bi<0?order.length:bi);});
- return `<section class="pm-page"><header class="pm-toolbar"><div><p class="pm-eyebrow">${L('PLAY MODE','플레이 모드')} · ${E(String(g.edition||'').toUpperCase())}</p><h1 data-user-text>${E(g.name)}</h1><p>${L('Names, stats, skills and unit rules on one card.','이름·스탯·스킬·유닛 룰을 한 카드에서 확인하세요.')}</p></div><div class="pm-tools"><button type="button" class="btn" data-play-mode="faction">${L('Faction rules','팩션 룰')}</button><button type="button" class="btn primary" data-play-mode="exit">${L('Exit play mode','플레이 모드 종료')}</button></div></header>
- ${faction?.description?`<details class="pm-faction"><summary>${L('Shared faction rules','공통 팩션 룰')}</summary>${prose(faction,'gangTypes',g)}</details>`:''}
+ return `<section class="pm-page"><header class="pm-toolbar"><div><p class="pm-eyebrow">${L('PLAY MODE','플레이 모드')} · ${E(String(g.edition||'').toUpperCase())}</p><h1 data-user-text>${E(g.name)}</h1><p>${L('Stats, equipment, skills and rules are expanded and ready to read.','스탯·무장·스킬·유닛 룰·클래스 룰을 펼쳐서 바로 확인하세요.')}</p></div><div class="pm-tools"><button type="button" class="btn" data-play-mode="faction">${L('Faction rules','팩션 룰')}</button><button type="button" class="btn primary" data-play-mode="exit">${L('Exit play mode','플레이 모드 종료')}</button></div></header>
+ ${faction?.description?`<details class="pm-faction" open><summary>${L('Shared faction rules','공통 팩션 룰')}</summary>${prose(faction,'gangTypes',g)}</details>`:''}
  <div class="pm-filter"><label>${L('Find a unit','유닛 찾기')}<input type="search" data-play-search-input value="${E(active.query)}" placeholder="Name, type or skill" data-i18n-en-placeholder="Name, type or skill" data-i18n-ko-placeholder="이름·유형·스킬 검색" autocomplete="off"></label><output aria-live="polite"><strong data-play-count>${fighters.length}</strong> / ${fighters.length}</output><button type="button" class="btn small" data-play-mode="clear" hidden>${L('Clear search','검색 초기화')}</button></div>
  <div class="pm-units">${fighters.map(f=>card(f,g)).join('')}</div><p class="pm-no-results" hidden>${L('No units match this search.','검색에 맞는 유닛이 없습니다.')}</p>${!fighters.length?`<div class="pm-empty-roster">${L('No units have been added to this gang yet. Exit play mode to build the roster.','이 갱에는 아직 유닛이 없습니다. 플레이 모드를 종료한 뒤 명단을 구성하세요.')}</div>`:''}</section>`;
 }
