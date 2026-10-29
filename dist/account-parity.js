@@ -61,6 +61,7 @@ async function refreshAccount(){if(!account)return;const epoch=authEpoch,owner=a
 async function boot({migrateGuest=guestMigrationAllowed??true}={}){
  const request=++bootRequest,epoch=authEpoch,isCurrent=()=>request===bootRequest&&epoch===authEpoch;authPending=true;
  try{
+  await window.__accountResetReady;if(!isCurrent())return false;
   const current=await api('/account');if(!isCurrent())return false;
   if(account?.id&&account.id!==current.profile.id)uploadCache.clear();account=current.profile;if(current.auth)authMeta=current.auth;
   const [cloud,session]=await Promise.all([api('/document'),api('/auth/session').catch(()=>null)]);if(!isCurrent())return false;
