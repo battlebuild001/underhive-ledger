@@ -9,7 +9,7 @@
 .pm-section-body{padding-bottom:3px}.pm-section-body>.pm-rule-entry:first-child{padding-top:0}.pm-weapons>h3{margin-bottom:0}
 @media(prefers-reduced-motion:reduce){.pm-collapsible>summary::after{transition:none}}
 
-/* Battle view starts expanded: compact spacing keeps the visible reference scannable. */
+/* Compact spacing keeps open reference sections scannable. */
 html.uk-ui .pm-page .pm-section{margin-top:12px;padding-top:12px}
 html.uk-ui .pm-page .pm-collapsible{padding-top:0}
 html.uk-ui .pm-page .pm-collapsible>summary{min-height:44px;padding:10px 0}
