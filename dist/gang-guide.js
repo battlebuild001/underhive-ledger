@@ -49,10 +49,10 @@ function factionRules(g){
 }
 function factionExplanation(detail){
  if(!detail)return '';
- const sections=[['when','When it applies','언제 적용하나'],['example','Worked example','계산·상황 예시'],['limit','Common misunderstandings','헷갈리기 쉬운 점']];
  const links=(detail.rules||[]).map(id=>(R().coreRules||[]).find(r=>r.id===id&&verified(r))).filter(Boolean);
- return `<div class="gg-rule-explanation">${sections.map(([key,en,ko])=>`<section class="gg-rule-${key}"><h5>${L(en,ko)}</h5>${P(...detail[key])}</section>`).join('')}${links.length?`<nav class="gg-example-links" aria-label="Related rules" data-i18n-en-aria-label="Related rules" data-i18n-ko-aria-label="관련 판정 규칙">${L('Related rules','관련 판정 규칙','strong')}${links.map(r=>ref('coreRules',r)).join('')}</nav>`:''}</div>`;
+ return `<div class="gg-rule-explanation"><details class="gg-rule-fold" data-guide-fold="explanation"><summary>${L('Explanation & conditions','설명·적용 조건')}</summary><div class="gg-rule-fold-content"><section class="gg-rule-when"><h5>${L('When it applies','언제 적용하나')}</h5>${P(...detail.when)}</section><section class="gg-rule-limit"><h5>${L('Common misunderstandings','헷갈리기 쉬운 점')}</h5>${P(...detail.limit)}</section>${links.length?`<nav class="gg-example-links" aria-label="Related rules" data-i18n-en-aria-label="Related rules" data-i18n-ko-aria-label="관련 판정 규칙">${L('Related rules','관련 판정 규칙','strong')}${links.map(r=>ref('coreRules',r)).join('')}</nav>`:''}</div></details><details class="gg-rule-fold" data-guide-fold="example"><summary>${L('Worked example','계산·상황 예시')}</summary><div class="gg-rule-fold-content"><section class="gg-rule-example">${P(...detail.example)}</section></div></details></div>`;
 }
+
 function factionDetail(type,row){
  const data=window.MMFactionRuleExamples;
  if(!data)return null;

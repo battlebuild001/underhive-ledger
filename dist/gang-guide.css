@@ -10,17 +10,24 @@ html.uk-ui .gg-dialog .gg-reading-head h3,html.uk-ui .gg-dialog .gg-rule-summary
 html.uk-ui .gg-dialog :is(.gg-reading-story,.gg-rule-card) h4{font-size:17px;margin:0 0 12px}
 @media(max-width:600px){html.uk-ui .gg-dialog .gg-reading-head h3,html.uk-ui .gg-dialog .gg-rule-summary h3{font-size:21px}}
 
-/* Expanded worked examples stay visible in both guide entry points. */
-.gg-rule-explanation{display:grid;gap:18px;padding:18px;margin-top:18px;border:1px solid #383838;border-left:3px solid #8c8c8c;border-radius:5px;background:#202020;min-width:0}
+/* Keep rule summaries visible; open detailed conditions and examples only when needed. */
+.gg-rule-explanation{display:grid;gap:6px;margin-top:14px;min-width:0}
+.gg-rule-fold{min-width:0;border:1px solid #3b3b3b;border-radius:4px;background:transparent}
+.gg-rule-fold>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:9px 12px;list-style:none;cursor:pointer;font-size:13px;font-weight:500;line-height:1.6;color:#c9c9c9}
+.gg-rule-fold>summary::-webkit-details-marker{display:none}
+.gg-rule-fold>summary::after{content:'';width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-right:3px;margin-top:-3px}
+.gg-rule-fold[open]>summary::after{transform:rotate(225deg);margin-top:3px}
+.gg-rule-fold[open]>summary{background:#242424;border-bottom:1px solid #3b3b3b;color:#eee}
+.gg-rule-fold>summary:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
+.gg-rule-fold-content{display:grid;gap:16px;padding:14px;min-width:0}
 html.uk-ui .gg-dialog .gg-rule-explanation h5{font-size:13px;line-height:1.5;color:#bcbcbc;margin:0 0 6px;font-weight:600}
 html.uk-ui .gg-dialog .gg-rule-explanation .mmrr-description{margin:0;font-weight:400}
-.gg-rule-example{padding:14px;border-radius:4px;background:#2b2b2b}
-.gg-example-links{display:flex;flex-wrap:wrap;gap:8px 16px;border-top:1px solid #444;padding-top:14px;font-size:13px;line-height:1.7}
+.gg-example-links{display:flex;flex-wrap:wrap;gap:8px 16px;border-top:1px solid #444;padding-top:12px;font-size:13px;line-height:1.7}
 .gg-example-links>strong{flex-basis:100%;color:#bcbcbc;font-weight:500}
 .gg-example-links .gg-link{padding:5px 0;text-align:start;min-height:32px;max-width:100%}
 .gg-faction-extra{margin-bottom:16px}.gg-faction-extra>h4{font-size:17px;margin:16px 0 8px}
-html.light .gg-rule-explanation{background:#f4f4f4;border-color:#ccc;border-left-color:#777}
-html.light .gg-rule-example{background:#e8e8e8}
+html.light .gg-rule-fold,html.light .gg-rule-fold[open]>summary{border-color:#ccc}
+html.light .gg-rule-fold>summary{color:#444}html.light .gg-rule-fold[open]>summary{background:#eee;color:#111}
 html.light.uk-ui .gg-dialog .gg-rule-explanation h5,html.light .gg-example-links>strong{color:#555}
 html.light .gg-example-links{border-color:#ccc}
-@media(max-width:600px){.gg-rule-explanation{padding:12px;gap:16px;margin-top:14px}.gg-rule-example{padding:12px}.gg-example-links{gap:6px 12px}}
+@media(max-width:600px){.gg-rule-explanation{margin-top:12px}.gg-rule-fold-content{padding:12px;gap:14px}.gg-rule-fold>summary{padding:9px 10px}.gg-example-links{gap:6px 12px}}
