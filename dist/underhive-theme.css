@@ -1,0 +1,48 @@
+/* Restrained Underhive palette. Screen-only: typography, geometry and print remain inherited. */
+@media screen {
+ html.uk-ui:root,html.uk-ui:root[data-ui-language]{
+  --bg:#141a18;--panel:#101512;--panel2:#252c28;--line:#343d35;
+  --text:#eeeae1;--muted:#afb4aa;--accent:#c8aa73;
+  --uk-accent:#c8aa73;--uk-accent-soft:#2b3026;--uk-accent-ink:#eeeae1;
+  --uk-input:#252c28;--uk-input-line:#343d35;--uk-control-bg:#252c28;--uk-control-hover:#30382f;--input:#252c28;--ring:#c8aa73;
+  --uh-rust:#754c32;--uh-brass:#a98d5b;--uh-primary:#293026;--uh-primary-line:#6f684b;
+ }
+ html.uk-ui.light:root,html.uk-ui.light:root[data-ui-language]{
+  --bg:#e9e7df;--panel:#faf8f1;--panel2:#eceae2;--line:#ccc9bc;
+  --text:#242b26;--muted:#5c635c;--accent:#765b30;
+  --uk-accent:#765b30;--uk-accent-soft:#e8e2d3;--uk-accent-ink:#faf8f1;
+  --uk-input:#eceae2;--uk-input-line:#ccc9bc;--uk-control-bg:#eceae2;--uk-control-hover:#e3dfd3;--input:#eceae2;--ring:#765b30;
+  --uh-rust:#ac8c70;--uh-brass:#927444;--uh-primary:#4b5140;--uh-primary-line:#4b5140;
+ }
+ html.uk-ui:is(.light,:not(.light)) body{background:var(--bg);color:var(--text)}
+ html.uk-ui:is(.light,:not(.light)) body::before{
+  background:
+   radial-gradient(ellipse at 92% 8%,#79523524,transparent 48%),
+   radial-gradient(ellipse at 8% 82%,#61705b12,transparent 48%),
+   repeating-linear-gradient(118deg,#bdc4ad03 0 1px,transparent 1px 5px),
+   linear-gradient(145deg,#19201b,#111715 55%,#1b211b);
+ }
+ html.uk-ui.light body::before{
+  background:
+   radial-gradient(ellipse at 92% 8%,#a77b4920,transparent 50%),
+   repeating-linear-gradient(118deg,#656d5505 0 1px,transparent 1px 5px),
+   linear-gradient(145deg,#e5e5d9,#eeece4 55%,#dddccf);
+ }
+ html.uk-ui:is(.light,:not(.light)) ::selection{background:#9f834f;color:#fff}
+ html.uk-ui:is(.light,:not(.light)) .btn.primary,
+ html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal)>.modal-foot .btn.primary{
+  background:var(--uh-primary);border-color:var(--uh-primary-line);color:#f5f0e6;
+ }
+ html.uk-ui:is(.light,:not(.light)) .btn:not(.danger):hover{border-color:var(--uh-brass);background:var(--uk-control-hover)}
+ html.uk-ui:is(.light,:not(.light)) .btn.primary:hover{background:var(--uh-primary);border-color:var(--accent);color:#f5f0e6}
+ html.uk-ui:is(.light,:not(.light)) .tabs.icon-tabs button.active,
+ html.uk-ui:is(.light,:not(.light)) .home-tabs button.active{
+  background:var(--panel2);color:var(--text);box-shadow:inset 0 -2px 0 var(--uh-brass);
+ }
+ html.uk-ui:is(.light,:not(.light)) .edition-switch button.selected,
+ html.uk-ui:is(.light,:not(.light)) .segment button.selected{box-shadow:inset 0 -2px 0 var(--uh-brass)}
+ html.uk-ui:is(.light,:not(.light)) .mmrr-dialog,
+ html.uk-ui:is(.light,:not(.light)) .modal:not(.fp-equipment-modal){border-color:var(--line)}
+ html.uk-ui:is(.light,:not(.light)) .fp-stat-table .fp-stat-xp{background:#4f4936;color:#f5f0e6}
+ html.uk-ui.light .fp-stat-table .fp-stat-xp{background:#ded4bb;color:#242b26}
+}
