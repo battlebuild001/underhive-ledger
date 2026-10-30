@@ -14,7 +14,7 @@ function accountRole(value){const labels={owner:['Owner','소유자'],editor:['E
 function accountMemberStatus(value){const labels={accepted:['Accepted','참가 중'],pending:['Pending','초대 대기']};return Object.hasOwn(labels,value)?accountLabel(...labels[value]):accountIdentity(value||'');}
 function safeReturnPath(value){
  if(typeof value!=='string'||!value.startsWith('/')||value.startsWith('//')||/[\\\x00-\x20]/.test(value))return '/account';
- try{const url=new URL(value,location.origin);if(url.origin!==location.origin||/%(?:2f|5c|25|00|0a|0d)/i.test(url.pathname))return '/account';if(!/^\/(?:account\/?|join\/[A-Za-z0-9_-]{1,160}\/?|(?:gang|fighter|campaigns)\/[A-Za-z0-9_-]+(?:\/battle-session\/[A-Za-z0-9_-]+)?\/?)?$/.test(url.pathname))return '/account';return url.pathname+url.search+url.hash}catch{return '/account'}
+ try{const url=new URL(value,location.origin);if(url.origin!==location.origin||/%(?:2f|5c|25|00|0a|0d)/i.test(url.pathname))return '/account';if(!/^\/(?:account\/?|join\/[A-Za-z0-9_-]{1,160}\/?|skirmishes(?:\/[A-Za-z0-9_-]{1,160})?\/?|(?:gang|fighter|campaigns)\/[A-Za-z0-9_-]+(?:\/battle-session\/[A-Za-z0-9_-]+)?\/?)?$/.test(url.pathname))return '/account';return url.pathname+url.search+url.hash}catch{return '/account'}
 }
 const authReturnPath=()=>safeReturnPath(new URLSearchParams(location.search).get('return_to')||'/account');
 function resetAccountSession(){

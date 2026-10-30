@@ -10,7 +10,31 @@ function requireValue(ok,message,status=400){if(!ok)throw new ApiError(status,me
 const isObject=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 function short(v,max=160){requireValue(typeof v==='string'&&v.length>0&&v.length<=max,'입력 값이 올바르지 않습니다.');return v;}
 async function json(request){requireValue((request.headers.get('content-type')||'').includes('application/json'),'JSON 요청이 필요합니다.',415);requireValue(Number(request.headers.get('content-length')||0)<=MAX_BODY,'데이터가 너무 큽니다.',413);const raw=await request.text();requireValue(new TextEncoder().encode(raw).length<=MAX_BODY,'데이터가 너무 큽니다.',413);try{const value=JSON.parse(raw);requireValue(isObject(value),'요청 형식이 올바르지 않습니다.');return value;}catch(e){if(e instanceof ApiError)throw e;throw new ApiError(400,'JSON 형식이 올바르지 않습니다.');}}
-function validateState(value){requireValue(isObject(value)&&Array.isArray(value.gangs)&&Array.isArray(value.campaigns),'갱과 캠페인이 포함된 백업이 필요합니다.');requireValue(value.gangs.length<=2000&&value.campaigns.length<=1000,'등록 가능한 기록 수를 초과했습니다.');for(const list of [value.gangs,value.campaigns])for(const item of list)requireValue(isObject(item)&&typeof item.id==='string'&&item.id.length<=160&&typeof item.name==='string'&&item.name.length<=500,'기록 형식이 올바르지 않습니다.');const serialized=JSON.stringify(value);requireValue(new TextEncoder().encode(serialized).length<MAX_DOCUMENT,'데이터가 너무 큽니다.',413);return serialized;}
+// Optional independent matches stay in the personal document, outside shared campaigns.
+// Validate only known fields; older documents and authored extension fields round-trip unchanged.
+function validateSkirmishes(rows){
+ const check=ok=>requireValue(ok,'스커미시 기록 형식이 올바르지 않습니다.');
+ const string=(record,key,max)=>{if(record[key]!==undefined)check(typeof record[key]==='string'&&record[key].length<=max);};
+ const integer=(record,key,min,max)=>{if(record[key]!==undefined)check(Number.isSafeInteger(record[key])&&record[key]>=min&&record[key]<=max);};
+ const choice=(record,key,values)=>{if(record[key]!==undefined)check(values.includes(record[key]));};
+ const roll=value=>{if(value===undefined)return;check(isObject(value));if(value.dice!==undefined)check(Array.isArray(value.dice)&&value.dice.length===2&&value.dice.every(die=>Number.isSafeInteger(die)&&die>=1&&die<=6));choice(value,'winner',[-1,0,1]);};
+ check(Array.isArray(rows)&&rows.length<=1000);const ids=new Set();
+ for(const match of rows){
+  check(isObject(match)&&typeof match.id==='string'&&match.id.length>0&&match.id.length<=160&&!ids.has(match.id)&&typeof match.name==='string'&&match.name.length<=500);ids.add(match.id);
+  string(match,'edition',16);string(match,'createdAt',80);string(match,'notes',10000);
+  for(const key of ['deploymentId','objectiveId','crewId'])string(match,key,160);
+  choice(match,'stage',['setup','battle','completed']);integer(match,'round',0,1000000);
+  roll(match.roleRoll);roll(match.priorityRoll);
+  if(match.checklist!==undefined)check(isObject(match.checklist)&&Object.keys(match.checklist).length<=100);
+  if(match.participants===undefined)continue;check(Array.isArray(match.participants)&&match.participants.length<=100);
+  for(const participant of match.participants){
+   check(isObject(participant));string(participant,'name',500);string(participant,'gangId',160);string(participant,'notes',10000);integer(participant,'vp',0,1000000);choice(participant,'role',['','attacker','defender']);
+   if(participant.crew===undefined)continue;check(Array.isArray(participant.crew)&&participant.crew.length<=2000);
+   for(const fighter of participant.crew){check(isObject(fighter));string(fighter,'fighterId',160);string(fighter,'loadoutId',160);choice(fighter,'kind',['starting','reinforcement']);}
+  }
+ }
+}
+function validateState(value){requireValue(isObject(value)&&Array.isArray(value.gangs)&&Array.isArray(value.campaigns),'갱과 캠페인이 포함된 백업이 필요합니다.');requireValue(value.gangs.length<=2000&&value.campaigns.length<=1000,'등록 가능한 기록 수를 초과했습니다.');for(const list of [value.gangs,value.campaigns])for(const item of list)requireValue(isObject(item)&&typeof item.id==='string'&&item.id.length<=160&&typeof item.name==='string'&&item.name.length<=500,'기록 형식이 올바르지 않습니다.');if(value.skirmishes!==undefined)validateSkirmishes(value.skirmishes);const serialized=JSON.stringify(value);requireValue(new TextEncoder().encode(serialized).length<MAX_DOCUMENT,'데이터가 너무 큽니다.',413);return serialized;}
 async function ensureProfile(db,identity){const current=await db.prepare('SELECT * FROM profiles WHERE id = ?').bind(identity.id).first();const at=stamp();if(!current){const suffix=identity.id.replace(/[^a-z0-9]/gi,'').slice(-10)||uid().slice(0,8);const username='Scummer_'+suffix;await db.prepare('INSERT INTO profiles (id, username, username_key, identity_email, contact_email, preferences, created_at, last_seen_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(id) DO NOTHING').bind(identity.id,username,username.toLowerCase(),identity.email,'','{}',at,at).run();}else{const email=identity.authMethod==='password'?current.identity_email:identity.email;if(current.identity_email!==email||at.slice(0,13)!==current.last_seen_at.slice(0,13))await db.prepare('UPDATE profiles SET identity_email = ?, last_seen_at = ? WHERE id = ?').bind(email,at,identity.id).run();}return await db.prepare('SELECT * FROM profiles WHERE id = ?').bind(identity.id).first();}
 function publicProfile(p){return {id:p.id,username:p.username,contactEmail:p.contact_email,identityEmail:p.identity_email,preferences:JSON.parse(p.preferences),createdAt:p.created_at,lastSignIn:p.last_seen_at};}
 function notification(db,to,from,type,message,reference){return db.prepare('INSERT INTO notifications (id,user_id,sender_id,type,message,reference_id,is_read,created_at) VALUES (?,?,?,?,?,?,0,?)').bind(uid(),to,from,type,message,reference||null,stamp());}

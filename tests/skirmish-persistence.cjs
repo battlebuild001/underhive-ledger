@@ -1,0 +1,20 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+(async()=>{
+ const dom=new JSDOM('<input id="import-file" type="file">',{url:'https://persistence.test/',runScripts:'outside-only'}),w=dom.window,ctx=dom.getInternalVMContext();
+ vm.runInContext(`const KEY='skirmish-persistence-test',baseStats={M:0},esc=x=>String(x);let data={gangs:[{id:'g',name:'Keep gang',fighters:[]}],campaigns:[{id:'c',name:'Keep campaign',members:[]}]};function render(){}function save(){localStorage.setItem(KEY,JSON.stringify(data))}function showModal(title,body){window.lastError={title,body}}function formModal(title,body,confirm){window.review={title,body,confirm}}`,ctx);
+ vm.runInContext(fs.readFileSync(path.resolve(__dirname,'../dist/backup-safety.js'),'utf8'),ctx);
+ const run=s=>vm.runInContext(s,ctx),copy=x=>JSON.parse(JSON.stringify(x)),original=run('JSON.stringify(data)');run('save()');
+ const match={id:'match-one',name:'Authored match <name>',edition:'N26',createdAt:'2026-10-30',stage:'battle',round:2,participants:[{name:'One',gangId:'g',role:'attacker',crew:[{fighterId:'f',loadoutId:'',kind:'starting'}],notes:'Keep participant note',vp:3},{name:'Two',gangId:'',role:'defender',crew:[],notes:'',vp:0}],deploymentId:'d',objectiveId:'o',crewId:'crew',roleRoll:{dice:[6,1],winner:0},priorityRoll:{dice:[4,4],winner:-1},checklist:{terrain:true,extension:'retained'},notes:'Keep match note',futureField:{untouched:[1,2]}};
+ const state={...JSON.parse(original),skirmishes:[match,{id:'draft',name:'Partial legacy draft'}],unknownRoot:{preserved:true}};
+ assert.equal(Object.hasOwn(w.UKBackup.validate({version:1,data:JSON.parse(original)}),'skirmishes'),false,'Old backups do not gain an unsolicited optional property');
+ const result=copy(w.UKBackup.validate({version:1,data:state}));assert.deepEqual(result.skirmishes,state.skirmishes);assert.deepEqual(result.unknownRoot,state.unknownRoot);assert.deepEqual(state.skirmishes,[match,{id:'draft',name:'Partial legacy draft'}],'Detached validation never changes candidate matches');
+ const malformed=[null,'bad',{},[null],[{id:'same',name:'a'},{id:'same',name:'b'}],[{...match,round:Infinity}],[{...match,participants:{}}],[{...match,participants:[{crew:'bad'}]}],[{...match,participants:[{crew:[{kind:'bad'}]}]}],[{...match,roleRoll:{dice:[1],winner:0}}],[{...match,priorityRoll:{dice:[1,2],winner:2}}],[{...match,checklist:[]}],Array.from({length:1001},(_,i)=>({id:'m'+i,name:'Match'}))];
+ for(const skirmishes of malformed){
+  assert.throws(()=>w.UKBackup.validate({version:1,data:{...state,skirmishes}}));
+  await w.UKBackup.importFile({size:100,text:async()=>JSON.stringify({version:1,data:{...state,skirmishes}})});
+  assert(w.lastError,'Malformed backups show the normal import error');assert.equal(run('JSON.stringify(data)'),original);assert.equal(w.localStorage.getItem('skirmish-persistence-test'),original);
+ }
+ await w.UKBackup.importFile({size:100,text:async()=>JSON.stringify({version:1,data:state})});assert(w.review);assert.equal(run('JSON.stringify(data)'),original,'Reviewing a match backup does not apply it');
+ w.review.confirm({replaceConfirmed:true});const applied=JSON.parse(run('JSON.stringify(data)'));assert.deepEqual(applied.skirmishes,state.skirmishes);assert.equal(applied.gangs[0].name,'Keep gang');assert.equal(applied.campaigns[0].name,'Keep campaign');assert.equal(JSON.parse(w.localStorage.getItem('skirmish-persistence-test-before-import:guest')).data.skirmishes,undefined,'Recovery copy retains the exact pre-import state');
+ w.UKBackup.restore();w.review.confirm({replaceConfirmed:true});assert.equal(run('data.skirmishes'),undefined,'Restore can return to an old backup without skirmishes');dom.window.close();console.log('Skirmish persistence: optional backup compatibility, bounded validation, exact match/extension round-trip, rejected-import isolation, review, apply and recovery passed.');
+})().catch(error=>{console.error(error);process.exitCode=1});

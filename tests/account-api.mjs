@@ -21,6 +21,18 @@ assert.equal((await call('a','/document','PUT',{revision:0,state})).status,409);
 assert.equal((await call('a','/document','PUT',{revision:1,state})).revision,2);
 assert.equal((await call('b','/document')).state,null);
 assert.equal((await call('a','/document','PUT',{revision:2,state:{gangs:'bad',campaigns:[]}})).status,400);
+// Independent matches use the existing private, revision-checked document contract.
+await call('skirmish-owner','/account');
+const match={id:'match-one',name:'Independent test',edition:'N26',createdAt:'2026-10-30T00:00:00Z',stage:'setup',round:1,participants:[{name:'Visitor <one>',gangId:'missing-reference-is-retained',role:'attacker',crew:[{fighterId:'fighter-one',loadoutId:'',kind:'starting'},{fighterId:'fighter-two',loadoutId:'loadout-two',kind:'reinforcement'}],notes:'Authored participant note',vp:0},{name:'Visitor two',gangId:'',role:'defender',crew:[],notes:'',vp:2}],deploymentId:'deployment-one',objectiveId:'objective-one',crewId:'crew-one',roleRoll:{dice:[6,2],winner:0},priorityRoll:{dice:[3,3],winner:-1},checklist:{terrain:true,authoredExtension:'preserve'},notes:'Authored match note',futureExtension:{values:[1,'two']}};
+const independentState={gangs:structuredClone(state.gangs),campaigns:structuredClone(state.campaigns),skirmishes:[match,{id:'incomplete-match',name:'Incomplete draft'}],authoredRoot:{retained:true}};
+assert.equal((await call('skirmish-owner','/document','PUT',{revision:0,state:independentState})).revision,1);
+assert.deepEqual((await call('skirmish-owner','/document')).state,independentState,'Optional independent matches and extension fields round-trip unchanged');
+for(const skirmishes of [null,'invalid',{},[null],[{id:'same',name:'One'},{id:'same',name:'Two'}],[{...match,round:1.5}],[{...match,participants:'invalid'}],[{...match,participants:[{crew:[null]}]}],[{...match,stage:'post-battle'}],[{...match,roleRoll:{dice:[0,7],winner:0}}],[{...match,checklist:[]}],[{...match,participants:[{vp:-1}]}],Array.from({length:1001},(_,i)=>({id:'m-'+i,name:'Match'}))]){
+ assert.equal((await call('skirmish-owner','/document','PUT',{revision:1,state:{...independentState,skirmishes}})).status,400,'Malformed optional skirmish records are rejected');
+ assert.deepEqual((await call('skirmish-owner','/document')).state,independentState,'Rejected independent matches preserve the entire stored document');
+}
+assert.equal((await call('skirmish-owner','/document','PUT',{revision:1,state})).revision,2,'Old documents without the optional property remain valid');
+assert.deepEqual((await call('skirmish-owner','/document')).state,state);
 const search=await call('a','/users?q=Bet');assert.equal(search.users[0].username,'Beta');assert.deepEqual(Object.keys(search.users[0]).sort(),['id','username']);
 assert.deepEqual((await call('a','/users?q=%25_')).users,[]);
 const friend=await call('a','/friends','POST',{userId:'b'});assert.equal(friend.status,201);

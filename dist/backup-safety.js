@@ -16,6 +16,7 @@
   const gangs=array(state,'gangs','Gangs',false),campaigns=array(state,'campaigns','Campaigns',false);
   if(gangs.length>2000||campaigns.length>1000)fail(tr('백업의 기록 수가 너무 많습니다.','The backup contains too many records.'));
   identities(gangs,'Gangs',true);identities(campaigns,'Campaigns',true);
+  if(state.skirmishes!==undefined)validateSkirmishes(state.skirmishes);
   function walk(value,depth=0){if(depth>80)fail(tr('백업의 중첩 구조가 너무 깊습니다.','The backup is nested too deeply.'));if(value&&typeof value==='object')for(const key of Object.keys(value)){if(['__proto__','prototype','constructor'].includes(key))fail(tr('허용되지 않는 백업 필드입니다.','Disallowed backup field.'));walk(value[key],depth+1);}}
   walk(state);
   for(const g of gangs){
@@ -30,6 +31,27 @@
   state.selectedCampaign=campaigns.some(c=>c.id===state.selectedCampaign)?state.selectedCampaign:campaigns[0]?.id||null;
   delete state.selectedFighter;
   return state;
+ }
+ function validateSkirmishes(rows){
+  const check=ok=>{if(!ok)fail(tr('스커미시 기록 형식이 올바르지 않습니다.','Invalid skirmish record.'));};
+  const string=(record,key,max)=>{if(record[key]!==undefined)check(typeof record[key]==='string'&&record[key].length<=max);};
+  const integer=(record,key,min,max)=>{if(record[key]!==undefined)check(Number.isSafeInteger(record[key])&&record[key]>=min&&record[key]<=max);};
+  const choice=(record,key,values)=>{if(record[key]!==undefined)check(values.includes(record[key]));};
+  const roll=value=>{if(value===undefined)return;check(plain(value));if(value.dice!==undefined)check(Array.isArray(value.dice)&&value.dice.length===2&&value.dice.every(die=>Number.isSafeInteger(die)&&die>=1&&die<=6));choice(value,'winner',[-1,0,1]);};
+  check(Array.isArray(rows)&&rows.length<=1000);identities(rows,'Skirmishes',true);
+  for(const match of rows){
+   string(match,'edition',16);string(match,'createdAt',80);string(match,'notes',10000);
+   for(const key of ['deploymentId','objectiveId','crewId'])string(match,key,160);
+   choice(match,'stage',['setup','battle','completed']);integer(match,'round',0,1000000);
+   roll(match.roleRoll);roll(match.priorityRoll);
+   if(match.checklist!==undefined)check(plain(match.checklist)&&Object.keys(match.checklist).length<=100);
+   if(match.participants===undefined)continue;check(Array.isArray(match.participants)&&match.participants.length<=100);
+   for(const participant of match.participants){
+    check(plain(participant));string(participant,'name',500);string(participant,'gangId',160);string(participant,'notes',10000);integer(participant,'vp',0,1000000);choice(participant,'role',['','attacker','defender']);
+    if(participant.crew===undefined)continue;check(Array.isArray(participant.crew)&&participant.crew.length<=2000);
+    for(const fighter of participant.crew){check(plain(fighter));string(fighter,'fighterId',160);string(fighter,'loadoutId',160);choice(fighter,'kind',['starting','reinforcement']);}
+   }
+  }
  }
  function notifyError(error){showModal(tr('백업을 적용하지 못했습니다','Backup was not applied'),`<p role="alert">${esc(error.message)}</p><p>${tr('기존 기록은 유지됩니다. 파일을 확인하고 다시 시도하세요.','Your existing records are retained. Check the file and try again.')}</p>`,'OK',()=>true);}
  function apply(candidate){
