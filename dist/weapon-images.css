@@ -1,0 +1,18 @@
+/* Detailed views only: roster cards and the play reference remain compact. */
+.weapon-image{margin:12px 0 16px;min-width:0;max-width:100%;border:1px solid var(--border,#424a3e);border-radius:9px;overflow:hidden;background:var(--panel,#181d17)}
+.weapon-image-stage{display:grid;place-items:center;padding:10px;background:#e6e5e0;min-width:0}
+.weapon-image .weapon-image-stage img{display:block;width:auto;height:auto;max-width:100%;max-height:174px;object-fit:contain;border-radius:3px}
+.weapon-image .weapon-image-stage img[hidden],.weapon-image [hidden]{display:none!important}
+.weapon-image.is-expanded .weapon-image-stage img{max-height:62vh;max-height:62dvh}
+.weapon-image figcaption{padding:8px 12px;font-size:12px;line-height:1.55}
+.weapon-image-tools{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.weapon-image-type{color:var(--muted,#a7aba2)}
+.weapon-image [data-weapon-image-expand]{font:inherit;font-weight:600;padding:5px 9px;min-height:32px;white-space:nowrap;background:transparent;border:1px solid var(--border,#424a3e);border-radius:5px;color:inherit;cursor:pointer}
+.weapon-image [data-weapon-image-expand]:focus-visible{outline:2px solid #b6a775;outline-offset:2px}
+.weapon-image-source{margin-top:5px}.weapon-image-source summary{cursor:pointer;font-weight:500;min-height:28px;display:list-item}
+.weapon-image-source p{font-size:12px!important;line-height:1.6!important;margin:6px 0!important;overflow-wrap:anywhere}
+.weapon-image-source a{text-decoration:underline;text-underline-offset:3px;color:inherit}
+.weapon-image-error{color:#393d35;font-size:13px!important;margin:8px!important}
+.weapon-image-missing{font-size:12px!important;color:var(--muted,#a7aba2);margin:8px 0!important}
+@media(max-width:600px){.weapon-image .weapon-image-stage img{max-height:148px}.weapon-image.is-expanded .weapon-image-stage img{max-height:62vh;max-height:62dvh}.weapon-image figcaption{padding:7px 10px}}
+@media print{.weapon-image,.weapon-image-missing{display:none!important}}
