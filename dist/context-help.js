@@ -26,6 +26,7 @@
     return JSON.parse(JSON.stringify({...row,...variant,title:variant.title||row.title}));
   }
   function open(key,options={}){
+    const statKey=window.MMGangStatGuide?.contextKeys[key];if(statKey&&typeof data!=='undefined'&&['gang','fighter'].includes(data.view)&&typeof gang==='function'&&gang()&&(!options.edition||edition(options.edition)===edition(gang().edition)))return window.MMGangStatGuide.open(statKey,options);
     if(window.MMOfficialSource?.pending&&!lookup(key,options)?.source_verified)return window.MMOfficialSource.showPending({activator:options.activator});
     if(key.startsWith('rule.'))return window.MMRuleReference?.open('coreRules',key.slice(5),options)||false;
     if(key.startsWith('trait.'))return window.MMRuleReference?.openTrait(key.slice(6),options)||false;
