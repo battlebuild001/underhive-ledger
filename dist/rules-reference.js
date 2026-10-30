@@ -185,6 +185,7 @@
   function openTrait(token,options={}){
     token=String(token??'').trim();if(!token||emptyTrait(token))return false;
     const ed=edition(options.edition||currentEdition()),row=traitLookup(token,{edition:ed}),parent=overlay?.contains(options.activator)&&detailContext?{...detailContext,scrollTop:overlay.querySelector('.mmrr-body')?.scrollTop||0,token}:null;
+    if(!row&&/^master[ -]crafted$/i.test(token)&&window.MMMasterCrafted)return MMMasterCrafted.open(null,{edition:ed,activator:options.activator});
     if(!row?.source_verified)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     traitReturn=parent;detailContext=null;libraryState=null;libraryReturn=null;
     const display=row?{...row,name:token,name_ko:''}:{name:token,edition:ed};
