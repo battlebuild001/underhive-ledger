@@ -63,11 +63,18 @@ function classification(e){
  return {en:a[0],ko:a[1]};
 }
 const L=pair=>`<span data-i18n-en="${esc(pair.en)}" data-i18n-ko="${esc(pair.ko)}">${esc(pair.en)}</span>`;
+function exampleMarkup(example,row){
+ const p=pair=>prose(pair.en,pair.ko,{row,edition:'n26'});
+ return `<details class="mmrr-term-example mmrr-skill-example" data-rule-example="${esc(example.id)}"><summary>${L(example.title)}</summary><div class="mmrr-example-content">${example.setup?`<div class="mmrr-example-setup"><strong>${L({en:'Situation',ko:'상황'})}</strong>${p(example.setup)}</div>`:''}${example.steps?.length?`<ol class="mmrr-example-steps">${example.steps.map(step=>`<li>${p(step)}</li>`).join('')}</ol>`:''}${example.result?`<div class="mmrr-example-result"><strong>${L({en:'Result',ko:'결과'})}</strong>${p(example.result)}</div>`:''}${example.caution?`<div class="mmrr-example-caution">${p(example.caution)}</div>`:''}</div></details>`;
+}
 function helpMarkup(row,kind,edition){
  if(String(edition).toLowerCase()!=='n26'||!verified(row)||row.is_custom||row.reference_custom_description||row.reference_description_cleared)return '';
- const help=window.UK_RULE_TERMS?.help?.[row.id];if(!help)return '';
- return `<aside class="mmrr-term-usage">${help.when?`<strong>${L({en:'When to use it',ko:'언제 쓰는 규칙인가요?'})}</strong>${prose(help.when.en,help.when.ko,{row,edition})}`:''}${help.example?`<details class="mmrr-term-example"><summary>${L({en:'Simple example',ko:'쉬운 예시 보기'})}</summary>${prose(help.example.en,help.example.ko,{row,edition})}</details>`:''}</aside>`;
+ const help=window.UK_RULE_TERMS?.help?.[row.id];if(!help||help.sourceIds?.some(id=>!sourceExists(id)))return '';
+ const cases=(help.examples||[]).map(e=>exampleMarkup(e,row)).join(''),related=(help.related||[]).map(id=>lookup(id,{edition:'n26'})).filter(Boolean);
+ const links=related.length?`<nav class="mmrr-example-links" aria-label="Related rules" data-i18n-en-aria-label="Related rules" data-i18n-ko-aria-label="관련 규칙"><strong>${L({en:'Rules used in these examples',ko:'예시에 적용한 규칙'})}</strong>${related.map(e=>`<button type="button" class="btn small" data-rule-term="${esc(e.id)}" data-rule-edition="n26" aria-haspopup="dialog">${L({en:e.name,ko:e.nameKo||e.name})}</button>`).join('')}</nav>`:'';
+ return `<aside class="mmrr-term-usage" data-rule-help="${esc(row.id)}">${help.when?`<strong>${L({en:'When to use it',ko:'언제 쓰는 규칙인가요?'})}</strong>${prose(help.when.en,help.when.ko,{row,edition})}`:''}${help.example?`<details class="mmrr-term-example"><summary>${L({en:'Simple example',ko:'쉬운 예시 보기'})}</summary>${prose(help.example.en,help.example.ko,{row,edition})}</details>`:''}${cases}${links?`<details class="mmrr-example-sources"><summary>${L({en:'Related rules',ko:'관련 규칙 보기'})}</summary>${links}</details>`:''}</aside>`;
 }
+
 function refresh(){
  for(const p of document.querySelectorAll('[data-rule-prose]')){
   if(p.dataset.ruleLanguage===lang())continue;

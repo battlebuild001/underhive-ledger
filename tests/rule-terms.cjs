@@ -85,4 +85,32 @@ await test('Territory jargon, timing and examples are clickable, folded and pres
  const custom={catalogId:'official-003-territory-synth-still',name:'User custom place',description:'터널 워페어 톡신(3+) my authored explanation',is_custom:true,edition:'n26'};p.w.MMRuleReference.open('territories',custom,{edition:'n26'});await tick();assert.equal(p.w.document.querySelector('.mmrr-description [data-rule-term]'),null);assert.equal(p.w.document.querySelector('.mmrr-term-usage'),null);p.w.MMRuleReference.close();
  assert.equal(p.q('#modal-form'),form);assert.equal(formDraft(form),draft);assert.equal(p.snapshot(),saved);assert.equal(JSON.stringify(p.w.RULES_DATA),catalogue);assert.deepEqual(p.errors,[]);
  }finally{p.close();}});
+await test('Rain of Blows gives concrete Fight costs, attack dice, failed conditions and no chaining without changing the starting-skill draft',async()=>{
+ const p=await page();try{
+  seed(p);p.run('FighterParity.addSkill(currentFighter())');const form=p.q('#modal-form'),draft=formDraft(form),saved=p.snapshot(),rules=JSON.stringify(p.w.RULES_DATA);
+  p.w.MMRuleReference.open('skills','official-003-skills-rain-of-blows',{edition:'n26'});await tick();const parent=p.q('.mmrr-dialog'),examples=p.all('[data-rule-example]');assert.equal(examples.length,4);assert(examples.every(x=>!x.open),'Every example starts folded');
+  const first=p.q('[data-rule-example="already-engaged"]');first.open=true;assert.match(first.textContent,/two actions/);assert.match(first.textContent,/2 action points \+ 0/);assert.match(first.textContent,/A characteristic remains 2/);assert.match(first.textContent,/enemy also participates/);
+  assert.match(p.q('[data-rule-example="engagement-ended"]').textContent,/No additional Fight/);assert.match(p.q('[data-rule-example="no-chain"]').textContent,/does not grant a third Fight/);assert.match(p.q('[data-rule-example="charge-fight"]').textContent,/Free Fight is still a Fight action/);assert.match(p.q('[data-rule-example="charge-fight"]').textContent,/not a separate FAQ ruling/);
+  const link=first.querySelector('[data-rule-term="coreRules:n26-core-action-fight"]');assert(link);link.focus();link.click();await tick();assert.match(p.q('.mmrr-description').textContent,/close combat/);p.w.MMRuleReference.back();assert.equal(p.q('.mmrr-dialog'),parent);assert.equal(p.w.document.activeElement,link);assert(first.open);
+  p.w.UKI18n.setLanguage('ko');await tick();assert(first.open);assert.match(first.textContent,/행동 비용은 2 \+ 0/);assert.match(first.textContent,/적은 정상적으로 참여/);assert.match(p.q('[data-rule-example="no-chain"]').textContent,/세 번째 파이트/);p.w.UKI18n.setLanguage('en');await tick();assert.match(first.textContent,/A characteristic remains 2/);p.w.MMRuleReference.close();assert.equal(p.q('#modal-form'),form);assert.equal(formDraft(form),draft);assert.equal(p.snapshot(),saved);assert.equal(JSON.stringify(p.w.RULES_DATA),rules);assert.deepEqual(p.errors,[]);
+ }finally{p.close();}
+});
+await test('Eight N26 skill guides explain costs and checks in 12 examples, preserve source scope and leave custom rules untouched',async()=>{
+ const p=await page();try{
+  seed(p);const before=p.snapshot(),rules=JSON.stringify(p.w.RULES_DATA),guides=Object.entries(p.w.UK_RULE_TERMS.help).filter(([,h])=>h.examples);assert.equal(guides.length,8);let count=0;
+  for(const [id,help]of guides){
+   for(const sourceId of help.sourceIds)assert(p.w.MMRuleTerms.lookup(sourceId,{edition:'n26'}),sourceId);
+   p.w.MMRuleReference.open('skills',id,{edition:'n26'});await tick();const examples=p.all('[data-rule-example]');count+=examples.length;assert(examples.length>0&&examples.every(x=>!x.open));for(const e of examples){e.open=true;assert(e.querySelector('.mmrr-example-result'));assert(e.querySelector('.mmrr-example-steps li'));}
+   for(const button of p.all('.mmrr-example-links [data-rule-term]'))assert(p.w.MMRuleTerms.lookup(button.dataset.ruleTerm,{edition:'n26'}));
+   p.w.UKI18n.setLanguage('ko');await tick();assert(examples.every(x=>x.open));assert(examples.every(x=>/[가-힣]/.test(x.textContent)));p.w.UKI18n.setLanguage('en');await tick();p.w.MMRuleReference.close();
+  }
+  assert.equal(count,12);
+  const open=id=>p.w.MMRuleReference.open('skills','official-003-skills-'+id,{edition:'n26'});
+  open('fast-shot');assert.match(p.q('[data-rule-example="not-extra-action"]').textContent,/Only one action remains/);assert.match(p.q('[data-rule-example="two-shots"]').textContent,/both action points/);p.w.MMRuleReference.close();
+  open('counter-attack');assert.match(p.q('[data-rule-example]').textContent,/does not grant another complete Fight/);p.w.MMRuleReference.close();
+  open('sprint');assert.match(p.q('[data-rule-example]').textContent,/5 \+ 6 = 11/);assert.match(p.q('[data-rule-example]').textContent,/not \(M \+ I\)×2 = 16/);p.w.MMRuleReference.close();
+  open('nerves-of-steel');assert.match(p.q('[data-rule-example]').textContent,/3 and 3 total 6/);assert.match(p.q('[data-rule-example]').textContent,/does not cancel the hit/);p.w.MMRuleReference.close();
+  const row=p.w.RULES_DATA.skills.find(s=>s.id==='official-003-skills-rain-of-blows');assert.equal(p.w.MMRuleTerms.helpMarkup(row,'skills','n23'),'');assert.equal(p.w.MMRuleTerms.helpMarkup({...row,is_custom:true},'skills','n26'),'');p.w.MMRuleReference.open('skills',{...row,description:'My custom Rain of Blows description',reference_custom_description:true},{edition:'n26'});await tick();assert.equal(p.w.document.querySelector('[data-rule-example]'),null);assert.equal(p.q('.mmrr-description').textContent,'My custom Rain of Blows description');p.w.MMRuleReference.close();assert.equal(p.snapshot(),before);assert.equal(JSON.stringify(p.w.RULES_DATA),rules);assert.deepEqual(p.errors,[]);
+ }finally{p.close();}
+});
 if(failures.length)process.exitCode=1;})().catch(e=>{console.error(e);process.exitCode=1});

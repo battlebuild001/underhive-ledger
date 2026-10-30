@@ -22,3 +22,7 @@ Uses the existing `source_verified` N26 catalogue, including original-page-revie
 `dist/rule-terms-data.js` holds reviewed explanations, source ID aliases and contextual examples. `dist/rule-terms.js` registers catalogue names and parameter families. Do not add guessed mechanical definitions to make a missing term appear complete. General-English words are protected against incidental matching. Adding a source record automatically adds its names; shortened rule headings still require explicit aliases.
 
 `tests/rule-terms.cjs` verifies all 46 trait families, conditions, territory terms, exact source IDs, numeric parameters, escaping, KO/EN changes, nested return/focus/scroll, folded examples, preserved drafts and immutable account/catalogue state.
+
+## Skill situation examples
+
+Eight verified N26 skills have twelve folded cases with a situation, ordered steps and a result. Rain of Blows includes a normal Double Fight followed by its Free Fight, an ended engagement, the per-activation limit and a Charge-granted Fight. The Charge case is explicitly a combination of source rules, not a claimed FAQ ruling. Non-Light weapon and continued-eligibility assumptions keep the attack-dice examples scoped. Other cases distinguish Fast Shot action costs, Gunfighter weapon attacks, Counter-attack timing, Bulging Biceps movement, Sprint arithmetic, Cool checks and Spring Up. Exact skill and core-rule IDs gate these examples; custom descriptions and N23 do not inherit them. Reading cases never rolls dice, chooses a skill or writes a roster.
