@@ -1,0 +1,17 @@
+/* Keep purchase profiles dense without changing stats, rules or the play layout. */
+html.uk-ui .modal.fp-equipment-modal .fp-buy-actions{display:flex;align-items:flex-start;flex:none;gap:5px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-actions>.btn{flex:none;min-height:36px;padding:7px 9px;font-size:12px;line-height:20px;white-space:nowrap}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-header>span{position:relative;padding-right:28px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-header>span>.mmrr-info{position:absolute;top:0;right:-4px;float:none;min-width:28px;min-height:32px;padding:2px 4px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-profiles{gap:5px;margin-top:7px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-profile{padding:7px 8px;border-radius:4px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-profile-name{margin:0 0 4px;font-size:12px;line-height:18px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-profile-name .equipment-profile-scope{display:inline-block;width:auto;max-width:100%;margin:0 0 0 5px;padding:0 4px;font-size:10px;line-height:16px;vertical-align:baseline}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-stats{padding:0;min-width:0;margin:0}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-stats>div{padding:0 2px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-stats dt{font-size:11px;line-height:16px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-stats dd{margin:1px 0 0;font-size:14px;line-height:19px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-traits{gap:6px;margin-top:5px;padding-top:4px;font-size:12px;line-height:20px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-traits>span:first-child{font-size:10px;line-height:20px}
+html.uk-ui .modal.fp-equipment-modal .fp-buy-traits .mmrr-trait{min-height:24px;padding:2px 1px;font-size:12px;line-height:20px}
+html.uk-ui .modal.fp-equipment-modal .equipment-usage{margin:6px 0 0}

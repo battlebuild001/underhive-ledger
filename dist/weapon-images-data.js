@@ -985,6 +985,23 @@ window.MM_WEAPON_IMAGES={
       "sha256": "c058ffb296712451930dea479694f23f182c6730fea14a94c22a180eb5b343d9",
       "originalSha256": "ec178edbd921966a6bc0de38a64b536e831c25a477f88de2cb1809df50732e1f",
       "encoding": "webp-quality-88-original-dimensions"
+    },
+    "official-frag-lance-model": {
+      "src": "/weapon-images/official-frag-lance-model.webp",
+      "width": 750,
+      "height": 974,
+      "type": "photo",
+      "label": "Cawdor Way-Brethren wielding a frag lance",
+      "sourceLabel": "Warhammer Community",
+      "sourceUrl": "https://www.warhammer-community.com/en-gb/articles/3AZY9iCe/warhammer-preview-online-house-cawdor-takes-a-stroll-through-the-ash-wastes/",
+      "originalUrl": "https://assets.warhammer-community.com/articles/7d9a83a5-dd3a-409c-b9f7-53962d0808ab/ygqa0lbbe2fdr4p3.jpg",
+      "identificationUrl": "https://wh40k.lexicanum.com/wiki/Frag_Lance",
+      "credit": "Photo / miniatures © Games Workshop.",
+      "sha256": "477d10985ca7850b8f639da9d747d94f1c885f223aae00c16cbe4b7d5a624e86",
+      "originalSha256": "936b10ac7bf827f45a464bc60bb05c7c02213bd372283924032bc4f5a8767af6",
+      "encoding": "webp-quality-88-original-dimensions",
+      "noteEn": "The weapon is shown on a Cawdor Ridge Walker model. This is a model photo, not a standalone weapon close-up.",
+      "noteKo": "프래그 랜스를 든 카우도르 리지워커 모델 사진입니다. 무기만 따로 촬영한 사진은 아닙니다."
     }
   },
   "equipment": {
@@ -1377,6 +1394,11 @@ window.MM_WEAPON_IMAGES={
       "name": "Combi-weapon (bolter/needler)",
       "nameKo": "콤비-웨폰 (볼터/니들러)",
       "asset": "official-escher-combi-needler"
+    },
+    "official-001-equipment-frag-lance": {
+      "name": "Frag lance*",
+      "nameKo": "프래그 랜스*",
+      "asset": "official-frag-lance-model"
     }
   }
 };
