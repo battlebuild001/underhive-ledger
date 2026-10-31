@@ -1,0 +1,25 @@
+/* Keep game entry visible; disclose reference and management controls on demand. */
+html.uk-ui .entity-card.gah-card{overflow:visible}
+html.uk-ui .entity-actions.main-actions.gah-header{display:flex;align-items:flex-end;justify-content:flex-start;gap:12px;margin:18px 0 22px;position:relative;z-index:5}
+.gah-header .gah-group{display:grid;gap:8px;min-width:0}
+.gah-header .gah-label{display:block;font-size:12px;font-weight:600;color:var(--muted);line-height:1.4}
+.gah-game-actions{display:flex;gap:8px}
+html.uk-ui .gah-header .btn,.gah-header summary,.gah-header .rp-view-select,.gah-header .gah-tool{min-height:44px;font-size:14px;margin:0;flex:none}
+html.uk-ui .gah-header .gah-game-actions .btn{flex:none;padding:10px 18px}
+.gah-menu{position:relative;min-width:144px}
+.gah-menu>summary{display:flex;align-items:center;justify-content:space-between;gap:16px;list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:6px;padding:10px 14px;background:var(--panel2);color:var(--text);font-weight:600}
+.gah-menu>summary::-webkit-details-marker{display:none}
+.gah-chevron{transition:transform .15s ease}
+.gah-menu[open]>summary .gah-chevron{transform:rotate(180deg)}
+.gah-menu[open]>summary{border-color:var(--accent)}
+.gah-panel{position:absolute;top:calc(100% + 8px);left:0;display:grid;gap:8px;width:min(340px,calc(100vw - 48px));max-height:65dvh;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);box-shadow:0 14px 36px #0005;z-index:20}
+.gah-manage .gah-panel{left:auto;right:0}
+.gah-panel .gah-group+.gah-group{border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
+html.uk-ui .gah-header .gah-panel .btn,.gah-header .gah-tool,.gah-header .rp-view-select{width:100%;text-align:left;justify-content:flex-start;padding:10px 12px;white-space:normal;line-height:1.5}
+.gah-header .gah-tool{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--text);font-weight:600;cursor:pointer}
+.gah-header .gah-tool-icon{display:inline-grid;place-items:center;width:20px;flex:none;font-size:18px}
+.gah-header :is(button,select,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.gah-header :disabled{cursor:not-allowed}
+@media(max-width:650px){html.uk-ui .entity-actions.main-actions.gah-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 8px}.gah-game{grid-column:1/-1}.gah-game-actions{display:grid;grid-template-columns:1fr 1fr}.gah-menu{min-width:0}.gah-menu>summary{gap:8px}.gah-header .gah-panel{width:min(340px,calc(100vw - 64px))}}
+@media(prefers-reduced-motion:reduce){.gah-chevron{transition:none}}
+html.uk-ui .gah-header .gah-panel .rp-view-select{max-width:none;background:var(--panel2)}
