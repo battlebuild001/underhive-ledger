@@ -45,3 +45,10 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 - Existing source policy defers 58 legacy suites that reference removed demo/catalog fixtures. They are retained and are not counted as passing.
 - This is a bounded review of the flows above, not a claim that every possible device, user record or rule combination is flawless. Real user records were not mutated during QA.
 - Meaningful choices and destructive-operation confirmations remain. No source prices, rules, permissions, private notes, database schema or public access setting were changed.
+
+## Follow-up: paired battle roles
+
+- Two-gang challenge/report drafts and pre-battle sessions now pair attacker and defender after either side is selected. Clearing the role clears both; reports with more than two gangs retain independent roles.
+- Gang pickers exclude gangs already chosen on the other side. Old duplicate drafts require a new opponent without changing the stored record until Save. Single-gang challenge drafts open with an opponent slot ready.
+- Role labels are Korean/English. Side jobs, their completion, notes, cancellation and the original result guards remain intact.
+- Verification: 57 campaign data, 9 preparation, 16 session data and 16 command interface cases passed, plus build and compiled Worker validation. Chromium passed at widths 320, 390 and 1280: one-choice role pairing, excluded duplicate choices, Korean labels, saved roles after navigation/reload and preserved authored notes. Screenshots: `/workspace/shared/paired-roles-{320,390,1280}.png`.
