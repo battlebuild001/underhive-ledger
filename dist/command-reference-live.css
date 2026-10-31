@@ -11,7 +11,8 @@
  html.uk-ui.command-ui .cmd-legacy-controls{display:none;position:fixed;inset:0;z-index:95;padding:24px;background:#080d08c9;backdrop-filter:blur(4px);overflow:auto}
  html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]{display:grid;place-items:start center}
  html.uk-ui.command-ui .cmd-legacy-controls>.cmd-sample{width:min(1180px,100%);max-height:calc(100dvh - 48px);display:flex;flex-direction:column}
- html.uk-ui.command-ui .cmd-legacy-controls .dialog{width:100%;max-width:none;max-height:calc(100dvh - 48px);overflow:auto;background:var(--panel);color:var(--text)}
+ html.uk-ui.command-ui .cmd-legacy-controls .cmd-sample.cmd-sample .dialog{width:100%;max-width:none;max-height:calc(100dvh - 48px);min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;background:var(--panel);color:var(--text)}
+ html.uk-ui.command-ui:has(.cmd-legacy-controls[data-ref-open]),html.uk-ui.command-ui:has(.cmd-legacy-controls[data-ref-open]) body{overflow:hidden}
  html.uk-ui.command-ui .cmd-legacy-controls .cmd-sample.cmd-sample .dialog-head{position:sticky;top:0;background:var(--panel);z-index:3}
  html.uk-ui.command-ui .cmd-legacy-body{padding:22px;min-width:0}
  html.uk-ui.command-ui .cmd-legacy-body .tabs{margin-top:0}
@@ -25,7 +26,7 @@
   html.uk-ui.command-ui .cmd-sample .cmd-next-action h2{font-size:16px!important}
   html.uk-ui.command-ui .cmd-sample .cmd-mobile-next{display:grid}
   html.uk-ui.command-ui .cmd-legacy-controls{padding:12px}
-  html.uk-ui.command-ui .cmd-legacy-controls>.cmd-sample,html.uk-ui.command-ui .cmd-legacy-controls .dialog{max-height:calc(100dvh - 24px)}
+  html.uk-ui.command-ui .cmd-legacy-controls>.cmd-sample,html.uk-ui.command-ui .cmd-legacy-controls .cmd-sample.cmd-sample .dialog{max-height:calc(100dvh - 24px)}
   html.uk-ui.command-ui .cmd-legacy-body{padding:16px}
  }
 }
