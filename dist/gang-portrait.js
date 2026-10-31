@@ -6,7 +6,7 @@ const catalog=[{"id":"3e828e09-5807-465e-8b40-c5c2d5c5e7a1","storage_path":"carl
 const publicBase='https://iojoritxhpijprgkjfre.supabase.co/storage/v1/object/public/';
 const silhouette=publicBase+'site-images/unknown_gang_cropped_web.webp';
 const cogwheel=publicBase+'site-images/cogwheel-gang-portrait_vbu4c5.webp';
-const groupAliases={'Helot Chaos Cults':'Chaos Helots','Ironhead Squat Prospectors':'Ironhead Squats','Underhive Outcasts':'Outcasts','Slave Ogryns':'Free Ogryns','Spyre Hunting Party':'Spyre Hunters','Malstrain Genestealers':'The Malstrain'};
+const groupAliases={'Venator Gangs':'Venators','Helot Chaos Cults':'Chaos Helots','Ironhead Squat Prospectors':'Ironhead Squats','Underhive Outcasts':'Outcasts','Slave Ogryns':'Free Ogryns','Spyre Hunting Party':'Spyre Hunters','Malstrain Genestealers':'The Malstrain'};
 const pickerStates=new Map();let editor=null,serial=0,heicLoader=null;
 const legacyPortraitUrl=p=>p?.storage_path?publicBase+'gang-type-images/'+p.storage_path.replace(/^\/+/, ''):'';
 const portraitUrl=p=>p?.image_url||generatedPortraitAssets[p?.group_label]||legacyPortraitUrl(p);
