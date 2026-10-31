@@ -120,7 +120,7 @@ html.uk-ui .fighter-status-actions .danger:last-child{grid-column:1/-1}
 html.uk-ui table{font-size:var(--uk-small);border-collapse:collapse}
 html.uk-ui th,html.uk-ui .fighter-page th,html.uk-ui .stash-page th{font-size:12px;line-height:1.5;letter-spacing:.15px;text-transform:none;background:#232c39;color:var(--muted);font-weight:650;padding:13px 16px;border-color:var(--line)}
 html.uk-ui td,html.uk-ui .fighter-page td{font-size:var(--uk-small);line-height:1.6;padding:13px 16px;color:var(--text);border-color:var(--line)}
-html.uk-ui tr:hover td{background:#e3ad8305}
+@media screen and (hover:hover) and (pointer:fine){html.uk-ui tr:hover td{background:#e3ad8305}}
 html.uk-ui .table-wrap{min-width:0;max-width:100%;overflow-x:auto;border-radius:10px;border:1px solid var(--line);box-shadow:none;overscroll-behavior-x:contain}
 html.uk-ui .form input,html.uk-ui .form select,html.uk-ui .form textarea,html.uk-ui .field,html.uk-ui .fighter-picker select,html.uk-ui .trade-controls input,html.uk-ui .trade-controls select,html.uk-ui .mm-combo-input.mm-combo-trigger{background:#121923;border:1px solid #3a4759;border-radius:8px;color:var(--text);font-size:var(--uk-body);min-height:44px;line-height:1.5;padding:10px 12px;box-shadow:inset 0 1px 3px #0002}
 html.uk-ui .form input[type=checkbox],html.uk-ui .form input[type=radio]{min-height:0}

@@ -492,8 +492,11 @@
     vertical-align: middle;
   }
 
-  html.uk-ui :is(.table-wrap, .mmrr-table-wrap, .fighter-page, .stash-page) table:where(:not(.rp-stats):not(.rp-weapons)) tr:hover td {
-    background: var(--uk-accent-soft);
+  /* Touch browsers can keep :hover after a tap. Highlight rows only with a mouse. */
+  @media (hover: hover) and (pointer: fine) {
+    html.uk-ui :is(.table-wrap, .mmrr-table-wrap, .fighter-page, .stash-page) table:where(:not(.rp-stats):not(.rp-weapons)) tr:hover td {
+      background: var(--uk-accent-soft);
+    }
   }
 
   html.uk-ui .table-actions {
