@@ -373,6 +373,9 @@
   html.uk-ui:is(.light,:not(.light)) .fighter-page .fp-skills-table :is(th,td):last-child { width: 54px; }
   html.uk-ui:is(.light,:not(.light)) .fighter-picker { margin-bottom: 24px; gap: 8px; }
   html.uk-ui:is(.light,:not(.light)) .fighter-picker > [data-mm-reference-back-moved] { display: none; }
+  html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-home] { display: inline-grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; min-height: 40px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: inherit; cursor: pointer; }
+  html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-home]:hover { background: var(--panel2); color: var(--text); }
+  html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-home]:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
   html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-back] { border: 0; border-radius: 0; padding: 0; min-height: 0; background: transparent; color: inherit; font: inherit; }
   html.uk-ui:is(.light,:not(.light)) .crumb > [data-mm-reference-back]:hover { color: var(--text); text-decoration: underline; }
   html.uk-ui:is(.light,:not(.light)) .fighter-banner { min-height: 58px; margin-bottom: 24px; padding: 4px 10px; border: 0; border-radius: 0; background: transparent url('/reference-ui/fighter-banner-dark.webp') center / 100% 100% no-repeat; }

@@ -39,5 +39,16 @@ await test('Moved actions open their original dialogs; page selector keeps its o
  const p=await page();try{seed(p);p.run('data.view="gang";render()');await tick();const before=p.snapshot();p.q('.gah-manage').open=true;p.tap('[data-parity="gang-resources"]');assert(p.q('.modal-bg'));p.run('closeModal()');assert.equal(p.snapshot(),before);p.tap('[data-gang-faction]');assert(p.q('.mmrr-overlay'));p.tap('[data-mmrr-close]');p.tap('[data-roster-text-open]');assert(p.q('.roster-text-export'));p.tap('[data-mmrr-close]');const select=p.q('[data-rp-view]');select.value='2-card';select.dispatchEvent(new p.w.Event('change',{bubbles:true}));await tick();assert.equal(p.run('data.rosterView'),'2-card');assert.equal(p.w.document.activeElement,p.q('.gah-manage>summary'));assert.deepEqual(p.errors,[]);
  }finally{p.close()}
 });
+await test('Breadcrumb home returns every app view to gang selection and preserves roster records',async()=>{
+ const p=await page();try{seed(p);p.run('data.view="gang";render()');await tick();const records=p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})');
+ for(const view of ['gang','fighter','campaigns','catalog','dashboard']){
+  p.run('data.view='+JSON.stringify(view)+';data.homeTab="skirmishes";render()');await tick();await tick();
+  assert.equal(p.all('.crumb [data-mm-reference-home]').length,1);const home=p.q('[data-mm-reference-home]');assert.equal(home.tagName,'BUTTON');assert.equal(home.type,'button');assert.equal(home.getAttribute('aria-label'),'Go to gang selection');
+  p.q('[data-mm-reference-home] svg').dispatchEvent(new p.w.MouseEvent('click',{bubbles:true}));await tick();await tick();assert.equal(p.run('data.view'),'dashboard');assert.equal(p.run('data.homeTab'),'gangs');assert.equal(p.w.location.pathname,'/');assert(p.q('[data-open-gang="verified-gang"]'));assert.equal(p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})'),records);
+ }
+ p.run('data.view="fighter";render()');await tick();p.tap('[data-mm-reference-back]');assert.equal(p.run('data.view'),'gang');
+ p.run('gang().remoteReadOnly=true;render()');await tick();p.w.UKI18n.setLanguage('ko');await tick();assert.equal(p.q('[data-mm-reference-home]').getAttribute('aria-label'),'갱 선택으로 돌아가기');assert(!p.q('[data-mm-reference-home]').disabled);p.tap('[data-mm-reference-home]');assert.equal(p.run('data.homeTab'),'gangs');assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
 if(failures.length)process.exitCode=1;else console.log(passes.length+' gang header cases passed.');
 })();

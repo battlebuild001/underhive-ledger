@@ -51,7 +51,11 @@
       document.querySelectorAll('.favorite').forEach(node=>{putIcon(node,'star',20);const fill=node.classList.contains('on')?'currentColor':'none',svg=node.querySelector('svg');if(svg&&svg.getAttribute('fill')!==fill)svg.setAttribute('fill',fill);});
       document.querySelectorAll('.fp-ooa').forEach(node=>{if(node.querySelector('[data-mm-reference-svg]'))return;const label=document.createElement('span');label.textContent=node.textContent.replace('☠','').trim();putIcon(node,'ooa',18);node.append(label);});
       document.querySelectorAll('[data-gc="fighter-logs"]').forEach(node=>{action(node,'list','View Fighter Logs','파이터 활동 기록','mm-reference-history');const actions=node.closest('.fighter-page-actions'),xp=actions?.querySelector('[data-play="add-xp"]'),anchor=xp?.closest('.uk-help-action-pair')||xp;if(anchor&&node.nextElementSibling!==anchor)anchor.before(node);});
-      document.querySelectorAll('.crumb > span:first-child').forEach(node=>{if(!node.matches('[data-user-text]'))putIcon(node,'home',20);});
+      document.querySelectorAll('.crumb > span:first-child').forEach(node=>{
+        if(node.matches('[data-user-text]'))return;
+        const home=document.createElement('button');home.type='button';home.dataset.parity='home';home.dataset.value='gangs';home.dataset.mmReferenceHome='';node.replaceWith(home);
+      });
+      document.querySelectorAll('.crumb > [data-mm-reference-home]').forEach(node=>{putIcon(node,'home',20);accessibleName(node,'Go to gang selection','갱 선택으로 돌아가기');});
       if(typeof data!=='undefined'&&data.view==='fighter'){
         const crumb=document.querySelector('.crumb'),g=typeof gang==='function'?gang():null;
         if(crumb&&g&&!crumb.querySelector('[data-mm-reference-back]')){
