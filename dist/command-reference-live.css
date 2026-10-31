@@ -12,7 +12,7 @@
  html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]{display:grid;place-items:start center}
  html.uk-ui.command-ui .cmd-legacy-controls>.cmd-sample{width:min(1180px,100%);max-height:calc(100dvh - 48px);display:flex;flex-direction:column}
  html.uk-ui.command-ui .cmd-legacy-controls .dialog{width:100%;max-width:none;max-height:calc(100dvh - 48px);overflow:auto;background:var(--panel);color:var(--text)}
- html.uk-ui.command-ui .cmd-legacy-controls .dialog-head{position:sticky;top:0;background:var(--panel);z-index:3}
+ html.uk-ui.command-ui .cmd-legacy-controls .cmd-sample.cmd-sample .dialog-head{position:sticky;top:0;background:var(--panel);z-index:3}
  html.uk-ui.command-ui .cmd-legacy-body{padding:22px;min-width:0}
  html.uk-ui.command-ui .cmd-legacy-body .tabs{margin-top:0}
  html.uk-ui.command-ui .cmd-reference-logo{height:39px;width:39px;object-fit:contain;flex:none;opacity:.88}
@@ -97,4 +97,16 @@
  html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-waiting-portrait>.portrait{display:block;width:36px;height:47px;object-fit:cover;border-radius:3px}
  html.uk-ui.command-ui .cmd-sample.cmd-sample .duel-portraits>.reference-missing-portrait{position:static;margin:0;transform:none;display:grid;place-items:center;min-width:40px;min-height:52px;border:1px solid var(--line);background:var(--panel2);color:var(--muted)}
  html.uk-ui.command-ui .cmd-sample .duel-portraits:has(img:nth-of-type(3)){flex-wrap:wrap}
+}
+/* Keep native campaign task controls readable within the reference settings shell. */
+@media screen{
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges>.section-heading{display:flex;margin:0;align-items:center;gap:12px;flex-wrap:wrap}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .btn{min-height:44px;padding:10px 14px;font-size:13px;line-height:1.5;white-space:normal}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .ca-current-task .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;width:100%}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .ca-current-task>p{font-size:14px;line-height:1.7;color:var(--text);margin:8px 0 12px}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .ca-current-task>p.ca-task-blocked{font-size:13px;color:var(--muted)}
+ @media(max-width:600px){
+  html.uk-ui.command-ui .cmd-sample.cmd-sample .cmd-legacy-body .ca-console{padding:0;border:0;background:transparent}
+  html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .ca-current-task .actions>.btn{width:100%}
+ }
 }
