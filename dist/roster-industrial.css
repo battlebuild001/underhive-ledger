@@ -1,0 +1,83 @@
+/* Screen roster: an etched metal frame around a worn, readable field record. */
+@media screen {
+ .rp-roster .rp-card{
+  --record-ink:#24281f;--record-rule:#8a806a;--record-brass:#a9915e;
+  color:var(--record-ink);border:1px solid #77684c;border-radius:3px;
+  background:
+   radial-gradient(ellipse at 0 0,#a3824433,transparent 46%),
+   radial-gradient(ellipse at 100% 100%,#79674624,transparent 40%),
+   repeating-linear-gradient(0deg,#5d503407 0 1px,transparent 1px 4px),#e4dfcf;
+  box-shadow:0 3px 10px #0006,inset 0 0 0 3px #2a2e27,inset 0 0 0 4px #96815b,inset 0 0 22px #6c592b16;
+ }
+ .rp-roster .rp-card::before,.rp-roster .rp-card::after{
+  content:"";position:absolute;left:6px;right:6px;height:5px;pointer-events:none;z-index:2;
+  background:radial-gradient(circle at 3px 2.5px,#b4a07b 0 1px,#242720 1.5px 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 3px) 2.5px,#b4a07b 0 1px,#242720 1.5px 2.5px,transparent 3px);
+ }
+ .rp-roster .rp-card::before{top:6px}.rp-roster .rp-card::after{bottom:6px}
+ .rp-roster .rp-card-header{height:90px}
+ .rp-roster .rp-card-header::before{
+  top:-12px;height:82px;
+  background:
+   repeating-linear-gradient(105deg,transparent 0 31px,#d7c4960b 32px,transparent 33px 81px),
+   radial-gradient(ellipse at 0 0,#78644544,transparent 60%),
+   linear-gradient(110deg,#30362d,#171e19 65%,#30352a);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 9px),80% calc(100% - 9px),calc(80% - 9px) 100%,0 100%);
+  border-top:1px solid #a28a59;border-bottom:1px solid #8d774c;
+ }
+ .rp-roster .rp-card-header::after{
+  content:"";position:absolute;left:-8px;bottom:14px;width:68px;height:5px;pointer-events:none;
+  background:repeating-linear-gradient(130deg,#b49b60 0 5px,#252a22 5px 10px);
+ }
+ .rp-roster .rp-title{padding-left:12px;padding-top:2px;height:61px}
+ .rp-roster .rp-title h3{color:#f4edda;font-weight:800;letter-spacing:.025em;text-shadow:0 2px 1px #0009}
+ .rp-roster .rp-title p{color:#cec7b4}
+ .rp-roster .rp-label{color:#e4ce99;background:#1c231e;border-color:#978158;border-radius:0}
+ .rp-roster .rp-credit-disc{
+  position:relative;isolation:isolate;border:0;border-radius:0;color:#efe4c8;
+  background:linear-gradient(135deg,#c1ac79,#7a6844 55%,#b7a471);
+  clip-path:polygon(20% 0,80% 0,100% 20%,100% 80%,80% 100%,20% 100%,0 80%,0 20%);
+  box-shadow:none;
+ }
+ .rp-roster .rp-credit-disc::before{
+  content:"";position:absolute;inset:3px;z-index:-1;
+  clip-path:inherit;background:linear-gradient(135deg,#3d4436,#222a22);
+  box-shadow:inset 0 0 16px #0005;
+ }
+ .rp-roster .rp-credit-disc strong{font-family:Inter,Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:800}
+ .rp-roster .rp-credit-disc span{color:#d8c8a1;font-size:10px;letter-spacing:.04em}
+ .rp-roster .rp-portrait{border-radius:6px;border-color:#9a8255;box-shadow:0 0 0 1px #252a21}
+ .rp-roster .rp-stats{font-variant-numeric:tabular-nums}
+ .rp-roster .rp-stats th{
+  background:#343b30!important;color:#f1ebd8!important;border-bottom:2px solid #9e8757!important;font-weight:600;
+ }
+ .rp-roster .rp-stats td{
+  color:#24281f!important;background:#f2eddf66!important;border-bottom:1px solid #a69b81!important;font-weight:600;
+ }
+ .rp-roster .rp-stats th.mental{background:#4b5140!important}
+ .rp-roster .rp-stats td.mental{background:#c5c7ae80!important}
+ .rp-roster .rp-stats th.experience,.rp-roster .rp-stats td.experience{background:#77432e!important;color:#fff2dc!important;border-left:1px solid #a3835d!important}
+ .rp-roster .rp-stats .uk-help-term{color:inherit;border-bottom-color:currentColor}
+ .rp-roster .rp-weapons{color:var(--record-ink)!important}
+ .rp-roster .rp-weapons th{background:#c8c3af80!important;border-bottom:1px solid #82785f!important;color:#303729!important}
+ .rp-roster .rp-weapons td{color:var(--record-ink)!important}
+ .rp-roster .rp-weapons tbody td{border-top:1px solid #b8ad93!important}
+ .rp-roster .rp-weapons :is(th,td):not(:first-child){border-left-color:#a2967c!important}
+ .rp-roster .rp-weapon-link{color:#292d23}
+ .rp-roster .rp-weapon-link .rp-profile-name{color:#595341}
+ .rp-roster .rp-details{border-top:1px solid #a69b81;padding-top:10px;color:#292d23}
+ .rp-roster .rp-details dt{color:#4e4937}
+ .rp-roster .rp-details dd p,.rp-roster .rp-card-context{color:#34392c}
+ .rp-roster .rp-card-menu{color:#484632;opacity:1}
+ .rp-roster .rp-inactive{background-color:#c9c6ba}
+ .rp-roster .rp-inactive .rp-card-header::after{bottom:0}
+ .rp-roster .rp-card:focus-visible{outline:3px solid #d0ae67;outline-offset:3px}
+ .rp-roster .rp-card :is(button,[tabindex]):focus-visible,.rp-roster .rp-card-menu:focus-visible{outline:2px solid #70512a;outline-offset:2px}
+ .rp-roster:not(.rp-view-normal) .rp-card{border-radius:3px}
+ @media(max-width:650px){
+  .rp-roster .rp-title{padding-left:5px}
+  .rp-roster .rp-card-header::before{top:-10px;height:78px}
+  .rp-roster .rp-card-header::after{left:-2px;bottom:15px;width:48px;height:4px}
+  .rp-roster:not(.rp-view-normal) .rp-card-header::before{top:-6px}
+ }
+ @media(prefers-reduced-motion:reduce){.rp-roster .rp-card{transition:none}}
+}
