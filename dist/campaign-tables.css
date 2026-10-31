@@ -1,0 +1,21 @@
+/* Screen-only campaign table widths; printed layouts retain their existing styles. */
+@media screen{
+/* Campaign data tables scroll inside their panels instead of squeezing Korean text. */
+html.uk-ui .cp-campaign-page :is(.cp-members-scroll,.cp-territory-summary-scroll),
+html.uk-ui .cp-campaign-page .cp-triumph .table-wrap{min-width:0;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+html.uk-ui .cp-campaign-page .cp-members-scroll>table{width:max-content;min-width:max(100%,960px);table-layout:auto}
+html.uk-ui .cp-campaign-page .cp-territory-summary-scroll>table{width:max-content;min-width:max(100%,560px);table-layout:auto}
+html.uk-ui .cp-campaign-page .cp-triumph .table-wrap>table{width:max-content;min-width:max(100%,580px);table-layout:auto}
+html.uk-ui .cp-campaign-page :is(.cp-members-scroll,.cp-territory-summary-scroll)>table :is(th,td),
+html.uk-ui .cp-campaign-page .cp-triumph .table-wrap>table :is(th,td){white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+html.uk-ui .cp-campaign-page :is(.cp-members-scroll,.cp-territory-summary-scroll) thead :is(.ccg-term,.uk-help-term),
+html.uk-ui .cp-campaign-page .cp-triumph thead :is(.ccg-term,.uk-help-term){white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+html.uk-ui .cp-campaign-page .cp-members-scroll :is(th,td):first-child{min-width:140px}
+html.uk-ui .cp-campaign-page .cp-members-scroll :is(th,td):nth-child(2){min-width:160px}
+html.uk-ui .cp-campaign-page .cp-members-scroll :is(th,td):nth-child(3){min-width:180px}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-member-row>td:nth-child(3){white-space:normal;word-break:keep-all;overflow-wrap:normal}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-member-row>td:first-child>.btn{max-width:240px;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-cell{min-width:180px}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territory-link{white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-member-row>td:last-child{min-width:52px}
+}
