@@ -29,6 +29,7 @@ function visitorTP(f,c){
  return names.includes('Leader')?Number(tp.Leader)||0:names.includes('Champion')?Number(tp.Champion)||0:0;
 }
 function activeVisit(g,c){const v=g.tradingPostVisit;return v&&!v.closedAt&&v.campaignId===(c.remoteCampaignId||c.id)&&(!v.cycle||Number(v.cycle)===Number(window.MMCampaignAutomation?.cycle(c)||c.currentCycle||1))?v:null;}
+function hasRecordedVisit(ctx){const resolved=ctx&&resolve(ctx);if(!resolved)return false;const {g,c}=resolved,v=activeVisit(g,c),cycle=Number(window.MMCampaignAutomation?.cycle(c)||c.currentCycle||1);return !!(ctx.visitId&&v?.id===ctx.visitId&&ctx.accountId===(window.AccountParity?.account?.id||null)&&ctx.gangObject===g&&ctx.campaignObject===c&&Number.isSafeInteger(Number(v.cycle))&&Number(v.cycle)===cycle&&Array.isArray(v.visitors)&&v.visitors.length&&v.visitors.every(visitor=>{const action=window.MMCampaignEconomy?.usedAction(c,g,visitor.fighterId);return whole(visitor.tp)&&Number(visitor.tp)>0&&action?.action==='trade'&&(action.tp==null||Number(action.tp)===Number(visitor.tp));}));}
 function sourceItems(ctx,f){return window.FighterParity.equipmentFor(f,'trading',ctx);}
 function validatePurchase(ctx,{f,a,stash,v}={}){
  const resolved=resolve(ctx),bad=text('This gang or campaign changed. Reopen the Trading Post.','갱 또는 캠페인이 변경되었습니다. 거래소를 다시 여세요.');
@@ -126,17 +127,21 @@ function draw(root,c,g){
 function context(){const r=resolve(draft);if(!r||data.view!=='campaign'||data.selectedCampaign!==draft.campaignId)return null;return r;}
 function fail(message){const node=document.querySelector('.ctp-root>.ctp-error[role=alert]');if(node){node.hidden=false;node.textContent=message;}else window.alert(message);}
 function visit(){
- const r=context();if(!r||r.c.phase==='Closed')return;const {c,g}=r,back=copy(draft),existing=activeVisit(g,c),other=g.tradingPostVisit;
+ const r=context();if(!r||r.c.phase==='Closed')return;const {c,g}=r,back=copy(draft),existing=activeVisit(g,c),other=g.tradingPostVisit,operationId=id();
  if(other&&!other.closedAt&&!existing)return fail(text('Finish the open Trading Post step in the other campaign first.','다른 캠페인에서 열린 거래소 단계를 먼저 종료하세요.'));
  const options=g.fighters.filter(f=>visitorTP(f,c)>0&&!existing?.visitors.some(v=>v.fighterId===f.id));
- closeModal();formModal(L('Record completed Trading Post visits','완료한 거래소 방문'),`<p class="wide">${L('Select eligible models that completed this action and have not used their Post-cycle action elsewhere. Each model is recorded once in this open step.','이 행동을 완료했고 다른 사이클 종료 후 행동에 사용하지 않은 모델을 고르세요. 현재 열린 단계에서는 모델당 한 번만 기록됩니다.')}</p>${options.map(f=>`<label class="checkline wide"><input type="checkbox" name="visitor" value="${E(f.id)}"><span data-user-text>${E(f.name)}</span><b>+${visitorTP(f,c)} TP</b></label>`).join('')||`<p>${L('No eligible unrecorded visitors.','이번 사이클에 거래소를 방문할 수 있는 파이터가 없습니다.')}</p>`}<label class="checkline wide"><input type="checkbox" name="confirmed" value="yes">${L('These actions were completed this Post-cycle; no other action was used.','이번 사이클 종료 후에 방문 행동을 완료했고 다른 행동에 사용하지 않았습니다.')}</label><p class="ctp-error wide" role="alert" hidden></p>`,v=>{
+ closeModal();formModal(L('Record completed Trading Post visits','완료한 거래소 방문'),`<p class="wide">${L('Select eligible models that completed this action and have not used their Post-cycle action elsewhere. Each model is recorded once in this open step.','이 행동을 완료했고 다른 사이클 종료 후 행동에 사용하지 않은 모델을 고르세요. 현재 열린 단계에서는 모델당 한 번만 기록됩니다.')}</p>${options.map(f=>`<label class="checkline wide"><input type="checkbox" name="visitor" value="${E(f.id)}"><span data-user-text>${E(f.name)}</span><b>+${visitorTP(f,c)} TP</b></label>`).join('')||`<p>${L('No eligible unrecorded visitors.','이번 사이클에 거래소를 방문할 수 있는 파이터가 없습니다.')}</p>`}<p class="ctp-error wide" role="alert" hidden></p>`,v=>{
   const live=resolve(back),form=document.querySelector('#modal-form'),ids=[...form.querySelectorAll('[name=visitor]:checked')].map(x=>x.value),current=live&&activeVisit(live.g,live.c),deny=m=>{const n=form.querySelector('.ctp-error');n.hidden=false;n.textContent=m;return false;};
   if(!live||live.g!==g||live.c!==c||c.phase==='Closed'||!whole(g.tradePoints??0))return deny(text('The roster changed. Reopen the shop.','명단이 변경되었습니다. 거래소를 다시 여세요.'));
-  if(v.confirmed!=='yes'||!ids.length||ids.some(fid=>!options.some(f=>f.id===fid)||!visitorTP(g.fighters.find(f=>f.id===fid),c)||current?.visitors.some(v=>v.fighterId===fid)))return deny(text('Choose eligible visitors and confirm their actions.','거래소를 방문할 수 있는 파이터를 고르고 방문을 확인하세요.'));
+  if(!ids.length||ids.some(fid=>!options.some(f=>f.id===fid)||!visitorTP(g.fighters.find(f=>f.id===fid),c)||current?.visitors.some(v=>v.fighterId===fid)))return deny(text('Choose models that completed a Trading Post visit.','거래소 방문을 완료한 파이터를 선택하세요.'));
   const visitors=ids.map(fid=>{const f=g.fighters.find(f=>f.id===fid);return {fighterId:fid,name:f.name,tp:visitorTP(f,c)};}),gain=visitors.reduce((s,v)=>s+v.tp,0);
   if(!whole(Number(g.tradePoints||0)+gain))return deny(text('Invalid TP total.','TP 합계를 확인하세요.'));
   try{window.MMCampaignEconomy?.assertTradeVisitors(c,g,ids);}catch(e){return deny(e.message)}
-  g.tradingPostVisit=current||{id:id(),campaignId:c.remoteCampaignId||c.id,openedAt:now(),cycle:window.MMCampaignAutomation?.cycle(c)||c.currentCycle||1,closedAt:null,visitors:[]};g.tradingPostVisit.visitors.push(...visitors);g.tradePoints=Number(g.tradePoints||0)+gain;window.MMCampaignEconomy?.recordTradeVisitors(c,g,visitors);log(g,`${c.name}: Visit Trading Post +${gain} TP (${visitors.map(v=>v.name).join(', ')})`);save();setTimeout(()=>open(c.id,back),0);return true;
+  const record=(dc,dg)=>{window.MMCampaignEconomy?.assertTradeVisitors(dc,dg,ids);dg.tradingPostVisit=activeVisit(dg,dc)||{id:operationId,campaignId:dc.remoteCampaignId||dc.id,openedAt:now(),cycle:window.MMCampaignAutomation?.cycle(dc)||dc.currentCycle||1,closedAt:null,visitors:[]};dg.tradingPostVisit.visitors.push(...copy(visitors));dg.tradePoints=Number(dg.tradePoints||0)+gain;window.MMCampaignEconomy?.recordTradeVisitors(dc,dg,visitors);log(dg,`${dc.name}: Visit Trading Post +${gain} TP (${visitors.map(v=>v.name).join(', ')})`);};
+  const reopen=()=>setTimeout(()=>open(c.id,back),0);
+  if((c.remoteOwnerId||c.remoteCampaignId||c.remoteRevision)&&window.MMCampaignAutomation?.canEdit(c))return window.MMCampaignAutomation.apply(c,{key:'trading-visit:'+operationId,label:text('Record Trading Post visitors','거래소 방문 반영'),gangIds:[g.id],mutate:d=>{const dg=d.gangs.find(g=>g.id===back.gangId);if(!dg)throw Error('Original roster unavailable');record(d.campaign,dg);}}).then(()=>{reopen();return true;});
+  record(c,g);save();reopen();return true;
+
  },'Record visits');submitLabel('Record visits','방문 기록');
  returnToShop(back);window.UKI18n?.refresh();
 }
@@ -166,5 +171,5 @@ function catalogueItems(c,g,f,{mode='trading',gangs=data.gangs}={}){
   return copy(window.FighterParity.equipmentFor(recipient,mode==='fighter_list'?'gang':'trading',{campaignId:workingCampaign.id}));
  }finally{data=original;}
 }
-window.MMCampaignTrading={open,candidates,validatePurchase,purchased,visitorTP,catalogueItems};
+window.MMCampaignTrading={open,candidates,validatePurchase,hasRecordedVisit,purchased,visitorTP,catalogueItems};
 })();
