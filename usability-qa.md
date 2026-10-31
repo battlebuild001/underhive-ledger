@@ -58,3 +58,9 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 - Challenge preparation now hides and disables Side Job achievement controls. Played reports show the specific label “Side Job completed / 사이드 잡 달성.” Previously saved achievement values are preserved when editing a challenge.
 - Reopening an unplayed challenge with an empty saved winners array now retains a winner selector when recording its result. Recorded draws also retain their selection.
 - Targeted source-chain checks cover preparation/result switching, added participants, cancellation, preserved historical/custom jobs, and saving the eventual result. Browser checks at 320, 390 and 1280 verify actual visibility, enabled state, Korean labels and cancellation. Build and compiled Worker validation passed. Screenshots: `/workspace/shared/side-job-{preparation,results}-{320,390,1280}.png`.
+
+## Follow-up: territory stake wording
+
+- The native challenge/report field already stores the challenge stake in `territoryId`. Challenge preparation now calls it “Territory at stake / 전투에 건 영토,” with “No territory at stake / 건 영토 없음” and a short ownership note. Played reports retain their result wording.
+- Switching between preparation and results preserves the selected territory. The claiming-winner control is hidden during preparation. Existing source eligibility and result-only ownership transfer logic remain intact.
+- Source-chain regressions verify choosing/saving a stake leaves ownership intact, recorded victories can transfer it, and draws/cancellation do not. Responsive browser checks verify Korean wording, mode switching, and ownership plus stake preservation through save/reload. Screenshots: `/workspace/shared/stake-preparation-{320,390,1280}.png`.

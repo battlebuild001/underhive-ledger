@@ -832,6 +832,8 @@ Select the campaign types that you want to add territories for.	영토를 추가
 Enter territory description...	영토 설명 입력...
 Territory claimed by	영토 획득 갱
 Claimed Territory	획득한 영토
+Territory at stake	전투에 건 영토
+No territory at stake	건 영토 없음
 No territory claimed	획득한 영토 없음
 Select the claiming winner	영토를 획득한 승리 갱 선택
 Select the winning gang that claims the territory.	영토를 획득할 승리 갱을 선택하세요.
