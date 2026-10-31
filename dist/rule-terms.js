@@ -74,7 +74,7 @@ function helpMarkup(row,kind,edition){
  const help=window.UK_RULE_TERMS?.help?.[row.id];if(!help||help.sourceIds?.some(id=>!sourceExists(id)))return '';
  const cases=(help.examples||[]).map(e=>exampleMarkup(e,row)).join(''),related=(help.related||[]).map(id=>lookup(id,{edition:'n26'})).filter(Boolean);
  const links=related.length?`<nav class="mmrr-example-links" aria-label="Related rules" data-i18n-en-aria-label="Related rules" data-i18n-ko-aria-label="관련 규칙"><strong>${L({en:'Rules used in these examples',ko:'예시에 적용한 규칙'})}</strong>${related.map(e=>`<button type="button" class="btn small" data-rule-term="${esc(e.id)}" data-rule-edition="n26" aria-haspopup="dialog">${L({en:e.name,ko:e.nameKo||e.name})}</button>`).join('')}</nav>`:'';
- return `<aside class="mmrr-term-usage" data-rule-help="${esc(row.id)}">${help.when?`<strong>${L({en:'When to use it',ko:'언제 쓰는 규칙인가요?'})}</strong>${prose(help.when.en,help.when.ko,{row,edition})}`:''}${help.example?`<details class="mmrr-term-example"><summary>${L({en:'Simple example',ko:'쉬운 예시 보기'})}</summary>${prose(help.example.en,help.example.ko,{row,edition})}</details>`:''}${cases}${links?`<details class="mmrr-example-sources"><summary>${L({en:'Related rules',ko:'관련 규칙 보기'})}</summary>${links}</details>`:''}</aside>`;
+ return `<aside class="mmrr-term-usage" data-rule-help="${esc(row.id)}">${help.when?`${prose(help.when.en,help.when.ko,{row,edition})}`:''}${help.example?`<details class="mmrr-term-example"><summary>${L({en:'Simple example',ko:'쉬운 예시 보기'})}</summary>${prose(help.example.en,help.example.ko,{row,edition})}</details>`:''}${cases}${links?`<details class="mmrr-example-sources"><summary>${L({en:'Related rules',ko:'관련 규칙 보기'})}</summary>${links}</details>`:''}</aside>`;
 }
 
 function refresh(){
@@ -86,12 +86,7 @@ function refresh(){
   p.innerHTML=markup(text,p.dataset.ruleSelf,p.dataset.ruleEdition);p.dataset.ruleLanguage=lang();
   if(focused){const next=[...p.querySelectorAll('[data-rule-term]')].filter(b=>b.dataset.ruleTerm===focused);(p.querySelectorAll('[data-rule-term]')[ordinal]||next[0])?.focus({preventScroll:true});}
  }
- const body=document.querySelector('.mmrr-overlay .mmrr-body');
- if(body&&!body.querySelector('[data-rule-term]'))body.querySelector('.mmrr-term-hint')?.remove();
- if(body?.querySelector('[data-rule-term]')&&!body.querySelector('.mmrr-term-hint')){
-  const hint=document.createElement('p');hint.className='mmrr-term-hint';hint.innerHTML=L({en:'Tap a dotted-underlined term to see its rule type and explanation.',ko:'점선 밑줄 용어를 누르면 규칙 종류와 설명을 볼 수 있습니다.'});
-  const heading=body.querySelector('.mmrr-heading');if(heading)heading.after(hint);else body.prepend(hint);window.UKI18n?.refresh(hint);
- }
+ document.querySelectorAll('.mmrr-term-hint').forEach(node=>node.remove());
 }
 function open(id,options={}){
  const e=lookup(id,options);if(!e)return false;const nested=!!document.querySelector('.mmrr-overlay');

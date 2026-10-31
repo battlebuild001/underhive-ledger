@@ -33,7 +33,7 @@
     const ed=edition(options.edition),row=lookup(key,{edition:ed});if(!row||!window.MMRuleReference?.openContext)return window.MMOfficialSource?.showPending({activator:options.activator})||false;
     contextReturn=null;
     const explain=(value,className='')=>row.source_verified&&ed==='n26'&&window.MMRuleTerms&&value?window.MMRuleTerms.prose(value.en||value.ko,value.ko||value.en,{edition:ed}).replace('mmrr-linked-prose','mmrr-linked-prose '+className):text(value,'p',className);
-    const body=`<div class="mmrr-heading"><span class="mmrr-badge" data-i18n-ignore>${esc(ed.toUpperCase())}</span><span data-i18n-ko="항목 설명">How this works</span></div><div class="uk-help-content" data-context-help-key="${esc(key)}">${explain(row.summary,'uk-help-summary')}${(row.sections||[]).map(section=>'<section>'+text(section.heading,'h3')+explain(section.text)+'</section>').join('')}${related(key,ed)}</div>`;
+    const body=`<div class="mmrr-heading"><span class="mmrr-badge" data-i18n-ignore>${esc(ed.toUpperCase())}</span></div><div class="uk-help-content" data-context-help-key="${esc(key)}">${explain(row.summary,'uk-help-summary')}${(row.sections||[]).map(section=>'<section>'+text(section.heading,'h3')+explain(section.text)+'</section>').join('')}${related(key,ed)}</div>`;
     return window.MMRuleReference.openContext(row.title.en||row.title.ko,body,{nameKo:row.title.ko,activator:options.activator});
   }
   const characteristicKeys=new Set(['M','WS','BS','S','T','W','I','A','Sv','Ld','Cl','Wil','Int']);
