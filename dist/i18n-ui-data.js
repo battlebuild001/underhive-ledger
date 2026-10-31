@@ -861,7 +861,7 @@ Send vehicle into Recovery?	차량을 회복 상태로 보낼까요?
 Wreck Vehicle	차량 격파 처리
 Vehicle Wrecked	차량 격파
 Destroyed	파괴됨
-Ruined	폐기
+Ruined	폐허
 Damaged	손상됨
 Hull	차체
 Hull Points	차체 포인트
