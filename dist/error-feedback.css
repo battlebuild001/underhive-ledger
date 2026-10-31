@@ -1,0 +1,23 @@
+/* Keep failures beside the action that failed, including on short phone screens. */
+:root{--ux-error-bg:#2d1b17;--ux-error-line:#a85542;--ux-error-text:#ffd3c5}
+html.light{--ux-error-bg:#fff0e9;--ux-error-line:#b7492d;--ux-error-text:#862b18}
+.ux-error-source{display:none!important}
+html.uk-ui .ux-error-feedback{display:flex;align-items:flex-start;gap:8px;width:100%;min-width:0;padding:8px 10px 8px 14px;border:1px solid var(--ux-error-line);border-radius:5px;background:var(--ux-error-bg);color:var(--ux-error-text);font-size:14px;line-height:1.7;box-sizing:border-box}
+html.uk-ui .ux-error-text{flex:1;min-width:0;white-space:pre-line;overflow-wrap:anywhere;max-height:min(calc(var(--ux-visual-height,100dvh) * .28),180px);overflow:auto;align-self:center;padding:2px 0}
+html.uk-ui .ux-error-close{display:grid;place-items:center;flex:none;min-width:44px;min-height:44px;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:22px;line-height:1;cursor:pointer;border-radius:3px}
+html.uk-ui .ux-error-close:focus-visible{outline:2px solid currentColor;outline-offset:1px}
+html.uk-ui .modal-foot.ux-has-error,html.uk-ui .mmrr-foot.ux-has-error,html.uk-ui .dialog-foot.ux-has-error{flex-wrap:wrap;gap:10px}
+html.uk-ui .ux-modal-error{flex:0 0 100%;width:100%;margin:0}
+html.uk-ui .ux-page-error{position:fixed;z-index:110;bottom:var(--ux-error-bottom,12px);left:50%;transform:translateX(-50%);width:min(640px,calc(100vw - 24px));box-shadow:0 6px 24px #0005}
+html.uk-ui .ux-page-error[hidden]{display:none!important}
+html.uk-ui .ux-error-dock{position:sticky;bottom:0;z-index:10;padding:10px;background:var(--panel);flex:none}
+html.uk-ui .ux-field-error{display:block;grid-column:1/-1;width:100%;color:var(--ux-error-text);font-size:13px;font-weight:400;line-height:1.7;margin-top:5px;overflow-wrap:anywhere}
+html.uk-ui.light .ux-field-error{color:var(--ux-error-text)}
+html.uk-ui [aria-invalid=true]{outline:1px solid var(--ux-error-line);outline-offset:2px}
+html.uk-ui .modal-bg:has(.ux-modal-error){top:var(--ux-visual-top,0px);bottom:auto;height:var(--ux-visual-height,100dvh)}
+html.uk-ui .modal-bg:has(.ux-modal-error)>.modal{max-height:calc(var(--ux-visual-height,100dvh) - 24px)}
+@media(max-width:600px){html.uk-ui .modal-foot.ux-has-error{padding:10px 12px}html.uk-ui .ux-error-feedback{font-size:13px;padding:7px 6px 7px 12px}html.uk-ui .ux-error-text{max-height:min(calc(var(--ux-visual-height,100dvh) * .24),150px)}}
+@media print{.ux-error-feedback,.ux-error-dock{display:none!important}.ux-error-source{display:revert!important}}
+
+html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error){top:var(--ux-visual-top,0px);bottom:auto;height:var(--ux-visual-height,100dvh)}
+html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error)>.cmd-sample,html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error) .cmd-sample.cmd-sample .dialog{max-height:calc(var(--ux-visual-height,100dvh) - 24px)}

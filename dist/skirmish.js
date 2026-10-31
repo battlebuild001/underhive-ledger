@@ -16,7 +16,7 @@ const selected=()=>list().find(s=>s.id===data.selectedSkirmish&&usable(s));
 const gangFor=p=>data.gangs.find(g=>g.id===p.gangId&&g.edition==='N26');
 const sideName=p=>p.name||gangFor(p)?.name||'—';
 function canWrite(){const a=window.AccountParity;return !(a&&(a.connecting||a.busy||a.account&&!a.ready));}
-function message(en,ko){const host=document.querySelector('[data-sk-error]');if(host){host.innerHTML=L(en,ko);host.hidden=false;window.UKI18n?.refresh(host);host.focus?.();}return false;}
+function message(en,ko){const host=document.querySelector('.modal-bg [data-sk-error]')||document.querySelector('[data-sk-error]');if(host){host.innerHTML=L(en,ko);host.hidden=false;window.UKI18n?.refresh(host);host.focus?.();}return false;}
 function guard(s){return canWrite()&&s&&list().includes(s);}
 function die(n=6){const a=new Uint32Array(1);const ceiling=Math.floor(4294967296/n)*n;do{crypto.getRandomValues(a);}while(a[0]>=ceiling);return a[0]%n+1;}
 function rollTable(key){const found=rows(key);if(![1,2,3,4,5,6].every(n=>found.filter(r=>n>=r.d6_min&&n<=r.d6_max).length===1))return null;const value=die();return {value,row:found.find(r=>value>=r.d6_min&&value<=r.d6_max)};}
