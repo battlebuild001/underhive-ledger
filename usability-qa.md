@@ -52,3 +52,9 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 - Gang pickers exclude gangs already chosen on the other side. Old duplicate drafts require a new opponent without changing the stored record until Save. Single-gang challenge drafts open with an opponent slot ready.
 - Role labels are Korean/English. Side jobs, their completion, notes, cancellation and the original result guards remain intact.
 - Verification: 57 campaign data, 9 preparation, 16 session data and 16 command interface cases passed, plus build and compiled Worker validation. Chromium passed at widths 320, 390 and 1280: one-choice role pairing, excluded duplicate choices, Korean labels, saved roles after navigation/reload and preserved authored notes. Screenshots: `/workspace/shared/paired-roles-{320,390,1280}.png`.
+
+## Follow-up: Side Job result timing
+
+- Challenge preparation now hides and disables Side Job achievement controls. Played reports show the specific label “Side Job completed / 사이드 잡 달성.” Previously saved achievement values are preserved when editing a challenge.
+- Reopening an unplayed challenge with an empty saved winners array now retains a winner selector when recording its result. Recorded draws also retain their selection.
+- Targeted source-chain checks cover preparation/result switching, added participants, cancellation, preserved historical/custom jobs, and saving the eventual result. Browser checks at 320, 390 and 1280 verify actual visibility, enabled state, Korean labels and cancellation. Build and compiled Worker validation passed. Screenshots: `/workspace/shared/side-job-{preparation,results}-{320,390,1280}.png`.
