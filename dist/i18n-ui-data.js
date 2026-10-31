@@ -937,8 +937,8 @@ Elixir Name *	엘릭서 이름 *
 Enter elixir name	엘릭서 이름 입력
 Elixir created	엘릭서를 만들었습니다
 Check the elixir name, selected effects and cost.	엘릭서 이름, 선택한 효과와 비용을 확인하세요.
-Custom Assets	사용자 자산
-CUSTOM ASSETS	사용자 자산
+Custom Assets	커스텀
+CUSTOM ASSETS	커스텀
 Create Custom	사용자 정의 항목 만들기
 Create your own custom fighter with unique characteristics and abilities.	고유한 능력치와 능력을 가진 사용자 정의 파이터를 만드세요.
 Asset Collection	자산 컬렉션
