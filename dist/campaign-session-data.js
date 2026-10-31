@@ -75,7 +75,7 @@
   const row=selectedJob(state),host=form.querySelector('[data-side-job-preview]');
   if(host){
    const en=row&&(window.UK_CATALOG_LOCALE?.rulesEn?.['sideJobs:'+row.id]||row.description_en||row.description),ko=row?.description||'';
-   host.innerHTML=row?`<p data-i18n-ko="${escape(ko)}">${escape(en)}</p>`:text('Choose a listed Side Job to read its conditions. Custom names keep your own campaign ruling.','목록에서 사이드 잡을 선택하면 달성 조건을 볼 수 있습니다. 직접 입력한 이름은 캠페인의 자체 판정을 따릅니다.');
+   host.hidden=!row;host.innerHTML=row?`<p data-i18n-ko="${escape(ko)}">${escape(en)}</p>`:'';
   }
   window.UKI18n?.refresh(form);
  }
@@ -90,7 +90,7 @@
   const state=stateFor(c,s,p),value=job(c,p),post=s.stage==='post-battle';if(post&&!value.exists)return false;
   const unavailable=!value.row&&!!value.id&&!value.custom,selection=value.row?.id||(unavailable?'recorded':value.exists?'custom':''),options=[['','No Side Job'],...rows(c).map(row=>[row.id,row.name]),['custom','Custom']];
   if(unavailable)options.splice(1,0,['recorded',value.label||'Previously recorded Side Job']);
-  const fields=`<p class="wide muted">${text('Record the Side Job for this gang. Rewards stay in the existing XP and credits controls.','이 갱의 사이드 잡을 기록합니다. 보상은 기존 XP와 크레딧 항목에서 직접 기록하세요.')}</p>`+(post?`<div class="wide"><strong>${text('Side Job','사이드 잡')}</strong><p>${jobLabel(value)}</p></div>`:cpSelect('sideJob','Side Job',options,selection)+`<label class="wide" data-side-job-custom ${selection==='custom'?'':'hidden'}>${text('Custom Side Job','직접 입력한 사이드 잡')}<input name="sideJobCustom" maxlength="250" value="${escape(value.custom)}" data-user-text></label>`)+`<div class="wide cp-sidejob-preview" data-side-job-preview></div><div class="wide">${button(keys.help,'Conditions','달성 조건',s,p)}</div>`+(post?`<label class="checkline wide"><input type="checkbox" name="sideJobCompleted" value="yes" ${value.completed?'checked':''}>${text('Side Job completed','사이드 잡 달성')}</label>`:'');
+  const fields=`<p class="wide muted">${text('Record the Side Job for this gang. Rewards stay in the existing XP and credits controls.','이 갱의 사이드 잡을 기록합니다. 보상은 기존 XP와 크레딧 항목에서 직접 기록하세요.')}</p>`+(post?`<div class="wide"><strong>${text('Side Job','사이드 잡')}</strong><p>${jobLabel(value)}</p></div>`:MMSideJobs.nativeSelect(c,'sideJob',options,selection)+`<label class="wide" data-side-job-custom ${selection==='custom'?'':'hidden'}>${text('Custom Side Job','직접 입력한 사이드 잡')}<input name="sideJobCustom" maxlength="250" value="${escape(value.custom)}" data-user-text></label>`)+`<div class="wide cp-sidejob-preview" data-side-job-preview></div><div class="wide">${button(keys.help,'Conditions','달성 조건',s,p)}</div>`+(post?`<label class="checkline wide"><input type="checkbox" name="sideJobCompleted" value="yes" ${value.completed?'checked':''}>${text('Side Job completed','사이드 잡 달성')}</label>`:'');
   cpModal(post?'Side Job Result':'Side Job',fields,'Save',v=>{
    if(!live(state)||s.stage!==state.stage||!s.participants.includes(p))return readonlyError();
    if(post){

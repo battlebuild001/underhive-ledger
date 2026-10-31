@@ -13,3 +13,11 @@ html.uk-ui .cp-triumph-rules{width:100%;min-width:0;table-layout:fixed}html.uk-u
 
 /* Explicit arrows stay visible on touch screens; the number is selected rather than typed. */
 @media screen{.cp-form .cp-cycle-stepper{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:8px;width:272px;max-width:100%}.cp-form .cp-cycle-stepper>.btn{width:44px;min-width:44px;min-height:44px;padding:0;font-size:28px;line-height:1}.cp-form .cp-cycle-stepper>input{width:100%;min-width:0;min-height:44px;padding:8px 4px;text-align:center;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;appearance:textfield;-moz-appearance:textfield}.cp-form .cp-cycle-stepper>input::-webkit-inner-spin-button,.cp-form .cp-cycle-stepper>input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.cp-form .cp-cycle-stepper>.btn:disabled{opacity:.35;cursor:default}.cp-form .cp-cycle-hint{font-size:12px;margin:10px 0 0}}
+/* Side Jobs use a real selection list, with the selected conditions beside it. */
+html.uk-ui .cp-side-job-picker{display:grid;gap:10px;grid-column:1/-1;min-width:0;margin-top:10px}
+html.uk-ui .cp-native-side-job{display:grid;gap:7px;min-width:0;margin:0}
+html.uk-ui .cp-native-side-job>select{display:block;width:100%;min-width:0;min-height:46px;font:inherit;font-size:14px;padding:10px 12px;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:5px;cursor:pointer}
+html.uk-ui .cp-side-job-picker [hidden]{display:none!important}
+html.uk-ui .cp-side-job-conditions,html.uk-ui .cp-sidejob-preview:not(:empty){padding:12px 14px;border-left:2px solid var(--accent,#c4ae7b);background:var(--panel2);font-size:13px;line-height:1.8}
+html.uk-ui .cp-side-job-conditions>p{font-size:13px;line-height:1.8;margin:0 0 10px}
+html.uk-ui .cp-side-job-conditions>.btn{min-height:44px;font-size:12px;white-space:normal}
