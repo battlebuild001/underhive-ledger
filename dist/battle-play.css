@@ -1,5 +1,18 @@
 /* Compact roster: view-only styling for active battles. */
 @media screen{
+ html.uk-ui .bp-inline-result{display:grid;gap:18px;min-width:0;max-width:760px;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:7px}
+ html.uk-ui .bp-inline-result h2{font-size:21px;line-height:1.5;margin:0}
+ html.uk-ui .bp-inline-result fieldset{display:grid;gap:16px;min-width:0;margin:0;padding:0;border:0}
+ html.uk-ui .bp-inline-result legend{margin-bottom:10px;font-size:15px}
+ html.uk-ui .bp-inline-result label{display:grid;gap:8px;min-width:0;font-size:15px;line-height:1.65}
+ html.uk-ui .bp-inline-result :is(select,textarea,input:not([type=checkbox])){width:100%;min-width:0;min-height:44px;padding:10px;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:4px;font:inherit;font-size:16px}
+ html.uk-ui .bp-inline-result .bp-result-check{display:flex;align-items:center;gap:12px;min-height:44px}
+ html.uk-ui .bp-inline-result [type=checkbox]{width:20px;height:20px;min-width:20px;accent-color:var(--accent)}
+ html.uk-ui .bp-inline-result small{display:block;color:var(--muted);font-size:13px}
+ html.uk-ui .bp-inline-result button[type=submit]{min-height:48px}
+ html.uk-ui .bp-inline-result p{margin:0;font-size:14px;line-height:1.7}
+}
+@media screen{
  html.uk-ui .bp-faction-rules{min-width:0;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:var(--text)}
  html.uk-ui .bp-faction-rules>h2{font-size:20px;line-height:1.5;margin:0 0 16px}
  html.uk-ui .bp-faction-rules :is(.gg-rule-card,.gg-rule-summary,.gg-note){background:var(--panel2);border-color:var(--line);color:var(--text)}
