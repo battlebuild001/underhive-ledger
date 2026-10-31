@@ -1,52 +1,145 @@
-/* Appearance only, on the original .rp-card. Print layouts and interaction geometry stay inherited. */
-.rf-mark{display:none;pointer-events:none}
+/* Approved 17-faction sample a06a1a0: full card composition on the original renderer.
+   All values, columns, handlers, ordering, scaling and print options remain authoritative. */
+.rf-mark,.rf-corner{display:none;pointer-events:none}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction]{
+ --record-ink:#292b25;--rf-rule:#aba38d;
+ padding:0!important;border:1px solid var(--rf-accent)!important;border-radius:3px!important;
+ color:var(--record-ink)!important;background:repeating-linear-gradient(0deg,#3b302405 0 1px,transparent 1px 4px),var(--rf-paper)!important;
+ box-shadow:0 8px 18px #0005,inset 0 0 0 3px #24251f,inset 0 0 0 4px var(--rf-accent);
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction]::before,:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction]::after{content:none}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-inner{padding:0;min-width:0}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-header{
+ height:auto;min-height:99px;margin:0;padding:16px 20px 15px 27px;gap:20px;
+ align-items:flex-start;color:#f4efdd!important;background:var(--rf-header)!important;border-bottom:7px solid var(--rf-accent);
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-header::before{
+ content:'';position:absolute;inset:0;height:auto;clip-path:none;border:0;z-index:-1;opacity:.22;
+ background:repeating-linear-gradient(110deg,transparent 0 48px,#e0d4ac33 49px,transparent 50px 84px);
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-header::after{
+ content:'';position:absolute;left:10px;bottom:-7px;width:73px;height:7px;pointer-events:none;
+ background:repeating-linear-gradient(130deg,var(--rf-accent) 0 5px,var(--rf-header) 5px 10px);
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-title{
+ min-width:0;max-width:none!important;flex:1;height:auto;padding:0;z-index:2;overflow:visible;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-title h3{
+ color:#f4efdd!important;font-size:30px!important;line-height:1.2;margin:0 0 5px;font-weight:800;
+ letter-spacing:.01em;text-shadow:none;white-space:normal;overflow-wrap:anywhere;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-title p{
+ color:#e9e1cd!important;font-size:13px!important;line-height:1.5;margin:0;font-weight:550;
+ white-space:normal;word-break:keep-all;overflow-wrap:anywhere;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-label{color:#f4efdd;background:var(--rf-header);border-color:var(--rf-accent)}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-tokens{
+ position:relative;top:auto!important;right:auto;height:auto!important;align-items:center;gap:7px;flex:none;margin-top:-5px;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-credit-disc{
+ width:79px!important;min-width:79px;height:78px!important;border:0;border-radius:0;
+ background:var(--rf-accent)!important;color:#f0e8d5!important;box-shadow:none;
+ clip-path:var(--rf-seal);position:relative;isolation:isolate;flex:none;text-align:center;padding:12px 4px 5px;justify-content:flex-start;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-credit-disc::before{
+ content:'';position:absolute;inset:3px;background:var(--rf-header);z-index:-1;clip-path:inherit;box-shadow:none;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-credit-disc strong{font-size:30px!important;font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-credit-disc span{color:#f0e8d5!important;font-size:9px!important;font-weight:700;letter-spacing:.07em;margin-top:3px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-portrait{width:79px!important;height:78px!important;border:3px solid var(--rf-accent);border-radius:4px;box-shadow:0 0 0 1px var(--rf-header)}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-mark{
+ display:block;position:absolute;width:79px;height:79px;right:130px;top:6px;color:var(--rf-accent);opacity:.39;z-index:0;user-select:none;
+}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-header:has(.rp-portrait) .rf-mark{right:215px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-corner{display:block;position:absolute;width:5px;height:5px;background:var(--rf-header);border:1px solid var(--rf-accent);border-radius:50%;z-index:4}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-tl{top:5px;left:5px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-tr{top:5px;right:5px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-bl{bottom:5px;left:5px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-br{bottom:5px;right:5px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-body{padding:16px 16px 22px;color:var(--record-ink)!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-card-context{margin:0 0 12px!important;color:#34392c!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-stat-scroll{overflow:auto;scrollbar-width:thin;scrollbar-color:#92876b transparent}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-stat-scroll:focus-visible{outline:2px solid #70512a;outline-offset:2px}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats{font-variant-numeric:tabular-nums;font-size:13px!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] :is(.rp-stats,.rp-weapons){min-width:0}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats th{background:var(--rf-header)!important;color:#eae5d5!important;padding:6px 2px!important;font-weight:650;border-right:1px solid #e6dfc029!important;border-bottom:0!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats td{background:#ffffff33!important;color:var(--record-ink)!important;padding:6px 2px!important;border-bottom:1px solid var(--rf-rule)!important;font-weight:600}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats th.mental{background:color-mix(in srgb,var(--rf-header) 83%,var(--rf-accent))!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats td.mental{background:color-mix(in srgb,var(--rf-paper) 85%,var(--rf-accent))!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-stats :is(th,td).experience{background:color-mix(in srgb,var(--rf-header) 75%,var(--rf-accent))!important;color:#fff3dd!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .uk-help-term{color:inherit;border-bottom-color:currentColor}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapon-wrap{margin-top:12px;scrollbar-width:thin}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapons{font-size:13px!important;font-variant-numeric:tabular-nums}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapons th{background:#5a523018!important;color:var(--record-ink)!important;border-top:1px solid var(--rf-rule)!important;border-bottom:1px solid var(--rf-rule)!important;padding:5px!important;font-weight:650}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapons td{color:var(--record-ink)!important;padding:7px 5px!important;border-bottom:1px solid #85775c50!important;border-top:0!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapons :is(th,td):not(:first-child){border-left:1px solid #91866d60!important}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapons th:last-child{width:35%}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-weapon-link{color:var(--record-ink);font-weight:650}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-profile-name{color:#675f50;font-size:.85em}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-details{grid-template-columns:100px minmax(0,1fr);gap:10px;font-size:13px;border-top:1px solid var(--rf-rule);margin:13px 0 0;padding-top:10px;color:var(--record-ink)}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-details dt{font-weight:650;color:var(--record-ink)}
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rp-details dd p{color:var(--record-ink)!important}
+.rp-roster .rp-card-shell:has([data-roster-faction])>.rp-card-menu{color:#484632;opacity:1}
+.rp-roster .rp-card[data-roster-faction]:focus-visible{outline:3px solid var(--rf-accent);outline-offset:3px}
+
+/* A devotional cloth cover and a wax seal. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=cawdor] .rp-card-header{border-bottom:5px double var(--rf-accent);background-image:repeating-linear-gradient(90deg,transparent 0 5px,#0002 6px 7px)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=cawdor] .rp-card-header:before{inset:8px;border:1px dashed var(--rf-accent);background:none!important;opacity:.34}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=cawdor] .rp-credit-disc{clip-path:polygon(50% 0,61% 7%,74% 5%,80% 17%,93% 22%,93% 35%,100% 50%,93% 63%,93% 78%,80% 82%,74% 95%,61% 93%,50% 100%,38% 93%,25% 95%,19% 83%,6% 77%,7% 63%,0 50%,7% 37%,6% 23%,19% 18%,25% 5%,38% 7%)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=cawdor] .rp-credit-disc:before{inset:5px;border-radius:50%!important;background:#4b2520!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=cawdor] .rp-card-header:after{height:13px!important;width:23px;left:18px;bottom:-10px;clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);background:var(--rf-accent)!important}
+/* Optical geometry and thin cold metal. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rp-card-header{border-bottom:2px solid var(--rf-accent)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rp-card-header:before{background:repeating-linear-gradient(0deg,transparent 0 6px,#7ca5a355 7px,transparent 8px 12px)!important;opacity:.12}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rp-credit-disc{clip-path:circle(49%);margin-top:-4px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rp-credit-disc:before{inset:2px;border:3px double var(--rf-accent)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rp-card-header:after{background:var(--rf-accent)!important;height:2px!important;bottom:-2px;width:240px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=delaque] .rf-corner{width:9px;height:9px!important;background:none!important;border:1px solid var(--rf-accent)}
+/* Chem-lab curves and a venom-green edge. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rp-card-header{border-bottom:4px solid var(--rf-accent);box-shadow:inset 6px 0 #9f4d78!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rp-card-header:before{background:repeating-radial-gradient(ellipse at 55% 120%,transparent 0 10px,#bd6e9b55 11px,transparent 12px 24px)!important;opacity:.33}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rp-card-header:after{left:auto;right:108px;width:54px;height:4px!important;background:#b2638e!important;bottom:0}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rp-credit-disc{clip-path:polygon(18% 0,100% 0,82% 100%,0 100%);background:#b26b94!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rp-stats .experience{background:#7f3e68!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=escher] .rf-corner{border-radius:0!important;transform:rotate(45deg);background:#b26b94!important}
+/* Heavy forging plates. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rp-card-header{border-bottom:8px solid #8a4b32;box-shadow:inset 0 4px #554236!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rp-card-header:before{background:repeating-linear-gradient(128deg,transparent 0 14px,#c5844b55 15px 17px,transparent 18px 38px)!important;opacity:.3}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rp-card-header:after{left:0;bottom:-8px;height:8px!important;width:130px;background:repeating-linear-gradient(130deg,#c19a4e 0 9px,#302822 9px 18px)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rp-credit-disc{clip-path:polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%);background:#81715c!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rp-credit-disc:before{inset:4px;background:#342b24!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=goliath] .rf-corner{width:7px;height:7px!important;border:2px solid #a28c70;background:#36332c!important}
+/* Roadhouse leather with copper fasteners. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=orlock] .rp-card-header{border-bottom:5px double #ab835b;background-image:linear-gradient(0deg,#10202a88,transparent)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=orlock] .rp-card-header:before{inset:7px 12px;border:1px dashed #bf9c7290;background:none!important;opacity:.45}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=orlock] .rp-credit-disc{clip-path:polygon(10% 0,90% 0,100% 10%,100% 100%,0 100%,0 10%);background:#b18b60!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=orlock] .rp-credit-disc:before{inset:4px;background:#22313d!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=orlock] .rp-card-header:after{width:88px;height:5px!important;background:repeating-linear-gradient(90deg,var(--rf-accent) 0 3px,transparent 3px 13px)!important}
+/* Precision circuitry; no glow over the record. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar]{border-radius:0!important;box-shadow:0 8px 18px #0005,inset 0 0 0 3px #213c32,inset 0 0 0 4px #85d1ac!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rp-card-header{border-bottom:3px solid var(--rf-accent)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rp-card-header:before{background:linear-gradient(90deg,transparent 64%,#85d1ac50 64% 64.2%,transparent 64.2%),repeating-linear-gradient(0deg,transparent 0 19px,#85d1ac22 20px,transparent 21px 40px)!important;opacity:.6}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rp-credit-disc{clip-path:polygon(13% 0,100% 0,100% 84%,84% 100%,0 100%,0 13%);background:#85d1ac!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rp-credit-disc:before{inset:2px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rp-card-header:after{left:0;bottom:-3px;height:3px!important;width:35%;background:linear-gradient(90deg,var(--rf-accent) 0 75%,transparent 75% 80%,var(--rf-accent) 80% 86%,transparent 86% 91%,var(--rf-accent) 91%)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=van-saar] .rf-corner{border-radius:0!important;width:9px;height:9px!important;background:none!important;border:0;border-left:1px solid var(--rf-accent);border-top:1px solid var(--rf-accent)}
+/* Precinct issue panels. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=enforcers] .rp-card-header{border-bottom:7px solid #d4ceae;box-shadow:inset 7px 0 #b49d58!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=enforcers] .rp-card-header:before{background:repeating-linear-gradient(135deg,transparent 0 30px,#eee8c311 30px 50px)!important;opacity:.5}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=enforcers] .rp-credit-disc{clip-path:polygon(0 0,100% 0,100% 65%,50% 100%,0 65%);padding-top:10px!important;height:82px!important;background:#d4c998!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=enforcers] .rp-credit-disc:before{inset:3px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=enforcers] .rp-card-header:after{left:7px;width:150px;height:7px!important;bottom:-7px;background:repeating-linear-gradient(135deg,#d2b765 0 8px,#182533 8px 16px)!important}
+/* A stamped and countersigned bounty writ. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators]{box-shadow:0 8px 18px #0005,inset 0 0 0 4px #2d2b24,inset 0 0 0 5px #ab8c5a!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators] .rp-card-header{border-bottom:5px double var(--rf-accent)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators] .rp-card-header:before{background:repeating-linear-gradient(90deg,transparent 0 4px,#cda66c33 4px 5px,transparent 5px 9px)!important;left:58%;width:15%;opacity:.5}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators] .rp-credit-disc{clip-path:circle(49%);transform:rotate(-5deg);background:#a27549!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators] .rp-credit-disc:before{inset:4px;border:1px dashed var(--rf-accent)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=venators] .rp-card-header:after{width:46px;left:26px;bottom:-5px;background:#a27549!important;height:5px!important}
+/* Sawn teeth and ritual iron, kept outside the table. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-card-header{border-bottom:9px solid #703a2d;background-image:linear-gradient(100deg,#5b28283d,transparent 65%)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-card-header:before{background:repeating-linear-gradient(118deg,transparent 0 19px,#c7775d44 20px 21px,transparent 22px 42px)!important;opacity:.4}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-card-header:after{left:0;right:0;width:auto;bottom:-9px;height:9px!important;background:repeating-linear-gradient(135deg,#2c1a17 0 7px,#98583c 7px 11px,#2c1a17 11px 14px)!important;clip-path:polygon(0 0,100% 0,100% 45%,98% 100%,96% 45%,94% 100%,92% 45%,90% 100%,88% 45%,86% 100%,84% 45%,82% 100%,80% 45%,78% 100%,76% 45%,74% 100%,72% 45%,70% 100%,68% 45%,66% 100%,64% 45%,62% 100%,60% 45%,58% 100%,56% 45%,54% 100%,52% 45%,50% 100%,48% 45%,46% 100%,44% 45%,42% 100%,40% 45%,38% 100%,36% 45%,34% 100%,32% 45%,30% 100%,28% 45%,26% 100%,24% 45%,22% 100%,20% 45%,18% 100%,16% 45%,14% 100%,12% 45%,10% 100%,8% 45%,6% 100%,4% 45%,2% 100%,0 45%)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-credit-disc{background:#a27d58!important;clip-path:polygon(9% 0,90% 0,100% 13%,100% 87%,90% 100%,9% 100%,0 87%,0 13%)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-credit-disc:before{inset:3px;background:#391c17!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=corpse-grinders] .rp-stats .experience{background:#773b2c!important}
+/* Repairs and mismatched salvage. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts]{box-shadow:0 8px 18px #0005,inset 0 0 0 3px #3a3d31,inset 0 0 0 4px #8b9079!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts] .rp-card-header{border-bottom:5px solid #92937b;background-image:linear-gradient(115deg,transparent 68%,#6b594653 68% 84%,transparent 84%)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts] .rp-card-header:before{inset:6px 11px;border:1px dashed #d0cfac60;background:none!important;opacity:.4}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts] .rp-credit-disc{transform:rotate(2deg);clip-path:polygon(5% 0,96% 3%,100% 96%,0 100%);background:#929176!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts] .rp-card-header:after{left:45%;width:105px;bottom:-6px;height:12px!important;background:#777457!important;transform:rotate(-2deg);opacity:.85}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=outcasts] .rf-corner{border-radius:0!important;transform:rotate(12deg)}
+/* Industrial work tags and broken shackles. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rp-card-header{border-bottom:7px solid #b8a04f;box-shadow:inset 0 5px #6f7461!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rp-card-header:before{background:repeating-linear-gradient(90deg,transparent 0 90px,#d4b55455 91px 93px,transparent 94px 130px)!important;opacity:.3}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rp-credit-disc{clip-path:polygon(0 0,77% 0,100% 24%,100% 100%,0 100%);background:#ccba75!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rp-credit-disc:before{inset:4px;background:#33372b!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rp-card-header:after{left:0;bottom:-7px;width:180px;height:7px!important;background:repeating-linear-gradient(135deg,#c9af55 0 11px,#252b25 11px 22px)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ogryns] .rf-corner{width:8px;height:8px!important;border-width:2px;background:#353a31!important}
+/* A mining ledger bearing a quiet cult geometry. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=genestealers] .rp-card-header{border-bottom:5px double #9a7fa0}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=genestealers] .rp-card-header:before{background:repeating-radial-gradient(ellipse at 66% 110%,transparent 0 23px,#b99dbd40 24px 25px,transparent 26px 44px)!important;opacity:.4}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=genestealers] .rp-credit-disc{clip-path:polygon(0 13%,50% 0,100% 13%,100% 100%,0 100%);background:#a487aa!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=genestealers] .rp-credit-disc:before{inset:3px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=genestealers] .rp-card-header:after{background:linear-gradient(90deg,#b99dbd 0 22%,transparent 22% 27%,#b99dbd 27% 49%,transparent 49% 54%,#b99dbd 54% 76%)!important;height:4px!important;width:92px}
+/* Scorched oath paper, ritual circles and red sealing wax. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots]{background:radial-gradient(ellipse at 0 100%,#75513930,transparent 48%),var(--rf-paper)!important;box-shadow:0 8px 18px #0005,inset 0 0 0 3px #372421,inset 0 0 0 4px #7f5745!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots] .rp-card-header{border-bottom:5px double #975846}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots] .rp-card-header:before{background:repeating-radial-gradient(circle at 74% 50%,transparent 0 30px,#b7736744 31px 32px,transparent 33px 38px)!important;opacity:.5}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots] .rp-credit-disc{clip-path:polygon(25% 0,74% 0,100% 25%,100% 74%,74% 100%,25% 100%,0 74%,0 25%);background:#8c4743!important;transform:rotate(3deg)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots] .rp-credit-disc:before{inset:4px;background:#392025!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=chaos-helots] .rp-card-header:after{background:#8c4743!important;width:38px;left:19px;height:12px!important;bottom:-10px;clip-path:polygon(0 0,100% 0,82% 100%,51% 66%,23% 100%)}
+/* Spore growth is peripheral; the specimen data stays clean. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain]{background:radial-gradient(ellipse at 0 100%,#85854428,transparent 36%),var(--rf-paper)!important;box-shadow:0 8px 18px #0005,inset 0 0 0 3px #343d26,inset 0 0 0 4px #9b9e61!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rp-card-header{border-bottom:5px solid #8e9456;background-image:radial-gradient(ellipse at 45% 5%,#a4a85722,transparent 55%)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rp-card-header:before{background:repeating-radial-gradient(ellipse at 80% 70%,transparent 0 11px,#c0be6750 12px 13px,transparent 14px 23px)!important;opacity:.3}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rp-credit-disc{clip-path:polygon(17% 5%,72% 0,97% 24%,100% 76%,70% 100%,16% 95%,0 64%,2% 22%);background:#a5ab69!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rp-credit-disc:before{inset:3px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rp-card-header:after{background:radial-gradient(circle,#b5bd72 0 2px,transparent 2.5px)!important;background-size:9px 7px;width:110px;height:7px!important;bottom:-5px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=malstrain] .rf-corner{width:7px;height:7px!important;border-radius:40% 60% 45% 55%!important}
+/* An aristocratic hunting rig: restrained inlay, ivory and faceted hardware. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers]{box-shadow:0 8px 18px #0005,inset 0 0 0 3px #373539,inset 0 0 0 4px #cbbd9c!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rp-card-header{border-bottom:5px double #d2c39f;background-image:linear-gradient(100deg,#3d333b55,transparent 65%)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rp-card-header:before{inset:8px;border:1px solid #d6c39560;background:none!important;opacity:.6}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rp-credit-disc{clip-path:polygon(17% 0,82% 0,100% 23%,100% 76%,82% 100%,17% 100%,0 76%,0 23%);background:#ddd1b0!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rp-credit-disc:before{inset:3px;background:#353039!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rp-card-header:after{background:#d6c395!important;height:4px!important;width:90px;clip-path:polygon(0 0,45% 0,50% 100%,55% 0,100% 0,100% 50%,0 50%)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=spyrers] .rf-corner{border-radius:0!important;transform:rotate(45deg);background:#d6c395!important}
+/* Geological hatching and an angular clan plate. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rp-card-header{border-bottom:7px solid #a77a43;box-shadow:inset 0 4px #776247!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rp-card-header:before{background:repeating-linear-gradient(155deg,transparent 0 11px,#c3945845 12px,transparent 13px 22px)!important;opacity:.5}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rp-credit-disc{clip-path:polygon(20% 0,80% 0,100% 20%,100% 80%,80% 100%,20% 100%,0 80%,0 20%);background:#d0aa70!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rp-credit-disc:before{inset:4px;background:#3c3325!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rp-card-header:after{background:repeating-linear-gradient(90deg,#c39458 0 2px,transparent 2px 7px,#c39458 7px 14px,transparent 14px 19px)!important;height:5px!important;bottom:-6px;width:120px}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=ironheads] .rf-corner{width:7px;height:7px!important;border-radius:0!important;background:#a88754!important;transform:rotate(45deg)}
+/* Stitched wrapping and windblown contour lines. */
+:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rp-card-header{border-bottom:5px dashed #b9a17a;background-image:repeating-linear-gradient(0deg,#d1bc8a09 0 1px,transparent 1px 4px)!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rp-card-header:before{background:repeating-radial-gradient(ellipse at 30% -50%,transparent 0 13px,#c2a88233 14px 15px,transparent 16px 26px)!important;opacity:.55}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rp-credit-disc{clip-path:polygon(5% 0,97% 5%,100% 91%,83% 100%,0 96%);background:#c6b48d!important;transform:rotate(-2deg)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rp-credit-disc:before{inset:4px;border:1px dashed #baa981;background:#3b382b!important}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rp-card-header:after{background:#75664a!important;left:13px;bottom:-8px;width:64px;height:12px!important;clip-path:polygon(0 0,100% 0,92% 100%,86% 60%,76% 100%,71% 60%,60% 100%,54% 60%,44% 100%,38% 60%,28% 100%,22% 60%,12% 100%)}:is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction=nomads] .rf-corner{background:#908067!important;border:1px dashed #cfbd94;border-radius:0!important;width:8px;height:8px!important}
+
+/* Existing compact modes still scale their original 720px inner card. */
+@media(max-width:650px){
+ .rp-view-normal .rp-card[data-roster-faction] .rp-card-header{min-height:110px;padding:16px 13px 15px 18px;gap:10px}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-title h3{font-size:25px!important}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-title p{font-size:11px!important;line-height:1.6}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-credit-disc{width:61px!important;min-width:61px;height:70px!important}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-credit-disc strong{font-size:25px!important}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-portrait{width:51px!important;height:64px!important}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-card-tokens{gap:3px}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-body{padding:12px 10px 24px}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-details{grid-template-columns:65px minmax(0,1fr);gap:8px;font-size:12px}
+ .rp-view-normal .rp-card[data-roster-faction] .rf-mark{right:90px;width:65px;height:65px;top:13px;opacity:.16}
+ .rp-view-normal .rp-card[data-roster-faction] .rp-card-header:has(.rp-portrait) .rf-mark{right:150px}
+}
 @media screen{
- .rp-roster .rp-card[data-roster-faction]{
-  --record-ink:#292b25;--record-brass:var(--rf-accent);
-  border-color:var(--rf-accent);color:var(--record-ink);
-  background:repeating-linear-gradient(0deg,#3b302405 0 1px,transparent 1px 4px),var(--rf-paper);
-  box-shadow:0 3px 10px #0006,inset 0 0 0 3px var(--rf-header),inset 0 0 0 4px var(--rf-accent);
- }
- .rp-roster .rp-card[data-roster-faction] .rp-card-header::before{
-  background:var(--rf-texture),var(--rf-header);clip-path:none;border-top-color:var(--rf-accent);border-bottom:3px solid var(--rf-accent);
- }
- .rp-roster .rp-card[data-roster-faction] .rp-card-header::after{
-  background:var(--rf-edge);clip-path:var(--rf-edge-clip);width:var(--rf-edge-width);height:var(--rf-edge-height);max-width:100%;pointer-events:none;
- }
- .rp-roster .rp-card[data-roster-faction] .rf-mark{display:block;position:absolute;width:64px;height:64px;right:108px;top:-3px;color:var(--rf-accent);opacity:.27;z-index:-1;pointer-events:none;user-select:none}
- .rp-roster .rp-card[data-roster-faction] .rp-card-header:has(.rp-portrait) .rf-mark{right:195px}
- .rp-roster .rp-card[data-roster-faction] .rp-title h3{color:#f4efdd}
- .rp-roster .rp-card[data-roster-faction] .rp-title p{color:#e2dac8}
- .rp-roster .rp-card[data-roster-faction] .rp-label{color:#f4efdd;background:var(--rf-header);border-color:var(--rf-accent)}
- .rp-roster .rp-card[data-roster-faction] .rp-credit-disc{background:var(--rf-accent);clip-path:var(--rf-seal);color:#f4efdd}
- .rp-roster .rp-card[data-roster-faction] .rp-credit-disc::before{background:var(--rf-header);clip-path:inherit;box-shadow:inset 0 0 16px #0003}
- .rp-roster .rp-card[data-roster-faction] .rp-credit-disc span{color:#e2dac8}
- .rp-roster .rp-card[data-roster-faction] .rp-portrait{border-color:var(--rf-accent);box-shadow:0 0 0 1px var(--rf-header)}
- .rp-roster .rp-card[data-roster-faction]::before,.rp-roster .rp-card[data-roster-faction]::after{background:radial-gradient(circle at 3px 2.5px,var(--rf-accent) 0 1px,var(--rf-header) 1.5px 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 3px) 2.5px,var(--rf-accent) 0 1px,var(--rf-header) 1.5px 2.5px,transparent 3px)}
- .rp-roster .rp-card[data-roster-faction] .rp-stats th{background:var(--rf-header)!important;color:#eae5d5!important;border-bottom-color:var(--rf-accent)!important}
- .rp-roster .rp-card[data-roster-faction] .rp-stats td{background:#ffffff33!important;color:var(--record-ink)!important;border-bottom-color:#aaa18a!important}
- .rp-roster .rp-card[data-roster-faction] .rp-stats th.mental{background:color-mix(in srgb,var(--rf-header) 83%,var(--rf-accent))!important}
- .rp-roster .rp-card[data-roster-faction] .rp-stats td.mental{background:color-mix(in srgb,var(--rf-paper) 85%,var(--rf-accent))!important}
- .rp-roster .rp-card[data-roster-faction] .rp-stats :is(th,td).experience{background:color-mix(in srgb,var(--rf-header) 75%,var(--rf-accent))!important;color:#fff3dd!important;border-left-color:var(--rf-accent)!important}
- .rp-roster .rp-card[data-roster-faction] .rp-weapons th{background:#5a523018!important;color:var(--record-ink)!important;border-bottom-color:#aaa18a!important}
- .rp-roster .rp-card[data-roster-faction] .rp-weapons td{color:var(--record-ink)!important}
- .rp-roster .rp-card[data-roster-faction] .rp-weapon-link{color:var(--record-ink)}
- .rp-roster .rp-card[data-roster-faction] .rp-weapon-link .rp-profile-name{color:#595647}
- .rp-roster .rp-card[data-roster-faction] .rp-details{border-top-color:#aaa18a;color:var(--record-ink)}
- .rp-roster .rp-card[data-roster-faction] .rp-details dt{color:#4e4937}
- .rp-roster .rp-card[data-roster-faction] .rp-card-context{color:#34392c}
- .rp-roster .rp-card[data-roster-faction]:focus-visible{outline-color:var(--rf-accent)}
- .rp-roster .rp-card[data-roster-faction="cawdor"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="genestealers"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="chaos-helots"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="spyrers"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="orlock"] .rp-card-header::before{border-bottom-style:double;border-bottom-width:5px}
- .rp-roster .rp-card[data-roster-faction="delaque"] .rp-credit-disc::before{border:2px double var(--rf-accent)}
- .rp-roster .rp-card[data-roster-faction="cawdor"] .rp-credit-disc::before{background:#4b2520}
- .rp-roster .rp-card[data-roster-faction="escher"] .rp-card-header::before{box-shadow:inset 6px 0 #9f4d78}
- .rp-roster .rp-card[data-roster-faction="escher"] .rp-stats :is(th,td).experience{background:#7f3e68!important}
- .rp-roster .rp-card[data-roster-faction="goliath"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="ogryns"] .rp-card-header::before,.rp-roster .rp-card[data-roster-faction="ironheads"] .rp-card-header::before{box-shadow:inset 0 4px #7c674745;border-bottom-width:6px}
- .rp-roster .rp-card[data-roster-faction="enforcers"] .rp-card-header::before{box-shadow:inset 7px 0 #b49d58;border-bottom-color:#d4ceae}
- .rp-roster .rp-card[data-roster-faction="corpse-grinders"] .rp-card-header::before{border-bottom:7px solid #703a2d}
- .rp-roster .rp-card[data-roster-faction="corpse-grinders"] .rp-stats :is(th,td).experience{background:#773b2c!important}
- .rp-roster .rp-card[data-roster-faction="malstrain"] .rp-card-header::after{background-size:9px 7px}
- .rp-roster .rp-card[data-roster-faction="venators"] .rp-credit-disc::before,.rp-roster .rp-card[data-roster-faction="nomads"] .rp-credit-disc::before{border:1px dashed var(--rf-accent)}
- .rp-roster .rp-card[data-roster-faction="nomads"] .rp-card-header::before{border-bottom-style:dashed;border-bottom-width:4px}
- @media(max-width:650px){.rp-roster.rp-view-normal .rp-card[data-roster-faction] .rf-mark{opacity:.12;right:95px}.rp-roster.rp-view-normal .rp-card[data-roster-faction] .rp-card-header:has(.rp-portrait) .rf-mark{right:175px}}
+ .rp-roster .rp-card[data-roster-faction] :is(.rp-stats,.rp-weapons){min-width:660px}
+ .rp-roster .rp-card[data-roster-faction] .rp-stats td{font-size:14px!important}
+}
+/* Preserve both ink-saving and decorative print modes, all tracking and height settings. */
+.mp-fancy .rp-card[data-roster-faction]{box-shadow:inset 0 0 0 3px #24251f,inset 0 0 0 4px var(--rf-accent)!important}
+.mp-fancy .rp-card[data-roster-faction] .rp-details{grid-template-columns:100px minmax(0,1fr)!important;font-size:13px!important}
+@media print{
+ :is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction]{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ :is(.rp-roster,.mp-fancy) .rp-card[data-roster-faction] .rf-mark{display:block!important}
+ .mp-eco .rf-mark,.mp-eco .rf-corner{display:none!important}
 }
