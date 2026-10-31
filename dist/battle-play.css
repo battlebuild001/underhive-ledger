@@ -114,3 +114,28 @@
  }
 }
 @media print{.bp-bar,.bp-sides,.bp-unit-actions,.bp-heading .bp-brief,.bp-heading .bp-backsource,.bp-shell-settings{display:none!important}.bp-workspace [data-bp-panel]:not([data-bp-panel=roster]){display:none!important}.bp-workspace [data-bp-panel=roster],.bp-workspace [data-bp-side-panel],.bp-workspace .bp-unit-panel[hidden]{display:block!important}.bp-unit-row{break-inside:avoid}.bp-side-content{display:block!important}.bp-unit-toggle{border:0;background:none;color:#000}.bp-icon{display:none}}
+@media screen{
+ html.uk-ui.bp-compact-theme .bp-workspace .pm-unit-head{grid-template-columns:minmax(0,1fr)}
+ html.uk-ui.bp-compact-theme .bp-workspace .ca-result-tools h3{font-size:18px;margin:0 0 8px}
+ html.uk-ui.bp-compact-theme .bp-workspace .ca-result-tools p{font-size:14px;color:var(--muted);line-height:1.7;margin:0 0 16px}
+ html.uk-ui.bp-compact-theme .bp-workspace .ca-result-tools [data-ca-action=settle]{min-height:44px;width:100%;font-size:15px}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-fighter-results{flex-wrap:wrap;gap:6px}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-fighter-results button{min-height:44px;font-size:13px;white-space:nowrap}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant table{table-layout:fixed;width:100%;min-width:0;font-size:13px}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant :is(td,th){overflow-wrap:anywhere;white-space:normal;padding:9px 6px}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant :is(td,th):nth-child(1){width:29%}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant :is(td,th):nth-child(2){width:16%}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant :is(td,th):nth-child(3){width:12%}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant .cp-result-table :is(td,th):nth-child(1){width:45%}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant .cp-result-table :is(td,th):nth-child(2){width:15%;white-space:nowrap}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-participant .cp-result-table :is(td,th):nth-child(3){width:40%}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-post-resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-post-resources label{min-width:0}
+ html.uk-ui.bp-compact-theme .bp-workspace .cp-post-resources input{width:100%;min-height:44px;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:4px;padding:8px}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard label{display:grid;gap:10px;min-width:0;text-align:left}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard :is(strong,span){font-size:14px;overflow-wrap:anywhere}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard span{color:var(--muted)}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard input{width:100%;min-width:0;min-height:52px;font-size:22px;font-variant-numeric:tabular-nums}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-start [data-sk-action=finish]{width:100%;min-height:48px}
+}

@@ -39,7 +39,7 @@
   return `<button type="button" class="btn small" data-campaign-session="${action}" data-session-id="${escape(s.id)}"${p?` data-participant-id="${escape(p.id)}"`:''}${disabled?' disabled aria-disabled="true"':''}>${text(label,ko)}</button>`;
  }
  function panel(c,s,p){
-  const value=job(c,p),allowed=canEdit(c),pre=s.stage==='pre-battle',post=s.stage==='post-battle';
+  const value=job(c,p),allowed=canEdit(c),pre=s.stage==='pre-battle',post=['battle','post-battle'].includes(s.stage);
   return `<section class="cp-sidejob-data" data-session-side-job="${escape(p.id)}"><div class="mini-row"><div><strong>${text('Side Job','사이드 잡')}</strong><p class="muted">${jobLabel(value)}${value.completed?' · '+text('Completed','달성'):''}</p></div><div class="actions">${button(keys.help,'Conditions','달성 조건',s,p)}${button(keys.sideJob,post?'Record Result':'Choose Side Job',post?'달성 기록':'사이드 잡 선택',s,p,!allowed||!(pre||post)||post&&!value.exists)}</div></div></section>`;
  }
  const previousPage=cpSessionPage;
@@ -86,16 +86,16 @@
   if(Object.hasOwn(p,'side_job_completed'))p.side_job_completed=completed;
  }
  function openSideJob(c,s,p){
-  if(edition(c)!=='N26'||!canEdit(c)||!['pre-battle','post-battle'].includes(s.stage))return false;
-  const state=stateFor(c,s,p),value=job(c,p),post=s.stage==='post-battle';if(post&&!value.exists)return false;
+  if(edition(c)!=='N26'||!canEdit(c)||!['pre-battle','battle','post-battle'].includes(s.stage))return false;
+  const state=stateFor(c,s,p),value=job(c,p),post=['battle','post-battle'].includes(s.stage);if(post&&!value.exists)return false;
   const unavailable=!value.row&&!!value.id&&!value.custom,selection=value.row?.id||(unavailable?'recorded':value.exists?'custom':''),options=[['','No Side Job'],...rows(c).map(row=>[row.id,row.name]),['custom','Custom']];
   if(unavailable)options.splice(1,0,['recorded',value.label||'Previously recorded Side Job']);
   const fields=`<p class="wide muted">${text('Record the Side Job for this gang. Rewards stay in the existing XP and credits controls.','이 갱의 사이드 잡을 기록합니다. 보상은 기존 XP와 크레딧 항목에서 직접 기록하세요.')}</p>`+(post?`<div class="wide"><strong>${text('Side Job','사이드 잡')}</strong><p>${jobLabel(value)}</p></div>`:MMSideJobs.nativeSelect(c,'sideJob',options,selection)+`<label class="wide" data-side-job-custom ${selection==='custom'?'':'hidden'}>${text('Custom Side Job','직접 입력한 사이드 잡')}<input name="sideJobCustom" maxlength="250" value="${escape(value.custom)}" data-user-text></label>`)+`<div class="wide cp-sidejob-preview" data-side-job-preview></div><div class="wide">${button(keys.help,'Conditions','달성 조건',s,p)}</div>`+(post?`<label class="checkline wide"><input type="checkbox" name="sideJobCompleted" value="yes" ${value.completed?'checked':''}>${text('Side Job completed','사이드 잡 달성')}</label>`:'');
   cpModal(post?'Side Job Result':'Side Job',fields,'Save',v=>{
    if(!live(state)||s.stage!==state.stage||!s.participants.includes(p))return readonlyError();
    if(post){
-    if(s.stage!=='post-battle'||!job(c,p).exists)return readonlyError();
-    const completed=v.sideJobCompleted==='yes';if(completed===value.completed)return true;
+    if(!['battle','post-battle'].includes(s.stage)||!job(c,p).exists)return readonlyError();
+    const completed=v.sideJobCompleted==='yes';if(completed===value.completed)return true;const operation=window.MMCampaignBattle?.updateSideJob?.(c,s,p,completed);if(operation!=null)return operation;
     p.sideJobCompleted=completed;if(Object.hasOwn(p,'side_job_completed'))p.side_job_completed=completed;
    }else{
     if(s.stage!=='pre-battle')return readonlyError();

@@ -49,12 +49,34 @@ function show(c,sid){
  }
  f.addEventListener('change',update);update();
 }
-const btn=(action,en,ko,s,disabled=false)=>A().button('battle',action,en,ko,`data-ca-id="${E(s.id)}" ${disabled?'disabled':''}`,'small');
+const shared=c=>!!(c.remoteOwnerId||c.remoteCampaignId||c.remoteRevision);
+function resultContext(s,p,row){
+ const c=typeof campaign==='function'&&campaign();if(!c||c.edition!=='N26'||!canSettle(c,s)||!['battle','post-battle'].includes(s.stage))return {};
+ const g=gangs().find(g=>g.id===p.gangId),f=g?.fighters?.find(f=>f.id===row.fighterId);if(!f)return {};
+ const fingerprint=JSON.stringify([f,row]),owner=window.AccountParity?.account?.id||'',operation='battle-result:'+s.id+':'+id(),stage=s.stage;
+ return{autoParticipation:true,...(shared(c)?{commit:(mutate,label)=>{
+  if(!A().canEdit(c)||get(c,s.id)!==s||!s.participants.includes(p)||!p.crew.includes(row)||s.stage!==stage||(window.AccountParity?.account?.id||'')!==owner)throw Error(T('The record or your access changed. Reopen the result.','기록이나 접근 권한이 변경되었습니다. 결과 입력 창을 다시 여세요.'));
+  return A().apply(c,{key:operation,label,gangIds:[g.id],mutate:d=>{const ds=get(d.campaign,s.id),dg=d.gangs.find(g=>g.id===p.gangId),dr=ds?.participants?.find(x=>x.id===p.id)?.crew?.find(x=>x.fighterId===row.fighterId),df=dg?.fighters?.find(x=>x.id===row.fighterId);if(ds?.stage!==stage||JSON.stringify([df,dr])!==fingerprint)throw Error(T('The fighter changed. Reopen the result.','파이터 기록이 변경되었습니다. 결과 입력 창을 다시 여세요.'));return mutate(df,dg,dr);}});
+ }}:{})};
+}
+function updateResource(c,s,p,key,value){
+ if(!shared(c)||!canSettle(c,s)||!['battle','post-battle'].includes(s.stage))return null;
+ if(!A().canEdit(c))throw Error('Campaign editor access required');const number=integer(value,'Reward');if(!['creditsEarned','reputationChange'].includes(key)&&!c.resources?.some(r=>r.id===key))throw Error('Unknown campaign resource');
+ if(Number((['creditsEarned','reputationChange'].includes(key)?p[key]:p.resources?.[key])||0)===number)return Promise.resolve();
+ return A().apply(c,{key:'battle-reward:'+s.id+':'+id(),label:T('Record battle reward','전투 보상 입력'),gangIds:[],mutate:d=>{const ds=get(d.campaign,s.id),dp=ds?.participants.find(x=>x.id===p.id);if(!dp||!['battle','post-battle'].includes(ds.stage))throw Error('Battle result is no longer editable');if(['creditsEarned','reputationChange'].includes(key))dp[key]=number;else{dp.resources??={};dp.resources[key]=number;}}});
+}
+function reserveControl(c,s,p){return canSettle(c,s)&&['battle','post-battle'].includes(s.stage)&&p.reinforcements?.length?A().button('battle','deployed','Record deployed reserves','출전 증원 반영',`data-ca-id="${E(s.id)}" data-ca-participant="${E(p.id)}" ${A().canEdit(c)?'':'disabled'}`,'small'):'';}
+function deployed(c,sid,pid){const s=get(c,sid),p=s?.participants.find(p=>p.id===pid);if(!A().canEdit(c)||!p||!['battle','post-battle'].includes(s.stage))return;
+ const g=gangs().find(g=>g.id===p.gangId),reserves=p.reinforcements||[],operation='battle-deployment:'+sid+':'+id();
+ A().modal(T('Record deployed reserves','출전 증원 반영'),`<p class="wide">${L('Select reserves that actually entered the battlefield. They receive participation XP together with the starting crew when you settle the result.','실제로 전장에 투입된 증원만 선택하세요. 결과 확정 시 시작 크루와 함께 참가 XP가 적용됩니다.')}</p>${reserves.map((r,i)=>`<label class="checkline wide"><input type="checkbox" name="deployed${i}" value="yes"><span data-user-text>${E(g?.fighters?.find(f=>f.id===r.fighterId)?.name||r.fighterId)}</span></label>`).join('')}`,T('Record deployment','출전 명단에 반영'),v=>{const ids=reserves.filter((_,i)=>v['deployed'+i]==='yes').map(r=>r.fighterId);if(!ids.length)return true;return A().apply(c,{key:operation,label:T('Record deployed reserves','출전 증원 반영'),gangIds:[],mutate:d=>{const ds=get(d.campaign,sid),dp=ds?.participants.find(p=>p.id===pid);if(!dp||!['battle','post-battle'].includes(ds.stage)||ids.some(fid=>!dp.reinforcements?.some(r=>r.fighterId===fid)||dp.crew.some(r=>r.fighterId===fid)))throw Error('The deployed crew changed; reopen the result');dp.crew.push(...dp.reinforcements.filter(r=>ids.includes(r.fighterId)));dp.reinforcements=dp.reinforcements.filter(r=>!ids.includes(r.fighterId));}});});
+}
+function updateSideJob(c,s,p,completed){if(!shared(c)||!canSettle(c,s))return null;return A().apply(c,{key:'battle-sidejob:'+s.id+':'+id(),label:T('Record Side Job result','사이드 잡 결과 반영'),gangIds:[],mutate:d=>{const ds=get(d.campaign,s.id),dp=ds?.participants.find(x=>x.id===p.id);if(!dp||!['battle','post-battle'].includes(ds.stage))throw Error('Battle result is no longer editable');dp.sideJobCompleted=completed;if(Object.hasOwn(dp,'side_job_completed'))dp.side_job_completed=completed;}});}
+const btn=(action,en,ko,s,disabled=false)=>A().button('battle',action,en,ko,`data-ca-id="${E(s.id)}" ${disabled?'disabled':''}`,'primary');
 function canSettle(c,s){return c?.edition==='N26'&&s?.participants?.length===2&&(!s?.territoryId||['Occupation','Takeover'].includes(s.campaignPhase||(c.automation?.challenges||[]).find(x=>x.id===s.challengeId)?.phase||A().phase(c)));}
 function resultControl(c,s){if(!canSettle(c,s))return '';return ['battle','post-battle'].includes(s.stage)?btn('settle','Settle battle result','전투 결과 일괄 정산',s,!A().canEdit(c)):'';}
 function render(c){return window.MMCampaignPreparation?.render(c)||'';}
-function handle(action,c,d){if(action==='settle')return show(c,d.caId);if(action==='open'){const s=get(c,d.caId);if(s)sessionDetail(s);}}
-window.MMCampaignBattle={render,handle,resultControl,canSettle,preview,settleDraft,settle,show,eligible,recorded,crew,rescues,automaticParticipation};
+function handle(action,c,d){if(action==='deployed')return deployed(c,d.caId,d.caParticipant);if(action==='settle')return show(c,d.caId);if(action==='open'){const s=get(c,d.caId);if(s)sessionDetail(s);}}
+window.MMCampaignBattle={render,handle,resultControl,canSettle,preview,settleDraft,settle,show,eligible,recorded,crew,rescues,automaticParticipation,resultContext,updateResource,reserveControl,deployed,updateSideJob};
 const previousComplete=completeSession;completeSession=function(s){const c=campaign();if(canSettle(c,s))return show(c,s.id);return previousComplete(s);};
 const previousPage=cpSessionPage;cpSessionPage=function(c){const html=previousPage(c),s=get(c,data.selectedBattleSession);if(!s||c.edition!=='N26')return html;const extra=['pre-battle','battle','post-battle'].includes(s.stage)?window.MMCampaignPreparation?.sessionControls?.(c,s)||resultControl(c,s):'';return html.replace('<div class="stack">','<div class="stack">'+(extra?'<section class="card ca-session-tools"><div>'+extra+'</div></section>':''));};
 })();
