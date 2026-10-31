@@ -8,10 +8,10 @@
   const pending=()=>!can('references');
   const lang=()=>window.UKI18n?.language==='en'?'en':'ko';
   const label=(en,ko,tag='span')=>`<${tag} data-i18n-ko="${escape(ko)}">${escape(en)}</${tag}>`;
-  const pendingBody=()=>can('references')?`<div data-official-source-pending>${label('Source-verified data is available for this edition. Features without complete verified inputs remain manual.','이 판본에서 원본을 확인한 데이터를 제공합니다. 필요한 입력이 모두 확인되지 않은 기능은 직접 기록으로 유지합니다.','p')}${label('Recorded custom values and manual rulings are not automatically certified by the app.','사용자 정의 값과 직접 기록한 재정은 앱이 자동으로 공식 규칙에 맞다고 판정하지 않습니다.','p')}</div>`:`<div data-official-source-pending>${label('Verified original data for this edition is not available. Use manual records for this edition.','이 판본의 원본 확인 데이터가 제공되지 않았습니다. 해당 판본은 직접 기록을 사용하세요.','p')}</div>`;
+  const pendingBody=()=>can('references')?`<div data-official-source-pending>${label('Source-verified data is available for this edition. Features without complete verified inputs remain manual.','이 판본의 룰북에서 확인한 정보를 제공합니다. 자동 계산에 필요한 규칙이 확인되지 않은 항목은 직접 입력할 수 있습니다.','p')}${label('Recorded custom values and manual rulings are not automatically certified by the app.','사용자 정의 값과 직접 기록한 재정은 앱이 자동으로 공식 규칙에 맞다고 판정하지 않습니다.','p')}</div>`:`<div data-official-source-pending>${label('Verified original data for this edition is not available. Use manual records for this edition.','이 판본의 룰북 정보가 아직 등록되지 않았습니다. 직접 입력해 주세요.','p')}</div>`;
   function showPending(options={}){
-    if(window.MMRuleReference?.openContext)return window.MMRuleReference.openContext(can('references')?'Verified data coverage':'Official source pending',pendingBody(),{nameKo:can('references')?'원본 확인 범위':'공식 원본 확인 대기',activator:options.activator});
-    if(typeof showModal==='function'){showModal(lang()==='ko'?'공식 원본 확인 대기':'Official source pending',pendingBody(),lang()==='ko'?'닫기':'Close',()=>true);return true;}
+    if(window.MMRuleReference?.openContext)return window.MMRuleReference.openContext(can('references')?'Verified data coverage':'Official source pending',pendingBody(),{nameKo:can('references')?'룰북에서 확인한 내용':'룰북 확인 필요',activator:options.activator});
+    if(typeof showModal==='function'){showModal(lang()==='ko'?'룰북 확인 필요':'Official source pending',pendingBody(),lang()==='ko'?'닫기':'Close',()=>true);return true;}
     return false;
   }
   function input(name,en,ko,value='',type='text',attributes=''){
@@ -23,7 +23,7 @@
   }
   function manualForm(kind,en,ko,body,callback){
     if(typeof formModal!=='function')return false;
-    formModal(en,`<p class="wide muted" data-official-manual-note>${label('Manual record only. No rule table, automatic award or eligibility check is applied.','직접 기록입니다. 판정표·자동 보상·자격 조건을 적용하지 않습니다.')}</p>`+body,callback,'Save record');
+    formModal(en,`<p class="wide muted" data-official-manual-note>${label('Manual record only. No rule table, automatic award or eligibility check is applied.','능력치와 결과를 직접 입력합니다. 판정이나 보상은 자동으로 계산하지 않습니다.')}</p>`+body,callback,'Save record');
     const form=document.querySelector('#modal-form');if(!form)return false;
     form.dataset.officialManual=kind;form.closest('.modal')?.classList.add('official-manual-modal');
     const heading=form.closest('.modal')?.querySelector('.modal-head h2');if(heading)heading.dataset.i18nKo=ko;
@@ -139,7 +139,7 @@
     if(refreshing)return;refreshing=true;
     try{
       const content=document.querySelector('.content');
-      if(content&&!content.querySelector(':scope > [data-official-source-notice]')){const banner=document.createElement('aside');banner.className='notice official-source-notice';banner.dataset.officialSourceNotice='';banner.dataset.referenceVerified=String(can('references'));banner.setAttribute('role','status');banner.innerHTML=(can('references')?label('Verified original data','원본 확인 데이터','strong')+label('Verified data is available for this edition. Unverified categories stay manual.','이 판본에서 원본을 확인한 항목을 제공합니다. 확인되지 않은 분야는 직접 기록으로 유지됩니다.','p'):label('Official source pending','공식 원본 확인 대기','strong')+label('Automatic rules and preset data are unavailable. You can continue entering manual records.','자동 규칙과 기본 데이터는 원본 확인 전까지 제공하지 않습니다. 직접 기록은 계속 사용할 수 있습니다.','p'))+`<button type="button" class="btn small" data-official-source-info>${label('Details','자세히')}</button>`+(data.view==='gang'?`<button type="button" class="btn small" data-official-manual="fighter">${label('Manual fighter','파이터 직접 기록')}</button>`:'');content.prepend(banner);}
+      if(content&&!content.querySelector(':scope > [data-official-source-notice]')){const banner=document.createElement('aside');banner.className='notice official-source-notice';banner.dataset.officialSourceNotice='';banner.dataset.referenceVerified=String(can('references'));banner.setAttribute('role','status');banner.innerHTML=(can('references')?label('Verified original data','룰북에서 확인한 정보','strong')+label('Verified data is available for this edition. Unverified categories stay manual.','이 판본의 룰북에서 확인한 항목을 제공합니다. 나머지 항목은 직접 입력할 수 있습니다.','p'):label('Official source pending','룰북 확인 필요','strong')+label('Automatic rules and preset data are unavailable. You can continue entering manual records.','룰북 내용이 확인되면 기본 정보와 자동 계산을 제공합니다. 그전에도 직접 입력할 수 있습니다.','p'))+`<button type="button" class="btn small" data-official-source-info>${label('Details','자세히')}</button>`+(data.view==='gang'?`<button type="button" class="btn small" data-official-manual="fighter">${label('Manual fighter','파이터 직접 기록')}</button>`:'');content.prepend(banner);}
       blockButtons();window.UKI18n?.refresh(document.querySelector('[data-official-source-notice]')||document.body);
     }finally{refreshing=false;}
   }

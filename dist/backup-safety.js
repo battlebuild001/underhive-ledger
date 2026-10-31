@@ -25,7 +25,7 @@
    for(const f of g.fighters){for(const key of ['equipment','effects','advancements','injuries','loadouts'])for(const row of array(f,key,key))record(row,key);for(const key of ['skills','subtypes','specialRules'])if(f[key]!==undefined)array(f,key,key);if(f.stats===undefined)f.stats={...baseStats};record(f.stats,'Stats');}
   }
   for(const c of campaigns){for(const key of ['members','territories','battles','sessions','resources','allegiances'])for(const row of array(c,key,key))record(row,key);}
-  if(state.customAssets!==undefined){record(state.customAssets,'Custom assets');for(const [kind,rows]of Object.entries(state.customAssets)){if(!Array.isArray(rows))fail(tr('사용자 자산 목록 형식이 올바르지 않습니다.','Invalid custom asset list.'));for(const row of rows)record(row,kind);}}
+  if(state.customAssets!==undefined){record(state.customAssets,'Custom assets');for(const [kind,rows]of Object.entries(state.customAssets)){if(!Array.isArray(rows))fail(tr('커스텀 목록 형식이 올바르지 않습니다.','Invalid custom asset list.'));for(const row of rows)record(row,kind);}}
   state.view='dashboard';state.tab='fighters';state.campaignTab='members';
   state.selectedGang=gangs.some(g=>g.id===state.selectedGang)?state.selectedGang:gangs[0]?.id||null;
   state.selectedCampaign=campaigns.some(c=>c.id===state.selectedCampaign)?state.selectedCampaign:campaigns[0]?.id||null;

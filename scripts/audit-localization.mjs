@@ -38,14 +38,19 @@ const allEquipmentCategories=[...new Set(allRows.map(({row})=>row.equipment_cate
 const unmappedCategories=allEquipmentCategories.filter(en=>!mapped(en)||mapped(en)===en);
 const untranslatedNames=allRows.filter(({row})=>row.name&&row.name_ko&&latin(mapped(row.name)||row.name_ko).length).map(({kind,row})=>({kind,id:row.id,name:row.name,display:mapped(row.name)||row.name_ko}));
 const conflictingApprovedNames=[...approved].filter(([,values])=>values.size>1).map(([en,values])=>({en,spellings:[...values]}));
-const introducedApprovedNameConflicts=allRows.filter(({row})=>terms.names?.[row.name]&&row.name_ko&&row.name_ko!==row.name&&terms.names[row.name]!==row.name_ko).map(({kind,row})=>({kind,id:row.id,name:row.name,approved:row.name_ko,supplement:terms.names[row.name]}));
+const reviewedCopy=JSON.parse(fs.readFileSync(path.join(root,'data/localization/ui-copy-review.json'),'utf8'));
+const reviewedLabels=reviewedCopy.reviewedCatalogueLabels||[];
+const isReviewed=({kind,row})=>reviewedLabels.some(r=>r.kind===kind&&r.id===row.id&&r.sourceKo===row.name_ko&&r.displayKo===terms.names?.[row.name]);
+const reviewedDisplayNameChanges=allRows.filter(isReviewed).map(({kind,row})=>({kind,id:row.id,name:row.name,source:row.name_ko,display:terms.names[row.name]}));
+const invalidDisplayReviews=reviewedLabels.filter(r=>!allRows.some(e=>e.kind===r.kind&&e.row.id===r.id&&e.row.name_ko===r.sourceKo&&terms.names?.[e.row.name]===r.displayKo));
+const introducedApprovedNameConflicts=allRows.filter(({kind,row})=>terms.names?.[row.name]&&row.name_ko&&row.name_ko!==row.name&&terms.names[row.name]!==row.name_ko&&!isReviewed({kind,row})).map(({kind,row})=>({kind,id:row.id,name:row.name,approved:row.name_ko,supplement:terms.names[row.name]}));
 const oldMapNameGaps=allRows.filter(({row})=>row.name&&row.name_ko&&!oldNames[row.name]).map(({kind,row})=>({kind,id:row.id,name:row.name}));
 const report={
  counts:{equipmentCategories:equipmentCategories.length,allEquipmentCategoryFields:allEquipmentCategories.length,classificationTerms:classifications.size,supplementalNames:Object.keys(terms.names||{}).length,supplementalUI:Object.keys(terms.enToKo||{}).length,supplementalPatterns:(terms.patterns||[]).length,oldMapNameGaps:oldMapNameGaps.length,unmappedCategories:unmappedCategories.length,unmappedClassificationTerms:classificationMissing.length,unexpectedLatinNameRows:untranslatedNames.length,placeholderNameRows:placeholders.length,conflictingApprovedNames:conflictingApprovedNames.length,introducedApprovedNameConflicts:introducedApprovedNameConflicts.length},
- unmappedCategories,classificationMissing,untranslatedNames,placeholders,conflictingApprovedNames,introducedApprovedNameConflicts,oldMapNameGaps,
+ unmappedCategories,classificationMissing,untranslatedNames,placeholders,conflictingApprovedNames,introducedApprovedNameConflicts,reviewedDisplayNameChanges,invalidDisplayReviews,oldMapNameGaps,
  allowedTechnicalTokens:[...allowed],
  scope:'Public catalogue names/classification labels only. Saved user records, form values, descriptions and rule prose are not treated as untranslated UI.',
  notes:['Conflicting approved spellings require entity context; the audit does not rewrite them.','English placeholders are ignored when a current approved Korean name or supplemental display term exists.','The literal Delete confirmation value, usernames and account IDs are intentionally outside this catalogue audit.']
 };
 process.stdout.write(JSON.stringify(report,null,2)+'\n');
-if(unmappedCategories.length||classificationMissing.length||untranslatedNames.length||introducedApprovedNameConflicts.length)process.exitCode=1;
+if(invalidDisplayReviews.length||unmappedCategories.length||classificationMissing.length||untranslatedNames.length||introducedApprovedNameConflicts.length)process.exitCode=1;

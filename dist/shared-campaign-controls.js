@@ -19,7 +19,7 @@
   cp:new Set(['campaign-type-info','campaign-logs','campaign-data','campaign-download','territory-description','session-filter','session-back','fighter-actions','pack-cancel'])
  };
  const texts={
-  ko:{gang:'공유 갱 · 읽기 전용',campaign:'참여 캠페인 · 읽기 전용',gangBody:'공유된 최신 명단을 확인하는 화면입니다. 갱의 변경은 소유자의 원본 갱에서 진행합니다.',campaignBody:'캠페인 설정과 전투 기록은 운영자가 관리합니다. 내 갱은 원본 갱 화면에서 수정할 수 있습니다.',edit:'내 갱 수정',disabled:'공유 기록은 이 화면에서 수정할 수 없습니다.'},
+  ko:{gang:'공유 갱 · 읽기 전용',campaign:'참여 캠페인 · 읽기 전용',gangBody:'공유된 최신 명단입니다. 명단 수정은 해당 갱의 플레이어가 합니다.',campaignBody:'캠페인 설정과 전투 기록은 운영자가 관리합니다. 내 갱 화면에서 명단을 수정할 수 있습니다.',edit:'내 갱 수정',disabled:'공유 기록은 이 화면에서 수정할 수 없습니다.'},
   en:{gang:'Shared gang · Read only',campaign:'Joined campaign · Read only',gangBody:'This is the shared roster. Its owner makes changes in the original gang.',campaignBody:'The organiser manages campaign settings and battle records. Edit your own gang in its original roster.',edit:'Edit My Gang',disabled:'Shared records cannot be edited in this view.'}
  };
  let queued=false,applying=false;const disabled=new Map(),dragged=new Map();

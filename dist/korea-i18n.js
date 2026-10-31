@@ -68,13 +68,14 @@
    const control=el.closest('button,option,label');
    return !control||!!control.matches('[data-open-gang],[data-open-campaign],.mm-menu-user')||!!control.closest('[data-user-text]');
  }
+ function reviewedDisplay(en,ko){const alias=terms.displayNameAliases?.[en];return alias?.sourceKo===ko?alias.displayKo:ko;}
  function translateNode(node){
    const current=node.nodeValue;if(!current?.trim()||userText(node,current))return;
    const parent=node.parentElement;let state=textState.get(node);
    if(!state||current!==state.output)state={base:/[가-힣]/.test(current)?translate(current,'en'):current,output:current};
    if(parent.tagName==='OPTION'&&!parent.hasAttribute('value'))parent.setAttribute('value',parent.value);
    const single=[...parent.childNodes].filter(child=>child.nodeType===3&&child.nodeValue.trim()).length===1,explicitEn=single?parent.getAttribute('data-i18n-en'):null;
-   let output=single&&parent.hasAttribute('data-i18n-catalog-name')?(language==='ko'?phonetic(parent.dataset.i18nCatalogName):parent.dataset.i18nCatalogName):single&&language==='ko'&&parent.hasAttribute('data-i18n-ko')?parent.dataset.i18nKo:language==='en'&&explicitEn!==null?explicitEn:translate(explicitEn??state.base);
+   let output=single&&parent.hasAttribute('data-i18n-catalog-name')?(language==='ko'?phonetic(parent.dataset.i18nCatalogName):parent.dataset.i18nCatalogName):single&&language==='ko'&&parent.hasAttribute('data-i18n-ko')?reviewedDisplay(explicitEn,parent.dataset.i18nKo):language==='en'&&explicitEn!==null?explicitEn:translate(explicitEn??state.base);
    if(parent.matches('.mmrr-korean-name,.mmrr-results h3 small')&&language==='ko')output=catalog.koAliases?.[state.base]||output;
    state.output=output;textState.set(node,state);if(current!==output)node.nodeValue=output;
  }
@@ -84,7 +85,7 @@
    for(const name of ['placeholder','title','aria-label','alt']){
     if(!el.hasAttribute(name))continue;const current=el.getAttribute(name);if(!current||protectedText.has(current)&&!el.hasAttribute('data-i18n-en-'+name)&&!el.hasAttribute('data-i18n-ko-'+name))continue;
     let state=records[name];if(!state||state.output!==current)state=records[name]={base:/[가-힣]/.test(current)?translate(current,'en'):current,output:current};
-    const explicitKo=el.getAttribute('data-i18n-ko-'+name),explicitEn=el.getAttribute('data-i18n-en-'+name),output=language==='ko'&&explicitKo!==null?explicitKo:language==='en'&&explicitEn!==null?explicitEn:translate(explicitEn??state.base);
+    const explicitKo=el.getAttribute('data-i18n-ko-'+name),explicitEn=el.getAttribute('data-i18n-en-'+name),output=language==='ko'&&explicitKo!==null?reviewedDisplay(explicitEn,explicitKo):language==='en'&&explicitEn!==null?explicitEn:translate(explicitEn??state.base);
     state.output=output;if(current!==output)el.setAttribute(name,output);
    }
  }

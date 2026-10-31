@@ -17,7 +17,7 @@ function validateJSON(value,check,depth=0){
  check(depth<45,'운영 기록이 너무 깊습니다.');
  if(typeof value==='number')check(Number.isFinite(value),'운영 수치는 유한한 숫자여야 합니다.');
  if(Array.isArray(value)){check(value.length<=10000,'운영 목록이 너무 큽니다.');for(const item of value)validateJSON(item,check,depth+1);}
- else if(object(value))for(const [key,item]of Object.entries(value)){check(!forbidden(key),'지원하지 않는 기록 키입니다.');validateJSON(item,check,depth+1);}
+ else if(object(value))for(const [key,item]of Object.entries(value)){check(!forbidden(key),'이 항목은 저장할 수 없습니다.');validateJSON(item,check,depth+1);}
 }
 function diff(before,after,path=[],out=[]){
  if(before===undefined&&after===undefined||before!==undefined&&after!==undefined&&stable(before)===stable(after))return out;
@@ -55,9 +55,9 @@ function allowed(patch,target,check,internal=false){
  check(!path.some(t=>typeof t==='string'&&(TRANSPORT.has(t)&&!consentReference(t)||PRIVATE.has(t))),'신원·개인 메모는 운영 변경에 포함할 수 없습니다.');
  if(!internal&&target==='gang'&&path[0]==='campaignCaptives'){
   const protectedConsent=['sourceAcknowledgedBy','sourceAcknowledgedAt','acceptedBy','acceptedAt','declinedBy','declinedAt'];
-  check(!path.some(t=>protectedConsent.includes(t)),'생포 동의 기록은 원본 소유자의 동의 처리로만 변경할 수 있습니다.');
-  if(path.at(-1)==='status')check(!['accepted','declined'].includes(patch.after),'몸값 동의는 원본 소유자만 결정할 수 있습니다.');
-  const rejectConsent=v=>{if(Array.isArray(v))v.forEach(rejectConsent);else if(object(v))for(const [k,x]of Object.entries(v)){check(!protectedConsent.includes(k),'생포 동의 기록은 직접 지정할 수 없습니다.');if(k==='status')check(!['accepted','declined'].includes(x),'몸값 동의는 원본 소유자만 결정할 수 있습니다.');rejectConsent(x);}};if(patch.after!==undefined)rejectConsent(patch.after);
+  check(!path.some(t=>protectedConsent.includes(t)),'생포 확인은 파이터를 소유한 플레이어만 변경할 수 있습니다.');
+  if(path.at(-1)==='status')check(!['accepted','declined'].includes(patch.after),'몸값 제안은 파이터를 소유한 플레이어만 수락할 수 있습니다.');
+  const rejectConsent=v=>{if(Array.isArray(v))v.forEach(rejectConsent);else if(object(v))for(const [k,x]of Object.entries(v)){check(!protectedConsent.includes(k),'해당 플레이어가 직접 생포를 확인해야 합니다.');if(k==='status')check(!['accepted','declined'].includes(x),'몸값 제안은 파이터를 소유한 플레이어만 수락할 수 있습니다.');rejectConsent(x);}};if(patch.after!==undefined)rejectConsent(patch.after);
  }
 }
 function publicReceipt(row,hide){return {id:row.id,campaignId:row.campaign_id,operationKey:row.operation_key,actorId:row.actor_id,label:row.label,createdAt:row.created_at,cycle:row.cycle,campaignRevision:row.campaign_revision,changes:hide(JSON.parse(row.changes)),sourceRevisions:JSON.parse(row.source_revisions),reversedAt:row.reversed_at||null,reversedBy:row.reversed_by||null,reverseRevisions:row.reverse_revisions?JSON.parse(row.reverse_revisions):null};}
@@ -67,7 +67,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  const path=new URL(request.url).pathname.replace(/\/$/,''),match=path.match(/^\/api\/campaigns\/([^/]+)\/automation(?:\/(consent|[^/]+)(?:\/(reverse))?)?$/);if(!match)return null;
  const campaignId=match[1];check(campaignId.length<=160,'캠페인 ID가 올바르지 않습니다.');await requireLiveCampaign(db,campaignId);
  const documents=new Map();
- async function document(user){if(!documents.has(user)){const row=await db.prepare('SELECT revision,state FROM documents WHERE user_id=?').bind(user).first();check(row,'동기화된 원본 기록이 없습니다.',409);documents.set(user,{user,revision:row.revision,state:JSON.parse(row.state),changed:false});}return documents.get(user);}
+ async function document(user){if(!documents.has(user)){const row=await db.prepare('SELECT revision,state FROM documents WHERE user_id=?').bind(user).first();check(row,'저장된 갱 명단을 불러올 수 없습니다. 먼저 동기화하세요.',409);documents.set(user,{user,revision:row.revision,state:JSON.parse(row.state),changed:false});}return documents.get(user);}
  const actorDoc=await document(actor);
  let shared=await db.prepare('SELECT * FROM shared_campaigns WHERE id=?').bind(campaignId).first(),role='owner',owner=actor;
  if(shared){const rights=await campaignRights(db,campaignId,actor);shared=rights.campaign;role=rights.role;owner=shared.owner_id;}
@@ -81,10 +81,10 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   if(sourceMappings.has(gangId))return sourceMappings.get(gangId);
   check(members.has(gangId),'캠페인 참가 갱만 변경할 수 있습니다.',403);
   const enrolled=enrollments.find(r=>'enrolled-'+r.id===gangId),user=enrolled?.user_id||owner,sourceId=enrolled?.gang_id||gangId;
-  const doc=await document(user),gang=doc.state.gangs.find(g=>g.id===sourceId&&!g.remoteReadOnly&&(!g.remoteOwnerId||g.remoteOwnerId===user));check(gang,'원본 갱이 변경되었거나 없습니다.',409);
+  const doc=await document(user),gang=doc.state.gangs.find(g=>g.id===sourceId&&!g.remoteReadOnly&&(!g.remoteOwnerId||g.remoteOwnerId===user));check(gang,'갱 명단이 변경되었거나 삭제되었습니다.',409);
   check(String(gang.edition||'N23').toUpperCase()===String(canonicalCampaign.edition||'N23').toUpperCase(),'참가 갱의 판본이 변경되었습니다.',409);
   if(enrolled){const access=await db.prepare("SELECT role,status FROM campaign_access WHERE campaign_id=? AND user_id=?").bind(campaignId,user).first();check(access?.status==='accepted','참가 갱의 접근 권한이 변경되었습니다.',409);usedEnrollments.set(enrolled.id,enrolled);}
-  else if(shared)check(addedOwnedMembers.has(gangId)||snapshot.gangs.some(g=>g.id===gangId&&!g.remoteReadOnly),'원본 소유 관계가 확인되지 않은 갱입니다.',403);
+  else if(shared)check(addedOwnedMembers.has(gangId)||snapshot.gangs.some(g=>g.id===gangId&&!g.remoteReadOnly),'이 갱의 소유자를 확인할 수 없습니다.',403);
   const value={gangId,ownerId:user,sourceGangId:sourceId,doc,gang,originalGang:copy(gang),enrolled};sourceMappings.set(gangId,value);return value;
  }
  const hide=withoutPrivate,receiptResponse=async(row,replayed=false)=>{const fresh=await db.prepare('SELECT revision,state FROM documents WHERE user_id=?').bind(actor).first();const latest=await db.prepare('SELECT revision FROM shared_campaigns WHERE id=?').bind(campaignId).first();return response({receipt:publicReceipt(row,hide),replayed,document:{state:JSON.parse(fresh.state),revision:fresh.revision},campaignRevision:latest?.revision??null});};
@@ -95,7 +95,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  check(!match[2]||consent||reverse,'지원하지 않는 운영 주소입니다.',404);
  let original=null,key,label,payloadHash;
  if(reverse){original=await db.prepare('SELECT * FROM campaign_automation_operations WHERE id=? AND campaign_id=?').bind(match[2],campaignId).first();check(original,'운영 기록을 찾을 수 없습니다.',404);if(original.reversed_at)return receiptResponse(original,true);key='reverse:'+original.id;label='Undo '+original.label;}
- else{check(typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160&&typeof body.label==='string'&&body.label.length>0&&body.label.length<=250||consent&&typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160,'운영 키와 제목이 필요합니다.');key=body.operationKey;label=consent?'Captive source-owner consent':body.label;const payload=consent?{holderId:body.holderId,recordId:body.recordId,decision:body.decision,offerId:body.offerId??null}:{label,before:body.before,after:body.after};validateJSON(payload,check);payloadHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(payload)))),x=>x.toString(16).padStart(2,'0')).join('');const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'원본 소유자만 동의 요청을 다시 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'같은 운영 키에 다른 변경을 보낼 수 없습니다.',409);return receiptResponse(existing,true);}}
+ else{check(typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160&&typeof body.label==='string'&&body.label.length>0&&body.label.length<=250||consent&&typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160,'저장할 작업 정보를 확인할 수 없습니다. 작업을 다시 시작하세요.');key=body.operationKey;label=consent?'Captive source-owner consent':body.label;const payload=consent?{holderId:body.holderId,recordId:body.recordId,decision:body.decision,offerId:body.offerId??null}:{label,before:body.before,after:body.after};validateJSON(payload,check);payloadHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(payload)))),x=>x.toString(16).padStart(2,'0')).join('');const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'파이터를 소유한 플레이어만 응답 내용을 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'이미 보낸 요청과 내용이 다릅니다. 최신 상태를 불러온 뒤 다시 시도하세요.',409);return receiptResponse(existing,true);}}
  check(Number.isSafeInteger(body.documentRevision)&&body.documentRevision===actorDoc.revision,'개인 기록이 변경되었습니다. 동기화 후 다시 시도하세요.',409);
  if(shared&&body.expectedCampaignRevision!==undefined)check(body.expectedCampaignRevision===shared.revision,'캠페인 기록이 변경되었습니다. 새로고침 후 다시 시도하세요.',409);
  const changes=[];
@@ -108,8 +108,8 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  if(consent){
   check(typeof body.holderId==='string'&&typeof body.recordId==='string'&&['accept','decline','acknowledge'].includes(body.decision),'생포 동의 요청이 올바르지 않습니다.');
   const holder=await resolve(body.holderId),record=holder.gang.campaignCaptives?.find(r=>r.id===body.recordId&&r.campaignId===campaignId&&!r.releasedAt);check(record,'진행 중인 생포 기록이 없습니다.',409);
-  const targetId=[...members].find(id=>{const r=enrollments.find(r=>'enrolled-'+r.id===id);return (r?.user_id||owner)===record.target?.ownerId&&(r?.gang_id||id)===record.target?.sourceId;});check(targetId,'생포 대상의 원본 소유 관계를 확인할 수 없습니다.',403);
-  const target=await resolve(targetId);check(actor===target.ownerId,'생포 대상 원본 소유자만 동의할 수 있습니다.',403);
+  const targetId=[...members].find(id=>{const r=enrollments.find(r=>'enrolled-'+r.id===id);return (r?.user_id||owner)===record.target?.ownerId&&(r?.gang_id||id)===record.target?.sourceId;});check(targetId,'생포된 파이터의 소유자를 확인할 수 없습니다.',403);
+  const target=await resolve(targetId);check(actor===target.ownerId,'생포된 파이터를 소유한 플레이어만 확인할 수 있습니다.',403);
   const fighter=target.gang.fighters?.find(f=>f.id===record.target.fighterId);check(fighter,'생포 대상 파이터가 없습니다.',409);
   const holderAfter=copy(holder.gang),targetAfter=holder===target?holderAfter:copy(target.gang),r=holderAfter.campaignCaptives.find(x=>x.id===record.id),f=targetAfter.fighters.find(x=>x.id===fighter.id),at=stamp();
   if(body.decision==='acknowledge'){
@@ -135,16 +135,16 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   const list=JSON.parse(original.changes);
   for(const stored of [...list].reverse()){
    const patch={path:stored.path,before:stored.afterExists?stored.after:undefined,after:stored.beforeExists?stored.before:undefined};
-   if(stored.target==='gang'){const mapping=await resolve(stored.gangId);check(mapping.ownerId===stored.ownerId&&mapping.sourceGangId===stored.sourceGangId,'원본 소유 관계가 변경되었습니다.',409);apply(mapping.gang,patch,'gang',mapping,true);}
+   if(stored.target==='gang'){const mapping=await resolve(stored.gangId);check(mapping.ownerId===stored.ownerId&&mapping.sourceGangId===stored.sourceGangId,'갱 소유자가 변경되었습니다. 최신 명단을 불러오세요.',409);apply(mapping.gang,patch,'gang',mapping,true);}
    else{if(stored.path[0]==='members'&&stored.path.length===2&&!stored.beforeExists&&stored.after?.gangId)reversedMemberAdds.add(stored.after.gangId);apply(canonicalCampaign,patch,'campaign',null,true);campaignChanged=true;}
   }
  }else{
   check(object(body.before)&&object(body.after)&&object(body.before.campaign)&&object(body.after.campaign)&&body.before.campaign.id===campaignId&&body.after.campaign.id===campaignId&&Array.isArray(body.before.gangs)&&Array.isArray(body.after.gangs),'캠페인 변경 전후 기록이 필요합니다.');
-  const beforeGangs=new Map(body.before.gangs.map(g=>[g.id,g])),afterGangs=new Map(body.after.gangs.map(g=>[g.id,g]));check(beforeGangs.size===body.before.gangs.length&&afterGangs.size===body.after.gangs.length&&beforeGangs.size===afterGangs.size&&[...beforeGangs.keys()].every(id=>afterGangs.has(id)),'갱 식별자를 변경하거나 원본 갱을 삭제할 수 없습니다.');
+  const beforeGangs=new Map(body.before.gangs.map(g=>[g.id,g])),afterGangs=new Map(body.after.gangs.map(g=>[g.id,g]));check(beforeGangs.size===body.before.gangs.length&&afterGangs.size===body.after.gangs.length&&beforeGangs.size===afterGangs.size&&[...beforeGangs.keys()].every(id=>afterGangs.has(id)),'이 작업에서는 갱의 ID를 바꾸거나 갱을 삭제할 수 없습니다.');
   for(const patch of diff(body.before.campaign,body.after.campaign)){
    if(patch.path[0]==='members'&&patch.path.length===2&&patch.before===undefined&&object(patch.after)){
     const member=patch.after;check(actor===owner&&Object.keys(member).every(k=>['id','gangId','player','role','allegianceId'].includes(k))&&member.id===patch.path[1]?.id&&typeof member.id==='string'&&member.id.length>0&&typeof member.player==='string'&&member.player.length<=500&&member.role==='Player'&&!members.has(member.gangId),'캠페인 소유자의 내 갱 추가만 자동 처리할 수 있습니다.',403);
-    const gang=actorDoc.state.gangs.find(g=>g.id===member.gangId&&!g.remoteReadOnly&&!g.remoteOwnerId);check(gang&&String(gang.edition||'N23').toUpperCase()===String(canonicalCampaign.edition||'N23').toUpperCase(),'같은 판본의 내 원본 갱을 선택하세요.',403);
+    const gang=actorDoc.state.gangs.find(g=>g.id===member.gangId&&!g.remoteReadOnly&&!g.remoteOwnerId);check(gang&&String(gang.edition||'N23').toUpperCase()===String(canonicalCampaign.edition||'N23').toUpperCase(),'같은 판본을 사용하는 내 갱을 선택하세요.',403);
     members.add(member.gangId);addedOwnedMembers.add(member.gangId);await resolve(member.gangId);
    }
    apply(canonicalCampaign,patch,'campaign');campaignChanged=true;
@@ -155,7 +155,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  // All referenced gangs must still be campaign members. Ownership remains immutable.
  function refs(value,key=''){if(Array.isArray(value)){for(const x of value)refs(x,key);return;}if(object(value)){for(const [k,x]of Object.entries(value))refs(x,k);return;}if(typeof value==='string'&&value&&['gangId','gang_id','attacker','defender','winner','winners','challenger','opponent','claimedByGangId','stakeOwnerBefore','controlledBy','claimedBy','gangA','gangB','capturedBy','captured_by_gang_id'].includes(key))check(members.has(value),'캠페인 밖의 갱을 운영 기록에 연결할 수 없습니다.');}
  for(const change of changes)if(change.target==='campaign'&&change.afterExists)refs(change.after,typeof change.path.at(-1)==='string'?change.path.at(-1):'');
- if(campaignChanged&&shared&&owner===actor){const ownerCampaign=actorDoc.state.campaigns.find(c=>c.id===campaignId&&!c.remoteOwnerId);if(ownerCampaign){for(const change of changes.filter(c=>c.target==='campaign')){const current=locate(ownerCampaign,change.path,check);check(same(current.value,change.beforeExists?change.before:undefined),'내 캠페인 원본과 공유 기록이 다릅니다. 먼저 갱신하세요.',409);write(ownerCampaign,change.path,change.after,change.afterExists,check);}actorDoc.changed=true;}}
+ if(campaignChanged&&shared&&owner===actor){const ownerCampaign=actorDoc.state.campaigns.find(c=>c.id===campaignId&&!c.remoteOwnerId);if(ownerCampaign){for(const change of changes.filter(c=>c.target==='campaign')){const current=locate(ownerCampaign,change.path,check);check(same(current.value,change.beforeExists?change.before:undefined),'내 캠페인과 공유된 캠페인의 내용이 다릅니다. 먼저 새로고침하세요.',409);write(ownerCampaign,change.path,change.after,change.afterExists,check);}actorDoc.changed=true;}}
  if(campaignChanged&&!shared)actorDoc.changed=true;
  for(const mapping of sourceMappings.values())if(changes.some(c=>c.target==='gang'&&c.gangId===mapping.gangId))mapping.doc.changed=true;
  // Refresh the target shared snapshot from each authoritative source, never client ownership fields.
@@ -170,11 +170,11 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   for(const f of models){check(typeof f.id==='string'&&f.id.length>0&&f.id.length<=160&&typeof f.name==='string'&&f.name.length<=500,'파이터 식별 정보가 올바르지 않습니다.');if(f.xp!==undefined)check(Number.isSafeInteger(f.xp)&&f.xp>=0,'XP 합계가 올바르지 않습니다.');for(const key of ['equipment','skills','skillDetails','effects','injuries','advancements','loadouts','xpHistory','ooaRecords','specialRules','subtypes'])if(f[key]!==undefined)check(Array.isArray(f[key]),'파이터 목록 필드 형식이 올바르지 않습니다: '+key);}
   for(const r of g.campaignCaptives||[])if(r.campaignId===campaignId){
    const previous=mapping.originalGang.campaignCaptives?.find(old=>old.id===r.id);if(same(previous,r))continue;
-   const ref=[...members].find(id=>{const enrolled=enrollments.find(e=>'enrolled-'+e.id===id);return (enrolled?.user_id||owner)===r.target?.ownerId&&(enrolled?.gang_id||id)===r.target?.sourceId;});check(ref,'생포 대상 원본 소유 관계가 올바르지 않습니다.');
-   if(r.ransomOffer?.status==='offered'){check(r.ransomOffer.offeredBy===mapping.ownerId&&r.ransomOffer.sourceOwnerId===r.target.ownerId&&Number.isSafeInteger(r.ransomOffer.amount)&&r.ransomOffer.amount>=0,'몸값 제안의 소유자나 금액이 올바르지 않습니다.');if(!consent&&!reverse&&!same(previous?.ransomOffer,r.ransomOffer))check(actor===mapping.ownerId,'생포 갱의 원본 소유자만 몸값을 제안할 수 있습니다.',403);}
-   if(!consent&&!reverse&&r.rosterApplied&&!previous?.rosterApplied)check(actor===r.target.ownerId,'상대 원본 로스터의 생포 확인은 그 소유자만 할 수 있습니다.',403);
+   const ref=[...members].find(id=>{const enrolled=enrollments.find(e=>'enrolled-'+e.id===id);return (enrolled?.user_id||owner)===r.target?.ownerId&&(enrolled?.gang_id||id)===r.target?.sourceId;});check(ref,'생포된 파이터의 소유자가 일치하지 않습니다.');
+   if(r.ransomOffer?.status==='offered'){check(r.ransomOffer.offeredBy===mapping.ownerId&&r.ransomOffer.sourceOwnerId===r.target.ownerId&&Number.isSafeInteger(r.ransomOffer.amount)&&r.ransomOffer.amount>=0,'몸값 제안의 소유자나 금액이 올바르지 않습니다.');if(!consent&&!reverse&&!same(previous?.ransomOffer,r.ransomOffer))check(actor===mapping.ownerId,'생포한 갱을 소유한 플레이어만 몸값을 제안할 수 있습니다.',403);}
+   if(!consent&&!reverse&&r.rosterApplied&&!previous?.rosterApplied)check(actor===r.target.ownerId,'상대 갱의 생포 상태는 해당 플레이어만 확인할 수 있습니다.',403);
    if(!consent&&!reverse&&r.releasedAt&&!previous?.releasedAt){
-    check(r.releaseMethod!=='ransom','몸값 지급은 원본 소유자의 동의 처리로 완료하세요.',403);
+    check(r.releaseMethod!=='ransom','몸값을 지급하려면 파이터를 소유한 플레이어가 제안을 수락해야 합니다.',403);
     if(r.releaseMethod==='rescue'){
      const battle=[...(initialCampaign.battles||[]),...(initialCampaign.sessions||[])].find(b=>b.id===r.releaseBattleId),winners=battle?.winners||[battle?.winner],participants=(battle?.participants||[{gangId:battle?.attacker},{gangId:battle?.defender}]).map(p=>p.gangId||p.gang_id);
      check(battle&&['Played','Completed'].includes(battle.status)&&winners.includes(ref)&&participants.includes(mapping.gangId)&&battle.rescueResults?.some(result=>result.captureId===r.id&&result.fighterId===r.target.fighterId&&result.rescued===true),'완료된 구출 전투의 승자·참가자·구출 결과를 확인할 수 없습니다.',409);
@@ -195,6 +195,6 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  if(reverse)commands.push(db.prepare('UPDATE campaign_automation_operations SET reversed_at=?,reversed_by=?,reverse_revisions=? WHERE id=? AND reversed_at IS NULL').bind(at,actor,JSON.stringify(revisions),original.id));
  else commands.push(db.prepare('INSERT INTO campaign_automation_operations(id,campaign_id,operation_key,actor_id,label,payload_hash,changes,source_revisions,campaign_revision,cycle,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)').bind(receiptId,campaignId,key,actor,label,payloadHash,JSON.stringify(changes),JSON.stringify(revisions),shared?shared.revision+1:null,Number.isSafeInteger(canonicalCampaign.currentCycle)?canonicalCampaign.currentCycle:null,at));
  commands.push(db.prepare('DELETE FROM campaign_automation_assertions WHERE token=?').bind(token));
- try{await db.batch(commands);}catch(error){if(!reverse){const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'원본 소유자만 동의 요청을 다시 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'같은 운영 키에 다른 변경을 보낼 수 없습니다.',409);return receiptResponse(existing,true);}}else{const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE id=?').bind(original.id).first();if(existing?.reversed_at)return receiptResponse(existing,true);}if(/automation_guard|CHECK constraint|UNIQUE constraint/.test(String(error.message)))throw new ApiError(409,'기록이나 접근 권한이 변경되었습니다. 새로고침 후 다시 시도하세요.');throw error;}
+ try{await db.batch(commands);}catch(error){if(!reverse){const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'파이터를 소유한 플레이어만 응답 내용을 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'이미 보낸 요청과 내용이 다릅니다. 최신 상태를 불러온 뒤 다시 시도하세요.',409);return receiptResponse(existing,true);}}else{const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE id=?').bind(original.id).first();if(existing?.reversed_at)return receiptResponse(existing,true);}if(/automation_guard|CHECK constraint|UNIQUE constraint/.test(String(error.message)))throw new ApiError(409,'기록이나 접근 권한이 변경되었습니다. 새로고침 후 다시 시도하세요.');throw error;}
  const saved=await db.prepare('SELECT * FROM campaign_automation_operations WHERE id=?').bind(receiptId).first();return receiptResponse(saved);
 }

@@ -2,6 +2,50 @@
 (function () {
   'use strict';
   const pairs = `
+Record capture	생포 처리
+Record release	생포 해제
+Record resolved release	생포 해제 확인
+Record Result	결과 기록
+Record only	직접 입력
+User record	직접 입력
+Loadout	장비 세트
+Session	전투
+Reverse settlement	정산 취소 확인
+Reverse	정산 취소
+Settlement history	정산 이력
+Applied once	정산 완료
+Reversed · original receipt retained	정산 취소됨 · 이전 내역 보관
+Collect Income	수입 정산
+Collect income	수입 받기
+Collect Income for all gangs	전체 갱 수입 정산
+Collect income for all gangs	전체 갱 수입 정산
+Generate Gang Tactics	갱 택틱 뽑기
+Visit the Trading Post	거래소 방문
+Update roster	명단 정리
+Downtime allowance	다운타임 지원금
+Starting territories	시작 영토 배정
+Medical treatment	치료 받기
+Link Champion promotion	챔피언 승급 보상 받기
+Roster Role	로스터 역할
+Recruitment Profile	모집 옵션
+Select recruitment profile	모집 옵션 선택
+Recruitment Profile *	모집 옵션 *
+Select profile	모집 옵션 선택
+Choose profile	모집 옵션 선택
+An operation key and label are required.	저장할 작업 정보를 확인할 수 없습니다.
+Prepare undecided steps	남은 준비 주사위 굴리기
+Apply preparation	준비 완료
+Income	수입
+Record arriving reinforcements	증원 배치
+Settle battle result	전투 결과 정산
+Create challenge battle	도전 전투 만들기
+Cycle deadlines updated	사이클 마감일 변경
+Cycle announcement published	사이클 공지 등록
+Advance campaign cycle	다음 사이클 진행
+Configure campaign progression	캠페인 진행 설정
+Campaign trading cart purchase	거래소 일괄 구매
+Completed rescue	구출 완료
+Captive source-owner consent	생포 확인·몸값 협상
 Home	홈
 Overview	현황
 Dashboard	대시보드
@@ -17,7 +61,7 @@ Add	추가
 Edit	수정
 Save	저장
 Save Changes	변경 사항 저장
-Update	업데이트
+Update	변경 사항 저장
 Delete	삭제
 Remove	제거
 Cancel	취소
@@ -152,7 +196,7 @@ Gang Backstory	갱 배경 이야기
 Gang Logs	갱 기록
 Gang Additions	갱 추가 항목
 Gang additions	갱 추가 항목
-Gang Stash Equipment	갱 보관고 장비
+Gang Stash Equipment	갱 보관함 장비
 Gang Vehicles	갱 차량
 Gang Territories	갱 영토
 Gang Tactics	갱 택틱
@@ -245,7 +289,7 @@ Change Fighter Status	파이터 상태 변경
 Active	활동
 Activated	활성화 완료
 In Recovery	회복 중
-Captured	포로
+Captured	생포됨
 Retired	은퇴
 Dead	사망
 Enslaved	노예
@@ -272,26 +316,26 @@ Specialisation	전문화
 Select a Specialisation	전문화 선택
 Select a Specialisation.	전문화를 선택하세요.
 Kill Fighter	파이터 사망 처리
-Unretire Fighter	파이터 은퇴 해제
+Unretire Fighter	파이터 복귀
 Sell to Guilders	길더에게 판매
-Release from Guilders	길더에게서 해방
-Send to Recovery	회복 상태로 보내기
-Send to Recovery?	회복 상태로 보낼까요?
-Send fighter into Recovery?	파이터를 회복 상태로 보낼까요?
-Do you want to send the fighter into Recovery?	파이터를 회복 상태로 보내시겠습니까?
-Capture Fighter	파이터 포획
-Recover Fighter	파이터 회복
-Feed Fighter	파이터 먹이기
-Starve Fighter	파이터 굶기기
+Release from Guilders	길더의 노예에서 해방
+Send to Recovery	회복 중으로 변경
+Send to Recovery?	회복 중으로 변경할까요?
+Send fighter into Recovery?	파이터를 회복 중으로 변경할까요?
+Do you want to send the fighter into Recovery?	파이터를 회복 중으로 변경할까요?
+Capture Fighter	파이터 생포
+Recover Fighter	회복 완료
+Feed Fighter	식량 지급
+Starve Fighter	기아 상태로 변경
 Set as Active	활동 상태로 변경
 Release	해방
-Capture	포획
-Captured Fighters	포로 파이터
-Captured by	포획한 갱
-Mark as Captured?	포로 상태로 표시할까요?
-Select capturing gang...	포획한 갱 선택...
+Capture	생포
+Captured Fighters	생포된 파이터
+Captured by	생포한 갱
+Mark as Captured?	생포 상태로 변경할까요?
+Select capturing gang...	생포한 갱 선택...
 No fighters are currently held captive by gangs in this campaign.	현재 이 캠페인의 갱이 잡고 있는 포로 파이터가 없습니다.
-This fighter already has the Captured lasting injury	이 파이터는 이미 포로 지속 부상을 가지고 있습니다
+This fighter already has the Captured lasting injury	이 파이터는 이미 생포된 상태입니다.
 You will need to manually remove the Recovery flag the next time you update the gang.	다음 갱 업데이트 시 회복 상태를 직접 해제해야 합니다.
 Leader	리더
 Champion	챔피언
@@ -493,7 +537,7 @@ Equipment Type	장비 유형
 Equipment Category	장비 분류
 Equipment Effects	장비 효과
 Equipment List	장비 목록
-Equipment Loadouts	장비 로드아웃
+Equipment Loadouts	장비 세트
 Default Equipment	기본 장비
 All Equipment	모든 장비
 Create Equipment	장비 만들기
@@ -513,7 +557,7 @@ No equipment available	사용 가능한 장비 없음
 No equipment available.	사용 가능한 장비가 없습니다.
 No equipment matches these filters.	이 필터에 맞는 장비가 없습니다.
 No equipment items added yet.	아직 추가한 장비가 없습니다.
-No custom equipment. Create equipment in Custom Assets.	사용자 정의 장비가 없습니다. 사용자 자산에서 장비를 만드세요.
+No custom equipment. Create equipment in Custom Assets.	커스텀 장비가 없습니다. 커스텀에서 장비를 만드세요.
 Unknown equipment	알 수 없는 장비
 Select Equipment Options	장비 옵션 선택
 Choose one equipment option.	장비 옵션 하나를 선택하세요.
@@ -522,11 +566,11 @@ Select the required starting equipment.	필수 시작 장비를 선택하세요.
 Can be consumed by the fighter	파이터가 소비 가능
 Consumable	소모품
 This equipment will be removed from all fighters that currently have it equipped.	현재 장착한 모든 파이터에게서 이 장비가 제거됩니다.
-Stash	보관고
-Stash is empty.	보관고가 비어 있습니다.
-Move to Stash	보관고로 이동
-Move to stash	보관고로 이동
-Move Equipment to Stash	장비를 보관고로 이동
+Stash	보관함
+Stash is empty.	보관함이 비어 있습니다.
+Move to Stash	보관함으로 이동
+Move to stash	보관함으로 이동
+Move Equipment to Stash	장비를 보관함으로 이동
 Buy	구매
 Sell	판매
 Sell Value	판매 가격
@@ -545,14 +589,14 @@ e.g. 2 or E	예: 2 또는 E
 Include this cost in gang rating	이 비용을 갱 레이팅에 포함
 Use Listed Cost for Rating	목록 가격을 레이팅에 사용
 Use Delegation Cost	파견 비용 사용
-Loadouts	로드아웃
-Loadout name	로드아웃 이름
-Add a Loadout (max 50 characters)	로드아웃 추가 (최대 50자)
-Edit Loadout	로드아웃 수정
-Delete Loadout	로드아웃 삭제
-Are you sure you want to delete this loadout?	이 로드아웃을 삭제할까요?
-Select a loadout from the list to manage its equipment	목록에서 로드아웃을 선택해 장비를 관리하세요
-Select only one loadout per fighter.	파이터당 로드아웃 하나만 선택하세요.
+Loadouts	장비 세트
+Loadout name	장비 세트 이름
+Add a Loadout (max 50 characters)	장비 세트 추가 (최대 50자)
+Edit Loadout	장비 세트 수정
+Delete Loadout	장비 세트 삭제
+Are you sure you want to delete this loadout?	이 장비 세트를 삭제할까요?
+Select a loadout from the list to manage its equipment	장비를 관리할 장비 세트를 선택하세요.
+Select only one loadout per fighter.	파이터마다 장비 세트를 하나만 선택하세요.
 Weapon	무기
 Weapons	무기
 Weapon Profiles	무기 프로필
@@ -671,7 +715,7 @@ All Cycles	모든 사이클
 Downtime	다운타임
 Post Cycle	사이클 종료 후
 Post-Cycle Actions	사이클 종료 후 행동
-Post-cycle Action: Train	사이클 종료 후 행동: 트레인
+Post-cycle Action: Train	사이클 종료 후 행동: 훈련
 Complete the Post-cycle Actions before applying them.	적용하기 전에 사이클 종료 후 행동 선택을 완료하세요.
 Enter cycle number (optional)	사이클 번호 입력 (선택 사항)
 Add or remove resources (e.g. 5 or -5)	자원 추가 또는 차감 (예: 5 또는 -5)
@@ -681,17 +725,17 @@ Triumph	트라이엄프
 Triumphs	트라이엄프
 No triumphs available for this campaign type.	이 캠페인 유형에 사용 가능한 트라이엄프가 없습니다.
 Challenge	도전
-Challenge Round	도전 라운드
-Open Challenge Round	도전 라운드 시작
+Challenge Round	사이클 도전
+Open Challenge Round	사이클 도전 시작
 Open Round	라운드 시작
-Save Challenge	도전 저장
+Save Challenge	도전 신청
 Edit Challenge	도전 수정
 Every gang in the campaign gets a challenge to issue.	캠페인의 모든 갱이 도전을 제안할 수 있습니다.
 Tick this once the battle has been fought to record the result and file the report. Leave it unticked to save the challenge.	전투를 마쳤다면 선택하여 결과와 보고서를 기록하세요. 도전만 저장하려면 선택하지 마세요.
 Battle	전투
 Battles	전투
-Battle Sessions	전투 세션
-Battle Session	전투 세션
+Battle Sessions	진행 중인 전투
+Battle Session	진행 중인 전투
 Battle Participation	전투 참가
 Battles Fought	치른 전투
 Battle XP	전투 XP
@@ -700,20 +744,20 @@ New Battle	새 전투
 Create Battle	전투 만들기
 Start Battle	전투 시작
 End Battle	전투 종료
-Complete Battle	전투 완료
+Complete Battle	전투 결과 확정
 Save Battle	전투 저장
 Edit Battle	전투 수정
 Cancel Battle	전투 취소
-Cancel Battle Session	전투 세션 취소
+Cancel Battle Session	진행 중인 전투 취소
 Back to Pre-Battle	전투 전 단계로
 Pre-Battle	전투 전
 Post-Battle	전투 후
 Complete Round	라운드 완료
 Complete this round and reset fighter activations?	이 라운드를 마치고 파이터의 활성화 상태를 초기화할까요?
 End the battle and begin the post-battle sequence?	전투를 종료하고 전투 후 절차를 시작할까요?
-Are you sure you want to cancel this battle session? This will delete all session records.	전투 세션을 취소할까요? 모든 세션 기록이 삭제됩니다.
-Battle session cancelled	전투 세션을 취소했습니다
-Add this gang to a campaign to create a battle session.	전투 세션을 만들려면 이 갱을 캠페인에 추가하세요.
+Are you sure you want to cancel this battle session? This will delete all session records.	진행 중인 전투을 취소할까요? 모든 세션 기록이 삭제됩니다.
+Battle session cancelled	진행 중인 전투을 취소했습니다
+Add this gang to a campaign to create a battle session.	진행 중인 전투을 만들려면 이 갱을 캠페인에 추가하세요.
 Choose a gang to control	조작할 갱 선택
 Opponent Gang	상대 갱
 Select opponent gang...	상대 갱 선택...
@@ -723,7 +767,7 @@ Select enemy fighter...	적 파이터 선택...
 Add gangs to the campaign to select opponents.	상대 갱을 선택하려면 캠페인에 갱을 추가하세요.
 Select at least one opponent gang.	상대 갱을 하나 이상 선택하세요.
 Select at least two different gangs.	서로 다른 갱을 둘 이상 선택하세요.
-No battle sessions.	전투 세션이 없습니다.
+No battle sessions.	진행 중인 전투이 없습니다.
 No battles recorded.	기록된 전투가 없습니다.
 Add Battle Report	전투 보고 추가
 Edit Battle Report	전투 보고 수정
@@ -769,7 +813,7 @@ No tactics cards.	택틱 카드가 없습니다.
 No tactics cards available.	사용 가능한 택틱 카드가 없습니다.
 No gang tactics yet.	아직 갱 택틱이 없습니다.
 This Gang Tactic is already owned.	이미 보유한 갱 택틱입니다.
-Develop Tactics	디벨롭 택틱스
+Develop Tactics	택틱 개발
 Territory	영토
 Territories	영토
 Territories Controlled	통제 영토
@@ -779,7 +823,7 @@ Default Gang Territory	기본 갱 영토
 Add Territory	영토 추가
 Edit Territory	영토 수정
 Delete Territory	영토 삭제
-Update Territory	영토 업데이트
+Update Territory	영토 수정
 Assign Territory	영토 배정
 List Default Territories	기본 영토 목록
 Add a custom Territory (max 50 characters)	사용자 정의 영토 추가 (최대 50자)
@@ -795,7 +839,7 @@ Remove gang from territory	영토에서 갱 제외
 No territories added.	추가한 영토가 없습니다.
 No territories controlled.	통제 중인 영토가 없습니다.
 No territories in this campaign	이 캠페인에 영토가 없습니다
-Work Territory	워크 테리토리
+Work Territory	영토 작업
 Terrorise Territory	테러라이즈 테리토리
 Map	지도
 Campaign Map	캠페인 지도
@@ -857,7 +901,7 @@ Assign	배정
 No crew selected.	선택한 크루가 없습니다.
 This vehicle can later be assigned or reassigned to a crew on the Gang page in the Vehicles tab.	나중에 갱 페이지의 차량 탭에서 이 차량을 크루에 배정하거나 재배정할 수 있습니다.
 Credits will be returned to the gang. If the vehicle is assigned to a Crew, the gang rating will decrease accordingly.	크레딧은 갱에 환급됩니다. 크루에 배정된 차량이라면 갱 레이팅도 그만큼 감소합니다.
-Send vehicle into Recovery?	차량을 회복 상태로 보낼까요?
+Send vehicle into Recovery?	차량을 회복 중으로 변경할까요?
 Wreck Vehicle	차량 격파 처리
 Vehicle Wrecked	차량 격파
 Destroyed	파괴됨
@@ -941,24 +985,24 @@ Custom Assets	커스텀
 CUSTOM ASSETS	커스텀
 Create Custom	사용자 정의 항목 만들기
 Create your own custom fighter with unique characteristics and abilities.	고유한 능력치와 능력을 가진 사용자 정의 파이터를 만드세요.
-Asset Collection	자산 컬렉션
-Asset Collections	자산 컬렉션
-Asset Collection Name	자산 컬렉션 이름
-Copy Asset Collection	자산 컬렉션 복제
-Share Asset Collection	자산 컬렉션 공유
-Copy Custom Asset	사용자 자산 복제
-Copy to my assets	내 자산으로 복제
-Delete Asset	자산 삭제
-Delete this custom asset?	이 사용자 자산을 삭제할까요?
-Share this custom asset	이 사용자 자산 공유
-Apply every item in this asset collection	이 자산 컬렉션의 모든 항목 적용
-Bundle your custom items into an asset collection you can apply to your campaigns or share. Add items after creating.	사용자 정의 항목을 자산 컬렉션으로 묶어 캠페인에 적용하거나 공유하세요. 컬렉션을 만든 뒤 항목을 추가할 수 있습니다.
-Create assets to add them to this collection.	이 컬렉션에 추가할 자산을 만드세요.
-No custom assets.	사용자 자산이 없습니다.
+Asset Collection	커스텀 묶음
+Asset Collections	커스텀 묶음
+Asset Collection Name	커스텀 묶음 이름
+Copy Asset Collection	커스텀 묶음 복사
+Share Asset Collection	커스텀 묶음 공유
+Copy Custom Asset	커스텀 항목 복사
+Copy to my assets	내 커스텀에 복사
+Delete Asset	커스텀 항목 삭제
+Delete this custom asset?	이 커스텀 항목을 삭제할까요?
+Share this custom asset	커스텀 항목 공유
+Apply every item in this asset collection	이 커스텀 묶음 전체 추가
+Bundle your custom items into an asset collection you can apply to your campaigns or share. Add items after creating.	사용자 정의 항목을 커스텀 묶음으로 묶어 캠페인에 적용하거나 공유하세요. 컬렉션을 만든 뒤 항목을 추가할 수 있습니다.
+Create assets to add them to this collection.	이 묶음에 추가할 커스텀 항목을 만드세요.
+No custom assets.	커스텀 항목이 없습니다.
 No items in this collection yet.	아직 이 컬렉션에 항목이 없습니다.
-This only deletes the asset collection. The custom items themselves are not deleted.	자산 컬렉션만 삭제하며 사용자 정의 항목 자체는 삭제하지 않습니다.
-This will create a copy in your custom assets list.	내 사용자 자산 목록에 복사본을 만듭니다.
-Show fighter types you created in Custom Assets	사용자 자산에서 만든 파이터 유형 표시
+This only deletes the asset collection. The custom items themselves are not deleted.	커스텀 묶음만 삭제하며 사용자 정의 항목 자체는 삭제하지 않습니다.
+This will create a copy in your custom assets list.	내 커스텀 목록에 복사합니다.
+Show fighter types you created in Custom Assets	커스텀에서 만든 파이터 유형 표시
 Show types from every gang	모든 갱의 유형 표시
 Include Custom Fighter Types	사용자 정의 파이터 유형 포함
 Include all Fighter Types	모든 파이터 유형 포함
@@ -970,7 +1014,7 @@ Items	항목
 No items available	사용 가능한 항목 없음
 Select an item...	항목 선택...
 Account	계정
-Username	사용자 이름
+Username	표시 이름
 Email	이메일
 Password	비밀번호
 Friends	친구
@@ -981,12 +1025,12 @@ Storage & Sync	저장 및 동기화
 Change Username	사용자 이름 변경
 Change Email	이메일 변경
 Change Password	비밀번호 변경
-Update Username	사용자 이름 업데이트
-Update Email	이메일 업데이트
+Update Username	표시 이름 변경
+Update Email	이메일 변경
 New username	새 사용자 이름
 New email address	새 이메일 주소
 Not set	미설정
-Updating...	업데이트 중...
+Updating...	저장 중...
 Requested / Friends	요청됨 / 친구
 Add Friend	친구 추가
 Remove Friend	친구 제거
@@ -1180,7 +1224,7 @@ Right	오른쪽
 Support	지원
 Assistance	지원
 Provide Assistance	프로바이드 어시스턴스
-Issued	발행됨
+Issued	신청됨
 Revealed	공개됨
 Report	보고서
 Resource name	자원 이름
@@ -1195,7 +1239,7 @@ Return to Pre-Battle	전투 전 단계로 돌아가기
 Return to Pre-Battle to change the crew or players?	크루나 플레이어를 변경하도록 전투 전 단계로 돌아갈까요?
 Return to the previous round?	이전 라운드로 돌아갈까요?
 Revert Round	이전 라운드로
-Rescue Fighter	파이터 구출
+Rescue Fighter	생포 해제
 Restore Fighter	파이터 복구
 Resurrect Fighter	파이터 부활
 Retire Fighter	파이터 은퇴
@@ -1206,7 +1250,7 @@ Fit Bionics	바이오닉스 장착
 Critically Injured fighter	치명적 부상을 입은 파이터
 Heal	치료
 Enhance Weapon	인핸스 웨폰
-Train	트레인
+Train	훈련
 Lead Ritual	리드 리추얼
 Medicate	메디케이트
 Terrorise Territory	테러라이즈 테리토리
@@ -1252,15 +1296,15 @@ This user	이 사용자
 this user	이 사용자
 this injury	이 부상
 Fighter's total value	파이터의 총가치
-Create your own Gang Types, Fighters, Equipment, Skills, Skill sets and Trading Posts and share them to campaigns you're an Arbitrator of. Bundle them into Asset Collections to apply a whole themed set to a campaign at once, or copy another arbitrator's asset collection into your account. Custom Territories and Scenarios are created in the campaign pages.	나만의 갱 유형, 파이터, 장비, 스킬, 스킬 세트와 거래소를 만들어 아비트레이터로 참여하는 캠페인에 공유하세요. 자산 컬렉션으로 묶어 한 번에 적용하거나 다른 아비트레이터의 컬렉션을 복제할 수 있습니다. 사용자 정의 영토와 시나리오는 캠페인 페이지에서 만드세요.
+Create your own Gang Types, Fighters, Equipment, Skills, Skill sets and Trading Posts and share them to campaigns you're an Arbitrator of. Bundle them into Asset Collections to apply a whole themed set to a campaign at once, or copy another arbitrator's asset collection into your account. Custom Territories and Scenarios are created in the campaign pages.	나만의 갱 유형, 파이터, 장비, 스킬, 스킬 세트와 거래소를 만들어 아비트레이터로 참여하는 캠페인에 공유하세요. 커스텀 묶음으로 묶어 한 번에 적용하거나 다른 아비트레이터의 컬렉션을 복제할 수 있습니다. 사용자 정의 영토와 시나리오는 캠페인 페이지에서 만드세요.
 Are you sure you want to delete	다음을 삭제할까요:
 Are you sure you want to sell	다음을 판매할까요:
 Are you sure you want to buy	다음을 구매할까요:
 Are you sure you want to undo	다음을 되돌릴까요:
-Do you want to copy the custom asset	복제할 사용자 자산:
+Do you want to copy the custom asset	복제할 커스텀:
 into your own profile?	내 프로필에 복제할까요?
 from this gang's tactics?	이 갱의 택틱에서 제거할까요?
-to the gang stash?	갱 보관고로 이동할까요?
+to the gang stash?	갱 보관함으로 이동할까요?
 This fighter will remain a	현재 파이터 유형 유지:
 This fighter will be promoted to	승급할 파이터 유형:
 , lose the	, 제거할 하위 유형:
@@ -1336,7 +1380,7 @@ Edit Fighter	파이터 수정
 Fighter actions	파이터 작업
 Edit campaign image	캠페인 이미지 수정
 Enter adjusted cost	조정할 비용 입력
-Enter asset collection name	자산 컬렉션 이름 입력
+Enter asset collection name	커스텀 묶음 이름 입력
 Enter campaign name	캠페인 이름 입력
 Enter cost	비용 입력
 Enter custom Scenario name	사용자 정의 시나리오 이름 입력
@@ -1351,7 +1395,7 @@ Enter vehicle cost	차량 비용 입력
 Enter vehicle name	차량 이름 입력
 Flesh Wound	경상
 Inactive Fighters (Killed/Retired/Enslaved)	비활동 파이터 (사망/은퇴/노예)
-Inactive Fighters Loadouts	비활동 파이터 로드아웃
+Inactive Fighters Loadouts	비활동 파이터 장비 세트
 Include Custom	사용자 정의 포함
 Include all	전체 포함
 Injured	부상
@@ -1409,7 +1453,7 @@ Pending approval	승인 대기
 Approved	승인됨
 Rejected	거절됨
 Withdrawn	취소됨
-Removed	참가 해제됨
+Removed	참가 종료
 Not submitted	미신청
 Online Participation	온라인 참가
 Recruitment link	모집 링크
@@ -1442,7 +1486,7 @@ Campaign is full	참가 인원이 마감되었습니다
 Recruitment is paused	현재 모집이 중지되었습니다
 Check your campaign access	캠페인 참여 상태를 확인하세요
 Bring your gang to the campaign	내 갱으로 캠페인에 참가하기
-Your account records are connecting.	계정 기록에 연결하고 있습니다.
+Your account records are connecting.	저장된 데이터를 불러오는 중입니다.
 Create a compatible gang first	같은 에디션의 갱이 필요합니다
 Go to my gangs	내 갱으로 이동
 Refresh gangs	갱 목록 새로고침
@@ -1459,7 +1503,7 @@ Replacing the link invalidates the old address. Existing requests remain.	링크
 The host will review your application. Refresh this page to check its status.	주최자가 신청을 확인합니다. 새로고침하여 승인 상태를 확인하세요.
 Your gang has joined the campaign. You can now view the shared campaign.	갱이 캠페인에 등록되었습니다. 공유 캠페인을 열어볼 수 있습니다.
 You withdrew this request. You may apply again while recruitment is open.	취소한 신청입니다. 모집 중이라면 다시 신청할 수 있습니다.
-Your participation has ended. You may apply again while recruitment is open.	캠페인 참가가 해제되었습니다. 모집 중이라면 다시 신청할 수 있습니다.
+Your participation has ended. You may apply again while recruitment is open.	캠페인 참가가 종료되었습니다. 모집 중이라면 다시 신청할 수 있습니다.
 This application was not accepted. Contact the host if you need more information.	이번 신청은 승인되지 않았습니다. 자세한 내용은 주최자에게 확인하세요.
 Contact the host or check back later.	주최자에게 문의하거나 나중에 다시 확인하세요.
 You already own this campaign or have an invitation. Check your account for access.	이미 소유한 캠페인이거나 초대가 있습니다. 계정에서 참여 상태를 확인하세요.
@@ -1753,8 +1797,8 @@ XP 소모	XP Cost
 장비 이름	Equipment Name
 장비 없음	No equipment
 파이터 장비가 없습니다.	No fighter equipment.
-장비 로드아웃	Equipment Loadouts
-로드아웃 이름	Loadout Name
+장비 장비 세트	Equipment Loadouts
+장비 세트 이름	Loadout Name
 무기 특성	Weapon Traits
 소모품	Consumable
 보관 위치	Storage Location
@@ -1763,9 +1807,9 @@ XP 소모	XP Cost
 창고 장비는 갱 평점에 포함됩니다.	Stash equipment is included in gang rating.
 사용자 장비	Custom Equipment
 사용자 장비 관리	Manage Custom Equipment
-사용자 자산	Custom Assets
+커스텀	Custom Assets
 사용자 거래소가 없습니다.	No custom trading posts.
-사용자 자산에 장비가 없습니다. 먼저 장비를 만들어 주세요.	No equipment in Custom Assets. Create some equipment first.
+커스텀에 장비가 없습니다. 먼저 장비를 만들어 주세요.	No equipment in Custom Assets. Create some equipment first.
 나만의 장비, 파이터 유형, 스킬과 거래소를 구성하세요.	Create your own equipment, fighter types, skills and trading posts.
 컬렉션	Collection
 거래소	Trading Post
@@ -1780,12 +1824,12 @@ XP 소모	XP Cost
 굴리기	Roll
 굴리기를 누르세요.	Press Roll.
 전투	Battle
-전투 세션	Battle Session
-새 전투 세션	New Battle Session
-전투 세션 수정	Edit Battle Session
-전투 세션 삭제	Delete Battle Session
-전투 세션이 없습니다	No battle sessions
-이 전투 세션을 삭제할까요?	Delete this battle session?
+진행 중인 전투	Battle Session
+새 진행 중인 전투	New Battle Session
+진행 중인 전투 수정	Edit Battle Session
+진행 중인 전투 삭제	Delete Battle Session
+진행 중인 전투이 없습니다	No battle sessions
+이 진행 중인 전투을 삭제할까요?	Delete this battle session?
 세션 열기	Open Session
 전투 / 시나리오	Battle / Scenario
 시나리오 / 전투 이름	Scenario / Battle Name
@@ -1840,7 +1884,7 @@ XP 소모	XP Cost
 캠페인 페이지에서 이 갱을 등록하세요.	Add this gang from the campaign page.
 참가 갱과 플레이어	Participating Gangs & Players
 플레이어	Player
-플레이어 연결	Link Player
+플레이어 지정	Link Player
 참가자	Participants
 자원	Resources
 자원 이름	Resource Name
@@ -1946,7 +1990,7 @@ XML 내보내기	Export XML
 수정 / 소유권	Edit / Ownership
 추가	Add
 상세	Details
-보관고	Stash
+보관함	Stash
 대시보드	Dashboard
 내 갱	My Gangs
 규칙	Rules
@@ -1959,9 +2003,9 @@ XML 내보내기	Export XML
 아직 확인된 규칙 설명이 없습니다.	No rule description is available yet.
 이 판본·분류에 확인된 규칙이 없습니다.	No rules are available for this edition and category.
 이 판본의 규칙을 찾을 수 없습니다.	No rules were found for this edition.
-이 앱은 독립 제작한 팬 도구입니다. 원본 Munda Manager의 계정, 데이터, 실시간 동기화와 연결되어 있지 않습니다.	This is an independently made fan tool with its own accounts and storage.
+이 앱은 독립 제작한 팬 도구입니다. Munda Manager와 별도로 갱과 캠페인을 저장하는 팬 도구입니다.	This is an independently made fan tool with its own accounts and storage.
 데이터는 브라우저와 계정 저장소에 저장됩니다.	Data is saved in your browser and account storage.
-원본 Munda Manager와 별개의 계정 저장소를 사용합니다.	This app uses its own account storage.
+Munda Manager와 별도로 계정 데이터를 저장합니다.	This app uses its own account storage.
 브라우저 저장 공간도 부족합니다. 이 화면을 닫기 전에 백업하거나 다시 업로드하세요.	Browser storage is also full. Back up or upload again before closing this page.
 이 앱은 독립 제작한 팬 도구입니다.	This is an independently made fan tool.
 서버에 동기화했습니다.	Synced to the server.
@@ -1975,7 +2019,7 @@ JSON 백업	JSON Backup
 백업 다운로드	Download Backup
 백업 가져오기	Import Backup
 예시로 초기화	Reset to Sample Data
-이 앱은 독립 제작한 팬 도구입니다. 원본 Munda Manager와 별개의 계정 저장소를 사용합니다.	This independently made fan tool uses its own account storage.
+이 앱은 독립 제작한 팬 도구입니다. Munda Manager와 별도로 계정 데이터를 저장합니다.	This independently made fan tool uses its own account storage.
 개요	Overview
 갱 명단	Gang Roster
 갱 명단부터 캠페인 기록까지, 한곳에서 관리하세요.	Manage gang rosters and campaign records in one place.
@@ -2016,7 +2060,7 @@ JSON 백업	JSON Backup
 예시 캠페인	Sample Campaign
 운영 중인 갱	Active Gangs
 원본 Munda Manager의 Patreon 연동은 별도 서비스에서 관리됩니다.	Patreon membership for the original Munda Manager is managed by that service.
-원본 Munda Manager의 계정, 데이터, 실시간 동기화와 연결되어 있지 않습니다.	This app uses its own accounts, data and sync.
+Munda Manager와 별도로 갱과 캠페인을 저장하는 팬 도구입니다.	This app uses its own accounts, data and sync.
 이 영토를 삭제할까요?	Delete this territory?
 이 전투 기록을 삭제할까요?	Delete this battle record?
 이름 또는 유형 검색	Search by name or type
@@ -2119,10 +2163,10 @@ D66 최솟값	D66 Minimum
 ＋ 캠페인 만들기	＋ Create Campaign
 ← 규칙 목록	← Rules List
 ＋ 새 갱	＋ New Gang
-＋ 새 전투 세션	＋ New Battle Session
+＋ 새 진행 중인 전투	＋ New Battle Session
 ＋ 파이터	＋ Fighter
 ＋ 경험치	＋ XP
-＋ 로드아웃	＋ Loadout
+＋ 장비 세트	＋ Loadout
 ＋ 발전	＋ Advancement
 ＋ 부상	＋ Injury
 ＋ 스킬	＋ Skill
@@ -2164,17 +2208,17 @@ D66 최솟값	D66 Minimum
     { en: 'View rules for {0}', ko: '{0} 규칙 보기' },
     { en: '(+{0} XP each)', ko: '(각 +{0} XP)' },
     { en: 'Grants skill: {0}', ko: '부여 스킬: {0}' },
-    { en: 'This fighter will be promoted to {0}', ko: '이 파이터는 {0}로 승급합니다' },
-    { en: 'This fighter will remain a {0}', ko: '이 파이터는 {0}로 유지됩니다' },
+    { en: 'This fighter will be promoted to {0}', ko: '이 파이터는 {0}(으)로 승급합니다' },
+    { en: 'This fighter will remain a {0}', ko: '이 파이터는 {0}(으)로 유지됩니다' },
     { en: 'Tactics roll {0}', ko: '택틱 굴림 {0}' },
     { en: 'Edit: {0}', ko: '수정: {0}' },
-    { en: 'Held by {0}', ko: '보유 갱: {0}' },
-    { en: 'Controlled by {0}', ko: '통제 갱: {0}' },
+    { en: 'Held by {0}', ko: '보유한 갱: {0}' },
+    { en: 'Controlled by {0}', ko: '점령한 갱: {0}' },
     { en: 'Unable to save. {0}', ko: '저장하지 못했습니다. {0}' },
     { en: 'Select up to {0}', ko: '최대 {0} 선택' },
-    { en: 'Buy equipment from Custom Assets. Current credits: {0}', ko: '사용자 자산의 장비를 구매합니다. 현재 크레딧: {0}' },
+    { en: 'Buy equipment from Custom Assets. Current credits: {0}', ko: '커스텀에서 장비를 구매합니다. 현재 크레딧: {0}' },
     { en: 'None of your campaigns are {0} campaigns.', ko: '{0} 캠페인이 없습니다.' },
-    { en: 'Return {0} credits back to the gang stash', ko: '갱 보관고에 {0} 크레딧 환급' },
+    { en: 'Return {0} credits back to the gang stash', ko: '갱 보관함에 {0}크레딧 돌려받기' },
     { en: "Fighter's total cost: {0}", ko: '파이터 총비용: {0}' },
     { en: 'Not enough gang credits to repair these damages. Repair cost: {0}, Available credits: {1}', ko: '이 손상을 수리할 갱 크레딧이 부족합니다. 수리 비용: {0}, 사용 가능 크레딧: {1}' },
     { en: 'Remove {0} from this gang\'s tactics?', ko: '{0}을 이 갱의 택틱에서 제거할까요?' },
@@ -2183,11 +2227,11 @@ D66 최솟값	D66 Minimum
     { en: 'Are you sure you want to release "{0}" from the Guilders?', ko: '"{0}"을 길더에게서 해방할까요?' },
     { en: 'Are you sure you want to kill "{0}"?', ko: '"{0}"을 사망 처리할까요?' },
     { en: 'Are you sure you want to retire "{0}"?', ko: '"{0}"을 은퇴시킬까요?' },
-    { en: 'Are you sure you want to unretire "{0}"?', ko: '"{0}"의 은퇴를 해제할까요?' },
-    { en: 'Are you sure you want to capture "{0}"?', ko: '"{0}"을 포획할까요?' },
-    { en: 'Are you sure you want to starve "{0}"?', ko: '"{0}"을 굶주림 상태로 만들까요?' },
-    { en: 'Are you sure you want to feed "{0}"?', ko: '"{0}"을 먹일까요?' },
-    { en: 'Are you sure you want to send into Recovery "{0}"?', ko: '"{0}"을 회복 상태로 보낼까요?' },
+    { en: 'Are you sure you want to unretire "{0}"?', ko: '"{0}"을 복귀시킬까요?' },
+    { en: 'Are you sure you want to capture "{0}"?', ko: '"{0}"을 생포 상태로 변경할까요?' },
+    { en: 'Are you sure you want to starve "{0}"?', ko: '"{0}"을 기아 상태로 변경할까요?' },
+    { en: 'Are you sure you want to feed "{0}"?', ko: '"{0}"에게 식량을 지급할까요?' },
+    { en: 'Are you sure you want to send into Recovery "{0}"?', ko: '"{0}"을 회복 중으로 변경할까요?' },
     { en: '{0} requested to join the {1} campaign.', ko: '{0}님이 {1} 캠페인 참가를 신청했습니다.' },
     { en: 'Your request to join the {0} campaign was rejected.', ko: '{0} 캠페인 참가 신청이 거절되었습니다.' },
     { en: 'Your participation in the {0} campaign was approved.', ko: '{0} 캠페인 참가가 승인되었습니다.' },

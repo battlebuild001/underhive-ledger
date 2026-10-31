@@ -42,7 +42,7 @@
         if(image.getAttribute('src')!==source)image.setAttribute('src',source);
       }
       document.querySelectorAll('button[data-ext="remove-skill"]').forEach(button=>action(button,'trash','Delete skill','스킬 삭제','mm-reference-skill-delete'));
-      document.querySelectorAll('button[data-to-stash]').forEach(button=>action(button,'archive','Move to stash','보관고로 이동','mm-reference-stash'));
+      document.querySelectorAll('button[data-to-stash]').forEach(button=>action(button,'archive','Move to stash','보관함으로 이동','mm-reference-stash'));
       document.querySelectorAll('button[data-deep="sell-equipment"]').forEach(button=>action(button,'dollar','Sell equipment','장비 판매','mm-reference-sell'));
       document.querySelectorAll('.mm-combo-chevron').forEach(node=>putIcon(node,'chevrons'));
       document.querySelectorAll('[data-action="menu"]').forEach(node=>putIcon(node,'menu',20));

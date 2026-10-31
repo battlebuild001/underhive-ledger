@@ -365,7 +365,7 @@ globalThis.UK_RULE_TERMS={
     {
       "sourceId": "n26-core-collect-income",
       "aliases": [
-        "수입 수집",
+        "수입 정산",
         "Collect Income"
       ]
     },
@@ -374,7 +374,7 @@ globalThis.UK_RULE_TERMS={
       "aliases": [
         "Post-cycle",
         "Post cycle",
-        "포스트 사이클"
+        "사이클 종료 후"
       ]
     },
     {
