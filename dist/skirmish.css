@@ -30,3 +30,5 @@ html.uk-ui .sk-crew-form .sk-crew-eligibility>label{display:flex;align-items:cen
 html.uk-ui .sk-crew-form .sk-sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:400px){html.uk-ui .sk-crew-form .sk-crew-simple{padding:12px;gap:10px}html.uk-ui .sk-crew-form :is(.sk-loadout,.sk-crew-role){grid-template-columns:minmax(0,1fr);gap:6px}}
 html.uk-ui .sk-crew-form .sk-crew-count{position:sticky;top:0;z-index:2;align-self:start}
+
+.sk-sides{align-items:start}
