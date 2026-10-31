@@ -10,3 +10,6 @@
 
 /* Keep campaign award conditions readable without a wide mobile table. */
 html.uk-ui .cp-triumph-rules{width:100%;min-width:0;table-layout:fixed}html.uk-ui .cp-triumph-rules :is(th,td){white-space:normal;overflow-wrap:anywhere;vertical-align:top}html.uk-ui .cp-triumph-rules th:first-child{width:32%}html.uk-ui .cp-triumph-rules p{margin:.4rem 0 0}
+
+/* Explicit arrows stay visible on touch screens; the number is selected rather than typed. */
+@media screen{.cp-form .cp-cycle-stepper{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:8px;width:272px;max-width:100%}.cp-form .cp-cycle-stepper>.btn{width:44px;min-width:44px;min-height:44px;padding:0;font-size:28px;line-height:1}.cp-form .cp-cycle-stepper>input{width:100%;min-width:0;min-height:44px;padding:8px 4px;text-align:center;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;appearance:textfield;-moz-appearance:textfield}.cp-form .cp-cycle-stepper>input::-webkit-inner-spin-button,.cp-form .cp-cycle-stepper>input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.cp-form .cp-cycle-stepper>.btn:disabled{opacity:.35;cursor:default}.cp-form .cp-cycle-hint{font-size:12px;margin:10px 0 0}}
