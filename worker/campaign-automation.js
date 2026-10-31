@@ -140,6 +140,21 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   }
  }else{
   check(object(body.before)&&object(body.after)&&object(body.before.campaign)&&object(body.after.campaign)&&body.before.campaign.id===campaignId&&body.after.campaign.id===campaignId&&Array.isArray(body.before.gangs)&&Array.isArray(body.after.gangs),'캠페인 변경 전후 기록이 필요합니다.');
+  // Owner membership already saved in the authoritative personal document may be
+  // newer than the shared snapshot. Reconcile that baseline in this transaction;
+  // it is not a new battle change and must survive reversing the battle receipt.
+  if(shared&&actor===owner&&local&&Array.isArray(body.before.campaign.members)&&Array.isArray(body.after.campaign.members)&&String(local.edition).toUpperCase()===String(canonicalCampaign.edition).toUpperCase()){
+   for(const member of local.members||[]){
+    if(!object(member)||typeof member.id!=='string'||!member.id||typeof member.gangId!=='string'||!member.gangId)continue;
+    if(members.has(member.gangId)||(canonicalCampaign.members||[]).some(m=>m.id===member.id)||String(member.gangId||'').startsWith('enrolled-'))continue;
+    const beforeMember=body.before.campaign.members.find(m=>object(m)&&m.id===member.id&&m.gangId===member.gangId),afterMember=body.after.campaign.members.find(m=>object(m)&&m.id===member.id&&m.gangId===member.gangId);
+    if(!same(member,beforeMember)||!same(member,afterMember))continue;
+    const gang=actorDoc.state.gangs.find(g=>g.id===member.gangId&&!g.remoteReadOnly&&(!g.remoteOwnerId||g.remoteOwnerId===owner));
+    if(!gang||String(gang.edition).toUpperCase()!==String(canonicalCampaign.edition).toUpperCase())continue;
+    canonicalCampaign.members??=[];canonicalCampaign.members.push(hide(copy(member)));members.add(member.gangId);
+    const index=snapshot.gangs.findIndex(g=>g.id===gang.id);if(index<0)snapshot.gangs.push(shareable(gang));else snapshot.gangs[index]=shareable(gang);
+   }
+  }
   const beforeGangs=new Map(body.before.gangs.map(g=>[g.id,g])),afterGangs=new Map(body.after.gangs.map(g=>[g.id,g]));check(beforeGangs.size===body.before.gangs.length&&afterGangs.size===body.after.gangs.length&&beforeGangs.size===afterGangs.size&&[...beforeGangs.keys()].every(id=>afterGangs.has(id)),'이 작업에서는 갱의 ID를 바꾸거나 갱을 삭제할 수 없습니다.');
   for(const patch of diff(body.before.campaign,body.after.campaign)){
    if(patch.path[0]==='members'&&patch.path.length===2&&patch.before===undefined&&object(patch.after)){
@@ -155,7 +170,8 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  // All referenced gangs must still be campaign members. Ownership remains immutable.
  function refs(value,key=''){if(Array.isArray(value)){for(const x of value)refs(x,key);return;}if(object(value)){for(const [k,x]of Object.entries(value))refs(x,k);return;}if(typeof value==='string'&&value&&['gangId','gang_id','attacker','defender','winner','winners','challenger','opponent','claimedByGangId','stakeOwnerBefore','controlledBy','claimedBy','gangA','gangB','capturedBy','captured_by_gang_id'].includes(key))check(members.has(value),'캠페인 밖의 갱을 운영 기록에 연결할 수 없습니다.');}
  for(const change of changes)if(change.target==='campaign'&&change.afterExists)refs(change.after,typeof change.path.at(-1)==='string'?change.path.at(-1):'');
- if(campaignChanged&&shared&&owner===actor){const ownerCampaign=actorDoc.state.campaigns.find(c=>c.id===campaignId&&!c.remoteOwnerId);if(ownerCampaign){for(const change of changes.filter(c=>c.target==='campaign')){const current=locate(ownerCampaign,change.path,check);check(same(current.value,change.beforeExists?change.before:undefined),'내 캠페인과 공유된 캠페인의 내용이 다릅니다. 먼저 새로고침하세요.',409);write(ownerCampaign,change.path,change.after,change.afterExists,check);}actorDoc.changed=true;}}
+ if(campaignChanged&&shared&&owner===actor){const ownerCampaign=local;if(ownerCampaign){for(const change of changes.filter(c=>c.target==='campaign')){const current=locate(ownerCampaign,change.path,check);check(same(current.value,change.beforeExists?change.before:undefined),'내 캠페인과 공유된 캠페인의 내용이 다릅니다. 먼저 새로고침하세요.',409);write(ownerCampaign,change.path,change.after,change.afterExists,check);}actorDoc.changed=true;}}
+ if(shared&&actor===owner&&local&&(local.remoteRevision!==undefined||local.remoteCampaignId||local.remoteOwnerId)){local.remoteRevision=shared.revision+1;actorDoc.changed=true;}
  if(campaignChanged&&!shared)actorDoc.changed=true;
  for(const mapping of sourceMappings.values())if(changes.some(c=>c.target==='gang'&&c.gangId===mapping.gangId))mapping.doc.changed=true;
  // Refresh the target shared snapshot from each authoritative source, never client ownership fields.
