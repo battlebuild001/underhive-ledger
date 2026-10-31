@@ -9,6 +9,7 @@ let worker;try{({default:worker}=await import('data:text/javascript;base64,'+Buf
 const res=await worker.fetch(new Request('https://manager.test/'),{},{});
 assert.equal(res.status,200);assert.match(await res.text(),/rules-data.js/);
 for(const path of ['/interaction-core.js','/gang-parity.js','/fighter-parity.js','/campaign-parity.js','/assets-parity.js','/account-parity.js','/rules-data.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path)}
+for(const path of ['/chronicle.html','/chronicle.js','/chronicle.css','/home-chronicle.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path);if(path.endsWith('.html'))assert.match(await r.text(),/id="chronicle-title"/);}
 for(const file of ['learning-center.js','learning-center.css','learning-content.js','learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js']){const response=await worker.fetch(new Request('https://manager.test/'+file),{},{});assert.equal(response.status,404,file+' must no longer be published');}
 const portraitFiles=(await readdir(resolve(root,'dist/portraits/generated'))).filter(file=>file.endsWith('.webp'));
 assert.equal(portraitFiles.length,18,'All 18 generated faction portraits must be packaged.');
