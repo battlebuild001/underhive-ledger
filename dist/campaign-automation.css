@@ -64,3 +64,5 @@
 .ca-help>summary:focus-visible{outline:2px solid var(--accent,#c4ae7b);outline-offset:3px}
 @media(max-width:600px){.ca-console .ca-module .ca-challenges{padding:16px;gap:16px}.ca-challenge-steps li{flex-direction:column;align-items:flex-start;font-size:12px}.ca-current-task{padding:14px}.ca-current-task .actions>.btn{width:100%}.ca-console .ca-match-card{padding:14px}.ca-match-card .actions>.btn{flex:1}.ca-console>.section-heading h2{font-size:19px}}
 .ca-console .ca-module{scroll-margin-top:112px}
+
+.ca-quick-availability{font-size:13px;line-height:1.7;min-width:0}.ca-quick-availability>p{margin:0 0 6px;overflow-wrap:anywhere}.ca-quick-availability>.ca-warning{margin:10px 0 0}

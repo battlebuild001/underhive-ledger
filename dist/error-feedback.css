@@ -21,3 +21,5 @@ html.uk-ui .modal-bg:has(.ux-modal-error)>.modal{max-height:calc(var(--ux-visual
 
 html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error){top:var(--ux-visual-top,0px);bottom:auto;height:var(--ux-visual-height,100dvh)}
 html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error)>.cmd-sample,html.uk-ui.command-ui .cmd-legacy-controls[data-ref-open]:has(.ux-modal-error) .cmd-sample.cmd-sample .dialog{max-height:calc(var(--ux-visual-height,100dvh) - 24px)}
+
+.modal-save-error{flex:1 0 100%;margin:0 0 12px;color:var(--danger,#edaaa1);font-size:13px;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
