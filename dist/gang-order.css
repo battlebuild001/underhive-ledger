@@ -1,0 +1,22 @@
+.home-section-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+html.uk-ui:is(.light,:not(.light)) .home-section-actions > [data-gang-order-open] { min-height: 44px; white-space: nowrap; }
+.gang-order-dialog .modal { width: min(620px, calc(100vw - 24px)); }
+.gang-order-editor > p:first-child { margin-top: 0; color: var(--muted); }
+.gang-order-list { list-style: none; margin: 16px 0; padding: 0; display: grid; gap: 8px; }
+.gang-order-list > li { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); }
+.gang-order-identity { flex: 1; min-width: 0; display: grid; gap: 4px; overflow-wrap: anywhere; }
+.gang-order-identity small { color: var(--muted); }
+.gang-order-controls { display: flex; align-items: center; flex: none; gap: 4px; }
+html.uk-ui:is(.light,:not(.light)) .gang-order-controls > :is(button,select) { display: inline-grid; place-items: center; width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0; margin: 0; }
+html.uk-ui:is(.light,:not(.light)) .gang-order-controls > select { width: 58px; min-width: 58px; padding: 0 4px; font: inherit; font-variant-numeric: tabular-nums; }
+html.uk-ui:is(.light,:not(.light)) .gang-order-controls > button:disabled { opacity: .4; cursor: default; }
+.gang-order-controls > :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.gang-order-status { min-height: 1.5em; color: var(--muted); overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+ .home-section > .section-heading { flex-wrap: wrap; }
+ .home-section-actions { margin-left: auto; }
+ .gang-order-dialog .modal-body { padding: 12px; }
+ .gang-order-list > li { padding: 8px; gap: 8px; flex-wrap: wrap; }
+ .gang-order-identity { flex-basis: 100%; }
+ .gang-order-controls { margin-left: auto; }
+}
