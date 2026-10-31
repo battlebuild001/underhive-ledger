@@ -18,4 +18,10 @@ html.uk-ui .cp-campaign-page .cp-members-scroll .cp-member-row>td:first-child>.b
 html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-cell{min-width:180px}
 html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territory-link{white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
 html.uk-ui .cp-campaign-page .cp-members-scroll .cp-member-row>td:last-child{min-width:52px}
+/* Keep the count beside a wrapping row of territory chips. */
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territories{display:grid;grid-template-columns:26px minmax(0,1fr);align-items:start;gap:6px;width:max-content;min-width:180px;max-width:260px}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-count{display:flex;align-items:center;justify-content:center;width:26px;min-height:28px;margin:0;border:1px solid var(--line);border-radius:4px;color:var(--muted);font-size:12px;line-height:1.4}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territories ul{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px;min-width:0}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territories li{display:flex;min-width:0;max-width:100%;margin:0}
+html.uk-ui .cp-campaign-page .cp-members-scroll .cp-owned-territory-link{display:inline-flex;gap:4px;min-height:28px;padding:3px 7px;line-height:1.5!important}
 }
