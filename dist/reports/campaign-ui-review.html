@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>캠페인 UI 수정 보고서와 자동화 개선 목록</title>
+<style>:root{color-scheme:dark;--bg:#101512;--panel:#1c241f;--line:#39443b;--text:#eeeae1;--muted:#b7bcb1;--accent:#c8aa73}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.85 system-ui,-apple-system,sans-serif}main{max-width:1040px;margin:auto;padding:36px 20px 80px}a{color:var(--accent)}h1{font-size:29px;line-height:1.4;margin:12px 0}h2{font-size:20px}h3{font-size:16px}p{margin:10px 0}.muted,small{color:var(--muted)}.intro{border-bottom:1px solid var(--line);padding-bottom:24px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.card,details{border:1px solid var(--line);border-radius:7px;background:var(--panel)}.card{padding:16px}.card strong{display:block;font-size:22px;color:var(--accent)}details{margin:14px 0}summary{padding:16px;cursor:pointer;font-size:17px;font-weight:700}.body{padding:0 18px 20px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:660px;font-size:13px}th,td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{color:var(--accent)}ul,ol{padding-left:24px}li{margin:7px 0}.tag{display:inline-block;padding:1px 7px;border:1px solid var(--line);border-radius:4px;white-space:nowrap;font-size:12px}.done{color:#b1d8ac}.pending{color:#e2c695}.note{padding:12px 16px;border-left:3px solid var(--accent);background:#293026;margin:18px 0}.flow{display:flex;gap:8px;flex-wrap:wrap;font-weight:650}.flow span{padding:6px 10px;border:1px solid var(--line);border-radius:4px}footer{margin-top:28px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:13px}@media(max-width:600px){main{padding:24px 14px 60px}h1{font-size:24px}.cards{grid-template-columns:1fr}.card strong{font-size:19px}}@media print{body{color:#111;background:white}main{max-width:none;padding:0}details>.body{display:block!important}details{break-inside:avoid;background:white}summary{list-style:none}a{color:#222}.card,.note{background:white}.table-scroll{overflow:visible}table{min-width:0}th,td{border-color:#aaa}.muted,small,footer{color:#555}}</style></head>
+<body><main>
+<header class="intro"><a href="/">← 언더하이브 코리아로</a><p class="muted">수정 보고서 · 2026년 10월 31일 · N26 근거 확인 / 앱 운영 기능</p><h1>캠페인 UI 정리와<br>원클릭 운영을 위한 자동화 목록</h1><p>이번에 반영한 내용과 앞으로 자동화할 기능을 분리했습니다. 아래의 <b>제안</b> 항목은 아직 구현 완료된 기능이 아닙니다.</p></header>
+<div class="cards"><div class="card"><strong>이름 하나로 조회</strong>영토의 중복 설명 열과 정보 버튼을 정리했습니다.</div><div class="card"><strong>가이드 3개 → 1개</strong>같은 전투 진행 가이드를 여는 진입점을 하나로 줄였습니다.</div><div class="card"><strong>일반 / 커스텀</strong>진행 방식을 저장하고 다음 사이클·되돌리기를 제공합니다.</div></div>
+
+<details open><summary>1. 어떤 부분을 어떻게 수정했나</summary><div class="body"><div class="table-scroll"><table><thead><tr><th>위치</th><th>기존 문제</th><th>수정 결과</th></tr></thead><tbody>
+<tr><td>캠페인 개요의 영토 표</td><td>영토 이름 옆 안내와 별도의 ‘설명’ 열이 같은 내용을 여는 중복 진입점이었습니다.</td><td>‘설명’ 열을 삭제했습니다. 참고·영토·통제 갱의 3개 열을 유지하고, <b>영토 이름을 눌러</b> 상세 내용을 봅니다.</td></tr>
+<tr><td>영토 관리 탭</td><td>이름 옆 자동 정보 아이콘과 다른 설명 진입점이 겹칠 수 있었습니다.</td><td>이름 자체를 상세 버튼으로 통일했습니다. 별도의 같은 내용 아이콘을 다시 붙이지 않습니다. 소유자 변경·수정·삭제 버튼은 각자 기능을 유지합니다.</td></tr>
+<tr><td>같은 이름의 영토·사용자 설명</td><td>이름으로 원문을 추정하면 서로 다른 신스 스틸이나 직접 수정한 설명을 구분하기 어려웠습니다.</td><td>각 영토의 <b>고유 기록 ID</b>로 엽니다. 등록 수입 0, 빈 설명, 사용자 작성 설명, 미점령 상태를 구분합니다. 원문은 상세창 안의 별도 링크로 확인합니다.</td></tr>
+<tr><td>캠페인 설명 버튼</td><td>같은 플레이어 안내가 2개, 영토 안내가 2개, 갱 안내가 3개씩 반복되는 경우가 확인됐습니다.</td><td>캠페인 화면마다 같은 안내 항목은 <b>진입점 1개</b>로 정리했습니다. 중복 버튼이 붙어 있던 표 제목은 글자를 남겨 표 구조가 깨지지 않게 했습니다.</td></tr>
+<tr><td>전투 진행 가이드</td><td>세션 ‘새로 만들기’, 전투 ‘추가’, 하단 안내에서 동일한 가이드를 세 번 열었습니다.</td><td>하단의 가이드 1개로 통합했습니다. 기본 가이드와 운영 가이드는 내용과 대상이 달라 각각 유지합니다.</td></tr>
+<tr><td>자동 설명 생성</td><td>화면을 다시 그리거나 언어를 바꿀 때 범용 설명이 전용 설명 옆에 다시 붙을 여지가 있었습니다.</td><td>전용 영토 설명·영토 편집 도움말·갱 수치 도움말·명시적인 원문 링크가 있으면 범용 설명을 덧붙이지 않도록 공통 조건을 보강했습니다.</td></tr>
+<tr><td>도전 라운드 사이클</td><td>선택형 빈 입력란이었고 모바일에서 숫자 화살표가 보이지 않았습니다.</td><td><b>〈 숫자 〉</b>로 선택합니다. 직접 타이핑하지 않으며 최소 1, 정수만 저장합니다. 설정된 일정이 있으면 그 전체 사이클 범위 안에서 선택합니다.</td></tr>
+<tr><td>캠페인 생성</td><td>일반적인 3·1·3 구성은 설명에만 있고 시스템 설정이 없었습니다.</td><td><b>일반 구성 고정</b>과 <b>커스텀 사이클 구성</b>을 선택합니다. 커스텀은 단계별 0~999 사이클을 설정하며, 0인 단계는 건너뜁니다.</td></tr>
+<tr><td>캠페인 진행</td><td>현재 단계와 다음 사이클을 수동으로 맞춰야 했습니다.</td><td>개요에 현재 단계·단계 내 사이클·전체 사이클을 표시하고 <b>다음 사이클</b>, <b>일정 완료</b>, <b>마지막 진행 취소</b>를 제공합니다.</td></tr>
+<tr><td>기존 캠페인·진행 중 전투</td><td>새 설정을 일괄 적용하면 기존 기록과 운영 합의가 달라질 수 있습니다.</td><td>기존 캠페인은 수동 기록을 유지합니다. ‘진행 방식 설정’으로 적용하며, 현재 사이클을 덮어쓰거나 전투 기록을 이관하지 않습니다. 미완료 기록이 있으면 보류 결정을 확인한 뒤 넘깁니다.</td></tr>
+</tbody></table></div></div></details>
+
+<details><summary>2. 지금 추가된 진행 기능 사용법</summary><div class="body"><h3>새 캠페인</h3><div class="flow"><span>캠페인 생성</span><span>일반 / 커스텀 선택</span><span>사이클 구성 확인</span><span>생성</span></div><p>일반 구성은 확인된 N26 네크로문다 캠페인의 <b>오큐페이션 3 → 다운타임 1 → 테이크오버 3</b>을 사용합니다. 커스텀에서는 이 단계들의 사이클 수를 바꿉니다. 실제 시작일·마감일은 운영자가 정합니다.</p><h3>기존 캠페인</h3><p>개요의 ‘진행 방식 설정’에서 적용합니다. 기존에 숫자로 기록한 현재 사이클은 유지하므로, 그 번호를 포함할 수 있는 전체 길이로 설정하세요.</p><h3>진행과 취소</h3><p>‘다음 사이클’을 누르면 새 단계까지 함께 계산합니다. 예를 들어 일반 구성의 전체 4사이클은 다운타임 1/1이고, 전체 5사이클은 테이크오버 1/3입니다. 미완료 도전·세션은 처리하거나 보류를 확인한 뒤 넘깁니다.</p><p>‘마지막 진행 취소’는 마지막 사이클 이동 또는 일정 완료 표시를 되돌립니다. 별도로 기록한 전투 결과·구매·수입을 취소하는 기능은 아닙니다.</p><p class="note">‘일정 완료’는 트라이엄프 확인으로 이어집니다. 이 버튼만으로 캠페인을 강제 폐쇄하거나, 크레딧·XP·치료·다운타임 혜택을 지급하지 않습니다. N23에는 N26의 3·1·3 구성을 공식 규칙처럼 적용하지 않습니다.</p></div></details>
+
+<details><summary>3. “딸깍” 운영을 위해 추가할 자동화 기능 20개</summary><div class="body"><p><span class="tag done">반영</span> 또는 <span class="tag">기존 제공</span>과 <span class="tag pending">제안</span>을 구분했습니다. 미구현 제안의 우선순위는 P1이 가장 높습니다.</p><div class="table-scroll"><table><thead><tr><th>우선순위·상태</th><th>기능</th><th>버튼을 눌렀을 때 자동 처리할 내용</th></tr></thead><tbody>
+<tr><td class="done">이번 반영</td><td>1. 진행 방식·단계 전환</td><td>일반/커스텀 구성을 저장하고 현재 단계와 다음 사이클을 계산합니다. 마지막 진행 취소를 제공합니다.</td></tr>
+<tr><td>P1 · 제안</td><td>2. 사이클 시작 마법사</td><td>미완료 항목 확인 → 도전 준비 → 순서 확정 → 공지까지 한 흐름으로 처리합니다. 날짜 마감은 운영 합의에 맞춥니다.</td></tr>
+<tr><td>P1 · 제안</td><td>3. 도전 순서 자동 생성</td><td>첫 사이클은 무작위, 이후는 갱 레이팅이 낮은 순으로 정렬하고 동률만 롤오프합니다. 결과와 근거를 이력에 남깁니다.</td></tr>
+<tr><td>P1 · 제안</td><td>4. 플레이어별 도전 횟수 관리</td><td>사이클별 발행·수락·거절 횟수를 추적합니다. 여러 갱을 가진 계정의 처리 기준을 정하고 중복 발행과 추가 도전 조건을 구분합니다.</td></tr>
+<tr><td>P1 · 제안</td><td>5. 합법적인 상대·영토 내기 선택</td><td>같은 캠페인의 상대만 보여주고 오큐페이션/테이크오버의 영토 선택 조건을 반영합니다. 기본 거점·잃을 수 없는 영토와 예외를 구분합니다.</td></tr>
+<tr><td>P1 · 제안</td><td>6. 도전 수락·거절 처리</td><td>수락하면 세션 준비로 연결합니다. 거절하면 기존 발행·수신 횟수를 확인해 영토 양도 또는 예외 적용을 제안하고 확정 결과를 기록합니다.</td></tr>
+<tr><td>P1 · 제안</td><td>7. 도전에서 전투 세션 생성</td><td>참가 갱·공격/방어 역할·내기 영토·사이클을 복사해 세션을 만듭니다. 중복 세션 생성은 차단합니다.</td></tr>
+<tr><td>P2 · 부분 제공 / 제안</td><td>8. 미션·배치·크루 연속 준비</td><td>현재의 표 굴림·배치 설명을 한 단계 흐름으로 묶고, 선택한 3×3/4×4피트 전장과 참가 가능 모델·장비 세트를 유지합니다.</td></tr>
+<tr><td>P1 · 제안</td><td>9. 전투 종료 정산 미리보기</td><td>승패·영토·XP·명성·부상 결과를 한 장에서 확인하고 적용합니다. 확인된 룰과 입력한 결과를 사용하며, 미확인 보상은 임의로 지급하지 않습니다.</td></tr>
+<tr><td>P1 · 제안</td><td>10. 영토 소유권 결과 연동</td><td>선택한 내기 영토와 승패를 연결해 소유권 변경을 제안합니다. 기존 수동 결과 기록을 보강하고 같은 결과의 중복 반영을 막습니다.</td></tr>
+<tr><td>P1 · 제안</td><td>11. 사이클 수입 일괄 수집</td><td>갱별 보유 영토의 수입을 집계하고 대체 혜택·주사위·선택지가 필요한 항목만 묻습니다. 사이클별 정산 영수증으로 중복 지급을 막습니다.</td></tr>
+<tr><td>P1 · 부분 제공 / 제안</td><td>12. 포스트 사이클 행동표</td><td>모델별 행동 1회를 추적하고 회복·치명적 부상 등을 확인합니다. 현재 거래소 방문 기록을 다른 포스트 사이클 행동과도 연동합니다.</td></tr>
+<tr><td class="done">기존 제공 / 확장 제안</td><td>13. 캠페인 거래소와 로스터</td><td>현재는 구매 확정 시 크레딧·TP와 원본 보관함/파이터 장비에 반영합니다. 다음 확장은 장바구니·일괄 구매·액세서리 제한 확인입니다.</td></tr>
+<tr><td>P1 · 제안</td><td>14. 다운타임 처리표</td><td>적용 가능한 원문과 갱별 예외를 확인한 치료·모집·정리 항목만 처리합니다. 단계 이름이 다운타임이라는 이유로 공통 무료 혜택을 만들지 않습니다.</td></tr>
+<tr><td>P2 · 부분 제공 / 제안</td><td>15. 갱 택틱 수량·선택 연동</td><td>현재 택틱 목록과 선택 UI를 모집·승격·디벨롭 택틱스·전투 전 사용 수량에 연결합니다. 생성의 무작위 굴림과 보유 카드 선택을 구분합니다.</td></tr>
+<tr><td>P1 · 부분 제공 / 제안</td><td>16. 시작 영토 꾸러미</td><td>갱 참가 시 기본 거점과 무작위 시작 영토를 한 번에 제안합니다. 현재 제공하는 D66 추출을 연결하고 중복 기본 거점 지급을 방지합니다.</td></tr>
+<tr><td class="done">기존 제공 / 확장 제안</td><td>17. 생포된 상대 선택·해제</td><td>상대 로스터에서 고르고 생포한 갱에 연결하는 기능은 제공됩니다. 추후 구출·몸값 정산과 상대 소유자 확인을 연결할 수 있습니다.</td></tr>
+<tr><td class="done">기존 제공 / 확장 제안</td><td>18. 지도 생성·영토 연결</td><td>랜덤 영역과 영토 자동 연결은 제공됩니다. 추후 소유권 변화 표시를 강화하되 지도 선을 임의의 공격 경로 규칙으로 해석하지 않습니다.</td></tr>
+<tr><td>P2 · 제안</td><td>19. 일정·마감·앱 내 알림</td><td>운영자가 정한 도전/전투/보고 마감과 다음 할 일을 보여줍니다. 기간 종료 알림과 실제 사이클 진행은 선택 가능한 별도 동작으로 둡니다.</td></tr>
+<tr><td>P1 · 제안</td><td>20. 정산 이력·권한·안전한 재적용</td><td>누가 어떤 사이클 결과를 적용했는지 기록하고 같은 정산의 재실행을 막습니다. 각 계정의 원본 소유권과 공유 권한을 지키며 취소는 역분개로 남깁니다.</td></tr>
+</tbody></table></div><p class="note"><b>권장 구현 순서:</b> 도전 순서·횟수 → 합법적인 상대/영토 내기 → 도전에서 세션 생성 → 전투 결과·수입 정산 → 포스트 사이클 행동표. 이 흐름이 연결되면 같은 값을 여러 화면에서 다시 입력하는 작업이 가장 크게 줄어듭니다.</p></div></details>
+
+<details><summary>4. 점검 범위와 검증 결과</summary><div class="body"><ul><li>캠페인 개요·영토·전투·팩·지도·트라이엄프 6개 탭에서 같은 안내 키의 중복 진입점을 점검했습니다.</li><li>모바일 375px와 데스크톱 1280px에서 기존/수정 화면을 비교했습니다. 전투 진행 가이드는 3개에서 1개로 줄었고, 영토의 별도 설명 버튼은 없어졌습니다.</li><li>영토의 사용자 설명·빈 설명·수입 0·같은 이름의 다른 기록·미점령 상태·키보드 포커스와 한/영 전환을 확인했습니다.</li><li>일반/커스텀 생성, 0사이클 단계 생략, 오큐페이션→다운타임→테이크오버, 완료·되돌리기, 미완료 전투 보류, 기존 캠페인 보존, 열람자 차단, 계정 저장 후 복원을 확인했습니다.</li><li>기존 캠페인·장비·갱 수치·생포·거래소·용어 안내의 관련 회귀 테스트와 배포 빌드 검증을 수행했습니다.</li></ul><p>구성 근거는 앱에 원문 검증이 등록된 N26 네크로문다 캠페인 항목과 캠페인 도전 규칙입니다. 새로 추가한 진행표·버튼·입력 범위는 앱 운영 기능이며, 원문에 없는 효과를 공식 규칙처럼 추가하지 않았습니다.</p></div></details>
+<footer>이 문서는 기능 수정 내역과 구현 후보 목록입니다. 실제 갱·계정·영토 기록을 포함하지 않으며 이 페이지를 열어도 게임 데이터는 바뀌지 않습니다.</footer>
+</main></body></html>
