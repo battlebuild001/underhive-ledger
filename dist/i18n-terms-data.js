@@ -17,7 +17,7 @@ globalThis.UK_I18N_TERMS = {
     "Bonecrusher": "본크러셔",
     "Brawn": "브론",
     "CLOSE COMBAT WEAPONS": "근접 무기",
-    "Cawdor Polearms": "코드로 폴암",
+    "Cawdor Polearms": "커도르 폴암",
     "Cawdor heavy crossbow with frag & krak shells*": "카우도르 헤비 크로스보 위드 프래그 & 크랙 셸*",
     "Cawdor polearm/blunderbuss with grape & purgation rounds*": "카우도르 폴암/블런더버스 위드 그레이프 & 퍼게이션 라운드*",
     "Chain Weapons": "체인 무기",
@@ -161,7 +161,47 @@ globalThis.UK_I18N_TERMS = {
     "Train": "훈련",
     "Develop Tactics": "택틱 개발",
     "Visit Trading Post": "거래소 방문",
-    "Visit the Trading Post": "거래소 방문"
+    "Visit the Trading Post": "거래소 방문",
+    "House Cawdor": "하우스 커도르",
+    "Cawdor": "커도르",
+    "House Delaque": "하우스 델라크",
+    "Delaque": "델라크",
+    "House Escher": "하우스 에셔",
+    "Escher": "에셔",
+    "House Goliath": "하우스 골리앗",
+    "Goliath": "골리앗",
+    "House Orlock": "하우스 올록",
+    "Orlock": "올록",
+    "House Van Saar": "하우스 반 사르",
+    "Van Saar": "반 사르",
+    "Palanite Enforcers": "팔라나이트 인포서",
+    "Venator Gangs": "베나터 갱",
+    "Corpse Grinder Cults": "콥스 그라인더 컬트",
+    "Outcasts": "아웃캐스트",
+    "Free Ogryns": "프리 오그린",
+    "Genestealer Cults": "진스틸러 컬트",
+    "Chaos Helots": "카오스 헬롯",
+    "The Malstrain": "말스트레인",
+    "Malstrain": "말스트레인",
+    "Spyre Hunters": "스파이어 헌터",
+    "Ironhead Squats": "아이언헤드 스쿼트",
+    "Ash Waste Nomads": "애쉬 웨이스트 노매드",
+    "Cawdor Word-Keeper": "커도르 워드 키퍼",
+    "Cawdor Firebrand": "커도르 파이어브랜드",
+    "Cawdor Brethren": "커도르 브레드런",
+    "Cawdor Way-Brethren": "커도르 웨이 브레드런",
+    "Cawdor Bonepicker": "커도르 본피커",
+    "Cawdor Stig-Shambler": "커도르 스티그 샘블러",
+    "Orlock Road Captain": "올록 로드 캡틴",
+    "Orlock Road Sergeant": "올록 로드 서전트",
+    "Orlock Arms Master": "올록 암즈 마스터",
+    "Orlock Gunner": "올록 거너",
+    "Orlock Wrecker": "올록 레커",
+    "Orlock Greenhorn": "올록 그린혼",
+    "Corpse Grinder Cult Butcher": "콥스 그라인더 컬트 부처",
+    "Corpse Grinder Cult Cutter": "콥스 그라인더 컬트 커터",
+    "Corpse Grinder Cult Skinner": "콥스 그라인더 컬트 스키너",
+    "Corpse Grinder Cult Initiate": "콥스 그라인더 컬트 이니시에이트"
   },
   "enToKo": {
     "Account access": "계정 접속",
@@ -577,6 +617,198 @@ globalThis.UK_I18N_TERMS = {
     "Develop Tactics": {
       "sourceKo": "디벨롭 택틱스",
       "displayKo": "택틱 개발"
+    },
+    "House Cawdor": {
+      "sourceKo": "하우스 코드로",
+      "displayKo": "하우스 커도르"
+    },
+    "House Orlock": {
+      "sourceKo": "하우스 오를록",
+      "displayKo": "하우스 올록"
+    },
+    "Corpse Grinder Cults": {
+      "sourceKo": "코프스 그라인더 컬트",
+      "displayKo": "콥스 그라인더 컬트"
+    },
+    "The Malstrain": {
+      "sourceKo": "더 말스트레인",
+      "displayKo": "말스트레인"
+    },
+    "Cawdor Word-Keeper": {
+      "sourceKo": "코드로 워드 키퍼",
+      "displayKo": "커도르 워드 키퍼"
+    },
+    "Cawdor Firebrand": {
+      "sourceKo": "코드로 파이어브랜드",
+      "displayKo": "커도르 파이어브랜드"
+    },
+    "Cawdor Brethren": {
+      "sourceKo": "코드로 브레드런",
+      "displayKo": "커도르 브레드런"
+    },
+    "Cawdor Way-Brethren": {
+      "sourceKo": "코드로 웨이 브레드런",
+      "displayKo": "커도르 웨이 브레드런"
+    },
+    "Cawdor Bonepicker": {
+      "sourceKo": "코드로 본피커",
+      "displayKo": "커도르 본피커"
+    },
+    "Cawdor Stig-Shambler": {
+      "sourceKo": "코드로 스티그 샘블러",
+      "displayKo": "커도르 스티그 샘블러"
+    },
+    "Orlock Road Captain": {
+      "sourceKo": "오를록 로드 캡틴",
+      "displayKo": "올록 로드 캡틴"
+    },
+    "Orlock Road Sergeant": {
+      "sourceKo": "오를록 로드 서전트",
+      "displayKo": "올록 로드 서전트"
+    },
+    "Orlock Arms Master": {
+      "sourceKo": "오를록 암즈 마스터",
+      "displayKo": "올록 암즈 마스터"
+    },
+    "Orlock Gunner": {
+      "sourceKo": "오를록 거너",
+      "displayKo": "올록 거너"
+    },
+    "Orlock Wrecker": {
+      "sourceKo": "오를록 레커",
+      "displayKo": "올록 레커"
+    },
+    "Orlock Greenhorn": {
+      "sourceKo": "오를록 그린혼",
+      "displayKo": "올록 그린혼"
+    },
+    "Corpse Grinder Cult Butcher": {
+      "sourceKo": "코프스 그라인더 컬트 부처",
+      "displayKo": "콥스 그라인더 컬트 부처"
+    },
+    "Corpse Grinder Cult Cutter": {
+      "sourceKo": "코프스 그라인더 컬트 커터",
+      "displayKo": "콥스 그라인더 컬트 커터"
+    },
+    "Corpse Grinder Cult Skinner": {
+      "sourceKo": "코프스 그라인더 컬트 스키너",
+      "displayKo": "콥스 그라인더 컬트 스키너"
+    },
+    "Corpse Grinder Cult Initiate": {
+      "sourceKo": "코프스 그라인더 컬트 이니시에이트",
+      "displayKo": "콥스 그라인더 컬트 이니시에이트"
+    },
+    "Cawdor": {
+      "sourceKo": "코드로",
+      "displayKo": "커도르"
+    },
+    "Orlock": {
+      "sourceKo": "오를록",
+      "displayKo": "올록"
     }
+  },
+  "factionSearchAliases": {
+    "House Cawdor": [
+      "하우스 커도르",
+      "커도르",
+      "하우스 코드로",
+      "코드로",
+      "코도르",
+      "코도어",
+      "카도르",
+      "카도어",
+      "카우도르"
+    ],
+    "House Delaque": [
+      "하우스 델라크",
+      "델라크",
+      "델라쿠"
+    ],
+    "House Escher": [
+      "하우스 에셔",
+      "에셔"
+    ],
+    "House Goliath": [
+      "하우스 골리앗",
+      "골리앗"
+    ],
+    "House Orlock": [
+      "하우스 올록",
+      "올록",
+      "하우스 오를록",
+      "오를록",
+      "올로크"
+    ],
+    "House Van Saar": [
+      "하우스 반 사르",
+      "반 사르",
+      "반사르",
+      "반 사아르"
+    ],
+    "Palanite Enforcers": [
+      "팔라나이트 인포서",
+      "팔라나이트 엔포서",
+      "팔라나이트 집행자",
+      "엔포서"
+    ],
+    "Venator Gangs": [
+      "베나터 갱",
+      "베나터",
+      "베나토르 갱",
+      "베나토르",
+      "베나터 현상금 사냥꾼 갱단"
+    ],
+    "Corpse Grinder Cults": [
+      "콥스 그라인더 컬트",
+      "코프스 그라인더 컬트",
+      "시체 분쇄자 교단",
+      "콥스 그라인더"
+    ],
+    "Outcasts": [
+      "아웃캐스트",
+      "추방자 갱",
+      "언더하이브 추방자",
+      "아웃캐스트 갱"
+    ],
+    "Free Ogryns": [
+      "프리 오그린",
+      "노예 오그린",
+      "노예 오그린 갱단"
+    ],
+    "Genestealer Cults": [
+      "진스틸러 컬트"
+    ],
+    "Chaos Helots": [
+      "카오스 헬롯",
+      "카오스 헬롯 컬트",
+      "헬롯 카오스 컬트"
+    ],
+    "The Malstrain": [
+      "말스트레인",
+      "더 말스트레인",
+      "말스트레인 컬트"
+    ],
+    "Spyre Hunters": [
+      "스파이어 헌터",
+      "스파이어러 사냥단",
+      "스파이어 사냥단"
+    ],
+    "Ironhead Squats": [
+      "아이언헤드 스쿼트",
+      "아이언헤드 스쿼트 프로스펙터",
+      "아이언헤드 스쿼트 탐광대"
+    ],
+    "Ash Waste Nomads": [
+      "애쉬 웨이스트 노매드",
+      "애쉬 웨이스트 노마드",
+      "잿더미 황무지 유목민",
+      "낙진 황무지 노마드"
+    ]
+  },
+  "factionTextAliases": {
+    "코프스 그라인더": "콥스 그라인더",
+    "코드로": "커도르",
+    "오를록": "올록",
+    "더 말스트레인": "말스트레인"
   }
 };

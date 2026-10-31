@@ -3,9 +3,11 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "engines": {"node": ">=22.13.0"},
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
-    "build": "node scripts/build-lore-research.mjs && node scripts/build-worker.mjs",
+    "build": "node scripts/build-faction-names.mjs && node scripts/build-lore-research.mjs && node scripts/build-worker.mjs",
     "validate": "node scripts/validate-worker.mjs",
     "test": "node scripts/test.mjs",
     "db:generate": "drizzle-kit generate"

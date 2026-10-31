@@ -1001,7 +1001,7 @@ window.MM_WEAPON_IMAGES={
       "originalSha256": "936b10ac7bf827f45a464bc60bb05c7c02213bd372283924032bc4f5a8767af6",
       "encoding": "webp-quality-88-original-dimensions",
       "noteEn": "The weapon is shown on a Cawdor Ridge Walker model. This is a model photo, not a standalone weapon close-up.",
-      "noteKo": "프래그 랜스를 든 카우도르 리지워커 모델 사진입니다. 무기만 따로 촬영한 사진은 아닙니다."
+      "noteKo": "프래그 랜스를 든 커도르 리지워커 모델 사진입니다. 무기만 따로 촬영한 사진은 아닙니다."
     }
   },
   "equipment": {
@@ -1227,7 +1227,7 @@ window.MM_WEAPON_IMAGES={
     },
     "official-001-equipment-cawdor-heavy-crossbow-with-frag-krak-shells": {
       "name": "Cawdor heavy crossbow with frag & krak shells*",
-      "nameKo": "카우도르 헤비 크로스보 위드 프래그 & 크랙 셸*",
+      "nameKo": "커도르 헤비 크로스보 위드 프래그 & 크랙 셸*",
       "asset": "cawdor-heavy-crossbow-with-frag-krak-shells"
     },
     "official-001-equipment-krumper-rivet-cannon": {
@@ -1327,7 +1327,7 @@ window.MM_WEAPON_IMAGES={
     },
     "official-001-equipment-cawdor-polearm-autogun": {
       "name": "Cawdor polearm/autogun*",
-      "nameKo": "카우도르 폴암/오토건*",
+      "nameKo": "커도르 폴암/오토건*",
       "asset": "cawdor-polearm-autogun"
     },
     "official-003-equipment-two-handed-hammer": {

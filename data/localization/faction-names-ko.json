@@ -1,0 +1,478 @@
+{
+  "checkedOn": "2026-10-31",
+  "policy": "국내 판매처·플레이어·팬 위키의 익숙한 음차를 우선하고 공식 한국어의 다른 표기는 검색 별칭으로 병기합니다. 모든 이름이 단일한 공식 한국어 표준이라는 뜻은 아닙니다. 원문·원본 규칙·저장된 사용자 이름은 수정하지 않습니다.",
+  "sources": {
+    "shop": {
+      "title": "펀포지 네크로문다 상품 목록",
+      "url": "https://www.funforge.co.kr/category/%EC%8A%A4%ED%8E%98%EC%85%9C-%EA%B2%8C%EC%9E%84/208/?page=11",
+      "kind": "국내 판매처",
+      "access": "search-index",
+      "note": "검색 색인에서 커도르 갱·올록 갱·델라크 갱·콥스 그라인더 컬트 상품명을 확인. 상품별 표기도 일부 혼용됩니다."
+    },
+    "wiki": {
+      "title": "국내 팬 위키: 네크로문다 진영",
+      "url": "https://www.namu.moe/w/네크로문다/진영",
+      "kind": "팬 위키",
+      "access": "read",
+      "note": "국내에서 쓰는 팩션 이름과 다른 음차를 대조했습니다. 공식 번역으로 간주하지 않습니다."
+    },
+    "official": {
+      "title": "워해머 커뮤니티 한국어: 네크로문다 새 에디션 소개",
+      "url": "https://www.warhammer-community.com/ko-kr/articles/ek1kn9kh/sunday-preview-the-new-edition-of-necromunda-emerges-from-the-underhive/",
+      "kind": "공식 한국어 기사",
+      "access": "read",
+      "note": "코도어·올로크·반 사아르 등 국내 기존 음차와 다른 표기도 확인했습니다. 다른 표기는 검색 별칭으로 제공합니다."
+    },
+    "summer": {
+      "title": "워해머 커뮤니티 한국어: 언더하이브로 돌아오다",
+      "url": "https://www.warhammer-community.com/ko-kr/articles/9er1rhow/the-big-summer-preview-back-to-the-underhive/",
+      "kind": "공식 한국어 기사",
+      "access": "search-index",
+      "note": "올록 가문·델라크 가문 표기를 확인했습니다."
+    },
+    "community": {
+      "title": "국내 커뮤니티: 매미로문다 시즌 1 종료 후기",
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=miniaturegame&no=17088",
+      "kind": "플레이어 후기",
+      "access": "search-index",
+      "note": "실제 캠페인 후기에서 올록·에셔 표기를 확인했습니다."
+    }
+  },
+  "factions": [
+    {
+      "id": "official-001-gang-house-cawdor",
+      "english": "House Cawdor",
+      "sourceKo": "하우스 코드로",
+      "nameKo": "하우스 커도르",
+      "shortKo": "커도르",
+      "aliases": [
+        "코드로",
+        "코도르",
+        "코도어",
+        "카도르",
+        "카도어",
+        "카우도르"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "official"
+      ],
+      "note": "국내 판매처의 커도르 표기를 채택. 코드로를 수정하고 공식 기사의 코도어 및 다른 음차도 검색에 연결."
+    },
+    {
+      "id": "official-001-gang-house-delaque",
+      "english": "House Delaque",
+      "sourceKo": "하우스 델라크",
+      "nameKo": "하우스 델라크",
+      "shortKo": "델라크",
+      "aliases": [
+        "델라쿠"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "official"
+      ],
+      "note": "국내 판매처·팬 위키·공식 한국어에서 확인되는 델라크를 유지."
+    },
+    {
+      "id": "official-001-gang-house-escher",
+      "english": "House Escher",
+      "sourceKo": "하우스 에셔",
+      "nameKo": "하우스 에셔",
+      "shortKo": "에셔",
+      "aliases": [],
+      "sourceIds": [
+        "wiki",
+        "official",
+        "community"
+      ],
+      "note": "국내 팬 위키·공식 한국어의 에셔를 유지."
+    },
+    {
+      "id": "official-001-gang-house-goliath",
+      "english": "House Goliath",
+      "sourceKo": "하우스 골리앗",
+      "nameKo": "하우스 골리앗",
+      "shortKo": "골리앗",
+      "aliases": [],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "국내 팬 위키·공식 한국어의 골리앗을 유지."
+    },
+    {
+      "id": "official-001-gang-house-orlock",
+      "english": "House Orlock",
+      "sourceKo": "하우스 오를록",
+      "nameKo": "하우스 올록",
+      "shortKo": "올록",
+      "aliases": [
+        "오를록",
+        "올로크"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "community",
+        "summer",
+        "official"
+      ],
+      "note": "판매처·실제 캠페인 후기와 공식 소개에 쓰인 올록으로 통일. 올로크도 검색 가능."
+    },
+    {
+      "id": "official-001-gang-house-van-saar",
+      "english": "House Van Saar",
+      "sourceKo": "하우스 반 사르",
+      "nameKo": "하우스 반 사르",
+      "shortKo": "반 사르",
+      "aliases": [
+        "반사르",
+        "반 사아르"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "국내 기존 반 사르 표기를 유지. 공식 기사의 반 사아르는 검색 별칭."
+    },
+    {
+      "id": "official-001-gang-palanite-enforcers",
+      "english": "Palanite Enforcers",
+      "sourceKo": "팔라나이트 인포서",
+      "nameKo": "팔라나이트 인포서",
+      "shortKo": "팔라나이트 인포서",
+      "aliases": [
+        "팔라나이트 엔포서",
+        "팔라나이트 집행자",
+        "엔포서"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "팬 위키에서 확인되는 인포서를 유지. 공식 번역 집행자도 검색에 연결."
+    },
+    {
+      "id": "official-001-gang-venator-gangs",
+      "english": "Venator Gangs",
+      "sourceKo": "베나터 갱",
+      "nameKo": "베나터 갱",
+      "shortKo": "베나터",
+      "aliases": [
+        "베나토르 갱",
+        "베나토르",
+        "베나터 현상금 사냥꾼 갱단"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "국내 팬 위키의 베나터를 유지. 공식 기사의 베나토르도 검색에 연결."
+    },
+    {
+      "id": "official-001-gang-corpse-grinder-cults",
+      "english": "Corpse Grinder Cults",
+      "sourceKo": "코프스 그라인더 컬트",
+      "nameKo": "콥스 그라인더 컬트",
+      "shortKo": "콥스 그라인더 컬트",
+      "aliases": [
+        "코프스 그라인더 컬트",
+        "시체 분쇄자 교단",
+        "콥스 그라인더"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "official"
+      ],
+      "note": "국내 판매처와 팬 위키의 콥스 그라인더 컬트로 통일. 공식 의역도 검색에 연결."
+    },
+    {
+      "id": "official-n26-002-gang-outcasts",
+      "english": "Outcasts",
+      "sourceKo": "아웃캐스트",
+      "nameKo": "아웃캐스트",
+      "shortKo": "아웃캐스트",
+      "aliases": [
+        "추방자 갱",
+        "언더하이브 추방자",
+        "아웃캐스트 갱"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "기존 아웃캐스트를 유지하고 국내 위키·공식 기사의 의역을 검색에 연결."
+    },
+    {
+      "id": "official-n26-002-gang-free-ogryns",
+      "english": "Free Ogryns",
+      "sourceKo": "프리 오그린",
+      "nameKo": "프리 오그린",
+      "shortKo": "프리 오그린",
+      "aliases": [
+        "노예 오그린",
+        "노예 오그린 갱단"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "현재 원문 Free Ogryns와 공식 한국어에 맞는 프리 오그린을 유지. 기존 Slave Ogryn 명칭은 검색 별칭."
+    },
+    {
+      "id": "official-n26-002-gang-genestealer-cults",
+      "english": "Genestealer Cults",
+      "sourceKo": "진스틸러 컬트",
+      "nameKo": "진스틸러 컬트",
+      "shortKo": "진스틸러 컬트",
+      "aliases": [],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "국내 팬 위키·공식 한국어 표기를 유지."
+    },
+    {
+      "id": "official-n26-002-gang-chaos-helots",
+      "english": "Chaos Helots",
+      "sourceKo": "카오스 헬롯",
+      "nameKo": "카오스 헬롯",
+      "shortKo": "카오스 헬롯",
+      "aliases": [
+        "카오스 헬롯 컬트",
+        "헬롯 카오스 컬트"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "기존 짧은 명칭을 유지하고 국내 자료의 어순·컬트 표기를 검색에 연결."
+    },
+    {
+      "id": "official-n26-002-gang-the-malstrain",
+      "english": "The Malstrain",
+      "sourceKo": "더 말스트레인",
+      "nameKo": "말스트레인",
+      "shortKo": "말스트레인",
+      "aliases": [
+        "더 말스트레인",
+        "말스트레인 컬트"
+      ],
+      "sourceIds": [
+        "wiki"
+      ],
+      "note": "국내 팬 위키의 말스트레인 표기에 맞춰 이름 앞의 영어 관사 음차를 생략."
+    },
+    {
+      "id": "official-n26-002-gang-spyre-hunters",
+      "english": "Spyre Hunters",
+      "sourceKo": "스파이어 헌터",
+      "nameKo": "스파이어 헌터",
+      "shortKo": "스파이어 헌터",
+      "aliases": [
+        "스파이어러 사냥단",
+        "스파이어 사냥단"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "official"
+      ],
+      "note": "국내 판매처의 스파이어 헌터를 유지. 팬 위키·공식 번역도 검색에 연결."
+    },
+    {
+      "id": "official-n26-002-gang-ironhead-squats",
+      "english": "Ironhead Squats",
+      "sourceKo": "아이언헤드 스쿼트",
+      "nameKo": "아이언헤드 스쿼트",
+      "shortKo": "아이언헤드 스쿼트",
+      "aliases": [
+        "아이언헤드 스쿼트 프로스펙터",
+        "아이언헤드 스쿼트 탐광대"
+      ],
+      "sourceIds": [
+        "shop",
+        "wiki",
+        "official"
+      ],
+      "note": "팩션의 기존 짧은 이름을 유지하고 국내 자료의 확장 명칭도 검색 가능."
+    },
+    {
+      "id": "official-n26-002-gang-ash-waste-nomads",
+      "english": "Ash Waste Nomads",
+      "sourceKo": "애쉬 웨이스트 노매드",
+      "nameKo": "애쉬 웨이스트 노매드",
+      "shortKo": "애쉬 웨이스트 노매드",
+      "aliases": [
+        "애쉬 웨이스트 노마드",
+        "잿더미 황무지 유목민",
+        "낙진 황무지 노마드"
+      ],
+      "sourceIds": [
+        "wiki",
+        "official"
+      ],
+      "note": "기존 음차를 유지하고 공식 의역 및 국내의 다른 표기를 검색에 연결."
+    }
+  ],
+  "reviewedCatalogueLabels": [
+    {
+      "kind": "gangTypes",
+      "id": "official-001-gang-house-cawdor",
+      "english": "House Cawdor",
+      "sourceKo": "하우스 코드로",
+      "displayKo": "하우스 커도르"
+    },
+    {
+      "kind": "gangTypes",
+      "id": "official-001-gang-house-orlock",
+      "english": "House Orlock",
+      "sourceKo": "하우스 오를록",
+      "displayKo": "하우스 올록"
+    },
+    {
+      "kind": "gangTypes",
+      "id": "official-001-gang-corpse-grinder-cults",
+      "english": "Corpse Grinder Cults",
+      "sourceKo": "코프스 그라인더 컬트",
+      "displayKo": "콥스 그라인더 컬트"
+    },
+    {
+      "kind": "gangTypes",
+      "id": "official-n26-002-gang-the-malstrain",
+      "english": "The Malstrain",
+      "sourceKo": "더 말스트레인",
+      "displayKo": "말스트레인"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-word-keeper",
+      "english": "Cawdor Word-Keeper",
+      "sourceKo": "코드로 워드 키퍼",
+      "displayKo": "커도르 워드 키퍼"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-firebrand",
+      "english": "Cawdor Firebrand",
+      "sourceKo": "코드로 파이어브랜드",
+      "displayKo": "커도르 파이어브랜드"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-brethren",
+      "english": "Cawdor Brethren",
+      "sourceKo": "코드로 브레드런",
+      "displayKo": "커도르 브레드런"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-way-brethren",
+      "english": "Cawdor Way-Brethren",
+      "sourceKo": "코드로 웨이 브레드런",
+      "displayKo": "커도르 웨이 브레드런"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-bonepicker",
+      "english": "Cawdor Bonepicker",
+      "sourceKo": "코드로 본피커",
+      "displayKo": "커도르 본피커"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-cawdor-cawdor-stig-shambler",
+      "english": "Cawdor Stig-Shambler",
+      "sourceKo": "코드로 스티그 샘블러",
+      "displayKo": "커도르 스티그 샘블러"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-road-captain",
+      "english": "Orlock Road Captain",
+      "sourceKo": "오를록 로드 캡틴",
+      "displayKo": "올록 로드 캡틴"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-road-sergeant",
+      "english": "Orlock Road Sergeant",
+      "sourceKo": "오를록 로드 서전트",
+      "displayKo": "올록 로드 서전트"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-arms-master",
+      "english": "Orlock Arms Master",
+      "sourceKo": "오를록 암즈 마스터",
+      "displayKo": "올록 암즈 마스터"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-gunner",
+      "english": "Orlock Gunner",
+      "sourceKo": "오를록 거너",
+      "displayKo": "올록 거너"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-wrecker",
+      "english": "Orlock Wrecker",
+      "sourceKo": "오를록 레커",
+      "displayKo": "올록 레커"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-house-orlock-orlock-greenhorn",
+      "english": "Orlock Greenhorn",
+      "sourceKo": "오를록 그린혼",
+      "displayKo": "올록 그린혼"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-corpse-grinder-cults-corpse-grinder-cult-butcher",
+      "english": "Corpse Grinder Cult Butcher",
+      "sourceKo": "코프스 그라인더 컬트 부처",
+      "displayKo": "콥스 그라인더 컬트 부처"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-corpse-grinder-cults-corpse-grinder-cult-cutter",
+      "english": "Corpse Grinder Cult Cutter",
+      "sourceKo": "코프스 그라인더 컬트 커터",
+      "displayKo": "콥스 그라인더 컬트 커터"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-corpse-grinder-cults-corpse-grinder-cult-skinner",
+      "english": "Corpse Grinder Cult Skinner",
+      "sourceKo": "코프스 그라인더 컬트 스키너",
+      "displayKo": "콥스 그라인더 컬트 스키너"
+    },
+    {
+      "kind": "fighterTypes",
+      "id": "official-001-fighter-corpse-grinder-cults-corpse-grinder-cult-initiate",
+      "english": "Corpse Grinder Cult Initiate",
+      "sourceKo": "코프스 그라인더 컬트 이니시에이트",
+      "displayKo": "콥스 그라인더 컬트 이니시에이트"
+    },
+    {
+      "kind": "gangLegacies",
+      "id": "official-001-legacy-cawdor",
+      "english": "Cawdor",
+      "sourceKo": "코드로",
+      "displayKo": "커도르"
+    },
+    {
+      "kind": "gangLegacies",
+      "id": "official-001-legacy-orlock",
+      "english": "Orlock",
+      "sourceKo": "오를록",
+      "displayKo": "올록"
+    }
+  ]
+}

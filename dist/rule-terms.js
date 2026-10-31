@@ -53,8 +53,10 @@ function markup(text,self='',edition='n26'){
 }
 function prose(en,ko,options={}){
  const edition=String(options.edition||'n26').toLowerCase(),self=options.self||bySource.get(options.row?.id)||lookup(options.row?.name,{edition})?.id||'';
- const text=lang()==='en'?en:window.UKI18n?.t(ko||en,'ko')||ko||en;
- return `<p class="mmrr-description mmrr-linked-prose" data-rule-prose data-rule-en="${esc(en)}" data-rule-ko="${esc(ko||en)}" data-rule-self="${esc(self)}" data-rule-edition="${esc(edition)}" data-rule-language="${lang()}" data-i18n-ignore>${markup(text,self,edition)}</p>`;
+ const trusted=!!options.row?.source_verified&&!options.row.is_custom&&!options.row.reference_custom_description;
+ let text=lang()==='en'?en:window.UKI18n?.t(ko||en,'ko')||ko||en;
+ if(lang()==='ko'&&trusted)text=window.UKI18n?.factionText?.(text)||text;
+ return `<p class="mmrr-description mmrr-linked-prose" data-rule-prose data-rule-en="${esc(en)}" data-rule-ko="${esc(ko||en)}" data-rule-self="${esc(self)}" data-rule-edition="${esc(edition)}" data-rule-language="${lang()}"${trusted?' data-rule-faction-names="verified"':''} data-i18n-ignore>${markup(text,self,edition)}</p>`;
 }
 function classification(e){
  if(e.classification)return e.classification;
@@ -79,7 +81,8 @@ function refresh(){
  for(const p of document.querySelectorAll('[data-rule-prose]')){
   if(p.dataset.ruleLanguage===lang())continue;
   const focused=p.contains(document.activeElement)?document.activeElement?.dataset.ruleTerm:null,ordinal=focused?[...p.querySelectorAll('[data-rule-term]')].indexOf(document.activeElement):-1;
-  const text=lang()==='en'?p.dataset.ruleEn:window.UKI18n?.t(p.dataset.ruleKo,'ko')||p.dataset.ruleKo;
+  let text=lang()==='en'?p.dataset.ruleEn:window.UKI18n?.t(p.dataset.ruleKo,'ko')||p.dataset.ruleKo;
+  if(lang()==='ko'&&p.dataset.ruleFactionNames==='verified')text=window.UKI18n?.factionText?.(text)||text;
   p.innerHTML=markup(text,p.dataset.ruleSelf,p.dataset.ruleEdition);p.dataset.ruleLanguage=lang();
   if(focused){const next=[...p.querySelectorAll('[data-rule-term]')].filter(b=>b.dataset.ruleTerm===focused);(p.querySelectorAll('[data-rule-term]')[ordinal]||next[0])?.focus({preventScroll:true});}
  }

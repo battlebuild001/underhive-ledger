@@ -10,7 +10,7 @@ const rules={
  'House Cawdor':{
   'A House Divided':item(
    ['Choose one path when founding the gang. It sets the Leader/successor subtype and which opposing subtype is the minority.','갱 창설 때 두 길 중 하나를 정합니다. 이 선택으로 리더·후계자의 서브타입과 반대 계열 인원 제한이 정해집니다.'],
-   ['For a Pious gang, start with a Pious Leader such as the Cawdor Word-Keeper. For a Fanatic gang, a Fanatic Leader such as the Redemptionist Priest matches the path. Then check the matching Warriors rule when recruiting followers.','파이어스 갱이라면 코드로 워드 키퍼처럼 파이어스인 리더가 길 조건에 맞습니다. 퍼내틱 갱이라면 리뎀셔니스트 프리스트처럼 퍼내틱인 리더가 길 조건에 맞습니다. 이후 추종자를 모집할 때 해당 워리어스 규칙도 확인하세요.'],
+   ['For a Pious gang, start with a Pious Leader such as the Cawdor Word-Keeper. For a Fanatic gang, a Fanatic Leader such as the Redemptionist Priest matches the path. Then check the matching Warriors rule when recruiting followers.','파이어스 갱이라면 커도르 워드 키퍼처럼 파이어스인 리더가 길 조건에 맞습니다. 퍼내틱 갱이라면 리뎀셔니스트 프리스트처럼 퍼내틱인 리더가 길 조건에 맞습니다. 이후 추종자를 모집할 때 해당 워리어스 규칙도 확인하세요.'],
    ['The paths are alternatives, not two bonuses that can both be enabled. This rule does not grant an activation-by-activation path switch. Other recruitment restrictions still apply.','두 길의 혜택을 동시에 켜는 선택이 아닙니다. 이 규칙 자체가 매 활성화마다 길을 바꾸는 권한을 주지도 않습니다. 다른 모집 제한도 함께 지켜야 합니다.'],['n26-core-gang-composition','n26-core-leader-succession']),
   'Pious Warriors':item(
    ['For the Path of the Pious, check the Leader and successor are Pious. When adding a Fanatic, compare the roster’s Pious and Fanatic model counts after that addition. Equal counts are allowed.','파이어스의 길에서는 리더와 후계자가 파이어스인지 확인합니다. 퍼내틱을 추가할 때는 추가 후 명단의 파이어스·퍼내틱 인원수를 비교합니다. 같은 수는 허용됩니다.'],
@@ -30,7 +30,7 @@ const rules={
    ['Natural means the original dice total, not a modified value. Accept the rerolled result; do not keep the better result or reroll the same dice repeatedly. Normal Bottle consequences apply to the final result.','자연 합계는 보정값이 아닌 실제 두 주사위 합입니다. 재굴림했다면 새 결과를 받아들이며 둘 중 좋은 값을 고르거나 같은 주사위를 계속 재굴림하지 않습니다. 최종 결과에 정상 보틀 결과를 적용합니다.'],['n26-core-bottle-check','n26-core-dice-conventions']),
   'Starting Skills':item(
    ['Choose one allowed Primary skill for each recruited Leader/Champion. The subtype’s fixed Inspiring grant is a separate entry.','모집한 리더·챔피언마다 허용된 프라이머리 스킬 1개를 고릅니다. 서브타입의 고정 인스파이어링 지급은 이 선택과 별개입니다.'],
-   ['The Cawdor Word-Keeper has Brawn and Savant as Primary sets. Iron Will from Savant is one valid starting choice. You keep the separately granted Inspiring; you do not have to spend the free choice on it. A Firebrand uses its own Brawn/Combat access.','코드로 워드 키퍼의 프라이머리는 브론·서번트입니다. 서번트의 아이언 윌을 시작 스킬로 고르는 것이 한 예입니다. 별도 지급된 인스파이어링은 유지하며 무료 선택을 거기에 소비하지 않습니다. 파이어브랜드는 자신의 브론·컴뱃 접근을 따릅니다.'],
+   ['The Cawdor Word-Keeper has Brawn and Savant as Primary sets. Iron Will from Savant is one valid starting choice. You keep the separately granted Inspiring; you do not have to spend the free choice on it. A Firebrand uses its own Brawn/Combat access.','커도르 워드 키퍼의 프라이머리는 브론·서번트입니다. 서번트의 아이언 윌을 시작 스킬로 고르는 것이 한 예입니다. 별도 지급된 인스파이어링은 유지하며 무료 선택을 거기에 소비하지 않습니다. 파이어브랜드는 자신의 브론·컴뱃 접근을 따릅니다.'],
    ['The Word-Keeper’s Shooting is Secondary, so Fast Shot is not this free Primary choice. A selection shown in a manual-record menu is not itself permission. The starting choice spends no XP or credits and is not repeated every battle.','워드 키퍼의 슈팅은 세컨더리이므로 패스트 샷은 이 무료 프라이머리 선택으로 고를 수 없습니다. 직접 기록 메뉴에 보인다는 사실만으로 허용되는 것은 아닙니다. 시작 선택에 XP·크레딧을 쓰지 않으며 전투마다 새로 받지도 않습니다.'],['n26-core-skill-generation','n26-core-advancement-timing'])
  },
  'House Delaque':{'Psychoteric Choir':item(

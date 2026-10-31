@@ -107,11 +107,21 @@
  }
  function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;refresh();});}
  function setLanguage(value){if(!['ko','en'].includes(value))return false;language=value;try{localStorage.setItem(KEY,value);}catch{}refresh();window.dispatchEvent(new CustomEvent('uk:languagechange',{detail:{language}}));return true;}
- function matches(value,query){const q=String(query||'').toLocaleLowerCase().trim();if(!q)return true;const values=Array.isArray(value)?value:[value];return values.some(value=>[String(value||''),phonetic(value),translate(value,'ko'),translate(value,'en')].some(text=>text.toLocaleLowerCase().includes(q)));}
- function localizeRule(kind,row){if(!row)return row;const clone={...row},key=kind+':'+row.id;if(language==='en')clone.description=row.description_en||catalog.rulesEn?.[key]||descriptionsEn[row.description]||row.description;else clone.description=inlineKorean(row.description||'');clone.displayName=language==='ko'?phonetic(row.name||row.equipment_name||row.fighter_type||''):row.name;return clone;}
+ const factionAliases=Object.entries(terms.factionSearchAliases||{}).map(([en,aliases])=>[en,...aliases].map(text=>text.toLocaleLowerCase()));
+ function factionText(value){let text=String(value??'');for(const [source,display]of Object.entries(terms.factionTextAliases||{}))text=text.split(source).join(display);return text;}
+ function matches(value,query){
+  const q=String(query||'').toLocaleLowerCase().trim();if(!q)return true;
+  const values=Array.isArray(value)?value:[value];
+  return values.some(value=>{
+   const texts=[String(value||''),phonetic(value),translate(value,'ko'),translate(value,'en')],folded=texts.map(text=>text.toLocaleLowerCase());
+   if(folded.some(text=>text.includes(q)))return true;
+   return factionAliases.some(identities=>identities.some(text=>text.includes(q))&&folded.some(text=>identities.some(identity=>text.includes(identity))));
+  });
+ }
+ function localizeRule(kind,row){if(!row)return row;const clone={...row},key=kind+':'+row.id;if(language==='en')clone.description=row.description_en||catalog.rulesEn?.[key]||descriptionsEn[row.description]||row.description;else{clone.description=inlineKorean(row.description||'');if(row.source_verified&&!row.is_custom&&!row.reference_custom_description)clone.description=factionText(clone.description);}clone.displayName=language==='ko'?phonetic(row.name||row.equipment_name||row.fighter_type||''):row.name;return clone;}
  document.addEventListener('click',event=>{const button=event.target.closest?.('[data-uk-locale-toggle]');if(!button)return;event.preventDefault();event.stopImmediatePropagation();setLanguage(button.dataset.ukLocaleToggle);},true);
  const previousRender=render;render=function(...args){const result=previousRender.apply(this,args);refresh();return result;};
  for(const method of ['alert','confirm'])if(typeof window[method]==='function'){const previous=window[method].bind(window);window[method]=message=>previous(translate(message));}
  new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','title','aria-label','alt']});
- window.UKI18n={get language(){return language;},setLanguage,refresh,t:translate,name:phonetic,matches,localizeRule};refresh();
+ window.UKI18n={get language(){return language;},setLanguage,refresh,t:translate,name:phonetic,matches,localizeRule,factionText,reviewedName:reviewedDisplay};refresh();
 })();

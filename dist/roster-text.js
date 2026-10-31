@@ -1,7 +1,7 @@
 /* Plain-text roster sharing. Generates a field whitelist; never serializes account or note records. */
 (function(){'use strict';
 const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),L=(en,ko)=>`<span data-i18n-en="${E(en)}" data-i18n-ko="${E(ko)}">${E(en)}</span>`,plain=s=>String(s??'').replace(/\r\n?/g,'\n').replace(/\0/g,''),line=s=>plain(s).replace(/[\n\t]/g,' ').trim(),known=v=>v!=null&&String(v).trim()!==''&&Number.isFinite(Number(v)),money=v=>known(v)?Number(v).toLocaleString('en-US'):'?',qty=e=>Math.max(1,Number(e.quantity)||1),R=()=>window.RULES_DATA||{};
-const pickName=(row,lang)=>{const n=row?.name||row?.equipment_name||'';return line(lang==='ko'&&!row?.is_custom&&!row?.reference_custom_name?(row.name_ko&&/[가-힣]/.test(row.name_ko)?row.name_ko:window.UKI18n?.name(n)||n):n);};
+const pickName=(row,lang)=>{const n=row?.name||row?.equipment_name||'';return line(lang==='ko'&&!row?.is_custom&&!row?.reference_custom_name?(row.name_ko&&/[가-힣]/.test(row.name_ko)?window.UKI18n?.reviewedName(n,row.name_ko)||row.name_ko:window.UKI18n?.name(n)||n):n);};
 function find(kind,query,g){return window.MMRuleReference?.lookup(kind,query,{edition:String(g.edition||'').toLowerCase()});}
 function displayName(kind,query,g,lang){return pickName(find(kind,query,g)||{...query,is_custom:true},lang);}
 function description(kind,query,g,lang){const row=find(kind,query,g);if(!row)return plain(query.description||'');const d=window.MMRuleReference.details(row,{kind,edition:g.edition});if(d.definitionStatus==='cleared')return '';return plain(d.custom?d.description:lang==='en'?row.description_en||d.description:d.description);}

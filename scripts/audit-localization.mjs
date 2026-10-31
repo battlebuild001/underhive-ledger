@@ -39,7 +39,8 @@ const unmappedCategories=allEquipmentCategories.filter(en=>!mapped(en)||mapped(e
 const untranslatedNames=allRows.filter(({row})=>row.name&&row.name_ko&&latin(mapped(row.name)||row.name_ko).length).map(({kind,row})=>({kind,id:row.id,name:row.name,display:mapped(row.name)||row.name_ko}));
 const conflictingApprovedNames=[...approved].filter(([,values])=>values.size>1).map(([en,values])=>({en,spellings:[...values]}));
 const reviewedCopy=JSON.parse(fs.readFileSync(path.join(root,'data/localization/ui-copy-review.json'),'utf8'));
-const reviewedLabels=reviewedCopy.reviewedCatalogueLabels||[];
+const reviewedFactions=JSON.parse(fs.readFileSync(path.join(root,'data/localization/faction-names-ko.json'),'utf8'));
+const reviewedLabels=[...(reviewedCopy.reviewedCatalogueLabels||[]),...(reviewedFactions.reviewedCatalogueLabels||[])];
 const isReviewed=({kind,row})=>reviewedLabels.some(r=>r.kind===kind&&r.id===row.id&&r.sourceKo===row.name_ko&&r.displayKo===terms.names?.[row.name]);
 const reviewedDisplayNameChanges=allRows.filter(isReviewed).map(({kind,row})=>({kind,id:row.id,name:row.name,source:row.name_ko,display:terms.names[row.name]}));
 const invalidDisplayReviews=reviewedLabels.filter(r=>!allRows.some(e=>e.kind===r.kind&&e.row.id===r.id&&e.row.name_ko===r.sourceKo&&terms.names?.[e.row.name]===r.displayKo));
