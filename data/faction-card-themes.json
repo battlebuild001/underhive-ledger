@@ -1,0 +1,294 @@
+{
+  "note": "Decorative tokens and original sample glyphs only. Runtime values and actions are supplied by the original roster renderer.",
+  "profiles": [
+    {
+      "id": "official-001-gang-house-cawdor",
+      "name": "House Cawdor",
+      "slug": "cawdor",
+      "accent": "#b76545",
+      "header": "#211d1a",
+      "paper": "#e9dfc7",
+      "texture": "repeating-linear-gradient(90deg,transparent 0 5px,#0003 6px 7px)",
+      "seal": "polygon(50% 0,61% 7%,74% 5%,80% 17%,93% 22%,93% 35%,100% 50%,93% 63%,93% 78%,80% 82%,74% 95%,61% 93%,50% 100%,38% 93%,25% 95%,19% 83%,6% 77%,7% 63%,0 50%,7% 37%,6% 23%,19% 18%,25% 5%,38% 7%)",
+      "edge": [
+        "linear-gradient(#b76545,#b76545)",
+        "polygon(0 0,100% 0,100% 100%,50% 75%,0 100%)",
+        "23px",
+        "12px"
+      ],
+      "glyph": "<path d=\"M32 7 48 27v27H16V27L32 7Z\"/><path d=\"M25 45c-6-9 8-11 4-20 14 9 14 17 8 22-4 4-10 3-12-2Z\"/><path d=\"M23 56v-5m18 5v-5M12 26l20-25 20 25\"/>"
+    },
+    {
+      "id": "official-001-gang-house-delaque",
+      "name": "House Delaque",
+      "slug": "delaque",
+      "accent": "#7ca5a3",
+      "header": "#111c21",
+      "paper": "#e0e5e1",
+      "texture": "repeating-linear-gradient(0deg,transparent 0 6px,#7ca5a31f 7px,transparent 8px 12px)",
+      "seal": "circle(49%)",
+      "edge": [
+        "linear-gradient(#7ca5a3,#7ca5a3)",
+        "none",
+        "200px",
+        "2px"
+      ],
+      "glyph": "<path d=\"M5 32C17 13 47 13 59 32 47 51 17 51 5 32Z\"/><circle cx=\"32\" cy=\"32\" r=\"11\"/><circle cx=\"32\" cy=\"32\" r=\"4\"/><path d=\"M32 5v8m0 38v8M5 20l5 3m44 18 5 3M5 44l5-3m44-18 5-3\"/>"
+    },
+    {
+      "id": "official-001-gang-house-escher",
+      "name": "House Escher",
+      "slug": "escher",
+      "accent": "#d4d76e",
+      "header": "#302031",
+      "paper": "#f1e9dd",
+      "texture": "repeating-radial-gradient(ellipse at 55% 120%,transparent 0 10px,#bd6e9b22 11px,transparent 12px 24px)",
+      "seal": "polygon(18% 0,100% 0,82% 100%,0 100%)",
+      "edge": [
+        "linear-gradient(#b2638e,#b2638e)",
+        "none",
+        "70px",
+        "4px"
+      ],
+      "glyph": "<path d=\"M27 8h12m-9 0v15L17 45q-5 10 7 11h22q9-3 3-12L36 23V8M23 37h23\"/><path d=\"M17 17q-14 16 4 19c22 1 30-13 22-19-7-4-14 1-10 6 5 6 25 10 18 27\"/><path d=\"m43 15 6 2-4 4\"/>"
+    },
+    {
+      "id": "official-001-gang-house-goliath",
+      "name": "House Goliath",
+      "slug": "goliath",
+      "accent": "#d88059",
+      "header": "#30211e",
+      "paper": "#e4dccb",
+      "texture": "repeating-linear-gradient(128deg,transparent 0 14px,#c5844b22 15px 17px,transparent 18px 38px)",
+      "seal": "polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%)",
+      "edge": [
+        "repeating-linear-gradient(130deg,#c19a4e 0 9px,#302822 9px 18px)",
+        "none",
+        "130px",
+        "7px"
+      ],
+      "glyph": "<path d=\"M12 16h44v9L41 37v10l11 8H14l11-8V34L8 28H2V17h10ZM22 5v6m10-8v8m10-6v6\"/><path d=\"M21 21h23M22 59h25\"/>"
+    },
+    {
+      "id": "official-001-gang-house-orlock",
+      "name": "House Orlock",
+      "slug": "orlock",
+      "accent": "#bf9c72",
+      "header": "#1c2a35",
+      "paper": "#e5dfd1",
+      "texture": "repeating-linear-gradient(90deg,transparent 0 45px,#bf9c7217 46px,transparent 47px 80px)",
+      "seal": "polygon(10% 0,90% 0,100% 10%,100% 100%,0 100%,0 10%)",
+      "edge": [
+        "repeating-linear-gradient(90deg,#bf9c72 0 3px,transparent 3px 13px)",
+        "none",
+        "88px",
+        "5px"
+      ],
+      "glyph": "<rect x=\"9\" y=\"12\" width=\"23\" height=\"38\" rx=\"10\" transform=\"rotate(-30 21 31)\"/><rect x=\"31\" y=\"12\" width=\"23\" height=\"38\" rx=\"10\" transform=\"rotate(-30 43 31)\"/><path d=\"m23 24 18 16M8 5h12M44 58h12\"/>"
+    },
+    {
+      "id": "official-001-gang-house-van-saar",
+      "name": "House Van Saar",
+      "slug": "van-saar",
+      "accent": "#85d1ac",
+      "header": "#102b25",
+      "paper": "#e1e8de",
+      "texture": "linear-gradient(90deg,transparent 64%,#85d1ac30 64% 64.2%,transparent 64.2%),repeating-linear-gradient(0deg,transparent 0 19px,#85d1ac15 20px,transparent 21px 40px)",
+      "seal": "polygon(13% 0,100% 0,100% 84%,84% 100%,0 100%,0 13%)",
+      "edge": [
+        "linear-gradient(90deg,#85d1ac 0 75%,transparent 75% 80%,#85d1ac 80% 86%,transparent 86% 91%,#85d1ac 91%)",
+        "none",
+        "35%",
+        "3px"
+      ],
+      "glyph": "<path d=\"m32 14 16 9v18l-16 9-16-9V23l16-9Z\"/><path d=\"M32 1v13m0 36v13M1 18h9l8 8M1 46h9l8-8m45-20h-9l-8 8m17 20h-9l-8-8M26 27h12v12H26z\"/><circle cx=\"32\" cy=\"4\" r=\"2\"/><circle cx=\"4\" cy=\"18\" r=\"2\"/><circle cx=\"60\" cy=\"46\" r=\"2\"/>"
+    },
+    {
+      "id": "official-001-gang-palanite-enforcers",
+      "name": "Palanite Enforcers",
+      "slug": "enforcers",
+      "accent": "#d6b967",
+      "header": "#142331",
+      "paper": "#e9e7d9",
+      "texture": "repeating-linear-gradient(135deg,transparent 0 30px,#eee8c30a 30px 50px)",
+      "seal": "polygon(0 0,100% 0,100% 65%,50% 100%,0 65%)",
+      "edge": [
+        "repeating-linear-gradient(135deg,#d2b765 0 8px,#182533 8px 16px)",
+        "none",
+        "150px",
+        "6px"
+      ],
+      "glyph": "<path d=\"M32 4 54 12v23c-1 13-22 25-22 25S11 48 10 35V12l22-8Z\"/><path d=\"m19 24 13-8 13 8m-26 8 13-8 13 8M23 41h18m-15 7h12\"/>"
+    },
+    {
+      "id": "official-001-gang-venator-gangs",
+      "name": "Venator Gangs",
+      "slug": "venators",
+      "accent": "#cda66c",
+      "header": "#2d2b24",
+      "paper": "#ece0c7",
+      "texture": "repeating-linear-gradient(90deg,transparent 0 4px,#cda66c0a 4px 5px,transparent 5px 9px)",
+      "seal": "circle(49%)",
+      "edge": [
+        "linear-gradient(#a27549,#a27549)",
+        "none",
+        "48px",
+        "5px"
+      ],
+      "glyph": "<circle cx=\"32\" cy=\"32\" r=\"19\"/><circle cx=\"32\" cy=\"32\" r=\"9\"/><path d=\"M32 2v19m0 22v19M2 32h19m22 0h19M6 18V6h12m28 0h12v12M6 46v12h12m28 0h12V46\"/>"
+    },
+    {
+      "id": "official-001-gang-corpse-grinder-cults",
+      "name": "Corpse Grinder Cults",
+      "slug": "corpse-grinders",
+      "accent": "#c7775d",
+      "header": "#301813",
+      "paper": "#e5d9c0",
+      "texture": "repeating-linear-gradient(118deg,transparent 0 19px,#c7775d22 20px 21px,transparent 22px 42px)",
+      "seal": "polygon(9% 0,90% 0,100% 13%,100% 87%,90% 100%,9% 100%,0 87%,0 13%)",
+      "edge": [
+        "repeating-linear-gradient(135deg,#2c1a17 0 7px,#98583c 7px 11px,#2c1a17 11px 14px)",
+        "none",
+        "100%",
+        "7px"
+      ],
+      "glyph": "<path d=\"M25 7h12v23h15v23H14V30h11V7Z\"/><path d=\"M25 12h12m-12 7h12M18 53v5m9-5v5m9-5v5m9-5v5M22 35l6 11m9-11 5 11\"/><circle cx=\"45\" cy=\"37\" r=\"2\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-outcasts",
+      "name": "Outcasts",
+      "slug": "outcasts",
+      "accent": "#b3b8a3",
+      "header": "#2b302b",
+      "paper": "#e4dfce",
+      "texture": "linear-gradient(115deg,transparent 68%,#6b594640 68% 84%,transparent 84%)",
+      "seal": "polygon(5% 0,96% 3%,100% 96%,0 100%)",
+      "edge": [
+        "linear-gradient(#777457,#777457)",
+        "polygon(0 15%,100% 0,100% 80%,0 100%)",
+        "105px",
+        "10px"
+      ],
+      "glyph": "<path d=\"m12 9 18 3 22-6 6 25-5 22-26 3L7 45l5-36Z\"/><path d=\"m21 6-2 10m18-8 3 10M6 25l10 1m-8 12 9-1m-2 16 6-8m15 13-1-10m20-2-9-4m13-15-10 2M23 27l15-4 5 16-16 5-4-17Z\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-free-ogryns",
+      "name": "Free Ogryns",
+      "slug": "ogryns",
+      "accent": "#d4b554",
+      "header": "#252a2a",
+      "paper": "#e8e1c9",
+      "texture": "repeating-linear-gradient(90deg,transparent 0 90px,#d4b55422 91px 93px,transparent 94px 130px)",
+      "seal": "polygon(0 0,77% 0,100% 24%,100% 100%,0 100%)",
+      "edge": [
+        "repeating-linear-gradient(135deg,#c9af55 0 11px,#252b25 11px 22px)",
+        "none",
+        "180px",
+        "7px"
+      ],
+      "glyph": "<path d=\"M23 17C8 8 2 23 11 33l10 11c6 6 13 4 16 0M41 47c15 9 21-6 12-16L43 20c-6-6-13-4-16 0\"/><path d=\"m24 23 7 5-8 8 9 5m9-18-7 5 8 8-8 5M11 6l4 6m38 40 4 6\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-genestealer-cults",
+      "name": "Genestealer Cults",
+      "slug": "genestealers",
+      "accent": "#b99dbd",
+      "header": "#291d35",
+      "paper": "#e7ded6",
+      "texture": "repeating-radial-gradient(ellipse at 66% 110%,transparent 0 23px,#b99dbd22 24px 25px,transparent 26px 44px)",
+      "seal": "polygon(0 13%,50% 0,100% 13%,100% 100%,0 100%)",
+      "edge": [
+        "linear-gradient(90deg,#b99dbd 0 22%,transparent 22% 27%,#b99dbd 27% 49%,transparent 49% 54%,#b99dbd 54% 76%)",
+        "none",
+        "92px",
+        "4px"
+      ],
+      "glyph": "<path d=\"M32 6c1 14 16 16 21 29 7 19-10 25-21 18-11 7-28 1-21-18C16 22 31 20 32 6Z\"/><path d=\"M17 41c-3-11 8-19 15-21 7 2 18 10 15 21M32 20v35M20 46l12-9 12 9\"/><circle cx=\"32\" cy=\"7\" r=\"3\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-chaos-helots",
+      "name": "Chaos Helots",
+      "slug": "chaos-helots",
+      "accent": "#b77367",
+      "header": "#28191d",
+      "paper": "#dfd2bf",
+      "texture": "repeating-radial-gradient(circle at 74% 50%,transparent 0 30px,#b7736722 31px 32px,transparent 33px 38px)",
+      "seal": "polygon(25% 0,74% 0,100% 25%,100% 74%,74% 100%,25% 100%,0 74%,0 25%)",
+      "edge": [
+        "linear-gradient(#8c4743,#8c4743)",
+        "polygon(0 0,100% 0,82% 100%,51% 66%,23% 100%)",
+        "38px",
+        "11px"
+      ],
+      "glyph": "<circle cx=\"32\" cy=\"32\" r=\"15\"/><path d=\"M32 1v61M1 32h61M10 10l44 44M10 54l44-44m-25-2 3-7 3 7m-6 48 3 7 3-7M8 29l-7 3 7 3m48-6 7 3-7 3M9 17l1-7 7-1m30 46 7-1 1-7M9 47l1 7 7 1m30-46 7 1 1 7\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-the-malstrain",
+      "name": "The Malstrain",
+      "slug": "malstrain",
+      "accent": "#c0be67",
+      "header": "#2b3020",
+      "paper": "#dedcc4",
+      "texture": "repeating-radial-gradient(ellipse at 80% 70%,transparent 0 11px,#c0be6722 12px 13px,transparent 14px 23px)",
+      "seal": "polygon(17% 5%,72% 0,97% 24%,100% 76%,70% 100%,16% 95%,0 64%,2% 22%)",
+      "edge": [
+        "radial-gradient(circle,#b5bd72 0 2px,transparent 2.5px)",
+        "none",
+        "90px",
+        "6px"
+      ],
+      "glyph": "<path d=\"M28 8C42 0 61 19 55 35c9 18-18 30-30 20C7 59 0 35 10 22c0-10 8-17 18-14Z\"/><path d=\"M22 21c12-11 29 8 20 20-9 14-27-4-17-13 7-7 15 2 9 7\"/><circle cx=\"17\" cy=\"39\" r=\"3\"/><circle cx=\"43\" cy=\"15\" r=\"2\"/><circle cx=\"45\" cy=\"48\" r=\"2\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-spyre-hunters",
+      "name": "Spyre Hunters",
+      "slug": "spyrers",
+      "accent": "#d6c395",
+      "header": "#25252c",
+      "paper": "#f0ecdf",
+      "texture": "linear-gradient(100deg,#3d333b55,transparent 65%)",
+      "seal": "polygon(17% 0,82% 0,100% 23%,100% 76%,82% 100%,17% 100%,0 76%,0 23%)",
+      "edge": [
+        "linear-gradient(#d6c395,#d6c395)",
+        "polygon(0 0,45% 0,50% 100%,55% 0,100% 0,100% 50%,0 50%)",
+        "90px",
+        "4px"
+      ],
+      "glyph": "<path d=\"m20 7 24 0 13 18-25 34L7 25 20 7Z\"/><path d=\"M7 25h50M20 7l-2 18 14 34 14-34-2-18M18 25l14-18 14 18M3 7h7M54 7h7\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-ironhead-squats",
+      "name": "Ironhead Squats",
+      "slug": "ironheads",
+      "accent": "#c39458",
+      "header": "#302c25",
+      "paper": "#e7ddc6",
+      "texture": "repeating-linear-gradient(155deg,transparent 0 11px,#c3945822 12px,transparent 13px 22px)",
+      "seal": "polygon(20% 0,80% 0,100% 20%,100% 80%,80% 100%,20% 100%,0 80%,0 20%)",
+      "edge": [
+        "repeating-linear-gradient(90deg,#c39458 0 2px,transparent 2px 7px,#c39458 7px 14px,transparent 14px 19px)",
+        "none",
+        "120px",
+        "5px"
+      ],
+      "glyph": "<path d=\"M9 9c20-2 39 4 46 18-15-7-30-7-46-2V9ZM30 21l-9 37h10l9-34\"/><path d=\"m40 46 10-7 11 17H39l1-10ZM9 35v13m-5-9h10\"/>"
+    },
+    {
+      "id": "official-n26-002-gang-ash-waste-nomads",
+      "name": "Ash Waste Nomads",
+      "slug": "nomads",
+      "accent": "#c2a882",
+      "header": "#323029",
+      "paper": "#e8ddc4",
+      "texture": "repeating-radial-gradient(ellipse at 30% -50%,transparent 0 13px,#c2a88222 14px 15px,transparent 16px 26px)",
+      "seal": "polygon(5% 0,97% 5%,100% 91%,83% 100%,0 96%)",
+      "edge": [
+        "linear-gradient(#75664a,#75664a)",
+        "polygon(0 0,100% 0,92% 100%,86% 60%,76% 100%,71% 60%,60% 100%,54% 60%,44% 100%,38% 60%,28% 100%,22% 60%,12% 100%)",
+        "64px",
+        "11px"
+      ],
+      "glyph": "<path d=\"M5 15c14-13 28 14 45 0 11-8-6-16-12-6M3 32c21-15 27 13 49 0 14-9 0-17-5-12M8 49c16-14 23 14 41 0 10-7 7-13 2-13M8 58h16m17 0h12\"/>"
+    }
+  ]
+}
