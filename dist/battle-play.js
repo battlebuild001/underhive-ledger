@@ -22,6 +22,10 @@ function shell(v,root){
  nav.addEventListener('keydown',event=>{const b=event.target.closest('[role=tab]');if(!b||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const list=[...nav.children],i=list.indexOf(b),next=event.key==='Home'?list[0]:event.key==='End'?list.at(-1):list[(i+(event.key==='ArrowLeft'?-1:1)+list.length)%list.length];select(next.dataset.bpTab);next.focus();});
  brief.addEventListener('click',()=>select('round'));select(ui.tab);return {host,panels,ui,id,callbacks,brief};
 }
+function appendFactionRules(team,g,ui){
+ if(!g||!window.MMGangGuide?.factionContent)return;const footer=el('section','bp-faction-rules gg-guide'),heading=el('h2'),content=el('div');footer.dataset.bpFactionRules=g.id;heading.innerHTML=L('Faction rules','팩션 룰');content.innerHTML=window.MMGangGuide.factionContent(g);footer.append(heading,content);
+ for(const [index,fold]of [...footer.querySelectorAll('details')].entries()){const k=JSON.stringify(['faction',g.id,g.gangTypeId||g.gang_type_id||g.faction,index]);fold.open=ui.sections.get(k)||false;fold.addEventListener('toggle',()=>{if(fold.isConnected)ui.sections.set(k,fold.open);});}team.append(footer);
+}
 function roster(v,ctx,originals=[]){
  const {panels,ui,id,callbacks}=ctx,host=panels.get('roster'),sides=el('nav','bp-sides'),bodies=el('div','bp-rosters');sides.setAttribute('role','tablist');sides.setAttribute('aria-label',txt('Gangs','갱'));
  const teams=v.s.participants.map((p,i)=>{const g=gangFor(p.gangId),rows=[...(p.crew||[]).map(row=>({row,reserve:false})),...(v.c?p.reinforcements||[]:[]).map(row=>({row,reserve:true}))];return {p,g,i,rows};});
@@ -40,7 +44,7 @@ function roster(v,ctx,originals=[]){
    item.append(panel);cards.append(item);
   }
   if(!cards.children.length){const empty=el('p','bp-empty');empty.innerHTML=L('No crew entered','크루 명단 미입력');cards.append(empty);}
-  layout.append(cards);team.append(layout);bodies.append(team);
+  layout.append(cards);team.append(layout);appendFactionRules(team,g,ui);bodies.append(team);
   const selectUnit=(unit,toggle=false)=>{if(unit!==null&&!buttons.some(t=>t.dataset.bpUnit===unit))unit=buttons[0]?.dataset.bpUnit??null;if(toggle&&ui.units[i]===unit)unit=null;ui.units[i]=unit;for(const t of buttons){const on=t.dataset.bpUnit===unit;t.setAttribute('aria-expanded',String(on));t.closest('.bp-unit-row').classList.toggle('is-open',on);}for(const card of cards.querySelectorAll('[data-bp-unit-panel]'))card.hidden=card.dataset.bpUnitPanel!==unit;};
   cards.addEventListener('click',e=>{const t=e.target.closest('[data-bp-unit]');if(!t)return;selectUnit(t.dataset.bpUnit,true);requestAnimationFrame(()=>{if(!t.isConnected)return;const rect=t.getBoundingClientRect(),bottom=ctx.host.querySelector('.bp-bar').getBoundingClientRect().bottom;if(rect.top<bottom||rect.bottom>innerHeight)t.scrollIntoView({block:'start',behavior:'instant'});});});
   cards.addEventListener('keydown',e=>{const t=e.target.closest('[data-bp-unit]');if(!t||!['ArrowUp','ArrowDown','Home','End'].includes(e.key))return;e.preventDefault();const at=buttons.indexOf(t),next=e.key==='Home'?buttons[0]:e.key==='End'?buttons.at(-1):buttons[(at+(e.key==='ArrowUp'?-1:1)+buttons.length)%buttons.length];next?.focus();});selectUnit(Object.hasOwn(ui.units,i)?ui.units[i]:buttons[0]?.dataset.bpUnit);
@@ -73,7 +77,7 @@ function mountReport(){
  const back=el('button','btn');back.type='button';back.dataset.bpReportBack='';back.innerHTML=L('Back to campaign','캠페인으로');back.addEventListener('click',()=>{data.campaignTab='members';delete data.selectedBattleReport;save();});root.replaceChildren();
  if(!b){const p=el('p','card');p.innerHTML=L('This battle record is unavailable.','이 전투 기록을 찾을 수 없습니다.');root.append(back,p);return;}
  const model=reportModel(c,b),v=view(c,model),ctx=shell(v,root);root.prepend(heading(v,back,ctx.brief));root.classList.add('bp-play-page','bp-campaign-play');
- roster(v,ctx);if((b.participants||[]).some(p=>!Array.isArray(p.crew))||!b.participants?.length){const p=el('p','muted');p.innerHTML=L('Full rosters','전체 로스터');ctx.panels.get('roster').prepend(p);}
+ roster(v,ctx);
  campaignMission(v,ctx);const territory=c.territories?.find(t=>t.id===b.territoryId);if(territory){const card=el('section','card'),h=el('h2'),p=el('p');h.innerHTML=L('Territory at stake','전투에 건 영토');p.dataset.userText='';p.textContent=territory.name;card.append(h,p);ctx.panels.get('mission').prepend(card);}
  const results=el('section','card'),h=el('h2'),summary=el('p'),winners=b.winners?.length?b.winners:[b.winner].filter(Boolean);h.innerHTML=L('Battle result','전투 결과');summary.dataset.userText='';summary.textContent=b.isDraw?txt('Draw','무승부'):winners.length?winners.map(id=>gangFor(id)?.name||id).join(', '):txt('Result not recorded','결과 미입력');results.append(h,summary);
  for(const p of b.participants||[]){if(!p.sideJob&&!p.sideJobName)continue;const row=el('p');row.dataset.userText='';row.textContent=(gangFor(p.gangId||p.gang_id)?.name||'—')+' · '+(p.sideJobName||p.sideJob)+(p.sideJobCompleted?' · '+txt('Achieved','달성'):'');results.append(row);}

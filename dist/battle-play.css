@@ -1,5 +1,16 @@
 /* Compact roster: view-only styling for active battles. */
 @media screen{
+ html.uk-ui .bp-faction-rules{min-width:0;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:var(--text)}
+ html.uk-ui .bp-faction-rules>h2{font-size:20px;line-height:1.5;margin:0 0 16px}
+ html.uk-ui .bp-faction-rules :is(.gg-rule-card,.gg-rule-summary,.gg-note){background:var(--panel2);border-color:var(--line);color:var(--text)}
+ html.uk-ui .bp-faction-rules :is(.gg-rule-fold,.gg-example-links){border-color:var(--line)}
+ html.uk-ui .bp-faction-rules .gg-rule-fold>summary{color:var(--text)}
+ html.uk-ui .bp-faction-rules .gg-rule-fold[open]>summary{background:var(--panel2);border-color:var(--line)}
+ html.uk-ui .bp-faction-rules :is(.gg-eyebrow,.gg-rule-number,.gg-caption){color:var(--muted)}
+ html.uk-ui .bp-faction-rules .gg-link{min-height:44px;text-align:start;max-width:100%}
+ html.uk-ui .bp-faction-rules .mmrr-description{font-size:15px;line-height:1.85;max-width:100%}
+}
+@media screen{
  html.uk-ui.bp-compact-theme body::before{background:none!important}
  html.uk-ui.command-ui.bp-compact-theme #app .main{background:var(--bg)}
  html.uk-ui.bp-compact-theme .main .content:has(.bp-play-page){max-width:1000px;margin:0 auto;padding:0 28px 28px;min-width:0}

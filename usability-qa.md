@@ -71,3 +71,10 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 - Exact session/report links reuse the existing session, including adopted legacy challenges. Linked records are deduplicated in the list. Matching two gang IDs alone never creates or guesses a link.
 - Viewing a report creates no session, crew selection, challenge acceptance or game result. Saved crews are displayed where available; otherwise the view explicitly displays full rosters. Result entry retains the original report validation and save path. Incomplete opponent slots retain their original edit action; shared viewers cannot edit results or setup.
 - Browser checks at 320, 390 and 1280 cover completing an original challenge form, opening the roster without a settings modal, mission viewing, result cancellation, Back, reopening, reload, and one saved final draw without a duplicate session. Original gang/campaign records remain identical through view-only navigation. Screenshots: `/workspace/shared/report-battle-roster-{320,390,1280}.png`.
+
+## Follow-up: faction rules below rosters
+
+- Removed the “Full rosters / 전체 로스터” heading above the battle roster.
+- The shared roster renderer now appends the selected gang's faction rules after its last fighter, for campaign reports, campaign sessions and skirmishes. It reuses the existing verified faction renderer and source references rather than duplicating rule text. Each side uses its own gang's identity; custom/N23 records do not borrow N26 rules.
+- Rules remain readable inline. Existing conditions/examples can expand independently, their open state is retained in view state, and rule references open the original help. Footer colors follow the shared dark/light theme.
+- Checks cover all 17 verified faction identities, footer placement, side switching, source-rule lists, help, Korean/English and record preservation. Responsive Chromium checks at 320, 390 and 1280 passed in dark/light modes without horizontal overflow. Build and compiled Worker validation passed. Screenshots: `/workspace/shared/roster-faction-{0,1,light}-{320,390,1280}.png`.
