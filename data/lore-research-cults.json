@@ -1,0 +1,1230 @@
+{
+  "sources": {
+    "lore2026-cults-waz": {
+      "title": [
+        "Waz Bonepicker",
+        "와즈 본피커"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Waz_Bonepicker",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.15. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.15이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "471784"
+    },
+    "lore2026-cults-arcos": {
+      "title": [
+        "Fall of Hive Arcos",
+        "하이브 아르코스의 몰락"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Fall_of_Hive_Arcos",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: Dark Uprising. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: Dark Uprising이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-corpse-cults": {
+      "title": [
+        "Corpse Grinder Cult",
+        "콥스 그라인더 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Corpse_Grinder_Cult",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, pp.14–15 and Necromunda: Dark Uprising. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, pp.14–15 and Necromunda: Dark Uprising이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-skin-sinew": {
+      "title": [
+        "Lord of Skin and Sinew",
+        "스킨 앤 시뉴의 군주"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Lord_of_Skin_and_Sinew",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, pp.14–15; White Dwarf 453, p.141. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, pp.14–15; White Dwarf 453, p.141이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "481424"
+    },
+    "lore2026-cults-corpse-guild": {
+      "title": [
+        "Corpse Guild",
+        "콥스 길드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Corpse_guild",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Peril, p.7 and public Warhammer Community introductions. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Peril, p.7 and public Warhammer Community introductions이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "580128"
+    },
+    "lore2026-cults-ravenous": {
+      "title": [
+        "Ravenous One",
+        "레이버너스 원"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Ravenous_One",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Apocrypha Necromunda: Sump City Sinking, pp.2–6. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Apocrypha Necromunda: Sump City Sinking, pp.2–6이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "666703"
+    },
+    "lore2026-cults-helot": {
+      "title": [
+        "Helot Chaos Cult",
+        "헬롯 카오스 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Helot_Cult",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, pp.24–31. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, pp.24–31이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-demagogue": {
+      "title": [
+        "Cult Demagogue",
+        "컬트 데마고그"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Cult_Demagogue",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Creating a Chaos Cult in Necromunda and Kill Team: Ashes of Faith, p.20. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Creating a Chaos Cult in Necromunda and Kill Team: Ashes of Faith, p.20이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "722974"
+    },
+    "lore2026-cults-witch": {
+      "title": [
+        "Cult Witch",
+        "컬트 위치"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Cult_Witch",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Warhammer Community: Creating a Chaos Cult in Necromunda. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Warhammer Community: Creating a Chaos Cult in Necromunda이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "659868"
+    },
+    "lore2026-cults-soth": {
+      "title": [
+        "Cult of the Exquisite Corpse",
+        "익스퀴지트 콥스 교단"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Cult_of_the_Exquisite_Corpse",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.24. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.24이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "579219"
+    },
+    "lore2026-cults-leechtown": {
+      "title": [
+        "Leechtown Liberation Front",
+        "리치타운 해방전선"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Leechtown_Liberation_Front",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Warhammer Community: Creating a Chaos Cult in Necromunda. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Warhammer Community: Creating a Chaos Cult in Necromunda이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "605330"
+    },
+    "lore2026-cults-sump-mother": {
+      "title": [
+        "Cult of the Sump Mother",
+        "섬프 마더 교단"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Cult_of_the_Sump_Mother",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.36. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.36이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "707420"
+    },
+    "lore2026-cults-daughters": {
+      "title": [
+        "Daughters of Serrated Thought",
+        "서레이티드 소트의 딸들"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Daughters_of_Serrated_Thought",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.31. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.31이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "659867"
+    },
+    "lore2026-cults-soulless": {
+      "title": [
+        "Soulless Few",
+        "소울리스 퓨"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Soulless_Few",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.29. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.29이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "546450"
+    },
+    "lore2026-cults-genestealer-cult": {
+      "title": [
+        "Genestealer Cult",
+        "진스틸러 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Genestealer_Cult",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Genestealer Cults codices; see the article’s numbered citations. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Genestealer Cults codices; see the article’s numbered citations이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-hybrid": {
+      "title": [
+        "Genestealer Hybrid",
+        "진스틸러 하이브리드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Genestealer_Hybrid",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Genestealer Cults codices and earlier Warhammer 40,000 publications; source editions are identified in the article. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Genestealer Cults codices and earlier Warhammer 40,000 publications; source editions are identified in the article이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-magus": {
+      "title": [
+        "Genestealer Magus",
+        "진스틸러 마구스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Genestealer_Magus",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Codex: Genestealer Cults (7th–9th editions); only cited overview statements are used. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Codex: Genestealer Cults (7th–9th editions); only cited overview statements are used이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "797308"
+    },
+    "lore2026-cults-guild-ash": {
+      "title": [
+        "Guild of Ash",
+        "애시 길드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Guild_of_Ash",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.39. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.39이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "629253"
+    },
+    "lore2026-cults-resurrected": {
+      "title": [
+        "Resurrected",
+        "리저렉티드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Resurrected",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Warhammer Community: Genestealer Cults in Necromunda, Free! (2018). The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Warhammer Community: Genestealer Cults in Necromunda, Free! (2018)이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "407937"
+    },
+    "lore2026-cults-second-son": {
+      "title": [
+        "Cult of the Second Son",
+        "세컨드 선 교단"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Cult_of_the_Second_Son",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: The Book of Ruin, p.39; The Book of Desolation, pp.46–47. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: The Book of Ruin, p.39; The Book of Desolation, pp.46–47이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "721970"
+    },
+    "lore2026-cults-sump-dogs": {
+      "title": [
+        "Sump Dogs",
+        "섬프 독스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Sump_Dogs",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Genestealer Cults in Necromunda (2018), p.3; Necromunda: House of Iron, p.28. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Genestealer Cults in Necromunda (2018), p.3; Necromunda: House of Iron, p.28이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "778196"
+    },
+    "lore2026-cults-brood-brother": {
+      "title": [
+        "Brood Brother",
+        "브루드 브라더"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Brood_Brother",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Codex: Tyranids (2nd edition), p.29 and Kill Team: Termination, pp.9–15. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Codex: Tyranids (2nd edition), p.29 and Kill Team: Termination, pp.9–15이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "754966"
+    },
+    "lore2026-cults-malstrain": {
+      "title": [
+        "Malstrain Genestealer",
+        "말스트레인 진스틸러"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Malstrain",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: Hive Secundus, pp.11,25 and official 2024 introductions. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: Hive Secundus, pp.11,25 and official 2024 introductions이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-cults-tyramite": {
+      "title": [
+        "Malstrain Tyramite",
+        "말스트레인 타이라마이트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Malstrain_Tyramite",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Warhammer Community: Hive Secundus – Undoing Perfection With the Horrors of the Malstrain. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Warhammer Community: Hive Secundus – Undoing Perfection With the Horrors of the Malstrain이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "624137"
+    },
+    "lore2026-cults-brood-scum": {
+      "title": [
+        "Brood Scum",
+        "브루드 스컴"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Brood_Scum",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to Necromunda: Hive Secundus, p.25. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 Necromunda: Hive Secundus, p.25이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "644087"
+    },
+    "lore2026-cults-jardlan": {
+      "title": [
+        "Jardlan",
+        "야르들란"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Jardlan",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary reference; its citations point to The Aranthian Succession – Ruins of Jardlan, pp.17,33,70. The original publication was not newly inspected for this note.",
+        "팬 위키의 2차 정리입니다. 문서가 제시한 원전은 The Aranthian Succession – Ruins of Jardlan, pp.17,33,70이며, 이 항목 작성 과정에서 해당 원전 전체를 새로 열람한 것은 아닙니다."
+      ],
+      "revision": "707357"
+    },
+    "lore2026-cults-design": {
+      "title": [
+        "Hive Secundus – Undoing Perfection With the Horrors of the Malstrain",
+        "하이브 세쿤두스 — 말스트레인의 공포를 디자인하다"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/qGhL23Fk/hive-secundus-undoing-perfection-with-the-horrors-of-the-malstrain/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official public article; summarized in original wording.",
+        "공식 공개 기사입니다. 내용을 독자적인 문장으로 요약했습니다."
+      ]
+    },
+    "lore2026-cults-fall-official": {
+      "title": [
+        "Hive Secundus – The Fall of the Jewel of Necromunda",
+        "하이브 세쿤두스 — 네크로문다의 보석이 몰락하다"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/1LsiJpxk/hive-secundus-the-fall-of-the-jewel-of-necromunda/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official interview dated 16 July 2024. It attributes the final orbital strike to Vestrix; this is distinct from the supplied fan summary’s attribution to Cael Helmawr.",
+        "2024년 7월 16일 공식 인터뷰입니다. 최후의 궤도 공격을 베스트릭스의 명령으로 설명하며, 사용자가 제시한 팬 요약의 카엘 헬마우르 서술과는 차이가 있습니다."
+      ]
+    },
+    "lore2026-cults-fan-secundus": {
+      "title": [
+        "The fall of Hive Secundus — Korean fan summary",
+        "하이브 세쿤두스의 몰락 — 한국어 팬 요약"
+      ],
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=blacklibrary&no=354678",
+      "publisher": "DCInside Black Library gallery · 꺼삐딴림",
+      "kind": "fan-summary",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Main article text was read, not just the image or title (posted 5 October 2024). Used for comparison, not as independent authority. Its final-strike attribution differs from the official July 2024 interview; uncorroborated additions were not imported.",
+        "2024년 10월 5일 게시된 본문 텍스트를 확인했습니다. 이미지나 제목만 확인한 것이 아닙니다. 대조용 팬 요약이며 독립적인 공식 근거로 취급하지 않습니다. 최후 공격 명령자의 서술이 공식 2024년 7월 인터뷰와 달라, 확인되지 않은 추가 내용을 그대로 반영하지 않았습니다."
+      ]
+    }
+  },
+  "factions": [
+    {
+      "name": "Corpse Grinder Cults",
+      "chapters": [
+        {
+          "title": [
+            "Waz Bonepicker and the older wasteland tradition",
+            "와즈 본피커와 황무지에서 이어진 오래된 계보"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Necromundan legend places Waz Bonepicker at the head of an early Corpse Grinder congregation during the Great Road War. These were ash-waste scavengers feeding on battlefield dead, rather than merely workers rebelling inside one modern factory. The account gives the cult a history extending beyond the latest industrial disaster.",
+              "네크로문다의 전승은 대도로 전쟁 당시 와즈 본피커가 초기 콥스 그라인더 집단을 이끌었다고 말합니다. 이들은 현대의 공장 한 곳에서 봉기한 노동자만이 아니라 전장에 남은 시신을 먹던 황무지 수거꾼들이었습니다. 교단의 역사는 최근의 산업 재난보다 훨씬 오래된 황무지의 폭력과도 연결됩니다."
+            ],
+            [
+              "Later cults still invoke Bonepicker’s name. The bladed-wheel emblem recalls the machines of those ash-rider clans. Because the founding account is presented as legend, it should not be read as a verified biography of the first individual ever to practice cannibal worship.",
+              "후대의 교단도 본피커의 이름을 내세우며, 날붙이가 달린 바퀴 문양에는 옛 애시 라이더 클랜의 기계가 반영되어 있습니다. 다만 최초의 인물에 대한 이야기는 전승의 형태로 제시됩니다. 따라서 그가 실제로 행성 최초의 식인 숭배자였다는 확정적인 개인 전기로 읽지는 않는 편이 정확합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-waz",
+            "lore2026-cults-corpse-cults"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-waz"
+            ],
+            [
+              "lore2026-cults-waz",
+              "lore2026-cults-corpse-cults"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Arcos: profitable production concealed a revolt",
+            "아르코스: 생산 실적 뒤에서 자라난 봉기"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "Arcos became a corpse-starch exporter through its position near mining routes and a powerful Corpse Guild. The guild’s political influence, illicit procurement and corrupt officials allowed disappearances and growing violence to be treated as ordinary disorder while output increased. Economic success helped disguise the approaching collapse.",
+              "아르코스는 광업 교통로와 강력한 콥스 길드를 바탕으로 콥스 스타치를 다른 하이브에 수출했습니다. 길드의 정치적 영향력과 불법 조달, 관리들의 부패 때문에 주민 실종과 폭력이 늘어도 흔한 소요로 치부되었습니다. 생산량과 이익이 커진다는 사실이 오히려 도시의 붕괴를 가리는 장막이 되었습니다."
+            ],
+            [
+              "The recorded crisis spans 919–934.M40. Provost Marshal Seralos Hale confronted the cult led by Xor the Keeper, but intervention could not save the hive. Arcos was ultimately isolated beneath an artificial ash storm intended to starve its inhabitants and the cult, sacrificing a city to contain the danger.",
+              "기록된 위기는 M40의 919년부터 934년까지 이어집니다. 프로보스트 마셜 세랄로스 헤일이 조르 더 키퍼가 이끄는 교단에 맞섰지만 개입으로 하이브를 구하지는 못했습니다. 결국 주민과 교단을 굶겨 없애려는 인공 애시 스톰으로 아르코스를 고립시켰습니다. 위험을 봉쇄하기 위해 도시 자체를 희생한 사건입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-arcos"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-arcos"
+            ],
+            [
+              "lore2026-cults-arcos"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Harvest Lords and the scale beyond one gang",
+            "하비스트 로드와 갱 하나를 넘어서는 교단"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "A Butcher leads a fighting gang; a Harvest Lord may command the wider congregation. Cutters, Skinners and Initiates preserve a slaughterhouse hierarchy within the cult.",
+              "부처가 전투 갱을 이끌더라도 더 큰 교단은 하비스트 로드에게 복종할 수 있습니다. 커터와 스키너, 이니시에이트의 이름에도 도축장의 위계가 남습니다."
+            ],
+            [
+              "Congregations secretly accumulate weapons and recruits. Promises of freedom accompany fresh flesh, while a successful Harvest Lord may become a daemonic vessel: not every worker begins as a daemon.",
+              "교단은 무기와 신도를 몰래 모읍니다. 신선한 살점에는 자유의 약속이 따라붙고, 세력을 키운 하비스트 로드는 악마의 그릇이 되기도 합니다. 모든 노동자가 처음부터 악마는 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-corpse-cults"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-corpse-cults"
+            ],
+            [
+              "lore2026-cults-corpse-cults"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Corpse Guild is not the same institution",
+            "콥스 길드와 식인 교단은 같은 기관이 아니다"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The Mercator Pallidus is the Corpse Guild within the Merchant Guild: it administers the recovery of bodies and their conversion into corpse-starch. Its harvesting parties include Pale Consorts and Bone Scriveners. This sanctioned economy supplies the industrial environment from which cults recruit, but guild membership is not itself proof of cult allegiance.",
+              "메르카토르 팔리두스는 머천트 길드에 속한 콥스 길드로, 시신 회수와 콥스 스타치 가공을 관리합니다. 회수단에는 페일 콘소트와 본 스크리브너가 동행합니다. 이 공인된 산업이 교단의 모집 기반을 제공하지만, 길드에 고용되었다는 이유만으로 식인 교단의 신도라고 단정할 수는 없습니다."
+            ],
+            [
+              "Harvesting parties are especially active around gang wars, collecting suitable bodies and preparing them for transport to processing plants. The unsettling overlap lies in ordinary civic infrastructure: the same trade can contain officials, labourers, brutal profiteers and hidden heretics without those roles becoming interchangeable.",
+              "갱 전쟁은 길드 회수단이 원료를 얻는 기회입니다. 회수단은 적절한 시신을 골라 가공 시설로 운송할 준비를 합니다. 섬뜩한 점은 이 모든 것이 도시의 일상적인 기반 시설이라는 데 있습니다. 같은 산업 안에 관리와 노동자, 잔혹한 이익 추구자와 숨어든 이단자가 함께 있을 수 있지만 그 역할들은 서로 구분됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-corpse-guild"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-corpse-guild"
+            ],
+            [
+              "lore2026-cults-corpse-guild"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "A Khornate patron with uncertain older origins",
+            "코른계 후원자와 확정되지 않은 오래된 기원"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The Lord of Skin and Sinew is described as a powerful daemon of Khorne, rather than a wholly separate fifth Chaos God. Accounts associate its physical manifestation with Arcos. Its cult’s local names and imagery therefore belong within a wider Khornate tradition of bloodshed, hunger and sacrifice.",
+              "스킨 앤 시뉴의 군주는 별개의 다섯 번째 카오스 신이라기보다 강력한 코른의 악마로 설명됩니다. 아르코스에서 육체적으로 나타났다는 기록도 있습니다. 살육과 허기, 희생을 강조하는 지역적인 호칭과 도상은 더 넓은 코른계 숭배의 맥락 안에서 이해할 수 있습니다."
+            ],
+            [
+              "Stories disagree about whether the daemon is bound to Necromunda and trying to escape, or intends to turn it into a personal domain. Those remain theories. Other accounts describe dying people bargaining for prolonged life at the cost of sacrifices and eventual transformation; such bargains promise survival rather than safety.",
+              "그 존재가 네크로문다에 묶여 탈출을 꾀하는지, 행성을 자신의 영역으로 바꾸려 하는지에 대해서는 여러 설이 있습니다. 어느 한쪽이 확정된 기원은 아닙니다. 죽음을 앞둔 사람이 희생 의무와 끝내 변이하는 대가를 치르고 수명을 연장받는 이야기 역시, 생존의 약속과 안전의 보장은 다르다는 점을 보여 줍니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-skin-sinew"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-skin-sinew"
+            ],
+            [
+              "lore2026-cults-skin-sinew"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Ravenous One and Delaque’s Confluence",
+            "레이버너스 원과 델라크의 컨플루언스"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "The Ravenous One began in Primus’s 313-Gamma corpse farms after the Great Rift opened. Enforcers drove his followers into a waste sluice, but daemonic possession allowed the broken survivors to continue. Their unnatural senses then led them towards a Delaque psychic meeting beneath Sump City.",
+              "레이버너스 원은 대균열이 열린 뒤 프라이머스의 313-감마 시체 농장에서 나타났습니다. 인포서에게 쫓긴 신도들은 폐기물 수로로 추락했지만, 악마에게 빙의된 생존자들은 부서진 몸으로도 다시 움직였습니다. 이후 비정상적인 감각을 따라 섬프 시티 아래 델라크의 정신적 회합으로 향했습니다."
+            ],
+            [
+              "At the Confluence of Shadows, a Spyker’s illusion briefly disrupted the attackers. The Harvest Lord broke the trap, only to be killed when Yithir placed a plasma grenade in his mouth. The tale ends with the cult destroyed and few defenders alive, a specific catastrophe rather than a universal description of every cult encounter.",
+              "컨플루언스 오브 섀도스에서는 스파이커의 환상이 습격자들을 일시적으로 교란했습니다. 하비스트 로드는 함정을 깨뜨렸지만 이시르가 입 안에 넣은 플라즈마 수류탄에 죽습니다. 교단은 궤멸했고 방어자도 소수만 살아남았습니다. 이것은 특정 집단 사이에서 벌어진 참사이며 모든 교단의 전투가 같은 결말을 갖는다는 뜻은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-ravenous"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-ravenous"
+            ],
+            [
+              "lore2026-cults-ravenous"
+            ]
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Chaos Helots",
+      "chapters": [
+        {
+          "title": [
+            "Hidden temples and deliberately weakened boundaries",
+            "숨겨진 신전과 의도적으로 약해지는 경계"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Helot congregations seek places where realspace borders the Warp weakly. Worship and sacrifice can deepen those weaknesses, turning a hidden neighbourhood shrine into a possible daemonic gateway.",
+              "헬롯 교단은 현실과 워프의 경계가 약한 장소를 찾습니다. 숭배와 희생으로 경계를 더 약화시키면 숨어 있는 동네 신전이 악마의 침입로가 될 수 있습니다."
+            ],
+            [
+              "Discovery need not destroy every follower. Survivors become underhive outlanders, competing against mutants, Redemptionists and rivals for food and shelter while preserving their religious ambitions.",
+              "발각되었다고 신도 모두가 사라지지는 않습니다. 생존자는 언더하이브의 아웃랜더가 되어 종교적 야망을 유지하면서도 뮤턴트와 리뎀셔니스트, 경쟁자와 먹을 것과 은신처를 다툽니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-helot"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-helot"
+            ],
+            [
+              "lore2026-cults-helot"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The preacher’s authority and the Witch’s different role",
+            "설교자의 권위와 위치의 서로 다른 역할"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "A Demagogue supplies religious authority: interpreting omens, directing sacrifices and presenting promises as divine revelation. The cult’s followers may hope to escape misery while their leader pursues personal advancement. Shared slogans should not be mistaken for equal access to power within the congregation.",
+              "데마고그는 징조를 해석하고 희생을 지휘하며 약속을 신의 계시처럼 제시하는 종교적 권위자입니다. 신도들이 비참한 삶에서 벗어나기를 바라는 동안 지도자는 자신의 출세와 권력을 추구할 수 있습니다. 모두가 같은 구호를 외친다고 교단 내부의 힘이 평등하게 나뉘는 것은 아닙니다."
+            ],
+            [
+              "A Cult Witch is a rogue psyker within the cult, a different identity from the persuasive preacher. Psychic ability alone does not make every fugitive a Chaos servant, and oratory does not prove psychic power. The danger comes from their particular allegiance and actions, not from treating those labels as synonyms.",
+              "컬트 위치는 교단에 속한 로그 사이커로, 말로 대중을 설득하는 설교자와는 다른 정체성입니다. 정신 능력이 있다고 도망자 모두가 카오스의 종이 되는 것도 아니고, 뛰어난 연설 능력이 곧 초능력을 뜻하는 것도 아닙니다. 어떤 세력에 충성하고 무슨 행위를 하는지를 구분해야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-demagogue",
+            "lore2026-cults-helot",
+            "lore2026-cults-witch"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-demagogue",
+              "lore2026-cults-helot"
+            ],
+            [
+              "lore2026-cults-witch"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Mordrina Soth’s seventeen days at Prosperine",
+            "프로스페린에서 이어진 모르드리나 소스의 17일"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "Mordrina Soth’s Cult of the Exquisite Corpse began around an Escher pharmaceutical plant and drew in Orlock and Goliath workers, then thrill-seeking noble Brats. A local disturbance crossed House and class boundaries. Soth overthrew the hive’s rulers and promised a society freed from injustice.",
+              "모르드리나 소스의 익스퀴지트 콥스 교단은 에셔의 제약 공장에서 시작해 올록과 골리앗 노동자, 자극을 찾던 귀족 브랫까지 끌어들였습니다. 지역 소요가 하우스와 계급의 경계를 넘어 번진 것입니다. 소스는 하이브의 지배자를 무너뜨리고 불의에서 해방된 사회를 약속했습니다."
+            ],
+            [
+              "The new order lasted seventeen days before forces from other hives destroyed it. Former servants had become overseers while former masters were reduced to servitude; the city bore Chaos symbols and brutality. Soth’s fate remained uncertain, and her name survived among later rebels. This episode belongs to the Book of Ruin account, not a date assigned to every Helot uprising.",
+              "새 질서는 다른 하이브의 병력이 진압하기까지 17일 동안 이어졌습니다. 이전의 하인은 감독이 되고 주인은 예속민이 되었지만, 도시에는 잔혹함과 카오스 문양이 남았습니다. 소스의 최후는 불분명하며 그 이름은 후대 반란군 사이에 남습니다. 이 기간은 『북 오브 루인』에 실린 특정 사건의 기록입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-soth"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-soth"
+            ],
+            [
+              "lore2026-cults-soth"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Leechtown: liberation rhetoric and rival fronts",
+            "리치타운: 해방의 구호와 서로 적대하는 전선"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The Leechtown Liberation Front is an identified Helot cult of Hive Primus. Its Demagogue gathered disillusioned serfs with a call to claim what their oppressors denied them. The group also quarrels with the separately named Liberation Front of Leechtown, showing that a common promise of revolt need not produce unity.",
+              "리치타운 해방전선은 하이브 프라이머스에서 활동하는 구체적인 헬롯 교단입니다. 데마고그는 지배자에게 빼앗겼다고 여기는 몫을 되찾자는 말로 환멸에 빠진 예속민을 모았습니다. 그런데 이들은 이름이 비슷한 별개의 ‘해방전선 리치타운’과도 다툽니다. 반란의 구호가 같아도 단결이 보장되지는 않습니다."
+            ],
+            [
+              "This example originated in Andy Hoare’s showcased Necromunda collection. It is useful as a named local congregation, rather than evidence that every Helot shares its politics, uniform or patron. Its specificity preserves a city full of different movements instead of one centrally administered planetary church.",
+              "이 사례는 앤디 호어의 네크로문다 컬렉션을 소개한 공식 글에 등장했습니다. 지역 교단의 이름과 사정을 보여 주는 자료이지 모든 헬롯이 같은 정치적 주장이나 복장, 후원자를 공유한다는 근거는 아닙니다. 교단마다 다른 지역성을 살려 읽어야 이들이 행성 전체를 통제하는 단일 교회처럼 보이지 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-leechtown"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-leechtown"
+            ],
+            [
+              "lore2026-cults-leechtown"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Sump Mother remains an underhive rumour",
+            "섬프 마더: 소문을 사실과 구분해서 읽기"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "The Cult of the Sump Mother reportedly worshipped Primus’s sump as a living, profane god. Underhive rumour claims that its deity fused the congregation into one enormous Chaos Spawn. The wording matters: the report preserves a frightening local explanation, not a witnessed scientific account of the sump’s nature.",
+              "섬프 마더 교단은 프라이머스의 섬프를 살아 있는 불경한 신으로 숭배했다고 전해집니다. 언더하이브의 소문은 그 신이 신도들을 하나의 거대한 카오스 스폰으로 융합시켰다고 말합니다. 중요한 점은 이것이 소문이라는 것입니다. 섬프의 정체를 과학적으로 확인한 관찰 기록과는 다릅니다."
+            ],
+            [
+              "Its associated Book of Ruin vignette is the Abomination of Badzone 12. Unlike a cult that simply disappears after a purge, this story gives absence a monstrous explanation: the community may have become the thing neighbours now fear. The uncertainty is part of the tale and should remain visible.",
+              "이 이야기는 『북 오브 루인』의 ‘배드존 12의 흉물’과 연결됩니다. 진압 뒤 교단이 사라졌다는 이야기와 달리, 주변 주민이 두려워하는 괴물 자체가 이전의 공동체일 수 있다는 설명입니다. 결말을 확정된 생물학적 사건으로 바꾸기보다 원래의 불확실성을 남겨 두는 것이 이야기에 충실합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-sump-mother"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-sump-mother"
+            ],
+            [
+              "lore2026-cults-sump-mother"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Named congregations and the limits of their surviving records",
+            "이름이 남은 교단과 기록이 말하지 않는 부분"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "The Daughters of Serrated Thought include a Cult Witch known as The Unheeded Truth; the Soulless Few include Grezdar. These names appear in Book of Ruin material, but the accessible reference entries do not supply complete histories, temple locations or a confirmed patron for each group.",
+              "서레이티드 소트의 딸들에는 ‘외면당한 진실’이라 불리는 컬트 위치가, 소울리스 퓨에는 그레즈다르가 등장합니다. 이 이름들은 『북 오브 루인』 자료에 연결되지만, 공개 참고 문서만으로 각 교단의 전체 역사와 신전 위치, 확정된 후원자까지 알 수 있는 것은 아닙니다."
+            ],
+            [
+              "The surviving detail establishes that named individuals and small congregations inhabit the wider category of Helots. Their unrecorded campaigns should not be filled with invented victories or affiliations. A short, precisely attributed entry is more informative than giving every cult the same fabricated biography.",
+              "남아 있는 정보는 헬롯이라는 큰 범주 안에 구체적인 개인과 작은 교단이 존재한다는 점을 보여 줍니다. 기록되지 않은 전쟁에 임의의 승리나 소속을 덧붙여서는 안 됩니다. 알려진 이름과 역할을 출처에 맞게 남겨 두는 편이 모든 교단에 비슷한 가공의 전기를 붙이는 것보다 정확합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-daughters",
+            "lore2026-cults-soulless"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-daughters",
+              "lore2026-cults-soulless"
+            ],
+            [
+              "lore2026-cults-daughters",
+              "lore2026-cults-soulless"
+            ]
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Genestealer Cults",
+      "chapters": [
+        {
+          "title": [
+            "Acolytes, Neophytes and a family’s changing appearance",
+            "아콜라이트와 네오파이트: 세대에 따라 달라지는 가족의 얼굴"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Early-generation hybrids show the alien inheritance most openly, including extra arms and pronounced Genestealer features. Later generations can resemble ordinary humans closely enough to move through the surrounding population. Acolyte and Neophyte therefore describe positions within a reproductive and social history, not simply two uniforms.",
+              "초기 세대의 하이브리드는 추가 팔과 뚜렷한 진스틸러 특징처럼 외계의 유산이 겉으로 강하게 드러납니다. 후대의 세대는 주변 주민 사이를 오갈 만큼 인간과 비슷해질 수 있습니다. 따라서 아콜라이트와 네오파이트는 서로 다른 제복의 이름이 아니라 생식과 사회적 은폐의 역사 속에서 이해해야 하는 명칭입니다."
+            ],
+            [
+              "The cycle eventually produces Purestrains again. A deceptively ordinary family can thus shelter creatures it cannot publicly acknowledge, while its apparently human members conduct work and recruitment. Individual descriptions differ across older publications; the general progression should not be turned into an inflexible ancestry chart for every named cult.",
+              "그 순환 끝에는 다시 퓨어스트레인이 태어납니다. 평범해 보이는 가족이 공개할 수 없는 생물을 숨기고, 인간처럼 보이는 구성원은 일과 포섭을 맡을 수 있는 셈입니다. 오래된 출판물 사이에는 세부 묘사의 차이가 있으므로 모든 교단의 개체를 하나의 엄격한 족보에 억지로 맞추지는 않아야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-hybrid"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-hybrid"
+            ],
+            [
+              "lore2026-cults-hybrid"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Magus as public voice, the Patriarch as hidden centre",
+            "공적인 목소리인 마구스와 숨어 있는 중심 패트리아크"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "A Magus’s near-human appearance, charisma and psychic talent make it a public representative that the visibly alien Patriarch cannot be. A religious or political front can address outsiders while the progenitor remains concealed. The familiar face of a movement and the creature directing its deepest loyalty need not be the same individual.",
+              "인간에 가까운 외모와 카리스마, 정신 능력을 갖춘 마구스는 외계의 모습이 뚜렷한 패트리아크가 맡기 어려운 공개적인 대표가 됩니다. 종교나 정치 운동의 얼굴이 외부 사람과 접촉하는 동안 시조는 숨어 있을 수 있습니다. 주민이 알아보는 지도자와 집단의 가장 깊은 충성심을 지배하는 존재는 서로 다를 수 있습니다."
+            ],
+            [
+              "A widespread cult may have several regional Magi competing for the Patriarch’s favour. Wider Genestealer organisation also includes a Primus directing war, within a Broodcoven around the Patriarch. These are functions of a developed cult; a local underhive cell need not contain every office or know the whole organisation.",
+              "세력이 멀리 퍼진 교단에는 여러 지역의 마구스가 생겨 패트리아크의 총애를 두고 경쟁하기도 합니다. 더 큰 진스틸러 조직에서는 전쟁을 지휘하는 프라이머스도 패트리아크 주위의 브루드코븐에 속합니다. 이는 성장한 교단의 역할 구분이며, 언더하이브의 작은 세포 조직마다 모든 직책이나 전체 조직의 실체를 갖추었다는 뜻은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-magus",
+            "lore2026-cults-genestealer-cult"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-magus",
+              "lore2026-cults-genestealer-cult"
+            ],
+            [
+              "lore2026-cults-magus",
+              "lore2026-cults-genestealer-cult"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Guild of Ash hides inside legitimate trade",
+            "정상적인 교역 속에 숨어든 애시 길드"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The Guild of Ash began with an infected Merchant Guild prospector and presented itself as a Guilder family. Trading rare minerals from deep beneath the Quinspirus Cluster gave the cult a respectable route into hive society. Its expansion followed economic relationships rather than an immediate public uprising.",
+              "애시 길드는 감염된 머천트 길드 탐사자에게서 시작해 길더 가문처럼 행세했습니다. 퀸스파이러스 클러스터 깊은 곳의 희귀 광물을 거래하면서 하이브 사회에 들어갈 그럴듯한 통로를 얻었습니다. 시작부터 공개 봉기를 일으킨 것이 아니라 경제적인 관계를 따라 영향력을 넓힌 사례입니다."
+            ],
+            [
+              "Alliances with Noble and Clan Houses helped extend its bloodline, but Delaque influence obstructed its ascent towards the cluster’s five spires. The two sides wanted different outcomes: Delaque sought its destruction, while the cult hoped to convert Delaque. Hostility could therefore conceal an attempted recruitment campaign.",
+              "노블 하우스와 클랜 하우스의 동맹은 오염된 혈통이 퍼지는 데 도움이 되었지만, 클러스터의 다섯 스파이어로 올라가려는 계획은 델라크의 영향력과 충돌했습니다. 델라크가 길드의 파괴를 원한 데 비해 교단은 델라크의 전향을 원했습니다. 같은 적대 관계 안에서도 한쪽의 목표는 상대를 없애는 것이 아니라 흡수하는 것이었습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-guild-ash"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-guild-ash"
+            ],
+            [
+              "lore2026-cults-guild-ash"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Resurrected beneath Temenos’s Cawdor identity",
+            "테메노스의 커드로 정체성 아래 숨은 리저렉티드"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "The Resurrected operate in Hive Temenos while passing as servants of House Cawdor. This cover places alien infiltration within a population already shaped by intense human religious identity. Its followers need not present themselves as an obviously foreign congregation in order to spread.",
+              "리저렉티드는 하이브 테메노스에서 하우스 커드로의 일원처럼 행세합니다. 강렬한 인간의 종교 정체성이 있는 공동체 안에도 외계의 침투가 숨어들 수 있음을 보여 주는 사례입니다. 신도들이 낯선 교단의 모습을 공개적으로 드러내야만 감염이 퍼지는 것은 아닙니다."
+            ],
+            [
+              "The 2018 account leaves Cawdor’s awareness uncertain and warns that recognition might come too late. It does not state that all Temenos Cawdor are infected or that the entire House knowingly serves Genestealers. Maintaining that uncertainty preserves the distinction between a hidden cell, its unsuspecting host and a completed takeover.",
+              "2018년의 소개는 커드로가 침투를 알아차렸는지 확정하지 않으며, 알아차려도 너무 늦을 가능성을 남깁니다. 그렇다고 테메노스의 커드로 전원이 감염되었다거나 하우스 전체가 알고서 진스틸러를 섬긴다는 뜻은 아닙니다. 비밀 세포와 그 숙주 사회, 장악이 완료된 상태는 구분해야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-resurrected"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-resurrected"
+            ],
+            [
+              "lore2026-cults-resurrected"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "The Second Son at the Spider Points",
+            "스파이더 포인츠를 노리는 세컨드 선"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "Older accounts describe the Second Son as trading mining clans contesting the Palatine Cluster’s Spider Points. Ash Gate access makes this important beyond one mine.",
+              "이전 자료의 세컨드 선은 교역하는 광업 클랜으로, 팔라타인 클러스터의 스파이더 포인츠를 다툽니다. 주요 애시 게이트로 향하는 길이 걸려 있어 광산 한 곳의 경쟁보다 중요합니다."
+            ],
+            [
+              "The Orlock Sump Dogs mistake them for mutant miners. Later Desolation material links the Second Son to the Malstrain; the reader’s later knowledge should not overwrite those rivals’ ignorance.",
+              "올록의 섬프 독스는 이들을 뮤턴트 광부로 여깁니다. 후대의 『데솔레이션』 자료는 세컨드 선을 말스트레인과 연결하지만, 독자가 나중에 얻은 지식으로 당시 경쟁자들의 무지를 바꾸어서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-sump-dogs",
+            "lore2026-cults-second-son"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-sump-dogs",
+              "lore2026-cults-second-son"
+            ],
+            [
+              "lore2026-cults-sump-dogs",
+              "lore2026-cults-second-son"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Brood Brothers and loyalties inside public institutions",
+            "공적인 기관 안에 남아 있는 브루드 브라더의 충성심"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Brood Brothers are infected human hosts and relatives within the Genestealer community. Some continue their ordinary civic or military duties while their strongest loyalties lie with the brood. A trusted worker, guard or official may therefore help an infiltration without openly abandoning the institution that gives them access.",
+              "브루드 브라더는 진스틸러 공동체 안의 감염된 인간 숙주와 가족들입니다. 일부는 기존의 행정·군사적 일을 계속하면서도 더 강한 충성심을 브루드에 바칩니다. 믿을 만해 보이는 노동자나 경비, 관리가 자신에게 접근 권한을 주는 기관을 공개적으로 떠나지 않고도 침투에 가담할 수 있습니다."
+            ],
+            [
+              "Across the wider setting, militia and defence-force infiltration supplies training and weapons, then turns those institutions against loyalists when the uprising begins. This explains the cult’s interest in functioning society as well as abandoned tunnels. It does not establish that any particular Necromundan regiment is already infected.",
+              "더 넓은 세계관에서 민병대와 행성 방위군에 침투하는 방식은 훈련과 무기를 제공하며, 봉기 때에는 그 조직을 충성파에 맞서게 합니다. 폐허의 터널뿐 아니라 정상적으로 작동하는 사회에도 교단이 관심을 두는 이유입니다. 이 일반적인 방식만으로 네크로문다의 특정 연대가 이미 감염되었다고 단정할 수는 없습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-brood-brother"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-brood-brother"
+            ],
+            [
+              "lore2026-cults-brood-brother"
+            ]
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "The Malstrain",
+      "chapters": [
+        {
+          "title": [
+            "A lifecycle already abnormal before the final bombardment",
+            "최후의 포격 이전부터 비정상이었던 생활사"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Vestrix identified unpredictable inheritance during the Secundus war. Malstrain generations did not follow the reliable progression towards human appearance and renewed Purestrains; abnormalities preceded the final bombardment.",
+              "베스트릭스는 세쿤두스 전쟁 중 예측하기 어려운 유전을 포착했습니다. 인간에 가까워졌다가 퓨어스트레인으로 돌아오는 안정된 순환과 달랐으며, 비정상적인 특징은 최후 포격 이전부터 있었습니다."
+            ],
+            [
+              "The reference links instability to Hermiatus’s interference and inbreeding. Later irradiation intensified the surviving horrors. These stages should remain distinct, without forcing every creature into a fixed generational chart.",
+              "참고 문서는 불안정성을 헤르미아투스의 개입과 근친교배에 연결합니다. 이후의 방사선은 생존자를 더욱 뒤틀었습니다. 두 단계를 구분하고 모든 개체에게 고정된 세대 도표를 강요하지 않아야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-malstrain"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-malstrain"
+            ],
+            [
+              "lore2026-cults-malstrain"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Tyramites: native parasites pressed into an alien brood",
+            "타이라마이트: 외계 브루드에 편입된 토착 기생 생물"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Tyramites are not miniature Tyranids. The designers identify them as local tick-like insects altered by feeding on the dead and brought under the Malstrain Broodmind. Their presence shows the curse reaching into Secundus’s existing ecology instead of merely producing a conventional alien swarm.",
+              "타이라마이트는 작은 타이라니드가 아닙니다. 제작진은 이들을 죽은 것들을 먹으며 변이하고 말스트레인 브루드마인드에 종속된, 진드기와 비슷한 토착 곤충이라고 설명합니다. 통상적인 외계 군체만 복제한 것이 아니라 세쿤두스에 원래 존재하던 생태계까지 저주가 파고든 결과입니다."
+            ],
+            [
+              "The official design discussion pairs these insect thralls with infected human Brood Scum, describing a damaged brood exploiting hosts that a healthy one would not normally need. Shared psychic control therefore does not imply shared species or identical origins. The ruins contain several kinds of altered life bound into one infestation.",
+              "공식 디자인 설명은 곤충 하수인과 감염된 인간인 브루드 스컴을 함께 언급하며, 손상된 브루드가 정상적이라면 필요로 하지 않을 숙주까지 이용하는 모습을 말합니다. 같은 정신적 지배를 받는다고 같은 종이나 같은 기원을 가진 것은 아닙니다. 폐허에는 서로 다르게 뒤틀린 생명들이 하나의 감염에 묶여 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-tyramite",
+            "lore2026-cults-design"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-tyramite",
+              "lore2026-cults-design"
+            ],
+            [
+              "lore2026-cults-tyramite",
+              "lore2026-cults-design"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Brood Scum retain the history of the people they were",
+            "브루드 스컴에게 남아 있는 인간 사회의 흔적"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Brood Scum include corrupted defenders, descendants of lost military formations and scavengers caught by the curse. They may still look human enough to pass as hive scum. Within Secundus they form armed gangs, defend turf, collect equipment and seek victims to convert under the Patriarch’s direction.",
+              "브루드 스컴에는 오염된 방어군과 실종된 병력의 후손, 저주에 붙잡힌 수거꾼 등이 섞입니다. 하이브 스컴처럼 보일 만큼 인간의 외형을 유지하기도 합니다. 세쿤두스 안에서는 무장한 갱을 이루어 구역을 지키고 장비를 모으며, 패트리아크의 지배 아래 새로운 감염 대상을 찾습니다."
+            ],
+            [
+              "Their origins help explain why the infestation can use human weapons, gang hierarchies and vehicles rather than relying only on claws. Human-looking agents can move towards settlements beyond the Dust Wall. A survivor’s familiar clothing is therefore not a reliable measure of whether the person’s allegiance remains human.",
+              "이러한 출신은 감염 세력이 발톱만 쓰는 대신 인간의 무기와 갱의 위계, 차량까지 활용할 수 있는 이유를 설명합니다. 인간처럼 보이는 구성원은 더스트 월 바깥의 정착지로도 움직입니다. 생존자가 익숙한 옷을 입고 있다는 사실만으로 그 사람의 충성심까지 여전히 인간에게 속한다고 판단할 수는 없습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-brood-scum"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-brood-scum"
+            ],
+            [
+              "lore2026-cults-brood-scum"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Jardlan: the neighbouring hold that did not remain safe",
+            "야르들란: 끝내 안전하지 못했던 이웃 홀드"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "Jardlan’s Squat holdfast stood close to the Secundan Abyss. During the Great Darkness its communications failed, producing rival rumours about subterranean horrors and Dust Wall crawler tribes. Ruins of Jardlan later identifies the Malstrain as the destroyer, turning speculation at the frontier into a concrete connection with the infestation.",
+              "스쿼트의 야르들란 홀드패스트는 세쿤단 어비스 가까이에 있었습니다. 대암흑기에 통신이 끊기자 지하의 괴물이나 더스트 월의 크롤러 부족이 원인이라는 소문이 돌았습니다. 이후 『루인스 오브 야르들란』은 파괴자를 말스트레인으로 밝힙니다. 변경의 추측이 감염과 연결된 구체적인 사건으로 이어진 사례입니다."
+            ],
+            [
+              "Its Deep Rift gate bordered the Abyss in ground destabilised by the weapons used against Secundus. Fortified gates and inherited rune-lore could not erase that geographic exposure. The fall shows that distance from the dead hive’s centre and a strong mining culture were not sufficient protection.",
+              "야르들란의 딥 리프트 관문은 세쿤두스 공격에 사용된 무기로 불안정해진 지반에서 어비스와 맞닿았습니다. 단단한 관문과 대대로 이어 온 룬의 지식도 그런 지리적 노출을 없애지는 못했습니다. 죽은 하이브의 중심에서 떨어져 있고 강인한 광업 문화를 가졌다고 감염으로부터 안전한 것은 아니었습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-jardlan"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-jardlan"
+            ],
+            [
+              "lore2026-cults-jardlan"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "An alien struggle against other Genestealer lineages",
+            "다른 진스틸러 혈통과도 벌어지는 외계의 경쟁"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Desolation material describes off-world cults arriving through the Eye of Selene. The Patriarch’s signal repels some but absorbs others; shared ancestry does not guarantee welcome or unity.",
+              "『데솔레이션』 자료에는 아이 오브 셀레네를 통한 외부 교단의 유입이 나옵니다. 패트리아크의 신호에 물러나거나 흡수되기도 하며, 같은 뿌리라고 환영과 통일이 보장되지는 않습니다."
+            ],
+            [
+              "Tunnels beneath the Great Equatorial Spine carry proto-Malstrain influence farther. A warning of the Patriarch’s escape does not mean it has conquered Necromunda.",
+              "그레이트 이퀘이토리얼 스파인 아래의 터널은 초기 말스트레인의 영향력을 더 멀리 옮깁니다. 패트리아크의 탈출에 대한 경고는 가능성이지 이미 네크로문다를 정복했다는 확인이 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-second-son"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-second-son"
+            ],
+            [
+              "lore2026-cults-second-son"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Scrutinators, evidence and a concealed planetary risk",
+            "스크루티네이터의 증거와 감춰진 행성 규모의 위험"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Scrutinators collected evidence of Malstrain beyond Secundus, according to the reference account. Helmawr concealed it; dismissing sightings as ordinary genetic diversity was part of that cover-up.",
+              "참고 문서에 따르면 스크루티네이터는 세쿤두스 밖 말스트레인의 증거를 모았습니다. 헬마우르는 이를 숨겼으며, 목격담을 보통의 유전적 차이로 일축하는 것도 은폐의 일부였습니다."
+            ],
+            [
+              "Imperial discovery threatened punishment for a world that had failed to eliminate the infestation. Secrecy served planetary politics; it does not mean every Enforcer knew, or that outsiders remained permanently ignorant.",
+              "제거하지 못한 감염을 제국이 발견하면 행성에 보복이 닥칠 수 있었습니다. 비밀주의는 정치적 선택이었지만, 모든 인포서가 알았다거나 외부인이 영원히 몰랐다는 뜻은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-cults-malstrain"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-malstrain"
+            ],
+            [
+              "lore2026-cults-malstrain"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Who ordered the strike? Keep the accounts distinct",
+            "누가 공격을 명령했는가: 서술의 출처를 구분하기"
+          ],
+          "group": "history",
+          "sourceIds": [
+            "lore2026-cults-fall-official",
+            "lore2026-cults-fan-secundus"
+          ],
+          "paragraphs": [
+            [
+              "The 2024 official interview credits Vestrix with the orbital strike; the Korean fan summary credits Cael Helmawr. These accounts remain separate, without inventing joint orders.",
+              "2024년 공식 인터뷰는 궤도 공격을 베스트릭스의 명령으로, 한국어 팬 요약은 카엘 헬마우르의 결정으로 설명합니다. 임의의 공동 명령으로 합치지 않고 차이를 남겼습니다."
+            ]
+          ],
+          "editorialNote": true,
+          "paragraphSourceIds": [
+            [
+              "lore2026-cults-fall-official",
+              "lore2026-cults-fan-secundus"
+            ]
+          ]
+        }
+      ],
+      "corrections": []
+    }
+  ],
+  "accessIssues": [
+    {
+      "url": "https://www.warhammer-community.com/2019/11/19/creating-a-chaos-cultfw-homepage-post-3/",
+      "status": "redirected-to-home",
+      "note": "Old official link now redirected to the homepage; the original article was not treated as read. Its showcased cult is documented by the cited Lexicanum entry."
+    },
+    {
+      "url": "https://www.warhammer-community.com/wp-content/uploads/2018/08/Genesteal-Cult-Download.pdf",
+      "status": "403",
+      "note": "Legacy PDF returned Forbidden. Necromundan examples were read in attributed Lexicanum entries instead; no claim of original PDF inspection."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Corpse_Guild",
+      "status": "403-resolved-alias",
+      "note": "Canonical-case request returned Forbidden; the public Corpse_guild redirect alias returned the complete article and is the cited reading URL."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Broodcoven",
+      "status": "timeout",
+      "note": "Timeout; hierarchy was corroborated through the Genestealer Cult and Magus entries, not this uninspected URL."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Spiderpoints",
+      "status": "unavailable",
+      "note": "This guessed title was unavailable. The Sump Dogs article contains the cited Spider Points rivalry; no claim of reading a standalone Spiderpoints article."
+    },
+    {
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=blacklibrary&no=354678",
+      "status": "read-source-discrepancy",
+      "note": "Main text read. Its Cael Helmawr final-bombardment attribution differs from the July 2024 official interview, which explicitly attributes the Eye of Selene strike to Vestrix. Sources are preserved separately, not merged into a fabricated definitive command chain."
+    }
+  ]
+}

@@ -1,0 +1,1379 @@
+{
+  "sources": {
+    "lore2026-house-cawdor": {
+      "title": [
+        "House Cawdor",
+        "렉시카눔: 코드로 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Cawdor",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-brayne": {
+      "title": [
+        "Encorderius Brayne",
+        "렉시카눔: 엔코르데리우스 브레인"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Encorderius_Brayne",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "789297"
+    },
+    "lore2026-house-palace-bones": {
+      "title": [
+        "Palace of Bones",
+        "렉시카눔: 뼈의 궁전"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Palace_of_Bones",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "727388"
+    },
+    "lore2026-house-koiron": {
+      "title": [
+        "House Ko’iron",
+        "렉시카눔: 코아이런 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Ko%27iron",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "727613"
+    },
+    "lore2026-house-word-keeper": {
+      "title": [
+        "Word-Keeper",
+        "렉시카눔: 워드 키퍼"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Word-Keeper",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "717913"
+    },
+    "lore2026-house-redemption": {
+      "title": [
+        "Redemption Cult",
+        "렉시카눔: 리뎀션 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Redemption_Cult",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "798004"
+    },
+    "lore2026-house-escher": {
+      "title": [
+        "House Escher",
+        "렉시카눔: 에셔 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Escher",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-council-crones": {
+      "title": [
+        "Council of Crones",
+        "렉시카눔: 크론 의회"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Council_of_Crones",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "563391"
+    },
+    "lore2026-house-ulanti": {
+      "title": [
+        "House Ulanti",
+        "렉시카눔: 울란티 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Ulanti",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "730406"
+    },
+    "lore2026-house-maiden-cult": {
+      "title": [
+        "Maiden Cult",
+        "렉시카눔: 메이든 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Maiden_Cult",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "707472"
+    },
+    "lore2026-house-mortis": {
+      "title": [
+        "Hive Mortis",
+        "렉시카눔: 하이브 모르티스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Hive_Mortis",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "568828"
+    },
+    "lore2026-house-adina": {
+      "title": [
+        "Adina Sabine",
+        "렉시카눔: 아디나 사빈"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Adina_Sabine",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "627136"
+    },
+    "lore2026-house-goliath": {
+      "title": [
+        "House Goliath",
+        "렉시카눔: 골리앗 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Goliath",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-vatborn": {
+      "title": [
+        "Vatborn (House Goliath)",
+        "렉시카눔: 골리앗 바트본"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Vatborn_(House_Goliath)",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "701678"
+    },
+    "lore2026-house-natborn": {
+      "title": [
+        "Natborn (House Goliath)",
+        "렉시카눔: 골리앗 내트본"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Natborn_(House_Goliath)",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "471943"
+    },
+    "lore2026-house-overtyrant": {
+      "title": [
+        "Over-tyrant",
+        "렉시카눔: 오버 타이런트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Over-tyrant",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "790544"
+    },
+    "lore2026-house-greim": {
+      "title": [
+        "House Greim",
+        "렉시카눔: 그라임 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Greim",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "701479"
+    },
+    "lore2026-house-zerker": {
+      "title": [
+        "’Zerker",
+        "렉시카눔: 저커"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/%27Zerker",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "616222"
+    },
+    "lore2026-house-orlock": {
+      "title": [
+        "House Orlock",
+        "렉시카눔: 오를록 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Orlock",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-drudge": {
+      "title": [
+        "Drudge",
+        "렉시카눔: 드러지"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Drudge",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "507633"
+    },
+    "lore2026-house-orlund": {
+      "title": [
+        "House Orlund",
+        "렉시카눔: 오를룬드 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Orlund",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "645865"
+    },
+    "lore2026-house-morrow": {
+      "title": [
+        "Morrow Orienus Orlock",
+        "렉시카눔: 모로 오리에누스 오를록"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Morrow_Orienus_Orlock",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "488585"
+    },
+    "lore2026-house-wildsnake": {
+      "title": [
+        "Wild Snake",
+        "렉시카눔: 와일드 스네이크"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Wild_Snake",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "778150"
+    },
+    "lore2026-house-iron-guild": {
+      "title": [
+        "Iron Guild",
+        "렉시카눔: 아이언 길드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Iron_Guild",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "648215"
+    },
+    "lore2026-house-vansaar": {
+      "title": [
+        "House Van Saar",
+        "렉시카눔: 반 사르 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Van_Saar",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-davos": {
+      "title": [
+        "Sator Davos",
+        "렉시카눔: 사토르 다보스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Sator_Davos",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "635158"
+    },
+    "lore2026-house-eye-selene": {
+      "title": [
+        "Eye of Selene",
+        "렉시카눔: 셀레네의 눈"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Eye_of_Selene",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "797210"
+    },
+    "lore2026-house-archeotek": {
+      "title": [
+        "Archeotek",
+        "렉시카눔: 아키오테크"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Archeotek",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "577614"
+    },
+    "lore2026-house-arachni": {
+      "title": [
+        "Arachni-rig",
+        "렉시카눔: 아라크니 리그"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Arachni-rig",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "682218"
+    },
+    "lore2026-house-delaque": {
+      "title": [
+        "House Delaque",
+        "렉시카눔: 델라크 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Delaque",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ]
+    },
+    "lore2026-house-psychoterica": {
+      "title": [
+        "Psychoterica",
+        "렉시카눔: 사이코테리카"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Psychoterica",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "642882"
+    },
+    "lore2026-house-silent-gods": {
+      "title": [
+        "Silent Ones (Gods)",
+        "렉시카눔: 사일런트 원"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Silent_Ones_(Gods)",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "765462"
+    },
+    "lore2026-house-nachtghul": {
+      "title": [
+        "Nacht-Ghul",
+        "렉시카눔: 나흐트 굴"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Nacht-Ghul",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "758724"
+    },
+    "lore2026-house-piscean": {
+      "title": [
+        "Piscean Spektor",
+        "렉시카눔: 피시언 스펙터"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Piscean_Spektor",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "638585"
+    },
+    "lore2026-house-ghast": {
+      "title": [
+        "Ghast",
+        "렉시카눔: 가스트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Ghast",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "707334"
+    },
+    "lore2026-house-covenant": {
+      "title": [
+        "Covenant of Shadows",
+        "렉시카눔: 그림자의 서약단"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Covenant_of_Shadows",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Fan reference checked against its visible citations; the cited printed book was not independently read for this addition.",
+        "문서에 표시된 원전 출처를 확인한 팬 위키입니다. 이 보강 작업에서 해당 인쇄본까지 직접 열람한 것은 아닙니다."
+      ],
+      "revisionId": "626712"
+    }
+  },
+  "factions": [
+    {
+      "name": "House Cawdor",
+      "chapters": [
+        {
+          "title": [
+            "Brayne: saint, worker and disputed founder",
+            "브레인: 성인이자 노동자, 논쟁적인 창시자"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Cawdor’s approved life of Encorderius Brayne begins with a factory worker condemning noble greed and workers’ spiritual failures. His escape from an industrial accident becomes a revelation, after which he leads followers into the underhive.",
+              "코드로가 공인하는 엔코르데리우스 브레인의 전기는 공장 노동자의 설교에서 시작됩니다. 그는 귀족의 탐욕뿐 아니라 노동자들이 황제의 빛에서 멀어졌다는 점도 비판합니다. 산업 사고에서 살아난 경험을 계시로 받아들이고 신도들을 언더하이브로 이끈 것이 리뎀션의 출발로 전해집니다."
+            ],
+            [
+              "Alternative tales call him a wounded gang leader or a confidence trickster. The discrepancy matters: the Thanes and Word-Keepers have shaped his memory for centuries, and repeating an irreverent version is dangerous. These are rival accounts, not a solved biography.",
+              "다른 전승에서는 머리에 총상을 입고 개종한 갱 두목, 또는 도박 자금을 얻으려 종교를 만든 사기꾼으로 등장합니다. 어느 이야기를 사실로 확정해서는 안 됩니다. 테인과 워드 키퍼가 오랜 세월 기억을 다듬어 왔으며, 하우스 안에서 불경한 판본을 떠드는 일 자체가 위험하다는 점까지 창시자 이야기의 일부입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-brayne"
+          ]
+        },
+        {
+          "title": [
+            "Pax Redemptos and a carefully legal holy war",
+            "팍스 리뎀토스: 성전을 하우스의 전쟁으로 바꾸기"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The rise of militant faith threatened the other Houses. Under Thane Spriggan, sanctions escalated until Helmawr declared the Redemption subversive. Spriggan answered with the Pax Redemptos: followers would wage war in their House’s name rather than their religion’s.",
+              "전투적인 신앙이 커지자 다른 하우스는 자기 권력이 위협받는다고 보았습니다. 스프리건 테인 시기에 제재가 확대되었고, 마침내 헬마워가 리뎀션을 체제 전복적인 교단으로 규정했습니다. 이에 스프리건은 신앙의 이름이 아니라 하우스의 이름으로 전쟁을 수행한다는 팍스 리뎀토스를 내놓았습니다."
+            ],
+            [
+              "The arrangement helps explain Cawdor’s unstable boundary between accepted Clan and outlaw crusade. Religious identity and political permission are separate questions; serving the Emperor does not automatically make a militant movement lawful on Necromunda.",
+              "이 타협은 정식 클랜과 불법적인 성전단 사이에서 코드로의 입장이 흔들리는 이유를 설명합니다. 황제를 섬긴다는 종교적 정체성과 행성 지배자가 허가한 정치적 활동은 같은 문제가 아닙니다. 같은 신앙을 고백해도 어느 명의로 사람을 모으고 전쟁을 벌이는지에 따라 취급이 달라질 수 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-cawdor"
+          ]
+        },
+        {
+          "title": [
+            "The Palace of Bones: an afterlife in the walls",
+            "뼈의 궁전: 성벽의 일부가 되는 사후의 영광"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "The Thane governs from the Palace of Bones in Hive Primus. Modelled on Temenos’s Grand Cathedral, it incorporates the bones of Cawdor believers. Donating one’s remains is an honour; even the bone admitted to the structure marks a distinction.",
+              "하이브 프라이머스의 뼈의 궁전은 테인이 하우스를 다스리는 권력 중심입니다. 테메노스의 대성당을 본뜬 건물에는 코드로 신자들의 유골이 사용됩니다. 사후에 그 일부가 되는 것은 신도에게 영광이며, 손가락뼈나 갈비뼈 대신 두개골이 받아들여지는 일은 특히 큰 은총으로 여겨집니다."
+            ],
+            [
+              "Relics and severe saintly statues line its spaces, but entry is restricted. Some faithful are rewarded merely with a view of its gates; even Ministorum visitors require permission. The palace turns proximity to sanctity into a visible social hierarchy.",
+              "궁전에는 성유물과 엄격한 표정의 성인상이 가득하지만 아무나 들어갈 수는 없습니다. 공로를 세우고도 문을 바라보는 것만 허락받는 신도가 있으며, 미니스토룸 관계자도 테인의 허가를 구해야 합니다. 성스러운 장소와 얼마나 가까워질 수 있는가가 곧 지위의 차이로 드러납니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-palace-bones"
+          ]
+        },
+        {
+          "title": [
+            "Ko’iron: the noble patrons behind the congregation",
+            "코아이런: 회중 뒤에서 움직이는 귀족 후원자"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "House Ko’iron links Cawdor to the Ecclesiarchy. Its matriarchs invest in religious sites, hold influence at Hive Temenos and provide holy objects to the Clan. In return, Cawdor manpower and tithe warriors help the nobles cultivate Ministorum favour.",
+              "코아이런 귀족 가문은 코드로와 제국 국교회를 잇는 통로입니다. 모계의 지도자들은 종교 시설에 재산을 투자하고 하이브 테메노스에 영향력을 행사하며, 클랜에는 성유물을 제공합니다. 반대로 코드로의 병력과 십일조 전사들은 미니스토룸의 호의를 얻으려는 귀족의 자원이 됩니다."
+            ],
+            [
+              "This is patronage rather than a claim that the noble families practise every street-level Redemption custom. Lexicanum also flags contradictory leadership details in older novels. A particular Ko’iron ruler therefore needs a named publication context, not an undated universal label.",
+              "이는 후원 관계이며 귀족 가족들이 거리의 리뎀션 관습을 모두 똑같이 따른다는 뜻은 아닙니다. 렉시카눔은 옛 소설들 사이에서 코아이런 지도부의 묘사가 충돌한다고도 지적합니다. 특정 인물을 무조건 현재의 유일한 가주로 고정하기보다 어느 작품의 서술인지 함께 확인해야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-koiron"
+          ]
+        },
+        {
+          "title": [
+            "Word-Keepers and the objects that authorise rule",
+            "워드 키퍼와 통치의 증거가 되는 물건들"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "A Word-Keeper’s standing rests on closeness to the Thane’s sacred authority. A phrase, holy writ or object received through that chain can legitimise leadership. Relics worn on the body are consequently signs of office as well as personal devotion.",
+              "워드 키퍼의 권위는 테인을 통해 전달되는 성스러운 말과 얼마나 가까운가에 기대고 있습니다. 물려받은 문구나 성문서, 성유물 하나가 지도자로서의 정당성을 나타낼 수 있습니다. 몸에 매단 성유물은 개인의 열심만이 아니라 직위와 권한을 보여 주는 표식이기도 합니다."
+            ],
+            [
+              "Unlike the tightly specialised ranks of the Ministorum, the title can be reached from varied religious occupations. A believer may see a holy mission where an outsider sees another gang boss. Both perspectives describe the same person’s place in the underhive.",
+              "미니스토룸의 복잡하게 세분된 성직 체계와 달리, 여러 종교적 직업에서 워드 키퍼의 지위로 올라설 수 있습니다. 신도에게는 하우스의 성스러운 일을 수행하는 사제지만 외부 주민에게는 또 다른 갱 두목일 수 있습니다. 같은 인물이 종교 지도자와 거리의 권력자로 동시에 존재하는 것입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-word-keeper"
+          ]
+        },
+        {
+          "title": [
+            "A mob is not the same thing as a crusade",
+            "폭도 집단과 성전단은 어떻게 다른가"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The Redemption spreads beyond Cawdor and even beyond Necromunda. Its clandestine gatherings may produce a spontaneous mob without priestly direction, or a crusade organised around a religious leader. Shared fury does not imply a single central command.",
+              "리뎀션은 코드로 내부에만 존재하지 않으며 네크로문다 밖에도 퍼져 있습니다. 비밀 집회에서 사제의 지휘 없이 격분한 주민들이 모이면 폭도 집단이 되고, 종교적 지도자를 중심으로 방향을 정하면 성전단이 됩니다. 신앙과 분노를 공유한다고 모두 하나의 중앙 지휘부에 속하는 것은 아닙니다."
+            ],
+            [
+              "The creed’s self-discipline includes prayer, bodily punishment and prohibitions on drink and narcotics. Its rulers can therefore condemn ordinary neighbours as readily as obvious monsters. Authorities may suppress a crusade, while other Imperial patrons covertly encourage it for a proxy conflict.",
+              "기도와 육체적 고행, 음주와 약물 금지는 신도 자신의 일상까지 통제합니다. 따라서 이들이 정죄하는 대상에는 눈에 띄는 괴물뿐 아니라 평범한 이웃도 포함됩니다. 행성 당국은 성전단을 진압할 수 있지만, 다른 제국 권력자는 자기 적과의 대리전에 쓰려고 뒤에서 부추길 수도 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-redemption"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "House Escher",
+      "chapters": [
+        {
+          "title": [
+            "The Flesh Curse did not produce one uniform population",
+            "플레시 커스와 단순화할 수 없는 구성원들"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The Flesh Curse in M39 devastated male infants and helped end Escher’s patriarchal succession. Yet “all women, no exceptions” is too absolute: the sources preserve individual exceptions, including Reiko Tori, alongside the House’s overwhelmingly female society.",
+              "M39의 플레시 커스는 남자아이들에게 막대한 피해를 주었고 남성 가주가 이어지던 계보를 무너뜨렸습니다. 그렇다고 에셔를 예외 없이 여성만 존재하는 집단으로 단정하면 안 됩니다. 자료에는 레이코 토리 같은 개별 예외도 남아 있으며, 여성 중심의 사회 구조와 구성원 전원의 성별은 구분해야 합니다."
+            ],
+            [
+              "Maiden, Mother and Matriarch describe overlapping social ideals: warriors, productive labour and senior authority. These categories explain how a huge industrial society sustains itself; the fighting sisters visible on a tabletop are only one part of it.",
+              "메이든·마더·마트리아크라는 세 갈래는 전사, 생산 노동, 원로의 권위가 사회 안에서 맡는 역할을 보여 줍니다. 이를 단순한 연령표나 게임 계급으로만 읽기보다는 거대한 산업 사회가 사람을 조직하는 방식으로 이해해야 합니다. 전장에서 보이는 자매들은 그 사회의 일부일 뿐입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-escher"
+          ]
+        },
+        {
+          "title": [
+            "The Council preserves knowledge as well as power",
+            "크론 의회가 지키는 권력과 구전의 역사"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The Council of Crones draws on prominent families and experienced figures, including former Gang Queens, chymists, ambassadors and industrial overseers. Its authority is broader than a gathering of retired fighters, while the Matriarch Primus retains the final decision.",
+              "크론 의회에는 유력 가문의 원로뿐 아니라 갱 퀸, 케미스트, 외교관, 공장 감독으로 경험을 쌓은 인물들이 참여할 수 있습니다. 따라서 은퇴한 전사들만의 모임은 아닙니다. 전투·교역·생산에서 축적한 지식이 의회의 자산이며, 최종 결정권은 마트리아크 프리무스에게 남습니다."
+            ],
+            [
+              "Its members also transmit Escher history orally. Remembering ancestral legends is part of government, linking present families to the House’s earliest stories. Political rivalry can exist within a body that nevertheless preserves a shared account of who the Escher are.",
+              "원로들은 신화와 옛이야기를 말로 전하며 다음 세대에 에셔의 역사를 가르칩니다. 선조를 기억하는 일 자체가 통치의 일부인 셈입니다. 의회 내부의 경쟁이 사라지는 것은 아니지만, 서로 다른 가문을 에셔라는 공동의 정체성으로 묶는 기억도 이곳에서 보존됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-council-crones"
+          ]
+        },
+        {
+          "title": [
+            "Ulanti profits from what Escher produces",
+            "에셔가 만들고 울란티가 거두는 부"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Escher and the noble House Ulanti share an ancient connection that survives their separation. Chems bind them economically, but the producer does not capture all the value: Ulanti’s position in selling and controlling access generates enormous revenues.",
+              "에셔와 울란티 귀족 가문은 갈라진 뒤에도 오래된 연계를 유지합니다. 특히 화학 제품의 생산과 판매가 두 세력을 묶습니다. 다만 제조하는 쪽이 이익을 모두 차지하지는 않습니다. 판매망과 자산을 가진 울란티는 에셔가 생산한 제품에서도 막대한 수익을 거둡니다."
+            ],
+            [
+              "Ulanti leases manufacturing districts and other holdings to Clans and guild interests in exchange for output. This makes the relationship a lesson in hive inequality: technical expertise creates leverage, yet ownership and noble commercial privileges can sit above it.",
+              "울란티는 공장과 구역을 클랜이나 길드에 빌려 주고 생산물의 몫을 받습니다. 따라서 에셔의 기술적 자립과 귀족에 대한 경제적 종속은 함께 존재할 수 있습니다. 누가 약품을 만들 수 있는가와 누가 시설·유통·거래의 권리를 소유하는가는 하이브에서 서로 다른 권력입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-ulanti"
+          ]
+        },
+        {
+          "title": [
+            "The Maiden Cult and the politics of remaining young",
+            "메이든 컬트와 젊음을 유지하는 정치"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The Maiden Cult is an informal movement pursuing enduring youth and beauty, with members across Escher society. Connections to chymist clans secure rejuvenation treatments. Its influence reaches gangs and senior circles rather than remaining a private cosmetic fashion.",
+              "메이든 컬트는 에셔 사회 곳곳에서 젊음과 아름다움을 오래 유지하려는 비공식적인 흐름입니다. 케미스트 클랜과의 연계는 회춘 약물과 기술에 접근하는 길이 됩니다. 이는 개인의 치장에 그치지 않고 갱의 활동과 원로 집단의 이해관계까지 움직일 수 있는 사회적 영향력입니다."
+            ],
+            [
+              "Wyld Runners notably resist its elders’ control. Claims that its experiments created Death-Maidens, or that it removed Tynas Sabine for ageing openly, remain speculation in the account. They illustrate the pressures around appearance without proving every rumour.",
+              "특히 와일드 러너는 나이 든 자매들의 통제와 억지스러운 젊음의 흉내를 거부합니다. 데스 메이든이 이 컬트의 실험에서 탄생했다는 이야기나, 회춘을 거부한 티나스 사빈을 몰아냈다는 이야기는 추측으로 소개됩니다. 외모가 권력에 미치는 압박을 보여 주지만 모든 소문이 확정된 사건인 것은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-maiden-cult"
+          ]
+        },
+        {
+          "title": [
+            "Mortis: a different Escher domain",
+            "모르티스: 전혀 다른 얼굴의 에셔 영토"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "After the Aranthus plague, Hive Mortis became a landscape of corpses and empty domes. Escher established a stronghold there, with Death-Maidens controlling wide territories and the bone-painted Dead Wyld supporting them. Salvage and the dead sustain local power.",
+              "아란투스 역병 뒤의 하이브 모르티스에는 시신과 빈 돔이 남았습니다. 이곳에서 에셔는 강력한 기반을 형성했으며, 데스 메이든들이 넓은 구역을 다스리고 뼈처럼 흰 분장을 한 데드 와일드가 이들을 돕습니다. 폐허의 회수품과 죽은 자들까지 지역 권력의 경제적 바탕이 됩니다."
+            ],
+            [
+              "The sealed spire is guarded against looting, while Delaque pays for expeditions seeking pre-plague secrets. Escher control is therefore not an absence of competitors. Mortis connects funerary industry, Imperial restrictions and the dangerous market for lost records.",
+              "봉인된 첨탑은 약탈하지 못하도록 지켜지고, 델라크는 역병 이전의 비밀을 찾는 탐사에 돈을 댑니다. 에셔가 우세하다고 경쟁 세력이 사라진 것은 아닙니다. 모르티스는 죽음을 다루는 산업, 제국의 봉쇄, 잃어버린 기록을 사고파는 위험한 시장이 한데 얽힌 장소입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-mortis"
+          ]
+        },
+        {
+          "title": [
+            "Adina Sabine’s first political test",
+            "아디나 사빈이 즉위 초기에 맞은 시험"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "Accounts introducing Adina Sabine portray a young Queen prepared for leadership from birth. Goliath tested her early reign by striking Escher industrial holdings along their common border, hoping the incursion would undermine her position.",
+              "아디나 사빈을 소개하는 서술은 태어날 때부터 지도자의 역할을 준비한 젊은 퀸으로 그녀를 묘사합니다. 골리앗은 에셔와 접한 산업 구역을 공격해 즉위 초기의 권위를 흔들려 했습니다. 따라서 이 싸움은 영토 문제인 동시에 새 통치자가 지지와 정당성을 지킬 수 있는가를 겨냥한 시험이었습니다."
+            ],
+            [
+              "Her response combined court politics with force: she secured Helmawr’s approval for retaliation and then led a counter-incursion. This episode should be read in its publication context, rather than used to date every later campaign or succession story.",
+              "그녀는 무력만으로 대응하지 않았습니다. 헬마워의 허가를 얻어 반격의 명분을 확보한 뒤 골리앗의 영토로 진격했습니다. 이 일화는 에셔 지도자가 외교와 전쟁을 함께 다룬다는 사례입니다. 다만 소개된 작품의 시점이 있으므로 이후의 모든 캠페인과 계승전에도 그대로 현재 상황이라고 적용해서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-adina"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "House Goliath",
+      "chapters": [
+        {
+          "title": [
+            "519.M40: revolt and a change of ruler",
+            "519.M40: 봉기와 지배자의 교체"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The Goliath revolt followed Alberoth Helmawr’s death in 519.M40. His successor Jeuns regarded the slave-race system as obsolete, and the authorities did not crush the uprising. Political circumstances helped create the opening in which strength could become independence.",
+              "골리앗의 봉기는 519.M40 알베로스 헬마워가 죽은 뒤에 일어났습니다. 후계자 주엔스는 노예 종족을 부리는 제도가 낡고 비효율적이라고 보았고, 당국은 봉기를 직접 짓밟지 않았습니다. 해방은 힘만의 결과가 아니라 지배층의 판단이 바뀐 틈을 이용한 정치적 사건이기도 했습니다."
+            ],
+            [
+              "The Hundred Cycle War saw Van Saar ally with Goliath against Escher and its partners. Freedom did not arrive everywhere at once: conflict continued for centuries before the manufactured workers secured broad recognition as a Clan House.",
+              "이어진 백 사이클 전쟁에서는 반 사르가 골리앗과 손잡고 에셔 및 그 동맹에 맞섰습니다. 모든 골리앗이 한 번에 자유로워진 것도 아닙니다. 여러 세기에 걸친 충돌 끝에 노동자로 만들어진 집단이 클랜 하우스의 자리를 굳혔다는 긴 과정으로 이해해야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-goliath"
+          ]
+        },
+        {
+          "title": [
+            "Vatborn memory and a life compressed into labour",
+            "바트본의 주입된 기억과 노동으로 압축된 생애"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Vatborn are rapidly grown from flesh templates and form most Goliaths. Usually male and sterile, they enter factory labour with knowledge already delivered by cranial data-slugs. Their apparent adult readiness hides a life that can last less than a decade.",
+              "바트본은 육체의 원형을 바탕으로 배양조에서 빠르게 성장하며 골리앗의 다수를 이룹니다. 대개 남성이며 불임이고, 두개골의 데이터 슬러그로 기본 지식을 주입받은 상태에서 공장 노동에 투입됩니다. 곧바로 일할 수 있는 성체의 모습 뒤에는 열 해에도 못 미칠 수 있는 짧은 생애가 있습니다."
+            ],
+            [
+              "They supply workers and gang recruits, but inherited information does not guarantee initiative or advancement. Rising beyond an overseer or gang leader is unusual. The House’s celebration of strength coexists with a birth process that assigns most people a narrow future.",
+              "이들은 노동자와 갱의 신병을 공급하지만 지식을 물려받았다고 주도권이나 출세까지 보장되는 것은 아닙니다. 감독이나 갱 리더보다 높은 지위에 오르는 일은 드뭅니다. 힘을 찬양하는 사회 안에서도 출생 방식이 대다수 구성원의 장래를 좁게 정한다는 모순이 남습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-vatborn"
+          ]
+        },
+        {
+          "title": [
+            "Natborn and the possibility of a self-sustaining people",
+            "내트본과 스스로 이어지는 종족의 가능성"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Natborn descend from fertile Vatborn or other Natborn. Their longer lives and greater opportunities place many in the Alpha leadership and almost all Over-tyrant positions. The difference is social as well as biological.",
+              "내트본은 생식 능력이 있는 바트본이나 다른 내트본에게서 자연적으로 태어납니다. 더 긴 수명과 상대적으로 유리한 능력은 알파 지도층, 나아가 오버 타이런트의 자리에 오르는 기반이 됩니다. 두 집단의 차이는 생물학적 특징뿐 아니라 권력과 미래를 배분하는 사회적 구분이기도 합니다."
+            ],
+            [
+              "Reliable natural reproduction could free Goliath from dependence on amneo-vats. Outside Imperial agencies also see a potential population suitable for other worlds. These are possibilities raised by the background, not proof that such an interplanetary expansion has already occurred.",
+              "자연 번식이 안정되면 골리앗은 배양조에 의존하지 않고 세대를 이어 갈 가능성이 생깁니다. 외부 제국 기관은 이를 다른 행성에서도 활용할 수 있는 인구로 주목합니다. 다만 이는 배경이 제시하는 전망이지, 이미 대규모로 행성 밖에 정착했다는 확정된 사건은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-natborn"
+          ]
+        },
+        {
+          "title": [
+            "The Over-tyrant rules through the stimm supply",
+            "오버 타이런트가 쥔 자극제의 공급망"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The supreme title is Over-tyrant. Its holder controls the flow of the stimms on which Goliath lives depend, but must also embody the strength that legitimises authority. Supply and personal dominance reinforce each other.",
+              "골리앗 전체의 최고 통치자는 오버 타이런트라 불립니다. 그는 생존을 지탱하는 자극제의 흐름을 장악하지만, 그 권리를 인정받으려면 자신의 강함도 입증해야 합니다. 자원을 쥔 지배와 힘을 과시하는 지배가 서로 떨어진 체제가 아니라 같은 권력의 두 축입니다."
+            ],
+            [
+              "Known holders include Hefrum, Varran Gor, Rygar Drune and Djangar. The recurring names belong to different moments in the published history; an undated roster should not turn this succession into several simultaneous rulers.",
+              "헤프럼, 바란 고르, 라이거 드룬, 장가르 같은 이름이 통치자의 계보에 남아 있습니다. 이 이름들은 자료가 다루는 서로 다른 시점에 속하며, 반복해서 권력을 차지한 사례도 있습니다. 연도를 생략한 목록만 보고 여러 인물이 동시에 유일한 지배자였다고 해석해서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-overtyrant"
+          ]
+        },
+        {
+          "title": [
+            "Greim’s contracts and its unfulfilled military ambition",
+            "그라임의 계약과 아직 실현되지 않은 군사적 야심"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The noble House Greim rewards its Goliath alliance with profitable military manufacturing contracts. Junior nobles serving as Krieg Mesters accompany gangs to supervise weapon trials and watch the family’s investments. Their medals need not mean combat experience.",
+              "그라임 귀족 가문은 골리앗과의 동맹을 통해 수익성 높은 군수 계약을 연결합니다. 하급 귀족인 크리크 메스터는 갱을 따라다니며 무기의 현장 시험을 감독하고 가문의 투자도 감시합니다. 화려한 군복과 훈장은 이런 후원과 신분을 드러낼 수 있지만, 실제 참전 경력을 보장하지는 않습니다."
+            ],
+            [
+              "Greim hopes for a regiment formed entirely from Goliaths. Helmawr’s sanction and Imperial suspicion of abhumans obstruct that ambition. It is important to distinguish a patron’s desired army from an already authorised Imperial Guard formation.",
+              "그라임은 골리앗만으로 이루어진 연대를 꿈꾸지만, 헬마워의 허가와 제국의 아인종에 대한 경계가 장애물입니다. 따라서 이 계획을 이미 공인되어 배치된 아스트라 밀리타룸 연대와 혼동하면 안 됩니다. 귀족의 후원에는 미래의 군사적 이용까지 염두에 둔 계산이 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-greim"
+          ]
+        },
+        {
+          "title": [
+            "Zerkers: the body pushed beyond the House’s ideal",
+            "저커: 하우스의 이상을 넘어 무너진 육체"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Zerkers result from pushing growth stimms, surgery and augmentation beyond ordinary Goliath extremes. Uncontrolled muscle growth and bone spurs can follow, leaving violent, mutated beings whose bodies become weapons. This is transformation, not simply another large worker.",
+              "저커는 골리앗의 기준으로도 과도한 성장 자극제, 수술, 육체 강화의 결과입니다. 통제되지 않는 근육 성장과 뼈 돌기가 생기며, 신체 자체가 흉기가 되는 폭력적인 변형체가 됩니다. 따라서 단순히 체격이 큰 노동자나 일반적인 숙련 전사와 같은 존재로 설명해서는 안 됩니다."
+            ],
+            [
+              "The House nevertheless brings them into gang warfare. Their presence exposes the cost of an ideal that treats greater size as an answer to every limit: the useful fighter and the damaged person may be the same individual.",
+              "그럼에도 하우스는 이들을 갱의 전쟁에 데려갑니다. 크고 강해지는 것이 모든 한계의 해답이라는 이상이 어디까지 사람을 밀어붙이는지 보여 주는 존재입니다. 전력으로 유용하다는 평가와 돌이킬 수 없이 망가진 개인이라는 사실이 같은 몸에 함께 남습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-zerker"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "House Orlock",
+      "chapters": [
+        {
+          "title": [
+            "The Crucible Schism and the Code of Iron",
+            "크루서블 분열과 철의 규율"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The Bighole labour revolt exposed the weakness of an Orlock elite dependent on mercenaries: wealthy rebels could outbid them. During the Crucible Schism, Avor Orlock and Rei Merdena helped redirect the rebellion into a new order based on loyalty to gang and House.",
+              "빅홀의 노동자 반란은 용병에 기대던 오를록 지배층의 약점을 드러냈습니다. 반군도 광산의 부를 확보하자 더 높은 보수로 병력을 끌어올 수 있었습니다. 크루서블 분열 속에서 아보르 오를록과 레이 메르데나는 갱과 하우스에 대한 충성을 내세워 반란을 새로운 질서로 바꾸는 데 기여했습니다."
+            ],
+            [
+              "The Code of Iron made loyalty a political principle, not merely a friendly working habit. Incorporating proven workers into gangs helped the House regain strength while also giving its rulers a way to present advancement as a reward for service.",
+              "철의 규율은 의리를 좋은 동료 관계의 관습에서 정치적 원칙으로 끌어올렸습니다. 검증된 노동자를 갱에 받아들이는 방식은 하우스를 다시 강하게 만들었지만, 동시에 지배층이 봉사와 근면을 출세의 조건으로 제시하는 통치 수단이기도 했습니다. 노동자의 반란과 오늘날의 충성 문화는 이렇게 연결됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-orlock"
+          ]
+        },
+        {
+          "title": [
+            "Drudges: belonging without equality",
+            "드러지: 이름을 공유해도 평등하지 않은 사람들"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Drudges make up the House’s broad working population and live under conditions little better than slavery. They nevertheless bear the Orlock name. Membership therefore grants an identity without erasing the distance between labourers and ruling families.",
+              "드러지는 하우스의 넓은 노동 인구를 이루며 노예와 크게 다르지 않은 처지에서 살아갑니다. 그럼에도 오를록이라는 이름을 지닙니다. 공동의 성과 소속이 있다고 노동자와 지배 가문 사이의 격차까지 사라지는 것은 아니라는 점이 중요합니다."
+            ],
+            [
+              "A Drudge can prove themself and rise into gang life. This possibility gives the labouring population a route upward, but should not be mistaken for automatic freedom, equal opportunity or a promise that most workers will escape their station.",
+              "능력을 입증한 드러지는 갱에 들어가 위로 올라갈 기회를 얻을 수 있습니다. 그 가능성은 노동자에게 다른 삶으로 향하는 통로를 제공하지만, 자동적인 해방이나 모두에게 동등한 기회를 뜻하지는 않습니다. 대부분이 자기 처지에서 벗어날 수 있다는 보장과도 구분해야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-drudge"
+          ]
+        },
+        {
+          "title": [
+            "Orlund and the price of replacing a House",
+            "오를룬드와 한 하우스의 자리를 빼앗는 대가"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Orlund was among the early Clan Houses but lost its industrial holdings to Orlock in 111.M38. Its decline illustrates that the six familiar names are the survivors of a changing political landscape, rather than an eternal set.",
+              "오를룬드는 초기 클랜 하우스에 속했지만 111.M38 산업 기반을 오를록에게 빼앗겼습니다. 오늘날 익숙한 여섯 이름이 영원히 고정된 명단이 아니라 오랜 경쟁과 몰락을 거쳐 남은 세력이라는 점을 보여 줍니다. 오를록의 성장에는 다른 하우스의 지위와 재산을 흡수한 역사도 포함됩니다."
+            ],
+            [
+              "The consequences also reached its offshoot Credo, which fell shortly after its own foundation. Losing a patron and production base can destroy more than one family’s claim to power. “Fallen House” is a political fate, not just a defeated gang.",
+              "그 영향은 오를룬드에서 갈라져 나온 크레도에도 미쳐, 독립한 지 얼마 되지 않아 함께 몰락하게 했습니다. 후원자와 생산 기반을 잃으면 한 가문을 넘어 여러 세력의 권력 주장이 무너질 수 있습니다. 폴른 하우스라는 말은 전투에서 진 갱 하나보다 훨씬 큰 정치적 운명을 가리킵니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-orlund"
+          ]
+        },
+        {
+          "title": [
+            "Morrow Orienus and the burning convoy story",
+            "모로 오리에누스와 불타는 수송대의 전설"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "House of Iron introduces Lord Morrow through a brutal convoy episode. Forced from the road and covered in burning promethium, he is said to have boarded his rival’s rig and fired into its cab. The telling makes survival part of his authority.",
+              "『하우스 오브 아이언』이 소개한 로드 모로의 이야기에는 잔혹한 수송대 사건이 있습니다. 도로 밖으로 밀려나 불붙은 프로메튬을 뒤집어쓴 그는 그대로 상대의 차량에 올라 운전실에 총을 쐈다고 전해집니다. 이 일화는 살아남은 능력과 복수가 지도자의 권위를 만드는 방식을 드러냅니다."
+            ],
+            [
+              "Later descriptions place him in a workshop beneath the Lucky Six, seldom appearing without a stormcoat and rider’s mask. His concealed body contrasts with the House’s public reputation for directness; the story is an attributed account, not an eyewitness transcript.",
+              "이후의 묘사에서 그는 럭키 식스 아래 작업장을 좀처럼 떠나지 않고, 집회에서도 스톰코트와 라이더 마스크로 몸을 가립니다. 거리낌 없이 행동한다는 하우스의 이미지와 달리 가주의 몸과 사생활은 숨겨져 있습니다. 특히 사고 뒤의 무용담은 전승된 이야기이지 목격자의 기록처럼 확정할 내용은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-morrow"
+          ]
+        },
+        {
+          "title": [
+            "Wild Snake is a transport business as well as a drink",
+            "와일드 스네이크: 술이자 운송 사업"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Wild Snake is an expensive, powerful liquor associated with the Merdena family’s rise. Thousands of Orlock distilleries and heavily guarded tanker convoys make it a substantial commodity, reaching both underhive markets and upper-hive pleasure districts.",
+              "와일드 스네이크는 메르데나 가문의 성장과 연결된 독한 고급 술입니다. 수많은 오를록 증류소에서 생산되고, 언더하이브의 시장에서 상층의 유흥 구역까지 흘러갑니다. 화물 자체의 가치가 높기 때문에 술을 실은 탱커 수송대도 강한 호위를 필요로 합니다."
+            ],
+            [
+              "The references preserve different descriptions of its ingredients, including fungi, snake-weed and preserved snakes. These should not be compressed into a single universal recipe. Their shared point is a recognisable luxury whose production and circulation bring the House profit.",
+              "자료에는 균류와 스네이크위드, 병 안에 보존된 뱀처럼 서로 다른 재료 설명이 남아 있습니다. 이것들을 하나의 정확한 보편적 제조법으로 합치기보다는 출판물마다 다른 묘사로 읽는 편이 안전합니다. 공통되는 점은 이름난 소비재의 생산과 유통이 하우스에 부를 가져온다는 것입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-wildsnake"
+          ]
+        },
+        {
+          "title": [
+            "The Iron Guild: claims, brands and intermediaries",
+            "아이언 길드: 채굴권과 표식, 그리고 중개인"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The Iron Guild, Mercator Munda, regulates prospecting and mediates between mining settlements and great forges. Orlock ore can reach Goliath industry without requiring the Houses to negotiate every transaction directly. Competition therefore operates inside a larger commercial system.",
+              "메르카토르 문다라고도 불리는 아이언 길드는 탐광을 관리하고 광산 정착지와 거대한 제련소를 중개합니다. 덕분에 오를록의 광석은 하우스끼리 모든 거래를 직접 협상하지 않아도 골리앗의 산업으로 흘러갈 수 있습니다. 하우스 간 경쟁 위에는 이를 연결하고 수수료를 받는 상업 체계가 존재합니다."
+            ],
+            [
+              "Guild writs establish rights to work ruins or regions, while molecular branding tracks recovered material. Finding a deposit is only part of becoming wealthy: legal claims, inspection and access to markets also decide who can profit from it.",
+              "길드가 발행하는 문서는 폐허나 구역을 개발할 권리를 정하고, 분자 표식은 회수된 자원의 흐름을 추적합니다. 따라서 광맥을 찾았다고 곧바로 부자가 되는 것은 아닙니다. 누가 채굴권을 인정받고 시장에 접근하며 검사를 통과하는지도 발견물의 이익을 결정합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-iron-guild"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "House Van Saar",
+      "chapters": [
+        {
+          "title": [
+            "The Three Laws place the STC before its custodians",
+            "세 가지 법: 관리인보다 우선하는 STC"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Van Saar’s Three Laws place protection of the STC first, the House’s benefit second and permitted innovation third. Each lower obligation is conditional on the higher ones. Expertise therefore operates within a political hierarchy of preservation.",
+              "반 사르의 세 가지 법은 STC의 보호를 첫째에, 하우스의 이익을 둘째에, 허용되는 기술 혁신을 셋째에 둡니다. 아래의 의무는 위의 의무를 침해하지 않을 때만 인정됩니다. 지식이 많다고 마음대로 연구할 수 있는 사회가 아니라 유산의 보존을 최우선으로 하는 질서입니다."
+            ],
+            [
+              "Patents, licences and energy production extend Van Saar influence beyond its own fighters. A maker’s seal can circulate through thousands of devices while the source of that competence remains hidden. Public quality and private restriction are part of the same economy.",
+              "특허와 사용 허가, 에너지 생산은 반 사르의 영향력을 자기 전사들 밖으로 넓혀 줍니다. 제조자의 표식이 수많은 장치에 붙어 퍼지는 동안 그 능력의 원천은 비밀로 남습니다. 외부에 보이는 품질과 내부에서 통제되는 지식은 별개의 특징이 아니라 같은 경제를 이루는 요소입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-vansaar"
+          ]
+        },
+        {
+          "title": [
+            "Sator Davos and the dangerous dream of restoration",
+            "사토르 다보스와 복원의 위험한 꿈"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "Legends say Davos drove an ancient data-spike into his brain and sought the knowledge needed to restore Van Saar’s lost age. His programme helped develop survival suits and bionics, but other Archeoteks regarded his project as a drain on the House.",
+              "전승에 따르면 다보스는 고대 데이터 스파이크를 뇌에 꽂아 비범한 지능을 얻고, 반 사르가 잃어버린 시대를 되찾을 지식을 추적했습니다. 그의 계획 아래 생존 슈트와 의체가 발전했지만, 다른 아키오테크들은 그 꿈이 하우스의 자원을 끝없이 소모한다고 보았습니다."
+            ],
+            [
+              "He vanished in 411.M37. A later Dust Falls tale describes a stranger claiming his name, warning of an enemy from outside time and disappearing in light. The appearance remains a reported mystery; it does not establish an uninterrupted life across those millennia.",
+              "그는 411.M37에 사라졌습니다. 훨씬 뒤 더스트 폴스에서는 자신을 다보스라 주장하는 낯선 사람이 시간 밖의 적을 경고한 뒤 빛 속에서 사라졌다는 이야기가 나옵니다. 이는 의도적으로 수수께끼를 남긴 목격담이며, 그가 수천 년 동안 끊임없이 살아 있었다는 증명으로 취급해서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-davos"
+          ]
+        },
+        {
+          "title": [
+            "The Eye of Selene and recognition as a Clan House",
+            "셀레네의 눈과 클랜 하우스 지위의 획득"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "After Cinderak Helmawr won the Two-Faced War, she commissioned Van Saar to construct the Eye of Selene. The orbital station secured traffic and defence above Necromunda. Building it connected the House’s technical service directly to planetary rule.",
+              "신더락 헬마워가 양면 전쟁에서 승리한 뒤 반 사르에게 건설을 맡긴 것이 셀레네의 눈입니다. 거대한 궤도 정거장은 네크로문다 위의 교통과 방어를 장악했습니다. 하우스의 기술이 거리의 무기뿐 아니라 행성 지배의 기반 시설을 만드는 데까지 사용된 사례입니다."
+            ],
+            [
+              "Its completion brought Clan House status as a reward. Passage was also tied to Helmawr pilgrimage coinage. The station illustrates why access to space, customs and patronage matter as much as any gang’s control of an underhive district.",
+              "완공에 대한 보상은 클랜 하우스의 지위였습니다. 통과 비용에 헬마워의 순례 주화가 사용된다는 설정은 궤도 교통이 지배 가문의 권리와 연결됨을 보여 줍니다. 언더하이브의 구역 하나를 차지하는 일 밖에도 우주로 나가는 통로와 징수권, 후원이 권력을 결정하는 무대가 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-eye-selene"
+          ]
+        },
+        {
+          "title": [
+            "Archeoteks are not simply another Mechanicus priesthood",
+            "아키오테크는 또 하나의 기계교 성직 집단이 아니다"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Archeoteks guard Van Saar’s deepest technology and suffer heavily from its radiation. Their resemblance to tech-priests should not erase a major distinction: their authority is not founded on devotion to the Omnissiah. Knowledge and custodianship define their inner circle.",
+              "아키오테크는 반 사르의 가장 깊은 기술을 지키는 내부 집단이며 방사선 피해도 크게 입습니다. 기계교 사제와 닮았다고 옴니시아 숭배를 기반으로 한 같은 성직 체계라고 보면 안 됩니다. 이들의 지위는 지식과 유산의 관리권에서 나오며, 생존에는 슈트와 광범위한 의체가 필요합니다."
+            ],
+            [
+              "The stories include failures and renegades. Von Spekris, pursued for his crimes, opened storm valves to unleash acid rather than submit. Such episodes show that technical mastery neither guarantees institutional loyalty nor prevents catastrophe.",
+              "실패한 자와 탈주자의 이야기도 존재합니다. 범죄의 책임을 추궁받던 폰 스페크리스는 처벌을 받는 대신 폭풍 밸브를 열어 산성비로 현장을 파괴했습니다. 기술의 숙련도가 하우스에 대한 충성이나 합리적인 판단을 자동으로 보장하지 않으며, 개인의 선택이 주변까지 재앙으로 끌고 갈 수 있음을 보여 줍니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-archeotek"
+          ]
+        },
+        {
+          "title": [
+            "Arachni-rigs turn support machinery into a second body",
+            "아라크니 리그: 신체를 대신하는 정교한 보조 기계"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "An Arachni-rig is an individually crafted servo-rig controlled through its wearer’s nervous system or a direct interface. Multiple mechanical limbs compensate for physical weakness while making the fighter resemble the House’s spider emblem. It is an engineered extension of the person.",
+              "아라크니 리그는 착용자의 신경계나 직접 연결 장치로 조종하는 개별 제작 서보 리그입니다. 여러 기계 팔은 약해진 육체를 보완하는 동시에 하우스의 거미 문양을 실제 모습으로 드러냅니다. 단순히 무거운 갑옷을 두른 것보다 기계가 신체의 일부로 결합한 모습에 가깝습니다."
+            ],
+            [
+              "The Arachnika Ash-jumper adapts that idea to broken wasteland terrain, using jump boosters to accompany fast-moving Neoteks. The variants reflect different environments; their background is not permission to mix every model’s equipment or game profile.",
+              "아라크니카 애시 점퍼는 같은 발상을 부서진 황무지 지형에 맞춘 변형으로, 도약 부스터를 이용해 빠르게 움직이는 네오테크와 보조를 맞춥니다. 서로 다른 환경이 설계의 차이를 만든다는 배경입니다. 이런 설명을 근거로 모든 변형의 장비와 게임 프로필을 자유롭게 섞을 수 있다고 해석해서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-arachni"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "House Delaque",
+      "chapters": [
+        {
+          "title": [
+            "Psychoterica: buried objects and a shared consciousness",
+            "사이코테리카: 묻힌 장치와 공유된 의식"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The name Psychoterica can refer to more than the experience of silent connection. The Drowned Empire account describes ancient psychic devices preserving an extinct aquatic people’s collective consciousness, hidden in stones and later discovered by humans drawn into the underhive.",
+              "사이코테리카는 말없는 연결을 느끼는 현상만을 가리키지 않습니다. 가라앉은 제국의 이야기에서는 사라진 수중 종족의 집단 의식을 보존한 고대 사이킥 장치로 설명됩니다. 돌 속에 감춰진 장치를 언더하이브로 이끌린 인간들이 발견했고, 그들의 정신과 기억이 변화했다고 전해집니다."
+            ],
+            [
+              "That account gives the House a reason to seek objects in the wastes, ancient stone and the Sump. It should remain attributed to a particular origin narrative: the setting also preserves incompatible explanations, so collecting every version into one literal chronology would remove a deliberate uncertainty.",
+              "이 설명을 따르면 델라크가 황무지와 오래된 돌, 섬프의 바닥에서 물건을 찾는 데에도 이유가 생깁니다. 다만 특정 기원 서사의 설명으로 남겨 두어야 합니다. 다른 전승과 모순되는 내용을 모두 하나의 연대기로 합치면, 배경이 의도적으로 남긴 기원의 불확실성을 없애 버리게 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-psychoterica"
+          ]
+        },
+        {
+          "title": [
+            "The Silent Ones are more than an anonymous committee",
+            "사일런트 원은 익명의 위원회만을 뜻하지 않는다"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "In the Drowned Empire narrative, the Silent Ones are immense aquatic beings placed in a subterranean city as the oceans vanished. Outsiders may mistake the name for hidden nobles, while the House’s relationship points toward something far older than its human hierarchy.",
+              "가라앉은 제국의 서사에서 사일런트 원은 바다가 사라질 때 지하 도시로 옮겨져 잠든 거대한 수중 존재들입니다. 외부인은 이름을 비밀스러운 귀족 지도부라고 받아들일 수 있지만, 이 설명 속 하우스와의 관계는 인간의 통치 구조보다 훨씬 오래된 존재를 향합니다."
+            ],
+            [
+              "The tale ends with a future awakening, not a publicly witnessed event. Human colonists, their psychic descendants and the sleeping beings occupy different parts of the story. Treating them as a single ordinary family would conceal its central alien horror.",
+              "이 이야기는 훗날 깨어나리라는 전망으로 이어지며, 이미 공개적으로 목격된 각성 사건을 말하는 것은 아닙니다. 인간 정착민, 정신적으로 이어진 후손, 잠든 존재들은 서사에서 서로 다른 위치에 있습니다. 이들을 평범한 한 귀족 가문의 구성원으로만 묶으면 델라크 특유의 이질적인 공포가 사라집니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-silent-gods"
+          ]
+        },
+        {
+          "title": [
+            "Averest’s fall and the ambiguity of rescue",
+            "아베레스트의 몰락과 구원이라는 명분"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Delaque’s rise involved infiltration of House Averest and a shift in its business toward ghast. When Vortus Heffrujm sought outside intervention, opposition identified only as the Crawling Shadow frustrated the effort. Even that name’s meaning remains unclear.",
+              "델라크의 부상에는 아베레스트 가문에 대한 침투와 가스트 중심으로 바뀐 사업이 얽혀 있습니다. 보르투스 헤프루임이 외부 권력의 개입을 요청했을 때, 기어 다니는 그림자라 불린 정체불명의 힘이 맞섰습니다. 그 이름이 한 인물인지 조직인지, 또는 활동 방식인지조차 명확하지 않습니다."
+            ],
+            [
+              "Official-looking explanations emphasise failed leaders, uprisings and industrial disaster before Delaque “saved” the holdings. The gap between intervention and acquisition is the point: the House’s account should not be converted into an unambiguous rescue story.",
+              "표면적인 설명에는 지도층의 실패와 노동자 봉기, 산업 재난이 등장하고, 델라크가 그 기반을 구한 것으로 정리됩니다. 그러나 구원과 인수 사이의 빈틈이 바로 이 사건의 핵심입니다. 누가 몰락을 일으켰는지 지워 버린 채 선의로 재산을 구해 준 확정적인 이야기로 읽어서는 안 됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-delaque"
+          ]
+        },
+        {
+          "title": [
+            "Nacht-Ghul disguise depends on Escher chemistry",
+            "나흐트 굴의 변장은 에셔의 화학과도 연결된다"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Nacht-Ghuls, once called the Faceless, perform espionage and sabotage as well as assassination. Escher-derived elixirs can alter facial shape and skin tone, allowing a recognisable Delaque agent to pass as a stranger or apparent ally.",
+              "한때 얼굴 없는 자들이라 불린 나흐트 굴은 암살뿐 아니라 첩보 수집과 방해 공작을 수행합니다. 에셔 계통의 약물로 얼굴 형태와 피부색을 바꾸어, 눈에 띄는 델라크의 외모를 숨기고 낯선 사람이나 아군처럼 섞여 들 수 있습니다."
+            ],
+            [
+              "These preparations are less sophisticated than Imperial polymorphine but remain effective alongside training. An operative can spend years with a gang, openly as a lieutenant or concealed as an ordinary fighter. Their mission is not necessarily the battle in which they first appear.",
+              "이 약물은 제국의 폴리모르핀만큼 정교하지 않지만 숙련된 기만과 결합하면 충분히 위험합니다. 공작원은 부관으로 드러나 있거나 평범한 갱원으로 위장한 채 한 갱과 수년을 보낼 수 있습니다. 처음 모습을 드러낸 전투 하나가 그들이 파견된 진짜 임무라고 단정할 수는 없습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-nachtghul"
+          ]
+        },
+        {
+          "title": [
+            "Piscean brains and an older pact",
+            "피시언의 뇌와 오래된 계약"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Piscean Spektors combine a harvested alien brain with Delaque machinery. The account describes ancient Pisceans offering their brains under an old pact, retaining memories and entering the House’s psychic connection. They are not ordinary human servitors with decorative heads.",
+              "피시언 스펙터는 외계 종족의 뇌와 델라크 기계를 결합한 존재입니다. 설명에 따르면 오래된 계약에 따라 나이 든 피시언이 뇌를 내어 주고, 기억을 남긴 채 하우스의 정신적 연결에 들어갑니다. 장식만 특이한 인간 서비터와 같은 존재가 아닙니다."
+            ],
+            [
+              "The race’s past is still uncertain even to Delaque. Claims about subterranean seas and ancient arrival are beliefs within the account; its psychic machinery supplies evidence of an alien relationship without resolving every question about the House’s origins.",
+              "종족의 과거는 델라크에게도 불분명합니다. 지하 바다에 정착했다는 설명과 오래전 도착했다는 이야기는 그 서술 속 믿음으로 다루어야 합니다. 외계와 연결된 기계의 존재가 관계의 실체를 보여 주더라도, 그것만으로 하우스의 모든 기원설이 해결되는 것은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-piscean"
+          ]
+        },
+        {
+          "title": [
+            "Ghast connects hidden power to ordinary commerce",
+            "가스트: 비밀스러운 힘과 일상적인 거래의 접점"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Ghast is a dangerous psychic narcotic recovered from ancient deposits and forbidden regions. It may awaken abilities or cause catastrophic harm. Delaque’s use in creating Spykers belongs to a wider trade involving smugglers, cults and powerful patrons.",
+              "가스트는 고대 퇴적물과 금지 구역에서 회수되는 위험한 사이킥 약물입니다. 재능을 깨우기도 하지만 파멸적인 피해를 줄 수도 있습니다. 델라크가 스파이커를 만드는 데 사용하는 일은 밀수업자와 컬트, 유력 후원자가 얽힌 더 넓은 거래망의 한 부분입니다."
+            ],
+            [
+              "Deposits and routes are closely guarded, and the nobility is implicated as well as undercity dealers. A conflict over a shipment can therefore connect street violence to interests far above the gang. This background does not provide safe dosage or mechanical benefits.",
+              "매장지와 운송로는 엄격하게 숨겨지고, 하층의 장사꾼뿐 아니라 귀족도 거래에 얽힙니다. 약물 수송품을 둘러싼 거리의 싸움이 갱보다 훨씬 위에 있는 이해관계와 이어질 수 있는 이유입니다. 이는 배경 설명이며 안전한 사용량이나 게임상의 효능을 정하는 규칙은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-ghast"
+          ]
+        },
+        {
+          "title": [
+            "The Covenant of Shadows wears dead identities",
+            "죽은 이름을 입는 그림자의 서약단"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "The Covenant of Shadows preserves figures such as Yeomag the Eyeless, the Ghost of Gothrul and the Shiver Twins by adopting their identities. Members alter behaviour and appearance so completely that spectators may believe old legends have returned.",
+              "그림자의 서약단은 눈 없는 예오마그, 고스룰의 유령, 쉬버 쌍둥이 같은 전설적 인물의 정체성을 되살립니다. 구성원은 행동과 모습까지 바꾸어 옛 이름을 입으며, 이를 보는 사람은 죽은 전설이 돌아왔다고 믿을 수 있습니다. 유명한 갱의 기억이 현재 인물의 자아와 겹쳐지는 방식입니다."
+            ],
+            [
+              "The account links these performances to Psy-Gheists and the Psychoterica, rather than presenting simple theatrical imitation. When the ancient alien wills intrude, even the Star Chamber fears the result. Preserving the House’s past can thus threaten its living rulers.",
+              "설명은 이를 단순한 연극적 모방이 아니라 사이 게이스트와 사이코테리카의 연결에 둡니다. 고대의 이질적인 의지가 개입하면 스타 챔버조차 그 결과를 두려워합니다. 하우스의 과거와 명성을 보존하는 행위가 도리어 지금의 지도부를 위협할 수 있다는 불길한 역설입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-house-covenant"
+          ]
+        }
+      ],
+      "corrections": []
+    }
+  ],
+  "accessIssues": [
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/House_Cawdor",
+      "status": "direct-http-403 / web-read",
+      "note": "직접 HTTP 요청은 403이었으나 웹 열람 경로에서 본문과 원전 목록을 확인했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Palace_of_Bones",
+      "status": "timeout-recovered",
+      "note": "첫 열람이 시간 초과였으며 재시도에서 본문을 확인했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Council_of_Crones",
+      "status": "timeout-recovered",
+      "note": "첫 열람이 시간 초과였으며 재시도에서 본문을 확인했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/House_Orlund",
+      "status": "timeout-recovered",
+      "note": "첫 열람이 시간 초과였으며 재시도에서 본문을 확인했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Covenant_of_Shadows",
+      "status": "timeout-recovered",
+      "note": "첫 열람이 시간 초과였으며 재시도에서 본문을 확인했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Pax_Redemptos",
+      "status": "404",
+      "note": "독립 문서가 없어 코드로 본문에 있는 관련 서술만 사용했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Crucible_Schism",
+      "status": "404",
+      "note": "독립 문서가 없어 오를록 본문에 있는 관련 서술만 사용했습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Junkertown",
+      "status": "404",
+      "note": "독립 문서 열람이 되지 않아 새로운 독립 출처로 계산하지 않았습니다."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Somnus",
+      "status": "disambiguation",
+      "note": "동명이인 안내 문서였으므로 델라크의 역사 근거로 사용하지 않았습니다."
+    }
+  ]
+}

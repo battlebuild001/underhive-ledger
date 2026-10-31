@@ -1,0 +1,323 @@
+{
+  "sources": {
+    "lore2026-world-setting": {
+      "title": [
+        "Necromunda: Setting",
+        "네크로문다 공식 세계관 소개"
+      ],
+      "url": "https://necromunda.com/setting/",
+      "publisher": "Games Workshop",
+      "kind": "official-setting",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-planet": {
+      "title": [
+        "Necromunda (planet)",
+        "네크로문다 행성"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Necromunda_(planet)",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-primus": {
+      "title": [
+        "Hive Primus",
+        "하이브 프라이머스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Hive_Primus",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-city": {
+      "title": [
+        "Apocrypha Necromundus: Hive City",
+        "아포크리파 네크로문두스: 하이브 시티"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/4jhmfkvd/apocrypha-necromundus-hive-city/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-clock": {
+      "title": [
+        "Great Horologium",
+        "그레이트 호롤로지움"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Great_Horologium",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-dust": {
+      "title": [
+        "Apocrypha Necromundus: Dust Falls",
+        "아포크리파 네크로문두스: 더스트 폴스"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/SJDj2jl5/apocrypha-necromundus-dust-falls/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    },
+    "lore2026-world-succession": {
+      "title": [
+        "What’s been happening on Necromunda?",
+        "스파이어 오브 프라이머스 직전의 공식 줄거리 정리"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/emnpl3j1/whats-been-happening-on-necromunda-catch-up-on-the-story-in-time-for-spire-of-primus/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "",
+        ""
+      ]
+    }
+  },
+  "factions": [],
+  "worldChapters": [
+    {
+      "title": [
+        "Industry, Houses and the underhive",
+        "산업 행성과 하우스, 언더하이브의 관계"
+      ],
+      "paragraphs": [
+        [
+          "Necromunda supplies the Imperium through mines, refineries and factories. Its great cities concentrate labour above older settlements and ruins. The underhive is therefore part of a much larger industrial society, rather than the whole planet.",
+          "네크로문다는 광산·정제소·공장으로 제국의 수요를 감당하는 산업 행성입니다. 거대한 하이브는 오래된 도시와 폐허 위에 노동력과 생산 시설을 쌓아 올린 공간이며, 언더하이브는 그 아래쪽에 남은 세계입니다. 갱들의 싸움은 이 행성 사회의 일부이지 행성 전체의 모습은 아닙니다."
+        ],
+        [
+          "Noble Houses command wealth and investment; Clan Houses organise production and have their own traditions. Rivalry coexists with dependence on one another’s goods. Outside the functioning levels, territorial fighters, exiles and cults compete for survival and opportunity.",
+          "귀족 하우스는 부와 투자를 장악하고, 클랜 하우스는 각자의 전통을 가진 생산 공동체를 이룹니다. 서로 경쟁해도 다른 하우스가 공급하는 물자와 서비스까지 모두 끊을 수는 없습니다. 정상적으로 가동되는 구역의 바깥에서는 영토를 지키는 전사, 추방자, 교단이 생존과 기회를 놓고 경쟁합니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-setting"
+      ]
+    },
+    {
+      "title": [
+        "Cargo Town, Forge City and the Wall",
+        "화물 마을에서 귀족의 장벽까지"
+      ],
+      "paragraphs": [
+        [
+          "Hive Primus’ Circulum Nexus receives cargo through maglev lines and ash gates. Vast container stacks create inhabited corridors. Above it, Forge City handles heavy industry, while the Teeming holds densely interwoven homes and workshops.",
+          "하이브 프라이머스의 서큘럼 넥서스는 자기부상 철도와 애시 게이트를 통해 화물을 받습니다. 수없이 쌓인 컨테이너 사이에는 실제 주민들이 사는 통로와 마을이 생겨납니다. 그 위의 포지 시티에서는 중공업이 돌아가고, 티밍에는 주거 구역과 작업장이 빽빽하게 뒤엉켜 있습니다."
+        ],
+        [
+          "The spaceport occupies the upper transition, beneath the Wall separating Clan society from the noble Spire. These connected layers explain why a loading gate, workshop or passage can matter as much as a fortress to a local gang.",
+          "우주항은 도시 상층의 경계에 자리하며, 그 위의 장벽은 클랜의 세계와 귀족의 스파이어를 가릅니다. 물류·생산·주거가 서로 연결되어 있으므로 갱에게는 화물 출입구 하나, 작업장 하나, 층 사이의 통로 하나도 중요한 거점이 됩니다. 이는 도시 구조에서 이해할 수 있는 해설이며 개별 영토의 게임 효과를 뜻하지는 않습니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-city"
+      ]
+    },
+    {
+      "title": [
+        "One hive is not the whole world",
+        "프라이머스 밖에도 이어지는 세계"
+      ],
+      "paragraphs": [
+        [
+          "Primus is the principal political centre, but Necromunda contains many hive clusters and long routes across industrial wasteland. Temenos, Mortis and Secundus represent different religious, industrial and catastrophic histories, not interchangeable neighbourhoods of Primus.",
+          "프라이머스는 정치 권력의 중심이지만 네크로문다에는 수많은 하이브 군집과 황무지를 가로지르는 긴 길이 있습니다. 테메노스, 모르티스, 세쿤두스는 각각 다른 종교·산업·파국의 역사를 가진 도시입니다. 모두 프라이머스의 다른 동네라고 생각하면 팩션의 활동 범위를 놓치게 됩니다."
+        ],
+        [
+          "Planetary geography also includes polluted former seas, buried infrastructure and shifting ash. Sources attach different legends to the planet’s ancient conquest and destruction; a legend about the distant past should not be treated as a precise modern census or an uncontested chronology.",
+          "행성의 지리에는 오염된 옛 바다와 매몰된 시설, 계속 움직이는 잿더미도 포함됩니다. 아주 오래된 정복과 파괴의 과정은 자료에 따라 다른 전승으로 설명되기도 합니다. 따라서 전설 속 기원과 특정 책의 시대를 표시하지 않은 채 단일한 확정 연표로 합쳐 쓰지 않습니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-planet",
+        "lore2026-world-primus"
+      ]
+    },
+    {
+      "title": [
+        "A town built around passage",
+        "통로를 중심으로 살아가는 더스트 폴스"
+      ],
+      "paragraphs": [
+        [
+          "Dust Falls grew around an ancient collapse between Hive City and the depths. Hanging cages descend through the Abyss, linking landings and routes below. Its market turns recovered goods into wealth, making movement through the town an economic resource.",
+          "더스트 폴스는 하이브 시티와 심층을 잇는 오래된 붕괴 지점 주변에 생긴 정착지입니다. 어비스에 매달린 승강 바구니가 여러 높이의 발판과 아래쪽 길을 연결합니다. 회수한 물건이 시장에서 부로 바뀌기 때문에 이곳에서는 이동 경로 자체가 중요한 자원이 됩니다."
+        ],
+        [
+          "Guild interests, civic leaders, criminal businesses and an Enforcer precinct coexist there. Their uneasy accommodation is a useful example of local order: commerce can continue amid corruption and violence without turning the settlement into a peaceful or just society.",
+          "이곳에는 길드의 이해관계, 지역 지도자, 범죄 사업, 엔포서 관할서가 공존합니다. 부패와 폭력이 사라지지 않아도 거래와 통행을 위해 임시 질서가 유지될 수 있는 것입니다. 정착지가 운영된다는 사실과 그곳이 평화롭거나 공정하다는 평가는 구분해야 합니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-dust"
+      ]
+    },
+    {
+      "title": [
+        "The clock measures work as well as time",
+        "시간과 사람을 함께 재는 죽음의 시계"
+      ],
+      "paragraphs": [
+        [
+          "A Great Horologium reports production and workforce conditions, not simply the hour. Workers see shifts and quotas; overseers can inspect waste, output and losses. Vigil, Laudate and Magnificat name the three work shifts.",
+          "그레이트 호롤로지움은 단순히 시간을 알려 주는 시계가 아니라 생산과 노동 상태를 표시하는 장치입니다. 노동자에게는 교대 시간과 할당량이 중요하지만, 감독자는 낭비·생산량·인명 손실 같은 항목까지 읽습니다. 비질, 라우다테, 마그니피카트는 세 작업 교대의 이름입니다."
+        ],
+        [
+          "Its popular name, the Death Clock, reflects the punishment behind those figures. This helps explain the pressures shaping industrial helots, exhausted scavengers and people tempted by promises of escape; it does not make every discontented worker a cultist.",
+          "대중이 이를 죽음의 시계라고 부르는 이유는 그 숫자 뒤에 처벌이 있기 때문입니다. 이러한 노동 질서는 헬롯의 삶과 탈출을 약속하는 신앙이 힘을 얻는 배경을 이해하는 데 도움이 됩니다. 그렇다고 불만을 가진 노동자를 모두 비밀 교단의 신도로 단정할 수는 없습니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-clock"
+      ]
+    },
+    {
+      "title": [
+        "Which period does your campaign inhabit?",
+        "헬마워의 질서와 계승 전쟁은 다른 시점이다"
+      ],
+      "paragraphs": [
+        [
+          "The 2025 official recap begins with the Great Darkness and the attack that leaves Lord Helmawr in stasis. Haera’s bid for power, Credo’s alliance with Escher and the pilgrimage to Temenos lead to Ozostium Aranthus awakening and taking Primus.",
+          "2025년 공식 줄거리 정리는 대암흑과 헬마워가 정지장에 갇히게 된 습격에서 출발합니다. 헤라의 권력 장악, 크리도의 에셔 동맹, 테메노스로 향한 순례를 거쳐 오조스티움 아란투스가 깨어나 프라이머스를 차지합니다. 이는 헬마워의 안정된 통치를 전제하는 입문 배경과 다른 서사 단계입니다."
+        ],
+        [
+          "Haera subsequently seeks a way back through Secundus and a Sthenian hunting rig. The recap advertises the struggle’s next instalment rather than revealing every ending. These archives therefore identify inherited loyalties and story developments without inventing a final outcome for your campaign.",
+          "이후 헤라는 세쿤두스와 스테니안 사냥 리그를 통해 반격의 기회를 찾습니다. 해당 기사는 후속 이야기로 이어지는 상황을 소개하며 모든 결말을 공개하지 않습니다. 이 아카이브는 전통적인 소속 관계와 시대별 사건을 구분하고, 독자가 진행하는 캠페인의 결말까지 정해 쓰지 않습니다."
+        ]
+      ],
+      "sourceIds": [
+        "lore2026-world-succession"
+      ]
+    }
+  ],
+  "readingLinks": [
+    {
+      "title": [
+        "Necromunda (planet)",
+        "렉시카눔 — 네크로문다 전체 설정"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Necromunda_(planet)",
+      "kind": "wiki"
+    },
+    {
+      "title": [
+        "House Cawdor",
+        "렉시카눔 — 커드로 가문"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Cawdor",
+      "kind": "wiki"
+    },
+    {
+      "title": [
+        "Redemption Cult",
+        "렉시카눔 — 리뎀션 컬트"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Redemption_Cult",
+      "kind": "wiki"
+    },
+    {
+      "title": [
+        "Official setting",
+        "네크로문다 공식 세계관 소개"
+      ],
+      "url": "https://necromunda.com/setting/",
+      "kind": "official-setting"
+    },
+    {
+      "title": [
+        "Necromunda articles",
+        "워해머 커뮤니티 — 네크로문다 기사 모음"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/setting/necromunda/",
+      "kind": "article-index"
+    },
+    {
+      "title": [
+        "Cawdor and Redemptionists",
+        "커드로·리뎀셔니스트 공식 소개"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/KDo3TqGD/underhive-informant-like-fire-like-worshipping-the-emperor-then-youre-in-luck/",
+      "kind": "article"
+    },
+    {
+      "title": [
+        "Hive City",
+        "아포크리파 네크로문두스: 하이브 시티"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/4jhmfkvd/apocrypha-necromundus-hive-city/",
+      "kind": "article"
+    },
+    {
+      "title": [
+        "Black Library: Necromunda",
+        "블랙 라이브러리 — 네크로문다 소설 모음"
+      ],
+      "url": "https://www.blacklibrary.com/series/necromunda",
+      "kind": "fiction-catalog"
+    },
+    {
+      "title": [
+        "The fall of Hive Secundus: fan summary",
+        "한국어 팬 요약 — 하이브 세쿤두스의 몰락"
+      ],
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=blacklibrary&no=354678",
+      "kind": "fan-summary"
+    }
+  ],
+  "accessIssues": [
+    {
+      "url": "https://www.blacklibrary.com/series/necromunda",
+      "status": "403 / unrelated redirect",
+      "note": "검색 도구에서는 403, 직접 HTTP 요청에서는 블랙 라이브러리 앱 안내로 이동했습니다. 소설 본문을 읽었다고 처리하지 않습니다."
+    },
+    {
+      "url": "https://www.blacklibrary.com/all-products/junktion-ebook.html",
+      "status": "403 / unrelated redirect",
+      "note": "원래 상품 소개 대신 앱 안내로 이동. 검색 색인의 짧은 소개만 확인 가능했습니다."
+    },
+    {
+      "url": "https://www.blacklibrary.com/series/necromunda/outlander-ebook.html",
+      "status": "403 / unrelated redirect",
+      "note": "원래 상품 소개 대신 앱 안내로 이동. 소설 전체와 세부 결말은 수집 범위에 포함하지 않습니다."
+    },
+    {
+      "url": "https://www.blacklibrary.com/authors/darius-hinks/necromunda-underhive-omnibus-ebook-2019.html",
+      "status": "403 / unrelated redirect",
+      "note": "원래 상품 소개 대신 앱 안내로 이동했습니다."
+    }
+  ]
+}

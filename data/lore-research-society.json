@@ -1,0 +1,840 @@
+{
+  "sources": {
+    "lore2026-society-enforcers": {
+      "title": [
+        "Palanite Enforcers",
+        "팔라나이트 인포서: 모집·전문 부대"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Palanite_Enforcers",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Recruitment and ranks cite The Book of Judgement pp.27–28; the article also mixes publications of different eras.",
+        "모집·계급 항목은 『북 오브 저지먼트』 27~28쪽을 지시합니다. 서로 다른 시기의 출판물이 함께 정리된 문서입니다."
+      ]
+    },
+    "lore2026-society-companions": {
+      "title": [
+        "Grace the Underhive with dedicated Palanite Companions to beat back the riffraff",
+        "귀족의 경호원, 팔라나이트 컴패니언"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/urpbfqfz/grace-the-underhive-with-dedicated-palanite-companions-to-beat-back-the-riffraff/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official miniature introduction, 14 July 2025; background description, not a new roster entitlement.",
+        "2025년 7월 14일 공식 소개입니다. 배경 설명이며 로스터의 고용 권한을 추가하지 않습니다."
+      ]
+    },
+    "lore2026-society-sanctioner": {
+      "title": [
+        "The Sanctioner Pattern Automaton Is an Ogryn-sized Dreadnought",
+        "인간의 뇌로 움직이는 생션너 오토마타"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/Vq2dhCIU/the-sanctioner-pattern-automaton-is-a-ogryn-sized-dreadnought-violently-enforcing-lord-helmawrs-peace/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official reveal set during the Aranthian Succession, 27 February 2023.",
+        "아란시안 계승 전쟁 시점을 다룬 2023년 2월 27일 공식 소개입니다."
+      ]
+    },
+    "lore2026-society-servalen": {
+      "title": [
+        "Underhive Reinforcements: Scrutinator-Primus Servalen",
+        "언더하이브 증원: 스크루티네이터 프리무스 서벌렌"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/5YLTaMSe/underhive-reinforcements/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official character introduction, 18 September 2020.",
+        "2020년 9월 18일 공식 인물 소개입니다."
+      ]
+    },
+    "lore2026-society-venators": {
+      "title": [
+        "Venator Gang",
+        "베나터 갱: 길드의 인가와 사냥 관습"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Venator_Gang",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary summary citing The Book of Peril pp.10–12 and White Dwarf.",
+        "『북 오브 페릴』 10~12쪽과 『화이트 드워프』를 인용하는 팬 위키입니다."
+      ],
+      "revision": "707501"
+    },
+    "lore2026-society-executioners": {
+      "title": [
+        "Executioner Families",
+        "처형자 가문들"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Executioner_Families",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "622793"
+    },
+    "lore2026-society-janus": {
+      "title": [
+        "Janus Clan",
+        "야누스 클랜"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Janus_Clan",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "627126"
+    },
+    "lore2026-society-wyrd-brethren": {
+      "title": [
+        "Wyrd Brethren",
+        "워드 브레드런"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Wyrd_Brethren",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "672610"
+    },
+    "lore2026-society-jarlgar": {
+      "title": [
+        "Jarlgar Headhunters",
+        "야를가 헤드헌터"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Jarlgar_Headhunters",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "627125"
+    },
+    "lore2026-society-broken-blades": {
+      "title": [
+        "Broken Blades",
+        "브로큰 블레이드"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Broken_Blades",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "582971"
+    },
+    "lore2026-society-venators-audio": {
+      "title": [
+        "Venators — audio anthology",
+        "『베나터』 오디오 앤솔러지"
+      ],
+      "url": "https://www.blacklibrary.com/authors/josh-reynolds/venators-mp3-2019.html",
+      "publisher": "Black Library",
+      "kind": "fiction-catalog",
+      "checkedOn": "2026-10-31",
+      "access": "search-excerpt",
+      "note": [
+        "Search-indexed publisher catalogue descriptions only; the original product URL redirects. The audio dramas were not fully read or transcribed.",
+        "검색에 남은 출판사 상품 소개만 확인했습니다. 원래 상품 주소는 다른 페이지로 이동하며 오디오 드라마 전체를 읽거나 전사하지 않았습니다."
+      ]
+    },
+    "lore2026-society-outcasts": {
+      "title": [
+        "Outcast (Necromunda)",
+        "아웃캐스트의 사회적 출신"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Outcast_(Necromunda)",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "716507"
+    },
+    "lore2026-society-outcast-gangs": {
+      "title": [
+        "Outcasts Gang",
+        "아웃캐스트 갱의 형성과 생계"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Outcasts_Gang",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "778247"
+    },
+    "lore2026-society-gunk-deep": {
+      "title": [
+        "Necromunda Apocrypha — The Devils of Gunk Deep",
+        "아포크리파: 겅크 딥의 악마들"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/RlOMyHX8/necromunda-apocrypha-fight-off-or-command-a-tide-of-mutants-boiling-from-beneath-the-underhive/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official story introduction, 22 August 2023; does not make every mutant or Outcast a Chaos worshipper.",
+        "2023년 8월 22일 공식 이야기 소개입니다. 모든 돌연변이나 아웃캐스트가 카오스 신도라는 뜻은 아닙니다."
+      ]
+    },
+    "lore2026-society-underhive-outlands": {
+      "title": [
+        "Underhive: Outlands and settlements",
+        "언더하이브: 아웃랜드의 공동체"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Underhive",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Only the Outlands settlement and ancestry material is summarised here; the article cites Book of the Outcast pp.19,48,62,86.",
+        "아웃랜드의 출신과 정착지 관련 부분을 정리했습니다. 해당 항목은 『북 오브 디 아웃캐스트』 19·48·62·86쪽을 원전으로 제시합니다."
+      ],
+      "revision": "723577"
+    },
+    "lore2026-society-slave-ogryns": {
+      "title": [
+        "Slave Ogryn Gang",
+        "노예 오그린의 작업장과 해방 갱"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Slave_Ogryn_Gang",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Historical naming and background from House of Chains pp.130–131; current Free Ogryn roster rules are separate.",
+        "『하우스 오브 체인스』 130~131쪽에 근거한 이전 명칭과 배경입니다. 현행 프리 오그린의 로스터 규칙은 별도로 확인합니다."
+      ],
+      "revision": "716196"
+    },
+    "lore2026-society-thrug12": {
+      "title": [
+        "T.H.R.U.G. 12",
+        "T.H.R.U.G. 12, 스파키 또는 스마트리쿠스"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/T.H.R.U.G._12",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its cited original publications.",
+        "팬 위키의 2차 정리입니다. 문서에 연결된 원전 표기를 함께 확인하세요."
+      ],
+      "revision": "766396"
+    },
+    "lore2026-society-lords-aranthus": {
+      "title": [
+        "Lords of Aranthus",
+        "아란투스의 군주들"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Lords_of_Aranthus",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "A legend of the fallen House recorded in House of Chains p.131, not proof of the bodyguards' current survival.",
+        "『하우스 오브 체인스』 131쪽에 연결되는 몰락한 가문의 전승입니다. 경호원들이 현재까지 생존했다는 확정 기록은 아닙니다."
+      ],
+      "revision": "707388"
+    },
+    "lore2026-society-spark-revolution": {
+      "title": [
+        "Spark of Revolution — Gary Kloster",
+        "게리 클로스터의 『스파크 오브 레볼루션』"
+      ],
+      "url": "https://www.blacklibrary.com/all-products/spark-of-revolution-ebook-2020.html",
+      "publisher": "Black Library",
+      "kind": "fiction-catalog",
+      "checkedOn": "2026-10-31",
+      "access": "search-excerpt",
+      "note": [
+        "Publisher catalogue blurb available through the search index; original URL redirects. No claim to have read the complete novella.",
+        "검색에 남은 출판사 줄거리 소개를 확인했습니다. 원래 주소는 다른 페이지로 이동하며 중편 전체를 읽었다고 주장하지 않습니다."
+      ]
+    },
+    "lore2026-society-ogryn-minders": {
+      "title": [
+        "New Orlocks revealed for Necromunda: Ogryn Minders",
+        "올록 신제품 소개: 오그린 마인더"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/tuafs5pk/new-orlocks-revealed-for-necromunda/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official background published 28 September 2026; employment example, not an equipment-list import.",
+        "2026년 9월 28일 공식 배경 소개입니다. 고용의 사례이며 장비 목록을 가져오는 자료가 아닙니다."
+      ]
+    }
+  },
+  "factions": [
+    {
+      "name": "Palanite Enforcers",
+      "chapters": [
+        {
+          "title": [
+            "Recruitment that replaces a former life",
+            "옛 삶을 지우는 선발과 재교육"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Forceful recruits are sometimes taken unwillingly, stripped of their identities, retrained and posted far from earlier loyalties under new names.",
+              "모집관은 의지가 강하고 스스로 판단할 줄 아는 사람을 찾으며, 때로는 강제로 데려갑니다. 가혹한 교육을 통과한 신병은 이전 신분을 지우고 새 이름을 받으며 옛 인맥과 멀리 떨어진 곳에 배치됩니다."
+            ],
+            [
+              "Subjugator induction adds a battalion oath and gene-mark. A summons overrides patrol service, binding its members to obligations beyond their local squad.",
+              "대원은 함께 훈련을 버틴 순찰대에 새 소속감을 형성합니다. 서브주게이터 대대에 들어가면 지휘관에게 별도로 맹세하고 유전자 표식을 받으며, 소집 시에는 평소 순찰 임무를 떠나 대대를 따라야 합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-enforcers"
+          ]
+        },
+        {
+          "title": [
+            "Companions and the unequal protection of a life",
+            "컴패니언: 누구의 목숨을 지키는가"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "Palanite Companions escort the upper classes rather than provide ordinary street patrols. Psychological conditioning narrows their purpose to protecting their charges, even by physically intercepting incoming fire.",
+              "팔라나이트 컴패니언은 일반적인 거리 순찰대와 달리 상류층의 곁에서 경호합니다. 정신 조건화를 통해 보호 대상의 생존이 사고의 중심이 되며, 총격 앞에 몸을 던져 주인을 지키는 것까지 당연한 임무로 받아들입니다."
+            ],
+            [
+              "Their fur-collared coats and plumed helmets announce privileged service. The Imperial House gives them priority access to its armouries, including disintegration guns: extraordinary resources concentrated around a few protected people.",
+              "털깃 외투와 깃 장식 투구는 특권적인 경호 임무를 드러냅니다. 황실 가문은 디스인티그레이션 건까지 포함한 무기고의 우선권을 이들에게 줍니다. 극소수의 안전을 위해 파괴적인 장비와 인력이 집중되는 모습입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-companions"
+          ]
+        },
+        {
+          "title": [
+            "A fanatic’s brain inside the Sanctioner",
+            "생션너 안에 남은 집행자의 뇌"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The Sanctioner is not a Space Marine Dreadnought or a wholly independent machine. Its armoured body carries the transplanted, conditioned brain of an unusually fanatical Enforcer.",
+              "생션너는 스페이스 마린 드레드노트나 완전히 자율적인 기계가 아닙니다. 거대한 장갑 몸체 안에는 특히 광신적인 인포서의 뇌가 이식되어 있으며, 정신 조건화를 거친 그 인간의 흔적이 기계를 움직입니다."
+            ],
+            [
+              "The 2023 reveal places these machines amid Cinderak’s burning and the gathering rebellion. Called Lawtomata by the populace, they embody the regime’s escalation from armed patrols to mechanised suppression.",
+              "2023년 공식 소개는 신더락이 불타고 반란이 커지던 시기에 이 기계들을 등장시킵니다. 주민이 로토마타라고도 부르는 이 존재는 무장 순찰 수준을 넘어 기계화된 진압으로 대응 수위를 높이는 통치 권력을 상징합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-sanctioner"
+          ]
+        },
+        {
+          "title": [
+            "Servalen and KB-88: the investigator’s hunt",
+            "서벌렌과 KB-88의 추적"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "Scrutinator-Primus Servalen pursues selected high-priority offenders with exceptional persistence. Her partner KB-88 is a Cyber-mastiff, linking investigation to the Enforcers’ specialised tracking equipment.",
+              "스크루티네이터 프리무스 서벌렌은 특별히 주목받는 중범죄자를 집요하게 추적합니다. 그녀의 동료 KB-88은 사이버 마스티프로, 제복을 입은 수사관의 임무에 전문적인 추적 장비와 사냥개의 역할이 결합되어 있습니다."
+            ],
+            [
+              "Servalen is a psychic null, not another kind of Haunt. The distinction matters: her aptitude for pursuing witches comes from an absence hostile to psychic power rather than the sanctioned use of such power.",
+              "서벌렌은 사이킥 널이며 하운트의 다른 종류가 아닙니다. 하운트가 인가받은 정신력을 발휘한다면, 서벌렌의 마녀 사냥 능력은 사이킥 현상에 적대적인 부재에서 비롯됩니다. 비슷한 표적을 쫓아도 재능의 성격은 다릅니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-servalen"
+          ]
+        },
+        {
+          "title": [
+            "Cerberean expeditions beyond the Dust Wall",
+            "더스트 월 너머의 케르베리언 원정"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "Cerberean Enforcers enter the Secundan Exclusion Zone to assess Malstrain threats and pursue wanted people. They establish outposts from which to patrol the contaminated region.",
+              "케르베리언 인포서는 세쿤두스 배제 구역으로 들어가 말스트레인의 위협을 조사하고 수배자를 추적합니다. 오염 지대 안에 전초기지를 세워 주변을 순찰한다는 점에서 하이브 시가지의 일상 순찰과 다른 원정 임무입니다."
+            ],
+            [
+              "Long deployments beyond the Dust Wall change the officers. Authority provides no immunity to the hazardous terrain they share with scavengers and hunters.",
+              "더스트 월 너머에 오래 머문 대원은 가혹한 환경으로 깊이 변한다고 묘사됩니다. 공적인 권한과 제복을 가졌어도 안내인과 수집꾼, 사냥꾼을 위협하는 그 지형 자체로부터 보호받는 것은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-enforcers"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Venator Gangs",
+      "chapters": [
+        {
+          "title": [
+            "Guild sanction, specialist cadres and masks",
+            "길드의 인가·전문 추적대·사냥의 가면"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Venator sanction can take the form of oath-tokens circulated by the Merchant Guilds. Guild cadres include Adjurators who pursue oathbreakers and Shacklemen who recover escaped slaves; lawful work can therefore sustain oppression.",
+              "베나터의 활동 인가는 상인 길드가 유통하는 서약 토큰 같은 형태로도 주어집니다. 길드의 추적대에는 서약 위반자를 쫓는 어드주레이터와 도망친 노예를 회수하는 섀클맨이 있습니다. 합법적인 의뢰라고 해서 피해자에게 정당한 일은 아닙니다."
+            ],
+            [
+              "Some traditions temporarily erase the hunter’s personal identity behind a hood, threatening mask or executioner’s noose. These rites make certain bands resemble death cults, but they are traditions within a varied profession, not a single planetary religion.",
+              "일부 전통에서는 사냥하는 동안 두건과 험악한 가면, 처형자의 올가미 뒤로 개인의 이름을 감춥니다. 이런 의식 때문에 죽음의 교단처럼 보이는 무리도 있지만, 다양한 직업 집단 안의 관습이며 행성 전체를 통일하는 신앙은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-venators"
+          ]
+        },
+        {
+          "title": [
+            "Executioner bloodlines and the identical Janus hunters",
+            "처형자 혈통과 똑같은 야누스들"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "The Executioner Families trace themselves to legendary hunters or assassins employed to carry out Helmawr’s justice. Later Venator bands inherit these pedigrees without becoming one common House.",
+              "처형자 가문들은 헬마우르의 사법 집행을 위해 일했던 전설적인 사냥꾼과 암살자를 시조로 내세웁니다. 그 후손이 베나터 무리를 이루기도 하지만, 이 계보를 공유한다고 하나의 통일된 하우스를 구성하는 것은 아닙니다."
+            ],
+            [
+              "The Janus Clan is an unusual case: a contract with House Escher produces vat-grown copies of Janus, physically alike and sharing his name. Here continuity is manufactured through cloning rather than ordinary descent.",
+              "야누스 클랜은 특이한 사례입니다. 하우스 에셔와 맺은 계약으로 배양된 야누스의 복제인간들이 같은 외모와 같은 이름을 사용합니다. 이 집단에서 계보의 연속성은 일반적인 자녀의 출생 대신 복제 기술로 만들어집니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-executioners",
+            "lore2026-society-janus"
+          ]
+        },
+        {
+          "title": [
+            "The Wyrd Brethren’s conditional permission",
+            "워드 브레드런에게 허락된 조건부 활동"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The Wyrd Brethren are a psyker Venator gang given special permission by House Helmawr to operate below Hive Primus’s Wall. Their legal position is an explicit exception, not evidence that psykers are generally accepted.",
+              "워드 브레드런은 헬마우르 가문으로부터 하이브 프리무스의 장벽 아래에서 활동할 특별 허가를 받은 사이커 베나터 집단입니다. 이들의 지위는 명시적인 예외이며, 사이커가 네크로문다에서 보편적으로 받아들여진다는 증거는 아닙니다."
+            ],
+            [
+              "That permission depends on submission to obedience implants. Their usefulness and the authorities’ fear of independent psychic power coexist, making sanctioned employment another form of coercive supervision.",
+              "허가에는 복종 임플란트를 받아야 한다는 조건이 붙습니다. 정신 능력을 이용하려는 권력과 그 능력이 독자적으로 움직이는 것을 두려워하는 권력이 같은 주체입니다. 인가받은 고용도 강제적인 감시와 결합할 수 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-wyrd-brethren"
+          ]
+        },
+        {
+          "title": [
+            "The Jarlgar price of sanctuary",
+            "야를가가 피난처를 유지하는 대가"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "The scrap-armoured Jarlgar Headhunters are Ash Waste Nomads descended from an Executioner bloodline. Unlike many nomads, they have sanctuary inside Hive Primus.",
+              "고철 갑옷을 걸친 야를가 헤드헌터는 처형자 혈통을 이은 애시 웨이스트 노매드입니다. 많은 황무지 유목민과 달리 하이브 프리무스 안에서 피난처를 허락받았다는 점이 이 집단의 특수한 처지를 만듭니다."
+            ],
+            [
+              "The agreement requires a continuing supply of bounties. They must keep travelling and hunting to preserve that refuge, so their privileged entry into the hive remains tied to useful violence.",
+              "그 합의에는 현상금 표적을 지속적으로 넘겨야 한다는 조건이 붙습니다. 피난처를 유지하려면 계속 이동하며 사냥해야 합니다. 하이브에 들어갈 특권이 안정적인 시민권처럼 주어지는 것이 아니라 계속 쓸모를 증명해야 하는 계약인 셈입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-jarlgar"
+          ]
+        },
+        {
+          "title": [
+            "Broken Blades and the defence of Dust Falls",
+            "브로큰 블레이드와 더스트 폴스 방어"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "The Broken Blades recruit among Hive Primus’s displaced nobles: outcasts, second sons and disgraced daughters. Their origins show that professional hunters can retain elite backgrounds after losing a secure place within them.",
+              "브로큰 블레이드는 하이브 프리무스의 밀려난 귀족들, 곧 추방자와 차남, 불명예를 안은 딸들을 구성원으로 삼습니다. 상류층 안의 안정적인 자리를 잃었어도 그 출신과 경험까지 사라지는 것은 아니라는 사례입니다."
+            ],
+            [
+              "The Merchant Guild hired them alongside Belladonna to defend Dust Falls during a plague-zombie outbreak. Bounty work can mean a settlement’s organised defence as well as the pursuit of an individual fugitive.",
+              "상인 길드는 플레이그 좀비가 창궐했을 때 벨라도나와 이들을 함께 고용해 더스트 폴스를 지키게 했습니다. 현상금 사냥꾼의 일이 도망자 한 명을 쫓는 데 그치지 않고 정착지를 조직적으로 방어하는 임무가 될 수도 있음을 보여 줍니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-broken-blades"
+          ]
+        },
+        {
+          "title": [
+            "Three official audio stories, three kinds of hunter",
+            "공식 오디오 작품으로 보는 서로 다른 사냥꾼"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "The publisher’s description of Venators groups three audio dramas: Justin D Hill’s The Deserter, Matt Keefe’s Expectatio and Josh Reynolds’s Half-Horn. They introduce Corenne, Baertrum Arturos and the feared Gor Half-horn through separate predicaments.",
+              "출판사의 『베나터』 소개에는 저스틴 D 힐의 「더 디저터」, 맷 키프의 「엑스펙타티오」, 조시 레이놀즈의 「하프혼」이 묶여 있습니다. 코렌과 베어트럼 아르투로스, 공포의 대상인 고르 하프혼을 서로 다른 사연으로 접하게 하는 작품들입니다."
+            ],
+            [
+              "The blurbs describe a dangerous stranger, an artefact accepted instead of a fee, and fugitives hoping a pursuer is only a myth. These are reading leads, not full plot summaries; the catalogue supports their premises but does not establish their endings.",
+              "상품 소개의 단서는 위험한 낯선 이, 미지급 보수 대신 받은 유물, 추적자가 신화이기만 바라며 피신한 도망자들입니다. 여기서는 읽을 작품을 찾는 단서로 제시합니다. 소개문으로 확인한 발단을 작품 전체의 줄거리나 결말로 확대하지 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-venators-audio"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Outcasts",
+      "chapters": [
+        {
+          "title": [
+            "A birth record can decide who belongs",
+            "출생 기록 하나로 갈리는 소속"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Outcasts can be expelled for betrayal or theft, or lose their place through family destruction and administrative errors that erase their birth records.",
+              "배신이나 길드 자금 횡령으로 추방되는 사람도 있지만, 가족이나 조직을 잃거나 행정 착오로 출생 기록이 사라지는 사람도 있습니다. 아웃캐스트라는 처지가 언제나 본인이 선택한 범죄의 결과는 아닙니다."
+            ],
+            [
+              "Hive Scum sell marksmanship and muscle to stronger factions, who depend on them while treating them as disposable. Employment is not membership.",
+              "하이브 스컴은 총을 다루는 솜씨와 노동력을 더 강한 세력에 팔아 살아갑니다. 고용주는 그 힘을 필요로 하면서도 소모품처럼 취급할 수 있습니다. 일을 맡아 생존하는 것과 정식 구성원으로 인정받는 것은 다른 문제입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-outcasts"
+          ]
+        },
+        {
+          "title": [
+            "Palladina and Tallonborg: fallen does not mean forgotten",
+            "팔라디나와 탈론보르그의 남은 유산"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "House Palladina’s descendants display Phyrr Cat furs and gilded weapons while claiming outland settlements. Lost lineage survives as clothing and local ambition.",
+              "하우스 팔라디나의 후손은 피르 캣 모피와 금박 무기를 과시하며 아웃랜드 정착지에 지배권을 주장합니다. 몰락한 혈통은 사라진 작위만이 아니라 눈에 띄는 복식과 상속된 야심, 지역의 권력으로 남을 수 있습니다."
+            ],
+            [
+              "House Tallonborg’s augmented nobles retain associations with murder-cyborg manufacture and secret Clan contracts. Their fallen status has not erased every profitable connection.",
+              "하우스 탈론보르그는 대규모 신체 개조를 받은 귀족과 살인 사이보그 제작, 클랜 하우스와의 비밀 계약으로 알려져 있습니다. 공적인 지위를 잃었다고 정식 사회와 이어지는 모든 이권과 거래까지 끊기는 것은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-outcasts"
+          ]
+        },
+        {
+          "title": [
+            "Why an Outcast gang can end without a final battle",
+            "목적이 끝나면 흩어지는 갱"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "An Outcast leader may be a former crime lord, disgraced ganger or rogue doctor. Followers depend on that person’s contacts for equipment and training; the group can dissolve once its shared purpose is exhausted.",
+              "아웃캐스트 리더는 전직 범죄 군주이거나 불명예를 안은 갱어, 무허가 의사일 수 있습니다. 구성원은 장비와 훈련을 얻기 위해 그 사람의 인맥에 의존하며, 공동의 목적이 사라지면 마지막 전투 없이도 무리가 해체될 수 있습니다."
+            ],
+            [
+              "Credits can mean food, costly technological upkeep or the means to recover an old social position. The same paid job may support very different ambitions among people who temporarily share a leader.",
+              "크레딧은 당장의 식량일 수도, 비싼 기술 장비의 유지비일 수도, 예전 지위를 되찾을 자금일 수도 있습니다. 같은 리더를 따르며 같은 의뢰를 수행하는 동안에도 그 돈으로 이루려는 삶은 서로 다를 수 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-outcast-gangs"
+          ]
+        },
+        {
+          "title": [
+            "Gunk Deep and the divided population of Dust Falls",
+            "겅크 딥에서 더스트 폴스로 올라온 전쟁"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "The Great Darkness broke Imperial control over Gunk Deep’s hydro-exchange. Mutants, wyrds and criminals who lived there became the rising force described in the official Devils of Gunk Deep story.",
+              "대암흑기의 정전은 겅크 딥의 수자원 교환 시설에 남아 있던 제국 권력의 연결까지 끊었습니다. 그곳에 살던 돌연변이와 워드, 범죄자들이 공식 이야기 「겅크 딥의 악마들」에서 지상으로 올라오는 세력이 됩니다."
+            ],
+            [
+              "Dust Falls’s defenders were also a mixed population: Narco Lord Balthazar Van Zep gathered Hive Scum, disgraced Guilders, outlaw gangers and desperate residents. The conflict places marginal people on both sides; it cannot be reduced to all Outcasts sharing one cause.",
+              "더스트 폴스를 지키는 쪽도 혼성 집단이었습니다. 나르코 로드 발타자르 반 제프는 하이브 스컴과 실각한 길드원, 무법 갱어와 절박한 주민을 모았습니다. 주변부의 사람들이 양쪽에서 싸우므로 모든 아웃캐스트가 같은 명분을 따른다고 단순화할 수 없습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-gunk-deep"
+          ]
+        },
+        {
+          "title": [
+            "Outlanders born beyond a House’s memory",
+            "처음부터 하우스 밖에서 태어난 사람들"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "Some clanless Outlanders descend from escaped helots or long-isolated badzone communities. Others inherit the disgrace of a vanished House. A person may therefore be outside the system without ever personally leaving it.",
+              "클랜 없는 아웃랜더 가운데는 도망친 예속민의 후손이나 배드존에 오래 고립된 공동체의 사람들이 있습니다. 사라진 하우스의 불명예를 물려받은 경우도 있습니다. 직접 조직을 떠난 적 없이 처음부터 체제 밖에서 태어날 수 있는 것입니다."
+            ],
+            [
+              "Their settlements need food, water and salvage as well as walls and watchtowers. Isolation makes scavenging and defence everyday necessities; a stronghold is a practical system of survival rather than merely a banner over a conquered ruin.",
+              "그 정착지에는 성벽과 감시탑뿐 아니라 식량과 물, 회수한 자원이 필요합니다. 고립된 곳에서는 수집과 방어가 매일의 생존 조건입니다. 거점은 점령한 폐허에 깃발을 꽂는 데 그치지 않고 사람이 계속 살아갈 체계를 갖추는 일입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-underhive-outlands"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Free Ogryns",
+      "chapters": [
+        {
+          "title": [
+            "Pit fighters, bodyguards and B.O.N.C.E.s",
+            "투기장과 경호 업무, 그리고 B.O.N.C.E."
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Earlier Slave Ogryn background includes escaped pit fighters, manufactorum crews and Guilder bodyguards. Some join human outlaws while remaining wary of recapture; a single workplace does not explain every free gang.",
+              "이전 노예 오그린 배경에는 탈출한 투기장 전사뿐 아니라 제조소 작업조와 길드원의 경호원도 등장합니다. 인간 무법자와 협력하더라도 재포획을 경계하며, 모든 해방 갱의 기원을 한 작업장으로 설명할 수는 없습니다."
+            ],
+            [
+              "B.O.N.C.E.s are heavily modified single-task Ogryn servitors whose independence has been drastically reduced. Groups described in House of Chains place stronger-willed leaders beside such followers, exposing how bodily escape and mental autonomy need not arrive together.",
+              "B.O.N.C.E.는 단일 작업용으로 크게 개조되어 자율성이 심하게 줄어든 오그린 서비터입니다. 『하우스 오브 체인스』의 집단에는 의지가 강한 리더와 이런 동료가 함께 등장합니다. 몸이 작업장을 벗어나도 정신의 자유까지 동시에 회복되는 것은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-slave-ogryns"
+          ]
+        },
+        {
+          "title": [
+            "T.H.R.U.G. 12 and the revolt against programming",
+            "프로그램을 거역한 T.H.R.U.G. 12"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "T.H.R.U.G. 12, called Sparky or Smarticus, retained much of his mind while working in Van Saar’s Archetek Helix workshops. His account connects a catastrophic electrical accident to acquired knowledge and an emerging desire for freedom.",
+              "스파키 또는 스마트리쿠스라 불리는 T.H.R.U.G. 12는 반 사르의 아키오테크 헬릭스 작업장에서 개조된 뒤에도 정신의 많은 부분을 유지했습니다. 그의 전기는 거대한 전기 사고와 새로운 지식의 획득, 자유를 원하는 마음의 성장을 연결합니다."
+            ],
+            [
+              "Sent downhive to the Daeyglow Dragons, he was encouraged by the Ratling cook Epyff Anyi and overthrew their leadership. Ogryns, Beastmen, mutants and Ratlings rallied to him, drawing Guild bounties: his rebellion reached beyond one abhuman community.",
+              "하층의 데이글로 드래곤스에 보내진 그는 래틀링 취사병 에피프 아니의 격려를 받아 갱의 지도부를 뒤엎었습니다. 오그린과 비스트맨, 돌연변이와 래틀링이 합류하자 길드는 현상금을 걸었습니다. 그의 봉기는 한 아인종 공동체의 테두리를 넘어선 사건입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-thrug12"
+          ]
+        },
+        {
+          "title": [
+            "The Lords of Aranthus and an unfinished last command",
+            "끝맺지 못한 명령을 지킨 아란투스의 군주들"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "A House of Chains legend describes Ogryn bodyguards accompanying a dying Aranthus noble into the underhive. Her unfinished order to defend the House became their captain’s purpose after her death.",
+              "『하우스 오브 체인스』에 연결되는 전승에서는 죽어 가는 아란투스 귀족을 오그린 경호원들이 언더하이브까지 호위합니다. 주인이 끝맺지 못한 채 남긴 가문을 지키라는 명령이, 그녀가 죽은 뒤에도 경호대장의 목적이 됩니다."
+            ],
+            [
+              "They established a refuge for the fallen House’s servants before a coalition of gangs, hunters, Enforcers and Guild agents destroyed it. Stories of the captain surviving in the wastes remain rumours, not a confirmed present-day force.",
+              "그들은 몰락한 가문의 하인들을 위한 피난처를 세웠지만 갱과 사냥꾼, 인포서와 길드 대리인의 연합 공격으로 패배했다고 전해집니다. 대장이 황무지로 달아나 살아 있다는 이야기는 소문이며, 현재 활동하는 세력이 확인되었다는 뜻은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-lords-aranthus"
+          ]
+        },
+        {
+          "title": [
+            "Breaker Brass in Spark of Revolution",
+            "『스파크 오브 레볼루션』의 브레이커 브라스"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "Gary Kloster’s novella begins with Breaker Brass serving Goliath foundries. The publisher places him in a violent internal feud that treats an Ogryn worker as disposable equipment.",
+              "게리 클로스터의 중편은 골리앗의 주조 공장에서 일하는 브레이커 브라스를 내세웁니다. 출판사 소개에서 그는 골리앗 내부의 유혈 분쟁에 휘말리며, 오그린 노동자는 갈등에 소모되고 버려지는 장비처럼 취급됩니다."
+            ],
+            [
+              "The blurb describes his re-emergence with altered fists, intelligence and a revolutionary aim. That is the advertised premise, not a report of the ending; it offers a specific fiction reading route into labour, modification and rebellion.",
+              "상품 소개는 그가 달라진 주먹과 지성, 혁명이라는 목적을 갖고 다시 일어선다는 발단을 제시합니다. 이는 공개된 작품 소개이며 결말을 확인한 요약은 아닙니다. 노동과 신체 개조, 반란을 인물 중심으로 읽을 작품을 찾는 길잡이입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-spark-revolution"
+          ]
+        },
+        {
+          "title": [
+            "Paid convoy work and lives beyond enslavement",
+            "노예 작업장 밖의 수송대 일자리"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "The 2026 Orlock introduction describes hiring Ogryn Minders for violent convoy protection. This gives a concrete employment setting alongside the older foundry and pit-slave narratives.",
+              "2026년 올록 공식 소개에는 거친 수송대 호위 업무를 위해 오그린 마인더를 고용하는 모습이 나옵니다. 이전의 주조 공장과 투기장 노예 이야기 외에도 오그린이 일하는 구체적인 사회적 자리가 있음을 보여 줍니다."
+            ],
+            [
+              "Employment by a House does not make every Ogryn a member of that House, nor prove that every working relationship is free of coercion. It establishes variety: escapees, bodyguards, caravan muscle and independent companions occupy different situations.",
+              "하우스에 고용되었다고 모두 그 하우스의 정식 구성원이 되는 것도, 그 노동 관계에 강제가 없다고 보장되는 것도 아닙니다. 탈출자와 경호원, 수송대의 힘을 담당하는 노동자와 독립적인 동료가 서로 다른 처지에 있다는 점이 중요합니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-society-ogryn-minders"
+          ]
+        }
+      ],
+      "corrections": []
+    }
+  ],
+  "accessIssues": [
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Adjurators",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Shacklemen",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Metalheads",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Ash_Giants",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/House_Palladina",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/House_Tallonborg",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/S.T.O.O.S._26",
+      "status": "404",
+      "note": "The linked or candidate individual page returned 404 through the research tool; use the successfully read parent article where cited, not an invented individual-page reference."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Palanite_Badzone_Enforcers",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Lobo-slave",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Ogryn_Overboss",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Water_Harvesters",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Cerberean_Enforcers",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Clanless_Outlanders",
+      "status": "tool-unavailable",
+      "note": "The research tool could not open this individual page. Relevant claims are restricted to successfully read parent pages."
+    },
+    {
+      "url": "https://www.blacklibrary.com/authors/josh-reynolds/venators-mp3-2019.html",
+      "status": "redirect/catalogue-only",
+      "note": "Publisher product URLs redirect to a general Black Library page in direct access. Search-indexed publisher catalogue text was available; complete fiction was not collected."
+    },
+    {
+      "url": "https://www.blacklibrary.com/all-products/spark-of-revolution-ebook-2020.html",
+      "status": "redirect/catalogue-only",
+      "note": "Publisher product URLs redirect to a general Black Library page in direct access. Search-indexed publisher catalogue text was available; complete fiction was not collected."
+    }
+  ]
+}

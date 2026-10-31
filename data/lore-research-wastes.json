@@ -1,0 +1,976 @@
+{
+  "sources": {
+    "lore2026-wastes-spyrer": {
+      "title": [
+        "Spyrer",
+        "스파이어 헌터의 옛 전통과 장비"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Spyrer",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "728022"
+    },
+    "lore2026-wastes-helmawr": {
+      "title": [
+        "House Helmawr",
+        "헬마우르 가문의 계보와 트루본"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/House_Helmawr",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ]
+    },
+    "lore2026-wastes-light-rigs": {
+      "title": [
+        "Join the Underhive Headhunt with the Malcadon, Yeld, and Jakara Spyrers",
+        "말카돈·옐드·자카라의 현행 장비 소개"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/aOc2F1Jv/join-the-underhive-headhunt-with-the-malcadon-yeld-and-jakara-spyrers/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official public article; summarised independently, without importing game rules.",
+        "공개된 공식 기사를 독립적으로 요약했으며 게임 규칙은 가져오지 않았습니다."
+      ]
+    },
+    "lore2026-wastes-haera": {
+      "title": [
+        "Lady Haera Helmawr Emerges from the Underhells In a Unique Spyrer Suit",
+        "헤라 헬마우르와 스테니안 헌팅 리그"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/m5KGCpaN/lady-haera-helmawr-emerges-from-the-underhells-in-a-unique-spyrer-suit/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official public article; summarised independently, without importing game rules.",
+        "공개된 공식 기사를 독립적으로 요약했으며 게임 규칙은 가져오지 않았습니다."
+      ]
+    },
+    "lore2026-wastes-ironhead": {
+      "title": [
+        "Ironhead Squat Prospector",
+        "아이언헤드의 선조 코어와 채굴 문명"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Ironhead_Squat_Prospector",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "742030"
+    },
+    "lore2026-wastes-anglish": {
+      "title": [
+        "Anglish",
+        "앵글리시 클랜"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Anglish",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "635233"
+    },
+    "lore2026-wastes-tapferkeit": {
+      "title": [
+        "Tapferkeit",
+        "타프페르카이트 클랜"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Tapferkeit",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "794621"
+    },
+    "lore2026-wastes-scragfrid": {
+      "title": [
+        "Scragfrid",
+        "스크라그프리드 클랜"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Scragfrid",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "635897"
+    },
+    "lore2026-wastes-svardhol": {
+      "title": [
+        "Svardhol",
+        "스바르드홀 클랜"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Svardhol",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "672328"
+    },
+    "lore2026-wastes-charter-master": {
+      "title": [
+        "Charter Master",
+        "차터 마스터의 지위"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Charter_Master",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "701363"
+    },
+    "lore2026-wastes-drill-master": {
+      "title": [
+        "Drill Master",
+        "드릴 마스터의 경험과 책임"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Drill_Master",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "662442"
+    },
+    "lore2026-wastes-drill-kyn": {
+      "title": [
+        "Drill-kyn",
+        "드릴킨의 노동과 몫"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Drill-kyn",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "549206"
+    },
+    "lore2026-wastes-digger": {
+      "title": [
+        "Digger",
+        "디거의 수련과 사회적 나이"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Digger",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "495605"
+    },
+    "lore2026-wastes-orrin": {
+      "title": [
+        "Orrin Grimjarl",
+        "오린 그림야를"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Orrin_Grimjarl",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "648734"
+    },
+    "lore2026-wastes-urson": {
+      "title": [
+        "Urson Grimjarl",
+        "우르손 그림야를"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Urson_Grimjarl",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "The article contradicts itself about sibling age; age order is not adopted here.",
+        "문서 안에서 형제의 나이 순서가 서로 충돌하므로 이 정리에서는 형·동생을 확정하지 않습니다."
+      ],
+      "revision": "794627"
+    },
+    "lore2026-wastes-restoration": {
+      "title": [
+        "Sunday Preview – The Squats of Jardlan Seek Aid in the Underhive",
+        "야르들란의 생존자와 복구라는 목표"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/Ve9Dk2xM/sunday-preview-the-squats-of-jardlan-seek-aid-in-the-underhive/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Describes Orrin’s restoration goal. Sibling ages differ between official October articles, so they are omitted.",
+        "오린의 복구 목표를 설명합니다. 2023년 10월 공식 기사끼리도 형제의 나이 순서가 달라 그 부분은 제외했습니다."
+      ]
+    },
+    "lore2026-wastes-skalvian": {
+      "title": [
+        "Cross the Ash Wastes in Short Order With the Skalvian Explorator for the Ironhead Squat Prospectors",
+        "스칼비안 익스플로레이터와 그림야를 형제"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/tpIhkqjc/cross-the-ash-wastes-in-short-order-with-the-skalvian-explorator-for-the-ironhead-squat-prospectors/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official public article; summarised independently, without importing game rules.",
+        "공개된 공식 기사를 독립적으로 요약했으며 게임 규칙은 가져오지 않았습니다."
+      ]
+    },
+    "lore2026-wastes-nomads": {
+      "title": [
+        "Necromundan Nomads",
+        "네크로문다 노매드와 시대별 묘사"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Necromundan_Nomads",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "The overview explicitly mixes older and newer presentations; its editor’s coexistence theory is not treated as canon. Tribe-spirit assignments conflict with individual pages and are not adopted. Historical exile-origin claims are not adopted as current Nomad origins.",
+        "옛 묘사와 새 묘사를 함께 다루는 문서입니다. 두 집단의 동시 존재는 위키 편집자의 해석이므로 정설로 채택하지 않았습니다. 개별 문서와 충돌하는 부족·정령의 연결도 확정하지 않습니다. 옛 추방 기원설을 현행 노매드의 기원으로 채택하지 않았습니다."
+      ]
+    },
+    "lore2026-wastes-tsunghar": {
+      "title": [
+        "Tsun’ghar",
+        "춘가르·그레이 웨이스트 워커"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Tsun%27ghar",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "642118"
+    },
+    "lore2026-wastes-katoka": {
+      "title": [
+        "Ka’toka",
+        "카토카·리드스카이 시어"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Ka%27toka",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Location and name used; its spirit assignment conflicts with the overview and is not adopted.",
+        "부족명과 거주 지역을 참고했습니다. 정령의 연결은 개요 문서와 충돌하므로 채택하지 않았습니다."
+      ],
+      "revision": "642117"
+    },
+    "lore2026-wastes-urhnag": {
+      "title": [
+        "Urh’nag",
+        "우르나그·더스트월 크롤러"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Urh%27nag",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Location and husbandry used; spirit pairing conflicts with the overview and is not adopted.",
+        "거주 지역과 곤충 사육을 참고했습니다. 정령의 연결은 개요 문서와 충돌하므로 채택하지 않았습니다."
+      ],
+      "revision": "642122"
+    },
+    "lore2026-wastes-asunghar": {
+      "title": [
+        "Asun’ghar",
+        "아순가르·레이디 오브 애시"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Asun%27ghar",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "707510"
+    },
+    "lore2026-wastes-terror-shadow": {
+      "title": [
+        "Terror’s Shadow",
+        "테러스 섀도"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Terror%27s_Shadow",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "640080"
+    },
+    "lore2026-wastes-watchers": {
+      "title": [
+        "Naku’taari",
+        "나쿠타리·워처"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Naku%27taari",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "648676"
+    },
+    "lore2026-wastes-dust-runners": {
+      "title": [
+        "Run’taani",
+        "룬타니·더스트 러너"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Run%27taani",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Secondary fan reference; follow its original publication citations.",
+        "팬 위키의 2차 정리이며 문서에 명시된 원전 출처를 함께 확인할 수 있습니다."
+      ],
+      "revision": "555563"
+    },
+    "lore2026-wastes-asun-official": {
+      "title": [
+        "Plastic Arachni-rigs Bound Across the Ash Wastes in the Aranthian Succession: Ruins of Jardlan",
+        "루인스 오브 야르들란과 아순가르 공식 소개"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/sJT7AMsd/plastic-arachni-rigs-bound-across-the-ash-wastes-in-the-aranthian-succession-ruins-of-jardlan/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official public article; summarised independently, without importing game rules.",
+        "공개된 공식 기사를 독립적으로 요약했으며 게임 규칙은 가져오지 않았습니다."
+      ]
+    },
+    "lore2026-wastes-haera-biography": {
+      "title": [
+        "Haera Astaria Vorterra Helmawr",
+        "헤라 헬마우르의 야르들란 탈출"
+      ],
+      "url": "https://wh40k.lexicanum.com/wiki/Haera_Astaria_Vorterra_Helmawr",
+      "publisher": "Lexicanum contributors",
+      "kind": "wiki",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "revision": "701456",
+      "note": [
+        "Ruins of Jardlan citations distinguish a reported sister claim from confirmed ancestry.",
+        "『루인스 오브 야르들란』을 인용하며 자매라는 주장과 확정된 혈통을 구분합니다."
+      ]
+    },
+    "lore2026-wastes-two-brothers-official": {
+      "title": [
+        "Saturday Pre-orders – Two Brothers and a Traitor Champion",
+        "오린과 우르손의 재건·사냥 경력"
+      ],
+      "url": "https://www.warhammer-community.com/en-gb/articles/Tejz2y7G/saturday-pre-orders-two-brothers-and-a-traitor-champion/",
+      "publisher": "Warhammer Community",
+      "kind": "article",
+      "checkedOn": "2026-10-31",
+      "access": "read",
+      "note": [
+        "Official article explicitly describes handmade equipment, restoration, the hunter’s pre-fall career, rifle and Techmite.",
+        "수제 장비와 재건 목표, 몰락 전부터의 사냥 경력, 라이플과 테크마이트를 직접 설명한 공식 기사입니다."
+      ]
+    }
+  },
+  "factions": [
+    {
+      "name": "Spyre Hunters",
+      "chapters": [
+        {
+          "title": [
+            "The old vow: a hunt with a condition for return",
+            "옛 사냥 서약: 귀환에도 조건이 있었다"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Earlier noble patrons imposed survival deadlines or kill quotas before permitting nobles to return home.",
+              "옛 기록의 후원자는 귀족 자제가 아래층에서 일정 기간을 버티거나 정해진 살해 수를 채워야 귀환할 수 있도록 서약을 정했습니다."
+            ],
+            [
+              "Historical oaths provide context, not compulsory procedures applicable to every present-day Helmawr hunting party.",
+              "여러 귀족 하우스의 자녀가 참가하던 옛 시대의 전통이며, 현행 헬마우르 헌팅 파티의 모든 절차가 같다는 뜻은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-spyrer"
+          ]
+        },
+        {
+          "title": [
+            "Patriarchs and Matriarchs in earlier accounts",
+            "옛 기록의 패트리아크와 마트리아크"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Veterans sponsored further hunts: Patriarchs favoured mechanical appendages, while Matriarchs emphasised concealment and pursuit.",
+              "옛 사냥의 숙련자는 다음 세대를 후원했습니다. 패트리아크는 추가 기계 팔을, 마트리아크는 은폐와 근접 추적을 강조하는 장비를 사용했습니다."
+            ],
+            [
+              "Historical patrons, Sovereign-equipped Hunt Masters and Genestealer Patriarchs are distinct institutions despite superficially similar titles.",
+              "이 후원자를 소버린 리그의 현행 헌트 마스터나 진스틸러 패트리아크와 혼동해서는 안 됩니다. 비슷한 명칭이 같은 조직을 뜻하지는 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-spyrer"
+          ]
+        },
+        {
+          "title": [
+            "The expensive return to a fashionable body",
+            "유행에 맞는 몸으로 돌아오는 값비싼 귀환"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Limb Farms cultivate replacements from cellular samples, restoring returning hunters’ damaged extremities without unfashionable machinery.",
+              "림 팜은 세포 표본으로 대체 신체를 배양합니다. 귀환한 사냥꾼은 손상된 팔다리를 고쳐 눈에 띄는 기계 의족을 피할 수 있습니다."
+            ],
+            [
+              "Alongside invasive rig-fitting, restoration reveals another privilege: purchasing exceptional violence, then purchasing acceptable appearances.",
+              "리그 장착의 침습적 시술과 함께 보면 또 다른 특권이 드러납니다. 부유한 사냥꾼은 폭력의 수단과 사후 외모를 모두 살 수 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-spyrer"
+          ]
+        },
+        {
+          "title": [
+            "Trueborn heirs and the house behind the hunter",
+            "사냥꾼 뒤의 가문: 트루본과 후계 경쟁"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Helmawr’s recognised heirs are called Trueborn. Recognition depends on the ruling governor; being a biological child alone is not the same as being admitted to the succession. A disputed or unnamed heir can turn siblings into competing claimants.",
+              "헬마우르 가문에서 후계 자격을 공식적으로 인정받은 자녀는 트루본이라 불립니다. 생물학적으로 자녀라는 사실만으로 후계자로 인정되는 것은 아니며, 통치자의 승인이 중요합니다. 후계자가 정해지지 않거나 지명이 받아들여지지 않으면 형제자매는 서로 경쟁하는 권리 주장자가 됩니다."
+            ],
+            [
+              "The dynasty’s background reaches from Martek Helm’ayr to Jar Helm’ayr’s engineered descendants and their defence against a noble conspiracy. A hunting scion therefore belongs to a political lineage shaped by managed inheritance, selective survival and protection bought from outside the family.",
+              "가문의 과거에는 마르테크 헬메이어, 유전공학으로 후손을 준비한 야르 헬메이어, 그 자녀들을 노린 귀족들의 음모가 이어집니다. 이 혈통의 사냥꾼은 단순히 재산 많은 개인이 아닙니다. 계승권을 관리하고 살아남을 자를 골라내며 가문 밖의 호위까지 고용해 온 정치적 계보의 일원입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-helmawr"
+          ]
+        },
+        {
+          "title": [
+            "Three light rigs, three distinct ways of pursuing prey",
+            "경량 리그 셋이 보여 주는 서로 다른 추적 방식"
+          ],
+          "group": "culture",
+          "paragraphs": [
+            [
+              "The 2024 introduction distinguishes the heavy Orrus from three light patterns. Malcadon combines claws and web incisors with a drop rig and grapnel launcher, and may use toxin whips. Its hunting image is climbing, entangling and closing rapidly on prey.",
+              "2024년 공식 소개는 중장형 오러스와 세 가지 경량 패턴을 구분합니다. 말카돈은 클로와 웹 인사이저에 드롭 리그·그래프널 런처를 결합하고 독성 채찍을 쓰기도 합니다. 먹잇감이 있는 높이에 접근하고 움직임을 묶은 뒤 거리를 빠르게 좁히는 사냥의 이미지입니다."
+            ],
+            [
+              "Yeld emphasises aerial pursuit, using laser or missile gauntlets. Jakara pairs a mirror shield with a monomolecular or naga blade. These are the published visual and technological identities of the rigs; their names are more specific than simply fast, ranged or melee hunters.",
+              "옐드는 레이저 또는 미사일 건틀릿으로 공중에서 추적하는 모습을 강조합니다. 자카라는 미러 실드에 모노몰레큘러 블레이드나 나가 블레이드를 조합합니다. 각각의 이름에는 고유한 장비와 사냥 방식이 연결되어 있습니다. 여기서는 장비가 만드는 배경상의 정체성을 설명하며 수치나 선택 가능 여부를 규정하지 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-light-rigs"
+          ]
+        },
+        {
+          "title": [
+            "Haera and Tamino’s search for the Sthenian rig",
+            "헤라와 타미노가 찾아 내려간 스테니안 리그"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "During the Aranthian Succession, Haera fled Credo’s rebels and encountered her brother Tamino at Secundus. Their search for a supposedly lost Sthenian-pattern rig made the Underhells part of a dynastic struggle, rather than a sporting detour.",
+              "아란시안 계승 전쟁 중 헤라는 크리도의 반군을 피해 달아나다 세쿤두스에서 형제 타미노와 만납니다. 두 사람은 오래전에 사라졌다고 여겨지던 스테니안 패턴 리그를 찾아 언더헬로 내려갔습니다. 이때의 하강은 단순한 오락이 아니라 가문의 권력을 되찾으려는 싸움의 일부였습니다."
+            ],
+            [
+              "The recovered suit drives neural needles into Haera’s skull, incorporates her watch-skulls and adds another pair of claws beside her familiar spear and sword. Medusian projectors attack a victim’s nervous system. Her new form links noble ambition to the same bodily horror seen throughout Secundus.",
+              "회수한 장비는 헤라의 두개골에 신경 바늘을 박아 넣고, 기존의 감시 스컬을 통합하며, 익숙한 창과 검에 더해 한 쌍의 클로를 추가합니다. 메두시안 프로젝터는 먹잇감의 신경계를 마비시키는 고대 렌즈입니다. 권력에 대한 야심이 세쿤두스 특유의 신체 공포와 한 몸이 된 모습입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-haera"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Ironhead Squats",
+      "chapters": [
+        {
+          "title": [
+            "The buried Ancestor Core and the Graven Path",
+            "매몰된 선조 코어와 그레이븐 패스"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Lexicanum’s account citing Halls of the Ancients describes an Ancestor Core beneath Anglish’s holdfast. The Urlish migrants brought it with them, and it helped oversee adaptations in later generations to the planet’s hostile conditions. This is a later book-cited account beyond the earlier promotional preview.",
+              "『홀스 오브 디 에인션츠』를 출처로 든 렉시카눔의 정리는 앵글리시의 홀드패스트 아래 있던 선조 코어를 설명합니다. 울리시 이주민이 가져온 이 장치는 후대 세대가 네크로문다의 혹독한 환경에 적응하도록 관여했습니다. 과거의 짧은 홍보 소개보다 뒤에 나온 책을 근거로 전해지는 내용입니다."
+            ],
+            [
+              "That account connects its loss to Somnus and earthquakes in M36, after which the community relied on older conventional methods. The Graven Path is associated with seeking the lost core. It makes the recovery of ancestral technology a material problem of continuity, not merely admiration for old machinery.",
+              "같은 정리는 M36의 솜누스와 지진을 코어의 매몰에 연결하며, 이후 공동체가 전통적인 방식에 의존하게 되었다고 설명합니다. 잃어버린 코어를 찾는 일은 그레이븐 패스와 이어집니다. 선조의 기술을 회복한다는 목표에는 오래된 기계를 숭배하는 감정뿐 아니라 사회의 지속을 다시 확보하려는 문제가 걸려 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-ironhead"
+          ]
+        },
+        {
+          "title": [
+            "Anglish diplomacy and Tapferkeit’s guarded workshops",
+            "앵글리시의 교섭과 타프페르카이트의 닫힌 공방"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Anglish’s Charter Lord Dvabrok Goldhands leads a clan noted for profitable dealings with humans. Their envoys do not fit the Merchants Guild’s familiar methods of intimidation or purchase, making successful trade a source of friction as well as wealth.",
+              "앵글리시는 차터 로드 드바브로크 골드핸즈가 이끌며 인간과의 교역으로 큰 부를 얻은 클랜입니다. 그러나 그 사절과 탐광자는 머천트 길드가 다른 거래 상대에게 쓰던 협박이나 매수에 쉽게 움직이지 않습니다. 거래가 활발하다는 사실이 곧 이해관계의 일치나 종속을 뜻하지는 않습니다."
+            ],
+            [
+              "Tapferkeit, led by Vorgun Keitenson north of Secundus, is renowned for engineering and fine equipment but avoids outside contact under its lord’s orders. Traditions associate its ancestors with hive construction, and its maker’s marks appear along the Necromagnium Underway. One is a trading power; the other guards its craft and access.",
+              "세쿤두스 북쪽에서 보르군 카이텐손이 이끄는 타프페르카이트는 공학과 정교한 장비로 유명하지만 지도자의 명령에 따라 외부 접촉을 피합니다. 전승은 그 선조를 하이브 건설과 연결하고, 네크로마그니움 언더웨이의 거리 표식에는 이들의 제작자 문장이 남아 있습니다. 같은 아이언헤드 안에서도 교섭의 방식은 크게 다릅니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-anglish",
+            "lore2026-wastes-tapferkeit"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-anglish"
+            ],
+            [
+              "lore2026-wastes-tapferkeit"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Scragfrid explorers and Svardhol’s permanent fighters",
+            "스크라그프리드의 탐험가와 스바르드홀의 상비 전사"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Fraynar Scragson’s Scragfrid occupy the northern Near Spoil and are regarded as unusually adventurous by other clans. Rich ore and chemical discoveries accompany their habit of recovering archaeotech and dismantling found devices for useful components. Exploration, salvage and invention overlap.",
+              "프레이나르 스크라그손의 스크라그프리드는 북쪽 니어 스포일에 자리하며 다른 클랜이 보기에도 유난히 모험적인 성향을 보입니다. 풍부한 광맥과 화학 자원을 찾는 일에 더해 아키오테크를 회수하고 발견한 장치를 분해해 부품을 활용합니다. 탐험과 수거, 새로운 기술 제작이 하나의 생활 방식으로 이어집니다."
+            ],
+            [
+              "Svardhol’s reputation grew from surviving Ork assaults near the region called the Skull. They retain a permanent Drill-kyn fighting cadre and are associated with mercenary work. Their famous engineer Valya Vartijan belongs to a community whose industrial knowledge developed beside the need for organised defence.",
+              "스바르드홀은 스컬이라 불리는 지역 가까이에서 오크의 공격을 버텨 낸 역사로 설명됩니다. 이들은 드릴킨의 상설 전투 조직을 유지하며 다른 세력을 위한 용병 활동도 벌입니다. 유명한 공학자 발리아 바르티얀의 클랜이라는 점까지 함께 보면, 제작 기술과 조직적인 무력이 별개의 전통이 아님을 알 수 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-scragfrid",
+            "lore2026-wastes-svardhol"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-scragfrid"
+            ],
+            [
+              "lore2026-wastes-svardhol"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Why a Charter Master needs a Drill Master",
+            "차터 마스터 곁에 드릴 마스터가 필요한 이유"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "A Charter Master is a veteran authorised by the ruling Charter Lord, with a name entered on the clan’s mining charter. Often centuries old, this leader embodies accumulated trust and experience rather than merely being the best armed member of an expedition.",
+              "차터 마스터는 지배자인 차터 로드의 신임을 얻어 클랜의 채굴 차터에 이름을 올린 숙련자입니다. 수백 년을 살아온 인물도 있으며, 탐광대에서 가장 비싼 장비를 들었다는 이유만으로 그 자리에 오르는 것은 아닙니다. 권리와 책임을 맡길 수 있다는 오랜 신뢰가 지위의 바탕입니다."
+            ],
+            [
+              "Drill Masters keep the crew in order, but their greatest value is reading terrain: locating likely mineral or chemical wealth and recognising unstable ground or hidden predators. The expedition’s hierarchy therefore carries practical knowledge about both finding a livelihood and bringing workers home alive.",
+              "드릴 마스터는 작업 인원을 통솔하지만 진정한 가치는 땅을 읽는 경험에 있습니다. 광물과 화학 자원이 있을 장소를 짚고, 불안정한 지반이나 지하 포식자의 위험도 알아챕니다. 탐광대의 위계는 명령할 권한만이 아니라 무엇을 캐야 하는지, 어디에서 살아 돌아올 수 있는지에 대한 지식도 담고 있습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-charter-master",
+            "lore2026-wastes-drill-master"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-charter-master"
+            ],
+            [
+              "lore2026-wastes-drill-master"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Drill-kyn shares and the long apprenticeship of Diggers",
+            "드릴킨의 몫과 디거의 긴 수련 기간"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Drill-kyn perform the ordinary mining and defend the claim. Their service brings a right to a share of its spoils, tying the expedition’s success to the futures of working members rather than to the Charter Master alone. Defending a claim protects a personal stake as well as clan property.",
+              "드릴킨은 실제 채굴 작업을 맡으면서 클레임을 지키는 보통의 일꾼입니다. 봉사에 대한 대가로 수익의 몫을 받을 권리를 가지므로 탐광의 성공은 차터 마스터 한 사람만의 일이 아닙니다. 채굴권을 지킨다는 것은 클랜의 재산과 함께 자신의 미래에 대한 지분도 지키는 행위입니다."
+            ],
+            [
+              "Diggers are still treated as novices even when forty or fifty years old. Routine engine care and ammunition work precede full standing as Drill-kyn. Their eagerness to prove themselves through unusual inventions or tactics places youthful impatience inside a much longer-lived community.",
+              "디거는 마흔이나 쉰 살이어도 아직 신참으로 취급됩니다. 엔진 관리와 탄약 제작 같은 일을 맡으며 드릴킨으로 인정받을 날을 기다립니다. 독특한 발명이나 정석을 벗어난 행동으로 자신을 증명하려는 조급함도 이 긴 수련 과정에서 나옵니다. 인간의 기준과 다른 사회적 나이를 보여 주는 대목입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-drill-kyn",
+            "lore2026-wastes-digger"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-drill-kyn"
+            ],
+            [
+              "lore2026-wastes-digger"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Two survivors, more than one answer to Jardlan’s destruction",
+            "야르들란의 생존자들이 택한 서로 다른 길"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "Orrin Grimjarl is the last Charter Lord of Jardlan. The official preview stresses restoration of his lost home over a conventional lifelong vengeance oath. His homemade equipment and willingness to seek Imperial House-aligned help give that ambition a practical shape: he needs resources and partners, not only enemies to kill.",
+              "오린 그림야를은 야르들란의 마지막 차터 로드입니다. 공식 소개는 전통적인 평생의 복수 서약보다 무너진 고향을 복구하려는 목표를 강조합니다. 직접 제작한 장비를 쓰고 임페리얼 하우스와 관계된 갱의 도움도 구한다는 점은 그 목표의 성격을 보여 줍니다. 죽일 적뿐 아니라 재건에 필요한 자원과 협력자도 필요한 인물입니다."
+            ],
+            [
+              "Urson Grimjarl had already spent decades as a roaming Nomad hunter before the fall. He brings a longshot rifle and observing Techmites to the surviving family’s cause. Public sources disagree on the brothers’ relative ages; their different careers and their connection to the lost holdfast are the secure points of comparison.",
+              "우르손 그림야를은 고향이 무너지기 전부터 오랫동안 황무지를 떠돌며 노매드를 사냥했습니다. 롱숏 라이플과 관측용 테크마이트를 지닌 그는 생존한 가족의 여정에 또 다른 경험을 보탭니다. 공개 자료는 두 형제의 나이 순서에서 충돌하지만, 서로 다른 경력과 잃어버린 홀드패스트에 대한 유대는 공통으로 확인됩니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-restoration",
+            "lore2026-wastes-orrin",
+            "lore2026-wastes-two-brothers-official",
+            "lore2026-wastes-urson"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-restoration",
+              "lore2026-wastes-orrin",
+              "lore2026-wastes-two-brothers-official"
+            ],
+            [
+              "lore2026-wastes-urson",
+              "lore2026-wastes-two-brothers-official"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Skalvian Explorators and a separate political economy",
+            "스칼비안 익스플로레이터가 드러내는 독자적인 경제"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "Official presentation calls the Ironheads a political entity separate from the human societies sharing Necromunda. Their fortified convoys use their own tracked Skalvian Explorators rather than simply adopting human Ridgehaulers. Goods, chemicals and prospecting wealth travel through a material culture of their own.",
+              "공식 소개는 아이언헤드를 같은 행성의 인간 사회와 구분되는 정치적 집단으로 설명합니다. 강화된 수송대도 인간의 릿지홀러를 그대로 쓰는 대신 자체적인 무한궤도 차량 스칼비안 익스플로레이터를 운용합니다. 상품과 화학 물질, 탐광의 성과를 옮기는 방식에까지 이들의 독자성이 드러납니다."
+            ],
+            [
+              "A working Explorator combines carrying space, obstacle-clearing machinery and armed protection. This gives a concrete scale to the clan’s travelling life: settlement and workshop do not end at the hold’s gate, because essential labour and security accompany the route between claims.",
+              "익스플로레이터에는 적재 공간과 장애물 제거 장치, 무장 방호가 한데 모여 있습니다. 클랜의 이동 생활은 이런 설비를 통해 구체적인 모습을 얻습니다. 홀드의 문을 나섰다고 생산과 생활이 멈추는 것이 아니라, 채굴지를 잇는 길 위에서도 일과 안전에 필요한 기반이 함께 움직이는 것입니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-skalvian"
+          ]
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "name": "Ash Waste Nomads",
+      "chapters": [
+        {
+          "title": [
+            "Where the lights of Helmawr disappear",
+            "헬마우르의 불빛이 더는 보이지 않는 곳"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "World Walkers regard visible hive lights as Helmawr’s gaze. Beyond sight of every hive lie the Deep Wastes, where they consider themselves masters.",
+              "월드 워커에게 멀리 보이는 하이브의 불빛은 헬마우르의 시선입니다. 하이브가 전혀 보이지 않는 딥 웨이스트에서는 자신들이 주인이라고 여깁니다."
+            ],
+            [
+              "They distinguish themselves from duster clans and House outlanders; exceptional journeys beneath a hive do not make it their homeland.",
+              "그들은 더스터 클랜이나 하우스 출신 외지인과 자신들을 구분합니다. 폭풍이나 보급 때문에 하이브에 들어가더라도 그곳이 고향은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-nomads"
+          ]
+        },
+        {
+          "title": [
+            "Three named tribes and three different landscapes",
+            "이름 있는 부족들이 살아가는 서로 다른 황무지"
+          ],
+          "group": "places",
+          "paragraphs": [
+            [
+              "The Tsun’ghar, called Grey Waste Walkers by Imperials, can gather forces large enough to threaten major settlements and have raided Cinderak City. Their relationship with the Mother of Scavengers is a named example of a tribe’s sacred identity. A war party is one expression of a much larger people.",
+              "제국인이 그레이 웨이스트 워커라 부르는 춘가르는 대형 정착지를 위협할 만큼 많은 인원을 모을 수 있으며 신더락 시티를 습격한 기록도 있습니다. 마더 오브 스캐빈저와 연결되는 신성한 정체성 또한 알려져 있습니다. 테이블 위의 작은 전투단은 이처럼 더 큰 부족의 일부입니다."
+            ],
+            [
+              "Ka’toka, the Leadsky Seers, live near Irradium Oceanus where several seas’ winds meet. Urh’nag, the Dustwall Crawlers, work the wastes by Secundus’s Dust Wall and are noted insect breeders. The wiki’s overview and individual pages disagree about their patron spirits, so those pairings remain unassigned here.",
+              "카토카, 즉 리드스카이 시어는 여러 바다에서 온 바람이 만나는 이라디움 오케아누스 가까이에 삽니다. 우르나그, 즉 더스트월 크롤러는 세쿤두스의 더스트 월 주변을 수색하며 뛰어난 곤충 사육자로 설명됩니다. 다만 위키의 개요와 개별 항목은 두 부족의 수호 정령을 서로 다르게 적고 있어 여기서는 그 연결을 확정하지 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-tsunghar",
+            "lore2026-wastes-katoka",
+            "lore2026-wastes-urhnag"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-tsunghar"
+            ],
+            [
+              "lore2026-wastes-katoka",
+              "lore2026-wastes-urhnag"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Asun’ghar: a name carried across centuries",
+            "아순가르: 수백 년의 목격담을 지닌 이름"
+          ],
+          "group": "people",
+          "paragraphs": [
+            [
+              "Asun’ghar, the Lady of Ash, is an influential Spirit Speaker associated with the Grey Waste Walkers. Reports span centuries, but her identity is unresolved: one exceptionally long life, an inherited title, and stranger possibilities remain rumours rather than established biography.",
+              "레이디 오브 애시라 불리는 아순가르는 그레이 웨이스트 워커와 연결된 영향력 있는 스피릿 스피커입니다. 수백 년에 걸친 목격담이 있지만 정체는 확정되지 않았습니다. 유난히 오래 사는 한 인물인지, 여러 여성이 이름을 이어 온 것인지, 다른 존재인지에 대한 이야기는 전설의 범위에 남아 있습니다."
+            ],
+            [
+              "Her grapplehawk companion is Terror’s Shadow. Official introduction describes an apparently psychic bond with beasts and a living embodiment of scavengers. This establishes her place in Nomad belief without confirming every frightening explanation that hivers attach to her.",
+              "그녀와 함께하는 그래플호크의 이름은 테러스 섀도입니다. 공식 소개는 짐승과 거의 사이킥처럼 이어지는 유대, 황무지의 청소동물을 구현하는 존재라는 인식을 설명합니다. 이것은 노매드의 신앙 안에서 그녀가 차지하는 자리를 보여 주지만, 하이브 주민이 붙이는 온갖 괴담을 모두 사실로 증명하지는 않습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-asunghar",
+            "lore2026-wastes-terror-shadow",
+            "lore2026-wastes-asun-official"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-asunghar"
+            ],
+            [
+              "lore2026-wastes-terror-shadow",
+              "lore2026-wastes-asun-official"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Sky Mirror and the migration toward Jardlan",
+            "스카이 미러의 집회와 야르들란을 향한 이동"
+          ],
+          "group": "stories",
+          "paragraphs": [
+            [
+              "In the Ruins of Jardlan account summarised by Lexicanum, a Nomad assembly meets at Sky Mirror, a sacred valley floored with scorched glass. Asun’ghar signals a migration toward the Ironhead lands at Jardlan. Sacred geography and collective movement become part of the succession war’s wider history.",
+              "렉시카눔이 『루인스 오브 야르들란』을 근거로 정리한 사건에서 노매드들은 바닥이 불에 그슬린 유리로 된 신성한 골짜기 스카이 미러에 모입니다. 아순가르는 야르들란의 아이언헤드 땅을 향한 이동을 알립니다. 신성한 장소에서 이루어진 집단의 결정이 행성의 계승 전쟁과 맞물리는 장면입니다."
+            ],
+            [
+              "The same account places Asun’ghar confronting Haera in Jardlan’s ruins and addressing her as Sister before Haera escapes toward Secundus. That single word is not a confirmed family tree. Its significance remains an unresolved question inside the story, not permission to declare a hidden Helmawr ancestry as fact.",
+              "같은 정리는 야르들란의 폐허에서 아순가르가 헤라를 제압하고 자매라는 말을 건넨 뒤, 헤라가 세쿤두스 쪽으로 달아났다고 전합니다. 하지만 그 한마디가 곧 확인된 족보는 아닙니다. 그 의미는 이야기 안의 수수께끼이며 아순가르의 헬마우르 혈통을 확정하는 근거로 삼을 수는 없습니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-asunghar",
+            "lore2026-wastes-haera-biography"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-asunghar"
+            ],
+            [
+              "lore2026-wastes-haera-biography"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Watchers and the young Dust Runners",
+            "워처의 인내와 어린 더스트 러너의 조급함"
+          ],
+          "group": "society",
+          "paragraphs": [
+            [
+              "Naku’taari, or Watchers, serve as a tribe’s eyes. They may observe prey for hours or days before signalling an attack under the chieftain’s command. Their trusted weapons and responsibility for dangerous targets reflect experience acquired through patient observation.",
+              "나쿠타리, 즉 워처는 부족의 눈 역할을 합니다. 치프틴의 지휘 아래 먹잇감을 몇 시간, 때로는 며칠 동안 관찰한 뒤 공격 신호를 보냅니다. 강한 무기를 맡고 위험한 표적을 처리하는 것은 단순한 용맹보다 오랜 관찰에서 얻은 경험과 신뢰에 관계됩니다."
+            ],
+            [
+              "Run’taani, called Dust Runners, are young aspirants seeking a lasting place in a raiding party. Their dangerous attempts to prove themselves contrast with the Watcher’s restraint. These names identify generations and responsibilities within a society, not just interchangeable battlefield silhouettes.",
+              "룬타니라 불리는 더스트 러너는 전투단의 정식 자리를 얻으려는 젊은 지원자입니다. 자신을 증명하기 위해 위험을 무릅쓰는 모습은 기다릴 줄 아는 워처와 대비됩니다. 이런 이름들은 같은 복장을 한 전사를 세분하는 것에 그치지 않고, 한 사회 안의 세대와 책임의 차이를 보여 줍니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-watchers",
+            "lore2026-wastes-dust-runners"
+          ],
+          "paragraphSourceIds": [
+            [
+              "lore2026-wastes-watchers"
+            ],
+            [
+              "lore2026-wastes-dust-runners"
+            ]
+          ]
+        },
+        {
+          "title": [
+            "Older nomad stories and the limits of combining them",
+            "옛 노매드 이야기와 한데 섞어 읽을 때의 주의점"
+          ],
+          "group": "history",
+          "paragraphs": [
+            [
+              "Older publications depict human nomads trading and using varied vehicles. The 2022 portrayal instead stresses a people outside hive society.",
+              "옛 자료는 교역하고 다양한 차량을 쓰는 인간 노매드를 묘사합니다. 2022년의 소개는 하이브 사회 바깥의 정체불명 집단을 강조합니다."
+            ],
+            [
+              "Lexicanum’s decision to let both versions coexist is an editorial assumption, not an official guarantee that all historical customs remain current.",
+              "두 묘사를 함께 존재하는 집단으로 정리한 것은 위키의 편집상 가정입니다. 옛 풍습 전체가 현행 설정이라는 공식 선언은 아닙니다."
+            ]
+          ],
+          "sourceIds": [
+            "lore2026-wastes-nomads"
+          ]
+        }
+      ],
+      "corrections": []
+    }
+  ],
+  "accessIssues": [
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Graven_Path",
+      "status": "404",
+      "note": "No standalone article at this path; the Ironhead overview citing Halls of the Ancients supplied the supported context."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Jardlan",
+      "status": "403",
+      "note": "Read official Jardlan previews and individual Orrin/Urson pages instead."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Dustback_Helamite",
+      "status": "403",
+      "note": "No new claims taken from blocked page; earlier accessible official insect articles remain in the archive."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Kha%27tragi",
+      "status": "timeout",
+      "note": "Used accessible Naku’taari and Run’taani articles for confirmed party responsibilities."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Nomads%27_Outpost",
+      "status": "unavailable",
+      "note": "No standalone-page claims used."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Orrus",
+      "status": "timeout-redirect",
+      "note": "Other rig names redirect to the same Spyrer article; canonical Spyrer and official 2024 introduction were readable."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Deep_Wastes",
+      "status": "unavailable",
+      "note": "No standalone-page claims used; relevant boundary description was read in the canonical Nomads article."
+    },
+    {
+      "url": "https://wh40k.lexicanum.com/wiki/Sky_Mirror",
+      "status": "404",
+      "note": "Assembly account was read in the Asun’ghar article citing Ruins of Jardlan p14."
+    }
+  ]
+}
