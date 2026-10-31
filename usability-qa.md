@@ -64,3 +64,10 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 - The native challenge/report field already stores the challenge stake in `territoryId`. Challenge preparation now calls it “Territory at stake / 전투에 건 영토,” with “No territory at stake / 건 영토 없음” and a short ownership note. Played reports retain their result wording.
 - Switching between preparation and results preserves the selected territory. The claiming-winner control is hidden during preparation. Existing source eligibility and result-only ownership transfer logic remain intact.
 - Source-chain regressions verify choosing/saving a stake leaves ownership intact, recorded victories can transfer it, and draws/cancellation do not. Responsive browser checks verify Korean wording, mode switching, and ownership plus stake preservation through save/reload. Screenshots: `/workspace/shared/stake-preparation-{320,390,1280}.png`.
+
+## Follow-up: View battle routing
+
+- Paired challenge/report rows previously opened the native edit form from a button labelled “View battle.” They now open the common battle workspace on the roster tab, with mission, result and operations tabs. Setup editing is an explicit action under Operations.
+- Exact session/report links reuse the existing session, including adopted legacy challenges. Linked records are deduplicated in the list. Matching two gang IDs alone never creates or guesses a link.
+- Viewing a report creates no session, crew selection, challenge acceptance or game result. Saved crews are displayed where available; otherwise the view explicitly displays full rosters. Result entry retains the original report validation and save path. Incomplete opponent slots retain their original edit action; shared viewers cannot edit results or setup.
+- Browser checks at 320, 390 and 1280 cover completing an original challenge form, opening the roster without a settings modal, mission viewing, result cancellation, Back, reopening, reload, and one saved final draw without a duplicate session. Original gang/campaign records remain identical through view-only navigation. Screenshots: `/workspace/shared/report-battle-roster-{320,390,1280}.png`.
