@@ -87,3 +87,14 @@
   html.uk-ui.command-ui[data-ui-language="en"] .cmd-sample .battle-status{margin-left:0;justify-self:start;flex-shrink:0}
  }
 }
+
+@media screen{
+ html.uk-ui.command-ui .cmd-sample .reference-waiting-heading{padding:18px 24px;border-top:1px solid var(--line-soft);background:var(--panel2)}
+ html.uk-ui.command-ui .cmd-sample .reference-waiting-heading .count{margin-inline-start:8px}
+ html.uk-ui.command-ui .cmd-sample .reference-waiting-heading h3{margin:0;font-size:13px;color:var(--muted)}
+ html.uk-ui.command-ui .cmd-sample .reference-unpaired .battle-status{margin-left:0}
+ html.uk-ui.command-ui .cmd-sample .reference-waiting-portrait{width:50px;flex:none}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-waiting-portrait>.portrait{display:block;width:36px;height:47px;object-fit:cover;border-radius:3px}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .duel-portraits>.reference-missing-portrait{position:static;margin:0;transform:none;display:grid;place-items:center;min-width:40px;min-height:52px;border:1px solid var(--line);background:var(--panel2);color:var(--muted)}
+ html.uk-ui.command-ui .cmd-sample .duel-portraits:has(img:nth-of-type(3)){flex-wrap:wrap}
+}
