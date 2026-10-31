@@ -1,0 +1,71 @@
+/* Actual app scripts, account adapter and central journal; only transport responses are controlled. */
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(root+'/index.html','utf8'),files=[...html.matchAll(/<script src="\/([^"?]+)[^"]*"/g)].map(m=>m[1]);
+const clone=x=>JSON.parse(JSON.stringify(x)),tick=()=>new Promise(r=>setTimeout(r,0)),failures=[],passes=[];
+async function test(name,fn){try{await fn();passes.push(name);console.log('PASS '+name)}catch(e){failures.push(name);console.error('FAIL '+name+'\n'+e.stack)}}
+const empty=()=>({gangs:[],campaigns:[],customAssets:{},view:'dashboard',homeTab:'gangs',tab:'fighters',edition:'N26'});
+async function page({authenticated=true}={}){
+ for(const file of files)assert(fs.existsSync(root+'/'+file),'Production script does not exist: '+file);
+ const dom=new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g,''),{url:'https://automation.test/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,ctx=dom.getInternalVMContext(),calls=[],errors=[];let cloud=empty(),revision=0,handler=null;
+ w.structuredClone=structuredClone;w.matchMedia=()=>({matches:false,addListener(){},removeListener(){},addEventListener(){},removeEventListener(){}});w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=function(){};w.alert=()=>{};w.confirm=()=>false;w.localStorage.setItem('underhive-korea-language','en');w.localStorage.setItem('underhive-ledger-v1',JSON.stringify(empty()));w.addEventListener('error',e=>errors.push(e.message));
+ const profile={id:'account-owner',username:'Actual app test',email:null,preferences:{},createdAt:'2026-10-01',lastSignIn:'2026-10-31'};
+ const response=(value,status=200)=>({ok:status>=200&&status<300,status,json:async()=>clone(value)});
+ w.fetch=async(url,options={})=>{const p=new URL(url,w.location.href).pathname,method=options.method||'GET',body=options.body?JSON.parse(options.body):null;calls.push({p,method,body});
+  if(p==='/api/account')return authenticated?response({profile}):response({error:'Sign in required'},401);
+  if(p==='/api/auth/session')return authenticated?response({auth:{method:'password',loginId:'actual-app'}}):response({error:'Sign in required'},401);
+  if(p==='/api/document'&&method==='PUT'){cloud=clone(body.state);return response({revision:++revision});}
+  if(p==='/api/document')return response({state:clone(cloud),revision});
+  if(/^\/api\/campaigns\/[^/]+\/automation(?:\/consent)?$/.test(p)&&method==='POST'){if(!handler)return response({error:'No automation response configured'},500);const result=await handler({p,body,method,cloud:clone(cloud),revision});return response(result.value,result.status??200);}
+  if(p==='/api/friends')return response({friends:[]});if(p==='/api/notifications')return response({notifications:[]});if(p==='/api/campaign-shares')return response({campaigns:[]});return response({error:'Unstubbed '+p},404);
+ };
+ try{for(const file of files)vm.runInContext(fs.readFileSync(root+'/'+file,'utf8'),ctx,{filename:file});}catch(error){dom.window.close();throw error;}
+ const run=s=>vm.runInContext(s,ctx),q=s=>{const n=w.document.querySelector(s);assert(n,'Missing '+s);return n};
+ for(let n=0;n<60&&(!w.AccountParity||w.AccountParity.connecting);n++)await tick();await tick();await tick();
+ return{w,dom,run,q,calls,errors,api:w.MMCampaignAutomation,account:w.AccountParity,snapshot:()=>run('JSON.stringify(data)'),c:()=>run('data.campaigns[0]'),g:()=>run('data.gangs[0]'),onAutomation:fn=>handler=fn,server(state){cloud=clone(state);revision++;return{document:{state:clone(cloud),revision},receipt:{id:'server-receipt-'+revision,operationKey:'server-operation',label:'Server operation',actor:'account-owner',cycle:1,at:'2026-10-31T00:00:00Z'}};},close:()=>dom.window.close()};
+}
+function seed(p){const g=(id)=>({id,name:'Preserved '+id,faction:'House Cawdor',gangTypeId:'official-001-gang-house-cawdor',edition:'N26',credits:100,reputation:1,fighters:[],stash:[],vehicles:[],logs:[],tactics:[],backstory:'',privateNotes:''}),c={id:'integrated-campaign',name:'Integrated campaign',edition:'N26',campaignTypeId:'official-003-campaign-necromunda-campaign',campaignType:'Necromunda Campaign',phase:'Occupation',currentCycle:1,members:[{id:'m1',gangId:'gang-1',player:'One'},{id:'m2',gangId:'gang-2',player:'Two'}],territories:[],sessions:[],battles:[]};p.w.__centralFixture={...empty(),gangs:[g('gang-1'),g('gang-2')],campaigns:[c],view:'campaign',selectedCampaign:c.id,selectedGang:'gang-1'};p.run('data=structuredClone(window.__centralFixture);render()');}
+const collections=p=>p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns,customAssets:data.customAssets,skirmishes:data.skirmishes})');
+const creditSpec=(key,amount=10)=>({key,label:'Credit receipt '+key,gangIds:['gang-1'],mutate:d=>{d.gangs.find(g=>g.id==='gang-1').credits+=amount;}});
+(async()=>{
+await test('Production script order loads all automation modules after their dependencies and before bootstrap',async()=>{
+ for(const file of ['campaign-automation.js','campaign-challenges.js','campaign-economy.js','campaign-operations.js','campaign-battle.js']){assert(files.includes(file),'Production index missing '+file);assert(files.indexOf(file)>files.indexOf('campaign-schedule.js'));assert(files.indexOf(file)<files.indexOf('bootstrap.js'));}
+});
+await test('Local receipts reverse the original mutation once, retain history and preserve unrelated later gang changes',async()=>{
+ const p=await page({authenticated:false});try{seed(p);assert.equal(p.account.account,null);const c=p.c();assert(p.api.canEdit(c));const first=await p.api.apply(c,creditSpec('first'));assert.equal(p.g().credits,110);assert(first.receipt.local);assert.equal(c.automation.receipts.length,1);const count=p.calls.length;const again=await p.api.apply(c,creditSpec('first'));assert(again.replayed);assert.equal(p.g().credits,110);assert.equal(c.automation.receipts.length,1);assert.equal(p.calls.length,count);
+ p.run('data.gangs[1].name="Later unrelated gang name"');await p.api.reverse(c,first.receipt.id);assert.equal(p.g().credits,100);assert.equal(p.run('data.gangs[1].name'),'Later unrelated gang name');assert.equal(c.automation.receipts.length,1);assert(c.automation.receipts[0].reversedAt,'Original receipt is retained and marked reversed');await assert.rejects(p.api.reverse(c,first.receipt.id),/already.*reversed|이미.*역분개/);assert.equal(p.g().credits,100);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Overlapping later edits block local reversal and retain both the edited roster and unreversed receipt',async()=>{
+ const p=await page({authenticated:false});try{seed(p);const c=p.c(),first=await p.api.apply(c,creditSpec('overlap'));p.g().credits=137;await assert.rejects(p.api.reverse(c,first.receipt.id),/overlap|겹/);assert.equal(p.g().credits,137);assert.equal(c.automation.receipts.length,1);assert(!c.automation.receipts[0].reversedAt);assert.match(p.q('[data-ca-notice]').textContent,/overlap|겹/);assert(p.q('[data-ca-notice]').classList.contains('is-error'));assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Local commit and reversal apply deleted capture fields exactly instead of leaving stale flags',async()=>{
+ const p=await page({authenticated:false});try{seed(p);const c=p.c();p.g().fighters.push({id:'captured-model',name:'Kept model',status:'Captured',captured:true,capturedBy:'gang-2',campaignCaptureId:'capture-id',equipment:[],injuries:[],notes:'Keep note'});const result=await p.api.apply(c,{key:'delete-flags',label:'Release source fields',gangIds:['gang-1'],mutate:d=>{const f=d.gangs[0].fighters[0];f.status='Active';delete f.captured;delete f.capturedBy;delete f.campaignCaptureId;}});assert.equal(p.g().fighters[0].status,'Active');assert(!Object.hasOwn(p.g().fighters[0],'capturedBy'));assert(!Object.hasOwn(p.g().fighters[0],'campaignCaptureId'));await p.api.reverse(c,result.receipt.id);assert.equal(p.g().fighters[0].status,'Captured');assert.equal(p.g().fighters[0].capturedBy,'gang-2');assert.equal(p.g().fighters[0].campaignCaptureId,'capture-id');assert.equal(p.g().fighters[0].notes,'Keep note');assert(c.automation.receipts[0].reversedAt);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Actual owner/editor gates reject viewers, closed campaigns and undeclared roster mutations',async()=>{
+ const p=await page();try{seed(p);let c=p.c();c.remoteOwnerId=p.account.account.id;c.remoteRole='owner';assert(p.api.canEdit(c));c.remoteOwnerId='other-owner';c.remoteRole='editor';assert(p.api.canEdit(c));c.remoteRole='viewer';assert(!p.api.canEdit(c));const before=p.snapshot();await assert.rejects(p.api.apply(c,creditSpec('viewer')),/access|권한/);assert.equal(p.snapshot(),before);c.remoteRole='editor';c.phase='Closed';assert(!p.api.canEdit(c));c.phase='Occupation';delete c.remoteOwnerId;delete c.remoteRole;await p.account.ensureSynced();const saved=p.snapshot();await assert.rejects(p.api.apply(c,{key:'undeclared',label:'Undeclared',gangIds:['gang-1'],mutate:d=>{d.gangs[1].credits=0;}}),/undeclared|선택하지/);assert.equal(p.snapshot(),saved);assert.equal(p.calls.filter(x=>x.p.endsWith('/automation')&&x.method==='POST').length,0);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Failed backend automation leaves every local collection unchanged and unlocks the UI',async()=>{
+ const p=await page();try{seed(p);await p.account.ensureSynced();const c=p.c(),saved=p.snapshot();p.onAutomation(async()=>({status:409,value:{error:'Authoritative campaign revision changed'}}));await assert.rejects(p.api.apply(c,creditSpec('rejected')),/revision/);assert.equal(p.snapshot(),saved);assert.equal(p.g().credits,100);assert.equal(p.api.busy(c),false);assert.match(p.q('[data-ca-notice]').textContent,/revision/);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Authoritative document acceptance preserves navigation changed while the operation was pending',async()=>{
+ const p=await page();try{seed(p);await p.account.ensureSynced();const c=p.c();let resolveRequest,startedResolve;const started=new Promise(r=>startedResolve=r);p.onAutomation(async({body,cloud})=>{startedResolve();return new Promise(resolve=>{resolveRequest=()=>{const state=clone(cloud);state.gangs=state.gangs.map(g=>body.after.gangs.find(x=>x.id===g.id)||g);state.campaigns=state.campaigns.map(x=>x.id===c.id?body.after.campaign:x);const value=p.server(state);value.receipt.operationKey=body.operationKey;resolve({value});};});});const task=p.api.apply(c,creditSpec('navigate'));await started;p.run('data.view="dashboard";data.homeTab="skirmishes";render()');resolveRequest();await task;assert.equal(p.run('data.view'),'dashboard');assert.equal(p.run('data.homeTab'),'skirmishes');assert.equal(p.g().credits,110);assert.equal(p.account.revision,2);assert.equal(p.api.receipts(p.c())[0].operationKey,'navigate');assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Incoming receipts do not overwrite an unsaved local edit; the account adapter exposes a conflict',async()=>{
+ const p=await page();try{seed(p);await p.account.ensureSynced();const baseline={accountId:p.account.account.id,collections:collections(p)},incoming=JSON.parse(p.snapshot());incoming.gangs[0].credits=120;const untouched=p.snapshot();assert.equal(p.account.acceptAutomation({document:{state:incoming,revision:p.account.revision+1}},{...baseline,accountId:'different-account'}),false);assert.equal(p.snapshot(),untouched);p.g().name='Keep unsaved authored name';const before=p.snapshot();const accepted=p.account.acceptAutomation({document:{state:incoming,revision:p.account.revision+1}},baseline);assert.equal(accepted,false);assert.equal(p.snapshot(),before);assert.equal(p.g().name,'Keep unsaved authored name');assert.equal(p.g().credits,100);assert(p.q('.account-conflict'));assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Redo after local reversal uses a fresh receipt key and repeat clicks cannot forward-apply twice',async()=>{
+ const p=await page({authenticated:false});try{seed(p);const c=p.c(),first=await p.api.apply(c,creditSpec('redo-local'));await p.api.reverse(c,first.receipt.id);assert.equal(p.g().credits,100);const second=await p.api.apply(c,creditSpec('redo-local'));assert.equal(p.g().credits,110);assert.equal(second.receipt.operationKey,'redo-local:redo:'+first.receipt.id);assert.equal(c.automation.receipts.length,2);assert.equal(c.automation.receipts.filter(r=>r.reversedAt).length,1);assert.equal(c.automation.receipts.filter(r=>!r.reversedAt).length,1);const repeated=await p.api.apply(c,creditSpec('redo-local'));assert(repeated.replayed);assert.equal(p.g().credits,110);assert.equal(c.automation.receipts.length,2);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+await test('Backend redo request names the reversed authoritative receipt and active cached replay suppresses a second request',async()=>{
+ const p=await page();try{seed(p);p.c().automation={version:1,challenges:[],cycleRecords:{},deadlines:{},announcements:[],receipts:[{id:'reversed-server-id',operationKey:'redo-server',reversedAt:'2026-10-31T00:00:00Z'}]};await p.account.ensureSynced();let requestedKey='';p.onAutomation(async({body,cloud})=>{requestedKey=body.operationKey;const state=clone(cloud);state.gangs=state.gangs.map(g=>body.after.gangs.find(x=>x.id===g.id)||g);state.campaigns=state.campaigns.map(c=>c.id===p.c().id?body.after.campaign:c);const value=p.server(state);value.receipt.operationKey=body.operationKey;return{value};});await p.api.apply(p.c(),creditSpec('redo-server'));assert.equal(requestedKey,'redo-server:redo:reversed-server-id');assert.equal(p.g().credits,110);const count=p.calls.filter(x=>x.p.endsWith('/automation')&&x.method==='POST').length;assert.equal(count,1);const again=await p.api.apply(p.c(),creditSpec('redo-server'));assert(again.replayed);assert.equal(p.g().credits,110);assert.equal(p.calls.filter(x=>x.p.endsWith('/automation')&&x.method==='POST').length,1);assert.deepEqual(p.errors,[]);
+ }finally{p.close()}
+});
+if(failures.length)process.exitCode=1;else console.log(passes.length+' central campaign automation cases passed.');
+})();

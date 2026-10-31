@@ -28,7 +28,7 @@ function visitorTP(f,c){
  const tp=rule('n26-core-visit-trading-post')?.rule_data?.trade_points||{};
  return names.includes('Leader')?Number(tp.Leader)||0:names.includes('Champion')?Number(tp.Champion)||0:0;
 }
-function activeVisit(g,c){const v=g.tradingPostVisit;return v&&!v.closedAt&&v.campaignId===(c.remoteCampaignId||c.id)?v:null;}
+function activeVisit(g,c){const v=g.tradingPostVisit;return v&&!v.closedAt&&v.campaignId===(c.remoteCampaignId||c.id)&&(!v.cycle||Number(v.cycle)===Number(window.MMCampaignAutomation?.cycle(c)||c.currentCycle||1))?v:null;}
 function sourceItems(ctx,f){return window.FighterParity.equipmentFor(f,'trading',ctx);}
 function validatePurchase(ctx,{f,a,stash,v}={}){
  const resolved=resolve(ctx),bad=text('This gang or campaign changed. Reopen the Trading Post.','갱 또는 캠페인이 변경되었습니다. 거래소를 다시 여세요.');
@@ -104,7 +104,8 @@ function visit(){
   if(v.confirmed!=='yes'||!ids.length||ids.some(fid=>!options.some(f=>f.id===fid)||!visitorTP(g.fighters.find(f=>f.id===fid),c)||current?.visitors.some(v=>v.fighterId===fid)))return deny(text('Choose eligible visitors and confirm their actions.','적격 방문자를 고르고 행동 수행을 확인하세요.'));
   const visitors=ids.map(fid=>{const f=g.fighters.find(f=>f.id===fid);return {fighterId:fid,name:f.name,tp:visitorTP(f,c)};}),gain=visitors.reduce((s,v)=>s+v.tp,0);
   if(!whole(Number(g.tradePoints||0)+gain))return deny(text('Invalid TP total.','TP 합계를 확인하세요.'));
-  g.tradingPostVisit=current||{id:id(),campaignId:c.remoteCampaignId||c.id,openedAt:now(),closedAt:null,visitors:[]};g.tradingPostVisit.visitors.push(...visitors);g.tradePoints=Number(g.tradePoints||0)+gain;log(g,`${c.name}: Visit Trading Post +${gain} TP (${visitors.map(v=>v.name).join(', ')})`);save();setTimeout(()=>open(c.id,back),0);return true;
+  try{window.MMCampaignEconomy?.assertTradeVisitors(c,g,ids);}catch(e){return deny(e.message)}
+  g.tradingPostVisit=current||{id:id(),campaignId:c.remoteCampaignId||c.id,openedAt:now(),cycle:window.MMCampaignAutomation?.cycle(c)||c.currentCycle||1,closedAt:null,visitors:[]};g.tradingPostVisit.visitors.push(...visitors);g.tradePoints=Number(g.tradePoints||0)+gain;window.MMCampaignEconomy?.recordTradeVisitors(c,g,visitors);log(g,`${c.name}: Visit Trading Post +${gain} TP (${visitors.map(v=>v.name).join(', ')})`);save();setTimeout(()=>open(c.id,back),0);return true;
  },'Record visits');submitLabel('Record visits','방문 기록');
  returnToShop(back);window.UKI18n?.refresh();
 }
@@ -125,5 +126,14 @@ window.addEventListener('click',e=>{
   const back=copy(draft);return window.FighterParity.purchaseEquipment(f,a,!f,()=>open(c.id,back),ctx);
  }
 },true);
-window.MMCampaignTrading={open,candidates,validatePurchase,purchased,visitorTP};
+// Synchronous read-only quoting for transaction drafts. The existing access/price engine
+// still resolves campaign posts, custom overrides, recipient and edition together.
+function catalogueItems(c,g,f,{mode='trading',gangs=data.gangs}={}){
+ const original=data,workingGang=copy(g),workingCampaign=copy(c),recipient=f?workingGang.fighters?.find(row=>row.id===f.id)||copy(f):null;
+ try{
+  data={...original,customAssets:copy(original.customAssets||{}),selectedGang:workingGang.id,edition:workingGang.edition,gangs:[...copy(gangs.filter(row=>row.id!==g.id)),workingGang],campaigns:[workingCampaign]};
+  return copy(window.FighterParity.equipmentFor(recipient,mode==='fighter_list'?'gang':'trading',{campaignId:workingCampaign.id}));
+ }finally{data=original;}
+}
+window.MMCampaignTrading={open,candidates,validatePurchase,purchased,visitorTP,catalogueItems};
 })();

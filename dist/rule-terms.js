@@ -84,6 +84,7 @@ function refresh(){
   if(focused){const next=[...p.querySelectorAll('[data-rule-term]')].filter(b=>b.dataset.ruleTerm===focused);(p.querySelectorAll('[data-rule-term]')[ordinal]||next[0])?.focus({preventScroll:true});}
  }
  const body=document.querySelector('.mmrr-overlay .mmrr-body');
+ if(body&&!body.querySelector('[data-rule-term]'))body.querySelector('.mmrr-term-hint')?.remove();
  if(body?.querySelector('[data-rule-term]')&&!body.querySelector('.mmrr-term-hint')){
   const hint=document.createElement('p');hint.className='mmrr-term-hint';hint.innerHTML=L({en:'Tap a dotted-underlined term to see its rule type and explanation.',ko:'점선 밑줄 용어를 누르면 규칙 종류와 설명을 볼 수 있습니다.'});
   const heading=body.querySelector('.mmrr-heading');if(heading)heading.after(hint);else body.prepend(hint);window.UKI18n?.refresh(hint);
