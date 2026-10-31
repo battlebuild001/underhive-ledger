@@ -110,3 +110,14 @@
   html.uk-ui.command-ui .cmd-sample.cmd-sample .ca-console .ca-challenges .ca-current-task .actions>.btn{width:100%}
  }
 }
+/* Campaign actions stay in the command shell; native administration has one explicit dialog. */
+@media screen{
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations[hidden]{display:none!important}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations{margin:0 0 20px;padding:0;border:0;background:transparent;box-shadow:none;min-width:0;scroll-margin-top:76px}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-modules{display:block;margin:0}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-module{margin:0;scroll-margin-top:76px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-module>summary{display:list-item;padding:16px 20px;min-height:52px;font-size:15px;font-weight:650;color:var(--text);cursor:pointer}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-module>div{padding:0}
+ html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-challenges{margin:0;border:0;background:transparent;padding:20px;display:grid;gap:18px}
+ @media(max-width:600px){html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-module>summary{padding:14px 16px}html.uk-ui.command-ui .cmd-sample.cmd-sample .reference-inline-operations .ca-challenges{padding:16px;gap:16px}}
+}
