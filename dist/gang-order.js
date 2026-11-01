@@ -3,7 +3,7 @@
  'use strict';
  const text=(ko,en)=>window.UKI18n?.language==='en'?en:ko;
  const label=(ko,en)=>`<span data-i18n-ko="${esc(ko)}" data-i18n-en="${esc(en)}">${esc(text(ko,en))}</span>`;
- const defaults=edition=>data.gangs.filter(g=>g.edition===edition).sort((a,b)=>Number(!!b.favorite)-Number(!!a.favorite));
+ const defaults=edition=>data.gangs.filter(g=>g.edition===edition&&window.MMCampaignOwnership.owns(g)).sort((a,b)=>Number(!!b.favorite)-Number(!!a.favorite));
  function sort(items,edition=data.edition){
   const stored=data.homeGangOrder?.[edition];if(!Array.isArray(stored))return items;
   const positions=new Map();for(const id of stored)if(typeof id==='string'&&!positions.has(id))positions.set(id,positions.size);

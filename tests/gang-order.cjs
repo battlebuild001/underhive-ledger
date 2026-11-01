@@ -36,13 +36,25 @@ await test('Order editor previews arrows and positions, cancels safely, and save
  const fresh=await page(375,saved);try{assert.deepEqual(visible(fresh),['c','a','b']);assert.deepEqual(fresh.errors,[]);}finally{fresh.close()}
 });
 await test('Orders stay separate by edition, handle new/deleted/shared gangs, and reset only after saving',async()=>{
- const p=await page();try{setup(p);p.run('data.homeGangOrder={N26:["c","a","b"],N23:["old"]};data.gangs[2].remoteReadOnly=true;render()');const records=p.run('JSON.stringify(data.gangs)');
- p.tap('[data-gang-order-open]');position(p,'c',2);p.tap('#modal-submit');assert.deepEqual(visible(p),['a','b','c']);assert.equal(p.run('JSON.stringify(data.gangs)'),records);
- p.run('data.gangs.push({...data.gangs[0],id:"new",name:"New gang",favorite:true});data.gangs=data.gangs.filter(g=>g.id!=="b");render()');assert.deepEqual(visible(p),['a','c','new']);
- p.tap('[data-gang-order-open]');p.tap('[data-gang-order-reset]');assert.deepEqual(draft(p),['new','a','c']);p.tap('#modal-cancel');assert.deepEqual(visible(p),['a','c','new']);
- p.tap('[data-gang-order-open]');p.tap('[data-gang-order-reset]');p.tap('#modal-submit');assert.deepEqual(visible(p),['new','a','c']);assert.equal(p.run('data.homeGangOrder.N26'),undefined);assert.equal(p.run('JSON.stringify(data.homeGangOrder.N23)'),'["old"]');
+ const p=await page();try{setup(p);p.run(`data.homeGangOrder={N26:["c","a","b","foreign-owner","own-alias"],N23:["old"]};
+  data.gangs[0].ownerId=AccountParity.account.id;data.gangs[1].sourceOwnerId=AccountParity.account.id;data.gangs[2].remoteReadOnly=true;
+  data.gangs[0].fighters=[{id:"own-active",name:"Own active fighter",status:"Active",cost:10,equipment:[]}];data.gangs[1].fighters=[{id:"own-recovery",name:"Own recovering fighter",status:"In Recovery",cost:10,equipment:[]}];data.gangs[2].credits=9000;data.gangs[2].fighters=[{id:"shared-active",name:"Shared active fighter",status:"Active",cost:10,equipment:[]}];
+  data.gangs.push(...[
+   {id:"foreign-owner",ownerId:"other-account"},
+   {id:"foreign-remote",remoteOwnerId:"other-account"},
+   {id:"foreign-source",ownerId:AccountParity.account.id,sourceOwnerId:"other-account"},
+   {id:"own-alias",remoteReadOnly:true,sourceOwnerId:AccountParity.account.id,sourceGangId:"a"}
+  ].map(meta=>({...structuredClone(data.gangs[0]),...meta,name:meta.id,favorite:true})));
+  data.campaigns=[{id:"shared-campaign",name:"Shared campaign",edition:"N26",members:[{gangId:"c"},{gangId:"foreign-owner"}],battles:[],matchRooms:[{id:"room",gangIds:["a","c"]}]}];render()`);const records=p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})');
+ assert.deepEqual(visible(p),['a','b']);assert.equal(p.q('.collection-heading .muted').textContent.trim(),'2 rosters');assert.deepEqual(p.all('.home-list [data-parity="favorite-gang"]').map(n=>n.dataset.id),['a','b']);
+ assert.deepEqual(p.all('.uk-overview-stat strong').map(n=>n.textContent),['2','1','1','2,000']);
+ p.tap('[data-gang-order-open]');assert.deepEqual(draft(p),['a','b']);position(p,'b',0);p.tap('#modal-submit');assert.deepEqual(visible(p),['b','a']);assert.equal(p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})'),records);assert.equal(p.run('JSON.stringify(data.homeGangOrder.N26)'),'["b","a"]');
+ p.run('data.gangs.push({...data.gangs[0],id:"new",name:"New gang",favorite:true});data.gangs=data.gangs.filter(g=>g.id!=="b");render()');assert.deepEqual(visible(p),['a','new']);
+ p.tap('[data-gang-order-open]');p.tap('[data-gang-order-reset]');assert.deepEqual(draft(p),['new','a']);p.tap('#modal-cancel');assert.deepEqual(visible(p),['a','new']);
+ p.tap('[data-gang-order-open]');p.tap('[data-gang-order-reset]');p.tap('#modal-submit');assert.deepEqual(visible(p),['new','a']);assert.equal(p.run('data.homeGangOrder.N26'),undefined);assert.equal(p.run('JSON.stringify(data.homeGangOrder.N23)'),'["old"]');
  p.run('data.edition="N23";render()');assert.deepEqual(visible(p),['old']);assert.equal(p.all('[data-gang-order-open]').length,0);p.run('data.edition="Custom";render()');assert.equal(p.all('[data-gang-order-open]').length,0);
  p.run('data.edition="N26";data.homeTab="campaigns";render()');assert.equal(p.all('[data-gang-order-open]').length,0);assert.deepEqual(p.errors,[]);
+ p.run('data.homeTab="gangs";data.gangs=data.gangs.filter(g=>!MMCampaignOwnership.owns(g));render()');const sharedRecords=p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})');assert.deepEqual(visible(p),[]);assert.equal(p.q('.collection-heading .muted').textContent.trim(),'0 rosters');assert.match(p.q('.cmd-reference-home > .empty-line').textContent,/No gangs created yet/i);assert.equal(p.all('[data-gang-order-open]').length,0);assert.deepEqual(p.all('.uk-overview-stat strong').map(n=>n.textContent),['0','0','1','0']);assert.equal(p.run('JSON.stringify({gangs:data.gangs,campaigns:data.campaigns})'),sharedRecords);assert.deepEqual(p.errors,[]);
  }finally{p.close()}
 });
 if(failures.length)process.exitCode=1;else console.log(passes.length+' gang order cases passed.');
