@@ -46,3 +46,54 @@ html.uk-ui.command-ui .modal .ref-campaign-reference .cp-map-canvas{display:bloc
 html.uk-ui.command-ui .modal .ref-campaign-reference img{max-width:100%;height:auto}
 html.uk-ui.command-ui .modal .ref-campaign-reference .table-wrap{max-width:100%;overflow-x:auto}
 @media(max-width:700px){html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs{gap:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-grid{grid-template-columns:1fr}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-card,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-cycle{padding:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading h2{font-size:22px}}
+
+/* Personal gang workspace: roster overview and clearly named management tasks. */
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls]{display:grid;gap:24px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-intro h2{margin:0;color:var(--text);font-size:24px;font-weight:650;line-height:1.35}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-intro p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.75}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters{padding:0;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,280px) auto;align-items:center;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:none;transform:none}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .reference-gang-open{display:block;min-width:0;width:100%;padding:0;border:0;border-radius:8px;background:transparent;color:var(--text);text-align:left;cursor:pointer}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top{padding:22px;gap:18px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top h3{font-size:20px;line-height:1.4;margin:5px 0;overflow-wrap:anywhere}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top .eyebrow{font-size:10px;line-height:1.5}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top p{font-size:12px;line-height:1.6}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-mini-stats{padding:18px 22px;border-top:0;border-left:1px solid var(--line);gap:20px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-mini-stats span{font-size:11px;color:var(--muted);line-height:1.5}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-mini-stats b{font-size:20px;line-height:1.5;color:var(--text)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-footer{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:18px 22px;border:0;background:transparent}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-footer>span{font-size:11px;color:var(--muted)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-footer button{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 0;font-size:14px;color:var(--text)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:20px;padding:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module{min-width:0;margin:0;border:1px solid var(--line);border-radius:8px;background:var(--panel);overflow:hidden}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module>summary{display:flex;align-items:center;gap:16px;min-height:106px;padding:22px;list-style:none;cursor:pointer;color:var(--text)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module>summary::-webkit-details-marker{display:none}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--accent)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-copy{display:grid;gap:7px;flex:1;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-copy>strong{font-size:17px;font-weight:650;line-height:1.4}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-copy>span{color:var(--muted);font-size:13px;font-weight:400;line-height:1.7}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-chevron{display:flex;flex:none;color:var(--muted);transform:rotate(90deg)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module[open]>summary .ref-personal-module-chevron{transform:rotate(-90deg)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module>div{padding:20px 22px 22px;border-top:1px solid var(--line)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-help,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy>h3{display:none}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy{display:grid;gap:18px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy p,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy>button{justify-self:start}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy>details{border:1px solid var(--line);border-radius:6px;background:var(--panel2)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy>details>summary{min-height:64px;padding:14px 16px;font-size:14px;line-height:1.7;cursor:pointer;overflow-wrap:anywhere}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-roster-stage{display:block;margin-top:4px;font-size:12px;color:var(--muted);font-weight:400;line-height:1.6}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy .actions{display:flex;flex-wrap:wrap;gap:10px;padding:0 16px 16px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-economy>details>p{padding:0 16px 16px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card{display:grid;gap:10px;padding:18px 0;margin:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card:first-of-type{padding-top:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card:last-child{padding-bottom:0;border-bottom:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card h2{margin:0;font-size:16px;font-weight:600;line-height:1.5;color:var(--text)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module .card>button{justify-self:start}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module :is(button,select,input){min-height:44px;max-width:100%;font-size:13px;line-height:1.6}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module button{min-width:44px;padding:10px 14px;white-space:normal}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] :is(button,summary,select,input):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-empty{padding:24px;border:1px dashed var(--line);border-radius:8px;background:var(--panel)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-empty h3{margin:0;font-size:18px;color:var(--text)}
+@media(max-width:1000px){html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card{grid-template-columns:minmax(0,1fr) auto}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-mini-stats{grid-column:1/-1;grid-row:2;border-left:0;border-top:1px solid var(--line)}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-modules{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls]{gap:20px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-intro h2{font-size:22px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card{grid-template-columns:minmax(0,1fr)}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top{padding:18px;gap:14px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-top h3{font-size:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-mini-stats{padding:16px 18px;gap:12px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters .gang-card-footer{grid-row:3;flex-direction:row;align-items:center;justify-content:space-between;padding:8px 18px;border-top:1px solid var(--line)}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module>summary{padding:18px;gap:12px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-module-icon{width:36px;height:36px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module>div{padding:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab[data-ref-personal-controls] .ca-module :is(input,select){font-size:16px}}
