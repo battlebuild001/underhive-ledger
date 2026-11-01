@@ -1,0 +1,148 @@
+/* Roster-wide cycle assignment board. Palette follows the app's slate theme. */
+html.uk-ui .modal-bg.pcb-overlay{padding:24px}
+html.uk-ui #campaign-cycle-actions-modal{width:min(1120px,calc(100vw - 48px));max-width:1120px;max-height:calc(100dvh - 48px);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--app-line,var(--line));border-radius:16px;background:var(--app-panel,var(--panel));box-shadow:0 24px 80px #0006}
+html.uk-ui #campaign-cycle-actions-modal .modal-head{flex:none;padding:18px 24px!important;border-bottom:1px solid var(--app-line,var(--line));background:var(--app-panel,var(--panel))}
+html.uk-ui #campaign-cycle-actions-modal .modal-head h2{font-size:23px!important;font-weight:750;letter-spacing:-.03em;margin:0}
+html.uk-ui #campaign-cycle-actions-modal .modal-head button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:10px;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-actions-modal .modal-body{min-height:0;padding:0!important;overflow:auto;overscroll-behavior:contain;background:var(--app-bg,var(--bg))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board{color:var(--app-text,var(--text));font-size:14px;line-height:1.55;word-break:keep-all;overflow-wrap:anywhere}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board button,html.uk-ui #campaign-cycle-actions-modal .pcb-board input,html.uk-ui #campaign-cycle-actions-modal .pcb-board select{font:inherit;touch-action:manipulation}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board button{cursor:pointer}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board button:disabled{cursor:default;opacity:.45}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board input[type=checkbox]{width:18px;height:18px;min-height:0;margin:0;accent-color:var(--app-accent,var(--accent));flex:none}
+html.uk-ui #campaign-cycle-actions-modal .pcb-intro{padding:24px 24px 20px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-gang-line{display:flex;gap:12px;align-items:center;min-width:0;flex-wrap:wrap}
+html.uk-ui #campaign-cycle-actions-modal .pcb-gang-line>strong{font-size:19px;letter-spacing:-.025em;font-weight:700}
+html.uk-ui #campaign-cycle-actions-modal .pcb-cycle{font-size:12px;font-weight:650;color:var(--app-accent,var(--accent));background:var(--app-accent-soft,var(--panel2));padding:4px 9px;border-radius:5px;white-space:nowrap}
+html.uk-ui #campaign-cycle-actions-modal .pcb-help-button{display:inline-flex;align-items:center;gap:6px;margin-left:auto;min-height:44px;border:0;background:transparent;color:var(--app-muted,var(--muted));padding:4px 0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-intro>p{color:var(--app-muted,var(--muted));font-size:14px;margin:6px 0 20px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--app-line,var(--line));border-radius:10px;background:var(--app-panel,var(--panel));overflow:hidden}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div{padding:14px 20px;min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div+div{border-left:1px solid var(--app-line,var(--line))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div>span{display:block;color:var(--app-muted,var(--muted));font-size:12px;margin-bottom:4px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics strong{display:block;font-size:25px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.035em;line-height:1.25}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics small{font-size:13px;color:var(--app-muted,var(--muted));font-weight:500;letter-spacing:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div:first-child strong{color:var(--app-accent,var(--accent))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-bulk{padding:0 24px 16px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-selection{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;color:var(--app-muted,var(--muted));font-size:13px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-select-all{display:inline-flex;gap:10px;align-items:center;min-height:44px;cursor:pointer;font-weight:550;color:var(--app-text,var(--text));margin:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions button{display:inline-flex;gap:7px;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--app-line,var(--line));border-radius:8px;padding:9px 14px;background:var(--app-panel2,var(--panel2));color:var(--app-text,var(--text));font-size:13px;font-weight:650}
+html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions .pcb-quiet{background:transparent;color:var(--app-muted,var(--muted));margin-left:auto}
+html.uk-ui #campaign-cycle-actions-modal .pcb-notice:empty{display:none}
+html.uk-ui #campaign-cycle-actions-modal .pcb-notice{margin:12px 0 0;padding:10px 12px;border-left:2px solid var(--app-accent,var(--accent));color:var(--app-muted,var(--muted));background:var(--app-panel,var(--panel));font-size:13px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-list{display:grid;gap:10px;padding:0 24px 24px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row{position:relative;display:grid;grid-template-columns:230px minmax(0,1fr);align-items:center;gap:12px 18px;border:1px solid var(--app-line,var(--line));border-radius:10px;background:var(--app-panel,var(--panel));padding:16px;min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row.is-assigned{border-color:var(--app-accent,var(--accent))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row.has-error{border-color:var(--red)}
+html.uk-ui #campaign-cycle-actions-modal .pcb-identity{display:flex;gap:10px;align-items:center;min-width:0;padding-right:28px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-identity>div{min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-check{display:flex;align-items:center;justify-content:center;width:44px;min-width:44px;min-height:44px;margin:0;cursor:pointer}
+html.uk-ui #campaign-cycle-actions-modal .pcb-number{display:grid;place-items:center;width:32px;height:36px;flex:none;color:var(--app-muted,var(--muted));font-size:12px;letter-spacing:.04em;font-variant-numeric:tabular-nums;background:var(--app-panel2,var(--panel2));border-radius:5px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row.is-assigned .pcb-number{background:var(--app-accent-soft,var(--panel2));color:var(--app-accent,var(--accent))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-identity h3{margin:0;font-size:16px;font-weight:750;line-height:1.4;letter-spacing:-.02em}
+html.uk-ui #campaign-cycle-actions-modal .pcb-role{margin:3px 0 0;font-size:12px;line-height:1.5;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-state{display:block;color:var(--app-muted,var(--muted));font-size:12px;margin:5px 0 0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row.is-unavailable{background:transparent;border-style:dashed}
+html.uk-ui #campaign-cycle-actions-modal .pcb-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;min-width:0;padding-right:28px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-action{min-width:0;min-height:58px;display:grid;grid-template-columns:18px minmax(0,1fr);gap:2px 7px;align-content:center;align-items:center;text-align:left;background:var(--app-panel2,var(--panel2));border:1px solid transparent;border-radius:7px;padding:8px 10px;color:var(--app-text,var(--text));transition:background-color .12s,border-color .12s}
+html.uk-ui #campaign-cycle-actions-modal .pcb-action>span{font-size:13px;line-height:1.3;font-weight:650}
+html.uk-ui #campaign-cycle-actions-modal .pcb-action>small{grid-column:2;font-size:11px;color:var(--app-muted,var(--muted));font-weight:500;white-space:nowrap}
+html.uk-ui #campaign-cycle-actions-modal .pcb-action.is-active,html.uk-ui #campaign-cycle-actions-modal .pcb-connected.is-active{border-color:var(--app-accent,var(--accent));background:var(--app-accent-soft,var(--panel2));color:var(--app-accent-light,var(--accent))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-action.is-active>small{color:inherit}
+html.uk-ui #campaign-cycle-actions-modal .pcb-connected{grid-column:1/-1;display:flex;gap:8px;align-items:center;min-height:44px;padding:8px 12px;border:1px dashed var(--app-line,var(--line));border-radius:7px;background:transparent;color:var(--app-muted,var(--muted));font-size:13px;text-align:left}
+html.uk-ui #campaign-cycle-actions-modal .pcb-connected>small{margin-left:auto;white-space:nowrap;font-size:12px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help{grid-column:1/-1;min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help:not([open]){margin:0;height:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help>summary{position:absolute;top:10px;right:8px;display:grid;place-items:center;width:44px;height:44px;list-style:none;cursor:pointer;color:var(--app-muted,var(--muted));border-radius:7px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help>summary::-webkit-details-marker{display:none}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help[open]>summary{color:var(--app-accent,var(--accent));background:var(--app-accent-soft,var(--panel2))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help>div{padding:16px 4px 0;border-top:1px solid var(--app-line,var(--line));font-size:14px;line-height:1.7;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help h4{margin:0 0 8px;color:var(--app-text,var(--text));font-size:15px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help dl{display:grid;gap:12px;margin:12px 0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help dt{font-weight:650;color:var(--app-text,var(--text))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help dd{margin:3px 0 0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment{grid-column:2;padding:14px;background:var(--app-panel2,var(--panel2));border-radius:7px;min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment>label{display:grid;gap:7px;font-size:13px;font-weight:650;margin:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment select{width:100%;min-height:44px;border:1px solid var(--app-line,var(--line));border-radius:6px;background:var(--app-panel,var(--panel));color:var(--app-text,var(--text));font-size:14px;padding:9px 12px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment fieldset{margin:12px 0 0;padding:0;border:0;min-width:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment legend{font-size:13px;font-weight:650;margin-bottom:8px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-injury{display:flex;gap:10px;align-items:center;min-height:44px;margin:4px 0 0;padding:8px 10px;border:1px solid var(--app-line,var(--line));border-radius:5px;font-size:13px;cursor:pointer}
+html.uk-ui #campaign-cycle-actions-modal .pcb-injury small{margin-left:auto;white-space:nowrap;font-size:12px;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment p{font-size:13px;margin:10px 0 0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-treatment .pcb-deferred{font-size:12px;color:var(--app-muted,var(--muted));margin-top:8px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-error{grid-column:1/-1;margin:0;font-size:13px;color:var(--red)}
+html.uk-ui #campaign-cycle-actions-modal .pcb-reading{padding:0 24px 24px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-error{padding:0 24px 16px;margin:0;color:var(--red);font-size:14px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-error:empty{display:none}
+html.uk-ui #campaign-cycle-actions-modal .modal-foot{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;padding:16px 24px!important;background:var(--app-panel,var(--panel));border-top:1px solid var(--app-line,var(--line))}
+html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary{min-width:0;display:grid;gap:3px;text-align:left}
+html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary strong{font-size:15px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary>span{color:var(--app-muted,var(--muted));font-size:12px}
+html.uk-ui #campaign-cycle-actions-modal .modal-foot button{min-height:46px;min-width:88px;margin:0;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:650}
+html.uk-ui #campaign-cycle-actions-modal #modal-submit{min-width:210px;background:var(--app-primary,var(--accent));border-color:var(--app-primary-line,var(--accent));color:var(--app-primary-text,var(--text))}
+html.uk-ui #campaign-cycle-actions-modal #modal-submit:disabled{opacity:.4}
+html.uk-ui #campaign-cycle-actions-modal [data-modal-save-error]{grid-column:1/-1}
+html.uk-ui #campaign-cycle-actions-modal .pcb-board button:focus-visible,html.uk-ui #campaign-cycle-actions-modal .pcb-board input:focus-visible,html.uk-ui #campaign-cycle-actions-modal .pcb-board select:focus-visible,html.uk-ui #campaign-cycle-actions-modal .pcb-board summary:focus-visible{outline:2px solid var(--app-accent,var(--accent));outline-offset:3px}
+@media(hover:hover){html.uk-ui #campaign-cycle-actions-modal .pcb-board button:not(:disabled):hover{border-color:var(--app-accent,var(--accent))}html.uk-ui #campaign-cycle-actions-modal .pcb-row-help>summary:hover{color:var(--app-accent,var(--accent))}}
+@media(max-width:700px){
+ html.uk-ui .modal-bg.pcb-overlay{padding:0;align-items:stretch}
+ html.uk-ui #campaign-cycle-actions-modal{width:100%;max-width:none;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+ html.uk-ui #campaign-cycle-actions-modal .modal-head{padding:12px 16px!important;padding-top:max(12px,env(safe-area-inset-top))!important}
+ html.uk-ui #campaign-cycle-actions-modal .modal-head h2{font-size:20px!important}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-intro{padding:16px 16px 14px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-gang-line{gap:8px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-gang-line>strong{font-size:16px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-cycle{font-size:11px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-help-button{font-size:12px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-intro>p{font-size:13px;line-height:1.65;margin:8px 0 14px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div{padding:12px 10px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div>span{font-size:11px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics strong{font-size:22px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics small{font-size:11px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-bulk{padding:0 16px 16px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-selection{font-size:12px;gap:8px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-select-all{font-size:12px;gap:8px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions{gap:7px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions button{padding:8px 10px;font-size:12px;flex:1}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-bulk-actions .pcb-quiet{flex:none;margin-left:0;padding:8px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-list{padding:0 16px 16px;gap:10px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-row{grid-template-columns:minmax(0,1fr);padding:12px;gap:10px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-identity{gap:9px;padding-right:32px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-row-check{width:44px;min-width:44px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-number{width:30px;height:34px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-options{padding-right:0;gap:7px;grid-template-columns:repeat(auto-fit,minmax(95px,1fr))}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-action{padding:8px;min-height:56px;gap:2px 6px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-action>span{font-size:12px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-action>small{font-size:11px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-treatment{grid-column:1;padding:12px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-reading{padding:0 16px 16px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-error{padding:0 16px 16px}
+ html.uk-ui #campaign-cycle-actions-modal .modal-foot{grid-template-columns:auto minmax(0,1fr);gap:10px;padding:12px 16px!important;padding-bottom:max(12px,env(safe-area-inset-bottom))!important}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary strong{font-size:13px;white-space:nowrap}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-foot-summary>span{font-size:11px;text-align:right}
+ html.uk-ui #campaign-cycle-actions-modal .modal-foot button{min-width:76px;min-height:46px;padding:10px 14px}
+ html.uk-ui #campaign-cycle-actions-modal #modal-submit{min-width:0;width:100%;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){html.uk-ui #campaign-cycle-actions-modal .pcb-action{transition:none}}
+
+/* Keep the assignment list prominent after the bulk controls are used. */
+html.uk-ui #campaign-cycle-actions-modal .pcb-bulk{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 16px}
+html.uk-ui #campaign-cycle-actions-modal .pcb-selection{margin:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-selection>span{margin-right:16px;white-space:nowrap}
+html.uk-ui #campaign-cycle-actions-modal .pcb-notice{grid-column:1/-1;margin:2px 0 0;padding:0;border:0;background:transparent;font-size:12px;line-height:1.6}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help{padding:0;border:0;background:transparent;margin:0}
+html.uk-ui #campaign-cycle-actions-modal .pcb-row-help:not([open]){min-height:0;max-height:0;overflow:visible}
+@media(max-width:700px){
+ html.uk-ui #campaign-cycle-actions-modal .pcb-intro{padding:12px 16px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-intro>p{margin:6px 0 12px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics>div{padding:10px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-metrics strong{font-size:20px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-bulk{display:block}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-selection{margin-bottom:5px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-selection>span{margin-right:0}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-notice{margin:8px 0 0}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-row{gap:8px}
+ html.uk-ui #campaign-cycle-actions-modal .pcb-action{min-height:52px}
+}
