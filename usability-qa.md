@@ -328,3 +328,8 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 
 - Renamed the authored pack card, empty state, writing-guide title and relevant reference/Arbitrator labels to Custom Pack / 커스텀 팩. The actual pack DOM node now follows the handbook buttons at the end of the campaign content; the reference entry is also last among the map/Triumphs/pack links. Official source prose and stored authored content are preserved.
 - The existing focused campaign-data pack case passed in English and Korean, including final DOM order, help icon, writing examples, unchanged original HTML and the same unsaved contenteditable node/content after opening help and switching language. Syntax, diff, build and compiled Worker validation passed. No server or data-schema changes.
+
+## Follow-up: campaign tab order
+
+- Ordered the native campaign tabs as Campaign → Battles → Territories → Map → Triumphs → Custom Pack (캠페인 → 전투 → 영토 → 지도 → 트라이엄프 → 커스텀 팩). Added the Custom Pack interface translation while preserving the canonical tab keys and active-tab routing.
+- The existing focused campaign-data case passed the six-tab order and labels in English/Korean, alongside the prior pack placement, help and unsaved-editor/content preservation checks. Build, compiled Worker validation, syntax and diff checks passed. This is a navigation/copy change only.

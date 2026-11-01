@@ -658,6 +658,7 @@ Campaign Status	캠페인 상태
 Campaign Summary	캠페인 요약
 Campaign Activity Logs	캠페인 활동 기록
 Campaign Pack	캠페인 팩
+Custom Pack	커스텀 팩
 Campaign Allegiance	캠페인 소속
 Campaign Triumphs	캠페인 트라이엄프
 CAMPAIGN RECORD	캠페인 기록
