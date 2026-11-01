@@ -148,3 +148,17 @@ html.uk-ui .campaign-lobby .cl-room-nav>.cl-refresh-controls{margin-left:auto}
 html.uk-ui .campaign-lobby .cl-refresh-controls .cl-connection{width:auto;margin-left:0;min-width:0;flex-shrink:1}
 html.uk-ui .campaign-lobby .cl-refresh-controls .cl-button{flex-shrink:0;min-width:44px;min-height:44px}
 @media(max-width:700px){html.uk-ui .campaign-lobby .cl-header>.cl-refresh-controls,html.uk-ui .campaign-lobby .cl-room-nav>.cl-refresh-controls{width:100%;margin-left:0;justify-content:space-between}}
+
+/* Shared mission choices support manual selection and D6 rolls before saving. */
+html.uk-ui .campaign-lobby .cl-setup-form{display:grid;gap:20px;min-width:0}
+html.uk-ui .campaign-lobby .cl-setup-toolbar,html.uk-ui .campaign-lobby .cl-setup-save{display:flex;align-items:center;justify-content:space-between;gap:16px;min-width:0}
+html.uk-ui .campaign-lobby .cl-setup-toolbar>.cl-hint,html.uk-ui .campaign-lobby .cl-setup-save>.cl-hint{flex:1;max-width:62ch}
+html.uk-ui .campaign-lobby .cl-setup-toolbar>.cl-button,html.uk-ui .campaign-lobby .cl-setup-save>.cl-button{flex-shrink:0}
+html.uk-ui .campaign-lobby .cl-mission-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;min-width:0}
+html.uk-ui .campaign-lobby .cl-mission-choice{display:grid;align-content:start;gap:12px;min-width:0;padding:16px;border:1px solid var(--line);border-radius:6px;background:var(--panel2)}
+html.uk-ui .campaign-lobby .cl-mission-choice-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px;min-width:0}
+html.uk-ui .campaign-lobby .cl-roll-result{color:var(--text);font-variant-numeric:tabular-nums}
+html.uk-ui .campaign-lobby .cl-setup-territory{max-width:480px}
+html.uk-ui .campaign-lobby .cl-setup-save{border-top:1px solid var(--line);padding-top:20px}
+@media(max-width:900px){html.uk-ui .campaign-lobby .cl-mission-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){html.uk-ui .campaign-lobby .cl-setup-toolbar,html.uk-ui .campaign-lobby .cl-setup-save{align-items:stretch;flex-direction:column;gap:12px}html.uk-ui .campaign-lobby .cl-setup-toolbar>.cl-button{align-self:flex-start}html.uk-ui .campaign-lobby .cl-setup-territory{max-width:none}}
