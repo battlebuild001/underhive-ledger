@@ -20,6 +20,10 @@ const automationNames="handleCampaignAutomation,requireOwnCampaignPersonal,campa
 if(!api.includes(automationImport))throw new Error('Account API must import campaign automation.');
 const automation=await readFile(resolve(root,'worker/campaign-automation.js'),'utf8');
 api=api.replace(automationImport,()=>`const {${automationNames}}=(()=>{\n${automation.replace(/^export\s+/gm,'')}\nreturn {${automationNames}};\n})();`);
+const lobbyNames='handleCampaignLobby,requireLobbyReports',lobbyImport="import {"+lobbyNames+"} from './campaign-lobby.js';";
+if(!api.includes(lobbyImport))throw new Error('Account API must import campaign lobby.');
+const lobby=await readFile(resolve(root,'worker/campaign-lobby.js'),'utf8');
+api=api.replace(lobbyImport,()=>`const {${lobbyNames}}=(()=>{\n${lobby.replace(/^export\s+/gm,'')}\nreturn {${lobbyNames}};\n})();`);
 api=api.replace('export async function handleApi','async function handleApi');
 let worker=await readFile(resolve(root,'worker/index.js'),'utf8');
 worker=worker.replace("import {handleApi} from './account-api.js';",()=>api).replace('__MUNDA_ASSETS__',()=>JSON.stringify(assets));

@@ -129,7 +129,7 @@ function appendOnlyActivity(before,after){if(same(before,after))return true;if(!
 function publicReceipt(row,hide){return {id:row.id,campaignId:row.campaign_id,operationKey:row.operation_key,actorId:row.actor_id,label:row.label,createdAt:row.created_at,cycle:row.cycle,campaignRevision:row.campaign_revision,changes:hide(JSON.parse(row.changes)),sourceRevisions:JSON.parse(row.source_revisions),reversedAt:row.reversed_at||null,reversedBy:row.reversed_by||null,reverseRevisions:row.reverse_revisions?JSON.parse(row.reverse_revisions):null};}
 
 export async function handleCampaignAutomation(request,db,actor,deps){
- const {requireValue:check,ApiError,json,response,validateState,validSnapshot,withoutPrivate,shareable,enrolledGang,requireLiveCampaign,campaignRights,requireArbitratorSettings,stamp,uid}=deps;
+ const {requireValue:check,ApiError,json,response,validateState,validSnapshot,withoutPrivate,shareable,enrolledGang,requireLiveCampaign,campaignRights,requireArbitratorSettings,requireLobbyReports,stamp,uid}=deps;
  const path=new URL(request.url).pathname.replace(/\/$/,''),match=path.match(/^\/api\/campaigns\/([^/]+)\/automation(?:\/(consent|[^/]+)(?:\/(reverse))?)?$/);if(!match)return null;
  const campaignId=match[1];check(campaignId.length<=160,'캠페인 ID가 올바르지 않습니다.');await requireLiveCampaign(db,campaignId);
  const documents=new Map();
@@ -206,11 +206,11 @@ export async function handleCampaignAutomation(request,db,actor,deps){
    if(stored.target==='gang'){const mapping=await resolve(stored.gangId),consentUndo=original.actor_id===actor&&list.some(change=>change.target==='gang'&&['sourceAcknowledgedBy','acceptedBy','declinedBy'].includes(change.path.at(-1))&&change.after===actor);check(mapping.ownerId===actor||consentUndo,'다른 플레이어의 갱 변경은 되돌릴 수 없습니다.',403);check(mapping.ownerId===stored.ownerId&&mapping.sourceGangId===stored.sourceGangId,'갱 소유자가 변경되었습니다. 최신 명단을 불러오세요.',409);apply(mapping.gang,patch,'gang',mapping,true);}
    else{if(stored.path[0]==='members'&&stored.path.length===2&&!stored.beforeExists&&stored.after?.gangId)reversedMemberAdds.add(stored.after.gangId);apply(canonicalCampaign,patch,'campaign',null,true);campaignChanged=true;}
   }
-  check(same(foreignPersonal(campaignBefore,owned),foreignPersonal(canonicalCampaign,owned)),'다른 플레이어의 개인 전투 기록은 되돌릴 수 없습니다.',403);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(campaignBefore,canonicalCampaign,owned,check,{matchReverse:list.some(change=>change.target==='campaign'&&['battles','sessions'].includes(change.path[0]))});
+  check(same(foreignPersonal(campaignBefore,owned),foreignPersonal(canonicalCampaign,owned)),'다른 플레이어의 개인 전투 기록은 되돌릴 수 없습니다.',403);requireLobbyReports?.(campaignBefore,canonicalCampaign,check);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(campaignBefore,canonicalCampaign,owned,check,{matchReverse:list.some(change=>change.target==='campaign'&&['battles','sessions'].includes(change.path[0]))});
   if(!['owner','arbitrator','editor'].includes(role)){const before=participantProtected(campaignBefore,owned),after=participantProtected(canonicalCampaign,owned);if(own(before,'activity'))after.activity=copy(before.activity);else delete after.activity;check(same(before,after),'본인 갱의 변경만 되돌릴 수 있습니다.',403);}
  }else{
   check(object(body.before)&&object(body.after)&&object(body.before.campaign)&&object(body.after.campaign)&&body.before.campaign.id===campaignId&&body.after.campaign.id===campaignId&&Array.isArray(body.before.gangs)&&Array.isArray(body.after.gangs),'캠페인 변경 전후 기록이 필요합니다.');
-  requireOwnCampaignPersonal(body.before.campaign,body.after.campaign,owned,check);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(body.before.campaign,body.after.campaign,owned,check);
+  requireOwnCampaignPersonal(body.before.campaign,body.after.campaign,owned,check);requireLobbyReports?.(body.before.campaign,body.after.campaign,check);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(body.before.campaign,body.after.campaign,owned,check);
   if(!['owner','arbitrator','editor'].includes(role)){
    const before=participantProtected(body.before.campaign,owned),after=participantProtected(body.after.campaign,owned);
    check(appendOnlyActivity(before.activity,after.activity),'다른 플레이어의 진행 기록을 수정할 수 없습니다.',403);if(own(before,'activity'))after.activity=copy(before.activity);else delete after.activity;
@@ -263,6 +263,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   }
   for(const [gangId,before]of beforeGangs){const after=afterGangs.get(gangId);if(!diff(before,after).length)continue;const mapping=await resolve(gangId);check(mapping.ownerId===actor,'본인이 소유한 갱만 변경할 수 있습니다.',403);const baseline=addedArrayBaseline(before,after,mapping.gang);for(const patch of diff(baseline,after))apply(mapping.gang,patch,'gang',mapping);}
  }
+ requireLobbyReports?.(initialCampaign,canonicalCampaign,check);
  if(!consent&&!reverse&&!['owner','arbitrator','editor'].includes(role))check(changes.some(change=>change.target==='gang'||change.target==='campaign'&&!['activity','automation'].includes(change.path[0])),'본인 갱의 변경 내용이 필요합니다.',403);
  check(changes.length>0&&changes.length<=10000,'적용할 운영 변경이 없거나 너무 많습니다.');
  // All referenced gangs must still be campaign members. Ownership remains immutable.

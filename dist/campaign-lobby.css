@@ -1,0 +1,130 @@
+/* Shared campaign lobby. Uses the surrounding command workspace theme. */
+html.uk-ui .campaign-lobby{--cl-primary:var(--rust,#a4513b);--cl-success:var(--green,#94ad98);display:grid;gap:24px;min-width:0;color:var(--text);font:inherit;line-height:1.6;scroll-margin-top:85px}
+html.uk-ui .campaign-lobby *,html.uk-ui .campaign-lobby *::before,html.uk-ui .campaign-lobby *::after{box-sizing:border-box}
+html.uk-ui .campaign-lobby h2,html.uk-ui .campaign-lobby h3,html.uk-ui .campaign-lobby p{margin:0;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby h2{font-size:clamp(23px,3vw,30px);font-weight:650;line-height:1.3;letter-spacing:-.025em}
+html.uk-ui .campaign-lobby h3{font-size:18px;font-weight:600;line-height:1.45}
+html.uk-ui .campaign-lobby p{font-size:14px;line-height:1.8}
+html.uk-ui .campaign-lobby small{font-size:12px;line-height:1.6}
+html.uk-ui .campaign-lobby button,html.uk-ui .campaign-lobby input,html.uk-ui .campaign-lobby select,html.uk-ui .campaign-lobby textarea{font:inherit}
+html.uk-ui .campaign-lobby button{touch-action:manipulation}
+html.uk-ui .campaign-lobby .cl-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;min-width:0}
+html.uk-ui .campaign-lobby .cl-header>div{display:grid;gap:10px;min-width:0}
+html.uk-ui .campaign-lobby .cl-header p,html.uk-ui .campaign-lobby .cl-panel-head p{max-width:68ch;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-eyebrow{font-size:10px;font-weight:650;letter-spacing:.15em;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-connection{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;color:var(--muted);font-size:12px;line-height:1.6}
+html.uk-ui .campaign-lobby .cl-connection.is-offline{color:var(--red,#da9a8d)}
+html.uk-ui .campaign-lobby .cl-spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--text);border-radius:50%;animation:cl-spin .9s linear infinite;flex:none}
+html.uk-ui .campaign-lobby .cl-actions,html.uk-ui .campaign-lobby .cl-lobby-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+html.uk-ui .campaign-lobby .cl-button{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:44px;min-width:44px;max-width:100%;padding:10px 16px;border:1px solid var(--line);border-radius:5px;background:var(--panel2);color:var(--text);font-size:13px;font-weight:550;line-height:1.6;text-align:center;white-space:normal;cursor:pointer}
+html.uk-ui .campaign-lobby .cl-button:hover:not(:disabled){border-color:var(--accent);filter:brightness(1.08)}
+html.uk-ui .campaign-lobby .cl-button.primary{background:var(--cl-primary);border-color:var(--cl-primary);color:#fff}
+html.uk-ui .campaign-lobby .cl-button.text{background:transparent;border-color:transparent;color:var(--muted);padding-inline:8px;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+html.uk-ui .campaign-lobby .cl-button:disabled{opacity:.45;cursor:default}
+html.uk-ui .campaign-lobby :is(button,input,select,textarea,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+html.uk-ui .campaign-lobby .cl-feedback:empty{display:none}
+html.uk-ui .campaign-lobby .cl-error{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px;background:var(--panel2);border:1px solid var(--red,#a96e62);border-radius:6px}
+html.uk-ui .campaign-lobby .cl-error p{flex:1 1 240px}
+html.uk-ui .campaign-lobby .cl-notice{padding:12px 16px;border-left:3px solid var(--cl-success);background:var(--panel2)}
+html.uk-ui .campaign-lobby .cl-loading,html.uk-ui .campaign-lobby .cl-empty{padding:28px 22px;border:1px dashed var(--line);border-radius:6px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-loading{display:flex;align-items:center;gap:12px;min-height:120px;font-size:14px}
+html.uk-ui .campaign-lobby .cl-empty{display:grid;gap:12px}
+html.uk-ui .campaign-lobby .cl-empty h3{color:var(--text)}
+html.uk-ui .campaign-lobby .cl-group{display:grid;gap:14px;min-width:0}
+html.uk-ui .campaign-lobby .cl-group-heading{display:flex;align-items:center;gap:12px}
+html.uk-ui .campaign-lobby .cl-group-heading>span{display:inline-flex;justify-content:center;align-items:center;min-width:24px;padding:1px 6px;border-radius:3px;background:var(--panel2);color:var(--muted);font-size:12px}
+html.uk-ui .campaign-lobby .cl-room-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+html.uk-ui .campaign-lobby .cl-room-card{display:grid;gap:15px;min-width:0;padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:7px}
+html.uk-ui .campaign-lobby .cl-room-card.is-mine{border-left:3px solid var(--cl-primary)}
+html.uk-ui .campaign-lobby .cl-room-card-head,html.uk-ui .campaign-lobby .cl-room-card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
+html.uk-ui .campaign-lobby .cl-room-card-head>small,html.uk-ui .campaign-lobby .cl-room-card-foot>small,html.uk-ui .campaign-lobby .cl-room-accounts{color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-vs{display:inline-block;padding-inline:10px;color:var(--muted);font-size:12px;font-weight:400}
+html.uk-ui .campaign-lobby .cl-room-accounts{font-size:12px}
+html.uk-ui .campaign-lobby .cl-badge{display:inline-flex;align-items:center;min-height:26px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted);font-size:11px;line-height:1.5;white-space:normal}
+html.uk-ui .campaign-lobby .cl-status-invited,html.uk-ui .campaign-lobby .cl-status-result_pending{border-color:var(--cl-primary);color:var(--text)}
+html.uk-ui .campaign-lobby .cl-ready,html.uk-ui .campaign-lobby .cl-status-completed{border-color:var(--cl-success);color:var(--cl-success)}
+html.uk-ui .campaign-lobby .cl-player-list{gap:0;padding:0 22px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+html.uk-ui .campaign-lobby .cl-player-list>.cl-group-heading{padding:22px 0 16px}
+html.uk-ui .campaign-lobby .cl-player-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;align-items:center;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+html.uk-ui .campaign-lobby .cl-account{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-account strong{font-size:14px;font-weight:550;line-height:1.6}
+html.uk-ui .campaign-lobby .cl-account small{color:var(--muted);font-size:11px;line-height:1.7}
+html.uk-ui .campaign-lobby .cl-player-gangs,html.uk-ui .campaign-lobby .cl-muted{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-history{border-top:1px solid var(--line);padding-top:18px;min-width:0}
+html.uk-ui .campaign-lobby summary{cursor:pointer;min-height:44px;padding-block:10px;font-size:14px;color:var(--muted);line-height:1.7}
+html.uk-ui .campaign-lobby .cl-history>.cl-room-grid{margin-top:16px}
+html.uk-ui .campaign-lobby .cl-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+html.uk-ui .campaign-lobby .cl-panel{display:grid;gap:20px;min-width:0;padding:24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+html.uk-ui .campaign-lobby .cl-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+html.uk-ui .campaign-lobby .cl-panel-head>div{display:grid;gap:8px;min-width:0}
+html.uk-ui .campaign-lobby form{display:grid;gap:18px;min-width:0;margin:0}
+html.uk-ui .campaign-lobby label:not(.cl-check){display:grid;gap:8px;min-width:0;font-size:13px;font-weight:550;color:var(--muted)}
+html.uk-ui .campaign-lobby select,html.uk-ui .campaign-lobby input:not([type=checkbox]),html.uk-ui .campaign-lobby textarea{display:block;min-width:0;width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:5px;background:var(--panel2);color:var(--text);font-size:15px;font-weight:400;line-height:1.6}
+html.uk-ui .campaign-lobby textarea{resize:vertical;min-height:92px}
+html.uk-ui .campaign-lobby select:disabled,html.uk-ui .campaign-lobby textarea:disabled{opacity:.6}
+html.uk-ui .campaign-lobby .cl-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+html.uk-ui .campaign-lobby .cl-room-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+html.uk-ui .campaign-lobby .cl-room-nav .cl-connection{margin-left:auto}
+html.uk-ui .campaign-lobby .cl-room-header{margin-top:-6px}
+html.uk-ui .campaign-lobby .cl-participants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+html.uk-ui .campaign-lobby .cl-participant{display:grid;align-content:start;gap:14px;padding:24px;min-width:0;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+html.uk-ui .campaign-lobby .cl-participant.is-self{border-top:3px solid var(--cl-primary)}
+html.uk-ui .campaign-lobby .cl-participant-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+html.uk-ui .campaign-lobby .cl-seat{font-size:11px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-participant h3{font-size:20px}
+html.uk-ui .campaign-lobby .cl-presence{font-size:11px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-crew-summary{display:grid;gap:8px;padding-top:15px;border-top:1px solid var(--line)}
+html.uk-ui .campaign-lobby .cl-crew-summary>span{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+html.uk-ui .campaign-lobby .cl-crew-summary p{font-size:13px}
+html.uk-ui .campaign-lobby .cl-crew-summary small{color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-setup-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+html.uk-ui .campaign-lobby .cl-setup-summary>div{display:grid;align-content:start;justify-items:start;gap:5px;min-width:0}
+html.uk-ui .campaign-lobby .cl-setup-summary small{color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-setup-summary strong{font-size:14px;font-weight:550;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-setup-summary .cl-button.text{min-height:44px;padding:5px 0}
+html.uk-ui .campaign-lobby .cl-setup-editor{border-top:1px solid var(--line);padding-top:8px}
+html.uk-ui .campaign-lobby .cl-setup-editor>form{padding-top:14px}
+html.uk-ui .campaign-lobby .cl-hint{font-size:12px;color:var(--muted)}
+html.uk-ui .campaign-lobby fieldset{display:block;min-width:0;border:0;padding:0;margin:0}
+html.uk-ui .campaign-lobby legend{padding:0 0 12px;font-size:13px;font-weight:550;color:var(--muted)}
+html.uk-ui .campaign-lobby legend>span{margin-left:10px;font-weight:400}
+html.uk-ui .campaign-lobby .cl-fighter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+html.uk-ui .campaign-lobby .cl-check{display:flex;align-items:center;gap:11px;min-height:46px;margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:5px;min-width:0;color:var(--text);font-size:14px;line-height:1.6;cursor:pointer}
+html.uk-ui .campaign-lobby .cl-check input{width:18px;height:18px;flex:none;margin:0;accent-color:var(--cl-primary)}
+html.uk-ui .campaign-lobby .cl-check span{overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-options{padding:10px 0;border-top:1px solid var(--line)}
+html.uk-ui .campaign-lobby .cl-options>label,html.uk-ui .campaign-lobby .cl-options>fieldset{margin-top:12px}
+html.uk-ui .campaign-lobby .cl-start-panel{justify-items:start;border-color:var(--cl-primary)}
+html.uk-ui .campaign-lobby .cl-battle-notice{padding:16px 20px;border-left:3px solid var(--cl-success);background:var(--panel2);font-size:14px;line-height:1.8}
+html.uk-ui .campaign-lobby .cl-result-review h3{font-size:26px}
+html.uk-ui .campaign-lobby .cl-written-note{white-space:pre-wrap;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-completed{justify-items:center;text-align:center;gap:15px;padding:36px 24px;border-color:var(--cl-success)}
+html.uk-ui .campaign-lobby .cl-completed-icon{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--cl-success);border-radius:50%;color:var(--cl-success);font-size:26px}
+html.uk-ui .campaign-lobby .cl-completed>strong{font-size:24px;font-weight:650}
+html.uk-ui .campaign-lobby .cl-completed>.cl-actions{justify-content:center;margin-top:8px}
+html.uk-ui .campaign-lobby [hidden]{display:none!important}
+@keyframes cl-spin{to{transform:rotate(360deg)}}
+@media(max-width:700px){html.uk-ui .campaign-lobby{gap:20px}html.uk-ui .campaign-lobby .cl-header{display:grid;gap:14px}html.uk-ui .campaign-lobby .cl-room-grid,html.uk-ui .campaign-lobby .cl-participants{grid-template-columns:minmax(0,1fr)}html.uk-ui .campaign-lobby .cl-room-card,html.uk-ui .campaign-lobby .cl-panel,html.uk-ui .campaign-lobby .cl-participant{padding:20px}html.uk-ui .campaign-lobby .cl-player-list{padding-inline:18px}html.uk-ui .campaign-lobby .cl-player-row{grid-template-columns:minmax(0,1fr) auto;gap:10px 14px}html.uk-ui .campaign-lobby .cl-player-row>.cl-account{grid-column:1}html.uk-ui .campaign-lobby .cl-player-row>.cl-player-gangs{grid-column:1}html.uk-ui .campaign-lobby .cl-player-row>.cl-button,html.uk-ui .campaign-lobby .cl-player-row>.cl-muted{grid-column:2;grid-row:1/3}html.uk-ui .campaign-lobby .cl-form-grid{grid-template-columns:minmax(0,1fr)}html.uk-ui .campaign-lobby .cl-lobby-actions>.primary{width:100%}html.uk-ui .campaign-lobby .cl-room-nav{gap:10px}html.uk-ui .campaign-lobby .cl-room-nav .cl-connection{width:100%;margin-left:0}html.uk-ui .campaign-lobby select,html.uk-ui .campaign-lobby textarea{font-size:16px}}
+@media(max-width:380px){html.uk-ui .campaign-lobby .cl-fighter-grid,html.uk-ui .campaign-lobby .cl-setup-summary{grid-template-columns:minmax(0,1fr)}html.uk-ui .campaign-lobby .cl-actions{align-items:stretch;gap:10px}html.uk-ui .campaign-lobby .cl-actions>.cl-button{flex:1 1 150px}html.uk-ui .campaign-lobby .cl-room-card,html.uk-ui .campaign-lobby .cl-panel,html.uk-ui .campaign-lobby .cl-participant{padding:17px}}
+@media(prefers-reduced-motion:reduce){html.uk-ui .campaign-lobby .cl-spinner{animation:none}}
+
+html.uk-ui .campaign-lobby .cl-pending{display:flex;align-items:center;gap:10px;padding:12px 16px;border-left:3px solid var(--accent);background:var(--panel2);color:var(--text);font-size:13px}
+
+html.uk-ui .campaign-lobby .cl-action-error{scroll-margin-top:100px;scroll-margin-bottom:110px;margin-block:6px;color:var(--text)}
+html.uk-ui .campaign-lobby .cl-action-error:focus{outline:2px solid var(--accent);outline-offset:3px}
+/* Keep primary labels readable when the command workspace applies its light control colors. */
+html.uk-ui.command-ui .cmd-sample.cmd-sample [data-campaign-lobby].campaign-lobby .cl-button.primary{color:#fff;background:var(--cl-primary);border-color:var(--cl-primary)}
+
+/* Keep the active request visible beside the pressed action, including below the mobile fold. */
+html.uk-ui .campaign-lobby[data-lobby-pending=create] [data-lobby-action=create-submit]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=prepare] [data-lobby-action=prepare-save]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=setup] [data-lobby-action=setup-save]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=ready] :is([data-lobby-action=ready],[data-lobby-action=unready])::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=accept] [data-lobby-action=accept]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=decline] [data-lobby-action=decline]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=cancel] [data-lobby-action=cancel]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=start] [data-lobby-action=start]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=propose-result] [data-lobby-action=propose-result]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=confirm-result] [data-lobby-action=confirm-result]::before,
+html.uk-ui .campaign-lobby[data-lobby-pending=dispute-result] [data-lobby-action=dispute-result]::before{content:"";display:inline-block;width:13px;height:13px;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cl-spin .9s linear infinite}
+@media(prefers-reduced-motion:reduce){html.uk-ui .campaign-lobby .cl-button::before{animation:none!important}}

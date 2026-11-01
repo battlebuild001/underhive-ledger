@@ -1,4 +1,15 @@
 /* Campaign administration and participant references. Kept outside the scoped design compiler. */
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-heading{margin-bottom:20px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-heading h1{overflow-wrap:anywhere}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 18px;background:var(--panel);border:1px solid var(--line);border-radius:7px;color:var(--muted);font-size:13px;line-height:1.6}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context>span{display:inline-flex;align-items:center;gap:7px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context strong{color:var(--text);font-weight:600}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-workspace{display:grid;gap:20px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample [data-campaign-lobby]{min-width:0;scroll-margin-top:84px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-battles>summary,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations>summary,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-invitations>summary{display:list-item;cursor:pointer;min-height:44px;box-sizing:border-box;padding:17px 20px;color:var(--text);font-size:15px;font-weight:600;line-height:1.6;list-style-position:inside}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-battles>summary:focus-visible,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations>summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-battle-archive .battle-rows{padding-bottom:12px}
+@media(max-width:700px){html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-heading .heading-actions{display:none}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context{font-size:12px;padding:12px 14px;gap:7px 12px}}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs{overflow-x:auto;flex-wrap:nowrap;gap:22px;scrollbar-width:thin}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs>button{flex:none;min-height:46px;white-space:nowrap}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-panel{display:grid;gap:20px;min-width:0}
