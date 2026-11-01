@@ -1,5 +1,15 @@
 /* Compact roster: view-only styling for active battles. */
 @media screen{
+ html.uk-ui .bp-operations-card>h2{font-size:16px;line-height:1.5;margin:0 0 14px}
+ html.uk-ui .bp-heading .bp-app-menu-button{flex:none;min-width:44px;min-height:44px;padding:8px;background:none;border:0;color:var(--text)}
+ html.uk-ui .mm-menu-preferences{display:grid;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+ html.uk-ui .mm-menu-preference{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;font-size:14px}
+ html.uk-ui:is(.light,:not(.light)) .mm-settings-menu .mm-menu-preferences .crumb{position:static;display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0;width:100%;height:auto;min-height:44px;margin:0;padding:0;border:0;background:none;font-size:12px;overflow:visible;white-space:normal}
+ html.uk-ui:is(.light,:not(.light)) .mm-settings-menu .mm-menu-preferences .uk-language-switch{position:static;inset:auto;transform:none;height:auto;min-height:44px;margin:0 0 0 auto;flex:none}
+ html.uk-ui:is(.light,:not(.light)) .mm-settings-menu .mm-menu-preferences .uk-language-switch button{width:auto;min-width:44px;min-height:44px;height:auto;padding:8px}
+ html.uk-ui:is(.light,:not(.light)) .mm-settings-menu .mm-menu-preference [data-theme-toggle]{display:grid;place-items:center;min-width:44px;min-height:44px;height:auto;width:auto;margin:0;padding:8px}
+}
+@media screen{
  html.uk-ui .bp-outcome-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  html.uk-ui .bp-outcome-summary>div{display:grid;gap:4px;min-width:0;padding:10px;background:var(--panel2);border:1px solid var(--line);border-radius:4px;font-size:13px;overflow-wrap:anywhere}
  html.uk-ui .bp-outcome-summary strong{color:var(--accent);font-size:15px}
@@ -120,8 +130,6 @@
  html.uk-ui.bp-compact-theme .bp-mission>h2{font-size:15px;margin:0 0 12px}
  html.uk-ui.bp-compact-theme .bp-mission>strong{font-size:17px}
  html.uk-ui.bp-compact-theme .bp-mission>div{font-size:14px;line-height:1.8;margin:12px 0}
- html.uk-ui.bp-compact-theme .bp-shell-settings.topbar{position:static;display:flex;height:auto;min-height:56px;margin:16px 0 0;padding:12px 0;background:none;border:0;box-shadow:none;backdrop-filter:none}
- html.uk-ui.bp-compact-theme .bp-shell-settings.crumb{height:auto;min-height:44px;margin:0;padding:10px 0}
  html.uk-ui.bp-compact-theme .bp-workspace :is(button,summary):focus-visible,html.uk-ui.bp-compact-theme .bp-heading button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
  html.uk-ui.command-ui.bp-compact-theme .bp-workspace .bp-unit-actions button.btn{min-height:44px;font-size:13px;padding:8px 12px}
  html.uk-ui.command-ui.bp-compact-theme .bp-heading button.bp-backsource{min-height:44px;min-width:44px;background:none;border:0;padding:8px}
@@ -154,7 +162,7 @@
   html.uk-ui.bp-compact-theme .bp-tab-panel:not([data-bp-panel=roster]){padding:0 14px}
  }
 }
-@media print{.bp-bar,.bp-sides,.bp-unit-actions,.bp-heading .bp-brief,.bp-heading .bp-backsource,.bp-shell-settings{display:none!important}.bp-workspace [data-bp-panel]:not([data-bp-panel=roster]){display:none!important}.bp-workspace [data-bp-panel=roster],.bp-workspace [data-bp-side-panel],.bp-workspace .bp-unit-panel[hidden]{display:block!important}.bp-unit-row{break-inside:avoid}.bp-side-content{display:block!important}.bp-unit-toggle{border:0;background:none;color:#000}.bp-icon{display:none}}
+@media print{.bp-bar,.bp-sides,.bp-unit-actions,.bp-heading .bp-brief,.bp-heading .bp-backsource,.bp-heading .bp-app-menu-button,[data-bp-app-controls]{display:none!important}.bp-workspace [data-bp-panel]:not([data-bp-panel=roster]){display:none!important}.bp-workspace [data-bp-panel=roster],.bp-workspace [data-bp-side-panel],.bp-workspace .bp-unit-panel[hidden]{display:block!important}.bp-unit-row{break-inside:avoid}.bp-side-content{display:block!important}.bp-unit-toggle{border:0;background:none;color:#000}.bp-icon{display:none}}
 @media screen{
  html.uk-ui.bp-compact-theme .bp-workspace .pm-unit-head{grid-template-columns:minmax(0,1fr)}
  html.uk-ui.bp-compact-theme .bp-workspace .ca-result-tools h3{font-size:18px;margin:0 0 8px}
