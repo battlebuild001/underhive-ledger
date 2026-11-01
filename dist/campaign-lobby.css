@@ -162,3 +162,15 @@ html.uk-ui .campaign-lobby .cl-setup-territory{max-width:480px}
 html.uk-ui .campaign-lobby .cl-setup-save{border-top:1px solid var(--line);padding-top:20px}
 @media(max-width:900px){html.uk-ui .campaign-lobby .cl-mission-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:700px){html.uk-ui .campaign-lobby .cl-setup-toolbar,html.uk-ui .campaign-lobby .cl-setup-save{align-items:stretch;flex-direction:column;gap:12px}html.uk-ui .campaign-lobby .cl-setup-toolbar>.cl-button{align-self:flex-start}html.uk-ui .campaign-lobby .cl-setup-territory{max-width:none}}
+
+/* Completed battles show the durable reward receipt beside the outcome. */
+html.uk-ui .campaign-lobby .cl-rewards{display:grid;gap:14px;width:100%;max-width:640px;margin:6px auto;padding:20px;border:1px solid var(--line);border-radius:7px;background:var(--panel2);text-align:left}
+html.uk-ui .campaign-lobby .cl-rewards h4{margin:0;color:var(--text);font-size:16px;font-weight:650;line-height:1.5}
+html.uk-ui .campaign-lobby .cl-rewards>p{color:var(--muted);font-size:13px;line-height:1.75}
+html.uk-ui .campaign-lobby .cl-reward-list{display:grid;gap:12px}
+html.uk-ui .campaign-lobby .cl-reward-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;border-top:1px solid var(--line);min-width:0}
+html.uk-ui .campaign-lobby .cl-reward-row>strong{min-width:0;overflow-wrap:anywhere;font-size:14px;font-weight:550}
+html.uk-ui .campaign-lobby .cl-reward-row>div{display:grid;justify-items:end;flex:none;gap:4px}
+html.uk-ui .campaign-lobby .cl-reward-row b{font-size:20px;font-weight:650;color:var(--text);font-variant-numeric:tabular-nums}
+html.uk-ui .campaign-lobby .cl-reward-row small{font-size:12px;color:var(--muted)}
+@media(max-width:380px){html.uk-ui .campaign-lobby .cl-rewards{padding:16px}html.uk-ui .campaign-lobby .cl-reward-row{gap:10px}}

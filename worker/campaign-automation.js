@@ -128,6 +128,28 @@ function participantProtected(c,owned){
 function appendOnlyActivity(before,after){if(same(before,after))return true;if(!keyed(before||[])||!keyed(after)||after.length<(before||[]).length)return false;const current=new Map(after.map(row=>[row.id,row]));return (before||[]).every(row=>current.has(row.id)&&same(row,current.get(row.id)));}
 function publicReceipt(row,hide){return {id:row.id,campaignId:row.campaign_id,operationKey:row.operation_key,actorId:row.actor_id,label:row.label,createdAt:row.created_at,cycle:row.cycle,campaignRevision:row.campaign_revision,changes:hide(JSON.parse(row.changes)),sourceRevisions:JSON.parse(row.source_revisions),reversedAt:row.reversed_at||null,reversedBy:row.reversed_by||null,reverseRevisions:row.reverse_revisions?JSON.parse(row.reverse_revisions):null};}
 
+// Verified N26 Collect Income (n26-core-collect-income) and territory rows.
+// These are fixed recorded boons, never inferred from a territory's display name.
+const AUTO_N26_TERRITORY_INCOME=Object.freeze(Object.fromEntries([
+ ['settlement',15],['bullet-den',15],['rogue-doc-shop',15],['mess-shack',15],['drinking-hole',15],['fence-hangout',15],['bounty-den',25],['generatorium',15],['corpse-farm',25],['tunnels',20],['tech-bazaar',15],['promethium-cache',15],['collapsed-dome',20],['bone-shrine',25],['mine-workings',20],['gambling-den',15],['synth-still',20],['old-ruins',20],['fighting-pit',25]
+].map(([id,credits])=>['official-003-territory-'+id,credits]).concat([['official-n26-002-territory-spyrer-base-camp',15]])));
+function automaticN26Schedule(c){
+ if(String(c?.edition).toUpperCase()!=='N26'||!(c.campaignTypeId==='official-003-campaign-necromunda-campaign'||!c.campaignTypeId&&c.campaignType==='Necromunda Campaign'))return null;
+ const p=c.campaignSchedule;if(!object(p)||!['standard','custom'].includes(p.mode)||!Array.isArray(p.stages)||!p.stages.length||p.stages.length>3)return null;
+ const order=['Occupation','Downtime','Takeover'];let last=-1,total=0,start=1,current=null;const cycle=Number(c.currentCycle||1);
+ for(const stage of p.stages){const index=order.indexOf(stage.name);if(index<=last||!Number.isSafeInteger(stage.cycles)||stage.cycles<1||stage.cycles>999)return null;last=index;total+=stage.cycles;if(cycle>=start&&cycle<start+stage.cycles)current={name:stage.name,start};start+=stage.cycles;}
+ if(p.mode==='standard'&&(p.stages.length!==3||p.stages.some((s,i)=>s.name!==order[i]||s.cycles!==[3,1,3][i])))return null;
+ if(!Number.isSafeInteger(cycle)||cycle<1||cycle>total||!current)return null;
+ return {cycle,total,stage:current.name,stageStart:current.start,plan:p};
+}
+function automaticCycleTransition(before,after,key,check){
+ if(!key.startsWith('cycle-advance:'))return null;const previous=automaticN26Schedule(before);if(!previous)return null;
+ const next=automaticN26Schedule(after),end=previous.cycle===previous.total,to=end?previous.cycle:previous.cycle+1,history=before.campaignSchedule.history||[],rows=after.campaignSchedule?.history||[];
+ check(before.phase!=='Closed'&&!previous.plan.completed&&next&&same(previous.plan.stages,next.plan.stages)&&previous.plan.mode===next.plan.mode&&rows.length===history.length+1&&same(rows.slice(0,-1),history),'사이클 진행 조건이 변경되었습니다. 새로고침 후 다시 시도하세요.',409);
+ const h=rows.at(-1);check(h&&h.automationOperationKey===key&&h.fromCycle===previous.cycle&&h.toCycle===to&&h.finishedBefore===!!previous.plan.completed&&h.finishedAfter===end&&next.cycle===to&&!!next.plan.completed===end,'사이클 마감 기록이 올바르지 않습니다.',409);
+ return {before:previous,after:next,completed:end};
+}
+
 export async function handleCampaignAutomation(request,db,actor,deps){
  const {requireValue:check,ApiError,json,response,validateState,validSnapshot,withoutPrivate,shareable,enrolledGang,requireLiveCampaign,campaignRights,requireArbitratorSettings,requireLobbyReports,stamp,uid}=deps;
  const path=new URL(request.url).pathname.replace(/\/$/,''),match=path.match(/^\/api\/campaigns\/([^/]+)\/automation(?:\/(consent|[^/]+)(?:\/(reverse))?)?$/);if(!match)return null;
@@ -166,6 +188,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  check(Number.isSafeInteger(body.documentRevision)&&body.documentRevision===actorDoc.revision,'개인 기록이 변경되었습니다. 동기화 후 다시 시도하세요.',409);
  if(shared&&body.expectedCampaignRevision!==undefined)check(body.expectedCampaignRevision===shared.revision,'캠페인 기록이 변경되었습니다. 새로고침 후 다시 시도하세요.',409);
  const changes=[];
+ const automaticCycleUndo=reverse&&/^cycle-advance:/.test(original.operation_key)&&['owner','arbitrator'].includes(role)&&JSON.parse(original.changes).some(change=>change.target==='campaign'&&change.path[0]==='campaignSchedule'&&change.path[1]==='history'&&JSON.stringify(change.after||'').includes(original.operation_key));
  function apply(root,patch,target,mapping,internal=false){
   allowed(patch,target,check,internal);const found=locate(root,patch.path,check);check(same(found.value,patch.before),'변경 대상이 이미 수정되었습니다. 최신 기록을 확인하세요.',409);
   changes.push({target,...(mapping?{gangId:mapping.gangId,ownerId:mapping.ownerId,sourceGangId:mapping.sourceGangId}:{}),path:patch.path,beforeExists:found.exists,...(found.exists?{before:copy(found.value)}:{}),afterExists:patch.after!==undefined,...(patch.after!==undefined?{after:copy(patch.after)}:{})});
@@ -203,10 +226,10 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   const list=JSON.parse(original.changes);
   for(const stored of [...list].reverse()){
    const patch={path:stored.path,before:stored.afterExists?stored.after:undefined,after:stored.beforeExists?stored.before:undefined};
-   if(stored.target==='gang'){const mapping=await resolve(stored.gangId),consentUndo=original.actor_id===actor&&list.some(change=>change.target==='gang'&&['sourceAcknowledgedBy','acceptedBy','declinedBy'].includes(change.path.at(-1))&&change.after===actor);check(mapping.ownerId===actor||consentUndo,'다른 플레이어의 갱 변경은 되돌릴 수 없습니다.',403);check(mapping.ownerId===stored.ownerId&&mapping.sourceGangId===stored.sourceGangId,'갱 소유자가 변경되었습니다. 최신 명단을 불러오세요.',409);apply(mapping.gang,patch,'gang',mapping,true);}
+   if(stored.target==='gang'){const mapping=await resolve(stored.gangId),consentUndo=original.actor_id===actor&&list.some(change=>change.target==='gang'&&['sourceAcknowledgedBy','acceptedBy','declinedBy'].includes(change.path.at(-1))&&change.after===actor);check(mapping.ownerId===actor||consentUndo||automaticCycleUndo,'다른 플레이어의 갱 변경은 되돌릴 수 없습니다.',403);check(mapping.ownerId===stored.ownerId&&mapping.sourceGangId===stored.sourceGangId,'갱 소유자가 변경되었습니다. 최신 명단을 불러오세요.',409);apply(mapping.gang,patch,'gang',mapping,true);}
    else{if(stored.path[0]==='members'&&stored.path.length===2&&!stored.beforeExists&&stored.after?.gangId)reversedMemberAdds.add(stored.after.gangId);apply(canonicalCampaign,patch,'campaign',null,true);campaignChanged=true;}
   }
-  check(same(foreignPersonal(campaignBefore,owned),foreignPersonal(canonicalCampaign,owned)),'다른 플레이어의 개인 전투 기록은 되돌릴 수 없습니다.',403);requireLobbyReports?.(campaignBefore,canonicalCampaign,check);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(campaignBefore,canonicalCampaign,owned,check,{matchReverse:list.some(change=>change.target==='campaign'&&['battles','sessions'].includes(change.path[0]))});
+  check(automaticCycleUndo||same(foreignPersonal(campaignBefore,owned),foreignPersonal(canonicalCampaign,owned)),'다른 플레이어의 개인 전투 기록은 되돌릴 수 없습니다.',403);requireLobbyReports?.(campaignBefore,canonicalCampaign,check);if(!['owner','arbitrator'].includes(role))requireArbitratorSettings(campaignBefore,canonicalCampaign,owned,check,{matchReverse:list.some(change=>change.target==='campaign'&&['battles','sessions'].includes(change.path[0]))});
   if(!['owner','arbitrator','editor'].includes(role)){const before=participantProtected(campaignBefore,owned),after=participantProtected(canonicalCampaign,owned);if(own(before,'activity'))after.activity=copy(before.activity);else delete after.activity;check(same(before,after),'본인 갱의 변경만 되돌릴 수 있습니다.',403);}
  }else{
   check(object(body.before)&&object(body.after)&&object(body.before.campaign)&&object(body.after.campaign)&&body.before.campaign.id===campaignId&&body.after.campaign.id===campaignId&&Array.isArray(body.before.gangs)&&Array.isArray(body.after.gangs),'캠페인 변경 전후 기록이 필요합니다.');
@@ -263,6 +286,41 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   }
   for(const [gangId,before]of beforeGangs){const after=afterGangs.get(gangId);if(!diff(before,after).length)continue;const mapping=await resolve(gangId);check(mapping.ownerId===actor,'본인이 소유한 갱만 변경할 수 있습니다.',403);const baseline=addedArrayBaseline(before,after,mapping.gang);for(const patch of diff(baseline,after))apply(mapping.gang,patch,'gang',mapping);}
  }
+
+ const autoTransition=!consent&&!reverse?automaticCycleTransition(initialCampaign,canonicalCampaign,key,check):null;
+ if(autoTransition){
+  check(['owner','arbitrator'].includes(role),'아비트레이터만 사이클을 마감할 수 있습니다.',403);
+  const beforeCycle=autoTransition.before.cycle,nextCycle=autoTransition.after.cycle,autoCampaign=copy(canonicalCampaign),at=stamp();autoCampaign.automationEconomy??={};
+  const ledger=(name)=>(autoCampaign.automationEconomy[name]??=[]),belongs=(row,id)=>row.gangKey?row.gangKey===id:row.gangId===id;
+  for(const member of canonicalCampaign.members||[]){
+   const mapping=await resolve(member.gangId),g=copy(mapping.gang),income=ledger('incomeReceipts');
+   if(!income.some(row=>belongs(row,mapping.gangId)&&row.cycle===beforeCycle)){
+    check(Number.isSafeInteger(g.credits)&&g.credits>=0&&Number.isSafeInteger(g.reputation)&&g.reputation>=0,'수입을 정산할 갱의 크레딧·명성을 확인하세요.',409);
+    const rows=[],spyrer=(g.gangTypeId||g.gang_type_id)==='official-n26-002-gang-spyre-hunters',reputationCredits=g.reputation*10;let credits=reputationCredits,tp=0;
+    for(const territory of initialCampaign.territories||[]){
+     if((territory.gangId||territory.gang_id)!==mapping.gangId)continue;
+     const ruleId=territory.territoryId||'',authored=own(territory,'credits'),known=own(AUTO_N26_TERRITORY_INCOME,ruleId);check(ruleId!=='official-n26-002-territory-spyrer-base-camp'||spyrer,'스파이어러 전용 영토의 소유자를 확인하세요: '+String(territory.name||territory.id),409);let amount=territory.noIncome===true?0:authored?territory.credits:spyrer&&known?15:AUTO_N26_TERRITORY_INCOME[ruleId];
+     check(Number.isSafeInteger(amount)&&amount>=0,'수입을 확인할 수 없는 영토입니다: '+String(territory.name||territory.id)+'. 영토 설정에 수입액 또는 수입 없음(0)을 지정하세요.',409);
+     credits+=amount;if(!spyrer&&ruleId==='official-003-territory-tech-bazaar')tp+=1;rows.push({territoryId:territory.id,name:territory.name||'',amount,rolls:[],choice:'credits',ruined:!!territory.ruined});
+    }
+    check(Number.isSafeInteger(g.credits+credits)&&Number.isSafeInteger(Number(g.tradePoints||0)+tp),'정산 후 크레딧·거래 포인트가 올바르지 않습니다.',409);
+    if(tp>0&&g.tradingPostVisit&&!g.tradingPostVisit.closedAt)check(g.tradingPostVisit.campaignId===campaignId,'다른 캠페인의 거래소 방문을 먼저 마무리하세요.',409);
+    g.credits+=credits;g.tradePoints=Number(g.tradePoints||0)+tp;
+    income.push({id:uid(),gangId:mapping.gangId,gangKey:mapping.gangId,cycle:beforeCycle,credits,tp,rows,pending:[],reputationCredits,at,automatic:true,tradePointsAfter:g.tradePoints,recoverySnapshot:[...(g.fighters||[]),...(g.vehicles||[])].filter(f=>f.status==='In Recovery'||f.inRecovery===true).map(f=>({fighterId:f.id,status:f.status,inRecovery:!!f.inRecovery}))});
+   }
+   if(autoTransition.before.stage==='Downtime'&&(autoTransition.after.stage!=='Downtime'||autoTransition.completed))for(const allowance of g.campaignDowntimeAllowances||[])if(allowance.campaignId===campaignId&&allowance.occurrence==='downtime:'+autoTransition.before.stageStart&&!allowance.closed){allowance.closed=true;allowance.closedAt=at;}
+   if(!autoTransition.completed&&autoTransition.after.stage==='Downtime'){
+    const occurrence='downtime:'+autoTransition.after.stageStart,receipts=ledger('downtimeReceipts');
+    if(!receipts.some(row=>belongs(row,mapping.gangId)&&row.occurrence===occurrence)){
+     const existing=(g.campaignDowntimeAllowances||[]).find(a=>a.campaignId===campaignId&&a.occurrence===occurrence);let allowance=existing;
+     if(!allowance){allowance={id:uid(),campaignId,occurrence,cycle:nextCycle,granted:250,remaining:250,closed:false,spending:[],automatic:true};(g.campaignDowntimeAllowances??=[]).push(allowance);}
+     receipts.push({id:uid(),gangId:mapping.gangId,gangKey:mapping.gangId,occurrence,cycle:nextCycle,allowanceId:allowance.id,at,automatic:true});
+    }
+   }
+   for(const patch of diff(mapping.gang,g))apply(mapping.gang,patch,'gang',mapping,true);
+  }
+  for(const patch of diff(canonicalCampaign,autoCampaign)){apply(canonicalCampaign,patch,'campaign',null,true);campaignChanged=true;}
+ }
  requireLobbyReports?.(initialCampaign,canonicalCampaign,check);
  if(!consent&&!reverse&&!['owner','arbitrator','editor'].includes(role))check(changes.some(change=>change.target==='gang'||change.target==='campaign'&&!['activity','automation'].includes(change.path[0])),'본인 갱의 변경 내용이 필요합니다.',403);
  check(changes.length>0&&changes.length<=10000,'적용할 운영 변경이 없거나 너무 많습니다.');
@@ -273,6 +331,30 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  if(shared&&actor===owner&&local&&(local.remoteRevision!==undefined||local.remoteCampaignId||local.remoteOwnerId)){local.remoteRevision=shared.revision+1;actorDoc.changed=true;}
  if(campaignChanged&&!shared)actorDoc.changed=true;
  for(const mapping of sourceMappings.values())if(changes.some(c=>c.target==='gang'&&c.gangId===mapping.gangId))mapping.doc.changed=true;
+
+ // Finance can change a participant document without replacing its imported
+ // campaign. Keep only common progression metadata and the touched own receipts
+ // consistent; never advance its full-snapshot revision from a partial mirror.
+ if(shared&&(autoTransition||automaticCycleUndo)){
+  if(automaticCycleUndo)for(const member of canonicalCampaign.members||[])await resolve(member.gangId);
+  for(const doc of documents.values()){
+   if(doc.user===owner&&doc.user===actor)continue;
+   const ids=new Set([...sourceMappings.values()].filter(m=>m.ownerId===doc.user).map(m=>m.gangId));
+   const ownRow=row=>row.gangKey?ids.has(row.gangKey):ids.has(row.gangId);
+   for(const personal of doc.state.campaigns||[]){
+    const matches=doc.user===owner?(personal.id===campaignId||personal.remoteCampaignId===campaignId)&&!personal.remoteReadOnly&&(!personal.remoteOwnerId||personal.remoteOwnerId===owner):personal.remoteCampaignId===campaignId&&personal.remoteOwnerId===owner;
+    if(!matches)continue;
+    personal.currentCycle=canonicalCampaign.currentCycle;
+    personal.campaignSchedule={...(personal.campaignSchedule||{}),mode:canonicalCampaign.campaignSchedule.mode,stages:copy(canonicalCampaign.campaignSchedule.stages),history:copy(canonicalCampaign.campaignSchedule.history||[]),completed:!!canonicalCampaign.campaignSchedule.completed};
+    for(const name of ['incomeReceipts','downtimeReceipts']){
+     const oldRows=initialCampaign.automationEconomy?.[name]||[],newRows=canonicalCampaign.automationEconomy?.[name]||[],beforeIds=new Set(oldRows.map(r=>r.id)),afterIds=new Set(newRows.map(r=>r.id)),removed=new Set(oldRows.filter(r=>ownRow(r)&&!afterIds.has(r.id)).map(r=>r.id)),added=newRows.filter(r=>ownRow(r)&&!beforeIds.has(r.id));
+     if(added.length||removed.size){personal.automationEconomy??={};const retained=(personal.automationEconomy[name]||[]).filter(r=>!removed.has(r.id)),present=new Set(retained.map(r=>r.id));for(const row of added)if(!present.has(row.id))retained.push(copy(row));if(retained.length||canonicalCampaign.automationEconomy?.[name])personal.automationEconomy[name]=retained;else delete personal.automationEconomy[name];if(!Object.keys(personal.automationEconomy).length)delete personal.automationEconomy;}
+    }
+    if(personal.remoteRevision!==undefined)personal.remoteRevision=Math.min(Number.isSafeInteger(personal.remoteRevision)?personal.remoteRevision:0,shared.revision);
+    doc.changed=true;
+   }
+  }
+ }
  // Refresh the target shared snapshot from each authoritative source, never client ownership fields.
  if(shared)for(const mapping of sourceMappings.values()){
   const index=snapshot.gangs.findIndex(g=>g.id===mapping.gangId),next=mapping.enrolled?enrolledGang(mapping.enrolled,mapping.gang):shareable(mapping.gang);check(index>=0||addedOwnedMembers.has(mapping.gangId),'공유 갱 기록이 없습니다.',409);
