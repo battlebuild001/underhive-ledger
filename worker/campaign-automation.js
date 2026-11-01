@@ -49,6 +49,21 @@ function addedArrayBaseline(before,after,current){
  }
  return baseline;
 }
+// An owner's personal and shared copies may differ only in whether a touched
+// optional list is omitted or explicitly empty. Recover that empty baseline
+// from the other server copy; never recover objects, entities or nonempty data.
+function reconcileEmptyArrayBaselines(before,after,current,source){
+ if(!object(before)||!object(after)||!object(current)||!object(source))return;
+ for(const key of Object.keys(before)){
+  const previous=before[key],next=after[key],actual=current[key],saved=source[key];
+  if(Array.isArray(previous)&&previous.length===0&&Array.isArray(next)&&next.length>0&&actual===undefined&&Array.isArray(saved)&&saved.length===0)current[key]=[];
+  else if(object(previous)&&object(next)&&object(actual)&&object(saved))reconcileEmptyArrayBaselines(previous,next,actual,saved);
+  else if(keyed(previous)&&keyed(next)&&keyed(actual)&&keyed(saved)){
+   const nextRows=new Map(next.map(row=>[row.id,row])),actualRows=new Map(actual.map(row=>[row.id,row])),savedRows=new Map(saved.map(row=>[row.id,row]));
+   for(const row of previous)if(nextRows.has(row.id)&&actualRows.has(row.id)&&savedRows.has(row.id))reconcileEmptyArrayBaselines(row,nextRows.get(row.id),actualRows.get(row.id),savedRows.get(row.id));
+  }
+ }
+}
 function locate(root,path,check){
  let node=root;
  for(let i=0;i<path.length-1;i++){
@@ -183,8 +198,17 @@ export async function handleCampaignAutomation(request,db,actor,deps){
     refs(report);canonicalCampaign.battles??=[];canonicalCampaign.battles.push(hide(copy(report)));campaignChanged=true;
    }
   }
+  // Older native settings saves could store activity only in the owner's
+  // personal document. Recover that exact retained server-owned history before
+  // appending a new event; never replace an existing shared activity list.
+  if(shared&&actor===owner&&local&&canonicalCampaign.activity===undefined&&keyed(local.activity)&&local.activity.length>0&&local.activity.every(row=>row.id.length<=160)&&same(local.activity,body.before.campaign.activity)&&keyed(body.after.campaign.activity)&&body.after.campaign.activity.length>local.activity.length){
+   const retained=new Map(body.after.campaign.activity.map(row=>[row.id,row]));
+   if(local.activity.every(row=>retained.has(row.id)&&same(row,retained.get(row.id)))){refs(local.activity);canonicalCampaign.activity=hide(copy(local.activity));campaignChanged=true;}
+  }
+  if(shared&&actor===owner&&local){reconcileEmptyArrayBaselines(body.before.campaign,body.after.campaign,canonicalCampaign,local);reconcileEmptyArrayBaselines(body.before.campaign,body.after.campaign,local,canonicalCampaign);}
   const beforeGangs=new Map(body.before.gangs.map(g=>[g.id,g])),afterGangs=new Map(body.after.gangs.map(g=>[g.id,g]));check(beforeGangs.size===body.before.gangs.length&&afterGangs.size===body.after.gangs.length&&beforeGangs.size===afterGangs.size&&[...beforeGangs.keys()].every(id=>afterGangs.has(id)),'이 작업에서는 갱의 ID를 바꾸거나 갱을 삭제할 수 없습니다.');
-  for(const patch of diff(body.before.campaign,body.after.campaign)){
+  const campaignBaseline=addedArrayBaseline(body.before.campaign,body.after.campaign,canonicalCampaign);
+  for(const patch of diff(campaignBaseline,body.after.campaign)){
    if(patch.path[0]==='members'&&patch.path.length===2&&patch.before===undefined&&object(patch.after)){
     const member=patch.after;check(actor===owner&&Object.keys(member).every(k=>['id','gangId','player','role','allegianceId'].includes(k))&&member.id===patch.path[1]?.id&&typeof member.id==='string'&&member.id.length>0&&typeof member.player==='string'&&member.player.length<=500&&member.role==='Player'&&!members.has(member.gangId),'캠페인 소유자의 내 갱 추가만 자동 처리할 수 있습니다.',403);
     const gang=actorDoc.state.gangs.find(g=>g.id===member.gangId&&!g.remoteReadOnly&&!g.remoteOwnerId);check(gang&&String(gang.edition||'N23').toUpperCase()===String(canonicalCampaign.edition||'N23').toUpperCase(),'같은 판본을 사용하는 내 갱을 선택하세요.',403);
