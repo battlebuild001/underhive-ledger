@@ -333,3 +333,8 @@ Real browser checks passed at 320×844, 390×844, 844×390 and 1440×1000: sourc
 
 - Ordered the native campaign tabs as Campaign → Battles → Territories → Map → Triumphs → Custom Pack (캠페인 → 전투 → 영토 → 지도 → 트라이엄프 → 커스텀 팩). Added the Custom Pack interface translation while preserving the canonical tab keys and active-tab routing.
 - The existing focused campaign-data case passed the six-tab order and labels in English/Korean, alongside the prior pack placement, help and unsaved-editor/content preservation checks. Build, compiled Worker validation, syntax and diff checks passed. This is a navigation/copy change only.
+
+## Follow-up: align campaign participant rows
+
+- Reserved a consistent action column for every player row:112px on desktop and104px on mobile. Account and gang text share left-aligned starts; Me, waiting labels and full-width challenge buttons share the same action center. Mobile keeps the account/gang stack and shorter button padding. No data or interaction logic changed.
+- Focused Chromium checks using the production styles passed320/390/1280px in Korean/English and dark/light, including long unbroken IDs/gang names and all four player states. After the final mobile width refinement,320/390 Korean/English rechecks confirmed single-line state/action labels, identical column coordinates,104×47px buttons and no overflow/page errors. Build, compiled Worker validation and diff checks passed. Logs:`/tmp/participant-alignment-qa.log`, `/tmp/participant-alignment-mobile-qa.log`; evidence:`/workspace/shared/participant-alignment-1280-ko-dark.png`, `/workspace/shared/participant-alignment-390-ko-dark.png`. Owned preview8789 was stopped.
