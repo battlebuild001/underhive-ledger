@@ -23,8 +23,8 @@ function shell(v,root){
  brief.addEventListener('click',()=>select('round'));select(ui.tab);return {host,panels,ui,id,callbacks,brief,select};
 }
 function appendFactionRules(team,g,ui){
- if(!g||!window.MMGangGuide?.factionContent)return;const footer=el('section','bp-faction-rules gg-guide'),heading=el('h2'),content=el('div');footer.dataset.bpFactionRules=g.id;heading.innerHTML=L('Faction rules','팩션 룰');content.innerHTML=window.MMGangGuide.factionContent(g);footer.append(heading,content);
- for(const [index,fold]of [...footer.querySelectorAll('details')].entries()){const k=JSON.stringify(['faction',g.id,g.gangTypeId||g.gang_type_id||g.faction,index]);fold.open=ui.sections.get(k)||false;fold.addEventListener('toggle',()=>{if(fold.isConnected)ui.sections.set(k,fold.open);});}team.append(footer);
+ if(!g||!window.MMGangGuide?.factionContent)return;const footer=el('section','bp-faction-rules');footer.dataset.bpFactionRules=g.id;footer.innerHTML=window.MMGangGuide.factionContent(g,{layout:'roster'});
+ for(const fold of footer.querySelectorAll('details')){const k=JSON.stringify(['faction',g.id,g.gangTypeId||g.gang_type_id||g.faction,fold.dataset.factionRule||fold.closest('[data-faction-rule]')?.dataset.factionRule||'overview',fold.dataset.guideFold||'main']);fold.open=ui.sections.get(k)||false;fold.addEventListener('toggle',()=>{if(fold.isConnected)ui.sections.set(k,fold.open);});}team.append(footer);
 }
 function roster(v,ctx,originals=[]){
  const {panels,ui,id,callbacks}=ctx,host=panels.get('roster'),sides=el('nav','bp-sides'),bodies=el('div','bp-rosters');sides.setAttribute('role','tablist');sides.setAttribute('aria-label',txt('Gangs','갱'));
