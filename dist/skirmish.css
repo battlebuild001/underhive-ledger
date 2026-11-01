@@ -45,3 +45,6 @@ html.uk-ui .sk-crew-form .sk-sr-only{position:absolute;width:1px;height:1px;marg
 html.uk-ui .sk-crew-form .sk-crew-count{position:sticky;top:0;z-index:2;align-self:start}
 
 .sk-sides{align-items:start}
+
+/* Read-only tactics table, including narrow screens. */
+.sk-tactics-table-wrap{width:100%;min-width:0}.mmrr-table-wrap .sk-tactics-reference-table{width:100%;min-width:0;font-size:14px;line-height:1.65;table-layout:fixed}.sk-tactics-reference-table caption{text-align:left;font-weight:600;padding:0 0 12px}.sk-tactics-reference-table th,.sk-tactics-reference-table td{white-space:normal;overflow-wrap:anywhere;vertical-align:top}.sk-tactics-reference-table th:first-child,.sk-tactics-reference-table td:first-child{width:62px;white-space:nowrap}.sk-tactics-reference-table th:nth-child(2){width:27%}.sk-tactics-reference-table tbody th{text-align:left;font-weight:600}@media(max-width:480px){.mmrr-table-wrap .sk-tactics-reference-table{font-size:13px}.sk-tactics-reference-table th,.sk-tactics-reference-table td{padding:9px 6px}.sk-tactics-reference-table th:first-child,.sk-tactics-reference-table td:first-child{width:52px}}
