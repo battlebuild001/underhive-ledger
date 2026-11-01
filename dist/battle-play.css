@@ -290,3 +290,8 @@ html.uk-ui .bp-completed-notes{white-space:pre-wrap;overflow-wrap:anywhere;margi
 html.uk-ui .bp-completed-dialog .modal-foot #modal-cancel[hidden]{display:none!important}
 html.uk-ui .bp-completed-dialog .modal-foot #modal-submit{width:100%;min-height:48px}
 @media(prefers-reduced-motion:reduce){html.uk-ui .bp-save-spinner{animation:none}}
+
+html.uk-ui .bp-inline-result .bp-side-job-check.is-readonly{grid-template-columns:minmax(0,1fr) auto;cursor:default}
+html.uk-ui .bp-inline-result .bp-side-job-check.is-readonly input[hidden]{display:none!important}
+html.uk-ui .bp-inline-result .bp-side-job-check.is-readonly label{cursor:default}
+html.uk-ui .bp-opponent-readonly{margin:0 0 10px;padding:10px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:4px;color:var(--muted);font-size:13px;line-height:1.65}

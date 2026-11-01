@@ -19,8 +19,8 @@
   cp:new Set(['campaign-type-info','campaign-logs','campaign-data','campaign-download','territory-description','session-filter','session-back','fighter-actions','pack-cancel'])
  };
  const texts={
-  ko:{gang:'공유 갱 · 읽기 전용',campaign:'참여 캠페인 · 읽기 전용',gangBody:'공유된 최신 명단입니다. 명단 수정은 해당 갱의 플레이어가 합니다.',campaignBody:'캠페인 설정과 전투 기록은 운영자가 관리합니다. 내 갱 화면에서 명단을 수정할 수 있습니다.',edit:'내 갱 수정',disabled:'공유 기록은 이 화면에서 수정할 수 없습니다.'},
-  en:{gang:'Shared gang · Read only',campaign:'Joined campaign · Read only',gangBody:'This is the shared roster. Its owner makes changes in the original gang.',campaignBody:'The organiser manages campaign settings and battle records. Edit your own gang in its original roster.',edit:'Edit My Gang',disabled:'Shared records cannot be edited in this view.'}
+  ko:{gang:'공유 갱 · 읽기 전용',campaign:'참여 캠페인 · 소유자별 관리',gangBody:'공유된 최신 명단입니다. 명단 수정은 해당 갱의 플레이어가 합니다.',campaignBody:'캠페인 공통 설정은 운영자가, 각 갱의 명단·보상·사이드 잡과 개인 전적은 해당 소유자가 관리합니다.',edit:'내 갱 수정',disabled:'공유 기록은 이 화면에서 수정할 수 없습니다.'},
+  en:{gang:'Shared gang · Read only',campaign:'Joined campaign · Each owner manages their gang',gangBody:'This is the shared roster. Its owner makes changes in the original gang.',campaignBody:'The organiser manages common campaign settings. Each owner manages their own roster, rewards, Side Jobs and personal battle record.',edit:'Edit My Gang',disabled:'Shared records cannot be edited in this view.'}
  };
  let queued=false,applying=false;const disabled=new Map(),dragged=new Map();
  function language(){return window.UKI18n?.language||document.documentElement.lang||'ko'}
@@ -28,11 +28,21 @@
  function state(){return typeof data!=='undefined'?data:{gangs:[],campaigns:[]}}
  function current(){const s=state();return {s,g:['gang','fighter'].includes(s.view)?s.gangs?.find(g=>g.id===s.selectedGang):null,c:s.view==='campaign'?s.campaigns?.find(c=>c.id===s.selectedCampaign):null}}
  function remoteGang(target,ctx){if(ctx.g?.remoteReadOnly)return ctx.g;if(!target)return null;const s=ctx.s,d=target.dataset||{},explicit=d.editGang||d.gang;let candidate=explicit&&s.gangs?.find(g=>g.id===explicit);if(candidate?.remoteReadOnly)return candidate;const fid=d.editFighter||d.deleteFighter||d.stats||d.addEquipment||d.addSkill||d.addEffect||d.toStash?.split(':')[0]||d.equipmentRemove?.split(':')[0];if(fid){candidate=s.gangs?.find(g=>g.remoteReadOnly&&g.fighters?.some(f=>f.id===fid));if(candidate)return candidate}return null}
- function readField(node){return node.matches('#fighter-search,#cp-player-search,#cp-list-default-territories,#cp-group-territories,[data-parity="select-fighter"],[data-rp-view],[data-cp-filter],[data-parity-search],[data-parity-filter],[data-mmrr-search],[data-mmrr-edition],[data-mmrr-kind]')||!!node.closest('#gc-log-content,.mmrr-overlay,.mp-overlay,[data-account-action],.account-card,.uk-language-switch,[data-enrollment-root]')}
+ function readField(node){return node.matches('#fighter-search,#cp-player-search,#cp-list-default-territories,#cp-group-territories,[data-parity="select-fighter"],[data-rp-view],[data-cp-filter],[data-parity-search],[data-parity-filter],[data-mmrr-search],[data-mmrr-edition],[data-mmrr-kind],[data-mr-select]')||!!node.closest('#gc-log-content,.mmrr-overlay,.mp-overlay,[data-account-action],.account-card,.uk-language-switch,[data-enrollment-root]')}
+ function ownedControl(node,ctx){
+  const own=window.MMCampaignOwnership;if(!own)return false;
+  const personal=node.closest('[data-personal-gang-record][data-mr-gang]')||node.closest('[data-mr-action][data-mr-gang]');if(personal&&own.canManage(null,personal.dataset.mrGang))return true;
+  const c=ctx.c;if(!c)return false;const report=c.battles?.find(b=>b.id===ctx.s.selectedBattleReport),participants=report?.participants?.length?report.participants:[report?.attacker,report?.defender].filter(Boolean).map(gangId=>({gangId}));
+  if(node.matches('[data-bp-side-job]'))return participants.some(p=>(p.gangId||p.gang_id)===node.dataset.bpSideJob&&own.canManage(c,node.dataset.bpSideJob));
+  if(node.matches('[data-bp-report-save]'))return participants.some(p=>own.canManage(c,p.gangId||p.gang_id));
+  if(node.matches('[data-cp-resource]')||node.matches('[data-cp]')&&['crew-select','participant-ready','fighter-actions','session-fighter-xp','session-fighter-injury','session-fighter-remove','participation-xp'].includes(node.dataset.cp)){const sid=node.dataset.sid||node.dataset.id,p=c.sessions?.find(s=>s.id===sid)?.participants?.find(p=>p.id===node.dataset.participant);return !!p&&own.canManage(c,p.gangId);}
+  return false;
+ }
  function blocked(node){
   if(!node?.matches)return false;
   const ctx=current(),g=remoteGang(node,ctx),viewer=ctx.c?.remoteRole==='viewer';
   if(!g&&!viewer)return false;
+  if(ownedControl(node,ctx))return false;
   if(node.matches('[data-shared-edit-own]'))return false;
   if(g&&node.matches(directGang)||viewer&&node.matches(directCampaign))return true;
   if(g&&node.closest('[data-mm-combo]')?.querySelector('[data-gt-pc-action]'))return true;
