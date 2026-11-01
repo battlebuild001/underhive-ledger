@@ -204,7 +204,7 @@ html.uk-ui.light .chip,html.uk-ui.light .chip.gold{color:#8d5831;background:#b08
  html.uk-ui .top-actions{gap:2px}
  html.uk-ui .topbar .icon-btn,html.uk-ui .topbar .btn.ghost{min-width:36px;width:36px;padding:7px}
  html.uk-ui .uk-workspace-nav{position:fixed;top:auto;bottom:0;left:0;right:0;z-index:24;border-bottom:0;border-top:1px solid #435065;background:#171f2df5;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -5px 30px #0003}
- html.uk-ui .uk-nav-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:5px 8px;gap:2px}
+ html.uk-ui .uk-nav-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:5px 8px;gap:2px}
  html.uk-ui .uk-nav-item{flex:1;min-width:0;min-height:53px;flex-direction:column;gap:4px;padding:5px 3px;font-size:11px;line-height:1.25;border-radius:9px}
  html.uk-ui .uk-nav-item svg{width:21px;height:21px}
  html.uk-ui .uk-nav-item[aria-current="page"]:after{display:none}

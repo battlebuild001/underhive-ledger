@@ -154,7 +154,7 @@
   html.uk-ui.command-ui:is(.light,:not(.light)) #app .main{margin-left:0;width:100%;padding-bottom:82px}
   html.uk-ui.command-ui:is(.light,:not(.light)) .cmd-sidebar{top:auto;bottom:0;width:100%;height:calc(68px + env(safe-area-inset-bottom));padding:4px 10px calc(4px + env(safe-area-inset-bottom));border-right:0;border-top:1px solid var(--cmd-hero-border);background:var(--cmd-sidebar);overflow:visible;backdrop-filter:blur(15px)}
   html.uk-ui.command-ui:is(.light,:not(.light)) .cmd-sidebar>:not(.cmd-nav){display:none}
-  html.uk-ui.command-ui:is(.light,:not(.light)) .cmd-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:100%;gap:4px}
+  html.uk-ui.command-ui:is(.light,:not(.light)) .cmd-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:100%;gap:4px}
   html.uk-ui.command-ui:is(.light,:not(.light)) .cmd-nav>button{min-width:0;min-height:52px;height:100%;padding:6px 2px;font-size:10px;gap:5px;flex-direction:column;justify-content:center;text-align:center;white-space:normal}
   html.uk-ui.command-ui .cmd-nav>button.active::after{left:35%;right:35%;top:auto;bottom:-1px;height:2px;width:auto}
   html.uk-ui.command-ui:is(.light,:not(.light)) .main>.topbar{height:56px;min-height:56px;padding:0 15px;gap:5px}

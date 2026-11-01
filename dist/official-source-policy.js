@@ -151,7 +151,7 @@
     addAdvancement=function(f,...args){return can('advancements',gang()?.edition)?originalAdvance(f,...args):manualAdvancement(f);};
     addInjury=function(f,...args){return can('injuries',gang()?.edition)?originalInjury(f,...args):manualInjury(f,...args);};
     postCycle=function(...args){return can('post_cycle')?originalCycle(...args):manualCycle();};
-    editGang=function(g,...args){return can('gang_catalog',g?.edition||data.edition)?originalGang(g,...args):manualGang(g);};
+    editGang=function(g,...args){const edition=g?.edition||data.edition;return can('gang_catalog',edition)||!g&&['n23','n26'].includes(String(edition||'').toLowerCase())?originalGang(g,...args):manualGang(g);};
     editCampaign=function(c,...args){const edition=c?.edition||data.edition,hasVerifiedCatalog=(window.RULES_DATA?.campaignTypes||[]).some(row=>row.source_verified===true&&String(row.edition_slug||row.edition||'').toLowerCase()===String(edition||'').toLowerCase());return can('campaign_catalog',edition)||hasVerifiedCatalog?originalCampaign(c,...args):manualCampaign(c);};if(typeof sellItem==='function')sellItem=manualSell;
     const previousFighter=editFighter;editFighter=function(f,...args){if(!f&&!can('recruitment'))return manualFighter();return previousFighter.call(this,f,...args);};
     if(typeof cpSessionXp==='function')cpSessionXp=function(s,p,row){const g=typeof cpGang==='function'?cpGang(p.gangId):null,f=g?.fighters?.find(f=>f.id===row.fighterId);return can('xp',g?.edition)?originalXp(f,{gang:g,row,sessionId:s.id,...window.MMCampaignBattle?.resultContext?.(s,p,row)}):manualXp(f,{gang:g,row,sessionId:s.id});};

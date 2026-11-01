@@ -10,7 +10,7 @@ const fallbackSkillSets=[];
 const dialogConfigs=new WeakMap();
 const copy=v=>JSON.parse(JSON.stringify(v));
 const nameOf=r=>String(r?.name??r?.equipment_name??r?.fighter_type??r?.gang_type??r?.skill_name??r?.skill_type??r?.custom_trading_post_name??'');
-const edition=()=>data.edition||data.assetEdition||'N23';
+const edition=()=>document.querySelector('.modal-bg[data-ap-manager-edition]')?.dataset.apManagerEdition||data.edition||data.assetEdition||'N23';
 const traitMarkup=(value,assetEdition)=>window.MMRuleReference?.traitMarkup?MMRuleReference.traitMarkup(value,{edition:assetEdition}):esc(Array.isArray(value)?value.join(', '):value||'None');
 const sameEdition=(r)=>!r.edition&&!r.edition_slug||String(r.edition||r.edition_slug).toUpperCase()===edition();
 const rules=key=>(typeof RULES_DATA==='object'&&Array.isArray(RULES_DATA[key])?RULES_DATA[key]:[]).filter(sameEdition);
@@ -35,6 +35,7 @@ function apSafeFocus(node){if(!node?.isConnected||node.matches('input,textarea,s
 function apOpen(title,body,options={}){
  const returnFocus=document.activeElement,parent=document.querySelector('.modal-bg');if(parent){window.MMWidgets?.closeAll?.();parent.remove();}
  const wrap=document.createElement('div');wrap.className='modal-bg ap-modal';wrap.innerHTML=`<div class="modal ${options.wide?'ap-wide':''}" role="dialog" aria-modal="true" aria-labelledby="ap-title"><div class="modal-head"><h2 id="ap-title">${esc(title)}</h2><button type="button" class="icon-btn" data-ap-close aria-label="Close">×</button></div><div class="modal-body"><form id="modal-form" class="form two ap-form">${body}</form></div><div class="modal-foot">${options.hideCancel?'':`<button type="button" class="btn" id="modal-cancel" data-ap-close>Cancel</button>`}<button type="button" class="btn primary" id="modal-submit">${esc(options.submit||'Close')}</button></div></div>`;
+ const assetEdition=options.assetEdition||parent?.dataset.apManagerEdition;if(assetEdition)wrap.dataset.apManagerEdition=String(assetEdition).toUpperCase();
  const cfg={...options,parent,returnFocus};dialogConfigs.set(wrap,cfg);document.body.append(wrap);modalOpen=true;
  const finish=()=>{if(cfg.closed)return;cfg.closed=true;window.MMWidgets?.closeAll?.();wrap.remove();cfg.onClose?.();if(parent){document.body.append(parent);dialogConfigs.get(parent)?.onResume?.(parent);}modalOpen=!!document.querySelector('.modal-bg');if(!apSafeFocus(returnFocus)&&parent)apSafeFocus(parent.querySelector('[data-ap-close],.modal-head button'));};
  cfg.finish=finish;const validate=()=>{const form=wrap.querySelector('form');wrap.querySelector('#modal-submit').disabled=!!options.onSubmit&&(!form.checkValidity()||options.validate?.(readForm(wrap),wrap)===false)};cfg.validate=validate;wrap.querySelectorAll('[data-ap-close]').forEach(b=>b.onclick=finish);
@@ -160,6 +161,12 @@ function assetCell(kind,a,key){
 }
 function section(kind){const items=own(kind).slice().sort((a,b)=>a.name.localeCompare(b.name)),columns=assetColumns(kind);return `<section class="ap-catalog-section"><div class="section-heading"><h2>${plural[kind]}</h2><button class="btn small" data-ap-page="create" data-kind="${kind}">Create</button></div>${items.length?`<div class="table-wrap"><table><thead><tr>${columns.map(([key,label])=>`<th data-column="${key}">${label}</th>`).join('')}<th>Action</th></tr></thead><tbody>${items.map(a=>`<tr>${columns.map(([key])=>`<td data-column="${key}">${assetCell(kind,a,key)}</td>`).join('')}<td><div class="ap-row-actions">${(a.readOnly?[['view','View','◉'],['copy','Copy','⧉']]:[['share','Share','↗'],['edit','Edit','✎'],['delete','Delete','⌫']]).map(([action,title,icon])=>`<button type="button" class="btn small ${action==='delete'?'danger':''}" data-ap-page="${action}" data-kind="${kind}" data-id="${a.id}" title="${title}" aria-label="${title} ${esc(a.name)}">${icon}</button>`).join('')}</div></td></tr>`).join('')}</tbody></table></div>`:`<p class="muted empty-line">No ${kind==='collections'?'asset collections':'custom '+(kind==='equipment'?'equipment':kind==='gangTypes'?'gang types':kind==='tradingPosts'?'trading posts':kind)} created yet.</p>`}</section>`}
 
+function manager(options={}){
+ ensure();const redraw=modal=>{modal.querySelector('form').innerHTML=`<div class="wide ap-manager-content">${kinds.map(section).join('')}</div>`;for(const empty of modal.querySelectorAll('.empty-line'))empty.innerHTML='<span data-i18n-en="No items yet." data-i18n-ko="아직 등록된 항목이 없습니다.">No items yet.</span>';window.UKI18n?.refresh(modal);};
+ const modal=apOpen('Custom Assets','',{wide:true,hideCancel:true,submit:'Close',assetEdition:options.edition||edition(),onResume:redraw,onClose:()=>queueMicrotask(()=>options.onReturn?.())});
+ modal.dataset.apManager='';const title=modal.querySelector('#ap-title');title.dataset.i18nEn='Custom Assets';title.dataset.i18nKo='커스텀 항목';redraw(modal);return modal;
+}
+
 catalogPage=function(){ensure();return `${typeof homeTabs==='function'?homeTabs('catalog'):''}<section class="card ap-catalog-intro"><div class="section-heading"><h1><span data-i18n-en="Custom" data-i18n-ko="커스텀">Custom</span></h1>${typeof editionSwitch==='function'?editionSwitch():''}</div><p>Create your own Gang Types, Fighters, Equipment, Skills, Skill sets and Trading Posts and share them to campaigns you're an Arbitrator of. Bundle them into Asset Collections to apply a whole themed set to a campaign at once, or copy another arbitrator's asset collection into your account. Custom Territories and Scenarios are created in the campaign pages.</p></section>${kinds.map(section).join('')}`};
 editAsset=function(a){return open(data.assetTab||'equipment',a)};
 window.addEventListener('click',e=>{const t=e.target.closest('[data-ap-page]');if(!t)return;e.preventDefault();e.stopImmediatePropagation();const kind=t.dataset.kind,a=data.customAssets[kind]?.find(x=>x.id===t.dataset.id),action=t.dataset.apPage;if(action==='create')open(kind);else if(action==='edit'||action==='view')open(kind,a,action);else if(action==='share')share(kind,a);else if(action==='copy')duplicate(kind,a);else if(action==='delete')removeAsset(kind,a);},true);
@@ -175,6 +182,6 @@ function effectivePostItem(post,equipmentId,g,f){
  const costRule=(row.costRules||[]).filter(matches).at(-1),availabilityRule=(row.availabilityRules||[]).filter(matches).at(-1);
  return {...base,...row,id:base.id,cost:costRule?.adjusted_cost??row.cost_override??base.cost??0,availability:availabilityRule?.availability??row.availability_override??base.availability,banned:!!row.banned};
 }
-window.ApAssets={open,share,duplicate,remove:removeAsset,edition,list,own,sets,resolve,effectivePostItem};
+window.ApAssets={open,manager,share,duplicate,remove:removeAsset,edition,list,own,sets,resolve,effectivePostItem};
 ensure();
 })();

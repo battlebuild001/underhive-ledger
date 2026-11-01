@@ -16,7 +16,7 @@
     const selected=workspaceSection();
     const nav=document.createElement('nav');nav.className='uk-workspace-nav';nav.setAttribute('aria-label','Workspace navigation');nav.dataset.i18nKoAriaLabel='작업 공간 메뉴';
     const inside=document.createElement('div');inside.className='uk-nav-inner';
-    for(const [key,label,ko,icon] of [['gangs','Roster','갱 명단','roster'],['campaigns','Campaigns','캠페인','campaign'],['assets','Assets','에셋','assets'],['account','Account','계정','account']]){
+    for(const [key,label,ko,icon] of [['gangs','Roster','갱 명단','roster'],['campaigns','Campaigns','캠페인','campaign'],['account','Account','계정','account']]){
       const button=document.createElement('button');button.type='button';button.className='uk-nav-item';button.dataset.ukSection=key;
       if(key==='account')button.dataset.accountAction='open';else button.dataset.ukNav=key;
       if(selected===key)button.setAttribute('aria-current','page');

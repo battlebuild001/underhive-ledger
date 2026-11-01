@@ -4,3 +4,13 @@
 @media(max-width:640px){.ap-catalog-section table{font-size:12px}.ap-catalog-section td,.ap-catalog-section th{font-size:12px}.ap-row-actions .btn{padding:3px 5px;min-height:24px}.ap-catalog-section th:last-child{width:auto}}
 .ap-read-value{border:1px solid var(--border,#262626);background:var(--secondary,#262626);border-radius:6px;padding:8px;min-height:38px;font-weight:400;white-space:pre-wrap;color:var(--text,#fafafa)}.ap-read-list{display:grid;gap:8px;margin-top:6px}.ap-read-profile{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:12px;border:1px solid var(--border,#262626);border-radius:6px;margin-bottom:8px;font-size:13px}.ap-view-stats{margin-top:6px}.ap-view-stats .ap-read-value{text-align:center}@media(max-width:640px){.ap-read-profile{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ap-modal,.ap-modal .modal-body{overscroll-behavior:contain}
+
+/* The manager opened from gang creation fits the existing dialog. */
+html.uk-ui .modal-bg[data-ap-manager] .ap-manager-content{min-width:0}
+html.uk-ui .modal-bg[data-ap-manager] .ap-catalog-section{margin:0;padding:14px 0;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+html.uk-ui .modal-bg[data-ap-manager] .ap-catalog-section:first-child{padding-top:0}
+html.uk-ui .modal-bg[data-ap-manager] .ap-catalog-section:last-child{border-bottom:0;padding-bottom:0}
+html.uk-ui .modal-bg[data-ap-manager] .section-heading{gap:12px;margin:0}
+html.uk-ui .modal-bg[data-ap-manager] .section-heading h2{margin:0;font-size:16px;line-height:1.5}
+html.uk-ui .modal-bg[data-ap-manager] .empty-line{min-height:0;margin:8px 0 0;padding:0;border:0;background:none;text-align:start;font-size:13px;font-style:normal;line-height:1.7;color:var(--muted)}
+html.uk-ui .modal-bg[data-ap-manager] .ap-manager-content .btn.small{min-height:44px;min-width:44px;padding:8px 10px;font-size:13px}

@@ -2,6 +2,12 @@
 
 .modal-bg{top:var(--mm-viewport-top,0px);height:var(--mm-viewport-height,100dvh);bottom:auto}.modal-bg>.modal{max-height:calc(var(--mm-viewport-height,100dvh) - 24px)}@media(pointer:coarse){.modal .modal-body .form input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),.modal .modal-body .form select,.modal .modal-body .form textarea{font-size:16px}}
 
+/* Management actions sit outside the list of selectable values. */
+.mm-combo-actions{display:block;flex:none;padding:5px;border-top:1px solid var(--line,#444)}
+html.uk-ui .modal .mm-combo-actions .mm-combo-footer-action{display:block;width:100%;min-height:44px;margin:0;padding:10px;border:0;border-radius:4px;background:none;color:var(--text,#eee);font:inherit;font-size:14px;line-height:1.5;text-align:start;cursor:pointer}
+html.uk-ui .modal .mm-combo-actions .mm-combo-footer-action:hover{background:var(--panel2,#333)}
+html.uk-ui .modal .mm-combo-actions .mm-combo-footer-action:focus-visible{outline:2px solid var(--accent,#aaa);outline-offset:-2px;background:var(--panel2,#333)}
+
 /* Optional explanation rows keep help usable beside unavailable choices. */
 .mm-combo-explain-label{display:grid;gap:6px;min-width:0;font-size:12px;font-weight:700;color:var(--muted,#aaa)}
 html.uk-ui .form .mm-combo-explain-label{font-size:var(--uk-small,14px);font-weight:500;line-height:var(--uk-leading,1.6);color:var(--muted,#aaa)}
