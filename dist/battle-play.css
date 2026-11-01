@@ -250,5 +250,11 @@
  html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard :is(strong,span){font-size:14px;overflow-wrap:anywhere}
  html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard span{color:var(--muted)}
  html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard input{width:100%;min-width:0;min-height:52px;font-size:22px;font-variant-numeric:tabular-nums}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-control input{min-height:88px;height:88px;padding:10px 12px;border:0;background:transparent}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard>.sk-score-side{display:grid;gap:10px;min-width:0;text-align:left;background:none;border:0;padding:0;border-radius:0}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-arrow{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;width:44px;height:44px;padding:0;border:0;border-left:1px solid var(--line);border-radius:0;background:transparent;color:var(--text)}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-arrow:first-child{border-bottom:1px solid var(--line);border-radius:0 4px 0 0}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-arrow:last-child{border-radius:0 0 4px 0}
+ html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-arrow:hover{background:var(--panel)}
  html.uk-ui.bp-compact-theme .bp-workspace .sk-start [data-sk-action=finish]{width:100%;min-height:48px}
 }
