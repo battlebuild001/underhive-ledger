@@ -141,3 +141,10 @@ html.uk-ui .campaign-lobby .cl-my-gang-row{display:flex;align-items:center;justi
 html.uk-ui .campaign-lobby .cl-my-gang-row>strong{min-width:0;overflow-wrap:anywhere;font-size:17px;font-weight:600}
 html.uk-ui .campaign-lobby[data-lobby-pending=register-gang] [data-lobby-action=register-submit]::before{content:"";display:inline-block;width:13px;height:13px;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cl-spin .9s linear infinite}
 @media(max-width:700px){html.uk-ui .campaign-lobby .cl-registration .cl-actions>.primary{width:100%}html.uk-ui .campaign-lobby .cl-my-gang{padding:16px 18px}html.uk-ui .campaign-lobby .cl-my-gang-row{flex-wrap:wrap}}
+
+/* Lobby and room updates are requested explicitly by the player. */
+html.uk-ui .campaign-lobby .cl-header>.cl-refresh-controls,html.uk-ui .campaign-lobby .cl-refresh-controls{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;min-width:0;max-width:100%}
+html.uk-ui .campaign-lobby .cl-room-nav>.cl-refresh-controls{margin-left:auto}
+html.uk-ui .campaign-lobby .cl-refresh-controls .cl-connection{width:auto;margin-left:0;min-width:0;flex-shrink:1}
+html.uk-ui .campaign-lobby .cl-refresh-controls .cl-button{flex-shrink:0;min-width:44px;min-height:44px}
+@media(max-width:700px){html.uk-ui .campaign-lobby .cl-header>.cl-refresh-controls,html.uk-ui .campaign-lobby .cl-room-nav>.cl-refresh-controls{width:100%;margin-left:0;justify-content:space-between}}
