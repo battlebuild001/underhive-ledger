@@ -128,3 +128,16 @@ html.uk-ui .campaign-lobby[data-lobby-pending=propose-result] [data-lobby-action
 html.uk-ui .campaign-lobby[data-lobby-pending=confirm-result] [data-lobby-action=confirm-result]::before,
 html.uk-ui .campaign-lobby[data-lobby-pending=dispute-result] [data-lobby-action=dispute-result]::before{content:"";display:inline-block;width:13px;height:13px;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cl-spin .9s linear infinite}
 @media(prefers-reduced-motion:reduce){html.uk-ui .campaign-lobby .cl-button::before{animation:none!important}}
+
+/* Campaign entry starts with the account's existing original roster. */
+html.uk-ui .campaign-lobby .cl-registration{border-color:var(--cl-primary);border-top-width:3px}
+html.uk-ui .campaign-lobby .cl-registration .cl-panel-head>div{gap:9px}
+html.uk-ui .campaign-lobby .cl-registration-empty{display:grid;gap:18px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-my-gang{display:grid;gap:12px;min-width:0;padding:18px 22px;border:1px solid var(--line);border-left:3px solid var(--cl-success);border-radius:7px;background:var(--panel)}
+html.uk-ui .campaign-lobby .cl-my-gang>div{display:grid;gap:10px;min-width:0}
+html.uk-ui .campaign-lobby .cl-my-gang .cl-badge{justify-self:start}
+html.uk-ui .campaign-lobby .cl-my-gang h3{font-size:15px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-my-gang-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0}
+html.uk-ui .campaign-lobby .cl-my-gang-row>strong{min-width:0;overflow-wrap:anywhere;font-size:17px;font-weight:600}
+html.uk-ui .campaign-lobby[data-lobby-pending=register-gang] [data-lobby-action=register-submit]::before{content:"";display:inline-block;width:13px;height:13px;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:cl-spin .9s linear infinite}
+@media(max-width:700px){html.uk-ui .campaign-lobby .cl-registration .cl-actions>.primary{width:100%}html.uk-ui .campaign-lobby .cl-my-gang{padding:16px 18px}html.uk-ui .campaign-lobby .cl-my-gang-row{flex-wrap:wrap}}

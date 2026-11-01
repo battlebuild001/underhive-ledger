@@ -1972,6 +1972,7 @@ XML 내보내기	Export XML
 기록 동기화를 먼저 완료하세요.	Finish syncing your records first.
 계정 연결을 확인하세요.	Check your account connection.
 먼저 캠페인을 만드세요.	Create a campaign first.
+초대할 친구를 먼저 계정에서 추가하세요.	Add a friend in your account before inviting them.
 초대할 친구를 먼저 계정에서 추가하세요.	Add a friend in your account before sending an invitation.
 캠페인이 없습니다.	Campaign not found.
 요청 확인	Review Request
