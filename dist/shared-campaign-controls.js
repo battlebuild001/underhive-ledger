@@ -27,7 +27,15 @@
  function words(){return texts[language()==='en'?'en':'ko']}
  function state(){return typeof data!=='undefined'?data:{gangs:[],campaigns:[]}}
  function current(){const s=state();return {s,g:['gang','fighter'].includes(s.view)?s.gangs?.find(g=>g.id===s.selectedGang):null,c:s.view==='campaign'?s.campaigns?.find(c=>c.id===s.selectedCampaign):null}}
- function remoteGang(target,ctx){if(ctx.g?.remoteReadOnly)return ctx.g;if(!target)return null;const s=ctx.s,d=target.dataset||{},explicit=d.editGang||d.gang;let candidate=explicit&&s.gangs?.find(g=>g.id===explicit);if(candidate?.remoteReadOnly)return candidate;const fid=d.editFighter||d.deleteFighter||d.stats||d.addEquipment||d.addSkill||d.addEffect||d.toStash?.split(':')[0]||d.equipmentRemove?.split(':')[0];if(fid){candidate=s.gangs?.find(g=>g.remoteReadOnly&&g.fighters?.some(f=>f.id===fid));if(candidate)return candidate}return null}
+ function remoteGang(target,ctx){
+  if(ctx.g?.remoteReadOnly)return ctx.g;if(!target)return null;
+  const s=ctx.s,d=target.dataset||{},explicit=d.editGang||d.gang;let candidate=explicit&&s.gangs?.find(g=>g.id===explicit);
+  if(candidate)return candidate.remoteReadOnly?candidate:null;
+  const fid=d.editFighter||d.deleteFighter||d.stats||d.addEquipment||d.addSkill||d.addEffect||d.toStash?.split(':')[0]||d.equipmentRemove?.split(':')[0];
+  // Shared snapshots keep source fighter IDs. Resolve the selected roster before searching other gangs.
+  if(fid&&ctx.g?.fighters?.some(f=>f.id===fid))return null;
+  if(fid){candidate=s.gangs?.find(g=>g.remoteReadOnly&&g.fighters?.some(f=>f.id===fid));if(candidate)return candidate}return null;
+ }
  function readField(node){return node.matches('#fighter-search,#cp-player-search,#cp-list-default-territories,#cp-group-territories,[data-parity="select-fighter"],[data-rp-view],[data-cp-filter],[data-parity-search],[data-parity-filter],[data-mmrr-search],[data-mmrr-edition],[data-mmrr-kind],[data-mr-select]')||!!node.closest('#gc-log-content,.mmrr-overlay,.mp-overlay,[data-account-action],.account-card,.uk-language-switch,[data-enrollment-root]')}
  function ownedControl(node,ctx){
   const own=window.MMCampaignOwnership;if(!own)return false;
