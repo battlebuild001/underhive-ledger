@@ -1,4 +1,10 @@
 /* Common controls and shorter task paths; source rules and input names are unchanged. */
+.cq-campaign-name{display:grid;gap:7px;min-width:0}
+.cq-campaign-name>label{margin:0}
+.cq-campaign-name-row{display:flex;align-items:stretch;gap:8px;min-width:0}
+.cq-campaign-name-row input{flex:1;min-width:0;width:0}
+html.uk-ui.command-ui .modal .cq-campaign-name-row>.btn{flex:none;min-height:44px;padding:8px 12px;font-size:14px;white-space:nowrap}
+.cq-name-announcement{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media screen{
  html.uk-ui.command-ui .modal :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]):not([type=file]),select,textarea,.mm-combo-input.mm-combo-trigger){background:var(--panel2);color:var(--text);border-color:var(--line);font-size:16px}
  html.uk-ui.command-ui .modal :is(input[type=checkbox],input[type=radio]){accent-color:var(--accent)}
