@@ -40,6 +40,13 @@ html.uk-ui #campaign-cycle-finish-modal .cf-income-hint{font-size:12px;font-weig
 html.uk-ui #campaign-cycle-finish-modal .cf-manual-note{font-size:12px;font-weight:500;color:var(--app-accent,var(--accent));line-height:1.6}
 html.uk-ui #campaign-cycle-finish-modal .cf-manual-note[hidden]{display:none}
 html.uk-ui #campaign-cycle-finish-modal .cf-territories select:disabled{opacity:.5}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-choice{min-width:0}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-choice+.cf-territory-choice{border-top:1px solid var(--app-line,var(--line));padding-top:16px}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-description{margin-top:11px;font-size:13px;line-height:1.75;color:var(--app-muted,var(--muted));overflow-wrap:anywhere}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-description>strong{display:block;margin-bottom:4px;font-size:12px;font-weight:650;color:var(--app-text,var(--text))}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-description>p{margin:0;white-space:pre-line}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-description .cf-territory-context{margin-top:8px;font-size:12px}
+html.uk-ui #campaign-cycle-finish-modal .cf-territory-context>span:first-child{display:inline-block;margin-right:6px;padding:1px 6px;border-radius:4px;background:var(--app-accent-soft,var(--panel));color:var(--app-accent,var(--accent));font-size:11px;font-weight:600}
 html.uk-ui #campaign-cycle-finish-modal .cf-manual-income{padding:0;margin:0;border:1px dashed var(--app-line,var(--line));border-radius:8px;background:transparent;overflow:hidden}
 html.uk-ui #campaign-cycle-finish-modal .cf-manual-income summary{cursor:pointer;padding:12px 14px;min-height:44px;font-size:13px;color:var(--app-muted,var(--muted));font-weight:550}
 html.uk-ui #campaign-cycle-finish-modal .cf-manual-income summary>span:last-child{float:right;font-size:11px;font-weight:400}
