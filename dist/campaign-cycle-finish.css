@@ -1,0 +1,59 @@
+/* Cycle close: current unit status first, optional income choices second. */
+html.uk-ui #campaign-cycle-finish-modal{width:min(720px,calc(100vw - 24px));max-width:720px;max-height:calc(100dvh - 24px);display:flex;flex-direction:column;overflow:hidden;background:var(--app-panel,var(--panel));border:1px solid var(--app-line,var(--line));border-radius:12px}
+html.uk-ui #campaign-cycle-finish-modal .modal-head{padding:14px 18px!important;flex:none}
+html.uk-ui #campaign-cycle-finish-modal .modal-head h2{font-size:21px!important;font-weight:750;letter-spacing:-.025em}
+html.uk-ui #campaign-cycle-finish-modal .modal-head button,html.uk-ui #campaign-care-assignment-modal .modal-head button{width:44px;min-width:44px;height:44px;min-height:44px}
+html.uk-ui #campaign-cycle-finish-modal .modal-body{padding:18px!important;min-height:0;overflow:auto;overscroll-behavior:contain}
+html.uk-ui #campaign-cycle-finish-modal .modal-foot{padding:14px 18px!important;flex:none;gap:10px}
+html.uk-ui #campaign-cycle-finish-modal .modal-foot button,html.uk-ui #campaign-care-assignment-modal .modal-foot button{min-height:46px;min-width:80px;height:auto;padding:10px 16px;border-radius:7px}
+html.uk-ui #campaign-cycle-finish-modal .cf-screen{display:grid;gap:16px;font-size:14px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+html.uk-ui #campaign-cycle-finish-modal .cf-screen p{margin:0}
+html.uk-ui #campaign-cycle-finish-modal .cf-care,html.uk-ui #campaign-cycle-finish-modal .cf-escape{border:1px solid var(--app-line,var(--line));border-radius:9px;background:var(--app-panel2,var(--panel2));overflow:hidden}
+html.uk-ui #campaign-cycle-finish-modal .cf-care.is-pending,html.uk-ui #campaign-cycle-finish-modal .cf-escape{border-left:3px solid var(--app-accent,var(--accent))}
+html.uk-ui #campaign-cycle-finish-modal .cf-section-heading{display:flex;align-items:flex-start;gap:11px;padding:16px}
+html.uk-ui #campaign-cycle-finish-modal .cf-section-heading>div{min-width:0;flex:1}
+html.uk-ui #campaign-cycle-finish-modal .cf-section-heading h3{font-size:16px;line-height:1.45;letter-spacing:-.02em;margin:0 0 5px;font-weight:750}
+html.uk-ui #campaign-cycle-finish-modal .cf-section-heading p{font-size:13px;color:var(--app-muted,var(--muted));line-height:1.65}
+html.uk-ui #campaign-cycle-finish-modal .cf-symbol{display:grid;place-items:center;width:28px;height:28px;flex:none;background:var(--app-accent-soft,var(--panel));color:var(--app-accent,var(--accent));border-radius:50%;font-size:17px;font-weight:750}
+html.uk-ui #campaign-cycle-finish-modal .cf-badge{display:block;flex:none;margin-top:2px;padding:3px 7px;border-radius:5px;font-size:11px;color:var(--app-muted,var(--muted));background:var(--app-panel,var(--panel))}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-list{border-top:1px solid var(--app-line,var(--line))}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--app-panel,var(--panel));min-width:0}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-row+.cf-unit-row{border-top:1px solid var(--app-line,var(--line))}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-row>div:first-child{min-width:0}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-row strong{font-size:15px;display:block;font-weight:700}
+html.uk-ui #campaign-cycle-finish-modal .cf-unit-row>div:first-child>span{display:block;font-size:12px;color:var(--app-muted,var(--muted));margin-top:4px}
+html.uk-ui #campaign-cycle-finish-modal .cf-row-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none}
+html.uk-ui #campaign-cycle-finish-modal .cf-screen button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 12px;border:1px solid var(--app-line,var(--line));border-radius:6px;background:var(--app-accent-soft,var(--panel2));color:var(--app-accent-light,var(--accent));font:inherit;font-size:13px;font-weight:650;cursor:pointer;white-space:nowrap}
+html.uk-ui #campaign-cycle-finish-modal .cf-screen button.cf-secondary{background:transparent;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-finish-modal .cf-completed{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 16px}
+html.uk-ui #campaign-cycle-finish-modal .cf-completed>span{display:inline-flex;gap:5px;align-items:center;font-size:12px;background:var(--app-panel,var(--panel));padding:5px 9px;border-radius:5px}
+html.uk-ui #campaign-cycle-finish-modal .cf-effects{display:grid;gap:5px;padding:0 2px}
+html.uk-ui #campaign-cycle-finish-modal .cf-effects h3{font-size:13px;font-weight:650;margin:0 0 2px}
+html.uk-ui #campaign-cycle-finish-modal .cf-effects p{font-size:13px;color:var(--app-muted,var(--muted))}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories{padding:0;border:1px solid var(--app-line,var(--line));border-radius:8px;background:transparent;overflow:hidden}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories summary{cursor:pointer;padding:12px 14px;min-height:44px;font-size:14px;font-weight:650}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories summary>span:last-child{float:right;color:var(--app-muted,var(--muted));font-size:12px;font-weight:400}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories>div{border-top:1px solid var(--app-line,var(--line));padding:14px;display:grid;gap:12px}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories label{display:grid;gap:6px;font-size:13px;font-weight:650}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories select{width:100%;max-width:100%;min-height:44px;border:1px solid var(--app-line,var(--line));border-radius:6px;padding:9px 12px;font:inherit;font-size:14px;color:var(--app-text,var(--text));background:var(--app-panel2,var(--panel2))}
+html.uk-ui #campaign-cycle-finish-modal .cf-error:empty{display:none}
+html.uk-ui #campaign-cycle-finish-modal button:focus-visible,html.uk-ui #campaign-cycle-finish-modal select:focus-visible{outline:2px solid var(--app-accent,var(--accent));outline-offset:3px}
+html.uk-ui #campaign-care-assignment-modal .cf-assignment{font-size:14px;line-height:1.7}
+html.uk-ui #campaign-care-assignment-modal .cf-assignment p{margin:0 0 12px}
+html.uk-ui #campaign-care-assignment-modal .cf-assignment label{display:flex;gap:10px;align-items:center;min-height:46px;border:1px solid var(--app-line,var(--line));border-radius:6px;padding:10px 12px;margin-top:8px;cursor:pointer}
+html.uk-ui #campaign-care-assignment-modal .cf-assignment input{width:18px;height:18px;min-height:0;margin:0;accent-color:var(--app-accent,var(--accent))}
+html.uk-ui .cycle-finish-return{display:flex;align-items:center;gap:8px;min-height:46px;margin-bottom:16px;padding:12px 16px;border:1px solid var(--app-line,var(--line));border-radius:7px;font-size:14px;font-weight:650;color:var(--app-accent,var(--accent));background:var(--app-panel,var(--panel));cursor:pointer}
+@media(max-width:600px){
+ html.uk-ui #campaign-cycle-finish-modal{width:calc(100vw - 24px);max-width:none}
+ html.uk-ui #campaign-cycle-finish-modal .modal-head{padding:10px 14px!important}
+ html.uk-ui #campaign-cycle-finish-modal .modal-head h2{font-size:20px!important}
+ html.uk-ui #campaign-cycle-finish-modal .modal-body{padding:14px!important}
+ html.uk-ui #campaign-cycle-finish-modal .modal-foot{padding:12px 14px!important}
+ html.uk-ui #campaign-cycle-finish-modal .cf-section-heading{padding:14px;gap:9px;flex-wrap:wrap}
+ html.uk-ui #campaign-cycle-finish-modal .cf-section-heading>div{flex-basis:calc(100% - 40px)}
+ html.uk-ui #campaign-cycle-finish-modal .cf-badge{margin-left:37px}
+ html.uk-ui #campaign-cycle-finish-modal .cf-unit-row{align-items:flex-start;flex-direction:column;gap:10px;padding:13px 14px}
+ html.uk-ui #campaign-cycle-finish-modal .cf-row-actions{width:100%}
+ html.uk-ui #campaign-cycle-finish-modal .cf-row-actions button{flex:1;min-width:0}
+ html.uk-ui #campaign-cycle-finish-modal .cf-unit-row>button{align-self:flex-end}
+}
