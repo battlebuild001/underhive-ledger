@@ -20,13 +20,19 @@ html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context{display:flex;
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context>span{display:inline-flex;align-items:center;gap:7px;min-width:0}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context strong{color:var(--text);font-weight:600}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-workspace{display:grid;gap:20px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab .panel-heading p{margin:9px 0 0;color:var(--muted);font-size:13px;line-height:1.7}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-rosters{padding:0 20px 20px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-tab .gang-card-footer button{min-width:44px;min-height:44px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-empty{display:grid;gap:18px;padding:0 20px 24px;color:var(--muted);font-size:15px;line-height:1.7}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-empty p{margin:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-empty .button{justify-self:start;min-height:44px;max-width:100%;white-space:normal;line-height:1.5}
 html.uk-ui.command-ui .cmd-sample.cmd-sample [data-campaign-lobby]{min-width:0;scroll-margin-top:84px}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-battles>summary,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations>summary,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-invitations>summary{display:list-item;cursor:pointer;min-height:44px;box-sizing:border-box;padding:17px 20px;color:var(--text);font-size:15px;font-weight:600;line-height:1.6;list-style-position:inside}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-legacy-battles>summary:focus-visible,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations>summary:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-battle-archive .battle-rows{padding-bottom:12px}
 @media(max-width:700px){html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-lobby-heading .heading-actions{display:none}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-context{font-size:12px;padding:12px 14px;gap:7px 12px}}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs{overflow-x:auto;flex-wrap:nowrap;gap:22px;scrollbar-width:thin}
-html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs>button{flex:none;min-height:46px;white-space:nowrap}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs>button{flex:none;min-width:44px;min-height:46px;white-space:nowrap}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-panel{display:grid;gap:20px;min-width:0}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading{display:grid;gap:12px}
 html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading>.rule-tag{display:inline-flex;align-items:center;gap:8px;justify-self:start}
