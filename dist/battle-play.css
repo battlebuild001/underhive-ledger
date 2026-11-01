@@ -263,3 +263,30 @@
  html.uk-ui.bp-compact-theme .bp-workspace .sk-scoreboard .sk-score-arrow:hover{background:var(--panel)}
  html.uk-ui.bp-compact-theme .bp-workspace .sk-start [data-sk-action=finish]{width:100%;min-height:48px}
 }
+
+/* Visible result-save feedback and the saved match summary. */
+html.uk-ui .bp-result-save-actions{display:grid;gap:10px;min-width:0;scroll-margin-bottom:calc(90px + env(safe-area-inset-bottom))}
+html.uk-ui .bp-result-save-actions>.btn{width:100%;min-height:48px;display:flex;align-items:center;justify-content:center;gap:10px}
+html.uk-ui .bp-result-feedback{margin:0;padding:11px 12px;border:1px solid var(--line);border-radius:5px;background:var(--panel2);color:var(--text);font-size:14px;line-height:1.6}
+html.uk-ui [data-bp-save-state=saved] .bp-result-feedback{border-color:var(--accent)}
+html.uk-ui .bp-result-save-actions .cp-error{margin:0;padding:12px;line-height:1.65;scroll-margin-block:100px}
+html.uk-ui .bp-result-save-actions [hidden]{display:none!important}
+html.uk-ui .bp-save-spinner{display:inline-block;width:18px;height:18px;flex:none;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:bp-save-spin .8s linear infinite}
+@keyframes bp-save-spin{to{transform:rotate(360deg)}}
+html.uk-ui .bp-completed-dialog{max-width:560px}
+html.uk-ui .bp-completed-result{display:grid;gap:18px;min-width:0;font-size:14px;line-height:1.7}
+html.uk-ui .bp-completed-result h3{font-size:18px;line-height:1.5;margin:0;overflow-wrap:anywhere}
+html.uk-ui .bp-completed-result h4{font-size:14px;margin:0 0 8px;color:var(--muted)}
+html.uk-ui .bp-completed-status{display:flex;align-items:center;gap:8px;margin:0;padding:12px;border:1px solid var(--accent);border-radius:5px;background:var(--panel2);font-weight:600}
+html.uk-ui .bp-completed-status svg{flex:none}
+html.uk-ui .bp-completed-result dl{display:grid;gap:12px;margin:0}
+html.uk-ui .bp-completed-result dl>div{display:grid;gap:4px}
+html.uk-ui .bp-completed-result dt{color:var(--muted);font-size:12px}
+html.uk-ui .bp-completed-result dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+html.uk-ui .bp-completed-result ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+html.uk-ui .bp-completed-result li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;overflow-wrap:anywhere}
+html.uk-ui .bp-completed-result li>strong{grid-column:1/-1;color:var(--muted);font-size:12px}
+html.uk-ui .bp-completed-notes{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+html.uk-ui .bp-completed-dialog .modal-foot #modal-cancel[hidden]{display:none!important}
+html.uk-ui .bp-completed-dialog .modal-foot #modal-submit{width:100%;min-height:48px}
+@media(prefers-reduced-motion:reduce){html.uk-ui .bp-save-spinner{animation:none}}
