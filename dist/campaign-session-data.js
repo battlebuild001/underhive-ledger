@@ -12,6 +12,7 @@
  let modalState=null;
 
  function canEdit(c){
+  if(window.MMCampaignPermissions)return window.MMCampaignPermissions.canEditMatch(c);
   if(!c||c.remoteReadOnly||c.remoteRole==='viewer')return false;
   const auth=window.AccountParity;
   if(auth&&(auth.connecting||auth.busy||auth.account&&!auth.ready))return false;

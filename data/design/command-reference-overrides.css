@@ -1,0 +1,31 @@
+/* Campaign administration and participant references. Kept outside the scoped design compiler. */
+html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs{overflow-x:auto;flex-wrap:nowrap;gap:22px;scrollbar-width:thin}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs>button{flex:none;min-height:46px;white-space:nowrap}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-panel{display:grid;gap:20px;min-width:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading{display:grid;gap:12px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading>.rule-tag{display:inline-flex;align-items:center;gap:8px;justify-self:start}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading h2{margin:0;font-size:24px;color:var(--text);font-weight:650}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading p{margin:0;font-size:13px;line-height:1.8;color:var(--muted)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-card{display:flex;flex-direction:column;gap:12px;padding:22px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:7px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-card h3{margin:0;font-size:17px;color:var(--text);font-weight:600}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-card p{margin:0;font-size:12px;line-height:1.8;color:var(--muted)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:auto}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-actions>.button{display:inline-flex;min-height:44px;max-width:100%;align-items:center;justify-content:space-between;gap:12px;white-space:normal;text-align:left;line-height:1.5}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-actions>.button:disabled{opacity:.45;cursor:default}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-actions>.button:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-cycle{padding:22px;margin:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-cycle .ref-arbitrator-actions{margin-top:14px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-publish [role=status]{color:var(--green);font-size:13px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-publish .ref-arbitrator-error{display:block;padding:12px;border:1px solid var(--red);border-radius:5px;color:var(--text);background:var(--panel2)}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations .ca-modules{display:grid;gap:12px;padding:0 20px 20px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-personal-operations [data-ca-section]{margin:0}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-reference{padding-bottom:20px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-reference .panel-heading{margin-bottom:12px}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-reference .panel-heading p{display:block;margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-campaign-reference>.ref-arbitrator-actions{padding-inline:20px}
+html.uk-ui.command-ui .modal .ref-campaign-reference{min-width:0;overflow-wrap:anywhere}
+html.uk-ui.command-ui .modal .ref-campaign-reference .cp-map-canvas{display:block;width:100%;min-width:0;aspect-ratio:1000/650;height:auto}
+html.uk-ui.command-ui .modal .ref-campaign-reference img{max-width:100%;height:auto}
+html.uk-ui.command-ui .modal .ref-campaign-reference .table-wrap{max-width:100%;overflow-x:auto}
+@media(max-width:700px){html.uk-ui.command-ui .cmd-sample.cmd-sample .section-tabs{gap:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-grid{grid-template-columns:1fr}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-card,html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-cycle{padding:18px}html.uk-ui.command-ui .cmd-sample.cmd-sample .ref-arbitrator-heading h2{font-size:22px}}

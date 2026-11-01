@@ -35,9 +35,9 @@ async function until(test,label){for(let i=0;i<100;i++){if(test())return;await n
  click('[data-account-share-members="own"]');await until(()=>q('[data-account-member-remove]'),'members dialog');
  const memberNames=()=>qa('.modal-bg [data-user-text]').map(node=>node.textContent);
  assert.deepEqual(memberNames(),['Skills','owner','Combat']);
- const labels=()=>qa('.modal-bg [data-i18n-en]').map(node=>node.textContent);
+ const labels=()=>qa('.modal-bg [data-account-member-label] [data-i18n-en]').map(node=>node.textContent);
  assert.deepEqual(labels(),['소유자','참가 중','편집자','초대 대기','열람자','참가 중']);
- for(const language of ['en','ko','en']){w.UKI18n.setLanguage(language);await tick();assert.deepEqual(memberNames(),['Skills','owner','Combat']);assert.deepEqual(labels(),language==='en'?['Owner','Accepted','Editor','Pending','Viewer','Accepted']:['소유자','참가 중','편집자','초대 대기','열람자','참가 중']);assert.deepEqual(qa('[data-account-member-remove]').map(node=>node.dataset.accountMemberRemove),['own|skills-user','own|owner-user','own|combat-user'],'Canonical operation IDs are unchanged');}
+ for(const language of ['en','ko','en']){w.UKI18n.setLanguage(language);await tick();assert.deepEqual(memberNames(),['Skills','owner','Combat']);assert.deepEqual(labels(),language==='en'?['Owner','Accepted','Editor','Pending','Viewer','Accepted']:['소유자','참가 중','편집자','초대 대기','열람자','참가 중']);assert.deepEqual(qa('[data-account-member-remove]').map(node=>node.dataset.accountMemberRemove),['own|owner-user','own|combat-user'],'Canonical operation IDs are unchanged');}
  click('#modal-close');await tick();assert.equal(q('.modal-bg'),null);
  click('[data-account-friend-remove="friend-combat"]');await tick();assert.equal(q('.modal-bg [data-user-text]').textContent,'Combat');assert.match(q('.modal-bg').textContent,/Remove this user from your friends/);w.UKI18n.setLanguage('ko');await tick();assert.equal(q('.modal-bg [data-user-text]').textContent,'Combat');assert.match(q('.modal-bg').textContent,/친구 목록에서 삭제할까요/);click('#modal-cancel');await tick();
  const search=q('#account-user-search');search.value='Skills';search.dispatchEvent(new w.Event('input',{bubbles:true}));await until(()=>q('[data-account-send-friend]'),'search results');assert.deepEqual(qa('#account-search-results [data-user-text]').map(node=>node.textContent),['Skills','owner','Combat']);
