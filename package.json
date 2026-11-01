@@ -7,7 +7,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "build": "node scripts/build-faction-names.mjs && node scripts/build-lore-research.mjs && node scripts/build-roster-faction-themes.mjs && node scripts/build-command-design.mjs && node scripts/build-worker.mjs",
+    "build": "node scripts/build-name-suggestions.mjs && node scripts/build-faction-names.mjs && node scripts/build-lore-research.mjs && node scripts/build-roster-faction-themes.mjs && node scripts/build-command-design.mjs && node scripts/build-worker.mjs",
     "validate": "node scripts/validate-worker.mjs",
     "test": "node scripts/test.mjs",
     "db:generate": "drizzle-kit generate"

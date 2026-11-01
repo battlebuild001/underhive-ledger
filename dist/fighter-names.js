@@ -26,6 +26,7 @@ const pools={
 };
 const norm=s=>String(s||'').normalize('NFKC').replace(/\s+/g,' ').trim().toLocaleLowerCase();
 function generate(g,{language=window.UKI18n?.language||'ko',exclude=[]}={}){
+ const expanded=window.MMNameVariety?.fighter(g,{language,exclude});if(expanded)return expanded;
  const key=window.MMGang?.findGangType?.(g)?.name||g?.faction,pool=pools[key]||{first:common,last:surnames},used=new Set([...(g?.fighters||[]).map(f=>f.name),...exclude].map(norm)),index=language==='en'?1:0;
  const names=pool.first.flatMap(first=>pool.last.map(last=>[first[0]+' '+last[0],first[1]+' '+last[1]])),available=names.filter(pair=>pair.every(name=>!used.has(norm(name))));
  if(available.length){const random=new Uint32Array(1);crypto.getRandomValues(random);return available[random[0]%available.length][index];}

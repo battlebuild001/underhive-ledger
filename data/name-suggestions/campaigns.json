@@ -1,0 +1,905 @@
+{
+  "version": 1,
+  "places": [
+    [
+      "잿빛 첨탑",
+      "the Ashen Spire"
+    ],
+    [
+      "녹슨 관문",
+      "Rustgate"
+    ],
+    [
+      "매연 지대",
+      "the Sootfields"
+    ],
+    [
+      "버려진 성소",
+      "the Lost Shrine"
+    ],
+    [
+      "검은 수로",
+      "the Black Sump"
+    ],
+    [
+      "붉은 용광로",
+      "the Red Forge"
+    ],
+    [
+      "황무지 변방",
+      "the Ash Frontier"
+    ],
+    [
+      "폐허 시장",
+      "the Ruin Market"
+    ],
+    [
+      "속죄의 지구",
+      "the Penitent Quarter"
+    ],
+    [
+      "깊은 갱도",
+      "the Deep Mines"
+    ],
+    [
+      "유리 사막",
+      "the Glass Desert"
+    ],
+    [
+      "철의 회랑",
+      "the Iron Corridor"
+    ],
+    [
+      "검댕 정거장",
+      "the Cinder Station"
+    ],
+    [
+      "구리 감시탑",
+      "Copperwatch"
+    ],
+    [
+      "마른 저수지",
+      "the Dry Reservoir"
+    ],
+    [
+      "고철 성문",
+      "Scrapgate"
+    ],
+    [
+      "톱니 고개",
+      "the Cog Pass"
+    ],
+    [
+      "부서진 왕관",
+      "the Broken Crown"
+    ],
+    [
+      "검은 굴뚝",
+      "the Black Chimneys"
+    ],
+    [
+      "잊힌 나루",
+      "the Forgotten Landing"
+    ],
+    [
+      "녹청 계단",
+      "the Verdigris Steps"
+    ],
+    [
+      "가라앉은 예배당",
+      "the Sunken Chapel"
+    ],
+    [
+      "쇳가루 광장",
+      "the Iron Dust Plaza"
+    ],
+    [
+      "붉은 수문",
+      "the Crimson Sluice"
+    ],
+    [
+      "빈 탄약고",
+      "the Empty Magazine"
+    ],
+    [
+      "청동 구덩이",
+      "the Bronze Pit"
+    ],
+    [
+      "길 잃은 승강장",
+      "the Stray Platform"
+    ],
+    [
+      "회색 닻지구",
+      "Greyanchor"
+    ],
+    [
+      "잠든 주조소",
+      "the Sleeping Foundry"
+    ],
+    [
+      "갈라진 물탱크",
+      "the Split Cistern"
+    ],
+    [
+      "폐선 부두",
+      "the Derelict Docks"
+    ],
+    [
+      "희미한 등대",
+      "the Fading Beacon"
+    ],
+    [
+      "돌가루 골목",
+      "the Stone Dust Lanes"
+    ],
+    [
+      "굶주린 종탑",
+      "the Hungry Belfry"
+    ],
+    [
+      "방치된 환승로",
+      "the Abandoned Junction"
+    ],
+    [
+      "유황 창고",
+      "the Sulphur Vaults"
+    ],
+    [
+      "망각의 저택",
+      "the House of Forgetting"
+    ],
+    [
+      "은빛 굴착장",
+      "the Silver Diggings"
+    ],
+    [
+      "침묵하는 도가니",
+      "the Silent Crucible"
+    ],
+    [
+      "마지막 선로",
+      "the Last Rail"
+    ],
+    [
+      "수은 관문",
+      "Quicksilver Gate"
+    ],
+    [
+      "재가 내리는 뜰",
+      "the Ashfall Court"
+    ],
+    [
+      "가시 철교",
+      "the Thornbridge"
+    ],
+    [
+      "폐쇄된 검문소",
+      "the Sealed Checkpoint"
+    ],
+    [
+      "갈색 운하",
+      "the Umber Canal"
+    ],
+    [
+      "쇠비가 내리는 지붕",
+      "the Iron Rain Roofs"
+    ],
+    [
+      "빈 종소리 골목",
+      "the Hollow Bell Lanes"
+    ],
+    [
+      "핏물 정제소",
+      "the Bloodwater Refinery"
+    ],
+    [
+      "거울 웅덩이",
+      "the Mirror Pools"
+    ],
+    [
+      "잿불 능선",
+      "the Ember Ridge"
+    ],
+    [
+      "서리 낀 배관",
+      "the Frosted Conduits"
+    ],
+    [
+      "검은 비탈",
+      "the Black Incline"
+    ],
+    [
+      "가면 장터",
+      "the Mask Bazaar"
+    ],
+    [
+      "닫힌 극장",
+      "the Shuttered Theatre"
+    ],
+    [
+      "천둥 분쇄기",
+      "the Thunder Mills"
+    ],
+    [
+      "잃어버린 우물",
+      "the Lost Well"
+    ],
+    [
+      "불 꺼진 역",
+      "the Darkened Station"
+    ],
+    [
+      "누런 압축실",
+      "the Ochre Press"
+    ],
+    [
+      "버려진 계류장",
+      "the Forsaken Mooring"
+    ],
+    [
+      "독니 회랑",
+      "the Fang Passage"
+    ],
+    [
+      "붕괴된 원형로",
+      "the Fallen Ringway"
+    ],
+    [
+      "먼지 납골당",
+      "the Dust Ossuary"
+    ],
+    [
+      "강철 벌집",
+      "the Steel Warren"
+    ],
+    [
+      "고요한 분진구",
+      "the Still Dust Ward"
+    ],
+    [
+      "굽은 도관",
+      "the Crooked Duct"
+    ],
+    [
+      "낡은 영사관",
+      "the Old Legation"
+    ],
+    [
+      "고철 정원",
+      "the Scrap Gardens"
+    ],
+    [
+      "백색 굴뚝군",
+      "the White Smokestacks"
+    ],
+    [
+      "찢어진 차양길",
+      "the Torn Awning Road"
+    ],
+    [
+      "불면의 여관",
+      "the Sleepless Inn"
+    ],
+    [
+      "녹슨 저울시장",
+      "the Rustscale Market"
+    ],
+    [
+      "숨 막히는 수직갱",
+      "the Choked Shaft"
+    ],
+    [
+      "버려진 판결당",
+      "the Empty Tribunal"
+    ],
+    [
+      "벽돌 해자",
+      "the Brick Moat"
+    ],
+    [
+      "구리빛 아케이드",
+      "the Copper Arcade"
+    ],
+    [
+      "검은 증기실",
+      "the Black Steam Hall"
+    ],
+    [
+      "낮은 천장 지구",
+      "the Low Ceiling Ward"
+    ],
+    [
+      "무너진 방파제",
+      "the Broken Breakwater"
+    ],
+    [
+      "수리공의 안식처",
+      "the Tinkers' Rest"
+    ],
+    [
+      "그을린 기도실",
+      "the Scorched Oratory"
+    ],
+    [
+      "철야의 길목",
+      "the Vigil Crossing"
+    ],
+    [
+      "은박 폐기장",
+      "the Foil Midden"
+    ],
+    [
+      "빛바랜 깃발탑",
+      "the Faded Banner Tower"
+    ],
+    [
+      "젖은 콘크리트 미로",
+      "the Wetcrete Maze"
+    ],
+    [
+      "파편 재판소",
+      "the Shard Court"
+    ],
+    [
+      "쓸개즙 늪지",
+      "the Bitter Marsh"
+    ],
+    [
+      "회전문 구역",
+      "the Turngate Ward"
+    ],
+    [
+      "잿먼지 교차로",
+      "Ashdust Cross"
+    ],
+    [
+      "검은 로프 다리",
+      "the Black Rope Bridge"
+    ],
+    [
+      "버려진 유리공장",
+      "the Deserted Glassworks"
+    ],
+    [
+      "오래된 계수소",
+      "the Old Counting House"
+    ],
+    [
+      "구리 사슬 야영지",
+      "the Copperchain Camp"
+    ],
+    [
+      "탄피 언덕",
+      "the Brasscase Mound"
+    ],
+    [
+      "해진 외투 골목",
+      "the Ragcoat Lanes"
+    ],
+    [
+      "곰팡이 곡물창고",
+      "the Mouldgrain Granary"
+    ],
+    [
+      "진흙 안테나 숲",
+      "the Mud Aerial Forest"
+    ],
+    [
+      "뒤집힌 급수탑",
+      "the Overturned Water Tower"
+    ],
+    [
+      "회색 종점",
+      "the Grey Terminus"
+    ],
+    [
+      "붉은 조수로",
+      "the Red Tideway"
+    ],
+    [
+      "찢긴 전선 마을",
+      "the Frayed Wire Hamlet"
+    ],
+    [
+      "폐허 소각장",
+      "the Ruin Incinerator"
+    ],
+    [
+      "덜컹이는 둑길",
+      "the Rattle Causeway"
+    ],
+    [
+      "거친 유약 지구",
+      "the Roughglaze Ward"
+    ],
+    [
+      "녹색 경보탑",
+      "the Green Alarm Tower"
+    ],
+    [
+      "빈 기념비 광장",
+      "the Empty Memorial Square"
+    ],
+    [
+      "검댕 서고",
+      "the Soot Archives"
+    ],
+    [
+      "철사 둥지",
+      "the Wire Nest"
+    ],
+    [
+      "가느다란 다락길",
+      "the Needle Attic Walk"
+    ],
+    [
+      "침수된 매표소",
+      "the Flooded Ticket Hall"
+    ],
+    [
+      "굳어버린 화물장",
+      "the Petrified Freight Yard"
+    ],
+    [
+      "검은 구멍 시장",
+      "the Blackhole Exchange"
+    ],
+    [
+      "다문 입 성소",
+      "the Closed Mouth Shrine"
+    ],
+    [
+      "뼛가루 언덕",
+      "the Bone Dust Rise"
+    ],
+    [
+      "옛 소금길",
+      "the Old Salt Road"
+    ],
+    [
+      "진홍빛 물시계",
+      "the Crimson Waterclock"
+    ],
+    [
+      "허물어진 해방문",
+      "the Crumbling Freegate"
+    ],
+    [
+      "바람 새는 온실",
+      "the Draughtglass House"
+    ],
+    [
+      "녹빛 도금장",
+      "the Greenplate Works"
+    ],
+    [
+      "톱니바퀴 묘지",
+      "the Gear Graveyard"
+    ],
+    [
+      "깊은 케이블 우물",
+      "the Deep Cable Well"
+    ],
+    [
+      "말라붙은 염전",
+      "the Dead Salt Pans"
+    ],
+    [
+      "반쯤 묻힌 관측소",
+      "the Halfburied Observatory"
+    ],
+    [
+      "쇳물 휴게소",
+      "the Molten Rest Stop"
+    ],
+    [
+      "유골 세척장",
+      "the Ashbone Wash"
+    ],
+    [
+      "구부러진 황동문",
+      "the Bent Brass Gate"
+    ],
+    [
+      "벽 없는 병영",
+      "the Wallless Barracks"
+    ],
+    [
+      "마지막 환기구",
+      "the Last Vent"
+    ],
+    [
+      "지하 자갈벌",
+      "the Undergravel Plain"
+    ]
+  ],
+  "events": [
+    [
+      "전쟁",
+      "War for"
+    ],
+    [
+      "봉기",
+      "Uprising at"
+    ],
+    [
+      "분쟁",
+      "Conflict at"
+    ],
+    [
+      "포위전",
+      "Siege of"
+    ],
+    [
+      "투쟁",
+      "Struggle for"
+    ],
+    [
+      "약탈전",
+      "Raid on"
+    ],
+    [
+      "쟁탈전",
+      "Battle for"
+    ],
+    [
+      "심판",
+      "Judgement of"
+    ],
+    [
+      "반란",
+      "Rebellion at"
+    ],
+    [
+      "수복전",
+      "Reclamation of"
+    ],
+    [
+      "혈투",
+      "Bloodshed at"
+    ],
+    [
+      "몰락",
+      "Fall of"
+    ],
+    [
+      "최후의 항전",
+      "Last Stand at"
+    ],
+    [
+      "결산",
+      "Reckoning at"
+    ],
+    [
+      "숙청",
+      "Purge of"
+    ],
+    [
+      "추적전",
+      "Hunt through"
+    ],
+    [
+      "휴전",
+      "Truce at"
+    ],
+    [
+      "매복전",
+      "Ambush at"
+    ],
+    [
+      "복수전",
+      "Vendetta in"
+    ],
+    [
+      "봉쇄전",
+      "Blockade of"
+    ],
+    [
+      "탈출전",
+      "Escape from"
+    ],
+    [
+      "대이동",
+      "Exodus from"
+    ],
+    [
+      "강습전",
+      "Assault on"
+    ],
+    [
+      "구출전",
+      "Rescue at"
+    ],
+    [
+      "맹약",
+      "Pact of"
+    ],
+    [
+      "정변",
+      "Coup at"
+    ],
+    [
+      "폭동",
+      "Insurrection in"
+    ],
+    [
+      "점령전",
+      "Occupation of"
+    ],
+    [
+      "패주",
+      "Rout at"
+    ],
+    [
+      "설욕전",
+      "Revenge at"
+    ],
+    [
+      "초토화전",
+      "Scouring of"
+    ],
+    [
+      "돌파전",
+      "Breakout from"
+    ],
+    [
+      "하강",
+      "Descent into"
+    ],
+    [
+      "발견",
+      "Discovery of"
+    ],
+    [
+      "비밀",
+      "Secrets of"
+    ],
+    [
+      "암운",
+      "Shadows over"
+    ],
+    [
+      "서약",
+      "Oaths of"
+    ],
+    [
+      "시련",
+      "Trial of"
+    ],
+    [
+      "침묵",
+      "Silence over"
+    ],
+    [
+      "폭풍",
+      "Storm over"
+    ],
+    [
+      "잔해",
+      "Ashes of"
+    ],
+    [
+      "애가",
+      "Lament for"
+    ],
+    [
+      "배신",
+      "Betrayal at"
+    ],
+    [
+      "정전",
+      "Ceasefire at"
+    ],
+    [
+      "추격전",
+      "Pursuit through"
+    ],
+    [
+      "수확",
+      "Harvest of"
+    ],
+    [
+      "패권전",
+      "Dominion over"
+    ],
+    [
+      "몸값 거래",
+      "Ransom at"
+    ],
+    [
+      "호송전",
+      "Convoy to"
+    ],
+    [
+      "항거",
+      "Defiance at"
+    ],
+    [
+      "음모",
+      "Conspiracy in"
+    ],
+    [
+      "도태전",
+      "Culling at"
+    ],
+    [
+      "교차 사격전",
+      "Crossfire at"
+    ],
+    [
+      "결집",
+      "Rally at"
+    ],
+    [
+      "불안한 평화",
+      "Uneasy Peace at"
+    ],
+    [
+      "계승전",
+      "Succession in"
+    ],
+    [
+      "생존전",
+      "Survival at"
+    ],
+    [
+      "귀환",
+      "Return to"
+    ],
+    [
+      "균열",
+      "Fracture of"
+    ],
+    [
+      "통행세 전쟁",
+      "Toll War at"
+    ],
+    [
+      "밀수전",
+      "Smuggling through"
+    ],
+    [
+      "보복전",
+      "Reprisal at"
+    ],
+    [
+      "민중 봉기",
+      "Revolt in"
+    ],
+    [
+      "방화전",
+      "Torching of"
+    ]
+  ],
+  "subtitles": [
+    [
+      "빛 없는 약속",
+      "Promises Without Light"
+    ],
+    [
+      "먼지 아래의 이름들",
+      "Names Beneath the Dust"
+    ],
+    [
+      "재 속에 묻힌 맹세",
+      "Oaths Buried in Ash"
+    ],
+    [
+      "아무도 울리지 않는 종",
+      "The Bell No One Rings"
+    ],
+    [
+      "강철이 기억하는 밤",
+      "The Night Steel Remembers"
+    ],
+    [
+      "승자 없는 새벽",
+      "Dawn Without Victors"
+    ],
+    [
+      "침묵으로 치르는 대가",
+      "The Price of Silence"
+    ],
+    [
+      "피보다 오래된 빚",
+      "Debts Older Than Blood"
+    ],
+    [
+      "끝내 꺼지지 않는 불",
+      "The Fire That Will Not Die"
+    ],
+    [
+      "돌아오지 않은 호송대",
+      "The Convoy That Never Returned"
+    ],
+    [
+      "폐허가 간직한 왕관",
+      "The Crown the Ruins Keep"
+    ],
+    [
+      "마지막 문 너머",
+      "Beyond the Last Door"
+    ],
+    [
+      "그림자들이 맺은 계약",
+      "The Shadows' Bargain"
+    ],
+    [
+      "찢긴 깃발 아래",
+      "Beneath the Torn Banner"
+    ],
+    [
+      "이름을 잃은 자들의 길",
+      "The Road of the Nameless"
+    ],
+    [
+      "금이 간 평화",
+      "A Fractured Peace"
+    ],
+    [
+      "잿비가 내리는 동안",
+      "While the Ash Falls"
+    ],
+    [
+      "누구의 무덤도 아닌 곳",
+      "A Grave for No One"
+    ],
+    [
+      "약탈자들이 남긴 지도",
+      "The Map the Raiders Left"
+    ],
+    [
+      "철문에 새긴 기도",
+      "Prayers on the Iron Door"
+    ],
+    [
+      "대답 없는 신호",
+      "The Unanswered Signal"
+    ],
+    [
+      "거짓 예언의 계절",
+      "The Season of False Omens"
+    ],
+    [
+      "두 번 묻힌 진실",
+      "The Truth Buried Twice"
+    ],
+    [
+      "사슬 끝의 자유",
+      "Freedom at the Chain's End"
+    ],
+    [
+      "썩은 왕좌의 후계자들",
+      "Heirs to a Rotten Throne"
+    ],
+    [
+      "검댕으로 쓴 유언",
+      "A Testament in Soot"
+    ],
+    [
+      "새벽을 팔아버린 자들",
+      "Those Who Sold the Dawn"
+    ],
+    [
+      "심연에서 온 발소리",
+      "Footsteps from the Deep"
+    ],
+    [
+      "남은 자들의 노래",
+      "The Song of Those Who Remain"
+    ],
+    [
+      "약속보다 무거운 탄환",
+      "Bullets Heavier Than Promises"
+    ],
+    [
+      "아직 갚지 못한 몸값",
+      "The Ransom Still Unpaid"
+    ],
+    [
+      "숨겨 둔 출구",
+      "The Hidden Way Out"
+    ]
+  ]
+}

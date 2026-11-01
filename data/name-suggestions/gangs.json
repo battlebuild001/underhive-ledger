@@ -1,0 +1,3827 @@
+{
+  "version": 1,
+  "origins": [
+    [
+      "검댕 관문",
+      "Sootgate"
+    ],
+    [
+      "흑재 골짜기",
+      "Blackash Hollow"
+    ],
+    [
+      "동빛 수문",
+      "Copperlock"
+    ],
+    [
+      "유리 방벽",
+      "Glasswall"
+    ],
+    [
+      "무너진 종루",
+      "Fallen Belfry"
+    ],
+    [
+      "회색 배수로",
+      "Greyspill"
+    ],
+    [
+      "재바람 둑",
+      "Ashwind Levee"
+    ],
+    [
+      "녹철 다리",
+      "Rustiron Bridge"
+    ],
+    [
+      "파수등 언덕",
+      "Watchlamp Rise"
+    ],
+    [
+      "꺼진 굴뚝",
+      "Coldstack"
+    ],
+    [
+      "잿못 역",
+      "Ashpond Station"
+    ],
+    [
+      "밤쇠 시장",
+      "Nightiron Market"
+    ],
+    [
+      "철거미 광장",
+      "Ironspider Square"
+    ],
+    [
+      "깊은 배기구",
+      "Deepvent"
+    ],
+    [
+      "가시뼈 골목",
+      "Thornbone Alley"
+    ],
+    [
+      "청동 선창",
+      "Bronze Wharf"
+    ],
+    [
+      "유황 계단",
+      "Brimstone Steps"
+    ],
+    [
+      "흑유 제방",
+      "Blackoil Bank"
+    ],
+    [
+      "은재 분기점",
+      "Silverash Junction"
+    ],
+    [
+      "먼지 시계탑",
+      "Dustclock Tower"
+    ],
+    [
+      "철비 오목지",
+      "Ironrain Hollow"
+    ],
+    [
+      "공허 전신소",
+      "Voidwire Exchange"
+    ],
+    [
+      "붉은 안개 통로",
+      "Redmist Passage"
+    ],
+    [
+      "닳은 닻 부두",
+      "Wornanchor Dock"
+    ],
+    [
+      "침묵한 선로",
+      "Hushrail"
+    ],
+    [
+      "검은 유리 뜰",
+      "Blackglass Yard"
+    ],
+    [
+      "석탄 아치",
+      "Coalarc"
+    ],
+    [
+      "긴 그림자 수직갱",
+      "Longshade Shaft"
+    ],
+    [
+      "폐열 회랑",
+      "Wasteheat Gallery"
+    ],
+    [
+      "차가운 황동 문",
+      "Coldbrass Gate"
+    ],
+    [
+      "가라앉은 등대",
+      "Sunken Beacon"
+    ],
+    [
+      "재비늘 장터",
+      "Ashscale Bazaar"
+    ],
+    [
+      "매연 창고",
+      "Sootvault"
+    ],
+    [
+      "쪼개진 환풍탑",
+      "Splitvent Tower"
+    ],
+    [
+      "잠든 분쇄장",
+      "Sleeping Mill"
+    ],
+    [
+      "녹빛 돌계단",
+      "Ruststone Stair"
+    ],
+    [
+      "흰 먼지 터널",
+      "Whitedust Tunnel"
+    ],
+    [
+      "연무 교차로",
+      "Hazecross"
+    ],
+    [
+      "쇳가루 성문",
+      "Metalflake Gate"
+    ],
+    [
+      "닫힌 펌프장",
+      "Sealed Pump"
+    ],
+    [
+      "잿빛 정원",
+      "Ashgrey Garden"
+    ],
+    [
+      "흑주석 수도관",
+      "Blacktin Conduit"
+    ],
+    [
+      "공명 우물",
+      "Echowell"
+    ],
+    [
+      "불꽃 마루",
+      "Emberdeck"
+    ],
+    [
+      "소금 안개 구획",
+      "Saltmist Ward"
+    ],
+    [
+      "찌그러진 돔",
+      "Dented Dome"
+    ],
+    [
+      "철쐐기 광구",
+      "Ironwedge Claim"
+    ],
+    [
+      "폐등 망루",
+      "Deadlamp Spire"
+    ],
+    [
+      "검댕 수도원",
+      "Sootcloister"
+    ],
+    [
+      "소각장 고개",
+      "Pyrefurnace Crest"
+    ],
+    [
+      "열린 사슬문",
+      "Openchain Gate"
+    ],
+    [
+      "잿뿌리 바닥길",
+      "Ashroot Lowway"
+    ],
+    [
+      "무쇠 까마귀 둥지",
+      "Ironcrow Roost"
+    ],
+    [
+      "낡은 체인장",
+      "Oldchain Works"
+    ],
+    [
+      "회청색 갱도",
+      "Bluegrey Mine"
+    ],
+    [
+      "독녹 주랑",
+      "Verdigris Arcade"
+    ],
+    [
+      "기름등 부락",
+      "Oillamp Enclave"
+    ],
+    [
+      "그을음 호수",
+      "Sootmere"
+    ],
+    [
+      "검은 용접장",
+      "Blackweld"
+    ],
+    [
+      "적동 종단역",
+      "Redcopper Terminus"
+    ],
+    [
+      "돌먼지 굴착지",
+      "Stonedust Dig"
+    ],
+    [
+      "희미한 축전소",
+      "Dimcell Depot"
+    ],
+    [
+      "은침 지하도",
+      "Silverpin Underpass"
+    ],
+    [
+      "조각달 수조",
+      "Shardmoon Cistern"
+    ]
+  ],
+  "fallback": {
+    "first": [
+      [
+        "잿빛",
+        "Ashen"
+      ],
+      [
+        "붉은",
+        "Red"
+      ],
+      [
+        "검은",
+        "Black"
+      ],
+      [
+        "강철의",
+        "Iron"
+      ],
+      [
+        "황혼의",
+        "Dusk"
+      ],
+      [
+        "굳센",
+        "Steadfast"
+      ],
+      [
+        "낡은",
+        "Worn"
+      ],
+      [
+        "날카로운",
+        "Sharp"
+      ],
+      [
+        "숨겨진",
+        "Hidden"
+      ],
+      [
+        "우렁찬",
+        "Loud"
+      ],
+      [
+        "거친",
+        "Rugged"
+      ],
+      [
+        "대담한",
+        "Bold"
+      ],
+      [
+        "잿가루 묻은",
+        "Ashdusted"
+      ],
+      [
+        "험난한",
+        "Hardbitten"
+      ],
+      [
+        "흰",
+        "White"
+      ],
+      [
+        "먼지 덮인",
+        "Dustcovered"
+      ],
+      [
+        "칠흑 같은",
+        "Pitchdark"
+      ],
+      [
+        "새벽의",
+        "Dawn"
+      ],
+      [
+        "지칠 줄 모르는",
+        "Tireless"
+      ],
+      [
+        "눈 밝은",
+        "Keeneyed"
+      ],
+      [
+        "묵직한",
+        "Heavy"
+      ],
+      [
+        "태연한",
+        "Unshaken"
+      ],
+      [
+        "멀리 보는",
+        "Farsighted"
+      ],
+      [
+        "기억된",
+        "Remembered"
+      ]
+    ],
+    "last": [
+      [
+        "사냥개들",
+        "Hounds"
+      ],
+      [
+        "방랑자들",
+        "Drifters"
+      ],
+      [
+        "칼날단",
+        "Blades"
+      ],
+      [
+        "생존자들",
+        "Survivors"
+      ],
+      [
+        "까마귀들",
+        "Ravens"
+      ],
+      [
+        "형제단",
+        "Brethren"
+      ],
+      [
+        "유랑단",
+        "Rovers"
+      ],
+      [
+        "매들",
+        "Hawks"
+      ],
+      [
+        "횃불단",
+        "Torchbearers"
+      ],
+      [
+        "늑대단",
+        "Wolves"
+      ],
+      [
+        "길잡이들",
+        "Guides"
+      ],
+      [
+        "정찰단",
+        "Scouts"
+      ],
+      [
+        "망치단",
+        "Hammers"
+      ],
+      [
+        "고철단",
+        "Scrap Crew"
+      ],
+      [
+        "새벽지기들",
+        "Dawnkeepers"
+      ],
+      [
+        "자칼단",
+        "Jackals"
+      ],
+      [
+        "검은날개단",
+        "Blackwings"
+      ],
+      [
+        "철문단",
+        "Irongates"
+      ],
+      [
+        "등불단",
+        "Lanterns"
+      ],
+      [
+        "독행자들",
+        "Loners"
+      ],
+      [
+        "사슬단",
+        "Chains"
+      ],
+      [
+        "발톱단",
+        "Talons"
+      ],
+      [
+        "외곽단",
+        "Outriders"
+      ],
+      [
+        "회수단",
+        "Reclaimers"
+      ]
+    ]
+  },
+  "factions": {
+    "House Cawdor": {
+      "first": [
+        [
+          "불타는",
+          "Burning"
+        ],
+        [
+          "잿빛",
+          "Ashen"
+        ],
+        [
+          "속죄의",
+          "Penitent"
+        ],
+        [
+          "성스러운",
+          "Hallowed"
+        ],
+        [
+          "꺼지지 않는",
+          "Undying"
+        ],
+        [
+          "그을린",
+          "Scorched"
+        ],
+        [
+          "참회하는",
+          "Repentant"
+        ],
+        [
+          "재를 뒤집어쓴",
+          "Ashcloaked"
+        ],
+        [
+          "종을 울리는",
+          "Bellringing"
+        ],
+        [
+          "열렬한",
+          "Zealous"
+        ],
+        [
+          "굽히지 않는",
+          "Unbending"
+        ],
+        [
+          "촛불 밝힌",
+          "Candlelit"
+        ],
+        [
+          "고행하는",
+          "Mortified"
+        ],
+        [
+          "남루한",
+          "Ragged"
+        ],
+        [
+          "구원을 기다리는",
+          "Unshriven"
+        ],
+        [
+          "검댕 묻은",
+          "Sootmarked"
+        ],
+        [
+          "기도하는",
+          "Prayerbound"
+        ],
+        [
+          "성화 두른",
+          "Pyreclad"
+        ],
+        [
+          "불씨 품은",
+          "Emberhearted"
+        ],
+        [
+          "재에서 일어난",
+          "Ashrisen"
+        ],
+        [
+          "맹세 지킨",
+          "Oathkeeping"
+        ],
+        [
+          "은총 바라는",
+          "Gracehungering"
+        ],
+        [
+          "횃불 높인",
+          "Torchraised"
+        ],
+        [
+          "봉헌된",
+          "Consecrated"
+        ]
+      ],
+      "last": [
+        [
+          "성가대",
+          "Choir"
+        ],
+        [
+          "횃불단",
+          "Torches"
+        ],
+        [
+          "순례단",
+          "Pilgrims"
+        ],
+        [
+          "종지기들",
+          "Bellkeepers"
+        ],
+        [
+          "구도자들",
+          "Seekers"
+        ],
+        [
+          "향로단",
+          "Censers"
+        ],
+        [
+          "촛불단",
+          "Candlekeepers"
+        ],
+        [
+          "참회단",
+          "Penitents"
+        ],
+        [
+          "성화단",
+          "Pyrebearers"
+        ],
+        [
+          "종탑단",
+          "Belfry Guard"
+        ],
+        [
+          "재봉헌단",
+          "Ash Offerers"
+        ],
+        [
+          "기도단",
+          "Orisons"
+        ],
+        [
+          "독경단",
+          "Cantors"
+        ],
+        [
+          "면죄단",
+          "Absolvers"
+        ],
+        [
+          "불씨단",
+          "Emberkeepers"
+        ],
+        [
+          "성물단",
+          "Reliquarians"
+        ],
+        [
+          "고행단",
+          "Flagellants"
+        ],
+        [
+          "증언자들",
+          "Testifiers"
+        ],
+        [
+          "잿길 행렬",
+          "Ashway Procession"
+        ],
+        [
+          "등불단",
+          "Lanternkeepers"
+        ],
+        [
+          "순교단",
+          "Martyrs"
+        ],
+        [
+          "매장단",
+          "Gravediggers"
+        ],
+        [
+          "정화단",
+          "Purifiers"
+        ],
+        [
+          "심판 성회",
+          "Judgement Synod"
+        ]
+      ]
+    },
+    "House Delaque": {
+      "first": [
+        [
+          "침묵의",
+          "Silent"
+        ],
+        [
+          "장막 속",
+          "Veiled"
+        ],
+        [
+          "창백한",
+          "Pale"
+        ],
+        [
+          "잊힌",
+          "Forgotten"
+        ],
+        [
+          "보이지 않는",
+          "Unseen"
+        ],
+        [
+          "들리지 않는",
+          "Unheard"
+        ],
+        [
+          "지워진",
+          "Erased"
+        ],
+        [
+          "눈먼",
+          "Blind"
+        ],
+        [
+          "무심한",
+          "Impassive"
+        ],
+        [
+          "가면 쓴",
+          "Masked"
+        ],
+        [
+          "웅크린",
+          "Crouching"
+        ],
+        [
+          "숨죽인",
+          "Breathless"
+        ],
+        [
+          "빛을 피한",
+          "Lightshy"
+        ],
+        [
+          "기억 없는",
+          "Memoryless"
+        ],
+        [
+          "잠들지 않는",
+          "Sleepless"
+        ],
+        [
+          "검은 안개 어린",
+          "Blackmist"
+        ],
+        [
+          "희미한",
+          "Faint"
+        ],
+        [
+          "봉인된",
+          "Sealed"
+        ],
+        [
+          "베일 두른",
+          "Veilclad"
+        ],
+        [
+          "늘 지켜보는",
+          "Everwatching"
+        ],
+        [
+          "실체 없는",
+          "Incorporeal"
+        ],
+        [
+          "가려진",
+          "Obscured"
+        ],
+        [
+          "발소리 없는",
+          "Softfooted"
+        ],
+        [
+          "깊이 숨은",
+          "Deepconcealed"
+        ]
+      ],
+      "last": [
+        [
+          "속삭임",
+          "Whispers"
+        ],
+        [
+          "감시자들",
+          "Watchers"
+        ],
+        [
+          "그림자들",
+          "Shadows"
+        ],
+        [
+          "비밀 결사",
+          "Cabal"
+        ],
+        [
+          "목격자들",
+          "Witnesses"
+        ],
+        [
+          "청취자들",
+          "Listeners"
+        ],
+        [
+          "정보상들",
+          "Whisperbrokers"
+        ],
+        [
+          "밀정단",
+          "Informants"
+        ],
+        [
+          "망각단",
+          "Oblivion"
+        ],
+        [
+          "가면단",
+          "Masquerade"
+        ],
+        [
+          "눈동자들",
+          "Eyes"
+        ],
+        [
+          "그림자 결사",
+          "Shade Circle"
+        ],
+        [
+          "비밀지기들",
+          "Secretkeepers"
+        ],
+        [
+          "미행자들",
+          "Tailers"
+        ],
+        [
+          "반향단",
+          "Echoes"
+        ],
+        [
+          "장막단",
+          "Veilkeepers"
+        ],
+        [
+          "은폐자들",
+          "Concealers"
+        ],
+        [
+          "밤눈단",
+          "Night Eyes"
+        ],
+        [
+          "지하 첩보단",
+          "Underseers"
+        ],
+        [
+          "흔적 지우개들",
+          "Tracecutters"
+        ],
+        [
+          "수수께끼단",
+          "Riddlers"
+        ],
+        [
+          "침묵의 형제들",
+          "Hushkin"
+        ],
+        [
+          "거울지기들",
+          "Mirrorkeepers"
+        ],
+        [
+          "가림막단",
+          "Screens"
+        ]
+      ]
+    },
+    "House Escher": {
+      "first": [
+        [
+          "맹독의",
+          "Venomous"
+        ],
+        [
+          "진홍빛",
+          "Crimson"
+        ],
+        [
+          "밤의",
+          "Nocturnal"
+        ],
+        [
+          "가시 돋친",
+          "Thorned"
+        ],
+        [
+          "칠흑의",
+          "Onyx"
+        ],
+        [
+          "선명한",
+          "Vivid"
+        ],
+        [
+          "매혹적인",
+          "Alluring"
+        ],
+        [
+          "날 선",
+          "Keen"
+        ],
+        [
+          "독기 어린",
+          "Toxic"
+        ],
+        [
+          "진주빛",
+          "Pearly"
+        ],
+        [
+          "자줏빛",
+          "Violet"
+        ],
+        [
+          "은빛",
+          "Silvery"
+        ],
+        [
+          "황홀한",
+          "Rapturous"
+        ],
+        [
+          "도발적인",
+          "Defiant"
+        ],
+        [
+          "번뜩이는",
+          "Gleaming"
+        ],
+        [
+          "날렵한",
+          "Nimble"
+        ],
+        [
+          "살기 어린",
+          "Deadly"
+        ],
+        [
+          "꽃피는",
+          "Blooming"
+        ],
+        [
+          "송곳니 드러낸",
+          "Fanged"
+        ],
+        [
+          "서릿빛",
+          "Frostbright"
+        ],
+        [
+          "눈부신",
+          "Dazzling"
+        ],
+        [
+          "밤을 가르는",
+          "Nightcleaving"
+        ],
+        [
+          "수은 같은",
+          "Quicksilver"
+        ],
+        [
+          "날개 돋친",
+          "Winged"
+        ]
+      ],
+      "last": [
+        [
+          "독사단",
+          "Vipers"
+        ],
+        [
+          "발톱단",
+          "Claws"
+        ],
+        [
+          "가시단",
+          "Thorns"
+        ],
+        [
+          "사냥꾼들",
+          "Hunters"
+        ],
+        [
+          "칼날단",
+          "Blades"
+        ],
+        [
+          "송곳니단",
+          "Fangs"
+        ],
+        [
+          "쐐기벌단",
+          "Wasps"
+        ],
+        [
+          "독침단",
+          "Stingers"
+        ],
+        [
+          "밤꽃단",
+          "Nightblooms"
+        ],
+        [
+          "살쾡이단",
+          "Wildcats"
+        ],
+        [
+          "장미단",
+          "Roses"
+        ],
+        [
+          "랩터단",
+          "Raptors"
+        ],
+        [
+          "흑란단",
+          "Black Orchids"
+        ],
+        [
+          "전갈단",
+          "Scorpions"
+        ],
+        [
+          "날개단",
+          "Wings"
+        ],
+        [
+          "눈부신 자매들",
+          "Dazzle Sisters"
+        ],
+        [
+          "비수단",
+          "Daggers"
+        ],
+        [
+          "매혹단",
+          "Sirens"
+        ],
+        [
+          "표범단",
+          "Leopards"
+        ],
+        [
+          "맹독 자매단",
+          "Venom Sisters"
+        ],
+        [
+          "칼꽃단",
+          "Bladeblossoms"
+        ],
+        [
+          "긴손톱단",
+          "Long Nails"
+        ],
+        [
+          "유리송곳단",
+          "Glassfangs"
+        ],
+        [
+          "눈먼 독무단",
+          "Blind Mists"
+        ]
+      ]
+    },
+    "House Goliath": {
+      "first": [
+        [
+          "강철의",
+          "Steel"
+        ],
+        [
+          "용광로의",
+          "Furnace"
+        ],
+        [
+          "불굴의",
+          "Unbroken"
+        ],
+        [
+          "분노의",
+          "Wrathful"
+        ],
+        [
+          "검은 철의",
+          "Black Iron"
+        ],
+        [
+          "성난",
+          "Furious"
+        ],
+        [
+          "두꺼운 가죽의",
+          "Thickhide"
+        ],
+        [
+          "검게 그을린",
+          "Blackened"
+        ],
+        [
+          "육중한",
+          "Massive"
+        ],
+        [
+          "돌같이 굳은",
+          "Stonehard"
+        ],
+        [
+          "사나운",
+          "Ferocious"
+        ],
+        [
+          "굶주린",
+          "Hungry"
+        ],
+        [
+          "시뻘건",
+          "Redhot"
+        ],
+        [
+          "거친",
+          "Roughhewn"
+        ],
+        [
+          "고통 모르는",
+          "Painless"
+        ],
+        [
+          "험악한",
+          "Brutal"
+        ],
+        [
+          "사슬 두른",
+          "Chainclad"
+        ],
+        [
+          "기세 드높은",
+          "Mighty"
+        ],
+        [
+          "거침없는",
+          "Unchecked"
+        ],
+        [
+          "으르렁대는",
+          "Growling"
+        ],
+        [
+          "검댕 뒤덮인",
+          "Sootcovered"
+        ],
+        [
+          "주먹 불끈 쥔",
+          "Hardfisted"
+        ],
+        [
+          "뜨겁게 벼린",
+          "Heatforged"
+        ],
+        [
+          "피를 끓이는",
+          "Bloodboiling"
+        ]
+      ],
+      "last": [
+        [
+          "주먹단",
+          "Fists"
+        ],
+        [
+          "분쇄자들",
+          "Crushers"
+        ],
+        [
+          "망치단",
+          "Hammers"
+        ],
+        [
+          "파괴자들",
+          "Breakers"
+        ],
+        [
+          "거인들",
+          "Giants"
+        ],
+        [
+          "철두단",
+          "Ironheads"
+        ],
+        [
+          "모루단",
+          "Anvils"
+        ],
+        [
+          "강철등단",
+          "Steelbacks"
+        ],
+        [
+          "골절단",
+          "Bonebreakers"
+        ],
+        [
+          "압착단",
+          "Pressgang"
+        ],
+        [
+          "굳은 주먹들",
+          "Hard Knuckles"
+        ],
+        [
+          "녹철 거한들",
+          "Rustbrutes"
+        ],
+        [
+          "투사단",
+          "Brawlers"
+        ],
+        [
+          "쇠턱단",
+          "Ironjaws"
+        ],
+        [
+          "사슬주먹단",
+          "Chainfists"
+        ],
+        [
+          "폭주단",
+          "Rampagers"
+        ],
+        [
+          "철갑단",
+          "Platebacks"
+        ],
+        [
+          "굴착 거인들",
+          "Pit Giants"
+        ],
+        [
+          "격파단",
+          "Smashers"
+        ],
+        [
+          "강철엄니단",
+          "Steeltusks"
+        ],
+        [
+          "분노의 형제들",
+          "Ragekin"
+        ],
+        [
+          "돌격단",
+          "Chargers"
+        ],
+        [
+          "톱니분쇄단",
+          "Gearcrushers"
+        ],
+        [
+          "용광로 아들들",
+          "Furnace Sons"
+        ]
+      ]
+    },
+    "House Orlock": {
+      "first": [
+        [
+          "녹슨",
+          "Rusted"
+        ],
+        [
+          "강철의",
+          "Iron"
+        ],
+        [
+          "매연의",
+          "Smokebound"
+        ],
+        [
+          "황무지의",
+          "Wasteland"
+        ],
+        [
+          "검은 도로의",
+          "Blackroad"
+        ],
+        [
+          "기름때 낀",
+          "Oilmarked"
+        ],
+        [
+          "그을음 묻은",
+          "Sootstained"
+        ],
+        [
+          "길들지 않은",
+          "Untamed"
+        ],
+        [
+          "비바람 맞은",
+          "Weatherbeaten"
+        ],
+        [
+          "철야하는",
+          "Allnight"
+        ],
+        [
+          "질긴",
+          "Hardwearing"
+        ],
+        [
+          "먼지 뒤집어쓴",
+          "Dustcaked"
+        ],
+        [
+          "증기 뿜는",
+          "Steaming"
+        ],
+        [
+          "자갈 밟는",
+          "Gravelstamping"
+        ],
+        [
+          "등불 밝힌",
+          "Lamplit"
+        ],
+        [
+          "닳고 닳은",
+          "Timeworn"
+        ],
+        [
+          "거센",
+          "Harddriven"
+        ],
+        [
+          "도로를 지키는",
+          "Roadkeeping"
+        ],
+        [
+          "검게 벼린",
+          "Blackforged"
+        ],
+        [
+          "매복하는",
+          "Ambushing"
+        ],
+        [
+          "화물 지키는",
+          "Loadguarding"
+        ],
+        [
+          "못 박힌",
+          "Rivetbound"
+        ],
+        [
+          "외곽을 달리는",
+          "Outriding"
+        ],
+        [
+          "깊이 파는",
+          "Deepdigging"
+        ]
+      ],
+      "last": [
+        [
+          "사슬단",
+          "Chains"
+        ],
+        [
+          "도로왕들",
+          "Road Kings"
+        ],
+        [
+          "운반자들",
+          "Haulers"
+        ],
+        [
+          "방랑자들",
+          "Drifters"
+        ],
+        [
+          "장총단",
+          "Long Guns"
+        ],
+        [
+          "호송단",
+          "Convoy"
+        ],
+        [
+          "철도단",
+          "Rail Crew"
+        ],
+        [
+          "도로지기들",
+          "Roadkeepers"
+        ],
+        [
+          "철쇄단",
+          "Iron Links"
+        ],
+        [
+          "갱도지기들",
+          "Pitkeepers"
+        ],
+        [
+          "연통단",
+          "Smokestacks"
+        ],
+        [
+          "증기기관단",
+          "Steam Crew"
+        ],
+        [
+          "파이프단",
+          "Pipehands"
+        ],
+        [
+          "리벳단",
+          "Riveters"
+        ],
+        [
+          "먼지바퀴단",
+          "Dustwheels"
+        ],
+        [
+          "선로단",
+          "Railhands"
+        ],
+        [
+          "톱니단",
+          "Cogs"
+        ],
+        [
+          "고철왕들",
+          "Scrap Kings"
+        ],
+        [
+          "화물지기들",
+          "Loadkeepers"
+        ],
+        [
+          "검은 차축단",
+          "Black Axles"
+        ],
+        [
+          "강철부츠단",
+          "Steelboots"
+        ],
+        [
+          "채광 형제단",
+          "Mine Brotherhood"
+        ],
+        [
+          "조립공들",
+          "Fitters"
+        ],
+        [
+          "끝길단",
+          "Endroad Crew"
+        ]
+      ]
+    },
+    "House Van Saar": {
+      "first": [
+        [
+          "유령의",
+          "Ghost"
+        ],
+        [
+          "빛나는",
+          "Radiant"
+        ],
+        [
+          "푸른",
+          "Blue"
+        ],
+        [
+          "불안정한",
+          "Volatile"
+        ],
+        [
+          "최후의",
+          "Last"
+        ],
+        [
+          "차폐된",
+          "Shielded"
+        ],
+        [
+          "정렬된",
+          "Aligned"
+        ],
+        [
+          "정밀한",
+          "Precise"
+        ],
+        [
+          "희미하게 빛나는",
+          "Lowglowing"
+        ],
+        [
+          "청록빛",
+          "Teal"
+        ],
+        [
+          "방사능 어린",
+          "Irradiated"
+        ],
+        [
+          "냉각된",
+          "Cooled"
+        ],
+        [
+          "맥동하는",
+          "Pulsing"
+        ],
+        [
+          "고요히 타는",
+          "Quietburning"
+        ],
+        [
+          "분리된",
+          "Isolated"
+        ],
+        [
+          "동조된",
+          "Resonant"
+        ],
+        [
+          "굴절된",
+          "Refracted"
+        ],
+        [
+          "잿푸른",
+          "Ashblue"
+        ],
+        [
+          "유리 같은",
+          "Vitreous"
+        ],
+        [
+          "전류 흐르는",
+          "Livewire"
+        ],
+        [
+          "섬광 어린",
+          "Flashlit"
+        ],
+        [
+          "미세하게 떨리는",
+          "Microshifting"
+        ],
+        [
+          "비밀에 싸인",
+          "Enigmatic"
+        ],
+        [
+          "재점화된",
+          "Reignited"
+        ]
+      ],
+      "last": [
+        [
+          "회로단",
+          "Circuits"
+        ],
+        [
+          "광선단",
+          "Beams"
+        ],
+        [
+          "핵심부",
+          "Core"
+        ],
+        [
+          "기술 결사",
+          "Tech Cabal"
+        ],
+        [
+          "신호단",
+          "Signals"
+        ],
+        [
+          "정렬단",
+          "Arrays"
+        ],
+        [
+          "초점단",
+          "Foci"
+        ],
+        [
+          "전도체단",
+          "Conductors"
+        ],
+        [
+          "격자단",
+          "Lattices"
+        ],
+        [
+          "실험실단",
+          "Lab Cohort"
+        ],
+        [
+          "방열단",
+          "Heatsinks"
+        ],
+        [
+          "굴절단",
+          "Refractors"
+        ],
+        [
+          "계측단",
+          "Calibrators"
+        ],
+        [
+          "섬광단",
+          "Flashes"
+        ],
+        [
+          "반응로단",
+          "Reactors"
+        ],
+        [
+          "데이터 결사",
+          "Data Circle"
+        ],
+        [
+          "축전단",
+          "Capacitors"
+        ],
+        [
+          "핵광단",
+          "Corelights"
+        ],
+        [
+          "동조단",
+          "Resonators"
+        ],
+        [
+          "차폐망단",
+          "Shieldnet"
+        ],
+        [
+          "유리눈단",
+          "Glasseyes"
+        ],
+        [
+          "암호단",
+          "Ciphers"
+        ],
+        [
+          "조준단",
+          "Sightline"
+        ],
+        [
+          "중계단",
+          "Relays"
+        ]
+      ]
+    },
+    "Palanite Enforcers": {
+      "first": [
+        [
+          "강철의",
+          "Iron"
+        ],
+        [
+          "검은",
+          "Black"
+        ],
+        [
+          "최후의",
+          "Final"
+        ],
+        [
+          "완고한",
+          "Unyielding"
+        ],
+        [
+          "심야의",
+          "Midnight"
+        ],
+        [
+          "단호한",
+          "Resolute"
+        ],
+        [
+          "헌신적인",
+          "Devoted"
+        ],
+        [
+          "기율 선",
+          "Disciplined"
+        ],
+        [
+          "무자비한",
+          "Merciless"
+        ],
+        [
+          "무표정한",
+          "Impassive"
+        ],
+        [
+          "질서 세우는",
+          "Orderbound"
+        ],
+        [
+          "청회색",
+          "Slate"
+        ],
+        [
+          "봉쇄하는",
+          "Lockdown"
+        ],
+        [
+          "선서한",
+          "Sworn"
+        ],
+        [
+          "흔들림 없는",
+          "Steady"
+        ],
+        [
+          "경계하는",
+          "Vigilant"
+        ],
+        [
+          "명령 따르는",
+          "Commanded"
+        ],
+        [
+          "단단히 잠근",
+          "Hardlocked"
+        ],
+        [
+          "방패 세운",
+          "Shieldraised"
+        ],
+        [
+          "강경한",
+          "Hardline"
+        ],
+        [
+          "깨지지 않는",
+          "Unbreakable"
+        ],
+        [
+          "차가운",
+          "Cold"
+        ],
+        [
+          "표식 새긴",
+          "Badgemarked"
+        ],
+        [
+          "법을 집행하는",
+          "Lawbound"
+        ]
+      ],
+      "last": [
+        [
+          "감시대",
+          "Watch"
+        ],
+        [
+          "진압대",
+          "Suppressors"
+        ],
+        [
+          "순찰대",
+          "Patrol"
+        ],
+        [
+          "봉쇄대",
+          "Cordon"
+        ],
+        [
+          "심판단",
+          "Judges"
+        ],
+        [
+          "방벽대",
+          "Bulwarks"
+        ],
+        [
+          "집행대",
+          "Executors"
+        ],
+        [
+          "검문대",
+          "Checkpoints"
+        ],
+        [
+          "기동대",
+          "Mobile Guard"
+        ],
+        [
+          "구속대",
+          "Restrainers"
+        ],
+        [
+          "방패대",
+          "Shields"
+        ],
+        [
+          "초계대",
+          "Outwatch"
+        ],
+        [
+          "감찰대",
+          "Inspectors"
+        ],
+        [
+          "법봉단",
+          "Baton Guard"
+        ],
+        [
+          "구역수비대",
+          "Ward Guard"
+        ],
+        [
+          "중재대",
+          "Arbiters"
+        ],
+        [
+          "철문대",
+          "Irongates"
+        ],
+        [
+          "호각대",
+          "Whistles"
+        ],
+        [
+          "선서단",
+          "Oathguard"
+        ],
+        [
+          "통제대",
+          "Controllers"
+        ],
+        [
+          "기록관들",
+          "Recorders"
+        ],
+        [
+          "명령단",
+          "Command Crew"
+        ],
+        [
+          "수갑단",
+          "Manacles"
+        ],
+        [
+          "법령수호대",
+          "Edict Wardens"
+        ]
+      ]
+    },
+    "Venator Gangs": {
+      "first": [
+        [
+          "잿빛",
+          "Ashen"
+        ],
+        [
+          "붉은",
+          "Red"
+        ],
+        [
+          "집요한",
+          "Relentless"
+        ],
+        [
+          "황야의",
+          "Wildland"
+        ],
+        [
+          "한밤의",
+          "Midnight"
+        ],
+        [
+          "거침없는",
+          "Dauntless"
+        ],
+        [
+          "노련한",
+          "Seasoned"
+        ],
+        [
+          "칠흑 같은",
+          "Pitchdark"
+        ],
+        [
+          "잠들지 않는",
+          "Sleepless"
+        ],
+        [
+          "길을 아는",
+          "Waywise"
+        ],
+        [
+          "멀리 보는",
+          "Farsighted"
+        ],
+        [
+          "대담한",
+          "Bold"
+        ],
+        [
+          "목표 쫓는",
+          "Targetbound"
+        ],
+        [
+          "빗나가지 않는",
+          "Unerring"
+        ],
+        [
+          "소리 없이 다가오는",
+          "Quietstalking"
+        ],
+        [
+          "단단히 무장한",
+          "Readyarmed"
+        ],
+        [
+          "표적 새긴",
+          "Markbearing"
+        ],
+        [
+          "가벼운 발의",
+          "Lightfoot"
+        ],
+        [
+          "눈 밝은",
+          "Sharpeyed"
+        ],
+        [
+          "낯선 길의",
+          "Strangeroad"
+        ],
+        [
+          "연기 속",
+          "Smokeveiled"
+        ],
+        [
+          "끈질긴",
+          "Tenacious"
+        ],
+        [
+          "재빠른",
+          "Swift"
+        ],
+        [
+          "황혼 물든",
+          "Twilit"
+        ]
+      ],
+      "last": [
+        [
+          "추적자들",
+          "Trackers"
+        ],
+        [
+          "현상금 사냥단",
+          "Bounty Hunters"
+        ],
+        [
+          "회수자들",
+          "Reclaimers"
+        ],
+        [
+          "사냥개들",
+          "Hounds"
+        ],
+        [
+          "명사수들",
+          "Deadeyes"
+        ],
+        [
+          "추격단",
+          "Pursuit"
+        ],
+        [
+          "표적지기들",
+          "Markkeepers"
+        ],
+        [
+          "동전 사냥단",
+          "Coin Hunters"
+        ],
+        [
+          "의뢰단",
+          "Contract Crew"
+        ],
+        [
+          "포획단",
+          "Captors"
+        ],
+        [
+          "매복단",
+          "Ambushers"
+        ],
+        [
+          "먼눈단",
+          "Far Eyes"
+        ],
+        [
+          "길눈단",
+          "Wayfinders"
+        ],
+        [
+          "현상 수금단",
+          "Bounty Collectors"
+        ],
+        [
+          "회색 매들",
+          "Grey Hawks"
+        ],
+        [
+          "척후단",
+          "Scouts"
+        ],
+        [
+          "갈까마귀단",
+          "Jackdaws"
+        ],
+        [
+          "밧줄단",
+          "Ropers"
+        ],
+        [
+          "길사냥단",
+          "Trail Hunters"
+        ],
+        [
+          "망원경단",
+          "Spyglasses"
+        ],
+        [
+          "잔해 추적단",
+          "Wreck Trackers"
+        ],
+        [
+          "불꽃 추격대",
+          "Flame Pursuit"
+        ],
+        [
+          "유목 사수단",
+          "Roving Shots"
+        ],
+        [
+          "독행자들",
+          "Loners"
+        ]
+      ]
+    },
+    "Corpse Grinder Cults": {
+      "first": [
+        [
+          "핏빛",
+          "Bloodstained"
+        ],
+        [
+          "굶주린",
+          "Ravenous"
+        ],
+        [
+          "진홍의",
+          "Crimson"
+        ],
+        [
+          "광란의",
+          "Frenzied"
+        ],
+        [
+          "뼈를 가르는",
+          "Bonecleaving"
+        ],
+        [
+          "가죽 벗기는",
+          "Flaying"
+        ],
+        [
+          "피에 젖은",
+          "Bloodsoaked"
+        ],
+        [
+          "으르렁대는",
+          "Snarling"
+        ],
+        [
+          "끝없이 먹는",
+          "Everfeeding"
+        ],
+        [
+          "검붉은",
+          "Darkred"
+        ],
+        [
+          "갈증 난",
+          "Thirsting"
+        ],
+        [
+          "톱날 두른",
+          "Sawclad"
+        ],
+        [
+          "살점 탐하는",
+          "Fleshhungering"
+        ],
+        [
+          "굳은 피의",
+          "Gorebound"
+        ],
+        [
+          "뿔 드러낸",
+          "Horned"
+        ],
+        [
+          "절규하는",
+          "Howling"
+        ],
+        [
+          "붉게 물든",
+          "Redstained"
+        ],
+        [
+          "한없이 굶주린",
+          "Everstarved"
+        ],
+        [
+          "덜컹대는",
+          "Clattering"
+        ],
+        [
+          "광기에 찬",
+          "Maddened"
+        ],
+        [
+          "갈고리 건",
+          "Hookhung"
+        ],
+        [
+          "짐승 같은",
+          "Bestial"
+        ],
+        [
+          "철맛 나는",
+          "Irontasting"
+        ],
+        [
+          "턱을 벌린",
+          "Openjawed"
+        ]
+      ],
+      "last": [
+        [
+          "도살단",
+          "Butchers"
+        ],
+        [
+          "식인귀들",
+          "Devourers"
+        ],
+        [
+          "갈고리단",
+          "Hooks"
+        ],
+        [
+          "절단자들",
+          "Cleavers"
+        ],
+        [
+          "육식자들",
+          "Flesh Eaters"
+        ],
+        [
+          "정육단",
+          "Carvers"
+        ],
+        [
+          "골수단",
+          "Marrow"
+        ],
+        [
+          "톱날단",
+          "Sawteeth"
+        ],
+        [
+          "살코기단",
+          "Red Meat"
+        ],
+        [
+          "파쇄단",
+          "Shredders"
+        ],
+        [
+          "포식단",
+          "Feasters"
+        ],
+        [
+          "송곳니 떼",
+          "Fang Pack"
+        ],
+        [
+          "갈비뼈단",
+          "Ribcage"
+        ],
+        [
+          "분육단",
+          "Choppers"
+        ],
+        [
+          "핏자국단",
+          "Bloodmarks"
+        ],
+        [
+          "식도단",
+          "Gullets"
+        ],
+        [
+          "턱뼈단",
+          "Jawbones"
+        ],
+        [
+          "쇠갈퀴단",
+          "Iron Rakes"
+        ],
+        [
+          "칼갈이단",
+          "Knifesharps"
+        ],
+        [
+          "도살장 형제들",
+          "Slaughterkin"
+        ],
+        [
+          "붉은 앞치마단",
+          "Red Aprons"
+        ],
+        [
+          "사냥밥단",
+          "Huntfeast"
+        ],
+        [
+          "절육단",
+          "Slicers"
+        ],
+        [
+          "굶주린 합창단",
+          "Hunger Chorus"
+        ]
+      ]
+    },
+    "Outcasts": {
+      "first": [
+        [
+          "버려진",
+          "Forsaken"
+        ],
+        [
+          "잊힌",
+          "Forgotten"
+        ],
+        [
+          "사슬 끊은",
+          "Unchained"
+        ],
+        [
+          "먼지 속",
+          "Dustbound"
+        ],
+        [
+          "이름 없는",
+          "Nameless"
+        ],
+        [
+          "떠밀려난",
+          "Castaway"
+        ],
+        [
+          "버림받은",
+          "Abandoned"
+        ],
+        [
+          "굽히지 않는",
+          "Unbowed"
+        ],
+        [
+          "집 잃은",
+          "Homeless"
+        ],
+        [
+          "길 잃은",
+          "Lost"
+        ],
+        [
+          "내쫓긴",
+          "Banished"
+        ],
+        [
+          "낡은 망토의",
+          "Oldcloaked"
+        ],
+        [
+          "흙 묻은",
+          "Soilmarked"
+        ],
+        [
+          "잿가루 뒤집어쓴",
+          "Ashdusted"
+        ],
+        [
+          "따라잡히지 않는",
+          "Uncaught"
+        ],
+        [
+          "보금자리 찾는",
+          "Homebound"
+        ],
+        [
+          "머무르지 않는",
+          "Restless"
+        ],
+        [
+          "어둠에 익숙한",
+          "Darkwise"
+        ],
+        [
+          "헐벗은",
+          "Bareclad"
+        ],
+        [
+          "경계 밖",
+          "Outland"
+        ],
+        [
+          "금 간",
+          "Cracked"
+        ],
+        [
+          "먼 길의",
+          "Farroad"
+        ],
+        [
+          "끝까지 남은",
+          "Laststanding"
+        ],
+        [
+          "새벽 기다리는",
+          "Dawnwaiting"
+        ]
+      ],
+      "last": [
+        [
+          "유랑단",
+          "Wanderers"
+        ],
+        [
+          "생존자들",
+          "Survivors"
+        ],
+        [
+          "망명자들",
+          "Exiles"
+        ],
+        [
+          "도망자들",
+          "Runaways"
+        ],
+        [
+          "잔당",
+          "Remnants"
+        ],
+        [
+          "길동무들",
+          "Wayfarers"
+        ],
+        [
+          "회색 무리",
+          "Grey Company"
+        ],
+        [
+          "외곽 주민들",
+          "Fringefolk"
+        ],
+        [
+          "늦은 귀환자들",
+          "Latecomers"
+        ],
+        [
+          "길손단",
+          "Road Guests"
+        ],
+        [
+          "임시 형제단",
+          "Found Kin"
+        ],
+        [
+          "문밖 무리",
+          "Gatefolk"
+        ],
+        [
+          "천막단",
+          "Tent Crew"
+        ],
+        [
+          "헝겊단",
+          "Ragpatch"
+        ],
+        [
+          "땜장이들",
+          "Tinkers"
+        ],
+        [
+          "외딴불단",
+          "Lone Fires"
+        ],
+        [
+          "바닥길단",
+          "Lowroad Crew"
+        ],
+        [
+          "먼지 식구들",
+          "Dustkin"
+        ],
+        [
+          "노숙 행렬",
+          "Roofless Procession"
+        ],
+        [
+          "작은 등불단",
+          "Small Lanterns"
+        ],
+        [
+          "굳센 잔당",
+          "Stalwart Remnants"
+        ],
+        [
+          "폐허 친구들",
+          "Ruinfolk"
+        ],
+        [
+          "변방 손님들",
+          "Fringe Guests"
+        ],
+        [
+          "새집단",
+          "Newhaven"
+        ]
+      ]
+    },
+    "Free Ogryns": {
+      "first": [
+        [
+          "사슬 끊은",
+          "Unchained"
+        ],
+        [
+          "자유로운",
+          "Free"
+        ],
+        [
+          "강철의",
+          "Iron"
+        ],
+        [
+          "불굴의",
+          "Unbroken"
+        ],
+        [
+          "우렁찬",
+          "Roaring"
+        ],
+        [
+          "우직한",
+          "Stalwart"
+        ],
+        [
+          "듬직한",
+          "Sturdy"
+        ],
+        [
+          "커다란",
+          "Huge"
+        ],
+        [
+          "어깨 넓은",
+          "Broadshouldered"
+        ],
+        [
+          "활짝 웃는",
+          "Grinning"
+        ],
+        [
+          "사슬 부수는",
+          "Chainsmashing"
+        ],
+        [
+          "문짝 뜯는",
+          "Gatewrenching"
+        ],
+        [
+          "겁 없는",
+          "Fearless"
+        ],
+        [
+          "친구 지키는",
+          "Kinkeeping"
+        ],
+        [
+          "바위 같은",
+          "Rocksolid"
+        ],
+        [
+          "무거운",
+          "Heavy"
+        ],
+        [
+          "두꺼운 손의",
+          "Thickhanded"
+        ],
+        [
+          "쿵쿵대는",
+          "Thunderfoot"
+        ],
+        [
+          "마음 굳은",
+          "Stronghearted"
+        ],
+        [
+          "쇠기둥 같은",
+          "Ironpillar"
+        ],
+        [
+          "힘 넘치는",
+          "Brawny"
+        ],
+        [
+          "넓게 버티는",
+          "Widestanding"
+        ],
+        [
+          "단단히 뭉친",
+          "Closeknit"
+        ],
+        [
+          "기운찬",
+          "Lively"
+        ]
+      ],
+      "last": [
+        [
+          "주먹들",
+          "Fists"
+        ],
+        [
+          "해방자들",
+          "Liberators"
+        ],
+        [
+          "거인들",
+          "Giants"
+        ],
+        [
+          "철거단",
+          "Wreckers"
+        ],
+        [
+          "망치들",
+          "Hammers"
+        ],
+        [
+          "문따개들",
+          "Gatebreakers"
+        ],
+        [
+          "큰손단",
+          "Big Hands"
+        ],
+        [
+          "바위등단",
+          "Rockbacks"
+        ],
+        [
+          "쇠막대단",
+          "Ironbars"
+        ],
+        [
+          "큰발단",
+          "Big Feet"
+        ],
+        [
+          "친구들",
+          "Good Mates"
+        ],
+        [
+          "벽부수개들",
+          "Wallbreakers"
+        ],
+        [
+          "들보단",
+          "Girders"
+        ],
+        [
+          "반항자들",
+          "Rebels"
+        ],
+        [
+          "힘센 식구들",
+          "Strong Kin"
+        ],
+        [
+          "커다란 형제들",
+          "Big Brothers"
+        ],
+        [
+          "고철친구들",
+          "Scrap Mates"
+        ],
+        [
+          "문지기들",
+          "Doorkeepers"
+        ],
+        [
+          "모루팔단",
+          "Anvilarms"
+        ],
+        [
+          "무거운 발굽단",
+          "Heavy Treads"
+        ],
+        [
+          "볼트단",
+          "Boltheads"
+        ],
+        [
+          "쇠밧줄단",
+          "Iron Ropes"
+        ],
+        [
+          "웃는 거한들",
+          "Grinning Brutes"
+        ],
+        [
+          "자유손단",
+          "Free Hands"
+        ]
+      ]
+    },
+    "Genestealer Cults": {
+      "first": [
+        [
+          "깊은 곳의",
+          "Deep"
+        ],
+        [
+          "떠오르는",
+          "Rising"
+        ],
+        [
+          "별을 기다리는",
+          "Starbound"
+        ],
+        [
+          "숨겨진",
+          "Hidden"
+        ],
+        [
+          "해방의",
+          "Liberating"
+        ],
+        [
+          "땅을 깨우는",
+          "Earthwaking"
+        ],
+        [
+          "땅에 묻힌",
+          "Buried"
+        ],
+        [
+          "순환하는",
+          "Circling"
+        ],
+        [
+          "한뜻 품은",
+          "Singlehearted"
+        ],
+        [
+          "조용히 자라는",
+          "Quietgrowing"
+        ],
+        [
+          "광맥 따른",
+          "Veinbound"
+        ],
+        [
+          "꿈꾸는",
+          "Dreaming"
+        ],
+        [
+          "기다려 온",
+          "Longwaiting"
+        ],
+        [
+          "새벽 부르는",
+          "Dawncalling"
+        ],
+        [
+          "먼빛 좇는",
+          "Farlight"
+        ],
+        [
+          "손 맞잡은",
+          "Joinedhand"
+        ],
+        [
+          "얼굴 가린",
+          "Shroudfaced"
+        ],
+        [
+          "뿌리 깊은",
+          "Deeprooted"
+        ],
+        [
+          "보라빛",
+          "Violet"
+        ],
+        [
+          "침착한",
+          "Patient"
+        ],
+        [
+          "오래 숨은",
+          "Longhidden"
+        ],
+        [
+          "낮게 웅성이는",
+          "Lowmurmuring"
+        ],
+        [
+          "약속 지킨",
+          "Promisekeeping"
+        ],
+        [
+          "별빛 어린",
+          "Starlit"
+        ]
+      ],
+      "last": [
+        [
+          "형제단",
+          "Brotherhood"
+        ],
+        [
+          "광부들",
+          "Miners"
+        ],
+        [
+          "새벽단",
+          "Dawn"
+        ],
+        [
+          "혈족",
+          "Kindred"
+        ],
+        [
+          "예언자들",
+          "Prophets"
+        ],
+        [
+          "뿌리단",
+          "Roots"
+        ],
+        [
+          "집회단",
+          "Assembly"
+        ],
+        [
+          "신호지기들",
+          "Signkeepers"
+        ],
+        [
+          "갱도 형제단",
+          "Tunnel Brethren"
+        ],
+        [
+          "광맥 결사",
+          "Vein Circle"
+        ],
+        [
+          "바닥 신도들",
+          "Lowborn Disciples"
+        ],
+        [
+          "횃불 형제들",
+          "Torch Brethren"
+        ],
+        [
+          "새날단",
+          "Newday"
+        ],
+        [
+          "터널 노동단",
+          "Tunnel Hands"
+        ],
+        [
+          "기다리는 무리",
+          "Waiting Company"
+        ],
+        [
+          "땅울림단",
+          "Earthsong"
+        ],
+        [
+          "길잡이 손들",
+          "Guiding Hands"
+        ],
+        [
+          "잠든 씨앗들",
+          "Sleeping Seeds"
+        ],
+        [
+          "공명단",
+          "Resonance"
+        ],
+        [
+          "혈맥단",
+          "Bloodlines"
+        ],
+        [
+          "광석 운반단",
+          "Ore Bearers"
+        ],
+        [
+          "지하 성회",
+          "Underground Synod"
+        ],
+        [
+          "수확 예언단",
+          "Harvest Seers"
+        ],
+        [
+          "하나된 식구들",
+          "United Kin"
+        ]
+      ]
+    },
+    "Chaos Helots": {
+      "first": [
+        [
+          "저주받은",
+          "Accursed"
+        ],
+        [
+          "뒤틀린",
+          "Twisted"
+        ],
+        [
+          "검은",
+          "Black"
+        ],
+        [
+          "불경한",
+          "Profane"
+        ],
+        [
+          "불타는",
+          "Burning"
+        ],
+        [
+          "몰락한",
+          "Fallen"
+        ],
+        [
+          "부서진",
+          "Broken"
+        ],
+        [
+          "모독하는",
+          "Blasphemous"
+        ],
+        [
+          "악몽 어린",
+          "Nightmare"
+        ],
+        [
+          "고통에 찬",
+          "Tormented"
+        ],
+        [
+          "재로 봉인된",
+          "Ashsealed"
+        ],
+        [
+          "그을려 변한",
+          "Charred"
+        ],
+        [
+          "핏값 치른",
+          "Bloodpaid"
+        ],
+        [
+          "맹세 뒤집은",
+          "Oathbroken"
+        ],
+        [
+          "손상된",
+          "Scarred"
+        ],
+        [
+          "사악한",
+          "Baleful"
+        ],
+        [
+          "깨어진 유리 같은",
+          "Glassbroken"
+        ],
+        [
+          "흉터 새긴",
+          "Scarmarked"
+        ],
+        [
+          "깊이 물든",
+          "Deepstained"
+        ],
+        [
+          "가시관 쓴",
+          "Thorncrowned"
+        ],
+        [
+          "검붉게 타는",
+          "Darkburning"
+        ],
+        [
+          "광신적인",
+          "Fanatical"
+        ],
+        [
+          "경계를 넘은",
+          "Thresholdcrossed"
+        ],
+        [
+          "사슬에 맹세한",
+          "Chainpledged"
+        ]
+      ],
+      "last": [
+        [
+          "계약단",
+          "Covenant"
+        ],
+        [
+          "신도들",
+          "Disciples"
+        ],
+        [
+          "전령들",
+          "Heralds"
+        ],
+        [
+          "성가대",
+          "Choir"
+        ],
+        [
+          "제물단",
+          "Offerings"
+        ],
+        [
+          "계시단",
+          "Revelation"
+        ],
+        [
+          "흉터 성회",
+          "Scar Synod"
+        ],
+        [
+          "무너진 제단단",
+          "Fallen Altars"
+        ],
+        [
+          "가시왕관단",
+          "Thorn Crowns"
+        ],
+        [
+          "심연 합창단",
+          "Abyss Chorus"
+        ],
+        [
+          "불길한 형제들",
+          "Ominous Brethren"
+        ],
+        [
+          "배약자들",
+          "Forswearers"
+        ],
+        [
+          "금 간 성물단",
+          "Cracked Relics"
+        ],
+        [
+          "밤기도단",
+          "Night Prayers"
+        ],
+        [
+          "피의 문지기들",
+          "Blood Wardens"
+        ],
+        [
+          "붉은 예언단",
+          "Red Oracles"
+        ],
+        [
+          "불탄 계약단",
+          "Burnt Pact"
+        ],
+        [
+          "황혼 신도들",
+          "Dusk Faithful"
+        ],
+        [
+          "속박단",
+          "Bindings"
+        ],
+        [
+          "굴레단",
+          "Yokes"
+        ],
+        [
+          "검은 성찬단",
+          "Black Communion"
+        ],
+        [
+          "폐성가단",
+          "Ruin Cantors"
+        ],
+        [
+          "기형 성도들",
+          "Warped Saints"
+        ],
+        [
+          "잿길 전령단",
+          "Ashway Heralds"
+        ]
+      ]
+    },
+    "The Malstrain": {
+      "first": [
+        [
+          "뒤틀린",
+          "Twisted"
+        ],
+        [
+          "역병의",
+          "Blighted"
+        ],
+        [
+          "창백한",
+          "Pale"
+        ],
+        [
+          "오염된",
+          "Tainted"
+        ],
+        [
+          "기형의",
+          "Warped"
+        ],
+        [
+          "점액 어린",
+          "Slimecoated"
+        ],
+        [
+          "빛을 피하는",
+          "Lightshunning"
+        ],
+        [
+          "독기 뿜는",
+          "Fumebreathing"
+        ],
+        [
+          "굽어 자란",
+          "Crookgrown"
+        ],
+        [
+          "뿌리 내린",
+          "Rooted"
+        ],
+        [
+          "비늘 돋은",
+          "Scaled"
+        ],
+        [
+          "축축한",
+          "Damp"
+        ],
+        [
+          "끈적한",
+          "Clinging"
+        ],
+        [
+          "이빨 드러낸",
+          "Toothed"
+        ],
+        [
+          "무질서한",
+          "Disordered"
+        ],
+        [
+          "진창 밟는",
+          "Mirewalking"
+        ],
+        [
+          "포자 뒤덮인",
+          "Sporecloaked"
+        ],
+        [
+          "희미한 빛의",
+          "Faintglow"
+        ],
+        [
+          "불거진",
+          "Swollen"
+        ],
+        [
+          "마디진",
+          "Knotted"
+        ],
+        [
+          "둥지를 넓히는",
+          "Nestspreading"
+        ],
+        [
+          "뒤엉킨",
+          "Entangled"
+        ],
+        [
+          "어둠을 타는",
+          "Darkcreeping"
+        ],
+        [
+          "깊이 번지는",
+          "Deepspreading"
+        ]
+      ],
+      "last": [
+        [
+          "혈족",
+          "Brood"
+        ],
+        [
+          "포자단",
+          "Spores"
+        ],
+        [
+          "발톱들",
+          "Claws"
+        ],
+        [
+          "둥지",
+          "Nest"
+        ],
+        [
+          "굶주림",
+          "Hunger"
+        ],
+        [
+          "균사단",
+          "Mycelium"
+        ],
+        [
+          "진창 혈족",
+          "Mirebrood"
+        ],
+        [
+          "독안개 떼",
+          "Toxic Mists"
+        ],
+        [
+          "뿌리굴단",
+          "Rootburrows"
+        ],
+        [
+          "포낭단",
+          "Spore Sacs"
+        ],
+        [
+          "검은 이빨단",
+          "Black Teeth"
+        ],
+        [
+          "축축한 발톱단",
+          "Damp Talons"
+        ],
+        [
+          "시궁창 둥지",
+          "Sump Nest"
+        ],
+        [
+          "기어다니는 무리",
+          "Crawling Company"
+        ],
+        [
+          "혹등단",
+          "Humpbacks"
+        ],
+        [
+          "뒤틀린 가지단",
+          "Twisted Boughs"
+        ],
+        [
+          "점액 발자국단",
+          "Slime Tracks"
+        ],
+        [
+          "깊은 벌레단",
+          "Deep Worms"
+        ],
+        [
+          "창백한 눈단",
+          "Pale Eyes"
+        ],
+        [
+          "부풀은 집회",
+          "Swollen Assembly"
+        ],
+        [
+          "기형 씨앗단",
+          "Warped Seeds"
+        ],
+        [
+          "병든 줄기단",
+          "Sick Stems"
+        ],
+        [
+          "지하 포식단",
+          "Underfeeders"
+        ],
+        [
+          "엉킨 혈맥단",
+          "Tangled Veins"
+        ]
+      ]
+    },
+    "Spyre Hunters": {
+      "first": [
+        [
+          "황금빛",
+          "Golden"
+        ],
+        [
+          "상층의",
+          "Highspire"
+        ],
+        [
+          "심야의",
+          "Midnight"
+        ],
+        [
+          "오만한",
+          "Proud"
+        ],
+        [
+          "진홍빛",
+          "Crimson"
+        ],
+        [
+          "비단 두른",
+          "Silkclad"
+        ],
+        [
+          "달빛 어린",
+          "Moonlit"
+        ],
+        [
+          "경멸하는",
+          "Disdainful"
+        ],
+        [
+          "거만한",
+          "Haughty"
+        ],
+        [
+          "찬란한",
+          "Resplendent"
+        ],
+        [
+          "은장식 두른",
+          "Silvertrimmed"
+        ],
+        [
+          "위엄 서린",
+          "Regal"
+        ],
+        [
+          "별빛 머금은",
+          "Starbright"
+        ],
+        [
+          "탐욕스러운",
+          "Covetous"
+        ],
+        [
+          "매서운",
+          "Piercing"
+        ],
+        [
+          "명예 좇는",
+          "Honourbound"
+        ],
+        [
+          "우아한",
+          "Elegant"
+        ],
+        [
+          "높이 나는",
+          "Highflying"
+        ],
+        [
+          "승리를 탐하는",
+          "Victoryhungry"
+        ],
+        [
+          "보석 박힌",
+          "Jewelled"
+        ],
+        [
+          "유서 깊은",
+          "Oldblood"
+        ],
+        [
+          "날카롭게 웃는",
+          "Sharpsmiling"
+        ],
+        [
+          "비밀 맹세한",
+          "Secretpledged"
+        ],
+        [
+          "승천하는",
+          "Ascending"
+        ]
+      ],
+      "last": [
+        [
+          "사냥단",
+          "Hunt"
+        ],
+        [
+          "추격자들",
+          "Pursuers"
+        ],
+        [
+          "발톱단",
+          "Talons"
+        ],
+        [
+          "귀공자들",
+          "Scions"
+        ],
+        [
+          "결사단",
+          "Circle"
+        ],
+        [
+          "가면무도단",
+          "Masqueraders"
+        ],
+        [
+          "은발톱단",
+          "Silver Talons"
+        ],
+        [
+          "유리매단",
+          "Glass Hawks"
+        ],
+        [
+          "몰이사냥단",
+          "Chase"
+        ],
+        [
+          "백작단",
+          "Counts"
+        ],
+        [
+          "황금 가면단",
+          "Golden Masks"
+        ],
+        [
+          "단검 결사",
+          "Dagger Circle"
+        ],
+        [
+          "명예 사냥단",
+          "Honour Hunt"
+        ],
+        [
+          "탑의 후예들",
+          "Spire Heirs"
+        ],
+        [
+          "새벽 귀족단",
+          "Dawn Nobles"
+        ],
+        [
+          "사냥 재판단",
+          "Hunt Court"
+        ],
+        [
+          "비단 장갑단",
+          "Silk Gloves"
+        ],
+        [
+          "용장단",
+          "Gallants"
+        ],
+        [
+          "별사냥단",
+          "Starhunters"
+        ],
+        [
+          "사냥 서약단",
+          "Hunt Oath"
+        ],
+        [
+          "핏빛 귀족단",
+          "Blood Nobles"
+        ],
+        [
+          "수정 깃털단",
+          "Crystal Plumes"
+        ],
+        [
+          "은총 결사",
+          "Grace Circle"
+        ],
+        [
+          "상층 추적단",
+          "Spire Trackers"
+        ]
+      ]
+    },
+    "Ironhead Squats": {
+      "first": [
+        [
+          "강철의",
+          "Iron"
+        ],
+        [
+          "깊은 산의",
+          "Deepstone"
+        ],
+        [
+          "청동의",
+          "Bronze"
+        ],
+        [
+          "불굴의",
+          "Unbroken"
+        ],
+        [
+          "용광로의",
+          "Furnace"
+        ],
+        [
+          "돌같이 굳은",
+          "Stonefast"
+        ],
+        [
+          "땅을 울리는",
+          "Earthshaking"
+        ],
+        [
+          "단단히 박힌",
+          "Deepdriven"
+        ],
+        [
+          "검댕 두른",
+          "Sootclad"
+        ],
+        [
+          "회색 돌의",
+          "Greystone"
+        ],
+        [
+          "묵직한",
+          "Weighty"
+        ],
+        [
+          "광석 품은",
+          "Oreladen"
+        ],
+        [
+          "벽을 뚫는",
+          "Wallpiercing"
+        ],
+        [
+          "칠흑에 익숙한",
+          "Blackwise"
+        ],
+        [
+          "정밀하게 벼린",
+          "Trueforged"
+        ],
+        [
+          "장부 지키는",
+          "Ledgerkeeping"
+        ],
+        [
+          "오래 버틴",
+          "Longstanding"
+        ],
+        [
+          "노련하게 파는",
+          "Olddigging"
+        ],
+        [
+          "금속 울리는",
+          "Metalringing"
+        ],
+        [
+          "황동빛",
+          "Brassbright"
+        ],
+        [
+          "먼지 덮인",
+          "Dustcovered"
+        ],
+        [
+          "굴하지 않는",
+          "Unconquered"
+        ],
+        [
+          "깊이 뿌리내린",
+          "Deepanchored"
+        ],
+        [
+          "단단히 묶인",
+          "Ironbound"
+        ]
+      ],
+      "last": [
+        [
+          "채굴단",
+          "Miners"
+        ],
+        [
+          "곡괭이단",
+          "Picks"
+        ],
+        [
+          "광맥단",
+          "Veins"
+        ],
+        [
+          "굴착단",
+          "Drillers"
+        ],
+        [
+          "탐광자들",
+          "Prospectors"
+        ],
+        [
+          "광석지기들",
+          "Orekeepers"
+        ],
+        [
+          "돌주먹단",
+          "Stonefists"
+        ],
+        [
+          "장석단",
+          "Feldspar"
+        ],
+        [
+          "맥석단",
+          "Gangue"
+        ],
+        [
+          "착암단",
+          "Jackhammers"
+        ],
+        [
+          "광산 형제들",
+          "Minekin"
+        ],
+        [
+          "굴지기들",
+          "Burrowkeepers"
+        ],
+        [
+          "심층단",
+          "Deep Delvers"
+        ],
+        [
+          "석탄등단",
+          "Coalbacks"
+        ],
+        [
+          "황동 곡괭이단",
+          "Brass Picks"
+        ],
+        [
+          "지하 장인단",
+          "Underforgers"
+        ],
+        [
+          "광로단",
+          "Oreways"
+        ],
+        [
+          "채석단",
+          "Quarryfolk"
+        ],
+        [
+          "탐사 형제단",
+          "Survey Brethren"
+        ],
+        [
+          "암반단",
+          "Bedrock"
+        ],
+        [
+          "고철 장인들",
+          "Scrapwrights"
+        ],
+        [
+          "철맥단",
+          "Ironveins"
+        ],
+        [
+          "볼트지기들",
+          "Boltkeepers"
+        ],
+        [
+          "불씨 장인단",
+          "Emberwrights"
+        ]
+      ]
+    },
+    "Ash Waste Nomads": {
+      "first": [
+        [
+          "잿바람의",
+          "Ashwind"
+        ],
+        [
+          "모래 속",
+          "Sandbound"
+        ],
+        [
+          "폭풍의",
+          "Storm"
+        ],
+        [
+          "먼지 속",
+          "Dustbound"
+        ],
+        [
+          "떠도는",
+          "Wandering"
+        ],
+        [
+          "메마른",
+          "Parched"
+        ],
+        [
+          "노을 진",
+          "Sunset"
+        ],
+        [
+          "쉴 새 없이 부는",
+          "Everblowing"
+        ],
+        [
+          "햇볕에 바랜",
+          "Sunbleached"
+        ],
+        [
+          "긴 밤의",
+          "Longnight"
+        ],
+        [
+          "연무 속",
+          "Hazebound"
+        ],
+        [
+          "갈라진",
+          "Crackedearth"
+        ],
+        [
+          "천천히 도는",
+          "Slowcircling"
+        ],
+        [
+          "발자국 지우는",
+          "Trackless"
+        ],
+        [
+          "모래에 닳은",
+          "Sandworn"
+        ],
+        [
+          "달을 좇는",
+          "Moonseeking"
+        ],
+        [
+          "먼 길을 걷는",
+          "Farwalking"
+        ],
+        [
+          "가벼운 짐의",
+          "Lightladen"
+        ],
+        [
+          "밤바람 탄",
+          "Nightwind"
+        ],
+        [
+          "흰 먼지 묻은",
+          "Whitedusted"
+        ],
+        [
+          "바위 그늘의",
+          "Rockshade"
+        ],
+        [
+          "숨을 아끼는",
+          "Breathkeeping"
+        ],
+        [
+          "물길 아는",
+          "Waterwise"
+        ],
+        [
+          "푸른 노을의",
+          "Bluehorizon"
+        ]
+      ],
+      "last": [
+        [
+          "유랑단",
+          "Nomads"
+        ],
+        [
+          "습격자들",
+          "Raiders"
+        ],
+        [
+          "추적자들",
+          "Trackers"
+        ],
+        [
+          "유령들",
+          "Ghosts"
+        ],
+        [
+          "길잡이들",
+          "Pathfinders"
+        ],
+        [
+          "모래걸음단",
+          "Sandstriders"
+        ],
+        [
+          "바람지기들",
+          "Windkeepers"
+        ],
+        [
+          "황혼 행렬",
+          "Dusk Procession"
+        ],
+        [
+          "물찾이들",
+          "Waterseekers"
+        ],
+        [
+          "바위귀단",
+          "Rock Ears"
+        ],
+        [
+          "먼길 사냥단",
+          "Fartrail Hunters"
+        ],
+        [
+          "모래날개단",
+          "Sandwings"
+        ],
+        [
+          "햇볕망토단",
+          "Suncloaks"
+        ],
+        [
+          "바람등단",
+          "Windbacks"
+        ],
+        [
+          "은둔 행렬",
+          "Hidden Caravan"
+        ],
+        [
+          "구름 추적단",
+          "Cloud Trackers"
+        ],
+        [
+          "굽은창단",
+          "Crooked Spears"
+        ],
+        [
+          "흙빛 유랑단",
+          "Earthtone Rovers"
+        ],
+        [
+          "오래 걷는 이들",
+          "Longwalkers"
+        ],
+        [
+          "먼지사슴단",
+          "Dust Harts"
+        ],
+        [
+          "석양 길잡이들",
+          "Sunset Guides"
+        ],
+        [
+          "방랑하는 귀들",
+          "Roving Ears"
+        ],
+        [
+          "모래나침반단",
+          "Sandcompasses"
+        ],
+        [
+          "마른뿌리단",
+          "Dryroots"
+        ]
+      ]
+    }
+  }
+}

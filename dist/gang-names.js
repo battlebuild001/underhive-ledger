@@ -25,6 +25,7 @@ const pools={
 const fallback=theme('잿빛/Ashen|붉은/Red|검은/Black|강철의/Iron|황혼의/Dusk','사냥개들/Hounds|방랑자들/Drifters|칼날단/Blades|생존자들/Survivors|까마귀들/Ravens');
 const norm=s=>String(s||'').normalize('NFKC').replace(/\s+/g,' ').trim().toLocaleLowerCase();
 function generate(g={}, {language=window.UKI18n?.language||'ko',exclude=[]}={}){
+ const expanded=window.MMNameVariety?.gang(g,{language,exclude});if(expanded)return expanded;
  const types=globalThis.RULES_DATA?.gangTypes||[];let t=types.find(t=>t.id===g.gangTypeId)||types.find(t=>t.name===g.faction);
  const seen=new Set;while(t?.parent_gang_type_id&&!pools[t.name]&&!seen.has(t.id)){seen.add(t.id);t=types.find(row=>row.id===t.parent_gang_type_id);}
  const pool=pools[t?.name||g.faction]||fallback,index=language==='en'?1:0,used=new Set([...(typeof data!=='undefined'?data.gangs||[]:[]).map(g=>g.name),...exclude].map(norm));
