@@ -57,8 +57,8 @@ globalThis.MMCampaignFieldGuideData = {
   },
   "pack": {
     "title": [
-      "Campaign pack · Writing guide",
-      "캠페인 팩 · 작성 가이드"
+      "Custom pack · Writing guide",
+      "커스텀 팩 · 작성 가이드"
     ],
     "what": [
       "Keep schedules, roster conditions and agreed rulings together.",
