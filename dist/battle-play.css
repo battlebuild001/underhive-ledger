@@ -12,6 +12,10 @@
  html.uk-ui.bp-compact-theme .bp-skirmish-mission-step dt{color:var(--muted)}
  html.uk-ui.bp-compact-theme .bp-skirmish-mission-step dd{margin:0;overflow-wrap:anywhere}
  html.uk-ui.bp-compact-theme .bp-skirmish-mission-step>p{font-size:13px;color:var(--muted);margin:0}
+ html.uk-ui.bp-compact-theme .bp-skirmish-mission-step{scroll-margin-top:calc(var(--bp-top,0px) + var(--bp-bar-height,60px) + 14px)}
+ html.uk-ui.bp-compact-theme .bp-mission-confirm{display:flex;justify-content:flex-end;margin:16px 0 8px}
+ html.uk-ui.bp-compact-theme .bp-mission-confirm>.btn.primary{min-height:44px;min-width:120px;padding:10px 20px;font-size:14px}
+ @media(max-width:760px){html.uk-ui.bp-compact-theme .bp-mission-confirm>.btn.primary{width:100%}}
  @media(max-width:480px){html.uk-ui.bp-compact-theme .sk-roles>.actions{grid-template-columns:minmax(0,1fr)}html.uk-ui.bp-compact-theme .bp-preparation-toolbar>[data-cq-prepare]{max-width:none}}
 }
 @media screen{
