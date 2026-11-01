@@ -68,3 +68,41 @@
 .enroll-status-removed{color:#dca5a5;border-color:rgba(220,165,165,.28)}
 
 @media(max-width:700px){.cp-campaign-header .enroll-campaign-actions{display:grid;grid-template-columns:minmax(0,1fr);margin-top:10px}.cp-campaign-header .enroll-campaign-actions>.btn{width:100%;white-space:normal}}
+
+/* Shareable invitations use one primary action, with a selectable link fallback. */
+html.uk-ui .enroll-invite-dialog .modal{width:min(620px,calc(100vw - 24px))}
+html.uk-ui .enroll-invite-dialog .modal-body{padding:24px;scroll-padding-bottom:24px}
+html.uk-ui .enroll-invite-manager{display:grid;gap:22px;min-width:0}
+html.uk-ui .enroll-invite-intro{display:grid;gap:12px;min-width:0}
+html.uk-ui .enroll-invite-intro h3{margin:0;font-size:1.35rem;line-height:1.4}
+html.uk-ui .enroll-invite-intro p,.enroll-direct-join p{margin:0;line-height:1.8;color:var(--muted,#a9b3b5)}
+html.uk-ui .enroll-invite-url{display:grid;gap:8px;min-width:0;font-weight:600}
+html.uk-ui .enroll-invite-url input{width:100%;min-width:0;min-height:48px;box-sizing:border-box;font:inherit;font-size:14px;background:var(--input,#10171b);color:var(--text,#e9eceb);padding:12px;border:1px solid var(--line,#3b484f);border-radius:8px}
+html.uk-ui .enroll-invite-url input:focus-visible{outline:2px solid var(--uk-copper,#d5a37f);outline-offset:3px}
+html.uk-ui .enroll-invite-capacity{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-block:1px solid var(--line,#354047);font-size:14px;color:var(--muted,#a9b3b5)}
+html.uk-ui .enroll-invite-capacity strong{color:var(--text,#e9eceb);font-variant-numeric:tabular-nums}
+html.uk-ui .enroll-invite-footer,.enroll-action-footer{display:grid;gap:12px;scroll-margin-block:90px}
+html.uk-ui .enroll-invite-footer .actions{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+html.uk-ui .enroll-invite-footer .actions>.btn{flex:1 1 160px}
+html.uk-ui .enroll-invite-manager .enroll-link-options{margin:0;border-top:1px solid var(--line,#354047);padding-top:8px}
+html.uk-ui .enroll-invite-manager .enroll-link-options .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+html.uk-ui .enroll-invite-manager .enroll-link-options .actions>.btn{flex:1 1 150px}
+html.uk-ui .enroll-invite-manager .enroll-link-options summary{list-style:inside;display:list-item;line-height:44px}
+html.uk-ui .enroll-invite-manager .enroll-feedback[hidden]{display:none!important}
+html.uk-ui .enroll-invite-manager .enroll-feedback.error,.enroll-action-footer .enroll-feedback.error{margin:0;padding:13px;border:1px solid var(--danger,#bc776e);border-radius:8px;line-height:1.7;overflow-wrap:anywhere}
+html.uk-ui .enroll-invite-manager .enroll-feedback:focus,.enroll-action-footer .enroll-feedback:focus{outline:2px solid var(--uk-copper,#d5a37f);outline-offset:3px}
+html.uk-ui:is(.light,:not(.light)) .modal .enroll-invite-manager .btn,html.uk-ui .enroll-direct-join .btn{min-height:44px;min-width:44px;white-space:normal;padding:11px 16px;line-height:1.5;box-sizing:border-box}
+html.uk-ui:is(.light,:not(.light)) .modal .enroll-invite-manager .btn.primary,html.uk-ui:is(.light,:not(.light)) .enroll-direct-join .btn.primary{background:#a4513b!important;border-color:#a4513b!important;color:#fff!important}
+html.uk-ui .enroll-direct-join{display:grid;gap:16px;min-width:0}
+html.uk-ui .enroll-direct-join .enroll-status{justify-self:start}
+html.uk-ui .enroll-direct-join h2{margin:0}
+html.uk-ui .enroll-direct-join .actions{margin:0;display:flex;flex-wrap:wrap;gap:10px}
+html.uk-ui .enroll-direct-join .actions>.btn{flex:1 1 180px;text-align:center;justify-content:center}
+html.uk-ui .enroll-public-card[aria-busy=true] .enroll-direct-join{opacity:.8}
+@media(max-width:560px){html.uk-ui .enroll-invite-dialog .modal-body{padding:20px 18px}html.uk-ui .enroll-invite-intro h3{font-size:1.25rem}html.uk-ui .enroll-invite-footer .actions>.btn,html.uk-ui .enroll-direct-join .actions>.btn{flex-basis:100%}html.uk-ui .enroll-invite-url input{font-size:16px}}
+
+html.uk-ui:is(.light,:not(.light)) .enroll-invite-dialog .modal #modal-close{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;padding:0!important;display:inline-flex;align-items:center;justify-content:center;line-height:1;flex:none}
+html.uk-ui:is(.light,:not(.light)) .enroll-invite-dialog .modal .modal-foot #modal-submit{min-width:44px!important;min-height:44px!important;height:auto!important;padding:11px 16px!important;line-height:1.5}
+html.uk-ui.light .enroll-invite-dialog .enroll-status-approved,html.uk-ui.light .enroll-public-shell .enroll-status-approved{color:#285d45;border-color:#789e8b;background:rgba(40,93,69,.055)}
+html.uk-ui.light .enroll-invite-dialog .enroll-feedback:not(.error),html.uk-ui.light .enroll-public-shell .enroll-feedback:not(.error){color:#285d45}
+html.uk-ui.light .enroll-invite-dialog .enroll-feedback.error,html.uk-ui.light .enroll-public-shell .enroll-feedback.error{color:#94362d;border-color:#b06e66}
