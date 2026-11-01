@@ -66,3 +66,23 @@
 .ca-console .ca-module{scroll-margin-top:112px}
 
 .ca-quick-availability{font-size:13px;line-height:1.7;min-width:0}.ca-quick-availability>p{margin:0 0 6px;overflow-wrap:anywhere}.ca-quick-availability>.ca-warning{margin:10px 0 0}
+
+/* The progress assistant is reading material; operational nodes are retained for their own screens. */
+.ca-reference-console.ca-console{border-top-width:1px;background:var(--panel);padding:0}
+.ca-native-controls[data-ca-native-controls][hidden]{display:none!important}
+.ca-reading-guide{min-width:0;margin:0;color:var(--text);border:1px solid var(--line);border-radius:7px;background:var(--panel);overflow:hidden}
+.ca-reference-console>.ca-reading-guide{border:0;border-radius:inherit}
+.ca-reading-guide>summary{display:flex;align-items:center;gap:14px;min-height:72px;padding:20px 22px;cursor:pointer;list-style:none;color:var(--text)}
+.ca-reading-guide>summary::-webkit-details-marker{display:none}
+.ca-reading-guide>summary>span{display:grid;gap:6px;min-width:0;flex:1}
+.ca-reading-guide>summary strong{font-size:16px;font-weight:600;line-height:1.5}
+.ca-reading-guide>summary small{font-size:13px;font-weight:400;line-height:1.65;color:var(--muted)}
+.ca-reading-guide>summary::after{content:"";width:8px;height:8px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:0 3px 5px 12px;color:var(--muted)}
+.ca-reading-guide[open]>summary::after{transform:rotate(225deg);margin-top:6px;margin-bottom:0}
+.ca-reading-guide>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+.ca-reading-body{display:grid;gap:22px;padding:22px;border-top:1px solid var(--line);max-width:85ch}
+.ca-reading-body>section{display:grid;gap:8px;min-width:0}
+.ca-reading-body h3{margin:0;color:var(--text);font-size:15px;font-weight:600;line-height:1.5}
+.ca-reading-body p{margin:0;color:var(--muted);font-size:14px;font-weight:400;line-height:1.85;overflow-wrap:anywhere}
+.ca-reading-body>.ca-reading-intro{color:var(--text)}
+@media(max-width:600px){.ca-reading-guide>summary{padding:18px;gap:10px}.ca-reading-body{padding:18px;gap:20px}}

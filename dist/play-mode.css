@@ -58,3 +58,31 @@ html.uk-ui :is(.pm-page,.bp-workspace) .pm-profile-table tbody th{background:tra
  :is(.pm-page,.bp-workspace) .pm-units{display:block}
 }
 @media print{.pm-unit-nav{display:none!important}}
+
+/* Campaign-only controls edit the shared match draft, never the saved roster. */
+html.uk-ui .pm-page .pm-battle-banner{display:grid;gap:14px;margin:0 0 20px;padding:20px;border:1px solid var(--pm-border);border-radius:7px;background:var(--panel2,var(--pm-background));min-width:0}
+html.uk-ui .pm-page .pm-battle-kicker{color:var(--pm-muted);font-size:10px;font-weight:650;letter-spacing:.12em}
+html.uk-ui .pm-page .pm-battle-banner h2{margin:6px 0 8px;font-size:20px;font-weight:650;line-height:1.4}
+html.uk-ui .pm-page .pm-battle-banner p{margin:0;font-size:14px;color:var(--pm-muted);line-height:1.75}
+html.uk-ui .pm-page .pm-battle-sync{padding-top:12px;border-top:1px solid var(--pm-border);font-size:13px!important;color:var(--text)!important}
+html.uk-ui .pm-page .pm-battle-tools,html.uk-ui .pm-page .pm-battle-unit-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
+html.uk-ui .pm-page .pm-battle-error{display:grid;gap:12px;padding:14px;border:1px solid var(--red,#a96b5b);border-radius:5px;background:var(--pm-background)}
+html.uk-ui .pm-page .pm-battle-error>button{justify-self:start}
+html.uk-ui .pm-page .pm-battle-unit{display:grid;gap:12px;margin:16px 0;padding:16px;border:1px solid var(--pm-border);border-radius:6px;background:var(--panel2,var(--pm-background));min-width:0}
+html.uk-ui .pm-page .pm-battle-unit-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+html.uk-ui .pm-page .pm-battle-unit-heading h3{margin:0;font-size:15px;font-weight:600;line-height:1.5}
+html.uk-ui .pm-page .pm-battle-unit-heading>span{flex:none;font-size:18px;font-weight:650;font-variant-numeric:tabular-nums}
+html.uk-ui .pm-page .pm-battle-unit>p{margin:0;color:var(--pm-muted);font-size:12px;line-height:1.75}
+html.uk-ui .pm-page .pm-battle-combat{display:grid;gap:8px;font-size:13px;color:var(--pm-muted);min-width:0}
+html.uk-ui .pm-page .pm-battle-combat select{width:100%;min-height:44px;max-width:100%;padding:9px 12px;border:1px solid var(--pm-border);border-radius:5px;background:var(--pm-background);color:var(--text);font:inherit}
+html.uk-ui .pm-page :is(.pm-battle-tools,.pm-battle-unit-actions,.pm-battle-error) .btn{min-width:44px;min-height:44px;max-width:100%;padding:10px 14px;white-space:normal;font:inherit;font-size:13px;line-height:1.6}
+html.uk-ui .pm-page .pm-battle-injury-list{display:grid;gap:5px;margin:0;padding-left:20px;font-size:13px;line-height:1.7}
+html.uk-ui .pm-battle-modal-note{margin:0;padding:12px 14px;border-left:3px solid var(--accent,#ad7458);background:var(--panel2);font-size:13px;line-height:1.75;color:var(--muted)}
+@media(max-width:600px){html.uk-ui .pm-page .pm-battle-banner{padding:16px}html.uk-ui .pm-page .pm-battle-banner h2{font-size:18px}html.uk-ui .pm-page .pm-battle-unit{padding:14px}html.uk-ui .pm-page .pm-battle-combat select{font-size:16px}}
+html.uk-ui .pm-page .pm-toolbar button{min-width:44px;min-height:44px;max-width:100%;white-space:normal;line-height:1.6}
+html.uk-ui .pm-page .pm-battle-recovery{border-top:1px solid var(--pm-border);padding-top:10px;min-width:0}
+html.uk-ui .pm-page .pm-battle-recovery>summary{min-height:44px;display:list-item;padding:10px 0;font-size:13px;line-height:1.7;color:var(--pm-muted);cursor:pointer}
+html.uk-ui .pm-page .pm-battle-recovery>p{margin:0 0 12px;font-size:13px;line-height:1.8}
+html.uk-ui .pm-page .pm-battle-recovery>.btn{min-width:44px;min-height:44px;padding:10px 14px;max-width:100%;white-space:normal;line-height:1.6}
+/* The command theme's later .btn rule has a 42px minimum. Keep match controls touch sized. */
+html.uk-ui.command-ui .pm-page.pm-page :is(.pm-toolbar,.pm-battle-banner,.pm-battle-unit) :is(button,select){min-width:44px;min-height:44px}
