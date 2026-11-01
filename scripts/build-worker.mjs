@@ -18,11 +18,16 @@ if(!api.includes(authImport))throw new Error('Account API must import the passwo
 api=api.replace(authImport,()=>`const {handleLocalAuth,resolveRequestIdentity,shouldUseSitesIdentity}=(()=>{\n${auth.replace(/^export\s+/gm,'')}\nreturn {handleLocalAuth,resolveRequestIdentity,shouldUseSitesIdentity};\n})();`);
 const automationNames="handleCampaignAutomation,requireOwnCampaignPersonal,campaignOwnedIds",automationImport=`import {${automationNames}} from './campaign-automation.js';`;
 if(!api.includes(automationImport))throw new Error('Account API must import campaign automation.');
-const automation=await readFile(resolve(root,'worker/campaign-automation.js'),'utf8');
+const cycleGate=await readFile(resolve(root,'worker/campaign-cycle-gate.js'),'utf8');
+const cycleGateNames=[...cycleGate.matchAll(/^export\s+(?:async\s+)?(?:function|const)\s+(\w+)/gm)].map(match=>match[1]);
+if(!cycleGateNames.length)throw new Error('Cycle gate must expose its shared helpers.');
+api=`const __mmCycleGate=(()=>{\n${cycleGate.replace(/^export\s+/gm,'')}\nreturn {${cycleGateNames.join(',')}};\n})();\n`+api;
+const embedCycleGate=source=>source.replace(/^import \{([^}]+)\} from '\.\/campaign-cycle-gate\.js';\r?\n?/gm,(_,names)=>`const {${names}}=__mmCycleGate;\n`);
+const automation=embedCycleGate(await readFile(resolve(root,'worker/campaign-automation.js'),'utf8'));
 api=api.replace(automationImport,()=>`const {${automationNames}}=(()=>{\n${automation.replace(/^export\s+/gm,'')}\nreturn {${automationNames}};\n})();`);
 const lobbyNames='handleCampaignLobby,requireLobbyReports',lobbyImport="import {"+lobbyNames+"} from './campaign-lobby.js';";
 if(!api.includes(lobbyImport))throw new Error('Account API must import campaign lobby.');
-const lobby=await readFile(resolve(root,'worker/campaign-lobby.js'),'utf8');
+const lobby=embedCycleGate(await readFile(resolve(root,'worker/campaign-lobby.js'),'utf8'));
 api=api.replace(lobbyImport,()=>`const {${lobbyNames}}=(()=>{\n${lobby.replace(/^export\s+/gm,'')}\nreturn {${lobbyNames}};\n})();`);
 api=api.replace('export async function handleApi','async function handleApi');
 let worker=await readFile(resolve(root,'worker/index.js'),'utf8');

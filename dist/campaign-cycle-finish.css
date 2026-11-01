@@ -1,4 +1,9 @@
 /* Cycle close: current unit status first, optional income choices second. */
+html.uk-ui .ca-cycle-gate{margin:10px 0 0;padding:10px 12px;border-left:2px solid var(--app-accent,var(--accent));background:var(--app-panel2,var(--panel2));font-size:13px;line-height:1.65;color:var(--app-muted,var(--muted))}
+html.uk-ui .ca-cycle-gate>p{margin:0}
+html.uk-ui .ca-cycle-gate>.btn{margin-top:8px;min-height:44px;font-size:12px}
+html.uk-ui .ref-cycle-battle-close{margin:14px 0;padding-bottom:14px;border-bottom:1px solid var(--app-line,var(--line))}
+html.uk-ui .ref-cycle-battle-close>p{margin:0 0 10px;font-size:13px;line-height:1.7;color:var(--app-muted,var(--muted))}
 html.uk-ui #campaign-cycle-finish-modal{width:min(720px,calc(100vw - 24px));max-width:720px;max-height:calc(100dvh - 24px);display:flex;flex-direction:column;overflow:hidden;background:var(--app-panel,var(--panel));border:1px solid var(--app-line,var(--line));border-radius:12px}
 html.uk-ui #campaign-cycle-finish-modal .modal-head{padding:14px 18px!important;flex:none}
 html.uk-ui #campaign-cycle-finish-modal .modal-head h2{font-size:21px!important;font-weight:750;letter-spacing:-.025em}

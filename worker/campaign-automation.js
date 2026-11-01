@@ -1,3 +1,4 @@
+import {cycleNumber,supportedCycleCampaign,battlePhaseRecord,requireNoPendingCycle,verifiedCycleClosed,changedPostCycles,closureMap,withoutNewClosure,activeCycleRoomSQL,pendingCycleRecords} from './campaign-cycle-gate.js';
 /* Atomic operational changes. Source ownership comes from server enrollment records. */
 const CAMPAIGN_FIELDS=new Set(['name','description','campaignType','campaignTypeId','tradingPosts','allegiances','allowJoinRequests','currentCycle','campaignSchedule','phase','territories','sessions','battles','resources','triumphs','activity','members','automation','automationEconomy']);
 const GANG_FIELDS=new Set(['credits','reputation','tradePoints','meat','exploration','stash','tactics','fighters','vehicles','logs','campaignTacticsAwards','campaignDowntimeAllowances','postCycleActions','campaignCaptives','campaignVisits','tradingPostVisit','tradingPostTransactions']);
@@ -178,13 +179,13 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  const hide=withoutPrivate,receiptResponse=async(row,replayed=false)=>{const fresh=await db.prepare('SELECT revision,state FROM documents WHERE user_id=?').bind(actor).first();const latest=await db.prepare('SELECT revision FROM shared_campaigns WHERE id=?').bind(campaignId).first();return response({receipt:publicReceipt(row,hide),replayed,document:{state:JSON.parse(fresh.state),revision:fresh.revision},campaignRevision:latest?.revision??null});};
  if(request.method==='GET'&&!match[2]){const rows=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? ORDER BY created_at DESC,id DESC LIMIT 200').bind(campaignId).all();return response({receipts:rows.results.map(row=>publicReceipt(row,hide)),role,campaignRevision:shared?.revision??null});}
  check(request.method==='POST','지원하지 않는 운영 요청입니다.',405);
- const body=await json(request),consent=match[2]==='consent',reverse=!!match[3];
+ const body=await json(request),consent=match[2]==='consent',reverse=!!match[3],closeIntent=!consent&&!reverse&&body.intent?.kind==='cycle-battles-close',cycleGuards=new Set();
  const owned=campaignOwnedIds(canonicalCampaign,actor,owner,actorDoc.state.gangs,enrollmentHistory,snapshot?.gangs||[],local);
  check(consent||['owner','arbitrator','editor'].includes(role)||owned.size>0,'캠페인 운영 권한이 없습니다.',403);
  check(!match[2]||consent||reverse,'지원하지 않는 운영 주소입니다.',404);
  let original=null,key,label,payloadHash;
  if(reverse){original=await db.prepare('SELECT * FROM campaign_automation_operations WHERE id=? AND campaign_id=?').bind(match[2],campaignId).first();check(original,'운영 기록을 찾을 수 없습니다.',404);check(!original.operation_key.startsWith('roster-registration:'),'캠페인 갱 등록은 정산 취소로 되돌릴 수 없습니다.',403);if(original.reversed_at)return receiptResponse(original,true);key='reverse:'+original.id;label='Undo '+original.label;}
- else{check(typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160&&typeof body.label==='string'&&body.label.length>0&&body.label.length<=250||consent&&typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160,'저장할 작업 정보를 확인할 수 없습니다. 작업을 다시 시작하세요.');key=body.operationKey;check(!key.startsWith('roster-registration:'),'캠페인 갱 등록 요청은 로비에서 처리하세요.',403);label=consent?'Captive source-owner consent':body.label;const payload=consent?{holderId:body.holderId,recordId:body.recordId,decision:body.decision,offerId:body.offerId??null}:{label,before:body.before,after:body.after};validateJSON(payload,check);payloadHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(payload)))),x=>x.toString(16).padStart(2,'0')).join('');const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'파이터를 소유한 플레이어만 응답 내용을 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'이미 보낸 요청과 내용이 다릅니다. 최신 상태를 불러온 뒤 다시 시도하세요.',409);return receiptResponse(existing,true);}}
+ else{check(typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160&&typeof body.label==='string'&&body.label.length>0&&body.label.length<=250||consent&&typeof body.operationKey==='string'&&body.operationKey.length>0&&body.operationKey.length<=160,'저장할 작업 정보를 확인할 수 없습니다. 작업을 다시 시작하세요.');key=body.operationKey;check(!key.startsWith('roster-registration:'),'캠페인 갱 등록 요청은 로비에서 처리하세요.',403);label=consent?'Captive source-owner consent':body.label;const payload=consent?{holderId:body.holderId,recordId:body.recordId,decision:body.decision,offerId:body.offerId??null}:{label,before:body.before,after:body.after,...(closeIntent?{intent:body.intent}:{})};validateJSON(payload,check);payloadHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(payload)))),x=>x.toString(16).padStart(2,'0')).join('');const existing=await db.prepare('SELECT * FROM campaign_automation_operations WHERE campaign_id=? AND operation_key=?').bind(campaignId,key).first();if(existing){check(!consent||existing.actor_id===actor,'파이터를 소유한 플레이어만 응답 내용을 확인할 수 있습니다.',403);check(existing.payload_hash===payloadHash,'이미 보낸 요청과 내용이 다릅니다. 최신 상태를 불러온 뒤 다시 시도하세요.',409);return receiptResponse(existing,true);}}
  check(Number.isSafeInteger(body.documentRevision)&&body.documentRevision===actorDoc.revision,'개인 기록이 변경되었습니다. 동기화 후 다시 시도하세요.',409);
  if(shared&&body.expectedCampaignRevision!==undefined)check(body.expectedCampaignRevision===shared.revision,'캠페인 기록이 변경되었습니다. 새로고침 후 다시 시도하세요.',409);
  const changes=[];
@@ -287,11 +288,41 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   for(const [gangId,before]of beforeGangs){const after=afterGangs.get(gangId);if(!diff(before,after).length)continue;const mapping=await resolve(gangId);check(mapping.ownerId===actor,'본인이 소유한 갱만 변경할 수 있습니다.',403);const baseline=addedArrayBaseline(before,after,mapping.gang);for(const patch of diff(baseline,after))apply(mapping.gang,patch,'gang',mapping);}
  }
 
+ if(closeIntent)check(supportedCycleCampaign(initialCampaign),'이 캠페인은 확인된 사이클 전투 마감 방식을 사용하지 않습니다.',409);
  const autoTransition=!consent&&!reverse?automaticCycleTransition(initialCampaign,canonicalCampaign,key,check):null;
+ if(!consent&&!reverse&&supportedCycleCampaign(initialCampaign)){
+  const changedClosure=!same(closureMap(initialCampaign),closureMap(canonicalCampaign));
+  check(!changedClosure||closeIntent,'사이클 전투 마감은 아비트레이터의 전투 마감 작업으로 처리하세요.',403);
+  if(closeIntent){
+   const n=body.intent.cycle;check(Object.keys(body.intent).every(name=>['kind','cycle'].includes(name))&&Number.isSafeInteger(n)&&key.startsWith('cycle-battles-close:'+n+':')&&n===cycleNumber(initialCampaign)&&cycleNumber(canonicalCampaign)===n,'현재 사이클의 전투만 마감할 수 있습니다.',409);
+   check(['owner','arbitrator'].includes(role),'아비트레이터만 사이클 전투를 마감할 수 있습니다.',403);
+   check(initialCampaign.phase!=='Closed'&&!initialCampaign.campaignSchedule?.completed,'이미 종료된 캠페인입니다.',409);
+   check(!await verifiedCycleClosed(db,campaignId,initialCampaign,n),'이번 사이클의 전투는 이미 마감되었습니다. 새로고침하세요.',409);
+   check(same(withoutNewClosure(body.before.campaign,n),withoutNewClosure(body.after.campaign,n))&&same(body.before.gangs,body.after.gangs),'전투 마감과 다른 변경은 따로 처리하세요.',400);
+   const proposed=battlePhaseRecord(canonicalCampaign,n);check(proposed&&typeof proposed.battlePhaseClosedAt==='string'&&Number.isFinite(Date.parse(proposed.battlePhaseClosedAt))&&proposed.battlePhaseClosedBy===actor,'전투 마감 기록이 올바르지 않습니다.',400);
+   await requireNoPendingCycle(db,campaignId,initialCampaign,n,check);cycleGuards.add(n);
+   const next=copy(canonicalCampaign);next.automation??={};next.automation.cycleRecords??={};next.automation.cycleRecords[String(n)]={...(next.automation.cycleRecords[String(n)]||{}),battlePhaseClosedAt:stamp(),battlePhaseClosedBy:actor,battlePhaseCloseOperationKey:key};
+   for(const patch of diff(canonicalCampaign,next)){apply(canonicalCampaign,patch,'campaign',null,true);campaignChanged=true;}
+  }
+  const closedCurrent=cycleNumber(initialCampaign);
+  if(battlePhaseRecord(initialCampaign,closedCurrent)?.battlePhaseClosedAt){
+   const previousSessions=new Set((initialCampaign.sessions||[]).map(row=>row.id)),previousChallenges=new Set((initialCampaign.automation?.challenges||[]).map(row=>row.id)),pending=pendingCycleRecords(canonicalCampaign,closedCurrent);
+   check(!(canonicalCampaign.sessions||[]).some(row=>Number(row.cycle||closedCurrent)===closedCurrent&&!previousSessions.has(row.id))&&!(canonicalCampaign.automation?.challenges||[]).some(row=>Number(row.cycle||closedCurrent)===closedCurrent&&!previousChallenges.has(row.id))&&!pending.sessions.length&&!pending.battles.length&&!pending.challenges.length,'전투를 마감한 사이클에는 새 도전·전투를 만들거나 결과를 다시 진행 상태로 바꿀 수 없습니다.',409);
+  }
+  for(const n of changedPostCycles(initialCampaign,canonicalCampaign)){
+   check(await verifiedCycleClosed(db,campaignId,initialCampaign,n),'사이클 전투가 아직 마감되지 않았습니다. 아비트레이터가 전투·결과 확인을 마친 뒤 전투를 마감해야 합니다.',409);
+   await requireNoPendingCycle(db,campaignId,initialCampaign,n,check);cycleGuards.add(n);
+  }
+ }
+ if(reverse&&/^cycle-battles-close:/.test(original.operation_key)){
+  check(['owner','arbitrator'].includes(role),'아비트레이터만 사이클 전투 마감을 되돌릴 수 있습니다.',403);const n=Number(original.operation_key.split(':')[1]);check(n===cycleNumber(initialCampaign),'다음 사이클로 진행한 전투 마감은 되돌릴 수 없습니다.',409);
+  check(!['incomeReceipts','postCycleActions','rosterFinalized','medicalEscorts','baseCampRecovery'].some(name=>(initialCampaign.automationEconomy?.[name]||[]).some(row=>Number(row.cycle)===n)),'수입·치료·사이클 행동이 처리된 뒤에는 전투 마감을 되돌릴 수 없습니다.',409);
+ }
  if(autoTransition){
   check(['owner','arbitrator'].includes(role),'아비트레이터만 사이클을 마감할 수 있습니다.',403);
   const beforeCycle=autoTransition.before.cycle,nextCycle=autoTransition.after.cycle,autoCampaign=copy(canonicalCampaign),at=stamp();autoCampaign.automationEconomy??={};
   const ledger=(name)=>(autoCampaign.automationEconomy[name]??=[]),belongs=(row,id)=>row.gangKey?row.gangKey===id:row.gangId===id;
+  autoCampaign.automation??={};autoCampaign.automation.cycleRecords??={};if(!await verifiedCycleClosed(db,campaignId,initialCampaign,beforeCycle))autoCampaign.automation.cycleRecords[String(beforeCycle)]={...(autoCampaign.automation.cycleRecords[String(beforeCycle)]||{}),battlePhaseClosedAt:at,battlePhaseClosedBy:actor,battlePhaseCloseOperationKey:key};
   for(const member of canonicalCampaign.members||[]){
    const mapping=await resolve(member.gangId),g=copy(mapping.gang),income=ledger('incomeReceipts');
    if(!income.some(row=>belongs(row,mapping.gangId)&&row.cycle===beforeCycle)){
@@ -332,6 +363,16 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  if(campaignChanged&&!shared)actorDoc.changed=true;
  for(const mapping of sourceMappings.values())if(changes.some(c=>c.target==='gang'&&c.gangId===mapping.gangId))mapping.doc.changed=true;
 
+ // Phase-only mirroring keeps an arbitrator close visible in the owner's
+ // original campaign without replacing private fields or claiming a full sync.
+ if(shared&&(closeIntent||reverse&&/^cycle-battles-close:/.test(original.operation_key))){
+  const n=closeIntent?body.intent.cycle:Number(original.operation_key.split(':')[1]),record=battlePhaseRecord(canonicalCampaign,n)||{},mirrorDocs=new Set([actorDoc]);if(owner!==actor)mirrorDocs.add(await document(owner));
+  for(const doc of mirrorDocs){if(doc.user===owner&&actor===owner)continue;for(const personal of doc.state.campaigns||[]){
+   const matches=doc.user===owner?(personal.id===campaignId||personal.remoteCampaignId===campaignId)&&!personal.remoteReadOnly&&(!personal.remoteOwnerId||personal.remoteOwnerId===owner):personal.remoteCampaignId===campaignId&&personal.remoteOwnerId===owner;if(!matches)continue;
+   const prior=stable(personal);personal.automation??={};personal.automation.cycleRecords??={};const row={...(personal.automation.cycleRecords[String(n)]||{})};for(const field of ['battlePhaseClosedAt','battlePhaseClosedBy','battlePhaseCloseOperationKey']){if(own(record,field))row[field]=copy(record[field]);else delete row[field];}
+   if(Object.keys(row).length)personal.automation.cycleRecords[String(n)]=row;else delete personal.automation.cycleRecords[String(n)];if(!Object.keys(personal.automation.cycleRecords).length)delete personal.automation.cycleRecords;if(emptyAutomation(personal.automation))delete personal.automation;if(personal.remoteRevision!==undefined)personal.remoteRevision=Math.min(Number.isSafeInteger(personal.remoteRevision)?personal.remoteRevision:0,shared.revision);if(stable(personal)!==prior)doc.changed=true;
+  }}
+ }
  // Finance can change a participant document without replacing its imported
  // campaign. Keep only common progression metadata and the touched own receipts
  // consistent; never advance its full-snapshot revision from a partial mirror.
@@ -385,6 +426,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
  if(shared){guards.push('EXISTS(SELECT 1 FROM shared_campaigns WHERE id=? AND owner_id=? AND revision=?)');args.push(campaignId,owner,shared.revision);if(actor!==owner){guards.push("EXISTS(SELECT 1 FROM campaign_access WHERE campaign_id=? AND user_id=? AND status='accepted' AND role=?)");args.push(campaignId,actor,role);}}
  else{guards.push('NOT EXISTS(SELECT 1 FROM shared_campaigns WHERE id=?)');args.push(campaignId);}
  for(const enrolled of usedEnrollments.values()){guards.push("EXISTS(SELECT 1 FROM campaign_join_requests WHERE id=? AND campaign_id=? AND user_id=? AND gang_id=? AND status='approved') AND EXISTS(SELECT 1 FROM campaign_access WHERE campaign_id=? AND user_id=? AND status='accepted')");args.push(enrolled.id,campaignId,enrolled.user_id,enrolled.gang_id,campaignId,enrolled.user_id);}
+ for(const n of cycleGuards){guards.push(activeCycleRoomSQL);args.push(campaignId,n);}
  if(reverse){guards.push('EXISTS(SELECT 1 FROM campaign_automation_operations WHERE id=? AND reversed_at IS NULL)');args.push(original.id);}
  const commands=[db.prepare('INSERT INTO campaign_automation_assertions(token,valid) VALUES(?,CASE WHEN '+guards.join(' AND ')+' THEN 1 ELSE 0 END)').bind(token,...args)];
  for(const doc of updatedDocs)commands.push(db.prepare('UPDATE documents SET state=?,revision=revision+1,updated_at=? WHERE user_id=? AND revision=?').bind(validateState(doc.state),at,doc.user,doc.revision));
