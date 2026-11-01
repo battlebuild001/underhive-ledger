@@ -32,6 +32,23 @@ function diff(before,after,path=[],out=[]){
  }else out.push({path,before,after});
  return out;
 }
+// A client may display an omitted optional list as []. For its first real entry,
+// journal creation of that list instead of addressing a child of a missing parent.
+// Existing lists, unchanged defaults and missing entities retain their normal guards.
+function addedArrayBaseline(before,after,current){
+ if(!object(before)||!object(after)||!object(current))return before;
+ const baseline=copy(before);
+ for(const key of Object.keys(before)){
+  const previous=before[key],next=after[key],actual=current[key];
+  if(Array.isArray(previous)&&previous.length===0&&Array.isArray(next)&&next.length>0&&actual===undefined)delete baseline[key];
+  else if(object(previous)&&object(next)&&object(actual))baseline[key]=addedArrayBaseline(previous,next,actual);
+  else if(keyed(previous)&&keyed(next)&&keyed(actual)){
+   const nextRows=new Map(next.map(row=>[row.id,row])),actualRows=new Map(actual.map(row=>[row.id,row]));
+   baseline[key]=previous.map(row=>nextRows.has(row.id)&&actualRows.has(row.id)?addedArrayBaseline(row,nextRows.get(row.id),actualRows.get(row.id)):row);
+  }
+ }
+ return baseline;
+}
 function locate(root,path,check){
  let node=root;
  for(let i=0;i<path.length-1;i++){
@@ -155,6 +172,17 @@ export async function handleCampaignAutomation(request,db,actor,deps){
     const index=snapshot.gangs.findIndex(g=>g.id===gang.id);if(index<0)snapshot.gangs.push(shareable(gang));else snapshot.gangs[index]=shareable(gang);
    }
   }
+  // Native report saving may reach the owner's personal document before the
+  // shared snapshot. Recover only an unchanged, server-owned report baseline;
+  // the result changes remain journalled, while this prior report survives undo.
+  if(shared&&actor===owner&&local&&Array.isArray(local.battles)&&Array.isArray(body.before.campaign.battles)&&Array.isArray(body.after.campaign.battles)&&(canonicalCampaign.battles===undefined||Array.isArray(canonicalCampaign.battles))&&String(local.edition).toUpperCase()===String(canonicalCampaign.edition).toUpperCase()){
+   for(const report of local.battles){
+    if(!object(report)||typeof report.id!=='string'||!report.id||report.id.length>160||(canonicalCampaign.battles||[]).some(b=>b?.id===report.id))continue;
+    const personal=local.battles.filter(b=>b?.id===report.id),before=body.before.campaign.battles.filter(b=>b?.id===report.id),after=body.after.campaign.battles.filter(b=>b?.id===report.id);
+    if(personal.length!==1||before.length!==1||after.length!==1||!same(report,before[0])||same(before[0],after[0]))continue;
+    refs(report);canonicalCampaign.battles??=[];canonicalCampaign.battles.push(hide(copy(report)));campaignChanged=true;
+   }
+  }
   const beforeGangs=new Map(body.before.gangs.map(g=>[g.id,g])),afterGangs=new Map(body.after.gangs.map(g=>[g.id,g]));check(beforeGangs.size===body.before.gangs.length&&afterGangs.size===body.after.gangs.length&&beforeGangs.size===afterGangs.size&&[...beforeGangs.keys()].every(id=>afterGangs.has(id)),'이 작업에서는 갱의 ID를 바꾸거나 갱을 삭제할 수 없습니다.');
   for(const patch of diff(body.before.campaign,body.after.campaign)){
    if(patch.path[0]==='members'&&patch.path.length===2&&patch.before===undefined&&object(patch.after)){
@@ -164,7 +192,7 @@ export async function handleCampaignAutomation(request,db,actor,deps){
    }
    apply(canonicalCampaign,patch,'campaign');campaignChanged=true;
   }
-  for(const [gangId,before]of beforeGangs){const patches=diff(before,afterGangs.get(gangId));if(!patches.length)continue;const mapping=await resolve(gangId);for(const patch of patches)apply(mapping.gang,patch,'gang',mapping);}
+  for(const [gangId,before]of beforeGangs){const after=afterGangs.get(gangId);if(!diff(before,after).length)continue;const mapping=await resolve(gangId),baseline=addedArrayBaseline(before,after,mapping.gang);for(const patch of diff(baseline,after))apply(mapping.gang,patch,'gang',mapping);}
  }
  check(changes.length>0&&changes.length<=10000,'적용할 운영 변경이 없거나 너무 많습니다.');
  // All referenced gangs must still be campaign members. Ownership remains immutable.
