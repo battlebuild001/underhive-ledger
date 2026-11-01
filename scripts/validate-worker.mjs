@@ -38,6 +38,13 @@ for(const file of await readdir(resolve(root,'dist/reference-ui'))){
 console.log('Original UI font, background and icons: binary integrity, MIME types and HEAD responses passed.');
 assert.equal((await worker.fetch(new Request('https://manager.test/gang/test'),{},{})).status,200);
 assert.equal((await worker.fetch(new Request('https://manager.test/join/example-invite'),{},{})).status,200);
+for(const path of ['/skirmishes','/skirmishes/resume-proof']){
+ const response=await worker.fetch(new Request('https://manager.test'+path),{},{});
+ assert.equal(response.status,200,path);assert.match(response.headers.get('Content-Type'),/text\/html/);
+ assert.equal(await response.text(),await readFile(resolve(root,'dist/index.html'),'utf8'));
+ assert.equal((await worker.fetch(new Request('https://manager.test'+path,{method:'HEAD'}),{},{})).status,200,path+' HEAD');
+}
+assert.equal((await worker.fetch(new Request('https://manager.test/skirmishes-missing'),{},{})).status,404);
 for(const path of ['/learn','/learn/rules','/learn/quick','/learn/tutorials']){const response=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(response.status,302,path);assert.equal(response.headers.get('Location'),'/');}
 for(const edition of ['n26','n23'])for(const language of ['ko','en']){
  const path='/guides/underhive-'+edition+'-'+language+'.html',guide=await worker.fetch(new Request('https://manager.test'+path),{},{});

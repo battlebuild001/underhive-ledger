@@ -1,13 +1,15 @@
 (function(){
  let routeApplied='',rendering=false;
  const skirmishPath=p=>p.match(/^\/skirmishes(?:\/([^/]+))?\/?$/);
+ // A settled guest has a usable local document; account loading still owns its requested route.
+ const skirmishRouteResolved=()=>{const a=window.AccountParity;return !a||a.ready||!a.connecting&&!a.account;};
  function applyRoute(){const p=location.pathname;if(data.view==='learning')data.view='dashboard';if(/^\/learn(?:\/|$)/.test(p)){data.view='dashboard';data.homeTab='gangs';history.replaceState({},'','/');routeApplied='/';return}if(routeApplied===p)return;if(p==='/account'){data.view='account';routeApplied=p;return}
   const standalone=skirmishPath(p);if(standalone){
    data.view='dashboard';data.homeTab='skirmishes';
-   if(!standalone[1]){delete data.selectedSkirmish;if(!window.AccountParity||window.AccountParity.ready)routeApplied=p;return;}
+   if(!standalone[1]){delete data.selectedSkirmish;if(skirmishRouteResolved())routeApplied=p;return;}
    let key;try{key=decodeURIComponent(standalone[1]);}catch{key='';}
    const match=Array.isArray(data.skirmishes)&&data.skirmishes.find(s=>s.id===key&&s.edition==='N26');
-   if(match){data.selectedSkirmish=match.id;if(!window.AccountParity||window.AccountParity.ready)routeApplied=p;return;}
+   if(match){data.selectedSkirmish=match.id;if(skirmishRouteResolved())routeApplied=p;return;}
    // The personal document may not have arrived yet. Preserve the requested URL
    // through account loading/sign-in so the later render can resolve its match.
    if(window.AccountParity&&!window.AccountParity.ready)return;

@@ -14,7 +14,7 @@ export default {
     if(/^\/learn(?:\/|$)/.test(path))return new Response(null,{status:302,headers:{Location:'/','Cache-Control':'no-store'}});
     if(path==='/')path='/index.html';
     let source=ASSETS[path];
-    if(source===undefined&&/^\/(gang|fighter|campaigns|account|join)(\/|$)/.test(path)){path='/index.html';source=ASSETS[path]}
+    if(source===undefined&&/^\/(gang|fighter|campaigns|account|join|skirmishes)(\/|$)/.test(path)){path='/index.html';source=ASSETS[path]}
     if(source===undefined)return new Response('Not found',{status:404});
     const extension=path.split('.').pop();
     const body=typeof source==='string'?source:Uint8Array.from(atob(source.base64),c=>c.charCodeAt(0));
