@@ -36,6 +36,19 @@ html.uk-ui #campaign-cycle-finish-modal .cf-territories summary>span:last-child{
 html.uk-ui #campaign-cycle-finish-modal .cf-territories>div{border-top:1px solid var(--app-line,var(--line));padding:14px;display:grid;gap:12px}
 html.uk-ui #campaign-cycle-finish-modal .cf-territories label{display:grid;gap:6px;font-size:13px;font-weight:650}
 html.uk-ui #campaign-cycle-finish-modal .cf-territories select{width:100%;max-width:100%;min-height:44px;border:1px solid var(--app-line,var(--line));border-radius:6px;padding:9px 12px;font:inherit;font-size:14px;color:var(--app-text,var(--text));background:var(--app-panel2,var(--panel2))}
+html.uk-ui #campaign-cycle-finish-modal .cf-income-hint{font-size:12px;font-weight:400;color:var(--app-muted,var(--muted));line-height:1.65}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-note{font-size:12px;font-weight:500;color:var(--app-accent,var(--accent));line-height:1.6}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-note[hidden]{display:none}
+html.uk-ui #campaign-cycle-finish-modal .cf-territories select:disabled{opacity:.5}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income{padding:0;margin:0;border:1px dashed var(--app-line,var(--line));border-radius:8px;background:transparent;overflow:hidden}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income summary{cursor:pointer;padding:12px 14px;min-height:44px;font-size:13px;color:var(--app-muted,var(--muted));font-weight:550}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income summary>span:last-child{float:right;font-size:11px;font-weight:400}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income>div{display:grid;gap:10px;padding:14px;border-top:1px solid var(--app-line,var(--line))}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income p{font-size:12px;color:var(--app-muted,var(--muted));line-height:1.7}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income label{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 10px;border:1px solid var(--app-line,var(--line));border-radius:6px;font-size:13px;cursor:pointer}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income input{width:18px;height:18px;min-height:0;margin:0;flex:none;accent-color:var(--app-accent,var(--accent))}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income label>span{min-width:0;overflow-wrap:anywhere}
+html.uk-ui #campaign-cycle-finish-modal .cf-manual-income label>small{margin-left:auto;font-size:11px;color:var(--app-muted,var(--muted));white-space:nowrap}
 html.uk-ui #campaign-cycle-finish-modal .cf-error:empty{display:none}
 html.uk-ui #campaign-cycle-finish-modal button:focus-visible,html.uk-ui #campaign-cycle-finish-modal select:focus-visible{outline:2px solid var(--app-accent,var(--accent));outline-offset:3px}
 html.uk-ui #campaign-care-assignment-modal .cf-assignment{font-size:14px;line-height:1.7}
