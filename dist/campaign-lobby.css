@@ -192,3 +192,90 @@ html.uk-ui .campaign-lobby .cl-player-row>.cl-account,html.uk-ui .campaign-lobby
 html.uk-ui .campaign-lobby .cl-player-row>.cl-button{width:100%;min-width:0}
 html.uk-ui .campaign-lobby .cl-player-row>.cl-muted{display:block;width:100%;justify-self:stretch;text-align:center}
 @media(max-width:700px){html.uk-ui .campaign-lobby .cl-player-row>.cl-button{padding-inline:10px}}
+
+/* Focused campaign preparation: selected three-step design. */
+html.uk-ui .campaign-lobby:has(.cl-prep-wizard){gap:0;scroll-margin-top:0}
+html.uk-ui .campaign-lobby .cl-prep-wizard{max-width:780px;margin:0 auto;width:100%;min-height:100dvh;padding:0 24px 126px;color:var(--text);background:var(--bg,transparent)}
+html.uk-ui .campaign-lobby .cl-prep-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;min-height:62px;border-bottom:1px solid var(--line);margin:0 -24px;padding:8px 24px}
+html.uk-ui .campaign-lobby .cl-prep-header h2{font-size:21px;font-weight:650;line-height:1.35;white-space:nowrap}
+html.uk-ui .campaign-lobby .cl-prep-header>.cl-button{justify-self:start;background:transparent;border-color:transparent;padding-inline:0;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-prep-header>.cl-refresh-controls{justify-self:end;gap:6px}
+html.uk-ui .campaign-lobby .cl-prep-header .cl-connection{display:none}
+html.uk-ui .campaign-lobby .cl-prep-header .cl-refresh-controls>.cl-button{font-size:12px;min-height:44px;padding:7px 10px;background:transparent}
+html.uk-ui .campaign-lobby .cl-prep-context{text-align:center;padding:14px 0 10px;font-size:13px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-prep-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+html.uk-ui .campaign-lobby .cl-prep-seat{display:flex;align-items:center;gap:10px;min-width:0}
+html.uk-ui .campaign-lobby .cl-prep-seat+.cl-prep-seat{border-left:1px solid var(--line);padding-left:14px}
+html.uk-ui .campaign-lobby .cl-prep-seat img{width:34px;height:34px;object-fit:cover;border-radius:5px;flex:none}
+html.uk-ui .campaign-lobby .cl-prep-seat-copy{display:grid;gap:2px;min-width:0}
+html.uk-ui .campaign-lobby .cl-prep-seat strong{font-size:13px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-prep-seat small{font-size:12px;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-prep-seat.is-ready strong,html.uk-ui .campaign-lobby .cl-prep-seat.is-ready .cl-prep-readiness{color:var(--cl-success)}
+html.uk-ui .campaign-lobby .cl-prep-readiness{color:var(--accent,var(--cl-primary))}
+html.uk-ui .campaign-lobby .cl-prep-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 24px;padding:0;position:relative}
+html.uk-ui .campaign-lobby .cl-prep-steps::before{content:"";position:absolute;left:16.667%;right:16.667%;top:18px;border-top:1px solid var(--line)}
+html.uk-ui .campaign-lobby .cl-prep-steps .cl-prep-step{position:relative;display:grid;justify-items:center;align-content:start;gap:7px;border:0;padding:0 4px;background:transparent;min-height:64px;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;line-height:1.5}
+html.uk-ui .campaign-lobby .cl-prep-step-number{display:grid;place-items:center;width:37px;height:37px;border:1px solid var(--line);border-radius:50%;background:var(--bg,#171d21);font-size:16px;line-height:1;z-index:1}
+html.uk-ui .campaign-lobby .cl-prep-step.is-current{color:var(--accent,var(--cl-primary));font-weight:600}
+html.uk-ui .campaign-lobby .cl-prep-step.is-current .cl-prep-step-number{background:var(--cl-primary);border-color:var(--accent,var(--cl-primary));color:#fff}
+html.uk-ui .campaign-lobby .cl-prep-step.is-complete .cl-prep-step-number{border-color:var(--accent,var(--cl-primary));color:var(--accent,var(--cl-primary))}
+html.uk-ui .campaign-lobby .cl-prep-step:disabled{cursor:default;opacity:.55}
+html.uk-ui .campaign-lobby .cl-prep-stage{min-width:0}
+html.uk-ui .campaign-lobby .cl-prep-stage-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
+html.uk-ui .campaign-lobby .cl-prep-stage-head h3{font-size:26px;line-height:1.3;font-weight:650;letter-spacing:-.025em}
+html.uk-ui .campaign-lobby .cl-prep-stage-head p{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.6}
+html.uk-ui .campaign-lobby .cl-prep-selected-count{flex:none;color:var(--accent,var(--cl-primary));font-size:15px;white-space:nowrap;font-weight:600}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-panel{padding:0;border:0;background:transparent;gap:16px}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-toolbar{margin-bottom:0;align-items:center}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-toolbar .cl-hint{font-size:13px}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-mission-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+html.uk-ui .campaign-lobby .cl-prep-wizard form{gap:16px}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-summary{gap:14px 20px;padding:18px 0}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-summary strong{font-size:15px}
+html.uk-ui .campaign-lobby .cl-prep-crew-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}
+html.uk-ui .campaign-lobby label.cl-prep-fighter{display:flex;align-items:center;position:relative;gap:12px;min-width:0;min-height:94px;padding:12px 36px 12px 10px;margin:0;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--text);cursor:pointer;overflow:hidden}
+html.uk-ui .campaign-lobby .cl-prep-fighter:has(input:checked){border-color:var(--cl-primary);box-shadow:inset 0 0 0 1px var(--cl-primary)}
+html.uk-ui .campaign-lobby .cl-prep-fighter:has(input:focus-visible){outline:2px solid var(--accent,var(--cl-primary));outline-offset:3px}
+html.uk-ui .campaign-lobby .cl-prep-fighter img{display:block;width:49px;height:68px;flex:none;object-fit:cover;object-position:center 30%;border-radius:3px}
+html.uk-ui .campaign-lobby .cl-prep-fighter-copy{display:grid;gap:3px;min-width:0}
+html.uk-ui .campaign-lobby .cl-prep-fighter-copy strong{font-size:15px;line-height:1.4;font-weight:600;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-prep-fighter-copy small{font-size:12px;font-weight:400;color:var(--muted);line-height:1.4;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-prep-fighter input[type=checkbox]{position:absolute;right:10px;top:12px;width:20px;height:20px;margin:0;accent-color:var(--cl-primary);cursor:pointer}
+html.uk-ui .campaign-lobby .cl-prep-fighter:has(input:disabled){cursor:default;opacity:.75}
+html.uk-ui .campaign-lobby .cl-prep-review{display:grid;gap:16px;margin-bottom:20px}
+html.uk-ui .campaign-lobby .cl-prep-review>div{padding-bottom:14px;border-bottom:1px solid var(--line)}
+html.uk-ui .campaign-lobby .cl-prep-review h4{font-size:14px;margin:0 0 6px;color:var(--muted);font-weight:500}
+html.uk-ui .campaign-lobby .cl-prep-review p{font-size:15px}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-options{padding:8px 0}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-options summary{min-height:44px;font-size:14px}
+html.uk-ui .campaign-lobby .cl-prep-footer{position:fixed;z-index:36;bottom:0;left:210px;right:0;padding:14px max(24px,calc((100vw - 210px - 732px)/2)) calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--bg,#171d21);display:grid;gap:10px}
+html.uk-ui .campaign-lobby .cl-prep-footer-copy{font-size:12px;line-height:1.5;color:var(--muted);text-align:center}
+html.uk-ui .campaign-lobby .cl-prep-footer-actions{display:grid;grid-template-columns:minmax(80px,1fr) minmax(0,2fr);gap:10px;align-items:stretch}
+html.uk-ui .campaign-lobby .cl-prep-footer-actions>.cl-button{min-height:50px;font-size:15px;font-weight:600;margin:0}
+html.uk-ui .campaign-lobby .cl-prep-footer-actions>.cl-button:only-child{grid-column:1/-1}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-feedback:not(:empty){margin:12px 0}
+@media(min-width:1100px){html.uk-ui .campaign-lobby .cl-prep-crew-grid{grid-template-columns:repeat(4,minmax(0,1fr))}html.uk-ui .campaign-lobby label.cl-prep-fighter{min-height:112px;flex-direction:column;align-items:flex-start;padding:12px}html.uk-ui .campaign-lobby .cl-prep-fighter img{width:50px;height:55px}}
+@media(max-width:700px){html.uk-ui .campaign-lobby .cl-prep-footer{left:0;padding-inline:max(16px,calc((100vw - 732px)/2))}}
+@media(max-width:700px){html.uk-ui .campaign-lobby .cl-prep-wizard{padding:0 16px 120px}html.uk-ui .campaign-lobby .cl-prep-header{min-height:54px;margin-inline:-16px;padding:5px 16px;gap:6px}html.uk-ui .campaign-lobby .cl-prep-header h2{font-size:19px}html.uk-ui .campaign-lobby .cl-prep-context{padding:12px 0 10px;font-size:13px}html.uk-ui .campaign-lobby .cl-prep-status{padding:11px 12px;gap:9px}html.uk-ui .campaign-lobby .cl-prep-seat{gap:7px}html.uk-ui .campaign-lobby .cl-prep-seat+.cl-prep-seat{padding-left:10px}html.uk-ui .campaign-lobby .cl-prep-seat img{width:29px;height:32px}html.uk-ui .campaign-lobby .cl-prep-steps{margin:20px 0}html.uk-ui .campaign-lobby .cl-prep-stage-head h3{font-size:25px}html.uk-ui .campaign-lobby .cl-prep-stage-head p{font-size:14px}html.uk-ui .campaign-lobby .cl-prep-wizard .cl-mission-grid{grid-template-columns:minmax(0,1fr)}html.uk-ui .campaign-lobby .cl-prep-wizard .cl-mission-choice{gap:5px}html.uk-ui .campaign-lobby .cl-prep-wizard .cl-mission-choice-actions{gap:8px}html.uk-ui .campaign-lobby label.cl-prep-fighter{min-height:84px;gap:8px;padding:10px 32px 10px 8px}html.uk-ui .campaign-lobby .cl-prep-fighter img{width:44px;height:62px}html.uk-ui .campaign-lobby .cl-prep-fighter-copy strong{font-size:14px}html.uk-ui .campaign-lobby .cl-prep-fighter-copy small{font-size:11px}html.uk-ui .campaign-lobby .cl-prep-fighter input[type=checkbox]{right:8px;top:10px;width:18px;height:18px}html.uk-ui .campaign-lobby .cl-prep-footer-actions>.cl-button{min-height:50px;font-size:14px}}
+@media(max-width:350px){html.uk-ui .campaign-lobby .cl-prep-seat img{display:none}html.uk-ui .campaign-lobby .cl-prep-seat strong{font-size:12px}html.uk-ui .campaign-lobby .cl-prep-stage-head h3{font-size:23px}html.uk-ui .campaign-lobby .cl-prep-crew-grid{gap:8px}html.uk-ui .campaign-lobby .cl-prep-fighter img{width:32px;height:48px}html.uk-ui .campaign-lobby label.cl-prep-fighter{gap:6px;min-height:82px}html.uk-ui .campaign-lobby .cl-prep-fighter-copy strong{font-size:13px}}
+/* Heading, utility menu and compact status stay legible at the selected mobile viewport. */
+html.uk-ui .campaign-lobby .cl-prep-stage-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px 10px}
+html.uk-ui .campaign-lobby .cl-prep-stage-head>h3{grid-column:1/-1}
+html.uk-ui .campaign-lobby .cl-prep-stage-head>p{grid-column:1;margin:0}
+html.uk-ui .campaign-lobby .cl-prep-stage-head>.cl-prep-selected-count{grid-column:2;grid-row:2}
+html.uk-ui .campaign-lobby .cl-prep-tools{justify-self:end;position:relative}
+html.uk-ui .campaign-lobby .cl-prep-tools>summary{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:6px 8px;list-style:none;font-size:12px;color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-prep-tools>summary::-webkit-details-marker{display:none}
+html.uk-ui .campaign-lobby .cl-prep-tools>div{position:absolute;right:0;top:100%;z-index:42;min-width:190px;max-width:calc(100vw - 32px);display:grid;gap:8px;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:7px;box-shadow:0 10px 25px #0003}
+html.uk-ui .campaign-lobby .cl-prep-tools .cl-refresh-controls{display:flex;flex-wrap:wrap;gap:6px}
+html.uk-ui .campaign-lobby .cl-prep-tools .cl-connection{display:block;font-size:11px;order:2;flex-basis:100%}
+html.uk-ui .campaign-lobby .cl-prep-tools .cl-button{width:100%;min-height:44px;justify-content:start}
+html.uk-ui .campaign-lobby .cl-prep-seat .cl-badge{min-height:0;padding:0;border:0;background:transparent;font-size:12px;line-height:1.5}
+html.uk-ui .campaign-lobby .cl-prep-footer-copy{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:5px 12px}
+html.uk-ui .campaign-lobby .cl-prep-footer-copy>small{font-size:12px}
+html.uk-ui .campaign-lobby .cl-prep-wizard[data-lobby-prep-step="2"] .cl-prep-footer-copy>.cl-prep-selected-count{display:none}
+html.uk-ui .campaign-lobby .cl-prep-crew-legend{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap}
+html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-form>.cl-actions{display:none}
+html.uk-ui .campaign-lobby .cl-prep-setup-editor{margin-top:14px;border-top:1px solid var(--line);padding-top:4px}
+html.uk-ui .campaign-lobby .cl-prep-setup-editor>summary{min-height:44px;color:var(--text);font-size:14px}
+html.uk-ui .campaign-lobby .cl-prep-setup-editor>.cl-setup-form{padding-top:12px}

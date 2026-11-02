@@ -161,3 +161,20 @@ html.uk-ui.command-ui .cmd-sample.cmd-reference-campaign [data-campaign-progress
  html.uk-ui.command-ui .cmd-sample.cmd-reference-campaign [data-campaign-progress] .ref-cycle-steps>span{height:22px;font-size:10px}
  html.uk-ui.command-ui .cmd-sample.cmd-reference-campaign [data-campaign-progress] .ref-cycle-meta{gap:8px;margin-top:12px;padding-top:9px}
 }
+
+/* Keep the three-step room preparation focused; restore the campaign shell on exit. */
+html.uk-ui.command-ui #app .main:has(.cl-prep-wizard)>.topbar,
+html.uk-ui.command-ui #app .main:has(.cl-prep-wizard)>.uk-workspace-nav,
+html.uk-ui.command-ui #app .main:has(.cl-prep-wizard) .uk-workspace-nav,
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard)>.ref-lobby-heading,
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard)>[data-campaign-progress],
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard)>.section-tabs,
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard)>.page-footer{display:none!important}
+html.uk-ui.command-ui #app .main:has(.cl-prep-wizard){padding-bottom:0!important}
+html.uk-ui.command-ui #app .main:has(.cl-prep-wizard) .content{padding:0!important;max-width:none;min-height:100dvh}
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard) [data-ref-content],
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard) .ref-lobby-workspace{display:block;gap:0;margin:0;padding:0}
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard) [data-campaign-lobby]{scroll-margin-top:0}
+
+@media(max-width:700px){html.uk-ui.command-ui #app .main:has(.cl-prep-wizard)>.cmd-sidebar{display:none!important}}
+html.uk-ui.command-ui .cmd-reference-campaign:has(.cl-prep-wizard) .ref-campaign-reference{display:none!important}
