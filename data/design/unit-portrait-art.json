@@ -1,0 +1,43 @@
+{
+  "general": "Generate a production-quality portrait asset atlas for a dark science-fiction tabletop gang roster app. ONE atlas containing exactly 24 different individual portraits in a mathematically regular 4-column by 6-row grid. Target canvas 1024 x 1536, every square cell exactly one quarter width and one sixth height. Zero outer margin, zero gutters, no border lines, no printed text, no role labels, no numbers, no watermark or logos. Each cell must be a complete distinct portrait centered in its own square, with safe room around the head/helmet and shoulders. Flat dark industrial background within each cell; never a single group scene stretching across cells. Realistic grimdark painted / photographic hybrid, worn detailed materials, restrained directional cinematic lighting, strong readable face/helmet at tiny mobile size. Same coherent quality and lighting across all cells, varied distinct adult faces/helmets/gender, different individuals, all human characters explicitly adults. No generic silhouettes or empty cells. No UI mockup. Use supplied faction art as visual grounding for clothing/material/palette but create different individual characters. Keep anatomy appropriate for the named faction/species. The output will be sliced into individual square WebP app assets, so keep all subjects inside exact cell boundaries.",
+  "humanoidRows": [
+    "ROW 1: four different LEADERS, visibly experienced commanders, distinctive ornate rank insignia made from faction-appropriate armor and relics, confident authoritative gaze.",
+    "ROW 2: four different CHAMPIONS, hardened elite veterans, specialist battle armor, disciplined imposing gaze; less ceremonial than leaders.",
+    "ROW 3: four different GANGERS, practical rank-and-file adult fighters, worn utilitarian faction equipment, varied readable personalities.",
+    "ROW 4: four MORE different GANGERS, entirely new faces/helmets from row3; practical rank-and-file faction equipment.",
+    "ROW 5: four different PROSPECTS / young-adult recruits, explicitly adult, lighter patched gear and simpler faction insignia, eager or wary expressions, never children.",
+    "ROW 6: four different SUPPORT specialists: a field medic, a mechanic, an ammunition quartermaster, and a scout/informant, all with faction-appropriate practical tools and mature adult appearance."
+  ],
+  "humanoidRoles": ["leader","champion","ganger","ganger","prospect","support"],
+  "extraRows": {
+    "brutes": [
+      "ogryn: four different huge bald or coarse-haired adult ogre-like humanoid mercenary brutes, massive jaw, thick neck, industrial armor, human-derived and distinct from normal humans",
+      "ambot: four different autonomous heavy mining/battle robots, armored mechanical heads and claw/servo shoulder hints, no human face",
+      "mutant: four different hulking mutated beast brutes, dense muscle and fur/scales, horned or tusked animalistic faces, not ordinary people",
+      "aberrant: four different alien-corrupted hulking abominations, asymmetric organic armor, enlarged limbs and distorted hybrid heads, grimdark non-graphic",
+      "insectoid: four different giant chitinous arthropod brutes, multiple eyes and armored mandibles, ant/spider/crab-like heads, no humanoid face",
+      "psyker: four different floating psychic alien organisms, brainlike or cephalopod-like heads, tendrils, technological harness or organic crown, mysterious and nonhuman; never a normal human wizard"
+    ],
+    "beasts": [
+      "canine: four different fierce cyber-mastiff / armored hound companions, dog/wolf heads, mechanical augmentations and collars, no human face",
+      "feline: four different sleek alien or cybernetic hunting cats, feline heads, elongated ears and teeth, no humanoid face",
+      "rodent: four different giant rat-like underhive companions, whiskers, alert eyes, scavenged harnesses, distinct rodent anatomy",
+      "reptile: four different snake / crocodilian / worm-like exotic pets, scaled nonhuman heads, alien reptilian appearance",
+      "insect: four different insectoid arthropod companions, mantis/spider/beetle anatomy, chitin and antennae, no humanoid face",
+      "winged: four different winged alien companion creatures, avian/bat/strange winged guardian anatomy, complete creature visible enough to read wings, not human children"
+    ],
+    "vehicles": [
+      "wheeled: four distinct armored desert buggies or compact battle cars with visible wheels, three-quarter vehicle portraits, entire main vehicle centered",
+      "tracked: four distinct compact armored tracked crawlers or light tanks, clearly visible continuous tracks, three-quarter vehicle portraits",
+      "walker: four distinct bipedal or quadrupedal industrial combat walkers, clearly visible mechanical legs, no person portrait",
+      "bike: four distinct heavily customized desert motorcycles or trikes, visible wheels and handlebars, no dominant rider face",
+      "hover: four distinct small futuristic hovercraft or flying skimmers, visibly levitating, no ordinary vehicle wheels",
+      "hauler: four distinct rugged heavy transport trucks or industrial cargo rigs, clear cargo hauling silhouette, three-quarter vehicle portraits"
+    ]
+  },
+  "specialHumanoids": {
+    "generic": "Unaffiliated underhive adult human fighters and hired guns; pragmatic patched armor, muted charcoal/olive/rust palette, no specific faction logo, diverse faces and genders.",
+    "ratlings": "Ratling / halfling-like adult humanoids, short and slender compact anatomy, expressive weathered adult faces, oversized practical scout gear, earthy cloth, no dwarf-like thick beard, all adults.",
+    "beastmen": "Beastman humanoids, adult goat/ram-like heads and horns, fur, scarred scavenged science-fiction armor, expressive intelligent eyes, two-legged humanoid shoulders, rank hierarchy retained."
+  }
+}

@@ -1,12 +1,15 @@
 import {handleApi} from './account-api.js';
+import {handleUnitPortraitAssets} from './unit-portrait-assets.js';
 
 // The build replaces this marker with the checked-in static app assets.
 const ASSETS = __MUNDA_ASSETS__;
+const UNIT_PORTRAITS = __MUNDA_UNIT_PORTRAIT_MANIFEST__;
 const TYPES = {html:'text/html; charset=utf-8',js:'text/javascript; charset=utf-8',css:'text/css; charset=utf-8',json:'application/json; charset=utf-8',webmanifest:'application/manifest+json; charset=utf-8',svg:'image/svg+xml',webp:'image/webp',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',avif:'image/avif',woff2:'font/woff2'};
 
 export default {
   async fetch(request,env,ctx){
     const url=new URL(request.url);
+    const portrait=await handleUnitPortraitAssets(request,env,UNIT_PORTRAITS);if(portrait)return portrait;
     if(url.pathname.startsWith('/api/'))return handleApi(request,env,ctx);
     if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
     let path;

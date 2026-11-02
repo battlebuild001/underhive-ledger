@@ -1,6 +1,8 @@
 import {readFile,writeFile,mkdir,readdir,rm,cp} from 'node:fs/promises';
 import {resolve,dirname,relative,extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+import {gzipSync} from 'node:zlib';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const output=resolve(root,'.sites-build');
 await rm(output,{recursive:true,force:true});
@@ -8,7 +10,13 @@ await mkdir(resolve(output,'dist/server'),{recursive:true});
 await mkdir(resolve(output,'.openai'),{recursive:true});
 const directory=resolve(root,'dist'),textTypes=new Set(['.js','.css','.html','.webmanifest','.svg']),binaryTypes=new Set(['.webp','.png','.jpg','.jpeg','.avif','.woff2']);
 async function walk(path){const entries=await readdir(path,{withFileTypes:true});let paths=[];for(const entry of entries.sort((a,b)=>a.name.localeCompare(b.name))){const full=resolve(path,entry.name);if(entry.isDirectory())paths.push(...await walk(full));else if(textTypes.has(extname(entry.name))||binaryTypes.has(extname(entry.name)))paths.push(full)}return paths}
-const files=await walk(directory);
+const allFiles=await walk(directory),unitFiles=allFiles.filter(file=>relative(directory,file).split('\\').join('/').startsWith('portraits/units/'));
+const files=allFiles.filter(file=>!unitFiles.includes(file));
+let unitPortraitManifest;try{unitPortraitManifest=JSON.parse(await readFile(resolve(root,'data/design/unit-portrait-manifest.json'),'utf8'));}catch(error){throw new Error('A valid data/design/unit-portrait-manifest.json is required before building unit portraits.',{cause:error});}
+if(unitPortraitManifest?.version!==1||!unitPortraitManifest.assets||typeof unitPortraitManifest.assets!=='object'||Array.isArray(unitPortraitManifest.assets))throw new Error('Invalid unit portrait manifest format.');
+const unitPaths=new Set(unitFiles.map(file=>'/'+relative(directory,file).split('\\').join('/'))),manifestPaths=Object.keys(unitPortraitManifest.assets);
+if(unitPaths.size!==manifestPaths.length)throw new Error('Unit portrait manifest does not cover the generated portrait files.');
+for(const path of manifestPaths){const entry=unitPortraitManifest.assets[path];if(!/^\/portraits\/units\/[a-z0-9-]+\/[a-z0-9-]+\.webp$/.test(path)||!unitPaths.has(path)||!entry||entry.contentType!=='image/webp'||!Number.isSafeInteger(entry.bytes)||entry.bytes<12||!/^[a-f0-9]{64}$/.test(entry.sha256))throw new Error('Invalid unit portrait manifest entry: '+path);const bytes=await readFile(resolve(directory,'.'+path));if(bytes.length!==entry.bytes||createHash('sha256').update(bytes).digest('hex')!==entry.sha256||bytes.toString('ascii',0,4)!=='RIFF'||bytes.toString('ascii',8,12)!=='WEBP')throw new Error('Unit portrait manifest bytes do not match: '+path);}
 const assets=Object.fromEntries(await Promise.all(files.map(async file=>{const bytes=await readFile(file),url='/'+relative(directory,file).split('\\').join('/');return[url,textTypes.has(extname(file))?bytes.toString('utf8'):{base64:bytes.toString('base64')}]})));
 let api=await readFile(resolve(root,'worker/account-api.js'),'utf8');
 const auth=await readFile(resolve(root,'worker/local-auth.js'),'utf8');
@@ -32,7 +40,11 @@ api=api.replace(lobbyImport,()=>`const {${lobbyNames}}=(()=>{\n${lobby.replace(/
 api=api.replace('export async function handleApi','async function handleApi');
 let worker=await readFile(resolve(root,'worker/index.js'),'utf8');
 worker=worker.replace("import {handleApi} from './account-api.js';",()=>api).replace('__MUNDA_ASSETS__',()=>JSON.stringify(assets));
+const portraitImport="import {handleUnitPortraitAssets} from './unit-portrait-assets.js';",portraitModule=await readFile(resolve(root,'worker/unit-portrait-assets.js'),'utf8');
+if(!worker.includes(portraitImport))throw new Error('Worker must import its unit portrait handler.');
+worker=worker.replace(portraitImport,()=>`const {handleUnitPortraitAssets}=(()=>{\n${portraitModule.replace(/^export\s+/gm,'')}\nreturn {handleUnitPortraitAssets};\n})();`).replace('__MUNDA_UNIT_PORTRAIT_MANIFEST__',()=>JSON.stringify(unitPortraitManifest));
+const compressed=gzipSync(worker).byteLength;if(compressed>10*1024*1024)throw new Error('Compressed Worker exceeds the 10 MiB deployment limit. Keep unit portrait binaries in R2.');
 await writeFile(resolve(output,'dist/server/index.js'),worker);
 await cp(resolve(root,'.openai/hosting.json'),resolve(output,'.openai/hosting.json'));
 await cp(resolve(root,'drizzle'),resolve(output,'drizzle'),{recursive:true});
-console.log(`Built ${files.length} assets and account API (${Math.round(Buffer.byteLength(worker)/1024)} KB).`);
+console.log(`Built ${files.length} embedded assets and account API (${Math.round(Buffer.byteLength(worker)/1024)} KB; gzip ${(compressed/1024/1024).toFixed(2)} MiB), plus ${unitFiles.length} R2 unit portraits.`);

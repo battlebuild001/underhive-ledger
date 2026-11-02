@@ -1,0 +1,2765 @@
+{
+  "version": 1,
+  "assets": {
+    "/portraits/units/ash-waste-nomads/champion-1.webp": {
+      "sha256": "c47faf8832990a9c92e401c555cbbfd4a04ca3789251909ca1002d0d36f1d2ce",
+      "bytes": 18974,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/champion-2.webp": {
+      "sha256": "19cd7c461cabe6c3c898c751408dafbd1df96a36cdda6ba19e94d6aa95f1d785",
+      "bytes": 16610,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/champion-3.webp": {
+      "sha256": "a07a57362cf7f469bc0724a34e7865d93917fbfdcdf9dcd9e68b2d457fac3fb8",
+      "bytes": 16086,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/champion-4.webp": {
+      "sha256": "648b116c0ed955471b9a343dc986d5468ad9487045c8969d5c9b2f1a5e9b533c",
+      "bytes": 17342,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-1.webp": {
+      "sha256": "d7bdfbb778390b328b1ed72037b4c4cc45a7200e3cb43384f713d2d038f22f36",
+      "bytes": 17796,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-2.webp": {
+      "sha256": "a84a75d172d32b23d55b2be90be553792e4ddb72420eb1040964680fab8106dc",
+      "bytes": 16018,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-3.webp": {
+      "sha256": "f365bae2af5cebdeebfedb502845d850343f5fff65134dc312121e745dd145fb",
+      "bytes": 16532,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-4.webp": {
+      "sha256": "cc5fa75da5338ac29ab220eccd70a68d7b7653dcbf49a47b200174b0899f8275",
+      "bytes": 16476,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-5.webp": {
+      "sha256": "921788c38e7e77afe31773b11d0783a10587480ff571995bee114231f75d3656",
+      "bytes": 16434,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-6.webp": {
+      "sha256": "774beb5bf6b518a30a2e42025ccd12135d99d762c84a08c7159e8171d3977e3d",
+      "bytes": 15318,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-7.webp": {
+      "sha256": "5746f71dcbe1f461c4f47bf6b13896b2fbec2d58bbabb73968586f4c21da05be",
+      "bytes": 16570,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/ganger-8.webp": {
+      "sha256": "54f8f6d3b203c9c9a395c1a12eaf6d1b3332ffaee4415a03dc5e355353f8c2c2",
+      "bytes": 17342,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/leader-1.webp": {
+      "sha256": "f5963fee352dee9914b141ad5399baa9cac5d01e5683190ddb6f83a86b502404",
+      "bytes": 18910,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/leader-2.webp": {
+      "sha256": "19059791a0337053e550b0c0d7d864778c36ea48e48e04a7d3d0228ff00f4e81",
+      "bytes": 18748,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/leader-3.webp": {
+      "sha256": "75b2ac61576acfca8a82fe218a131faa2654e6a79634f4c906c6babb55e8b12c",
+      "bytes": 16916,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/leader-4.webp": {
+      "sha256": "ce25f2517aa5611565b0019d6fba137d7d39c4ae83ce9d38baee8ed8786e6a9b",
+      "bytes": 17984,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/prospect-1.webp": {
+      "sha256": "9f6d1a910068063a22afcd458874e6e62caae9e29b4eb33f611d1a26c06ea6f5",
+      "bytes": 15612,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/prospect-2.webp": {
+      "sha256": "faf6152088752414caed0428d23ec01766a903716da7d7c3c336aa1e0bc1d011",
+      "bytes": 16296,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/prospect-3.webp": {
+      "sha256": "ebb544a498873ba6c3f77d1badd599141ad459a0b9b606e666e6c1acc97f270a",
+      "bytes": 15692,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/prospect-4.webp": {
+      "sha256": "74d55b213fdc608b11f14b04753dadd63928aa12beb24d223a5c0c6e76074b37",
+      "bytes": 15590,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/support-1.webp": {
+      "sha256": "6696a67432e48c13e17b3cb180cd80e5115bd42da931596d193cc9fece4f94be",
+      "bytes": 17978,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/support-2.webp": {
+      "sha256": "0466e7f609a873c4d0bf12e7126d409465b5f04065e8696933d978d319fafb3a",
+      "bytes": 16816,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/support-3.webp": {
+      "sha256": "f1a754b7aad1987be6e576f2a66e9e460708ea9dc4886f0eb3f01a15f9506aec",
+      "bytes": 17422,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ash-waste-nomads/support-4.webp": {
+      "sha256": "91a16c691d2e0d8307c092d221ec5b69a72a5e7561d18623cfd062735d0d4cbb",
+      "bytes": 16612,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/champion-1.webp": {
+      "sha256": "96b3d383f71fe59ba1913b33165ae51f9b2eca3a31083f66260b0f74e76e8bb0",
+      "bytes": 13008,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/champion-2.webp": {
+      "sha256": "18511669e620ad0badc163b87b6a0ea6e9e8dda1d8f47e5ffb720f39daed7245",
+      "bytes": 14862,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/champion-3.webp": {
+      "sha256": "0d922c62b11fc2fb2b8e2088dac5f0f96ccc55289c7575ab1bede9cc6e7ad1ee",
+      "bytes": 13862,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/champion-4.webp": {
+      "sha256": "2fc8565b8df3044573cda82cbd8e7288daab20b296b6e4bb92ba99754a352616",
+      "bytes": 14736,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-1.webp": {
+      "sha256": "5ef184abddf51c224ec0403845585318941b0a2f9638118cb877e35560e62e93",
+      "bytes": 13378,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-2.webp": {
+      "sha256": "8d1b3b3fc0f654828284f931d145514d06634b66c468378d6070c7b3bc35bd2f",
+      "bytes": 13728,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-3.webp": {
+      "sha256": "f0fa4594f4e3d9baa55007852e802b12cb360fd158bed83c818e6ee314bdfc0d",
+      "bytes": 13252,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-4.webp": {
+      "sha256": "0546ca040ad9660d4cd8e53de25897bc15db0c4caeab872e1751ce130bb28aff",
+      "bytes": 13044,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-5.webp": {
+      "sha256": "728c021782d87bf1f9ffc496b9c069cfd3581bb99ec3fb21c068b1a3b4b8a88d",
+      "bytes": 13382,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-6.webp": {
+      "sha256": "814e5680d18de3005a9c314c707d10e93951d51dc6420d861b388e0ea285490a",
+      "bytes": 12394,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-7.webp": {
+      "sha256": "8a18903f2ce4db28753801806bb6e7c4180dd43eaa5ef58e6744cc4439330739",
+      "bytes": 12518,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/ganger-8.webp": {
+      "sha256": "448f33ef459f4622a6b5174e192f15adc9a4aaea62b3ab9baedc6a6d02a88046",
+      "bytes": 13734,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/leader-1.webp": {
+      "sha256": "92625c5783eb36e12bda29be1d4dbdd289cd9d3ed73b98103b8d4359592cc980",
+      "bytes": 17882,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/leader-2.webp": {
+      "sha256": "42f5ca448d3a92c41dbb7ca4b43ddbe04664a01201577102567fb9bcf53ce20e",
+      "bytes": 15732,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/leader-3.webp": {
+      "sha256": "a39f9ec2a3c0269b2649257d96e5284abdbddc7c51673d40d579fe09b9103739",
+      "bytes": 15672,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/leader-4.webp": {
+      "sha256": "f377a69dbaf4f2557fce1e1b843df119e098cd0f899ecd416ecc655090c5edfe",
+      "bytes": 15028,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/prospect-1.webp": {
+      "sha256": "56e961bec096af896ccc79f3d1e46166ee2f2f93e61a6e2d5731ca028bde60b7",
+      "bytes": 11948,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/prospect-2.webp": {
+      "sha256": "6c3e257569a393bd3dc6561eff8ea21765c0c9e77fa434261d6906062310d7f8",
+      "bytes": 11524,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/prospect-3.webp": {
+      "sha256": "fa94652466658cf38e1edceaca1254fa8883ffd58137e086a68da8405b5b1dc0",
+      "bytes": 11638,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/prospect-4.webp": {
+      "sha256": "b8bc3a5563b55a9aafe231e93cc00f17e1aef3f3cbed83ad6fb0f226a2a5b5dd",
+      "bytes": 10930,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/support-1.webp": {
+      "sha256": "40ccf70b56283b370f23c9aa3e3c943830ab90685bf240554c61e3496cfc4392",
+      "bytes": 14018,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/support-2.webp": {
+      "sha256": "657ab5b28fafa24d12903997972c9d7b96d83174dfc221acf26f317a83426baf",
+      "bytes": 13636,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/support-3.webp": {
+      "sha256": "6b8bc91599330c5190a2073b391f9eb4dadf6444f4838a8b1a0abf42f9c9124b",
+      "bytes": 14516,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beastmen/support-4.webp": {
+      "sha256": "1c250d1ec2bf586d8388827682c73bbf46c312c4d18b4fe495d51f006b0b503f",
+      "bytes": 11686,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/canine-1.webp": {
+      "sha256": "250101b822dbf72ae75bb5c0353169ae7564b2a2fd6b85d8b15c1e3c8e94da2a",
+      "bytes": 11914,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/canine-2.webp": {
+      "sha256": "c32ed70e30ee3be46e2864bb283dd7b3006b0b0856bf6de9fb2f8f32332da0c0",
+      "bytes": 12722,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/canine-3.webp": {
+      "sha256": "72a878ee0298ea834ef6695711d59d9f7a89a3b92f03d7fc597096a982a192f0",
+      "bytes": 13318,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/canine-4.webp": {
+      "sha256": "71fb3d25a6915bbc9b3ae2674796ebd4d4f0178d1f5b3c8214dd3a2dc5e03afe",
+      "bytes": 12358,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/feline-1.webp": {
+      "sha256": "d4df68c22d5de71c258d79ce166f8619f65789cb6f6af3af7e828425bb84f36a",
+      "bytes": 12394,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/feline-2.webp": {
+      "sha256": "b0aefdfdbada7f4ef002197488a4dfd7eb2680179e35a0c731c141ab719b5678",
+      "bytes": 14128,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/feline-3.webp": {
+      "sha256": "5b95731a226733364f967251006d2b69a15e9b0ba576657bca325a6e288f4ae1",
+      "bytes": 12178,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/feline-4.webp": {
+      "sha256": "58a3f57f613c8bf218f70f31cce9307eedec0364b922008da2179195fe36a0ba",
+      "bytes": 14230,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/insect-1.webp": {
+      "sha256": "4147b35bcc8fe9dfc3874c203c8405a055d8b2233685ca33529bd8fff0d9727c",
+      "bytes": 14534,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/insect-2.webp": {
+      "sha256": "76ba95804e23ff94d95e45f78d9a42a1da8d0ccd4d3b52a7921a45083998c425",
+      "bytes": 14234,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/insect-3.webp": {
+      "sha256": "e0a1139e1b3624f494989253bfb99e1c703a722f295423e69fe45bdf04736627",
+      "bytes": 14132,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/insect-4.webp": {
+      "sha256": "8c611487922408c32aaf1b09131c52c9d2935f0694692fb450bac027399a536e",
+      "bytes": 13208,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/reptile-1.webp": {
+      "sha256": "2e31abe747759fc5c2fc28e2ba5f7c1dbe92967a30f18d59b66b83093363604e",
+      "bytes": 13224,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/reptile-2.webp": {
+      "sha256": "bed416b35979e937bcfd7e4e4baab998dce1ea02dad7aeebf9bb86336133ba79",
+      "bytes": 16006,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/reptile-3.webp": {
+      "sha256": "51a5fd7886a32a24f250fa1b4dac1a719d94b05960758e5ea42b8785fd6b8c87",
+      "bytes": 16874,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/reptile-4.webp": {
+      "sha256": "75aa44c6e249ae36e16ab9978b4b4c9c364f0b42a8d57fbf814370fc1b193fce",
+      "bytes": 13348,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/rodent-1.webp": {
+      "sha256": "e158b2506d84dd2664fc9545c3cde72781f4cd3b2183af3423928b589fb374a9",
+      "bytes": 15202,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/rodent-2.webp": {
+      "sha256": "5ded94a2f0bba2eb3bc41215f8c6c7c74160739dfd4b7b7b68d332f445bbe52c",
+      "bytes": 14540,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/rodent-3.webp": {
+      "sha256": "b6dd42eeb14931adc5fca962cb91b405da766cf510d64def0cdc15c8cf100583",
+      "bytes": 13442,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/rodent-4.webp": {
+      "sha256": "8fd9586e4fddf8a49993bde37048aba7bbf0f109e57985b5a72334b485c35f87",
+      "bytes": 12724,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/winged-1.webp": {
+      "sha256": "a2bea0e38c8bf95d201d0b2b5879abc91201d1bbc446c6e753954db1a9e89ea7",
+      "bytes": 12774,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/winged-2.webp": {
+      "sha256": "2d25a6a12b4ae602691d802118d59bb88cd282ba36f994a5dc265bb9e16dd26b",
+      "bytes": 12510,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/winged-3.webp": {
+      "sha256": "c8b89f274393e2805290be4015a14059796de7cdd11d92a52c9bfc8052335ddf",
+      "bytes": 11048,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/beasts/winged-4.webp": {
+      "sha256": "f13f8956e432f92c364ede48265ec0ee77c08b179ea1b5c20214ce7476984f43",
+      "bytes": 11778,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/aberrant-1.webp": {
+      "sha256": "8fd0b57fb3c22ebc381eabddc77eb19d252c187bb775b9f3c2c087145b58a1c3",
+      "bytes": 17944,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/aberrant-2.webp": {
+      "sha256": "a5527539b571674fba8d39627de20586798f68939e08871f152e0bd3b84d625f",
+      "bytes": 18352,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/aberrant-3.webp": {
+      "sha256": "db898d98f96a2a1a9a8e6100505e076779de2148f501a31744dfa0a7dfdabc02",
+      "bytes": 18290,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/aberrant-4.webp": {
+      "sha256": "923e5a7218794ea3376c5df6cf8ead18af7f0df79cab16a3f0a11c5bc6e830d6",
+      "bytes": 16778,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ambot-1.webp": {
+      "sha256": "16fece6689f1e2c75bd9de83e037d2193b31c98e128598a22e5f33379cee2126",
+      "bytes": 16624,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ambot-2.webp": {
+      "sha256": "f26f83d12e9060f2c0fc4f36ff660e2ea00b42255ee052d31b3eab63935ea456",
+      "bytes": 18206,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ambot-3.webp": {
+      "sha256": "31613690d0554c0e7e708f6efabd74d28d8f057a58353d585e2e0c551ff7bbc4",
+      "bytes": 17612,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ambot-4.webp": {
+      "sha256": "7712ebcc66dd6e1d213a67abdd12b9544e37b42951bd4eeda9c18d06c276299a",
+      "bytes": 15994,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/insectoid-1.webp": {
+      "sha256": "a96493bfcb981dd546f1c1466c2849d67f072f536d36e886e9067cff3ed6b944",
+      "bytes": 16926,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/insectoid-2.webp": {
+      "sha256": "88cab9d14b3186ee4f66d339e95414116709a7ff467212ee09ff111408ff06ad",
+      "bytes": 18330,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/insectoid-3.webp": {
+      "sha256": "d6a81e2f69f77d1df6e90e6b76fb96ce270490797226e3caa86670bae0e13cd6",
+      "bytes": 16702,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/insectoid-4.webp": {
+      "sha256": "80d0de55e6349bd0b30eb7d8b584016081a42dadf96c5f03420a29a521f0d74f",
+      "bytes": 18368,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/mutant-1.webp": {
+      "sha256": "5e46f50ad819a051e115963ced9640026a88e183b91660932a9abebc47740ce0",
+      "bytes": 16564,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/mutant-2.webp": {
+      "sha256": "2ebede6c301a22d2c779a3c605599dbf76072529a33fb86ef6c41b87d8d1837e",
+      "bytes": 17760,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/mutant-3.webp": {
+      "sha256": "f091bd8ca5fade8c2d6e2c30ca5f34300cc9763cb2da858f9588bb95e614e671",
+      "bytes": 18704,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/mutant-4.webp": {
+      "sha256": "873c717decd7fea10ef9599b8e9c18fce38158242ec1edef17b15dbc78c874c3",
+      "bytes": 17830,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ogryn-1.webp": {
+      "sha256": "f88eb056e00f58132657fe1ebffc515f04091eb56df7391d742eb45445a1f4ba",
+      "bytes": 16560,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ogryn-2.webp": {
+      "sha256": "451a93303c566c8512cddb0ceeb12c269d97005b6ee88e4adfee6ee6e1f4d975",
+      "bytes": 14478,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ogryn-3.webp": {
+      "sha256": "b26c1a59590fa1216b445b60ac99cbf2a0fbcf728f5fc586c628171ea242379c",
+      "bytes": 17048,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/ogryn-4.webp": {
+      "sha256": "abdf3647a5ef9b2a4437a63e6c51431970948dcd6f44d804128d73a92981a628",
+      "bytes": 16606,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/psyker-1.webp": {
+      "sha256": "8a14c10a6d7114376b0e133eb2c2344508c0247af2a46aa84c7c6ffd830bc38f",
+      "bytes": 18056,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/psyker-2.webp": {
+      "sha256": "73f3e57a5f664ba0456cfd71471c7d2e405f5fa5220b1bb764f4e4e2b7ae272f",
+      "bytes": 14964,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/psyker-3.webp": {
+      "sha256": "01c65f73df63c3d2197a162b77532ecb94e1b3bfad45fca5dd363350e0ee8944",
+      "bytes": 16228,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/brutes/psyker-4.webp": {
+      "sha256": "d4b30bb9b58e5bfaa043c0aec7842db69f613e8f250aff0e063dd0d730a4bbe5",
+      "bytes": 15376,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/champion-1.webp": {
+      "sha256": "e291405f8144df37667f9147c6aeebd5d709a0f3bfb1e31ee4ca5f40a662b981",
+      "bytes": 16530,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/champion-2.webp": {
+      "sha256": "fade089274341c4e37ce881ae711a761fe2d84daf3ad46da03982c61608cb259",
+      "bytes": 14398,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/champion-3.webp": {
+      "sha256": "1f60b75017f63bd14ad24c8c5e31e7d12968bd69431796f787dedb416f1761b5",
+      "bytes": 13006,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/champion-4.webp": {
+      "sha256": "7727077623ff5e907c88d9eff46afe9075217182aa7470853144ca8aae6e5c3c",
+      "bytes": 15676,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-1.webp": {
+      "sha256": "169fbe0a4b56357b03fcc1edabbd58a55ee01d1dcb8353591aa7329a1f248659",
+      "bytes": 12132,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-2.webp": {
+      "sha256": "99a36cc6783efa01ee6834f0b6b8e2a903280915a6428eb348b4bda6cc693617",
+      "bytes": 12836,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-3.webp": {
+      "sha256": "5bd43ef0a8dcb2a52f4c8a04c12b8bff64688b1d33a76714caff87fb01624ccd",
+      "bytes": 12552,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-4.webp": {
+      "sha256": "7a85322ef5ff3e2a00152accb566f2c6e815ec0b992c68f99b88fac0b695f03a",
+      "bytes": 13460,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-5.webp": {
+      "sha256": "b7670913131a04933ef5d7ffe04802ae2df8f4b720a277584485c62db4ca9533",
+      "bytes": 14380,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-6.webp": {
+      "sha256": "05211740e83f07cbdf0068927d5578310232914733a6f5636c750a19cb30bd2d",
+      "bytes": 12412,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-7.webp": {
+      "sha256": "d634b8cfe8205f2cd8b31c78a16f4e9e2c9779ee9de003c85d575354f57fedc3",
+      "bytes": 13464,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/ganger-8.webp": {
+      "sha256": "6d259a18fe0e62f3283bf47bedb29c8a975f3a649f96aa62373b96f066147885",
+      "bytes": 14600,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/leader-1.webp": {
+      "sha256": "a89f55d389f7dbb8e581fc873941d8c3805d9e87403ab538121194eabef747cc",
+      "bytes": 16074,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/leader-2.webp": {
+      "sha256": "edcb050dc8a8f0deb96d460a3a086c9cb373faa8de5c76d5f2f0c7009c5181fb",
+      "bytes": 14566,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/leader-3.webp": {
+      "sha256": "bad7013df0b1f9d53934328452908dbf5cd73a864f1ca0619b7434e88a1587dd",
+      "bytes": 17368,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/leader-4.webp": {
+      "sha256": "ee2b9f5dab250b8fceb82c3c1c882f95d486cca4086bb0fbd8b284e1c9d81b0d",
+      "bytes": 16238,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/prospect-1.webp": {
+      "sha256": "f80def0742d62938a25b9fc656ef4830e792ad97e2ae8c94f71be0466de0a847",
+      "bytes": 10868,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/prospect-2.webp": {
+      "sha256": "b2310462556ea5c069fdf70367be50106c126e8e0e312171ed856a3d563fa79c",
+      "bytes": 11658,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/prospect-3.webp": {
+      "sha256": "42da8ab3d87501ed40b05459c1f10ae10ec2a2b7a0031824087ba833ba60ea8e",
+      "bytes": 11586,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/prospect-4.webp": {
+      "sha256": "112ffed308e81543b98c62fb3a18951b208492ef151ef68d5d54c88fad93cd1e",
+      "bytes": 12560,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/support-1.webp": {
+      "sha256": "484cc36dbe14609e9d1b2e56ff334c7ceb6ccad855d03686069a22d99e8be7ae",
+      "bytes": 14904,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/support-2.webp": {
+      "sha256": "41133a53016edd0d471ed34e0b8608edfc0a16accb99275ab67088a5bda69f07",
+      "bytes": 15722,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/support-3.webp": {
+      "sha256": "c17cc3395fe7a32b97bcf7c593600113ccd031535f7163b6b9ccf3b6ee10c59e",
+      "bytes": 15524,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/chaos-helots/support-4.webp": {
+      "sha256": "f91679ca46cb69b4ab2698057081a6ea92507f85b714969347f84da216ca633c",
+      "bytes": 14882,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/champion-1.webp": {
+      "sha256": "9692c0f6474162a9b8a75d111457d85b3c97aa32471a5021b42178034a918358",
+      "bytes": 14322,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/champion-2.webp": {
+      "sha256": "71f68477304e7a68c5c262e46e184afed358d6750dae226377e56f8a774fca13",
+      "bytes": 16318,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/champion-3.webp": {
+      "sha256": "828c9a335250ddc5cb21cd3800606c3b43f1ebf7f00ec718676f45033a90c300",
+      "bytes": 13546,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/champion-4.webp": {
+      "sha256": "88321066fff7f53246411fe25310d522ebc7bb231da45bb853b4f32eb74ec284",
+      "bytes": 12454,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-1.webp": {
+      "sha256": "852255efd46df39b1056d304f5c6bff01deb6e316bd4e778ffe04ca3179a1ea2",
+      "bytes": 14248,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-2.webp": {
+      "sha256": "06db6de0651e3b96b3017c7dfe792d24860f5f6c8472d8616fecc8b1a9198aba",
+      "bytes": 13450,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-3.webp": {
+      "sha256": "17a8dcd04ac25bee23ed479b3eba0fba4c218a7d55a751c45419ec18ce53c9ae",
+      "bytes": 13738,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-4.webp": {
+      "sha256": "a66dce3fa664489d2a2538cb6b35677f57fe102c7f8dadfc61f6caf67d006f9b",
+      "bytes": 13746,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-5.webp": {
+      "sha256": "c0eec656d72c79c86916f4a9db811d46e4a0cb09b960096750a7293b43fdef40",
+      "bytes": 13156,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-6.webp": {
+      "sha256": "5731bcafab368a4a69f9150544d5783daf269bf824854b7ef21d3a8e5ee86215",
+      "bytes": 12830,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-7.webp": {
+      "sha256": "1bf1206e1b77a0d919cb2a6db0cdb0b9808cd336d5b4ed15518b85312c543cb8",
+      "bytes": 12086,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/ganger-8.webp": {
+      "sha256": "eacd1e613defe38ce98d7da6f6bf0a6a53bf7e17b73789e943e29ea523412048",
+      "bytes": 14110,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/leader-1.webp": {
+      "sha256": "26d8e836d335763af1943e65d96934647bed78736751761abb0422d030582ee9",
+      "bytes": 17052,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/leader-2.webp": {
+      "sha256": "992328ffd814505eb932ebb79af2836fb84600955ce94b020d2263ff42502773",
+      "bytes": 15860,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/leader-3.webp": {
+      "sha256": "80270020e341349ae9d834ea2e0e70ce12d39a8855bcb49e248ad3d2f8fcf792",
+      "bytes": 15128,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/leader-4.webp": {
+      "sha256": "79df2f86e2885ef2fe74c7b797dc1694c706df70f16976ea936e9e26cf4cbece",
+      "bytes": 14152,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/prospect-1.webp": {
+      "sha256": "a8f9358a8b72730c4dea8d6e3d19cb7563ada0dba56a7d4c3451b50de7be1391",
+      "bytes": 11924,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/prospect-2.webp": {
+      "sha256": "275367292078ecb6c46d90bf235355cbeaba1b175c9889e3b9d8815b2da9e065",
+      "bytes": 11776,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/prospect-3.webp": {
+      "sha256": "c04de2e1eb7f0c9a7796e07da24a04ac6df1f6d44f1c4bb201b046a5b026b94e",
+      "bytes": 11662,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/prospect-4.webp": {
+      "sha256": "1ff04f385971ba0b3453974a21385f83bca9039e0ca3a34959d53b64fb3188c1",
+      "bytes": 12092,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/support-1.webp": {
+      "sha256": "fa1ea8397969d01c314b8630835b8581be6dae3a25469a240fc6150d74ab58c4",
+      "bytes": 14836,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/support-2.webp": {
+      "sha256": "b43bfb5173e482c7bc74f32b1af05c6f910819252f5f236b38b0690e11699da5",
+      "bytes": 14724,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/support-3.webp": {
+      "sha256": "3fbb54a4c4fb0d1f07d2d78ab7fd59999e710e3a2efe346b4ec83b615987b4a7",
+      "bytes": 15120,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/corpse-grinder-cults/support-4.webp": {
+      "sha256": "e80ffc437893ee831962d5fa62e94b12db0d42a0262757f66f03b80494c7085f",
+      "bytes": 12964,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/champion-1.webp": {
+      "sha256": "a6ec1f270f1ecf4a52a9d9be068cfc8d97a0c6941541c042f7fde33098fd44c9",
+      "bytes": 14894,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/champion-2.webp": {
+      "sha256": "3cf4f5740072c4ddf124d2aa401a9833e546d63da0e5ef9833cca5f9e716eb5e",
+      "bytes": 14244,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/champion-3.webp": {
+      "sha256": "da38b088890c644fdf6ae110a0ff48efbf8a48682325829fd8434f1f26b881a6",
+      "bytes": 14242,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/champion-4.webp": {
+      "sha256": "0c9e0a0f1669aa63536f6c00614aae3a20fc3ad7e2300f3ad139de69937880b2",
+      "bytes": 13826,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-1.webp": {
+      "sha256": "1715adaff7e64a6b40f5529769a6dc1a285886268d6e8dca8c2cd8f44f545d26",
+      "bytes": 13280,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-2.webp": {
+      "sha256": "bb1818d5211b4f26cb4ad938bc0039fcec61148b7fb769f54ab072737e8ba67a",
+      "bytes": 13596,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-3.webp": {
+      "sha256": "463671c1997076edb396c7a983d5d353d0ddf46b88371f36635de142b45ad44a",
+      "bytes": 13672,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-4.webp": {
+      "sha256": "d677dd77ccbe606b258b14d39a5f7b0d05aab3a1e3fbe42ff1239ff89cf20f00",
+      "bytes": 14114,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-5.webp": {
+      "sha256": "a483eec50aec3b8185452ca62dd6813711bbfaaa2f5eb071014f4a1c256f4d05",
+      "bytes": 13952,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-6.webp": {
+      "sha256": "dd818fc6d84f72e5d13715209b0d63ab57f5d2ca605e26ab53ebe4f2dba251c8",
+      "bytes": 13530,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-7.webp": {
+      "sha256": "d78bb7b7d8836d38135b5950584e7cdd8e09f2cd9a84a9c8030b74b660599894",
+      "bytes": 14608,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/ganger-8.webp": {
+      "sha256": "b4d529b86939e008766b7afd5a5896df6bfcbc44fe2b2db76d1b58224c51c3fe",
+      "bytes": 14542,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/leader-1.webp": {
+      "sha256": "26685620531eb7d34fc9f5688fc813d7387cbb32c1762adbd305d311eb2ccbfa",
+      "bytes": 15328,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/leader-2.webp": {
+      "sha256": "23b3c40e1d893f3fbbc074a3646b2a249e54f15071f3677625ecfce697248747",
+      "bytes": 16208,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/leader-3.webp": {
+      "sha256": "10cbe40ea9f3f2be42ff1457273e85d1ea62acda6065fe4b2c283ba7d77e2da6",
+      "bytes": 14990,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/leader-4.webp": {
+      "sha256": "ef3773800be10a41e96e9e1b7eb5c0ce88c1fdbbc5ac1fd56a0b9b3eea31b28d",
+      "bytes": 15914,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/prospect-1.webp": {
+      "sha256": "58738585c4f1a297e6f5ed216e947861676f62eb48aecdb8796d3cf587ccd4e8",
+      "bytes": 11026,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/prospect-2.webp": {
+      "sha256": "679945fea866ea6270afebf9bfe9cf7da7cafe9f4c50962871215ba79598edf0",
+      "bytes": 11876,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/prospect-3.webp": {
+      "sha256": "1f3758c635a166f2f9e25cafab4b4ec4a1f346ac46b294667722641d6e9abbaf",
+      "bytes": 11820,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/prospect-4.webp": {
+      "sha256": "bbba212bd84f622fea9dca0d245649b77e7833b46854f1e725e3b731c9f8f886",
+      "bytes": 12640,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/support-1.webp": {
+      "sha256": "4de61bd2b1553e6706620bfd510fcffd1378ae491cc748ffc44ea5f75428a96d",
+      "bytes": 15280,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/support-2.webp": {
+      "sha256": "b337398bc66c5c5d4ddb41cd7ed301b0380c4bc450734e8ab47fe9defa88935e",
+      "bytes": 16296,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/support-3.webp": {
+      "sha256": "021ed0484891dfe807a3179045889761b502d826aae8b8fec82db21b1d5aca27",
+      "bytes": 14946,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/free-ogryns/support-4.webp": {
+      "sha256": "843a583926cbed2dfffc0f9f6197b181dfcf3e3fe391155ce867277b01d70f50",
+      "bytes": 15308,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/champion-1.webp": {
+      "sha256": "3cc17ba4df18168565605eea32789c85689b29993fd0a3453f1c7b8741d78a05",
+      "bytes": 11578,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/champion-2.webp": {
+      "sha256": "b634ec0a4c63a320e0b5d3bc410d973202b1b16b68b411dc8e05ccb37891454d",
+      "bytes": 10070,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/champion-3.webp": {
+      "sha256": "ee37645a5c08b8b2465f2103b99b28cb82a232dcda4fb240521ce3240ee9192e",
+      "bytes": 12066,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/champion-4.webp": {
+      "sha256": "48a931d6096c0cbd893266e45accb7dc984289f5a836904929a9bb0c8249716c",
+      "bytes": 9552,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-1.webp": {
+      "sha256": "3b0c02170c084a1c0adbdbeb1d0e3bd70992ba612767d96849ae6b26c1937f01",
+      "bytes": 9728,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-2.webp": {
+      "sha256": "a1f51ea6f583545fbbd2fbe1a9c600638cfcd5a6cfa1bc3f861c848da62b883a",
+      "bytes": 8708,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-3.webp": {
+      "sha256": "5d94c7fb3375d318a7ec33b9cadacc894d71afa078ddb7a0cbcb9eb0f3905f6e",
+      "bytes": 10642,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-4.webp": {
+      "sha256": "d7f4c9e862f83bdde9a8cd07444a8a0ff2f20e7dddccf696b1fc5e21234024b2",
+      "bytes": 9304,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-5.webp": {
+      "sha256": "3783b5c6c2e9b29fd952f896aedec05a3b44daf663c76e027f42c17f9720e6b2",
+      "bytes": 7700,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-6.webp": {
+      "sha256": "419357a31a1e8a2da0e50fca8066c46b3e715a099d6d47f08908a00b6bf9f868",
+      "bytes": 11590,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-7.webp": {
+      "sha256": "831e6aa1600e05e0d5c72a6cbd292f30e09dad497854704ec73c778472cc46b7",
+      "bytes": 9216,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/ganger-8.webp": {
+      "sha256": "d5be77874d922c699574093cd03e7b23573492aea89bfb34dcd481de2f226768",
+      "bytes": 8726,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/leader-1.webp": {
+      "sha256": "fcb14c74ea0a073ade6966199d870f705d3b3cea59466704adcd7b2cef63830a",
+      "bytes": 11596,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/leader-2.webp": {
+      "sha256": "1d8e96d2f25a63bf5b88f3f8f6276f5ec5c793a1b06b239ee54fbf0ac9c282a9",
+      "bytes": 10830,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/leader-3.webp": {
+      "sha256": "66ebe59f0fd427e114439b09315d19ac4cd89a731bc7dccf3b8f7be31045f8f1",
+      "bytes": 10514,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/leader-4.webp": {
+      "sha256": "624f3f07820388995421fef6a9b7276d948d633f050ceba4a4e1a608899532ab",
+      "bytes": 10744,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/prospect-1.webp": {
+      "sha256": "5af62b2a2380bb230cbbb864d69065134ae63d30c51babc958e74640d59f5ed8",
+      "bytes": 8924,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/prospect-2.webp": {
+      "sha256": "79332baeba173662b373bf1f8cf130771adfe6bafeb03a143d07fabfa3f0866c",
+      "bytes": 11174,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/prospect-3.webp": {
+      "sha256": "d4c595ccef8ed52f6a03a03a5d91dedc701adb680a273b5a8e2679b00d46a0ec",
+      "bytes": 9064,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/prospect-4.webp": {
+      "sha256": "82f82036c8d9e38aaac13db4665376b038c6eed2ace8d0ecb51b04c603a2c95c",
+      "bytes": 8810,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/support-1.webp": {
+      "sha256": "cc611a391fae25b727d4b51ced411f149e0496217468e8a6eb0b631a0d24b396",
+      "bytes": 12024,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/support-2.webp": {
+      "sha256": "6089d366f2d6219811d3813438b4a4e94c6fd3665ee33a21ab67dc4a661ac13e",
+      "bytes": 11348,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/support-3.webp": {
+      "sha256": "c598559813d348c3ade7b98352c0f60297305b6ef788c18e069a96cd3d1b6194",
+      "bytes": 10910,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/generic/support-4.webp": {
+      "sha256": "e9b28a33dd61b612f28b774f0808f4f99c020377b9d85ea411916964f525e9b1",
+      "bytes": 9234,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/champion-1.webp": {
+      "sha256": "6dcbdc78c1c1c12ab4639cc43719a8e689fe8ba8946762437581866aa62c4aba",
+      "bytes": 16598,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/champion-2.webp": {
+      "sha256": "f7edc0af4afd75ff8459565907720a47def4f1b77031f9b528537e50b9f4e70a",
+      "bytes": 15860,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/champion-3.webp": {
+      "sha256": "1ddfb128b4339246330c3f8051c4c16988eae2ff84a10e39ef70e9431d797fc4",
+      "bytes": 16110,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/champion-4.webp": {
+      "sha256": "3a5a36218960429f1ea334eb6e18e17cc441dfd5812ea4f8731b6b1e3d0c6ea2",
+      "bytes": 17476,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-1.webp": {
+      "sha256": "89bfd4a7b85900b3b3424cbc020bd327e78ac4c77b3f9cc8c092a0d5a4738d04",
+      "bytes": 16320,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-2.webp": {
+      "sha256": "26f13523d43c61a1c68e56395b6ebb8ba6e59ccb2549c4383dd3135a8e648434",
+      "bytes": 14130,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-3.webp": {
+      "sha256": "a12eb800a33de76a9957bf86453010902240becc34d915629a7f8a0caa6713b5",
+      "bytes": 15474,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-4.webp": {
+      "sha256": "5bcad5e45989aff856c75cd13c3ee4026372aec199926247198e31f0bf126196",
+      "bytes": 15766,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-5.webp": {
+      "sha256": "39d57c9da1f0212a6213363791edf2584021b751696b74b4e2ebad107a972e38",
+      "bytes": 16444,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-6.webp": {
+      "sha256": "7165fc696da907909810da5a0d165027f851969eeafa65bdceb6d02622f336c6",
+      "bytes": 15682,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-7.webp": {
+      "sha256": "3e9ed4eb3aab64a7ed4f09b6c7b305f37a66844909fb315dba10354cf5cbfafa",
+      "bytes": 14002,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/ganger-8.webp": {
+      "sha256": "55777a4fa97d49d5749a2565991127ed048629d8c45bfb923d7b516c54bdb669",
+      "bytes": 16652,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/leader-1.webp": {
+      "sha256": "c8bdaf96bcd2465e3833f568f74159528253ead9a1cb669792b113a2520e95ba",
+      "bytes": 18738,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/leader-2.webp": {
+      "sha256": "b23428845cee5734730738d3cb0e25d292cd4f3cade5d279f436937e2d21ea9a",
+      "bytes": 19476,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/leader-3.webp": {
+      "sha256": "8f947db21ea66b19de10e8327a5304a657a726facc8c364d34f8ff6158510e41",
+      "bytes": 16322,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/leader-4.webp": {
+      "sha256": "e4e7b964650304ee62423239c5789533aa6f2efce1cee68a927dfbb4bcadb72b",
+      "bytes": 17574,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/prospect-1.webp": {
+      "sha256": "81dbd35c8ce9adb6e1d65755bc22fe3288c87067a964ec5090dd8823448d125c",
+      "bytes": 13922,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/prospect-2.webp": {
+      "sha256": "10ef6b7f2ce1c82a0fe2eec5cd698080c0168a7f97e33d53161c96cb1aaff7de",
+      "bytes": 14210,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/prospect-3.webp": {
+      "sha256": "918db8925d6f08ffeab396b3450af4247cd26d05f1e0d7930b8668c33bb8c98e",
+      "bytes": 13780,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/prospect-4.webp": {
+      "sha256": "b8dbc36e9d3cf3a774f269c9b5c56960643ea63a7def3a445a65f110378cf8b2",
+      "bytes": 14614,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/support-1.webp": {
+      "sha256": "d362eb43aabccb872ec52e255e33d116ab579e64768dd2a75c31382315fa0c42",
+      "bytes": 16054,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/support-2.webp": {
+      "sha256": "83ae82214e41761b9b29417a9fc97dafd85fa3b23cec8c027969f48418823b14",
+      "bytes": 17124,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/support-3.webp": {
+      "sha256": "27e6d081d1dbec0537010920e48704143db3db502192850e747bf5f8a5dd812c",
+      "bytes": 16068,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/genestealer-cults/support-4.webp": {
+      "sha256": "5b5a6bffcbfc3ec2fb67bc3096b4a0c181c883efd44b82a1510dde27096b9499",
+      "bytes": 15020,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/champion-1.webp": {
+      "sha256": "0db4b24ec2e833deac49a9ec4333a0c552bd3b22d65c5d246b5c924231a40cd5",
+      "bytes": 17444,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/champion-2.webp": {
+      "sha256": "2a0bb4298d44c7d0dbc03a895923522dd9298e7153b8c4ef7c901a59641441e5",
+      "bytes": 16010,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/champion-3.webp": {
+      "sha256": "0245d5598e2e370eb30a64c5f0f594a53219819b10395fbee204a39ed4f8350f",
+      "bytes": 16492,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/champion-4.webp": {
+      "sha256": "e383b24491eca4c153cf3b2dd38c95754578b334f2d56b46e1cbbb7a75126f3a",
+      "bytes": 15876,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-1.webp": {
+      "sha256": "0b4cf1b41780d00ddefdf7b533c2eea2ec8649461f018b2f4ce5ea5554b94cbe",
+      "bytes": 15674,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-2.webp": {
+      "sha256": "3f1222c46d38ca2532e3d18f96b5fe7feab7d423e2eae926c865971f0f5b3f60",
+      "bytes": 16688,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-3.webp": {
+      "sha256": "5634087119f17baabad49156c18c21f7d8a87dd7c800bd711fb42a41eedad20e",
+      "bytes": 15244,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-4.webp": {
+      "sha256": "846fbfd6a16f65276517b65c67903dd5388673b14dd9e375f4b635833823171f",
+      "bytes": 15602,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-5.webp": {
+      "sha256": "4d7b184e40bb7e1cdd1fe04923500c6699db2fd96b979f002fc033b97a259964",
+      "bytes": 17594,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-6.webp": {
+      "sha256": "f0855799b2f4cfc2f646fdbeece04e2b30cd6be6ebbae9c7984ce8e8787f5dc2",
+      "bytes": 15472,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-7.webp": {
+      "sha256": "fccfce13f314af16beb59a61f090ec2276903538216cebd1cb76944e87c37992",
+      "bytes": 16566,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/ganger-8.webp": {
+      "sha256": "48a8f34638caceb443095be64ad536d4ee606ecb82be20db3265f10dff81c737",
+      "bytes": 16162,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/leader-1.webp": {
+      "sha256": "997c1cbc78b1e93d3ba4cdcf68bc892d574959afa1ea39dfab4fc3939bec75cc",
+      "bytes": 19526,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/leader-2.webp": {
+      "sha256": "a28e3ce07576c6b6287e6d46c0831f43bfb92887e43502de9583312ffec7af5d",
+      "bytes": 20226,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/leader-3.webp": {
+      "sha256": "50620b8346fed6fe36af6ded69d777ad73b84e289709f2252002ace343680a6e",
+      "bytes": 18292,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/leader-4.webp": {
+      "sha256": "1ce2b6ca9855b1ef8b5e606802948971c63e53563a3e717627559a36b3e6ed63",
+      "bytes": 18520,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/prospect-1.webp": {
+      "sha256": "856ce9feea22de09935bad7228927aa32a51fe670b39c2153239868dbc24c7d0",
+      "bytes": 14288,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/prospect-2.webp": {
+      "sha256": "060a4f07ba7be40cdb419bca3cb2ea412dcc82fca88e2e22caeee51d09eaf0fb",
+      "bytes": 13658,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/prospect-3.webp": {
+      "sha256": "b06e47214a32b715ffb5ea1f59498201ed7a0deac0ef7dfc7a850c25b7023663",
+      "bytes": 13678,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/prospect-4.webp": {
+      "sha256": "328175157dfcd0a3eeb64ef8290c1681eb7041761d40be7e7d0e66baf1c120df",
+      "bytes": 13722,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/support-1.webp": {
+      "sha256": "47a5ada672712b590c84fa43befbabc3ee45f9a109ba9fc9a9b4835a3af09c96",
+      "bytes": 17952,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/support-2.webp": {
+      "sha256": "77fab1085455a4ac82f5603e4f96c37f3ae0bf1fb70ea1941c59adcce3e8f402",
+      "bytes": 17080,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/support-3.webp": {
+      "sha256": "b697f165d3d821b419812143396a76fd2699582bbda9dbd8b2aff98687cd396b",
+      "bytes": 16690,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-cawdor/support-4.webp": {
+      "sha256": "2dd11354c5080eb01c529edbb7598260f573c59fef5e28aa3cf1042fbffb307e",
+      "bytes": 16340,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/champion-1.webp": {
+      "sha256": "faddfc39d8d25e27931b1b7f5bd0bacd15954e36a18a35366387f617e6c2f0c9",
+      "bytes": 13770,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/champion-2.webp": {
+      "sha256": "fe1d2ee2a124be59d85127598f63d81923d474d9ad5c57e62c6d4cb67e22dd50",
+      "bytes": 11536,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/champion-3.webp": {
+      "sha256": "73b3e164de9b9753a4a358af968c7e0db636e275ee32757a107cb896287be5f7",
+      "bytes": 12372,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/champion-4.webp": {
+      "sha256": "5ccddcfbab5a0e20e4c4e81a42343acef7ec681cd5b59001cf42af22b704b00a",
+      "bytes": 11514,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-1.webp": {
+      "sha256": "39e20cf013ad1c808abee2c9f8373d7dc8e7c02a7232a26dd685d14064a1572c",
+      "bytes": 11608,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-2.webp": {
+      "sha256": "24aade7f133eb2660d1d5d1dbb48929cae4e2ae503640304b70ac3e1ea99bf82",
+      "bytes": 12024,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-3.webp": {
+      "sha256": "cd1d996661cfdfa6e60cb0d942467e95ad2fbcfeb8b96eb56295a17548d197d5",
+      "bytes": 10378,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-4.webp": {
+      "sha256": "c19937b1c45d7c6e17132f0d1ec2e7004f80000b73e5bd97d2d74dcd82b98ecf",
+      "bytes": 12142,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-5.webp": {
+      "sha256": "06e410e3c0566c914ee698270c27b327e262d80c1159e23c84c8c3efe76f3adc",
+      "bytes": 11846,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-6.webp": {
+      "sha256": "8af73e92e70b20f91fb6bdfa826086309f7b441a2c2f1c0c2b4843c0c0c2b8ff",
+      "bytes": 12258,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-7.webp": {
+      "sha256": "a6619072b54c6c5b2351f6c456d3c510c354f19a3a7806cc6946fbf76aec26f3",
+      "bytes": 10972,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/ganger-8.webp": {
+      "sha256": "2fb5dd48c56fa611cbe0727462b43f51dd5ebb230aabc640b3c1ab574ba42cab",
+      "bytes": 12256,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/leader-1.webp": {
+      "sha256": "a9e144a959872c1a4abe3bec3722f6f722c428e7ca011ce0f111ceb749b652be",
+      "bytes": 12522,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/leader-2.webp": {
+      "sha256": "08ad738599148c7ab924b9acf4cb30f856be6a534da2c8eab6c2a483df176fdd",
+      "bytes": 12620,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/leader-3.webp": {
+      "sha256": "0f7e8b2d83ede65eca08f01b96a97a635ca0bab3e8c24f33448e731ee85bf5e5",
+      "bytes": 13254,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/leader-4.webp": {
+      "sha256": "215dad24b976a61b5cecc562c4e40e4b028c39eccca3fa737924a71477b8c7bd",
+      "bytes": 12712,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/prospect-1.webp": {
+      "sha256": "2772e1d2aa797bb17a6d1572fe7e3ebfdf1871bb2a829089a791549965bc330f",
+      "bytes": 9934,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/prospect-2.webp": {
+      "sha256": "e7a6f8dfc0450ed6294e87c4ffa455d943eec1e7b9129ef25d22ba373b87865a",
+      "bytes": 10002,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/prospect-3.webp": {
+      "sha256": "ea34cff5eb04794554a0648e407ae65e8fe0ff8d98dbbf0a55be8eb565a06314",
+      "bytes": 10032,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/prospect-4.webp": {
+      "sha256": "82fd140ad646b96670a89b91c86589d6173fa818e77c4c9d8e1f91e76952f896",
+      "bytes": 10386,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/support-1.webp": {
+      "sha256": "2e906877b697c53b7e262fcd9c3370645bf9f5a83ae10fe9eafec6c982c4c25f",
+      "bytes": 13950,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/support-2.webp": {
+      "sha256": "8cec47cea80b6cba3d6b798ed62b9753f2960e12d4c3b3b08ad40d866a7a66f0",
+      "bytes": 13990,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/support-3.webp": {
+      "sha256": "fae5a74f9890988e088df8fd897db8c798f55f1854acfbcf5ef0db27dff63db4",
+      "bytes": 13550,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-delaque/support-4.webp": {
+      "sha256": "3e6fc800140238278f55c0f26e1bb2c2582832fd227b235534fe8d33072cd128",
+      "bytes": 12968,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/champion-1.webp": {
+      "sha256": "0004e890710b3a3f29bc5fb27cc38a825473092f6e464f58fd7aabb595d3c121",
+      "bytes": 13682,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/champion-2.webp": {
+      "sha256": "f623aeb10744716e2f1254f41fc768e76f506d9592647ecd5b0d6c70cbbeeee3",
+      "bytes": 13876,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/champion-3.webp": {
+      "sha256": "f3bed747eb76005c8db5dc19f5374afd525d3c50d6fd7e7dd89953a647ff1678",
+      "bytes": 14254,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/champion-4.webp": {
+      "sha256": "e83eba49b2358e77b41ebbc326d64686b15427d9ea91f120b33730df5a37769d",
+      "bytes": 12888,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-1.webp": {
+      "sha256": "3dc5950c516f509e1912b1cde75d024830c6b52d242caa8bc605b49fd1f5e39b",
+      "bytes": 12952,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-2.webp": {
+      "sha256": "6b6da86aab3821fc392cc987ce814bbe85b95a4b669f24e212aa9c8844557281",
+      "bytes": 12962,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-3.webp": {
+      "sha256": "8fc79fb0d0092d99f6a4f4e98b4e1e383c408594b00d33f3f952f76c0b302acf",
+      "bytes": 14698,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-4.webp": {
+      "sha256": "085e12d42f178b3be0d3009cd1a53aabc7708ac806ebf8c78d052b629ff9d18f",
+      "bytes": 12694,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-5.webp": {
+      "sha256": "b0825df3515d3a88637aea7d46a3dbfa3ad2f896257f9d5a8d40d24bdb9780d0",
+      "bytes": 15584,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-6.webp": {
+      "sha256": "1e6bd62d103656ed32ef94111a1c64ac6a3e85e0b15da4a1b7e07c96988dd868",
+      "bytes": 13766,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-7.webp": {
+      "sha256": "3e8be40e4ef56f8d1f2326c273c829e16b6f7d3945727cd2ba55f5357d529d1a",
+      "bytes": 12624,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/ganger-8.webp": {
+      "sha256": "127d9563eb8ccafdfa7cd2bdfefe445cba9778e997d8ae8452309f8331782a53",
+      "bytes": 12858,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/leader-1.webp": {
+      "sha256": "bb06df1a66380d87ff196c481f4463e7dd3fad1ac62a9286617ec802ffd18457",
+      "bytes": 15594,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/leader-2.webp": {
+      "sha256": "8607875fa2f81ed5d6032e4fb141efb1ad339d558862a80f212c773ebd54142e",
+      "bytes": 17460,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/leader-3.webp": {
+      "sha256": "cf325635d02dfa7cf9500291ef13da86488c396bb8384e82ca3fd24df86cab11",
+      "bytes": 15834,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/leader-4.webp": {
+      "sha256": "7c4335bfc1abfe17edd0b952000030b28fc1edc5aac6ce5e7b215793ec0fab57",
+      "bytes": 15622,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/prospect-1.webp": {
+      "sha256": "23b602542eded18b9d4e46c1d7ff34a2b7c67da0c131e3e34e148d3df80b4f98",
+      "bytes": 14838,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/prospect-2.webp": {
+      "sha256": "ae25b06f6dc23eab0d0643bfde7d9d2825efc9349c83680f10cb6d9e51b685a9",
+      "bytes": 12466,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/prospect-3.webp": {
+      "sha256": "6818296f8ce053ca1c7b2b1e540d4ccaeff5fec0ced4dff1f0819a4503a3f02f",
+      "bytes": 12698,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/prospect-4.webp": {
+      "sha256": "31bb5d9998486e77c8b8d5a4e9cfe6a3b37aac5241c6feed23baf360cf6c85f1",
+      "bytes": 13010,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/support-1.webp": {
+      "sha256": "28aa90781daab75b98ffc5eedd3d11ecfc2f73513db7167a54d2270d437a7ff0",
+      "bytes": 15950,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/support-2.webp": {
+      "sha256": "f0fd80d73466f92de479962c477c4540260455d90134e5de64895c714d997b43",
+      "bytes": 15042,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/support-3.webp": {
+      "sha256": "2c2fe0409fe9a0637740f4187eab9fcfbb206160405fc5be215a7e9963e07202",
+      "bytes": 15302,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-escher/support-4.webp": {
+      "sha256": "ccd69492f50dffbd2af2cfa5d2e81f639e664e0006b212126f71d2d4dff925d0",
+      "bytes": 15270,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/champion-1.webp": {
+      "sha256": "be2abed2d0d6ca7cf58bf3d32f6b8508c006c2ae6fdd912ddb2ffb27e2cdb32f",
+      "bytes": 16614,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/champion-2.webp": {
+      "sha256": "cae970e9aa30989f15426da297fdd9171b06389d99c9f41b035d4436e1413127",
+      "bytes": 15538,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/champion-3.webp": {
+      "sha256": "8f77edecc2c9cc25095551271aecef39874e26cebb3214fe910911a655315bde",
+      "bytes": 15938,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/champion-4.webp": {
+      "sha256": "42cda5576a263a9d308cec88f1552e57c83a1e290bacff1a1c4049bd17e503df",
+      "bytes": 14882,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-1.webp": {
+      "sha256": "2196a8bcb374e242188bf3dbb780db8ce76899f1b826c05e65f4571a14b92a10",
+      "bytes": 14236,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-2.webp": {
+      "sha256": "50270078ab875e55816790b858ccf9859d68900e880a2e54d38d2027ceb4c18b",
+      "bytes": 16108,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-3.webp": {
+      "sha256": "2e2544a9c895ed82e7e15d9d6787d5c02c05666141e85534f423bd91283d9604",
+      "bytes": 13494,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-4.webp": {
+      "sha256": "37249c5d26d2d96678cd545be4fb7a9f94535f24cb64da99de21f213edf38c60",
+      "bytes": 14362,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-5.webp": {
+      "sha256": "41025cc568160cf2f0de73642f3b9a942e6d09f0a2db5d4fc760254fe9dd6f04",
+      "bytes": 14034,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-6.webp": {
+      "sha256": "450b6abcb0f608dd95affde06a525a8a7802e1cde15237bc089a085ea128f708",
+      "bytes": 13110,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-7.webp": {
+      "sha256": "9579bc150c7e59a079f94d5375e7c1e838ff6b9aaa39f90d219ddbec581c2ae4",
+      "bytes": 15582,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/ganger-8.webp": {
+      "sha256": "558a1f364d6b529fed42f3818648d58ef57faa8c8882ef884fd0784172671308",
+      "bytes": 13946,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/leader-1.webp": {
+      "sha256": "963bcf08de37fe0d65e2d9670b2306855b4f9b9b145ff810dbdd899d1ad603f3",
+      "bytes": 14368,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/leader-2.webp": {
+      "sha256": "710d38195bc66c648e8d212ddcdd81b9abd5945ef35cf079e62cfe6861d5e97c",
+      "bytes": 15574,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/leader-3.webp": {
+      "sha256": "e67a0c7b2bfdb537beafadd967d7315e679986ffa14df50949a0f46a2b5d6bcf",
+      "bytes": 14980,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/leader-4.webp": {
+      "sha256": "045561473dc0e337d2bdab0876099072ae5d7e882437e668bedd5b4a6af71b5d",
+      "bytes": 16918,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/prospect-1.webp": {
+      "sha256": "a637212b1f5585fcc9b7913bd1992b7e376ce23ecbf41cf3a55b9c10ef4fdb26",
+      "bytes": 13288,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/prospect-2.webp": {
+      "sha256": "bf76af4a6e32a4eae6f94651cbac76614cc86de87b2c94d3b3ad1718efe2a692",
+      "bytes": 12692,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/prospect-3.webp": {
+      "sha256": "688c82f6435c50b27037fd73921c6f9dbd6e3b9e84448dd4eeb5b081c9bef5ac",
+      "bytes": 11316,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/prospect-4.webp": {
+      "sha256": "e3b4f52b32e329a76f13e90113b76ab4c171569b590dbe68b3d6aec07cadbbf2",
+      "bytes": 14172,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/support-1.webp": {
+      "sha256": "dbfe195c60fa340d49e43128b74458c6492d53bd2f8da27b4cea5187af834257",
+      "bytes": 16350,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/support-2.webp": {
+      "sha256": "11bac7dace2eab077ad8163fd72f7d3a47db9d143846ea1401c58a4d8f2cad4c",
+      "bytes": 16448,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/support-3.webp": {
+      "sha256": "a54155b5b00c5042ddd0f2c4d984817738884b4a81c7348712565ba5d24a96b5",
+      "bytes": 15868,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-goliath/support-4.webp": {
+      "sha256": "087feebf0915ac452e45a6ebb61810d0ed770c84f946eb21211b88aae31a0725",
+      "bytes": 14048,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/champion-1.webp": {
+      "sha256": "cffa3c3826e0f1196fbe450a399634807ac73f849616230da3c3682511976e86",
+      "bytes": 15030,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/champion-2.webp": {
+      "sha256": "5166619c6499601fcc0f7b13a942fc3ef6dfdf6da8be44f5f16a7fbab94f5fe9",
+      "bytes": 15752,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/champion-3.webp": {
+      "sha256": "0e95cfe34f49f5b971400b908472de292f0c1891b5af5b97f8d957406567597f",
+      "bytes": 15328,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/champion-4.webp": {
+      "sha256": "12ff875cad2e3a06dc0442913b6ee97c98a70ba17215da9206a6dd90a152bcf6",
+      "bytes": 15476,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-1.webp": {
+      "sha256": "966b5f6e5dc68ebb63969c22ed7a534bc456c5c43aa49ea42446b5e1655585c9",
+      "bytes": 15100,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-2.webp": {
+      "sha256": "c91cae31ed6062315481af0f2b5b5cc1c095219dbd7e6eadff95988a32ce9e91",
+      "bytes": 14514,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-3.webp": {
+      "sha256": "488b3e11ca773c0e5e9e1138ae1998983612a8a3716402a2773c84b8be2ecb9c",
+      "bytes": 14032,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-4.webp": {
+      "sha256": "9f44e50b243f0f917903795fea7aa6676655fc1888b954aba4d7bcd51ac89f07",
+      "bytes": 14580,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-5.webp": {
+      "sha256": "06a8f0bf603479c6618e0dcca3c1589a6d6e075c3589c5ccf8872566ae38f60d",
+      "bytes": 12946,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-6.webp": {
+      "sha256": "69cdd164572327ef63c6057734e018968edf904f9f393730a04aaca4307d9347",
+      "bytes": 14658,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-7.webp": {
+      "sha256": "fcbb0ba706c963b59171b152860c98018a665ae886b50263c62e8780fd598ef9",
+      "bytes": 15088,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/ganger-8.webp": {
+      "sha256": "ee21c09780beb402f861c3ecf2b71258b1ff4efe9fb891148c48586656999fe8",
+      "bytes": 14030,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/leader-1.webp": {
+      "sha256": "dc2ca14c1ad10e1d3964e07e171e0285aab19a94588569f8aabb08b8d279873c",
+      "bytes": 17028,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/leader-2.webp": {
+      "sha256": "b0d6766d9f7b091540461a4fb37ed029cf07f6be87e31f78c7d64fb5da596c53",
+      "bytes": 14834,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/leader-3.webp": {
+      "sha256": "2c80b151ae81fcd8de3eb92f842c6dc895430c0bec77075ddac3db51b2fd4035",
+      "bytes": 15200,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/leader-4.webp": {
+      "sha256": "0ada2a96216ca53953911fcec4d02738dc9367c8dab59cccd9fba47452bc694c",
+      "bytes": 16226,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/prospect-1.webp": {
+      "sha256": "abd6b8be4d4dfc1c9981f8a8f1e4e451e706c39cf8aa04c61b6f89776667a0f7",
+      "bytes": 13228,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/prospect-2.webp": {
+      "sha256": "0ff97c6ca678ac7888e1ce451cb80f28f5adb370fbacfff27453f7fef9e9c47a",
+      "bytes": 12698,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/prospect-3.webp": {
+      "sha256": "e605af528ac7061cbc73192b53975aa73ba05902d1fa907f1d2a2896b0cc71a6",
+      "bytes": 11774,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/prospect-4.webp": {
+      "sha256": "808db5cc5a4385b9b71f83302cfb23bfcd6266373700607ceb96ab004436dd06",
+      "bytes": 11420,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/support-1.webp": {
+      "sha256": "e9ff71ca6b5689088826d24635c4fba7c042d09cb3f3dd85e2a69962f9ff0825",
+      "bytes": 17192,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/support-2.webp": {
+      "sha256": "c092cfb600ab37a7eb5b94fad561d9baad6f7bc14d65ed7ed181d00c8405f1d3",
+      "bytes": 17114,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/support-3.webp": {
+      "sha256": "30695d5f7df7d0a1a97dcb4b098cb14020ed6a119e95821350aba702d25f5241",
+      "bytes": 16740,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-orlock/support-4.webp": {
+      "sha256": "5a32a36da12cfb262f771c45ca5e1952a98cc1cf904ca8bbb375284e0c6a3c99",
+      "bytes": 14584,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/champion-1.webp": {
+      "sha256": "2c02f4ca30764842a4630db1ebc0fc198990ee3ccd86178213d6adfe0110b9ee",
+      "bytes": 15892,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/champion-2.webp": {
+      "sha256": "2a867e117a9e416e1e7eae66f541c2ab6b2aa3544b37f4e96cc8af607fa45c65",
+      "bytes": 15878,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/champion-3.webp": {
+      "sha256": "f2c1e58362b71919777e14060fe8b7f67f9e90dad256b1d381b96854ff769a14",
+      "bytes": 16896,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/champion-4.webp": {
+      "sha256": "6513b2196a71e6c81adecb6f46294aa1b825359ec3911bc805854bd48e1e4f95",
+      "bytes": 16190,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-1.webp": {
+      "sha256": "e3a90cd4ddd75f7fa7e339e2437d3c4611a23c2951e51f7b1838475e15b3608c",
+      "bytes": 14704,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-2.webp": {
+      "sha256": "0083ec463abc5547d4ad0c498838867348116d3c2c4d22598d552e68dce57290",
+      "bytes": 15752,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-3.webp": {
+      "sha256": "b9f1abb0b74ef0173666898f9181b167534c2959e1da02db8245fd266d956dc2",
+      "bytes": 15560,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-4.webp": {
+      "sha256": "b63f4982f7ba5973fdfb6aa2b4d72fc3e3b78f3a25a48f8dea661e76b37e5611",
+      "bytes": 15458,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-5.webp": {
+      "sha256": "7bd5afaae60897c76242fcca72754a21fa030af1da58ee5c7ced560f5f39168e",
+      "bytes": 15680,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-6.webp": {
+      "sha256": "a124a005df42b828477eea947cae63eff2dc69be926f76b44558e4160d41351c",
+      "bytes": 14434,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-7.webp": {
+      "sha256": "4ea3eb5d60d64d120768b2a96f98fa9bda04a4b8e8ab7424f1275e2240b9f706",
+      "bytes": 16008,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/ganger-8.webp": {
+      "sha256": "5e7a42fdd82b10f2738dc1a0aa0da00e9f010907bad999c1d10232bc0e55266b",
+      "bytes": 16428,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/leader-1.webp": {
+      "sha256": "e309332a431b8a9e0271bf05e9749055c6383ab2f9ef3f34994811e1c5819f13",
+      "bytes": 17512,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/leader-2.webp": {
+      "sha256": "52492f822af550514113e542071565f87d1634a06e14d80867cf650f4228a53b",
+      "bytes": 19348,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/leader-3.webp": {
+      "sha256": "aa450ea22c19bbe2a0165c75d9dea9fad0ad13074d7d142f15a14fe6e2734e2f",
+      "bytes": 18748,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/leader-4.webp": {
+      "sha256": "1e7ee9a8ecb58f085bfbda1a65f89ea26189d1e5ee5e45b62398af1760546d16",
+      "bytes": 16684,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/prospect-1.webp": {
+      "sha256": "ded044e37a584461de576e8d5f910105d0c7551a14f593fd5a70bc9ffbb80f6f",
+      "bytes": 14264,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/prospect-2.webp": {
+      "sha256": "4c7dcc7090537c61593455f2330830c8d992cc24084dfd4e37f9b0410338f7f8",
+      "bytes": 14014,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/prospect-3.webp": {
+      "sha256": "b32a3b518041bbf24c653efb4a3f2386690c792a49a0318216723b818cfb8cd4",
+      "bytes": 13290,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/prospect-4.webp": {
+      "sha256": "eb78aa2dea2d3a720c6635f2aa63e81c0950da00652caad4fa0934b9e43f3b8a",
+      "bytes": 13552,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/support-1.webp": {
+      "sha256": "4a15d69e1078dd819cc28917cd4178e7ffbab1980d09ed038c864eb29dab57d1",
+      "bytes": 17730,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/support-2.webp": {
+      "sha256": "0ce53670c1acf56b52ee005c6353ee268ad3921b8136b09e000b8fb033f7de07",
+      "bytes": 16460,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/support-3.webp": {
+      "sha256": "4a003159fce62c76dc3c31f740a7897abb49f9aa4cfd84b4b08a762c0210a65a",
+      "bytes": 17086,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/house-van-saar/support-4.webp": {
+      "sha256": "6163e8aaaa4bd47c78fa2a293c6379af93a146798c329c3866ef3f5576bf3c04",
+      "bytes": 15482,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/champion-1.webp": {
+      "sha256": "29ef13e4f38da282f05d28dd86a2b0236290819069838f926902a4f3704cb8cf",
+      "bytes": 19258,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/champion-2.webp": {
+      "sha256": "c428b180f52b463dc2d21f9f8b1227962274ec91c7bea083c3bb2a1540375188",
+      "bytes": 19934,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/champion-3.webp": {
+      "sha256": "839822fa5f855add3402fb92072888a559a247d815236b7306210f92dbf40dea",
+      "bytes": 18130,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/champion-4.webp": {
+      "sha256": "6d3b1fb34074ce9eb01cf8e851b339af77c368cf053c35addc97a84b1dc559d3",
+      "bytes": 18296,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-1.webp": {
+      "sha256": "73c9c1759c3a2088ca6110bae31a1db8c18afa9cbd983d70da97b92c64d59df4",
+      "bytes": 17594,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-2.webp": {
+      "sha256": "678b366390f4e76e2194c44f5bc23cd0f0306e9fd0dca74efdc183e22860c035",
+      "bytes": 17664,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-3.webp": {
+      "sha256": "5b0cf8b51f4cf718cca59feb9c9fcc1edb09d99e86784982f7b83abeabe63508",
+      "bytes": 18004,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-4.webp": {
+      "sha256": "743f4c84dfe6312d7d73f7fe8b92373a7e472c09756cb78d60d50ff333b05f43",
+      "bytes": 18578,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-5.webp": {
+      "sha256": "6bddadcbc7db4397d2444cb269e90b6828ac78411fb5741c713b40aaf3eb8d50",
+      "bytes": 18324,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-6.webp": {
+      "sha256": "9d99cb73c01c2ae834158663d0e86a1f7e40412e01939d264253d5aa39300b19",
+      "bytes": 17308,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-7.webp": {
+      "sha256": "3e838ce08743d7c92f929e2d902beba1180eceb94d233f9b8e20c01b394e1fdb",
+      "bytes": 18282,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/ganger-8.webp": {
+      "sha256": "b8e649fe8133de6e69f7ed73805b5eda93778bc8152fffbdc9a840fb1cc5deb2",
+      "bytes": 18110,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/leader-1.webp": {
+      "sha256": "28531089cf9f08bf6c6ff4b06161b845742df1fe0f4abc68c0e5448e0ea10b59",
+      "bytes": 19114,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/leader-2.webp": {
+      "sha256": "add0fcb271d0d33d698b0e35d6ff678d848870fe19332ac8dbca50dea6f7d9ef",
+      "bytes": 19780,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/leader-3.webp": {
+      "sha256": "36a2c9d8a7837d818d276b9209471dd1c491475f45f8c27bb674d0f75f3036bf",
+      "bytes": 17332,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/leader-4.webp": {
+      "sha256": "5324403fd04ac510b6d3e52281e1f4de7c151318b59223e9b1ed2addd00192fb",
+      "bytes": 17066,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/prospect-1.webp": {
+      "sha256": "afaed7be8865e33de44085e872efa27bcc5ec5214f8bfada279c159a01e232a4",
+      "bytes": 16458,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/prospect-2.webp": {
+      "sha256": "68c99db10b003654c6bc793aa131782a12f263fd3408307837cba280804d244d",
+      "bytes": 17116,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/prospect-3.webp": {
+      "sha256": "6918ee8369cf9c7528177ca2e3d5c6750a1f4df5ffb6561b4f90d8febae4a4e1",
+      "bytes": 15056,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/prospect-4.webp": {
+      "sha256": "e71fad03b0af9245a0c8bf9fe34c243cc17fbb68da18ae8ddd44f44852c28ecb",
+      "bytes": 16108,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/support-1.webp": {
+      "sha256": "0f74e568fcc22172f42970b84edc3981df9916567d55334f7eba2212843a3fef",
+      "bytes": 18294,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/support-2.webp": {
+      "sha256": "b2396b4212722859f9604c31d8cf393d2e337f8d518026c00bdb5eed952a3392",
+      "bytes": 19624,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/support-3.webp": {
+      "sha256": "f5af83466ea7006bbfcdde0f0d9bcecc67beddf111a1f469853bfe1951c7a340",
+      "bytes": 18612,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ironhead-squats/support-4.webp": {
+      "sha256": "8622d03d266b1cd23e36fc1736a72bc7faac7846cd375edb63805731e46a31c6",
+      "bytes": 17496,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/champion-1.webp": {
+      "sha256": "47bb1f2d57617087ea9250538d44acdfffe55d5e6d96a210a1a3450bd7fc72a4",
+      "bytes": 16282,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/champion-2.webp": {
+      "sha256": "bb88094e418794b001966ee34b0d1ea8f9da125bd80bdd4bf3cba578811812a1",
+      "bytes": 14940,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/champion-3.webp": {
+      "sha256": "df5faf27ba995fea6ee71b597958708b18707287f056e8032000131044abc02a",
+      "bytes": 16420,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/champion-4.webp": {
+      "sha256": "0a75cee90a9a11bb46c46c84b6d3a7cf75b3078ac9c0da4ce1c2c3a1b85779e4",
+      "bytes": 16408,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-1.webp": {
+      "sha256": "860d2c7a8b902ca31ec424168c6e0068742953bf47e913961120f0f38fbac9a8",
+      "bytes": 14826,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-2.webp": {
+      "sha256": "a8da36d6b244670892889d4479749b0892cf073bb1843eca8ec646a06340f209",
+      "bytes": 14138,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-3.webp": {
+      "sha256": "d2971f2dfed5c1af439a8175c3717b12c7b080123d36a511ef965b7f24e6475f",
+      "bytes": 15806,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-4.webp": {
+      "sha256": "216d260fa404715cb4b1a91bd74a5ee786edd94f8a7bc1f4640bfb32be3654ef",
+      "bytes": 14164,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-5.webp": {
+      "sha256": "f946bb9f11655595eac5eed858cb2d072ea8c5cab5da188bd94a61ca5641f7e8",
+      "bytes": 14440,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-6.webp": {
+      "sha256": "0f8caba3619abf4926f3aa6ceaa9ab532e08b925b7ecb7221c63c05a27ae0339",
+      "bytes": 15234,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-7.webp": {
+      "sha256": "3a3a53ed44d2a599ee8c4dd63f4249acc96f5f58f5c834dbd15acbe9895db296",
+      "bytes": 16206,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/ganger-8.webp": {
+      "sha256": "48e6f7f74ce82d1be24900979947bd9df866a94a5eeffa1961bcfc8304879058",
+      "bytes": 13416,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/leader-1.webp": {
+      "sha256": "25c1ecc9a0184fc0e962fbc3c5c81547df963151962b820562b544d679194b9e",
+      "bytes": 15762,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/leader-2.webp": {
+      "sha256": "34315ca1f79ffd0e93087b911693fb4588271f45df256734914c71ff9f08caeb",
+      "bytes": 16328,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/leader-3.webp": {
+      "sha256": "46eec633098ca0ca91a4d803535c528e74a989d128e87151a726902ca61d02b1",
+      "bytes": 16546,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/leader-4.webp": {
+      "sha256": "081c4b4cd69196bceeccfa42e28c56b40177d971c070f2dfba05d78b90c2accf",
+      "bytes": 16182,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/prospect-1.webp": {
+      "sha256": "d042c588279d1e2a09481016b42be2e274f89a9d784fff21d0ff64546931d2e9",
+      "bytes": 12976,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/prospect-2.webp": {
+      "sha256": "51ac8b9c4b2a5907c1dd16cd5c1ad14df3030b0842eb15019ebb905d533dbfd9",
+      "bytes": 12388,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/prospect-3.webp": {
+      "sha256": "b1d2319f5945e142d5c440767f7f585a8c95a3d0887da52b3c308580300517cf",
+      "bytes": 12878,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/prospect-4.webp": {
+      "sha256": "371d6f937f4608d7820f470da02ab19af99b31d2e6c7ef20f4564f87f9007a48",
+      "bytes": 13306,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/support-1.webp": {
+      "sha256": "30c89f612c47aa568c0835ce058cc27ceb2a340583b5a4427a01823f78c431f3",
+      "bytes": 16366,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/support-2.webp": {
+      "sha256": "5c9cae7fd8f1343fc3129b36c099dd4330e8097e1a62fefb39e21f456c8cb8fd",
+      "bytes": 17318,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/support-3.webp": {
+      "sha256": "91db28ad46196609db3fdc219ef40aaa38f9506ef8232b9810ea64208c6b15c5",
+      "bytes": 14804,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/outcasts/support-4.webp": {
+      "sha256": "722fae01fa53cf43cad7b4b9e31209c82a125040c70e33acf98d198ac0487efb",
+      "bytes": 15218,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/champion-1.webp": {
+      "sha256": "e090669a0c68948563f16ba6b13fba362267f53e9eef107ed94f713f888c1f5a",
+      "bytes": 13748,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/champion-2.webp": {
+      "sha256": "3944e9aff1b5788bae867760c3b4ec7af70283bbc8fac889c98de1086f9e771d",
+      "bytes": 14698,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/champion-3.webp": {
+      "sha256": "8da018c7b6b0ae3823fea4847a634180fc83e5bbdb03d8edf41b851a9ddc3309",
+      "bytes": 13544,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/champion-4.webp": {
+      "sha256": "94e765b53358a57023eeb3bf5b85209b741817c04a73d88674486632e24838f3",
+      "bytes": 13536,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-1.webp": {
+      "sha256": "38cb9241c9588b23cd74ebac98aa4ba2d28a02099d3e5734e3e31c969c72fdfc",
+      "bytes": 12482,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-2.webp": {
+      "sha256": "377469cbeab87dbab6d97fde3b8f0ac7099d6bf1a4954c57f6ef7f8f06638783",
+      "bytes": 13816,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-3.webp": {
+      "sha256": "c72f5a07e653221c15ab3518ef40f7fc79755bfe2b9e65d1a763fa037bcb41ba",
+      "bytes": 12456,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-4.webp": {
+      "sha256": "9a2cb46d35fb038d15ca568952154335545688a093b5e16238d3ab983e110a2d",
+      "bytes": 12672,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-5.webp": {
+      "sha256": "4aa83ea024e4e835fb149e5df9b830483980a627bca69165218f88221ac85129",
+      "bytes": 13892,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-6.webp": {
+      "sha256": "21b7cc55cbb4dc26285363e8ffc75eee0ac6c394562208c992a07a3b3de51e99",
+      "bytes": 12272,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-7.webp": {
+      "sha256": "0520754263890e52376e0846b49e4d3121896ee10b36c45147cce1d71ce1fb79",
+      "bytes": 13744,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/ganger-8.webp": {
+      "sha256": "ded10160c9a0c76c18799b488e10e7c4d26f462cb71ca83536cc3f3cfdc48670",
+      "bytes": 12750,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/leader-1.webp": {
+      "sha256": "8c9828a59be0e06bf27227c7d0ff63848108d16a890b8d5012db2ca20f893c35",
+      "bytes": 14400,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/leader-2.webp": {
+      "sha256": "4881237eecea7bc1caad9aa6c84ab25622e2f0b9bfe274ee3c24227c5e871dd0",
+      "bytes": 14982,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/leader-3.webp": {
+      "sha256": "0fdb6e62960b10a82b0c89fde70b9beaef69074388284d26123d803bc3f6ffc0",
+      "bytes": 13038,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/leader-4.webp": {
+      "sha256": "50bafe508f0d9eb1f8175aea5cdf0f6dabaa70263916ab050479838cf80858fe",
+      "bytes": 13280,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/prospect-1.webp": {
+      "sha256": "0091b2beda3d1685627e87ef87cc992348a5fb196f5363f3ce7156f758eb2ea4",
+      "bytes": 11190,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/prospect-2.webp": {
+      "sha256": "5f8d1f031f698e0dc2530cfffb40dbde7653141c6633adb172eb762694d8f68e",
+      "bytes": 12342,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/prospect-3.webp": {
+      "sha256": "1449c6e097592fd55f4b4c8e0822631d9da9e497297435992a9d7e8c10d502e0",
+      "bytes": 10976,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/prospect-4.webp": {
+      "sha256": "c223408ee58ac6346787afdfcf23d3fcd150b29e2487f541ce31502ae7cadf7b",
+      "bytes": 12350,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/support-1.webp": {
+      "sha256": "c9e5f0480dcd123cf5fe1c794856a0a407e40573076eb51c341699161f234909",
+      "bytes": 13410,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/support-2.webp": {
+      "sha256": "14da857ba9c29d5f3202d1195d5a519635f07cd015211d1a218419dff71a05c8",
+      "bytes": 14350,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/support-3.webp": {
+      "sha256": "6abd19fa394553ec23c788711f840892816aa578145697b174bcf4a3d311c327",
+      "bytes": 12832,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/palanite-enforcers/support-4.webp": {
+      "sha256": "fef952d80dea256efa40afbdf2df3e20ae825d809ea116edd3cefc5254f51421",
+      "bytes": 11440,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/champion-1.webp": {
+      "sha256": "5aa744e3c68d44d0ffef97a576b8a3ffb7814181ed2ccfaa401c719a25421726",
+      "bytes": 17186,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/champion-2.webp": {
+      "sha256": "39e1748b637ad20de3bcbf0adbc431120a8c4d189c2f9f3e87a3c2c4924a1805",
+      "bytes": 14434,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/champion-3.webp": {
+      "sha256": "a68bab977a93b7a411f12d72b92ae810512fcc415e628d94dc5fecab63a871d4",
+      "bytes": 14274,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/champion-4.webp": {
+      "sha256": "5624c8b56100a23d78b356cfe934af4d1d133a373bd66b932cfac63026344a68",
+      "bytes": 15896,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-1.webp": {
+      "sha256": "a02af1a8b7900c90d77204b99919a88e17b28df70e837f0fd8d9611f604205f5",
+      "bytes": 13534,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-2.webp": {
+      "sha256": "2023025169896c1034943c1cf1a502af4098f4f6da3e2ae70630686dce6fd8cd",
+      "bytes": 13932,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-3.webp": {
+      "sha256": "ce1c81f82a41e2ca763fbe59d0162611b2330c2d4339db63dd3a1b3be01af94a",
+      "bytes": 14280,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-4.webp": {
+      "sha256": "dccef974d246385678d34e8491e741bb0bbcf17ff3679ef3a84ae94e6b6e613e",
+      "bytes": 14632,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-5.webp": {
+      "sha256": "15c7c8ed81ab43631cfc8abfe1313fb7f274f3eb2754d5b356bb353149e5c892",
+      "bytes": 14292,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-6.webp": {
+      "sha256": "f45b1e2cace9a2cf74208d302d30e901f69170b7268e5519a19a813574632ebe",
+      "bytes": 11730,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-7.webp": {
+      "sha256": "b186e1a7417f873c3005536774061adc2fc89c207e973205fb97fee6d5419a8f",
+      "bytes": 13816,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/ganger-8.webp": {
+      "sha256": "50c4fd529b9c20cc4991e7c8d6d6c24036e282dbb593aabd383b3e8742617c29",
+      "bytes": 13978,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/leader-1.webp": {
+      "sha256": "01130fcbb9a8d0526d2fe145ffff987139ffb3db10bd5f58a6e4ac242e36328f",
+      "bytes": 15200,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/leader-2.webp": {
+      "sha256": "3309d5ba9c70eb589a48b3458b42b4be5919d8f1c485549cee37154ba0b59008",
+      "bytes": 13988,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/leader-3.webp": {
+      "sha256": "6348a8d775bd58b94c8c45d362202a6998c064af6dc4c9ff0341ef443384b1b8",
+      "bytes": 14798,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/leader-4.webp": {
+      "sha256": "91d0aa3e82a4566fdf5305ae6c8391340138ac03f95195e7eb16bdaf1607e5e5",
+      "bytes": 12998,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/prospect-1.webp": {
+      "sha256": "32beb4023d323cebc8991563db0f68351260d02cc05cec18bffaff0bf8794000",
+      "bytes": 14290,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/prospect-2.webp": {
+      "sha256": "fc12750a0bc533512c504ffed21ccc981550fa1029db6702e537bad2c5c1a4da",
+      "bytes": 12770,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/prospect-3.webp": {
+      "sha256": "d93b851fa5ef920775f326525fb91b565fc24d2269520578e4016a41a56595f5",
+      "bytes": 12456,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/prospect-4.webp": {
+      "sha256": "e5d874c0a2345261ad9c6f9bef3e1b364cea412d108b8538beadd4734b85769d",
+      "bytes": 13338,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/support-1.webp": {
+      "sha256": "5be869ac6db903b860df45365de6be9bc3e34eada59ec74d9f9ff282f5bc1c75",
+      "bytes": 16330,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/support-2.webp": {
+      "sha256": "8319a79b8272196fadeb9ab8486871da126f779700f1ed33071d7131ed4ce722",
+      "bytes": 15736,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/support-3.webp": {
+      "sha256": "cde958be6334e0f9ada256cb855f9f4903ea111963d2a58bf4e83b2cd1eb3367",
+      "bytes": 17304,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/ratlings/support-4.webp": {
+      "sha256": "ad4b7f11be3d33c4eb2f0f06ed9d755e75430ec834d25a935195bf6338904a97",
+      "bytes": 14724,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/champion-1.webp": {
+      "sha256": "9ff249cccf049dad1efba1bb1e33e97addd9ba5098c4583ef6bc340e3efdc9ee",
+      "bytes": 17086,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/champion-2.webp": {
+      "sha256": "5294d5db5885665431cfe7462383915173da06208be2bae2a358d93cd9b9d11e",
+      "bytes": 16212,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/champion-3.webp": {
+      "sha256": "95b06cde7d2a23692bc271b2a9084e14898fb772dc71675b8db843d48a92c677",
+      "bytes": 15122,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/champion-4.webp": {
+      "sha256": "4ec2699776fbd00a7ee979dafd449e5dc794d60ad41a8e6257587940e84447ce",
+      "bytes": 18060,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-1.webp": {
+      "sha256": "45e8cfd6a3c346f7735898191de40d16cedae514b88ca3b2543d444d30027dce",
+      "bytes": 15248,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-2.webp": {
+      "sha256": "dfd10200da16cace4fea87cd13df1635300277ef940d19ac40d6ab5b789a843d",
+      "bytes": 14452,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-3.webp": {
+      "sha256": "9dc55373f8722966987b1e0d8ec460365069987f95f55bb16ab5666d5124e3c4",
+      "bytes": 14856,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-4.webp": {
+      "sha256": "08cbe0242893edc8798e2582da1c1cb5f7f60aa61b3aa0aae4ceacc64d96f715",
+      "bytes": 14536,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-5.webp": {
+      "sha256": "a79dd943f55cd8dbde183671728a906855d8411b1a3365c64ce8f1e143fdedf6",
+      "bytes": 15704,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-6.webp": {
+      "sha256": "cf68127ef2b13020c69fbe194be3d61d8bd7a2c92fadd6947da8245feeb567e1",
+      "bytes": 14814,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-7.webp": {
+      "sha256": "ebc26be3e2c161ed624016ce284fd709905445de833fded811ea73533fd24e61",
+      "bytes": 15230,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/ganger-8.webp": {
+      "sha256": "548f53edf989bc41a65014ada5b6e1e8da056158c46e5615e507c3eb54105ba4",
+      "bytes": 13252,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/leader-1.webp": {
+      "sha256": "facd56ea939cd8398d716ea60e953308fdb94613921b3d20a4f06ad4c2fc26b9",
+      "bytes": 17394,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/leader-2.webp": {
+      "sha256": "6e24bb0d43ec869e9d6f28769f14bc4980f7941485bf37ab1195fbe142483bb3",
+      "bytes": 15742,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/leader-3.webp": {
+      "sha256": "18170dd108c4f7e51519711bb28581b9101d498d25e74e6d83c0b808b4a97386",
+      "bytes": 18430,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/leader-4.webp": {
+      "sha256": "859ee368239eaf56f6328415c3d82fe8153b5f8c10ba25b4008f816f8c66e8d0",
+      "bytes": 16566,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/prospect-1.webp": {
+      "sha256": "ee59ef769b11710e26514a86eb051e16a2cc8228c5fc8f01b7d8b3b9d01b6e53",
+      "bytes": 15688,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/prospect-2.webp": {
+      "sha256": "ef1fdf3454aac71862994af9dbae0470623019dcfba4e43724294dc86c4fe315",
+      "bytes": 13852,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/prospect-3.webp": {
+      "sha256": "040ae4a5ae390dc70c7c3ff7614581786ea754486e24598edbd379fd7609f53a",
+      "bytes": 12968,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/prospect-4.webp": {
+      "sha256": "db925cd57b94d8bc6269d1daa535b744dedd1ff94db0c9dc323b25d4e58d1700",
+      "bytes": 12814,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/support-1.webp": {
+      "sha256": "89e5b4ce177b363726a3ddee6ae122d84dcde6b4b5d1dc40c9da9ed4868e1d4c",
+      "bytes": 17572,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/support-2.webp": {
+      "sha256": "4ea2a8fc1d77055a1b191f9c1b2f7f6b93339e75a54090c92c740047d0b165b5",
+      "bytes": 19168,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/support-3.webp": {
+      "sha256": "b8d087369e27c5efd5ed452df6f0b1293e698790e0f9e1906a6f30a4c3950ff5",
+      "bytes": 17270,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/spyre-hunters/support-4.webp": {
+      "sha256": "27b56d80d360b55cb3d7820ba4026069f6b7d3be66ae32956c2f30058e8389e6",
+      "bytes": 14880,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/champion-1.webp": {
+      "sha256": "dfaf2060aefa9d8a4947365486f5543fcdeafdfa9ac546e6c5f8dc75246ce6ea",
+      "bytes": 16524,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/champion-2.webp": {
+      "sha256": "c09a5363e6ab2d95f4284b6adf633508f9ef7b38dd7ae09b95dea9a406469276",
+      "bytes": 17514,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/champion-3.webp": {
+      "sha256": "a28e4c32b5928052350979502e4a889914353c9cc87bd981c38b5b02d0ca2aa6",
+      "bytes": 17816,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/champion-4.webp": {
+      "sha256": "65416dbc8b7c5db6d44b58e9651911bda64fde30dee729d389b4ba700099c28c",
+      "bytes": 17422,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-1.webp": {
+      "sha256": "9c4de885c0766943005b6e66a7f07e5595aef92e8590c2edde1b421b55c95c54",
+      "bytes": 16876,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-2.webp": {
+      "sha256": "78370e1cf0eb69fb6a45c8b35cc5624fb0139bb8af0a048a144e3f1bec3e471a",
+      "bytes": 16616,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-3.webp": {
+      "sha256": "32cb4f8201b417443efc881d5db7742d1b5110fb2f3a4d177eab32e003ea5c79",
+      "bytes": 16876,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-4.webp": {
+      "sha256": "c7c32533b44d0da960ea6a11631d366642c774b3461980f2b56d8067cd8dff11",
+      "bytes": 17048,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-5.webp": {
+      "sha256": "0fbb882f915d29e905eb7fd57394955edc293809613b3f4b7523cb3076981d8d",
+      "bytes": 17218,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-6.webp": {
+      "sha256": "13a529f7a26a36d2818665edd911a4b5283045f9e81c8c008690094162690dde",
+      "bytes": 16496,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-7.webp": {
+      "sha256": "7dce33103c14a2d5d48bf443adb1a4831f5e6eabce8ad53860e9976c88966366",
+      "bytes": 16484,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/ganger-8.webp": {
+      "sha256": "cf0134ef5d474d6159aa70ac977d3ec2780bd6b80d887384df408f424f1d72ab",
+      "bytes": 16766,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/leader-1.webp": {
+      "sha256": "04475243504ba695666b4044dd6bb949600ac10ce5ee83bc4cb35032ee154008",
+      "bytes": 17978,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/leader-2.webp": {
+      "sha256": "534775326aa61762de20f30a87cb2998412df871997dee8ae1f4f837302751aa",
+      "bytes": 19224,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/leader-3.webp": {
+      "sha256": "a11fda593e23674573765016de62d4da6a7d0532c0e6af0dc524f937a54484d0",
+      "bytes": 17474,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/leader-4.webp": {
+      "sha256": "7250a373307cd1441d33d4b4043ba30de35dda8dee4ab1633966b3647a835fad",
+      "bytes": 17010,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/prospect-1.webp": {
+      "sha256": "69b7aa8e06ab038e5fb1ac56055b546336d47cf533fd7ba14aadf67238424348",
+      "bytes": 15426,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/prospect-2.webp": {
+      "sha256": "a4d79c99ce1201b95794770a852dd30c557d8877403605c41c35db4b21e460e1",
+      "bytes": 16066,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/prospect-3.webp": {
+      "sha256": "2761adef4ab4df44e061a986b026b39ba475cf4df771561e103df7fb9df47d23",
+      "bytes": 16928,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/prospect-4.webp": {
+      "sha256": "6f1d921861b1acf6fc1fcd981721af339a736bd1ab3d246c833fff7e295b6a13",
+      "bytes": 15522,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/support-1.webp": {
+      "sha256": "32d26eceac3a462d8be5f20921981594698a1bc9980655c1a66aa504e8593b76",
+      "bytes": 16450,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/support-2.webp": {
+      "sha256": "d47fcecc92b9441a3a929e131836279fc13a5b5b5706a58d9e7ebdef7ca1151b",
+      "bytes": 16676,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/support-3.webp": {
+      "sha256": "564309002c1359b429fc1aa3c249432f3385b14c52ceb297bdc6aced8cd57fcd",
+      "bytes": 17742,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/the-malstrain/support-4.webp": {
+      "sha256": "b964429ff2454c429cc7dca8b3fd974bae7753c8bec8bde7d8be5126912cdec4",
+      "bytes": 16224,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/bike-1.webp": {
+      "sha256": "56061a5964d763c0e352c309041afdfdcf25906befc38546980e726db9fca235",
+      "bytes": 14622,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/bike-2.webp": {
+      "sha256": "e4aa767c8b00ec644d5b47aca4ee07a60286e87945787b986c05d37be4c09c36",
+      "bytes": 14348,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/bike-3.webp": {
+      "sha256": "ae6ae9060a1ecdfabdfb29c637aac7ea6cf557c218d74a03a9e318f3b6689891",
+      "bytes": 13740,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/bike-4.webp": {
+      "sha256": "453dd864a520a602186c8786ced48e29b50d873e60a92c37c10a25e6b0cff09f",
+      "bytes": 13604,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hauler-1.webp": {
+      "sha256": "d8baec770eab3def7e0cf27e3aac89f39884823adf20a9ff2b53f57cb4ecd7b3",
+      "bytes": 16360,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hauler-2.webp": {
+      "sha256": "8d3e1c215e5b7d4d2b5c9b7899b2280d77812e6512451a2fb31fade0f48f8fa4",
+      "bytes": 15460,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hauler-3.webp": {
+      "sha256": "b36d1b14bc7daad62feba25039ec0ab821660ad08cf5d8aa619d3ec01ac343f7",
+      "bytes": 16312,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hauler-4.webp": {
+      "sha256": "22af037a2cd622c1a99772ce2218da8a90f1f75dea8d4954f68e82d37b040aa8",
+      "bytes": 16904,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hover-1.webp": {
+      "sha256": "33b4ef1fb92afca25ae6579dcb46ccc893dc4516a095c3ed1ba11f146b08b140",
+      "bytes": 12642,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hover-2.webp": {
+      "sha256": "faafeed1b80fe80d1c838ba4d80f43180fba71349388db1fa832543b5ae940df",
+      "bytes": 12826,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hover-3.webp": {
+      "sha256": "7c7dec1b56c49c992c2579d4f1d65fe24b6bdf365121c8e5b86ce6f108f3c20f",
+      "bytes": 13248,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/hover-4.webp": {
+      "sha256": "7949781686755f6ba82f006547d33bd1a9d871826630714240916333f9c74dd2",
+      "bytes": 13402,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/tracked-1.webp": {
+      "sha256": "4d8eeb286b9fda208d2e2c32a426fc6847ac764f2fa01697b3326b7077f0a898",
+      "bytes": 14822,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/tracked-2.webp": {
+      "sha256": "933b28d37a52596fe25146f0ec21709b7ffae7eb3ced6b734af92e24305d8a2d",
+      "bytes": 14352,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/tracked-3.webp": {
+      "sha256": "37019a417faecf1aec58200a23f4f952a1a2b272b628726477c4cef9f1c7c2c6",
+      "bytes": 14100,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/tracked-4.webp": {
+      "sha256": "1f3582c8fef9635ffe806255d01786c75d43720cb98f208a9b88f861fb764897",
+      "bytes": 14822,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/walker-1.webp": {
+      "sha256": "6f132e5258380fd6b13dc6c09c4b4fd70fbae4792583b33bfc889e245f0afc8d",
+      "bytes": 14110,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/walker-2.webp": {
+      "sha256": "c4322e097ebeb47d8846e3bac63f7fd15f6414a005ed7bf4679dcacbd017a868",
+      "bytes": 12774,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/walker-3.webp": {
+      "sha256": "0db180440b95702dbb3963b12584f5e75b660cb5842d81d01377582f00306753",
+      "bytes": 13718,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/walker-4.webp": {
+      "sha256": "1793e1d9f5a98765da8d27f25c8ded160258100237608ed876295831c111103b",
+      "bytes": 13028,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/wheeled-1.webp": {
+      "sha256": "51f6e45a53b8e9e13e3b130c4acae9a88ca6be493ebfb03caa9335457a2dde1c",
+      "bytes": 14290,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/wheeled-2.webp": {
+      "sha256": "5a65310840231f1b61de89221615dbab1fbb95c84cdb16c6560c7a843e84b3e6",
+      "bytes": 13498,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/wheeled-3.webp": {
+      "sha256": "f71027ea63bb5f8ad7f42c9fcc76cf282d328ce7df6097fd07af5d4ca994cd9b",
+      "bytes": 14096,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/vehicles/wheeled-4.webp": {
+      "sha256": "75e4fd9740f3bf229e73aa5df15d1d0f9db28ccbff2a2c71aeebe4cee24e4036",
+      "bytes": 13132,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/champion-1.webp": {
+      "sha256": "afe0825fcba47460f6cd048a4110110ea610de15e9b252612a3a3b8ad1bf22ed",
+      "bytes": 15488,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/champion-2.webp": {
+      "sha256": "b46effd33bfe416c90812797fa36c8773cb8671da3cbfe2aef104d904a66f898",
+      "bytes": 13956,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/champion-3.webp": {
+      "sha256": "28c42ee5fa1cac8153bec99605e70a7f066ac1977120dea3bb963565849310e2",
+      "bytes": 14442,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/champion-4.webp": {
+      "sha256": "63681fb6037eb6548f11fb696d1eb878af4f7f30ded0fcb3dd4717b58ee23028",
+      "bytes": 13710,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-1.webp": {
+      "sha256": "fd56b943191ea9c634038f650e65295b61e7fcb3ffe7143dd4b76816509b1c3b",
+      "bytes": 13834,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-2.webp": {
+      "sha256": "6f98dd825c622644a908d9f1c0115b4769bff4809a5cc16fa6673a93f2fcd1d7",
+      "bytes": 13054,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-3.webp": {
+      "sha256": "64624a7ea59f4a1af3cd6af38e088352378079097f357f4b9e495973764f9ff2",
+      "bytes": 12862,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-4.webp": {
+      "sha256": "1b69c541aab50e3f9bd2dde6c0526f689cb7b4e9de3bd7572a9e88d63419c5a5",
+      "bytes": 12610,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-5.webp": {
+      "sha256": "cff11ab4c0252de182a8f8fc1683d9307882d13eb475bc655a6650ec4f473061",
+      "bytes": 13382,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-6.webp": {
+      "sha256": "fd2a78717b6c3885dcd0152dc5a0ce87779cca46777a16acc42f5131df8b1d3f",
+      "bytes": 13012,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-7.webp": {
+      "sha256": "e33b509eaf6377bba7ffebc0ff9477ae7a39209fdb67403ee5b4fb9563553db4",
+      "bytes": 12484,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/ganger-8.webp": {
+      "sha256": "bb8a67f8e32c72f71d52c1b6b2e333083daf0e61ed56adf40553af615229d82b",
+      "bytes": 13396,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/leader-1.webp": {
+      "sha256": "816c92cdac5394659db34e35c50cc4b489ffe3676c55770477df0ff2fe3ebecc",
+      "bytes": 15958,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/leader-2.webp": {
+      "sha256": "62c1730d882d9988d3cabb17ebff712342c835f526635675e5cd609632a98831",
+      "bytes": 15962,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/leader-3.webp": {
+      "sha256": "44ce9eb03dfb45fe82d2264a4f6370db9a94939838447eda7b4c7d4558f9a172",
+      "bytes": 15322,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/leader-4.webp": {
+      "sha256": "cb6231fa2e139b4c7f15ebd0a3404caa79f1a1aa40e90df095f7852a24b4d2ec",
+      "bytes": 14682,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/prospect-1.webp": {
+      "sha256": "08aaa9a81b0bbc50734ac2c3a6a3f88fc2d55331e902541f8c5a3a07ce37da34",
+      "bytes": 13224,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/prospect-2.webp": {
+      "sha256": "d6bc22644af7b6e4f62ac790714347b1eb9fe86fc64e5cb73c4eab2de6d7f83f",
+      "bytes": 12034,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/prospect-3.webp": {
+      "sha256": "3d3a22cbd6650b7ee33ef6cee5a1c24afed505f7c66bef17819af07d7fbcb1c1",
+      "bytes": 11196,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/prospect-4.webp": {
+      "sha256": "26f331e4bd917eb394378283d3bf7b66135753b1acf3b6fde92f80ce0a99b113",
+      "bytes": 13478,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/support-1.webp": {
+      "sha256": "6c69f25833f32c260f02e6834965325bed99e232c7694776c3bc0b168c7693dc",
+      "bytes": 15744,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/support-2.webp": {
+      "sha256": "23714256bb805e479c2779a3daa7647e1b0f6f0edd78d0cd3075348630b04d9b",
+      "bytes": 16258,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/support-3.webp": {
+      "sha256": "214545fff1df6e5d7c1b74fdafe54f09cab63644dd5c8b358191dd9236d4694b",
+      "bytes": 15710,
+      "contentType": "image/webp"
+    },
+    "/portraits/units/venators/support-4.webp": {
+      "sha256": "50f5680fbc41e002496810a07924e416fa43c2291a2bff5f6a98cf8d8c2c4fd5",
+      "bytes": 13556,
+      "contentType": "image/webp"
+    }
+  }
+}
