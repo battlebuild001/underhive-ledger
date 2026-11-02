@@ -11,7 +11,7 @@ function refresh(){
  const card=actions.closest('.entity-card'),tools=card.querySelector('.entity-tools'),old=[...actions.children],game=region('game','게임하기','Play'),info=disclosure('info','갱 정보','Gang info'),manage=disclosure('manage','관리·도구','Manage & tools'),edit=region('edit','갱 관리','Gang management'),exports=region('exports','보기·내보내기','View & export');
  manage.lastElementChild.append(edit,exports);
  const gameButtons=document.createElement('div');gameButtons.className='gah-game-actions';game.append(gameButtons);
- const gameKeys=['[data-play-mode="enter"]','[data-sk-action="new"]'];
+ const gameKeys=['[data-campaign-play-action="resume"]','[data-play-mode="enter"]','[data-sk-action="new"]'];
  for(const key of gameKeys){const n=old.find(n=>n.matches(key)||n.querySelector(key));if(n)gameButtons.append(n);}
  for(const n of old){if(gameButtons.contains(n))continue;if(n.matches('[data-gang-lore],[data-gang-faction],[data-gang-guide]'))info.lastElementChild.append(n);else if(n.matches('[data-rp-view],[data-parity="view-mode"],[data-roster-text-open]'))exports.append(n);else edit.append(n);}
  if(tools){for(const n of [...tools.children]){const key=n.dataset.gp||n.dataset.ext||n.dataset.parity;const labels={'copy-gang':['갱 복사','Copy gang'],logs:['활동 기록','Activity log'],capture:['이미지 저장','Save image'],'share-gang':['공유·초대','Share & invite'],'print-gang':['인쇄','Print']};const label=labels[key];if(label){const icon=document.createElement('span');icon.className='gah-tool-icon';icon.setAttribute('aria-hidden','true');icon.append(...n.childNodes);n.append(icon,words(...label));n.removeAttribute('title');n.removeAttribute('aria-label');}n.classList.add('gah-tool');(key==='copy-gang'||key==='logs'?edit:exports).append(n);}tools.remove();}

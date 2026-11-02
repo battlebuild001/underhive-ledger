@@ -11,7 +11,7 @@
   };
   const svg=key=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[key]||icons.roster}</svg>`;
   function text(en,ko,cls=''){const node=document.createElement('span');if(cls)node.className=cls;node.textContent=en;node.dataset.i18nKo=ko;return node;}
-  function workspaceSection(){if(data.view==='account'||data.view==='profile')return 'account';if(data.view==='catalog')return 'assets';if(data.view==='campaign'||data.view==='campaigns'||data.view==='dashboard'&&data.homeTab==='campaigns')return 'campaigns';return 'gangs';}
+  function workspaceSection(){if(data.view==='account'||data.view==='profile')return 'account';if(data.view==='catalog')return 'assets';if(data.view==='campaign-play'||data.view==='campaign'||data.view==='campaigns'||data.view==='dashboard'&&data.homeTab==='campaigns')return 'campaigns';return 'gangs';}
   function mountNavigation(main){
     const selected=workspaceSection();
     const nav=document.createElement('nav');nav.className='uk-workspace-nav';nav.setAttribute('aria-label','Workspace navigation');nav.dataset.i18nKoAriaLabel='작업 공간 메뉴';

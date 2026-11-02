@@ -6,7 +6,7 @@ const icons={gang:'<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0
 const icon=k=>`<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${icons[k]||icons.flag}</svg>`;
 const pair=(en,ko)=>`<span data-i18n-en="${E(en)}" data-i18n-ko="${E(ko)}">${E(window.UKI18n?.language==='en'?en:ko)}</span>`;
 const element=(tag,cls)=>{const n=document.createElement(tag);n.className=cls;return n};
-function section(){if(data.view==='catalog')return 'catalog';if(['campaign','campaigns'].includes(data.view))return 'campaigns';if(data.view==='dashboard')return data.homeTab||'gangs';return 'gangs';}
+function section(){if(data.view==='catalog')return 'catalog';if(['campaign','campaigns','campaign-play'].includes(data.view))return 'campaigns';if(data.view==='dashboard')return data.homeTab||'gangs';return 'gangs';}
 function sidebar(main){
  const side=element('aside','cmd-sidebar');side.dataset.commandDecoration='shell';
  const brand=main.querySelector('.top-wordmark');if(brand){const text=brand.lastElementChild;if(text&&!text.classList.contains('top-emblem'))text.innerHTML='<strong>UNDERHIVE</strong><small>KOREA</small>';side.append(brand);}
