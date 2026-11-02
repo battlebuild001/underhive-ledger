@@ -12,7 +12,8 @@ for(const path of ['/interaction-core.js','/gang-parity.js','/fighter-parity.js'
 for(const path of ['/chronicle.html','/chronicle.js','/chronicle.css','/home-chronicle.js']){const r=await worker.fetch(new Request('https://manager.test'+path),{},{});assert.equal(r.status,200,path);if(path.endsWith('.html'))assert.match(await r.text(),/id="chronicle-title"/);}
 for(const file of ['learning-center.js','learning-center.css','learning-content.js','learning-tutorials.js','tutorial-detail-foundations.js','tutorial-detail-n26.js']){const response=await worker.fetch(new Request('https://manager.test/'+file),{},{});assert.equal(response.status,404,file+' must no longer be published');}
 const portraitFiles=(await readdir(resolve(root,'dist/portraits/generated'))).filter(file=>file.endsWith('.webp'));
-assert.equal(portraitFiles.length,18,'All 18 generated faction portraits must be packaged.');
+assert.equal(portraitFiles.length,19,'The 18 faction portraits and separate Cawdor Redemption portrait must be packaged.');
+assert(portraitFiles.includes('house-cawdor.webp')&&portraitFiles.includes('house-cawdor-redemption.webp'),'Both Cawdor clothing variants must be packaged.');
 for(const file of portraitFiles){
  const path='/portraits/generated/'+file;
  const r=await worker.fetch(new Request('https://manager.test'+path),{},{});
@@ -26,7 +27,7 @@ for(const file of portraitFiles){
  assert.equal(head.status,200,path+' HEAD');
  assert.equal((await head.arrayBuffer()).byteLength,0,path+' HEAD body');
 }
-console.log('All 18 generated portraits: binary integrity, image/webp and HEAD responses passed.');
+console.log('All 19 generated portraits: binary integrity, image/webp and HEAD responses passed.');
 const referenceTypes={'.avif':'image/avif','.woff2':'font/woff2','.png':'image/png','.webp':'image/webp'};
 for(const file of await readdir(resolve(root,'dist/reference-ui'))){
  const extension=file.slice(file.lastIndexOf('.')),mime=referenceTypes[extension];assert(mime,'Unexpected reference UI asset type: '+file);

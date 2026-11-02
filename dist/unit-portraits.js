@@ -69,6 +69,12 @@ function classify(f,g){
   else if(tagged('Beastman')||/\bbeastm[ae]n\b/.test(text))faction='beastmen';
   else if(/\bsquat\b|ironhead/.test(text))faction='ironhead-squats';
   bank=faction;
+  if(faction==='house-cawdor'){
+   // Pious and Redemptionist fighters share a House but have different dress.
+   // A fighter's current allegiance wins after conversion; template tags only fill absent allegiance data.
+   const allegiance=values=>values.map(norm).filter(value=>value==='pious'||value==='fanatic'),declaredAllegiance=allegiance(current),faith=declaredAllegiance.length?declaredAllegiance:allegiance(fallback);
+   if(faith.includes('fanatic')||!faith.includes('pious')&&/redemption|리뎀셔|리뎀션/.test(text))bank='cawdor-redemption';
+  }
   role=ranked('Leader','리더')?'leader':ranked('Champion','챔피언')?'champion':ranked('Prospect','Juve','주브')?'prospect':ranked('Ganger','갱어')?'ganger':tagged('Hanger-on','Support')||ranked('Specialist')||unit?.specialisation||unit?.specialization?'support':'ganger';
  }
  return {faction,role,body,family,bank,count:body==='humanoid'?humanoidCounts[role]:4};
@@ -89,7 +95,7 @@ function variantFor(f,g,info){
 function describe(f,g){
  if(!f||typeof f!=='object')return null;
  g=gangFor(f,g);const info=classify(f,g),variant=variantFor(f,g,info);
- return {...info,variant,source:root+bankKey(info)+'-'+variant+'.webp'};
+ return {...info,variant,source:root+bankKey(info)+'-'+variant+'.webp'+(info.bank==='house-cawdor'?'?v=cawdor-20261102':'')};
 }
 function source(f,g){return describe(f,g)?.source||'';}
 window.MMUnitPortraits={source,describe,roles:{...humanoidCounts},factions:Object.keys(factionNames)};

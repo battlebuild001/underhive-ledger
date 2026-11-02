@@ -53,6 +53,7 @@ function marker(){if(account&&!localStorageFailed)try{localStorage.setItem(MARK,
 
 function preserveLocal(){try{localStorage.setItem(BACKUP,JSON.stringify({savedAt:new Date().toISOString(),data}))}catch{}}
 function applyRemote(v){data=v.state;revision=v.revision;savedStateSnapshot=JSON.stringify(v.state);savedRecordBaseline=recordStateJSON(data);savedHash=fingerprint(savedStateSnapshot);persistLocalState();marker();syncState='동기화됨';syncError='';render();}
+function applyRemoteKeepingNavigation(incoming){const navigation=Object.fromEntries(Object.entries(data).filter(([key])=>!['gangs','campaigns','customAssets','skirmishes'].includes(key))),serverSnapshot=JSON.stringify(incoming.state);applyRemote({...incoming,state:{...incoming.state,...navigation}});savedStateSnapshot=serverSnapshot;savedHash=fingerprint(serverSnapshot);pending=fingerprint(stateJSON())!==savedHash;if(pending){clearTimeout(timer);timer=setTimeout(push,200);}marker();}
 function persistLocalState(){try{localStorage.setItem(KEY,stateJSON());localStorageFailed=false;localStorageNotice();return true}catch{localStorageFailed=true;localStorageNotice();return false}}
 const previousSave=save;save=function(){try{previousSave();localStorageFailed=false;localStorageNotice();}catch(e){if(e.name!=='QuotaExceededError'&&e.name!=='NS_ERROR_DOM_QUOTA_REACHED'&&e.name!=='SecurityError')throw e;localStorageFailed=true;render();localStorageNotice();}if(ready){pending=true;syncState='저장 대기';clearTimeout(timer);timer=setTimeout(push,550);updateStatus()}};
 const uploadCache=new Map();
@@ -150,7 +151,7 @@ function retainPrivateNotes(target,source){
 }
 async function refreshDocument(){
  await ensureSynced();const epoch=authEpoch,owner=account?.id,before=stateJSON(),cloud=await api('/document');if(!sameAccountSession(epoch,owner))return revision;
- if(cloud.state&&cloud.revision>revision&&stateJSON()===before&&!loading&&!documentMutation){preserveLocal();applyRemote(cloud)}
+ if(cloud.state&&cloud.revision>revision&&stateJSON()===before&&!loading&&!documentMutation){preserveLocal();applyRemoteKeepingNavigation(cloud)}
  return cloud.revision;
 }
 async function refreshShared(campaignId,{navigate=false,preserveOwnerEdits=false}={}){
@@ -243,8 +244,7 @@ function acceptAutomation(result,baseline){
  const incoming=result?.document;if(!incoming?.state||!Number.isSafeInteger(incoming.revision)||incoming.revision<revision||baseline?.accountId!==account?.id)return false;
  const collections=value=>JSON.stringify({gangs:value.gangs,campaigns:value.campaigns,customAssets:value.customAssets,skirmishes:value.skirmishes});
  if(collections(data)!==baseline.collections){preserveLocal();conflict=incoming;pending=true;syncState='충돌 확인 필요';showConflict();render();return false;}
- const navigation=Object.fromEntries(Object.entries(data).filter(([key])=>!['gangs','campaigns','customAssets','skirmishes'].includes(key))),serverSnapshot=JSON.stringify(incoming.state);
- applyRemote({...incoming,state:{...incoming.state,...navigation}});savedStateSnapshot=serverSnapshot;savedHash=fingerprint(serverSnapshot);pending=fingerprint(stateJSON())!==savedHash;if(pending){clearTimeout(timer);timer=setTimeout(push,200);}marker();return true;
+ applyRemoteKeepingNavigation(incoming);return true;
 }
 window.AccountParity={api,acceptAutomation,logout:logoutAccount,safeReturnPath,get auth(){return authMeta},get busy(){return authBusy},upload:uploadImage,normalizeImages,refresh:refreshAccount,refreshDocument,sync:push,ensureSynced,refreshShared,openInvite,manageCampaignMembers,openShared,publishCampaign,deleteCampaign,get account(){return account},get userNames(){return [...friends,...searchResults].map(row=>row.username).filter(Boolean)},get ready(){return ready&&initialized},get connecting(){return authPending},get revision(){return revision}};
 render();boot();
