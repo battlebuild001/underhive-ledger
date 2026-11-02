@@ -24,14 +24,6 @@
     }
     nav.append(inside);main.querySelector('.topbar')?.insertAdjacentElement('afterend',nav);
   }
-  function mountOverview(welcome){
-    const currentEdition=data.edition||'N23',gangs=data.gangs.filter(g=>g.edition===currentEdition&&window.MMCampaignOwnership.owns(g)),campaigns=data.campaigns.filter(c=>c.edition===currentEdition),fighters=gangs.flatMap(g=>g.fighters||[]);
-    const overview=document.createElement('section');overview.className='uk-overview';overview.setAttribute('aria-label','Workspace overview');overview.dataset.i18nKoAriaLabel='작업 공간 현황';
-    for(const [en,ko,value,key] of [['Gangs','갱',gangs.length,'roster'],['Active fighters','활동 중인 파이터',fighters.filter(f=>f.status==='Active').length,'fighter'],['Campaigns','캠페인',campaigns.length,'campaign'],['Available credits','보유 크레딧',gangs.reduce((total,g)=>total+(Number(g.credits)||0),0),'credits']]){
-      const item=document.createElement('div');item.className='uk-overview-stat';item.innerHTML=`<span class="uk-stat-icon">${svg(key)}</span><strong>${new Intl.NumberFormat('en-US').format(value)}</strong>`;item.append(text(en,ko,'uk-stat-label'));overview.append(item);
-    }
-    welcome.insertAdjacentElement('afterend',overview);
-  }
   function enhanceWelcome(){
     const welcome=document.querySelector('.home-welcome');if(!welcome)return;
     welcome.classList.add('uk-command-hero');
@@ -39,7 +31,6 @@
     let intro=welcome.querySelector('p');if(!intro){intro=document.createElement('p');title?.insertAdjacentElement('afterend',intro);}
     intro.textContent='Your gangs, fighters and campaigns. All in one workspace.';intro.dataset.i18nKo='갱 명단부터 캠페인 기록까지, 한곳에서 관리하세요.';
     const eyebrow=document.createElement('div');eyebrow.className='uk-hero-eyebrow';eyebrow.append(text('COMMAND DECK','작전 현황'));welcome.prepend(eyebrow);
-    if(data.view!=='catalog')mountOverview(welcome);
   }
   function enhanceCards(){
     document.querySelectorAll('.home-list-card:not(.uk-portrait-card)').forEach(card=>{
