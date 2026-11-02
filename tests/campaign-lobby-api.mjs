@@ -191,4 +191,52 @@ for(const failure of ['race','storage']){
 }
 console.log('PASS staged own-unit XP, injuries and combat markers survive reconnects and commit atomically once with the final result');
 
-sql.close();console.log('16 campaign lobby API production cases passed.');
+
+// Opaque change probes are authorised and read only; full snapshots are fetched only when needed.
+{
+ const f=fixture(),stable=()=>JSON.stringify({campaign:read(f),campaignRevision:revision(f),owner:doc('owner'),source:doc('source'),rooms:sql.prepare('SELECT * FROM campaign_lobby_rooms WHERE campaign_id=?').all(f.id),presence:sql.prepare('SELECT * FROM campaign_lobby_presence').all()}),initial=stable(),watch=(actor,token='')=>api(actor,path(f)+'?watch=1&documentRevision=0&since='+encodeURIComponent(token));
+ const queries=[],prepare=DB.prepare;let first;
+ try{DB.prepare=query=>{queries.push(query);return prepare(query);};first=await watch('owner');}finally{DB.prepare=prepare;}
+ assert.equal(first.status,200,first.error);assert.equal(first.changed,true);assert.match(first.watchToken,/^[a-f0-9]{64}$/);assert.deepEqual(Object.keys(first).sort(),['changed','serverTime','status','watchToken']);assert(!queries.some(query=>/d\.state|SELECT revision,state|SELECT \* FROM campaign_join_requests/.test(query)),'Watch does not read original documents or enrollment snapshots');
+ let next=await watch('owner',first.watchToken);assert.equal(next.changed,false);assert.equal(next.watchToken,first.watchToken);assert.equal(stable(),initial,'Watch never changes rooms, campaign, original documents or presence');
+ const sourceWatch=await watch('source',first.watchToken);assert.equal(sourceWatch.changed,true);assert.notEqual(sourceWatch.watchToken,first.watchToken,'Watch tokens are account scoped');
+ for(const actor of ['outsider','pending',null]){const blocked=await watch(actor);assert([401,403].includes(blocked.status),String(blocked.status));assert.equal(blocked.watchToken,undefined);}
+ const raw=await handleApi(new Request('https://test.chatgpt.site/api'+path(f)+'?watch=1',{headers:{'oai-authenticated-user-id':'owner','oai-authenticated-user-email':'owner@example.test','X-UK-Account-ID':'owner'}}),{DB});assert.equal(raw.headers.get('Cache-Control'),'no-store');
+ let room=await create(f);next=await watch('owner',first.watchToken);assert.equal(next.changed,true,'A new invitation changes the watch token');let token=next.watchToken;
+ await api('source',path(f)+'/'+room.id,'POST',{action:'heartbeat',operationKey:'watch-presence'});next=await watch('owner',token);assert.equal(next.changed,false,'Presence heartbeats do not cause full lobby downloads');
+ room=await action(f,room,'source','accept');next=await watch('owner',token);assert.equal(next.changed,true,'An acceptance changes the token');token=next.watchToken;
+ sql.prepare('UPDATE documents SET revision=revision+1 WHERE user_id=?').run('source');next=await watch('owner',token);assert.equal(next.changed,true,'An accepted original roster revision changes the token');token=next.watchToken;
+ sql.prepare("UPDATE campaign_access SET role='arbitrator' WHERE campaign_id=? AND user_id='source'").run(f.id);next=await watch('owner',token);assert.equal(next.changed,true,'Membership permission changes invalidate the token');token=next.watchToken;
+ sql.prepare("UPDATE campaign_join_requests SET status='rejected' WHERE id=?").run(f.requestId);next=await watch('owner',token);assert.equal(next.changed,true,'Enrollment provenance changes invalidate the token');token=next.watchToken;
+ sql.prepare('UPDATE shared_campaigns SET revision=revision+1 WHERE id=?').run(f.id);next=await watch('owner',token);assert.equal(next.changed,true,'Shared campaign changes invalidate the token');
+ sql.prepare("UPDATE campaign_access SET status='revoked' WHERE campaign_id=? AND user_id='source'").run(f.id);assert.equal((await watch('source',sourceWatch.watchToken)).status,403,'Revoked accounts cannot keep watching');
+ const missing=fixture(),privateBefore=clone(doc('owner'));sql.prepare('DELETE FROM campaign_access WHERE campaign_id=?').run(missing.id);sql.prepare('DELETE FROM campaign_join_requests WHERE campaign_id=?').run(missing.id);sql.prepare('DELETE FROM shared_campaigns WHERE id=?').run(missing.id);assert.equal((await api('owner',path(missing)+'?watch=1')).status,409);assert.equal(sql.prepare('SELECT id FROM shared_campaigns WHERE id=?').get(missing.id),undefined,'Watch cannot publish a private campaign as a side effect');assert.deepEqual(doc('owner'),privateBefore);
+}
+console.log('PASS authorised lightweight watch tokens detect room, roster and membership changes without private snapshots or mutations');
+
+// Opt-in last readiness starts the same battle transaction, including simultaneous independent seats.
+{
+ const f=fixture();let room=await enter(f);const initial=originals(),common=room.revision;
+ const bodies=['owner','source'].map(actor=>({action:'ready',ready:true,autoStart:true,revision:common,participantRevision:room.participants.find(p=>p.userId===actor).revision,operationKey:'live-ready-'+actor,preparation:{fighterIds:['fighter'],sideJobId:'',tacticIds:[],note:'Concurrent '+actor}}));
+ const values=await Promise.all(['owner','source'].map((actor,index)=>api(actor,path(f)+'/'+room.id,'POST',bodies[index])));assert(values.every(value=>value.status===200),JSON.stringify(values.map(value=>({status:value.status,error:value.error}))));
+ room=(await api('owner',path(f)+'/'+room.id)).room;assert.equal(room.status,'battle');assert(room.participants.every(p=>p.ready&&p.joined));assert.equal(room.sessionId,'lobby-session-'+room.id);assert.equal(read(f).campaign.sessions.filter(s=>s.lobbyRoomId===room.id).length,1);assert.equal(read(f).campaign.battles.length,1,'Starting never fabricates a completed report');assert(room.participants.find(p=>p.userId==='owner').battleRecord);assert.equal(room.participants.find(p=>p.userId==='source').battleRecord,undefined);assertOriginals(initial);
+ const committed=clone(read(f)),committedRevision=revision(f);for(const [index,actor]of ['owner','source'].entries()){const replay=await api(actor,path(f)+'/'+room.id,'POST',bodies[index]);assert.equal(replay.status,200,replay.error);assert.equal(replay.replayed,true);assert.equal(replay.room.sessionId,room.sessionId);}assert.equal(revision(f),committedRevision);assert.deepEqual(read(f),committed);assertOriginals(initial);
+}
+for(const invalid of ['missing-mission','unavailable-opponent','changed-stake','occupied-stake']){
+ const f=fixture();let room=await enter(f);room=await action(f,room,'owner','ready',{ready:true,autoStart:true});assert.equal(room.status,'preparing','One ready participant never auto starts');
+ if(invalid==='missing-mission'){const row=sql.prepare('SELECT state FROM campaign_lobby_rooms WHERE id=?').get(room.id),value=JSON.parse(row.state);value.setup.deploymentId='';sql.prepare('UPDATE campaign_lobby_rooms SET state=? WHERE id=?').run(JSON.stringify(value),room.id);}
+ if(invalid==='unavailable-opponent'){const value=doc('owner').state;value.gangs[0].fighters[0].status='Dead';sql.prepare('UPDATE documents SET state=?,revision=revision+1 WHERE user_id=?').run(JSON.stringify(value),'owner');}
+ if(invalid==='changed-stake'||invalid==='occupied-stake'){const value=read(f);if(invalid==='changed-stake')value.campaign.territories[0].gangId='same';else value.campaign.sessions.push({id:'other-native-game',lobbyRoomId:'other-room',territoryId:'stake',status:'Active',stage:'battle'});sql.prepare('UPDATE shared_campaigns SET snapshot=?,revision=revision+1 WHERE id=?').run(JSON.stringify(value),f.id);}
+ const snapshot=clone(read(f)),rev=revision(f),before=originals(),roomBefore=JSON.parse(sql.prepare('SELECT state FROM campaign_lobby_rooms WHERE id=?').get(room.id).state);
+ const denied=await api('source',path(f)+'/'+room.id,'POST',{action:'ready',ready:true,autoStart:true,revision:room.revision,participantRevision:room.participants.find(p=>p.userId==='source').revision,operationKey:'invalid-auto-'+invalid});assert.equal(denied.status,409,invalid+': '+denied.error);assert.deepEqual(read(f),snapshot);assert.equal(revision(f),rev);assertOriginals(before);assert.deepEqual(JSON.parse(sql.prepare('SELECT state FROM campaign_lobby_rooms WHERE id=?').get(room.id).state),roomBefore,'Invalid auto start does not partially commit readiness');
+}
+{
+ const f=fixture();let room=await enter(f);room=await action(f,room,'owner','ready',{ready:true,autoStart:true});const before=clone(read(f)),rev=revision(f),initial=originals(),roomBefore=JSON.parse(sql.prepare('SELECT state FROM campaign_lobby_rooms WHERE id=?').get(room.id).state),body={action:'ready',ready:true,autoStart:true,revision:room.revision,participantRevision:room.participants.find(p=>p.userId==='source').revision,operationKey:'auto-start-storage-retry'};
+ failBatchAt=4;let value=await api('source',path(f)+'/'+room.id,'POST',body);assert(value.status>=500,value.error);assert.deepEqual(read(f),before);assert.equal(revision(f),rev);assertOriginals(initial);assert.deepEqual(JSON.parse(sql.prepare('SELECT state FROM campaign_lobby_rooms WHERE id=?').get(room.id).state),roomBefore);value=await api('source',path(f)+'/'+room.id,'POST',body);assert.equal(value.status,200,value.error);assert.equal(value.room.status,'battle');assert.equal(read(f).campaign.sessions.filter(s=>s.lobbyRoomId===room.id).length,1);const stable=clone(read(f)),stableRevision=revision(f);value=await api('source',path(f)+'/'+room.id,'POST',body);assert.equal(value.replayed,true);assert.equal(revision(f),stableRevision);assert.deepEqual(read(f),stable);assertOriginals(initial);
+}
+{
+ const f=fixture();let room=await enter(f);const before=clone(read(f));const invalid=await api('owner',path(f)+'/'+room.id,'POST',{action:'ready',ready:true,autoStart:'yes',revision:room.revision,operationKey:'invalid-auto-flag'});assert.equal(invalid.status,400);assert.deepEqual(read(f),before);room=await action(f,room,'owner','ready',{ready:true});room=await action(f,room,'source','ready',{ready:true});assert.equal(room.status,'preparing','Legacy readiness callers preserve explicit-start behaviour');
+}
+console.log('PASS simultaneous opt-in readiness starts one battle atomically with exact start guards, rollback and replay protection');
+
+sql.close();console.log('18 campaign lobby API production cases passed.');
