@@ -149,7 +149,7 @@ function prepOriginal(ctx,p){
  const id=p.sourceGangId||gang(ctx,p)?.sourceGangId||p.gangId,owned=window.MMCampaignOwnership?.resolveOwn?.(id);if(owned)return owned;
  return typeof data!=='undefined'?(data.gangs||[]).find(g=>g.id===id&&!g.remoteReadOnly&&['remoteOwnerId','sourceOwnerId','ownerId'].every(k=>!g[k]||g[k]===ctx.actor)):null;
 }
-function prepPortrait(g,f){const image=window.FighterParity?.portraitSource?.(f||{})||(g&&window.MMGangPortrait?.imageFor?.(g))||window.MMGangPortrait?.imageFor?.({})||'';return /^(data:image\/(png|jpeg|webp|gif|avif);base64,|https:\/\/|\/)/i.test(image)?`<img src="${E(image)}" alt="" loading="lazy">`:'';}
+function prepPortrait(g,f){const image=window.FighterParity?.portraitSource?.(f||{},g)||(g&&window.MMGangPortrait?.imageFor?.(g))||window.MMGangPortrait?.imageFor?.({})||'';return /^(data:image\/(png|jpeg|webp|gif|avif);base64,|https:\/\/|\/)/i.test(image)?`<img src="${E(image)}" alt="" loading="lazy">`:'';}
 function prepCount(ctx){return T(ctx.drafts.preparation.fighterIds.length+' selected',ctx.drafts.preparation.fighterIds.length+'명 선택');}
 function preparationWizard(ctx,r,p){
  const step=prepStep(ctx,r),d=ctx.drafts.preparation,g=gang(ctx,p),original=prepOriginal(ctx,p),fighters=prepCrew(ctx,p),disabled=!!ctx.busy||!!ctx.cache.pending||!!unavailable(ctx),locked=disabled||p.ready,bothReady=r.participants.length===2&&r.participants.every(x=>x.ready&&x.joined),dirtySetup=ctx.dirty.has('setup'),jobs=catalog('sideJobs',ctx.c),owned=(g?.tactics||[]).map(t=>typeof t==='string'?{id:t}:t).map(t=>({...t,row:catalog('tactics',ctx.c).find(row=>row.id===t.id||row.id===t.tacticId)}));
