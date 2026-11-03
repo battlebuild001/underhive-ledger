@@ -14,6 +14,16 @@
 - 사용자 자산 6종의 생성·편집·공유·복제·삭제와 중첩된 장비 프로파일·거래소 규칙·컬렉션.
 - 아이디·비밀번호만으로 가입·로그인, 기존 ChatGPT 계정의 아이디 로그인 설정, 계정별 D1 저장, 친구 요청·알림, 캠페인 초대·편집 권한, R2 이미지 업로드.
 
+## 개발 저장소
+
+개발 기준 저장소는 [battlebuild001/underhive-ledger](https://github.com/battlebuild001/underhive-ledger)입니다. 현재 코드와 기존 Git 이력을 함께 관리합니다.
+
+- `origin`: GitHub 개발 저장소. `main`은 `origin/main`을 추적합니다.
+- `sites`: 기존 ChatGPT Sites 배포용 저장소. 앱을 배포할 때 GitHub와 동일한 커밋을 이 원격에도 반영한 뒤 기존 Sites 배포 절차를 사용합니다.
+- 실행 중인 앱: https://underhive-ledger-2026.hebi-cogitox.chatgpt.site
+
+앞으로 수정은 GitHub의 최신 코드에서 시작하고, 검증한 변경을 GitHub에 먼저 저장합니다. GitHub 연결은 기존 앱의 D1 계정 데이터와 R2 이미지 저장소를 이동하지 않습니다.
+
 ## 실행과 검증
 
 Node.js 22.13 이상이 필요합니다. 런타임 서버 패키지 의존성은 없습니다.
