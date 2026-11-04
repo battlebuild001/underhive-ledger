@@ -64,6 +64,7 @@ function mountSkirmish(){
 }
 function campaignMission(v,ctx){
  const host=ctx.panels.get('mission');for(const [key,en,ko]of [['deployment','Deployment','배치'],['objective','Objective','목표'],['crewSelection','Crew method','크루 방식']]){const row=window.MMCampaignPreparation?.selectedRow(v.c,v.s,key),raw=v.s[key];if(!row&&!raw)continue;const card=el('section','card bp-mission'),h=el('h2');h.innerHTML=L(en,ko);card.append(h);const name=el('strong');name.dataset.userText='';name.textContent=row?(window.UKI18n?.language==='en'?row.name:row.name_ko||row.name):raw;card.append(name);if(row){const p=el('div');p.innerHTML=window.MMRuleTerms?.prose(row.description_en||row.description,row.description,{kind:'scenarioEntries',row,edition:String(v.c.edition).toLowerCase()})||E(row.description||'');card.append(p);const b=el('button','btn small');b.type='button';b.innerHTML=L('Diagram & rules','도식·룰');b.dataset.bpAction=String(ctx.callbacks.length);ctx.callbacks.push(()=>window.MMRuleReference?.open('scenarioEntries',row,{edition:String(v.c.edition).toLowerCase(),activator:b}));card.append(b);}host.append(card);}
+ if(v.s.battlefieldEffect&&window.MMBattlefieldEffects){const effect=el('section','bp-battlefield-effect');effect.innerHTML=window.MMBattlefieldEffects.markup(v.s.battlefieldEffect,{scope:'campaign',editable:false});host.append(effect);}
  if(!host.children.length){const p=el('p','bp-empty');p.dataset.userText='';p.textContent=v.s.scenario||txt('No mission recorded','미션 기록 없음');host.append(p);}campaignTerritory(v,ctx);
 }
 function campaignTerritory(v,ctx){

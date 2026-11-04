@@ -5,6 +5,7 @@
  const recoveryKey=()=>RECOVERY+':'+(window.AccountParity?.account?.id||'guest');
  const plain=value=>!!value&&typeof value==='object'&&!Array.isArray(value);
  const copy=value=>JSON.parse(JSON.stringify(value));
+ const battlefieldEffectIds=new Set(["official-003-territory-bullet-den","official-003-territory-rogue-doc-shop","official-003-territory-mess-shack","official-003-territory-drinking-hole","official-003-territory-fence-hangout","official-003-territory-bounty-den","official-003-territory-generatorium","official-003-territory-corpse-farm","official-003-territory-tunnels","official-003-territory-tech-bazaar","official-003-territory-promethium-cache","official-003-territory-collapsed-dome","official-003-territory-bone-shrine","official-003-territory-mine-workings","official-003-territory-gambling-den","official-003-territory-synth-still","official-003-territory-old-ruins","official-003-territory-fighting-pit"]);
  const tr=(ko,en)=>window.UKI18n?.language==='en'?en:ko;
  const fail=message=>{throw Error(message);};
  function record(value,label){if(!plain(value))fail(label+': '+tr('기록 형식이 올바르지 않습니다.','Invalid record.'));return value;}
@@ -44,6 +45,7 @@
    for(const key of ['deploymentId','objectiveId','crewId'])string(match,key,160);
    choice(match,'stage',['setup','battle','completed']);integer(match,'round',0,1000000);
    roll(match.roleRoll);roll(match.priorityRoll);
+   if(match.battlefieldEffect!==undefined){const value=match.battlefieldEffect;check(plain(value)&&Object.keys(value).every(key=>['mode','effectId'].includes(key))&&['none','manual','random'].includes(value.mode)&&typeof value.effectId==='string');check(value.mode==='none'?value.effectId==='':String(match.edition||'').toUpperCase()==='N26'&&battlefieldEffectIds.has(value.effectId));}
    if(match.checklist!==undefined)check(plain(match.checklist)&&Object.keys(match.checklist).length<=100);
    if(match.participants===undefined)continue;check(Array.isArray(match.participants)&&match.participants.length<=100);
    for(const participant of match.participants){

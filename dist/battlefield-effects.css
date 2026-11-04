@@ -1,0 +1,19 @@
+/* Shared battlefield selection for campaign and independent skirmish preparation. */
+.bfe-picker{display:grid;gap:12px;min-width:0;margin:16px 0;padding:16px;border:1px solid var(--line,#39434a);border-radius:8px;background:var(--panel2,#252e34);color:var(--text,#edf0f1);font:inherit;line-height:1.65;box-sizing:border-box}
+.bfe-picker *{box-sizing:border-box;min-width:0}
+.bfe-picker :is(h3,h4,p){margin:0;overflow-wrap:anywhere}
+.bfe-picker legend{padding:0 6px;font-weight:650;font-size:16px}
+.bfe-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px}
+.bfe-controls>label,.bfe-mode,.bfe-choice{display:grid;gap:6px;flex:1 1 210px;font-size:14px;font-weight:550}
+.bfe-picker :is(select,button){min-height:44px;max-width:100%;font:inherit;font-size:16px;line-height:1.5;touch-action:manipulation}
+.bfe-picker select{width:100%;padding:10px 36px 10px 12px;border:1px solid var(--uk-input-line,var(--line,#46525a));border-radius:6px;background:var(--input,var(--panel,#20272c));color:var(--text,#edf0f1)}
+.bfe-picker button{padding:10px 14px;white-space:normal;overflow-wrap:anywhere}
+.bfe-picker :is(button,select):focus-visible{outline:2px solid var(--ring,var(--accent,#d6947c));outline-offset:3px}
+.bfe-result{display:grid;gap:8px;padding:14px;border:1px solid var(--line,#39434a);border-inline-start:3px solid var(--accent,#d6947c);border-radius:6px;background:var(--panel,#20272c);overflow-wrap:anywhere}
+.bfe-result-name{font-size:16px;font-weight:650;line-height:1.5}
+.bfe-description{font-size:14px;font-weight:400;line-height:1.75;overflow-wrap:anywhere}
+.bfe-note,.bfe-empty{font-size:13px;font-weight:400;color:var(--muted,#b3bcc1);line-height:1.7;overflow-wrap:anywhere}
+.bfe-picker [disabled]{opacity:.55;cursor:not-allowed}
+.bfe-picker [hidden]{display:none!important}
+@media(max-width:520px){.bfe-picker{padding:14px}.bfe-controls{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}.bfe-controls>button{width:100%}.bfe-controls>label,.bfe-mode,.bfe-choice{width:100%}.bfe-result{padding:12px}}
+.bfe-picker .bfe-result .btn{min-height:44px;padding:10px 14px;font-size:14px}
