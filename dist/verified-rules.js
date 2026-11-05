@@ -15,7 +15,14 @@
   function modelType(f,g=gang()){
     const rows=(R().fighterTypes||[]).filter(row=>!ed(g)||String(row.edition_slug||row.edition).toLowerCase()===ed(g)),keys=[f?.fighterTypeId,f?.catalogTypeId,f?.presetId,f?.typeId].filter(Boolean),direct=keys.map(key=>rows.find(row=>row.id===key)).find(Boolean);if(direct)return direct;const faction=gangType(g),candidates=rows.filter(row=>faction&&row.gang_type_id===faction.id&&named(row,f?.type));return candidates.length===1?candidates[0]:null;
   }
-  const noXp=(f,g)=>{const type=modelType(f,g);return type?.source_verified&&(type.no_xp===true||type.rule_data?.xp_eligible===false||type.rule_data?.gain_xp===false);};
+  const justicarModels=new Set(['official-001-fighter-justicar-court-delegation-magistrate','official-001-fighter-justicar-court-delegation-executioner','official-001-fighter-justicar-court-delegation-bailiff']);
+  function isDelegation(f,g=gang()){
+    const type=modelType(f,g);return !!f&&([f.fighterTypeId,f.catalogTypeId,f.presetId,f.typeId].some(key=>justicarModels.has(key))||f.allianceDelegation===true||f.delegation===true||f.is_alliance_delegation===true||type?.delegation===true||type?.is_alliance_delegation===true||(f.subtypes||f.fighter_subtypes||type?.fighter_subtypes||[]).includes('Delegation'));
+  }
+  function managedDelegation(f,g=gang()){
+    const contract=g?.allianceContract;return isDelegation(f,g)&&contract?.status==='active'&&!!contract.id&&((contract.delegationIds||[]).includes(f.id)||f.allianceContractId===contract.id);
+  }
+  const noXp=(f,g)=>{const type=modelType(f,g);return isDelegation(f,g)||f?.no_xp===true||f?.noXp===true||type?.source_verified&&(type.no_xp===true||type.rule_data?.xp_eligible===false||type.rule_data?.gain_xp===false);};
   const safe=value=>Number.isSafeInteger(Number(value))&&String(value).trim()!=='';
   const error=(en,kr)=>{let form=document.querySelector('#modal-form'),box=form?.querySelector('[data-verified-error]');if(form&&!box){box=document.createElement('p');box.dataset.verifiedError='';box.className='fp-error wide';box.setAttribute('role','alert');form.prepend(box);}if(box){box.dataset.i18nEn=en;box.dataset.i18nKo=kr;box.textContent=ko()?kr:en;}return false;};
   const help=(key,edition)=>`<button type="button" class="uk-help-trigger" data-verified-rule="${E(key)}" data-verified-edition="${E(edition)}" aria-haspopup="dialog" aria-label="Conditions and resolution" data-i18n-ko-aria-label="조건·판정 설명"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10v7M12 7v.1"/></svg></button>`;
@@ -76,6 +83,7 @@
     return '';
   }
   function advance(f){
+    if(noXp(f,gang()))return window.MMRuleReference?.openContext('No XP gain',l('This model cannot gain XP or receive Advancements.','이 모델은 XP를 얻거나 성장할 수 없습니다.','p'),{nameKo:'XP·성장 불가'});
     const edition=ed(gang()),table=rule('advancement-table',edition),caps=rule('advancement-caps',edition),count=available(f);if(!table||!caps)return window.MMOfficialSource?.manualAdvancement(f);
     if(count==null)return window.MMOfficialSource?.showPending();
     let roll=null,selected=null,selectedChoice=null,chosenSkill=null;
@@ -103,6 +111,7 @@
     redraw();return form;
   }
   function addSkillRecord(f){
+    if(isDelegation(f,gang()))return window.MMRuleReference?.openContext('Alliance delegation',l('Delegation models use their fixed skills.','동맹 파견 모델은 지정된 스킬을 사용합니다.','p'),{nameKo:'동맹 파견 모델'});
     const edition=ed(gang()),type=modelType(f),details=f.skillDetails||[];
     const usedStarting=details.some(detail=>detail.source==='Starting Primary'&&(f.skills||[]).includes(detail.name));
     const free=window.MMStartingSkills?MMStartingSkills.pendingPrimary(f,gang()):!!(type?.source_verified&&type.free_skill)&&!usedStarting&&(f.freeSkill??f.free_skill)!==false;
@@ -164,6 +173,10 @@
   }
   function injury(f,context={}){
     const g=context.gang||gang(),edition=ed(g),vehicle=!!f.isVehicle;
+    if(isDelegation(f,g)){
+      if(window.MMJusticarInjuries?.open)return MMJusticarInjuries.open(f,context);
+      return window.MMRuleReference?.openContext('Delegation Lasting Injuries',l('Use the alliance delegation D6 table: 1–2 Out Cold; 3–5 Grievous Wound (Recovery); 6 Critical Injury (delete the model with its equipment). Record this through the campaign battle’s delegation injury controls.','동맹 파견대 D6 표를 사용합니다. 1–2: 아웃 콜드, 3–5: 심각한 상처(회복), 6: 치명적 부상(모델과 장비 삭제). 캠페인 전투의 파견대 부상 처리에서 기록하세요.','p'),{nameKo:'동맹 파견대 지속 부상'});
+    }
     const list=(vehicle?R().effects:R().injuries||[]).filter(row=>row.source_verified&&String(row.edition_slug||row.edition).toLowerCase()===edition&&row.rule_data?.model_type===(vehicle?'Vehicle':'Fighter')&&row.rule_data?.d66_min);
     if(!list.length)return window.MMOfficialSource?.manualInjury(f,context);
     let chosen=null,xpBonus=0;
@@ -187,6 +200,6 @@
   window.addEventListener('click',event=>{const button=event.target.closest?.('[data-verified-rule]');if(!button)return;event.preventDefault();event.stopImmediatePropagation();const row=core(button.dataset.verifiedRule,button.dataset.verifiedEdition);if(!row)return;
     const eventKey=button.dataset.verifiedEvent,eventData=row.rule_data?.events?.find(item=>item.key===eventKey);
     if(eventData){let extra=['serious_injury','out_of_action'].includes(eventKey)?l('The same enemy’s SI and OOA in one activation yield the OOA award only.','동일 활성화·동일 적의 중상과 전투 불능은 전투 불능 보상만 기록합니다.','p'):eventData.base_event?l('This is additional XP for an eligible OOA result.','조건에 맞는 전투 불능 결과에 더하는 추가 XP입니다.','p'):'';if(eventKey==='assistance'){const recovery=core('recovery',button.dataset.verifiedEdition),a=recovery?.rule_data?.assistance;if(a){extra+=l(recovery.description_en,recovery.description,'p');extra+=l(`Up to ${a.maximum_assistants} assisting ${a.required_type}, within ${a.distance_inches} inch; exclude ${(a.excluded_statuses||[]).join(', ')} and ${(a.excluded_subtypes||[]).join(', ')}. Add ${a.extra_injury_dice} Injury die.`,`지원자는 ${a.distance_inches}인치 안의 파이터 최대 ${a.maximum_assistants}명입니다. 교전 중·중상 상태와 비스트는 제외하고 부상 주사위 ${a.extra_injury_dice}개를 더합니다.`,'p');}}window.MMRuleReference.openContext(eventData.label,l(eventData.condition_en,eventData.condition_ko,'p')+'<p><strong>+'+eventData.xp+' XP</strong></p>'+extra,{nameKo:eventData.label_ko,activator:button});}else window.MMRuleReference?.open('coreRules',row.id,{edition:button.dataset.verifiedEdition,activator:button});},true);
-  window.MMVerifiedRules={core,rule,modelType,gangType,available,xpDisplay,xp,advance,injury,participation,addSkill:addSkillRecord};
+  window.MMVerifiedRules={core,rule,modelType,gangType,isDelegation,managedDelegation,noXp,available,xpDisplay,xp,advance,injury,participation,addSkill:addSkillRecord};
   addXp=xp;addAdvancement=advance;addInjury=injury;
 })();

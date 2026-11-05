@@ -45,4 +45,8 @@ for(const model of [pious,redemption]){
 }
 const other={...gang,faction:'House Escher',gangTypeId:undefined,fighters:[]};
 assert.equal(portraits.describe({id:'other',type:'Ganger',subtypes:['Fanatic','Ganger']},other).bank,'house-escher','Fanatic tags do not recolor other Houses');
+for(const role of ['magistrate','executioner','bailiff']){
+ const model=rules.fighterTypes.find(row=>row.id==='official-001-fighter-justicar-court-delegation-'+role),fighter={id:'allied-'+role,fighterTypeId:model.id,subtypes:[...model.fighter_subtypes,'Delegation']};
+ const before=JSON.stringify(fighter);assert.equal(portraits.describe(fighter,gang).bank,'palanite-enforcers','Justicar delegates retain their Enforcer portraits in an allied Cawdor gang');assert.equal(portraits.describe(fighter,gang).role,role==='bailiff'?'ganger':'champion');assert.equal(JSON.stringify(fighter),before);
+}
 console.log('PASS Cawdor Pious/Redemption portraits: all verified profiles, current allegiance/promotion, legacy records, original/snapshot isolation, eight variants, unchanged unit records and nonhuman exceptions.');

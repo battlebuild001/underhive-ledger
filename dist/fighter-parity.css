@@ -25,3 +25,6 @@ html.uk-ui[data-ui-language=en] .fp-selected-skill-preview .mmrr-description{fon
 @media print{.fp-stat-scroll{overflow:visible}.fp-stat-scroll>.fp-stat-table{min-width:0!important}}
 
 .fp-stat-hint{display:none}@media(max-width:600px){html.uk-ui .fp-stat-hint{display:block;font-size:11px;font-weight:400;color:var(--muted,#aaa);margin:-16px 0 20px;line-height:1.5;text-align:right}}
+
+/* Fixed delegation controls remain hidden when later themes set button display. */
+.fighter-page [data-delegation-locked-control][hidden]{display:none!important}

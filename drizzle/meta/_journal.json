@@ -57,6 +57,13 @@
       "when": 1793519413725,
       "tag": "0007_campaign_invite_links",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1793879726215,
+      "tag": "0008_gang_alliances",
+      "breakpoints": true
     }
   ]
 }

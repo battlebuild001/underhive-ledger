@@ -44,6 +44,7 @@ function modelFor(f,g){
  return id&&all.find(r=>r.id===id&&matches(r))||all.find(r=>matches(r)&&[r.name,r.name_ko,r.fighter_type].some(n=>n&&norm(n)===norm(f?.type||f?.fighter_type)))||null;
 }
 function factionFor(f,g,model){
+ if([f?.fighterTypeId,f?.catalogTypeId,f?.presetId,f?.typeId,model?.id].some(id=>/^official-001-fighter-justicar-court-delegation-(magistrate|executioner|bailiff)$/.test(id||'')))return 'palanite-enforcers';
  const gangTypes=window.RULES_DATA?.gangTypes||[],id=g?.gangTypeId||g?.gang_type_id||model?.gang_type_id||f?.gangTypeId||f?.gang_type_id;
  let type=gangTypes.find(row=>row.id===id),seen=new Set();
  while(type?.parent_gang_type_id&&!seen.has(type.id)){seen.add(type.id);type=gangTypes.find(row=>row.id===type.parent_gang_type_id)||type;}
