@@ -279,3 +279,20 @@ html.uk-ui .campaign-lobby .cl-prep-wizard .cl-setup-form>.cl-actions{display:no
 html.uk-ui .campaign-lobby .cl-prep-setup-editor{margin-top:14px;border-top:1px solid var(--line);padding-top:4px}
 html.uk-ui .campaign-lobby .cl-prep-setup-editor>summary{min-height:44px;color:var(--text);font-size:14px}
 html.uk-ui .campaign-lobby .cl-prep-setup-editor>.cl-setup-form{padding-top:12px}
+/* Authoritative crew generation, kept alongside the compact two-column picker. */
+html.uk-ui .campaign-lobby .cl-crew-plan{display:grid;gap:12px;padding:14px;border:1px solid var(--line);border-radius:7px;background:var(--panel2);margin:0 0 16px;min-width:0}
+html.uk-ui .campaign-lobby .cl-crew-plan>strong{font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-crew-plan-counts{display:flex;flex-wrap:wrap;gap:8px 18px}
+html.uk-ui .campaign-lobby .cl-crew-plan-counts>span{display:flex;gap:7px;color:var(--muted);font-size:14px}
+html.uk-ui .campaign-lobby .cl-crew-plan-counts strong{color:var(--text)}
+html.uk-ui .campaign-lobby .cl-crew-plan .cl-actions{margin:0;display:flex;flex-wrap:wrap;gap:10px}
+html.uk-ui .campaign-lobby .cl-crew-plan .cl-button{min-height:44px;white-space:normal;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-drawn-crew{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:16px;margin:16px 0;border:1px solid var(--line);border-inline-start:3px solid var(--cl-success);border-radius:7px;background:var(--panel);min-width:0}
+html.uk-ui .campaign-lobby .cl-drawn-crew h4,html.uk-ui .campaign-lobby .cl-drawn-crew>p{grid-column:1/-1;margin:0}
+html.uk-ui .campaign-lobby .cl-drawn-crew section{min-width:0}
+html.uk-ui .campaign-lobby .cl-drawn-crew strong{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+html.uk-ui .campaign-lobby .cl-drawn-crew ul{display:grid;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+html.uk-ui .campaign-lobby .cl-drawn-crew li{display:grid;gap:2px;overflow-wrap:anywhere;font-size:14px;line-height:1.5}
+html.uk-ui .campaign-lobby .cl-drawn-crew li small{color:var(--muted)}
+html.uk-ui .campaign-lobby .cl-drawn-crew[hidden]{display:none!important}
+@media(max-width:600px){html.uk-ui .campaign-lobby .cl-drawn-crew{grid-template-columns:minmax(0,1fr);gap:16px}html.uk-ui .campaign-lobby .cl-crew-plan .cl-actions .cl-button{flex:1 1 170px}}
