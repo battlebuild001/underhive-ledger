@@ -1,4 +1,5 @@
 import {cycleNumber,supportedCycleCampaign,battlePhaseRecord,requireNoPendingCycle,verifiedCycleClosed,changedPostCycles,closureMap,withoutNewClosure,activeCycleRoomSQL,pendingCycleRecords} from './campaign-cycle-gate.js';
+import {requireAllianceGangTransition,requireAllianceCampaignTransition} from './gang-alliances.js';
 /* Atomic operational changes. Source ownership comes from server enrollment records. */
 const CAMPAIGN_FIELDS=new Set(['name','description','campaignType','campaignTypeId','tradingPosts','allegiances','allowJoinRequests','currentCycle','campaignSchedule','phase','territories','sessions','battles','resources','triumphs','activity','members','automation','automationEconomy']);
 const GANG_FIELDS=new Set(['credits','reputation','tradePoints','meat','exploration','stash','tactics','fighters','vehicles','logs','campaignTacticsAwards','campaignDowntimeAllowances','postCycleActions','campaignCaptives','campaignVisits','tradingPostVisit','tradingPostTransactions']);
@@ -402,8 +403,10 @@ export async function handleCampaignAutomation(request,db,actor,deps){
   if(index>=0)snapshot.gangs[index]=next;else snapshot.gangs.push(next);
  }
  if(shared&&reversedMemberAdds.size)snapshot.gangs=snapshot.gangs.filter(g=>!reversedMemberAdds.has(g.id)||(canonicalCampaign.members||[]).some(m=>m.gangId===g.id));
+ const allianceRosters=shared?[...snapshot.gangs,...[...sourceMappings.values()].flatMap(mapping=>[mapping.originalGang,mapping.gang].map(g=>({...g,id:mapping.gangId,sourceGangId:mapping.sourceGangId,enrollmentRequestId:mapping.enrolled?.id})))]:[...actorDoc.state.gangs,...[...sourceMappings.values()].flatMap(mapping=>[mapping.originalGang,mapping.gang])];
+ requireAllianceCampaignTransition(initialCampaign,canonicalCampaign,allianceRosters,check);
  for(const mapping of sourceMappings.values()){
-  const g=mapping.gang;for(const key of ['credits','reputation','tradePoints'])if(g[key]!==undefined)check(Number.isSafeInteger(g[key])&&g[key]>=0,'크레딧·명성·거래 포인트는 0 이상의 정수여야 합니다.');
+  const g=mapping.gang;requireAllianceGangTransition(mapping.originalGang,g,check);for(const key of ['credits','reputation','tradePoints'])if(g[key]!==undefined)check(Number.isSafeInteger(g[key])&&g[key]>=0,'크레딧·명성·거래 포인트는 0 이상의 정수여야 합니다.');
   check(Array.isArray(g.fighters||[])&&Array.isArray(g.vehicles||[]),'파이터 목록 형식이 올바르지 않습니다.');const models=[...(g.fighters||[]),...(g.vehicles||[])];check(new Set(models.map(f=>f.id)).size===models.length,'파이터 식별자가 중복됩니다.');
   for(const f of models){check(typeof f.id==='string'&&f.id.length>0&&f.id.length<=160&&typeof f.name==='string'&&f.name.length<=500,'파이터 식별 정보가 올바르지 않습니다.');if(f.xp!==undefined)check(Number.isSafeInteger(f.xp)&&f.xp>=0,'XP 합계가 올바르지 않습니다.');for(const key of ['equipment','skills','skillDetails','effects','injuries','advancements','loadouts','xpHistory','ooaRecords','specialRules','subtypes'])if(f[key]!==undefined)check(Array.isArray(f[key]),'파이터 목록 필드 형식이 올바르지 않습니다: '+key);}
   for(const r of g.campaignCaptives||[])if(r.campaignId===campaignId){
